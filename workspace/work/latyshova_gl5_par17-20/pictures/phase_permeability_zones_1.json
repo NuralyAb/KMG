@@ -2,7 +2,7 @@
  "node_id": "latyshova.phase_permeability_zones",
  "template": "plot",
  "data": {
-  "x_label": "водонасыщенность kв (от kв.св до 1)",
+  "x_label": "водонасыщенность kв",
   "y_label": "относительная проницаемость",
   "numeric": false,
   "log_x": false,
@@ -15,23 +15,43 @@
     "color": "",
     "points": [
      [
-      0.05,
-      1
+      0.18,
+      0.82
+     ],
+     [
+      0.25,
+      0.79
      ],
      [
       0.3,
-      0.8
+      0.74
      ],
      [
-      0.5,
-      0.5
+      0.38,
+      0.66
      ],
      [
-      0.8,
-      0.05
+      0.48,
+      0.53
      ],
      [
-      0.95,
+      0.6,
+      0.28
+     ],
+     [
+      0.68,
+      0.18
+     ],
+     [
+      0.75,
+      0.11
+     ],
+     [
+      0.83,
+      0.04
+     ],
+     [
+      0.9,
       0
      ]
     ]
@@ -41,60 +61,66 @@
     "color": "",
     "points": [
      [
-      0.05,
+      0.48,
       0
      ],
      [
-      0.3,
-      0.05
+      0.6,
+      0.03
      ],
      [
-      0.5,
-      0.5
+      0.68,
+      0.07
      ],
      [
-      0.8,
-      0.8
+      0.75,
+      0.11
      ],
      [
-      0.95,
-      1
+      0.83,
+      0.18
+     ],
+     [
+      0.9,
+      0.24
+     ],
+     [
+      0.94,
+      0.34
+     ],
+     [
+      0.96,
+      0.45
+     ],
+     [
+      0.98,
+      0.9
      ]
     ]
    }
   ],
   "marks": [
    {
-    "x": 0.3,
-    "y": 0.8,
+    "x": 0.48,
+    "y": 0,
     "text": "kв*"
    },
    {
-    "x": 0.8,
-    "y": 0.8,
+    "x": 0.9,
+    "y": 0.24,
     "text": "kв**"
-   },
-   {
-    "x": 0.5,
-    "y": 0.5,
-    "text": "kпр.н = kпр.в"
    }
   ]
  },
- "caption": "Кривые kпр.н и kпр.в от kв: слева течёт нефть, между kв* и kв** нефть с водой, правее kв** вода. Пересечение кривых — отношение 1.",
- "alt": "Две качественные кривые: проницаемость по нефти падает, по воде растёт с ростом водонасыщенности. Отмечены пороги kв*, kв** и точка пересечения кривых.",
- " claim_ids": [
-  "latyshova.phase_permeability_zones#c5",
-  "latyshova.phase_permeability_zones#c7",
-  "latyshova.phase_permeability_zones#c8",
-  "latyshova.phase_permeability_zones#c9",
-  "latyshova.phase_permeability_zones#c23"
- ],
+ "caption": "До kв* течёт нефть, между kв* и kв** нефть с водой, правее kв** вода. В точке kв.кр кривые пересекаются: отношение kпр.н/kпр.в = 1.",
+ "alt": "Две качественные кривые: проницаемость по нефти падает с ростом водонасыщенности, по воде растёт от kв*. Отмечены kв* и kв**, кривые пересекаются в нижней части графика, это kв.кр.",
  "claim_ids": [
   "latyshova.phase_permeability_zones#c5",
   "latyshova.phase_permeability_zones#c7",
   "latyshova.phase_permeability_zones#c8",
   "latyshova.phase_permeability_zones#c9",
+  "latyshova.phase_permeability_zones#c11",
+  "latyshova.phase_permeability_zones#c22",
   "latyshova.phase_permeability_zones#c23"
  ]
 }
