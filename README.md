@@ -47,7 +47,7 @@ uv run glava build latyshova_gl5_par17-20
 
 ### Отдельные этапы
 
-`build` выполняет этапы по порядку: `errata` → `layer` → `routing` → `tasks` → `illustrations` → `course`. Любой можно запустить отдельно: `uv run glava tasks <глава>`.
+`build` выполняет этапы по порядку: `errata` → `figures` (рисунки со скана) → `layer` → `routing` → `tasks` → `illustrations` → `course`. Любой можно запустить отдельно: `uv run glava tasks <глава>`.
 
 | Команда | Что делает | Результат |
 | --- | --- | --- |

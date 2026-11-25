@@ -14,6 +14,12 @@ def open_provider(env: Mapping[str, str] | None = None) -> Provider:
     return cached(metered(provider_from_env(os.environ if env is None else env), BUDGET_USD), MODEL_CACHE)
 
 
+def figures_env(env: Mapping[str, str]) -> dict[str, str]:
+    """Модель для чтения рисунков: LLM_FIGURES_MODEL, по умолчанию та же. Мелкие подписи на скане сильная модель читает лучше."""
+    model = env.get("LLM_FIGURES_MODEL")
+    return {**env, "LLM_MODEL": model} if model else dict(env)
+
+
 def verifier_env(env: Mapping[str, str]) -> dict[str, str]:
     """Проверяющая модель задаётся отдельно: LLM_VERIFY_MODEL, по умолчанию та же. Своя ошибка самому себе видна хуже."""
     model = env.get("LLM_VERIFY_MODEL")

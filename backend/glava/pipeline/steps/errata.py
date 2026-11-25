@@ -19,7 +19,8 @@ def build_errata(chapter: Chapter, provider: Provider) -> None:
     if chapter.pdf is None or not chapter.pdf.exists():
         log.info("PDF главы не указан, лист опечаток пропущен")
         return
-    pages, prompt = pages_of(chapter.units), prompt_file("errata", chapter.is_english)
+    # сверяется текст распознавателя: прочтение рисунков этапа figures уже сверено со сканом
+    pages, prompt = pages_of(chapter.source_units), prompt_file("errata", chapter.is_english)
     images = {n: render_page(chapter.pdf, n, chapter.work / "scans") for n in pages}
     with ThreadPoolExecutor(PARALLEL) as pool:
         results = list(pool.map(lambda n: make_errata(provider, prompt, n, pages[n], images[n]), pages))
