@@ -124,8 +124,8 @@ describe('author', () => {
     await userEvent.type(await screen.findByLabelText(/Пароль/, { selector: 'input' }), 'верный пароль');
     await userEvent.click(screen.getByRole('button', { name: 'Войти' }));
     expect(await screen.findByRole('heading', { name: 'База знаний' })).toBeVisible();
-    // в шапке и в меню телефона; лишнюю из двух прячет CSS, которого в тесте нет
-    expect(screen.getAllByRole('button', { name: 'Выйти' })).toHaveLength(2);
+    await userEvent.click(screen.getByRole('button', { name: /Администратор/ }));
+    expect(await screen.findByRole('menuitem', { name: 'Выйти' })).toBeVisible();
   });
 
   test('publishes only after every remark is marked', async () => {

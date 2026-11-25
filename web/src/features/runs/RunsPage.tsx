@@ -74,10 +74,10 @@ export default function RunsPage() {
   const query = useRuns();
   return (
     <>
-      <PageHeader title="Запуски" docTitle="Запуски" subtitle="Одновременно идут не больше двух сборок, остальные ждут в очереди." />
+      <PageHeader title="Прогоны" docTitle="Прогоны" subtitle="Одновременно идут не больше двух сборок, остальные ждут в очереди." />
       <QueryView query={query}>
         {(runs) => runs.length === 0
-          ? <EmptyState icon={<IconListDetails size={32} aria-hidden />} title="Запусков ещё не было" text="Сборка запускается со страницы главы." action={<Link to="/">К списку глав</Link>} />
+          ? <EmptyState icon={<IconListDetails size={32} aria-hidden />} title="Запусков ещё не было" text="Сборка запускается со страницы главы." action={<Link to="/admin/chapters">К списку глав</Link>} />
           : <RunList runs={runs} />}
       </QueryView>
     </>

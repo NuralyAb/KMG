@@ -49,9 +49,9 @@ afterAll(() => server.close());
 
 describe('chapters', () => {
   test('shows chapters, splits built and not built', async () => {
-    renderApp(<App />, '/admin');
+    renderApp(<App />, '/admin/chapters');
     const entry = await screen.findByRole('article', { name: /Песок в банке/ });
-    expect(within(entry).getByRole('link', { name: /Предпросмотр/ })).toHaveAttribute('href', '/course/demo_sand/index.html');
+    expect(within(entry).getByRole('link', { name: /Предпросмотр/ })).toHaveAttribute('href', '/admin/chapters/demo_sand/preview');
     expect(within(entry).getByText('устарело')).toBeVisible();
     expect(screen.getByRole('heading', { name: 'Ещё не собраны' })).toBeVisible();
     expect(screen.getByRole('button', { name: 'Собрать: Давление в закрытой банке' })).toBeEnabled();
@@ -59,13 +59,13 @@ describe('chapters', () => {
 
   test('empty registry', async () => {
     server.use(http.get('/api/chapters', () => envelope([])));
-    renderApp(<App />, '/admin');
+    renderApp(<App />, '/admin/chapters');
     expect(await screen.findByText('Глав пока нет')).toBeVisible();
   });
 
   test('server error shows its message and can be retried', async () => {
     server.use(http.get('/api/chapters', () => failure(500, 'broken', 'Файл chapters.json не читается'), { once: true }));
-    renderApp(<App />, '/admin');
+    renderApp(<App />, '/admin/chapters');
     expect(await screen.findByText('Файл chapters.json не читается')).toBeVisible();
     await userEvent.click(screen.getByRole('button', { name: 'Повторить' }));
     expect(await screen.findByRole('article', { name: /Песок в банке/ })).toBeVisible();
@@ -73,7 +73,7 @@ describe('chapters', () => {
 
   test('a paid build asks first and shows a conflict', async () => {
     server.use(http.post('/api/runs', () => failure(409, 'busy', 'По этой главе уже идёт сборка')));
-    renderApp(<App />, '/admin');
+    renderApp(<App />, '/admin/chapters');
     await userEvent.click(await screen.findByRole('button', { name: 'Собрать: Камни разного размера' }));
     const dialog = await screen.findByRole('dialog');
     expect(within(dialog).getByText(/Модель работает платно/)).toBeVisible();

@@ -69,6 +69,6 @@ backend/glava/modules/<имя>/
 
 ## Остальное
 
-`web` — React по функциям (`features/<имя>`), функция не импортирует другую функцию, общее лежит в `ui`, `lib`, `api`. `simulators` — отдельный JavaScript-проект; с Python связан файлами в `workspace/work` и собранным проигрывателем в `modules/course/assets/sim`.
+`web` — React по функциям (`features/<имя>`), общее лежит в `ui`, `lib`, `api`; из чужой функции берут только готовый компонент (например, `runs/BuildDialog`). Админка оформлена в `app/admin.css` под `data-area="admin"` и экран ученика не меняет. `simulators` — отдельный JavaScript-проект; с Python связан файлами в `workspace/work` и собранным проигрывателем в `modules/course/assets/sim`.
 
 Где какие данные: `workspace/work` — слои и этапы, `workspace/out` — курсы, `workspace/domain` — доменные пакеты. Другая папка данных задаётся переменной `GLAVA_ROOT`.

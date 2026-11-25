@@ -75,7 +75,7 @@ export default function ModelPage() {
   const query = useModel();
   return (
     <>
-      <PageHeader title="Модель" docTitle="Модель" subtitle="Через неё идут сборка курса, проверка пакетов и чтение сканов. Смена модели начинает новый кэш: глава оплачивается заново." />
+      <PageHeader title="Настройки" docTitle="Настройки" subtitle="Через неё идут сборка курса, проверка пакетов и чтение сканов. Смена модели начинает новый кэш: глава оплачивается заново." />
       <QueryView query={query} rows={4}>{(settings) => <ModelForm settings={settings} />}</QueryView>
     </>
   );

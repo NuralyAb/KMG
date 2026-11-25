@@ -78,7 +78,7 @@ export default function MetricsPage() {
   const query = useMetrics();
   return (
     <>
-      <PageHeader title="Расход" docTitle="Расход" subtitle="Деньги по прайсу модели и токены из metrics.csv. Ответы из кэша не стоят ничего." />
+      <PageHeader title="Отчёты" docTitle="Отчёты" subtitle="Деньги по прайсу модели и токены из metrics.csv. Ответы из кэша не стоят ничего." />
       <QueryView query={query}>
         {({ data, meta }) => data.length === 0
           ? <EmptyState icon={<IconChartBar size={32} aria-hidden />} title="Расхода ещё нет" text="Строки появятся после первой сборки." action={<Link to="/">К списку глав</Link>} />

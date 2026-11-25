@@ -1,5 +1,5 @@
 import { Button, Tabs } from '@mantine/core';
-import { IconExternalLink, IconPlayerPlay } from '@tabler/icons-react';
+import { IconPlayerPlay } from '@tabler/icons-react';
 import { useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { courseHref } from '@/api/client';
@@ -55,12 +55,12 @@ function ChapterView({ chapter }: { chapter: ChapterDetail }) {
   return (
     <>
       <PageHeader
-        title={chapter.title} docTitle={chapter.title} above={<Link to="/">Главы</Link>}
+        title={chapter.title} docTitle={chapter.title} above={<Link to="/admin/chapters">Главы</Link>}
         subtitle={`${chapter.book}. Стр. ${formatPages(chapter.pages)}. Предмет: ${chapter.domain}`}
         actions={
           <>
             {course && (
-              <Button component="a" href={course} target="_blank" rel="noopener noreferrer" rightSection={<IconExternalLink size={16} aria-hidden />}>
+              <Button component={Link} to={`/admin/chapters/${encodeURIComponent(chapter.id)}/preview`}>
                 Предпросмотр
               </Button>
             )}

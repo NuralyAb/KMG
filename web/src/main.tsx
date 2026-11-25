@@ -1,4 +1,5 @@
 import '@fontsource-variable/ibm-plex-sans';
+import '@fontsource-variable/onest';
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 import './app/tokens.css';
