@@ -42,6 +42,7 @@ type MetricRow = { chapter: string; stage: string; nodes: number; llm_tokens_in:
 | GET `/api/chapters/{id}/nodes/{node_id}` | `NodeDetail` |
 | GET `/api/chapters/{id}/coverage?uncovered=0\|1` | строки `coverage.json`; `meta: {total, covered, skipped}` |
 | GET `/api/chapters/{id}/errata` | записи листа опечаток `{page, md, scan, kind, note}`; `meta: {recognition, suspect}` |
+| GET `/api/chapters/{id}/trust` | `{audit, audit_stale, verify, verify_stale}`: `audit.json` и `trust.json` главы; stale — отчёт старше слоя |
 | GET `/api/chapters/{id}/routing` | `routes` |
 | GET `/api/chapters/{id}/tasks?type=&node=` | задания; `meta: {total, by_type}` |
 | GET `/api/chapters/{id}/illustrations` | записи `illustrations.json`, поле `url` = `/course/<id>/<file>` |
@@ -49,13 +50,24 @@ type MetricRow = { chapter: string; stage: string; nodes: number; llm_tokens_in:
 | GET `/api/search?q=&chapter=&page=&limit=` | утверждения `{chapter, node_id, node_title, claim_id, text, quote, page_pdf}`; поиск без учёта регистра и «ё», `q` от 2 знаков; `meta: {total, page, limit}` |
 | GET `/api/metrics` | `MetricRow[]`; `meta: {cost_usd, tokens_in, tokens_out}` |
 | GET `/api/runs` | `Run[]`, новые сверху |
-| POST `/api/runs` `{command, chapter, limit?, node?, format?, template?}` | `Run`, код 201; 409, если по главе уже идёт сборка |
+| POST `/api/runs` `{command, chapter, limit?, node?, format?, template?, mutants?}` | `Run`, код 201; 409, если по главе уже идёт сборка |
 | GET `/api/runs/{id}` | `Run` |
 | GET `/api/runs/{id}/events` | SSE: события `log` `{line}`, `state` `{state, exit_code}`; при подключении отдаёт уже накопленный журнал |
 | POST `/api/runs/{id}/cancel` | `Run` |
 | GET `/api/reviews` | `Review[]` |
 | GET `/api/reviews/{package_id}` | `Review` |
 | POST `/api/reviews` multipart: `chapter`, `file` (zip с `package.json` и `frames/`) | `Run` команды review, код 201. Zip распаковывается безопасно: без выхода из папки, только `package.json` и картинки, файл с «key» в имени отбрасывается |
+| GET `/api/library` | `Source[]`, новые сверху |
+| POST `/api/library` multipart: `file`, `vision` | `Source`, код 201; сразу запускает `extract`. До 400 МБ; pdf, docx, md, txt, png, jpg; тип сверяется с содержимым; повтор файла — 409 |
+| GET `/api/library/{id}` | `Source` и `page_list: {page, state, method, chars, reasons}`; state: text, doubtful, scan, empty |
+| GET `/api/library/{id}/pages/{n}` | `{page, text}` |
+| GET `/api/library/{id}/pages/{n}/image` | картинка страницы |
+| GET `/api/library/{id}/original` | исходный файл; md, txt и docx только скачиваются |
+| POST `/api/library/{id}/extract` `{vision}` | `Run`; 409, если из книги сделаны главы |
+| POST `/api/library/{id}/chapters` `{title, book?, pages, domain}` | `{id}`; страницы без текста — 422 |
+| DELETE `/api/library/{id}`, DELETE `/api/library/chapters/{id}` | `{id}` |
+| GET `/api/domains` | имена предметных областей |
+| GET, POST `/api/settings/model` | `{provider, model, base_url, price_in, price_out, budget_usd, context, origin, keys}`; ключи не принимаются и не отдаются, `keys` — только есть ли они в среде сервера |
 | GET `/course/{id}/…` | статические файлы `out/<id>/` (курс, рисунки, ролики) |
 
 Запуск сборки — отдельный процесс `uv run glava <команда> <глава>` из корня репозитория с `PYTHONUTF8=1`, вывод идёт в журнал запуска `work/runs/<id>.log`. Одновременно не больше двух процессов, остальные в очереди. После перезапуска сервера незавершённые запуски помечаются `failed`.

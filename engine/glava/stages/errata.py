@@ -11,6 +11,7 @@ from glava.verify import quote_on_page, squeeze
 KINDS = ("recognition", "suspect")
 FIELDS = ("md", "scan", "kind")
 DPI = 150
+MAX_SIDE_PX = 4000
 OVERLAP = 10
 Entry = Mapping[str, Any]
 
@@ -22,7 +23,10 @@ def render_page(pdf: Path, page: int, folder: Path) -> Path:
     if not target.exists():
         folder.mkdir(parents=True, exist_ok=True)
         with pymupdf.open(pdf) as document:
-            document[page - 1].get_pixmap(dpi=DPI).save(target)
+            sheet = document[page - 1]
+            # лист метровой ширины не должен занять всю память
+            scale = min(DPI / 72, MAX_SIDE_PX / max(sheet.rect.width, sheet.rect.height, 1))
+            sheet.get_pixmap(matrix=pymupdf.Matrix(scale, scale)).save(target)
     return target
 
 

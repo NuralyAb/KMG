@@ -101,7 +101,7 @@ def test_newline_slug_is_refused():
 def test_invalid_tasks_are_dropped_one_by_one():
     nodes = [{"id": "lat.a", "title": "т", "claims": [{"id": "lat.a#c1", "text": "т"}], "layers": {}}]
     good = {"id": "t1", "type": "single", "step_id": "lat.a", "claim_ids": ["lat.a#c1"], "prompt": "Что?", "answer": "a",
-            "options": [{"id": "a", "text": "1"}, {"id": "b", "text": "2"}], "explanation": "Так.", "kind": "recall"}
+            "options": [{"id": "a", "text": "да"}, {"id": "b", "text": "нет"}], "explanation": "Так.", "kind": "recall"}
     answer = json.dumps({"tasks": [good, {"type": "calc"}, {**good, "id": "t2", "answer": "z"}]})
     found, _ = make_tasks(Says(answer), "s", nodes)
     assert [t["id"] for t in found] == ["t1"]

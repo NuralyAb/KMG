@@ -67,6 +67,10 @@ export function post<T>(path: string, body?: unknown): Promise<Reply<T>> {
   });
 }
 
+export function remove<T>(path: string): Promise<Reply<T>> {
+  return request<T>(path, { method: 'DELETE' });
+}
+
 /** Отправка формы с ходом загрузки: fetch не умеет сообщать об отправленных байтах. */
 export function uploadForm<T>(path: string, form: FormData, onProgress: (share: number) => void): Promise<T> {
   return new Promise((resolve, reject) => {

@@ -16,12 +16,13 @@ import { ErrataTab } from './ErrataTab';
 import { PathTab } from './PathTab';
 import { PicturesTab } from './PicturesTab';
 import { TasksTab } from './TasksTab';
+import { TrustTab } from './TrustTab';
 import { VideosTab } from './VideosTab';
 import './chapter.css';
 
 const TABS = [
   ['path', 'Путь'], ['coverage', 'Покрытие'], ['errata', 'Опечатки'], ['tasks', 'Задания'], ['pictures', 'Рисунки'],
-  ['videos', 'Ролики'], ['build', 'Сборка'],
+  ['videos', 'Ролики'], ['trust', 'Доверие'], ['build', 'Сборка'],
 ] as const;
 type TabKey = (typeof TABS)[number][0];
 
@@ -79,6 +80,7 @@ function ChapterView({ chapter }: { chapter: ChapterDetail }) {
         <Tabs.Panel value="tasks"><TasksTab chapter={chapter} /></Tabs.Panel>
         <Tabs.Panel value="pictures"><PicturesTab id={chapter.id} /></Tabs.Panel>
         <Tabs.Panel value="videos"><VideosTab chapter={chapter} /></Tabs.Panel>
+        <Tabs.Panel value="trust"><TrustTab chapter={chapter} /></Tabs.Panel>
         <Tabs.Panel value="build"><BuildTab chapter={chapter} /></Tabs.Panel>
       </Tabs>
       {isBuilding && (

@@ -9,6 +9,9 @@ const ChapterPage = lazy(() => import('@/features/chapter/ChapterPage'));
 const NodePage = lazy(() => import('@/features/node/NodePage'));
 const ReviewPage = lazy(() => import('@/features/review/ReviewPage'));
 const ReviewDetailPage = lazy(() => import('@/features/review/ReviewDetailPage'));
+const LibraryPage = lazy(() => import('@/features/library/LibraryPage'));
+const SourcePage = lazy(() => import('@/features/library/SourcePage'));
+const ModelPage = lazy(() => import('@/features/model/ModelPage'));
 const RunsPage = lazy(() => import('@/features/runs/RunsPage'));
 const MetricsPage = lazy(() => import('@/features/metrics/MetricsPage'));
 const SearchPage = lazy(() => import('@/features/search/SearchPage'));
@@ -24,6 +27,9 @@ export function App() {
         <Route index element={<ChaptersPage />} />
         <Route path="chapters/:id" element={<ChapterPage />} />
         <Route path="chapters/:id/nodes/:nodeId" element={<NodePage />} />
+        <Route path="library" element={<LibraryPage />} />
+        <Route path="library/:id" element={<SourcePage />} />
+        <Route path="model" element={<ModelPage />} />
         <Route path="review" element={<ReviewPage />} />
         <Route path="review/:packageId" element={<ReviewDetailPage />} />
         <Route path="runs" element={<RunsPage />} />

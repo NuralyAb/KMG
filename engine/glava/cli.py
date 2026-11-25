@@ -3,17 +3,25 @@
 import argparse
 import ast
 import csv
+import hashlib
 import json
 import logging
 import os
-from collections.abc import Sequence
+import random
+from collections import Counter
+from collections.abc import Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 from glava.course.build import build_course
-from glava.llm import Provider, Reply, cached, metered
+from glava.library import CHAPTER_PREFIX, SAFE_ID, LibraryError, library_chapter, load_source, unsure_pages
+from glava.library.extract import extract_pages, to_md
+from glava.library.preview import make_previews
+from glava.library.vision import read_page
+from glava.llm import BudgetExceeded, Provider, Reply, cached, metered
+from glava.llm.errors import ProviderUnavailable
 from glava.llm.providers import provider_from_env
 from glava.review.engine import load_package, review_package, workspace
 from glava.scenes import load_style, load_templates
@@ -23,10 +31,14 @@ from glava.stages.illustrations import make_illustrations, records
 from glava.stages.layer import coverage_rows, drop_unsupported, load_schema, make_node, make_plan, pages_of, plan_issues
 from glava.stages.routing import make_routing
 from glava.stages.tasks import chapter_task_issues, groups, make_tasks, number_tasks
-from glava.units import Unit, parse_units, read_pages
+from glava.trust.audit import audit_layer
+from glava.trust.entail import CLAIM_GROUP, check_claims, source_of, trust_report, verify_node
+from glava.trust.mutate import measure, mutants
+from glava.units import Unit, mark_unsure, parse_units, read_pages
 
 ROOT = Path(__file__).resolve().parents[2]
 PARALLEL = 4
+MODEL_MUTANTS = 20
 BUDGET_USD = float(os.environ.get("GLAVA_BUDGET_USD", "25"))
 METRIC_FIELDS = ("chapter", "stage", "nodes", "llm_tokens_in", "llm_tokens_out", "money_usd", "person_minutes", "mentor_minutes",
                  "video_seconds", "manual_share")
@@ -55,11 +67,59 @@ class Chapter:
 
 def load_chapter(chapter_id: str) -> Chapter:
     registry = json.loads((ROOT / "chapters.json").read_text(encoding="utf-8"))
-    info = registry["chapters"][chapter_id]
+    info = registry["chapters"].get(chapter_id)
+    if info is None:
+        # глава реестра главнее: загруженная книга не может её подменить
+        own = library_chapter(ROOT, chapter_id)
+        if own is None:
+            raise LibraryError(f"главы {chapter_id} нет ни в chapters.json, ни в базе знаний")
+        return load_library_chapter(chapter_id, own)
     md = (ROOT / os.environ.get("GLAVA_BOOKS", registry["root"]) / info["file"]).read_text(encoding="utf-8")
     units = parse_units(read_pages(md, [tuple(r) for r in info["pages"]]))
     return Chapter(chapter_id, info["prefix"], info["title"], info["book"], ROOT / "domain" / info["domain"], tuple(units), info["file"],
                    ROOT / os.environ.get("GLAVA_PDFS", registry["pdf_root"]) / info["pdf"] if info.get("pdf") else None)
+
+
+def load_library_chapter(chapter_id: str, info: Mapping[str, Any]) -> Chapter:
+    """Глава из загруженной книги: текст и PDF лежат рядом в library/<источник>/."""
+    source = load_source(ROOT, info["source"])
+    if not source.text.exists():
+        raise LibraryError("текст книги ещё не извлечён: выполните glava extract")
+    pages = read_pages(source.text.read_text(encoding="utf-8"), [tuple(r) for r in info["pages"]])
+    units = mark_unsure(parse_units(pages), unsure_pages(source))
+    return Chapter(chapter_id, info["prefix"], info["title"], info["book"], ROOT / "domain" / info["domain"], tuple(units), source.original.name, source.pdf)
+
+
+def build_extract(source_id: str, with_model: bool) -> None:
+    """Загруженный файл -> страницы md и отчёт, каким страницам можно верить."""
+    source = load_source(ROOT, source_id)
+    pages = extract_pages(source.original, source.kind, source.folder / "scan.pdf")
+    if source.pdf is not None:
+        make_previews(source.pdf, source.folder / "preview")
+    weak = [p for p in pages if p.state in ("scan", "doubtful")]
+    if with_model and source.pdf is not None and weak:
+        provider, prompt = open_provider(), prompt_file("extract")
+        pdf, folder = source.pdf, source.folder / "scans"
+        with ThreadPoolExecutor(PARALLEL) as pool:
+            read_again = {p.page: (p, rs) for p, rs in pool.map(lambda p: read_page(provider, prompt, p, pdf, folder), weak)}
+        pages = [read_again[p.page][0] if p.page in read_again else p for p in pages]
+        replies = [r for _, rs in read_again.values() for r in rs]
+        append_metrics(source_id, "extract", len(weak), replies)
+        log.info("моделью прочитано страниц: %s, $%.2f", sum(p.method == "vision" for p in pages), sum(r.cost_usd for r in replies))
+    source.text.write_text(to_md(pages), encoding="utf-8", newline="\n")
+    save(source.pages, {"source": source_id, "pages": [p.record() for p in pages]})
+    states = Counter(p.state for p in pages)
+    log.info("страниц %s: надёжных %s, сверить %s, без текста %s, пустых %s", len(pages), states["text"], states["doubtful"], states["scan"], states["empty"])
+
+
+def open_provider(env: Mapping[str, str] | None = None) -> Provider:
+    return cached(metered(provider_from_env(os.environ if env is None else env), BUDGET_USD), ROOT / ".cache")
+
+
+def verifier_env(env: Mapping[str, str]) -> dict[str, str]:
+    """Проверяющая модель задаётся отдельно: LLM_VERIFY_MODEL, по умолчанию та же. Своя ошибка самому себе видна хуже."""
+    model = env.get("LLM_VERIFY_MODEL")
+    return {**env, "LLM_MODEL": model} if model else dict(env)
 
 
 def save(path: Path, data: Any) -> None:
@@ -83,9 +143,13 @@ def context_of(chapter: Chapter) -> str:
 
 
 def write_metrics(chapter: Chapter, stage: str, nodes: int, replies: Sequence[Reply], video_seconds: float = 0) -> None:
+    append_metrics(chapter.chapter_id, stage, nodes, replies, video_seconds)
+
+
+def append_metrics(chapter_id: str, stage: str, nodes: int, replies: Sequence[Reply], video_seconds: float = 0) -> None:
     path = ROOT / "metrics.csv"
     is_new = not path.exists()
-    row = [chapter.chapter_id, stage, nodes, sum(r.input_tokens for r in replies), sum(r.output_tokens for r in replies),
+    row = [chapter_id, stage, nodes, sum(r.input_tokens for r in replies), sum(r.output_tokens for r in replies),
            f"{sum(r.cost_usd for r in replies):.4f}", 0, 0, video_seconds, 0]
     with path.open("a", encoding="utf-8", newline="") as file:
         writer = csv.writer(file, lineterminator="\n")
@@ -227,6 +291,84 @@ def build_illustrations(chapter: Chapter, provider: Provider) -> None:
     log.info("иллюстрации: %s; шаги без рисунка: %s", len(found), without or "нет")
 
 
+def layer_of(chapter_id: str) -> tuple[Path, dict[str, Any]]:
+    """Слой главы по имени: этим командам не нужны ни md, ни PDF."""
+    if not SAFE_ID.fullmatch(chapter_id):
+        raise LibraryError("глава: недопустимое имя")
+    work = ROOT / "work" / chapter_id
+    if not (work / "layer.json").exists():
+        raise LibraryError(f"слой главы {chapter_id} ещё не собран")
+    return work, read(work / "layer.json")
+
+
+def file_digest(path: Path) -> str:
+    """По нему видно, о каком слое отчёт: время файла об этом не говорит."""
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def build_audit(chapter_id: str) -> dict[str, Any]:
+    """Бесплатно: сверка слоя кодом и замер, насколько эта сверка чутка."""
+    work, layer = layer_of(chapter_id)
+    claims = [c for n in layer["nodes"] for c in n["claims"]]
+    report = {**audit_layer(layer), "sensitivity": measure(claims), "layer_sha256": file_digest(work / "layer.json")}
+    save(work / "audit.json", report)
+    sense = report["sensitivity"]
+    log.info("утверждений %s, с расхождениями %s %s; терминов раньше объяснения %s; порчи поймано %s из %s", report["claims"], len(report["flagged"]),
+             report["by_flag"], len(report["early_terms"]), sense["caught"], sense["made"])
+    return report
+
+
+def build_verify(chapter_id: str, provider: Provider, with_mutants: bool) -> dict[str, Any]:
+    """Платно: вторая модель сверяет утверждения с цитатами и фразы с утверждениями."""
+    work, layer = layer_of(chapter_id)
+    digest = file_digest(work / "layer.json")  # пока модель отвечает, слой могут изменить
+    prompts = {"claims": prompt_file("verify_claims"), "prose": prompt_file("verify_prose")}
+    with ThreadPoolExecutor(PARALLEL) as pool:
+        results = list(pool.map(lambda n: verify_node(provider, prompts, n), layer["nodes"]))
+    report = trust_report(chapter_id, f"{provider.name}/{provider.model}", [c for cs, _, _ in results for c in cs], [p for _, ps, _ in results for p in ps], layer["nodes"])
+    report["layer_sha256"] = digest
+    replies = [r for _, _, rs in results for r in rs]
+    if with_mutants:
+        report["sensitivity"], asked = model_sensitivity(provider, prompts["claims"], layer, report)
+        replies += asked
+    save(work / "trust.json", report)
+    append_metrics(chapter_id, "verify", len(layer["nodes"]), replies)
+    log.info("утверждения: %s; фразы: %s; $%.2f", report["claims"], report["prose"], sum(r.cost_usd for r in replies))
+    if report["claims"]["unchecked"] == report["claims"]["total"]:
+        raise LibraryError("проверяющая модель не вынесла ни одного вердикта: ничего не проверено")
+    return report
+
+
+def model_sensitivity(provider: Provider, prompt: str, layer: dict[str, Any], report: dict[str, Any]) -> tuple[dict[str, Any], list[Reply]]:
+    """Испорченные утверждения вперемешку с нетронутыми: видно и чутьё проверяющего, и ложные тревоги.
+
+    Портятся только утверждения, которые он до порчи признал верными.
+    """
+    weak = {r["id"] for r in report["weak"]}
+    claims = [c for n in layer["nodes"] for c in n["claims"] if c["id"] not in weak]
+    shuffle = random.Random(0)
+    made = list(mutants(claims, per_kind=MODEL_MUTANTS))
+    calm = shuffle.sample(sorted(claims, key=lambda c: c["id"]), min(len(made), len(claims)))
+    mixed = [(m.kind, m.text, m.quote) for m in made] + [("control", c["text"], source_of(c)) for c in calm]
+    shuffle.shuffle(mixed)
+    items = [{"id": f"m{i}", "text": text, "quote": quote} for i, (_, text, quote) in enumerate(mixed)]
+    parts = [items[i:i + CLAIM_GROUP] for i in range(0, len(items), CLAIM_GROUP)]
+    with ThreadPoolExecutor(PARALLEL) as pool:
+        results = list(pool.map(lambda p: check_claims(provider, prompt, p), parts))
+    verdicts = {r["id"]: r["verdict"] for rows, _ in results for r in rows}
+    rows: dict[str, dict[str, int]] = {}
+    for i, (kind, _, _) in enumerate(mixed):
+        if verdicts[f"m{i}"] != "unchecked":
+            row = rows.setdefault(kind, {"made": 0, "caught": 0})
+            row["made"] += 1
+            row["caught"] += verdicts[f"m{i}"] != "follows"
+    controls = rows.pop("control", {"made": 0, "caught": 0})
+    total, caught = sum(k["made"] for k in rows.values()), sum(k["caught"] for k in rows.values())
+    found = {"kinds": rows, "made": total, "caught": caught, "recall": round(caught / total, 3) if total else None, "controls": controls,
+             "unchecked": sum(v == "unchecked" for v in verdicts.values())}
+    return found, [r for _, rs in results for r in rs]
+
+
 def read_or(path: Path, default: Any) -> Any:
     return read(path) if path.exists() else default
 
@@ -242,6 +384,8 @@ def build_site(chapter: Chapter) -> Path:
 
 def build_review(chapter: Chapter, source: Path, provider: Provider) -> Path:
     """Проверка чужого пакета; ответ — out/review/<пакет>.json."""
+    if chapter.chapter_id.startswith(CHAPTER_PREFIX):
+        raise LibraryError("проверка пакета по главе базы знаний не поддерживается: ответ с цитатами книги попал бы в git")
     package = load_package(source)
     folder = workspace(source, ROOT / "work" / "review", package["package_id"])
     prompts = {role: prompt_file(f"review_{role}") for role in ("find", "physics", "judge")}
@@ -275,14 +419,32 @@ def build_video(chapter: Chapter, provider: Provider, node_id: str, kind: str, t
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
-    parser.add_argument("command", choices=["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video", "units"])
+    parser.add_argument("command", choices=["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video", "units", "extract", "audit", "verify"])
     parser.add_argument("chapter")
     parser.add_argument("--limit", type=int, default=None, help="собрать только первые N узлов")
     parser.add_argument("--package", type=Path, default=None, help="папка чужого пакета для review")
+    parser.add_argument("--vision", action="store_true", help="ненадёжные страницы в extract прочитать моделью по изображению (платно)")
+    parser.add_argument("--mutants", action="store_true", help="verify: ещё и замерить, сколько внесённой порчи замечает проверяющая модель (платно)")
     parser.add_argument("--node", help="узел для video")
     parser.add_argument("--format", choices=["short", "wide"], default="short", help="формат ролика")
     parser.add_argument("--template", help="шаблон сцены ролика из доменного пакета")
     args = parser.parse_args()
+    try:
+        run(args, parser)
+    except (LibraryError, ProviderUnavailable, BudgetExceeded) as error:
+        raise SystemExit(str(error)) from error
+
+
+def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
+    if args.command == "extract":
+        build_extract(args.chapter, args.vision)
+        return
+    if args.command == "audit":
+        build_audit(args.chapter)
+        return
+    if args.command == "verify":
+        build_verify(args.chapter, open_provider(verifier_env(os.environ)), args.mutants)
+        return
     chapter = load_chapter(args.chapter)
     load_schema("node")
     if args.command == "units":
@@ -292,7 +454,7 @@ def main() -> None:
     if args.command == "course":
         build_site(chapter)
         return
-    provider = cached(metered(provider_from_env(), BUDGET_USD), ROOT / ".cache")
+    provider = open_provider()
     if args.command == "review":
         if args.package is None:
             parser.error("укажите --package")
@@ -307,6 +469,7 @@ def main() -> None:
         build_errata(chapter, provider)
     if args.command in ("build", "layer"):
         build_layer(chapter, provider, args.limit)
+        build_audit(chapter.chapter_id)
     if args.command in ("build", "routing"):
         build_routing(chapter, provider)
     if args.command in ("build", "tasks"):

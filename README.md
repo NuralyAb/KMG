@@ -58,6 +58,9 @@ uv run glava build latyshova_gl5_par17-20
 | `tasks` | задания пяти типов | `work/<глава>/tasks.json` |
 | `illustrations` | рисунки SVG | `work/<глава>/illustrations.json`, `pictures/` |
 | `course` | сборка курса; модель не нужна | `out/<глава>/` |
+| `extract <файл> [--vision]` | страницы загруженной книги; с `--vision` ненадёжные страницы читает модель | `library/<файл>/text.md`, `pages.json` |
+| `audit` | сверка утверждений с цитатами кодом и её чутьё; модель и книга не нужны | `work/<глава>/audit.json` |
+| `verify [--mutants]` | вторая модель сверяет утверждения с цитатами и фразы с утверждениями | `work/<глава>/trust.json` |
 | `review --package <папка>` | проверка чужого пакета | `out/review/<package_id>.json` |
 | `video --node … --template …` | ролик по узлу | `out/<глава>/videos/` |
 
@@ -85,18 +88,28 @@ $env:PYTHONPATH = 'engine'
 
 | Переменная | По умолчанию | Что задаёт |
 | --- | --- | --- |
-| `LLM_PROVIDER` | `claude_code` | `claude_code` или `anthropic` |
-| `LLM_MODEL` | `sonnet` | имя модели; для `anthropic` нужно полное, например `claude-sonnet-5-5` |
+| `LLM_PROVIDER` | `claude_code` | `claude_code`, `anthropic`, `openai` или `local` |
+| `LLM_MODEL` | `sonnet` | имя модели; для `anthropic` нужно полное, например `claude-sonnet-5-5`; для `openai` и `local` обязательно |
 | `CLAUDE_EXE` | — | путь к `claude.exe`; нужен, если команды `claude` нет в PATH |
+| `LLM_VERIFY_MODEL` | как `LLM_MODEL` | модель для `verify`; лучше другая: свою ошибку модель замечает хуже |
+| `GLAVA_CONTEXT` | `chapter` | `node` — не давать узлу всю главу (для моделей с коротким контекстом) |
+| `GLAVA_FREE_NUMBERS` | — | `1` — разрешить в расчётных заданиях числа, которых нет в книге |
 | `GLAVA_BUDGET_USD` | `25` | потолок расхода одного запуска, доллары по прайсу |
 | `ANTHROPIC_API_KEY` | — | ключ для `LLM_PROVIDER=anthropic` |
+| `OPENAI_API_KEY` | — | ключ для `LLM_PROVIDER=openai`; на другие адреса не отправляется |
+| `LLM_BASE_URL` | `http://127.0.0.1:11434/v1` | адрес сервера для `local` (по умолчанию Ollama) |
+| `LLM_API_KEY` | — | ключ для `local`, если сервер его требует |
+| `LLM_CONTEXT` | — | размер контекста локальной модели в токенах, как он настроен на сервере; для `local` обязателен: по нему ловится обрезка запроса |
+| `LLM_PRICE_IN`, `LLM_PRICE_OUT` | — | доллары за миллион токенов; обязательны для `openai` и для `local` на другом компьютере, иначе потолок расхода не сработает |
 
 Внутри сессии Claude Code путь к программе приходит сам (`CLAUDE_CODE_EXECPATH`), в обычном терминале его нет. Файл `.env` код не читает, его передают явно: `uv run --env-file .env glava build <глава>`. Образец — `.env.example`.
 
 ## Заменить модель
 
 - **Другая модель Claude:** `$env:LLM_MODEL = 'claude-sonnet-5-5'`.
-- **Прямой API:** `$env:LLM_PROVIDER = 'anthropic'`, полное имя в `LLM_MODEL`, ключ в `ANTHROPIC_API_KEY`; запуск `uv run --with anthropic glava build <глава>`. Цена считается только для моделей из `PRICES` в `engine/glava/llm/providers.py`; для остальных расход записывается как 0 и потолок не действует.
+- **Прямой API:** `$env:LLM_PROVIDER = 'anthropic'`, полное имя в `LLM_MODEL`, ключ в `ANTHROPIC_API_KEY`; запуск `uv run --with anthropic glava build <глава>`. Цена берётся из `PRICES` в `engine/glava/llm/providers.py`; модель без цены не запускается.
+- **OpenAI:** `$env:LLM_PROVIDER = 'openai'`, имя в `LLM_MODEL`, ключ в `OPENAI_API_KEY`, цены в `LLM_PRICE_IN` и `LLM_PRICE_OUT`. Дополнительных пакетов не нужно.
+- **Локальная модель:** `$env:LLM_PROVIDER = 'local'`, имя в `LLM_MODEL`; подходит любой сервер с API OpenAI (Ollama, LM Studio, vLLM), адрес — в `LLM_BASE_URL`. Этапам `errata` и `review` нужна модель, которая видит картинки. У Ollama увеличьте `OLLAMA_CONTEXT_LENGTH`: при малом контексте она молча отбрасывает часть главы. Сильная обрезка ловится сама, точная проверка — по `LLM_CONTEXT`.
 - **Другой поставщик:** класс с методом `ask(system, prompt, files) -> Reply` и ветка в `provider_from_env` того же файла. Остальной код о поставщике не знает.
 
 Новое имя провайдера или модели — новый кэш: вся глава будет собрана и оплачена заново.
@@ -135,6 +148,10 @@ cd web; npm ci; npm run dev             # второй терминал, зат�
 ```
 
 Тесты: `cd server; uv run pytest` и `cd web; npm run typecheck; npm test; npm run build`.
+
+## База знаний
+
+Раздел «База знаний» в приложении: загрузите PDF, DOCX, MD, TXT или картинку, сверьте извлечённый текст со страницами, выберите страницы и предметную область — глава появится в списке. Файлы лежат в `library/`; они, их слои, курсы и листы опечаток (`lib_*`) в git не попадают. Страницы, которым нельзя верить (скан, слой распознавания, формулы, колонки), помечены, а утверждения с них просят сверки. Предметная область по умолчанию — `domain/general`.
 
 ## Папки
 

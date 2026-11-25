@@ -33,13 +33,19 @@ def _problem(scope: Scope, headers: Headers, settings: Settings) -> ApiError | N
     if headers.get("origin") not in settings.allowed_origins | {f"http://{host}"}:
         return ApiError(400, "bad_origin", "Запрос разрешён только со страниц этого приложения")
     length = headers.get("content-length", "0")
-    if length.isdecimal() and int(length) > settings.max_body_bytes:
-        return _too_large(settings)
+    limit = _limit(scope, settings)
+    if length.isdecimal() and int(length) > limit:
+        return _too_large(limit)
     return None
 
 
-def _too_large(settings: Settings) -> ApiError:
-    return ApiError(413, "too_large", f"Запрос больше {max(1, settings.max_body_bytes // 1024 ** 2)} МБ")
+def _limit(scope: Scope, settings: Settings) -> int:
+    """Книга со сканами больше обычного запроса; послабление только для её загрузки."""
+    return settings.max_book_bytes if scope["method"] == "POST" and scope["path"] == "/api/library" else settings.max_body_bytes
+
+
+def _too_large(limit: int) -> ApiError:
+    return ApiError(413, "too_large", f"Запрос больше {max(1, limit // 1024 ** 2)} МБ")
 
 
 class Guard:
@@ -66,13 +72,13 @@ class Guard:
         await self._limited(scope, receive, protected_send)
 
     async def _limited(self, scope: Scope, receive: Receive, send: Send) -> None:
-        size, exceeded, started = 0, False, False
+        size, exceeded, started, limit = 0, False, False, _limit(scope, self.settings)
 
         async def limited_receive() -> Message:
             nonlocal size, exceeded
             message = await receive()
             size += len(message.get("body", b""))
-            if size > self.settings.max_body_bytes:
+            if size > limit:
                 exceeded = True
                 raise _BodyTooLarge
             return message
@@ -88,4 +94,4 @@ class Guard:
         except _BodyTooLarge:
             pass  # ответ 413 уходит ниже: разбор тела в приложении мог и сам поймать это исключение
         if exceeded and not started:
-            await error_response(_too_large(self.settings))(scope, receive, send)
+            await error_response(_too_large(limit))(scope, receive, send)

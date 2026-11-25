@@ -1,6 +1,6 @@
 import { useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
 import {
-  IconBook2, IconChartBar, IconListDetails, IconMenu2, IconMoon, IconSearch, IconShieldCheck, IconSun, IconX,
+  IconBook2, IconBooks, IconChartBar, IconCpu, IconListDetails, IconMenu2, IconMoon, IconSearch, IconShieldCheck, IconSun, IconX,
 } from '@tabler/icons-react';
 import { Suspense, useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ import './shell.css';
 
 const NAV = [
   [
+    { to: '/library', label: 'База знаний', Icon: IconBooks },
     { to: '/', label: 'Главы', Icon: IconBook2 },
     { to: '/review', label: 'Проверка пакета', Icon: IconShieldCheck },
     { to: '/search', label: 'Поиск', Icon: IconSearch },
@@ -18,6 +19,7 @@ const NAV = [
   [
     { to: '/runs', label: 'Запуски', Icon: IconListDetails },
     { to: '/metrics', label: 'Расход', Icon: IconChartBar },
+    { to: '/model', label: 'Модель', Icon: IconCpu },
   ],
 ];
 
@@ -28,7 +30,7 @@ function Health() {
   const { data, isPending, isError } = useHealth();
   if (isPending) return <span className="app-health" data-state="wait">Проверка связи</span>;
   if (isError || !data) return <span className="app-health" data-state="down" role="status">Сервер недоступен</span>;
-  const missing = [!data.claude_found && 'нет Claude Code', !data.ffmpeg_found && 'нет ffmpeg'].filter(Boolean).join(', ');
+  const missing = [data.provider === 'claude_code' && !data.claude_found && 'нет Claude Code', !data.ffmpeg_found && 'нет ffmpeg'].filter(Boolean).join(', ');
   const text = [data.provider, data.model].filter(Boolean).join(' · ');
   return <span className="app-health" data-state={missing ? 'wait' : 'ok'} title={missing || 'Сервер на связи'}>{missing ? `${text}, ${missing}` : text}</span>;
 }

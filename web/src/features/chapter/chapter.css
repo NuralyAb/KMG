@@ -83,3 +83,14 @@
   .stage-date { grid-column: 2; } .stage-list .mantine-Button-root { grid-column: 3; }
   .node-select { max-width: none; flex-basis: 100%; }
 }
+
+/* доверие */
+.trust-body[data-stale] { margin-top: 12px; padding-left: 14px; border-left: 3px solid var(--app-warn-mark); }
+.trust-head { margin-bottom: 12px; align-items: center; }
+.trust-gap { margin: 12px 0 16px; }
+.trust-facts { display: grid; gap: 12px; margin: 8px 0 16px; }
+.trust-sense { display: grid; gap: 8px; margin: 16px 0 20px; padding: 16px; border-radius: var(--radius); background: var(--app-raised); }
+.trust-sense h3 { font-size: 17px; }
+.trust-sense ul { list-style: none; padding: 0; display: grid; gap: 6px; }
+.trust-sense li { display: grid; grid-template-columns: minmax(0, 240px) minmax(48px, 1fr) 90px; gap: 12px; align-items: center; }
+@media (max-width: 47.99375em) { .trust-sense li { grid-template-columns: minmax(0, 1fr) 90px; } .trust-sense li .meter { grid-column: 1 / -1; grid-row: 2; } }

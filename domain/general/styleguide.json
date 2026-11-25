@@ -1,0 +1,33 @@
+{
+ "_comment": "Нейтральный стайлгайд для любой предметной области.",
+ "background": "#0F1419",
+ "panel": "#1A2129",
+ "text": "#ECEFF4",
+ "muted": "#8A96A3",
+ "measurement": {
+  "color": "#F1C40F",
+  "ru": "измерение / прибор"
+ },
+ "uncertainty": {
+  "color": "#95A5A6",
+  "ru": "неопределённость (штриховка, диапазон)"
+ },
+ "provenance": {
+  "реальные данные": "#27AE60",
+  "симуляция": "#2980B9",
+  "схема": "#8E44AD"
+ },
+ "safe_zone": {
+  "top": 220,
+  "bottom": 380,
+  "side": 70
+ },
+ "fonts": {
+  "ui": "IBM Plex Sans",
+  "min_caption_px_at_1080": 44
+ },
+ "lithology": {},
+ "fluids": {},
+ "curves": {},
+ "conventions": {}
+}

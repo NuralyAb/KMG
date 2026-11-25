@@ -6,7 +6,7 @@ from fastapi import APIRouter, Query
 
 from glava_server import chapters as view
 from glava_server.envelope import Envelope, ok
-from glava_server.schemas import ChapterCard, ChapterDetail, NodeDetail, TaskType, Video
+from glava_server.schemas import ChapterCard, ChapterDetail, NodeDetail, TaskType, Trust, Video
 from glava_server.services import ServicesDep
 
 router = APIRouter(prefix="/api/chapters")
@@ -41,6 +41,11 @@ def get_coverage(chapter_id: str, services: ServicesDep, uncovered: Annotated[in
 def get_errata(chapter_id: str, services: ServicesDep) -> Rows:
     found = services.repository.errata(chapter_id)
     return ok(found, view.errata_meta(found))
+
+
+@router.get("/{chapter_id}/trust")
+def get_trust(chapter_id: str, services: ServicesDep) -> Envelope[Trust]:
+    return ok(services.repository.trust(services.repository.chapter(chapter_id).id))
 
 
 @router.get("/{chapter_id}/routing")

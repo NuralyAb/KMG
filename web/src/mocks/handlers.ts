@@ -2,6 +2,7 @@ import { http, HttpResponse, delay } from 'msw';
 import type { Run, RunRequest } from '@/api/types';
 import { cards, detailOf, nodes } from './fixtures/chapters';
 import { coverage, errata, illustrations, rawNode, routes, tasks, videos } from './fixtures/content';
+import { model, pageText, sources, trust } from './fixtures/library';
 import { logLines, metrics, reviews, runs as startRuns } from './fixtures/work';
 
 const LINE_MS = 700;
@@ -74,6 +75,7 @@ export const handlers = [
     return ok(only ? coverage.filter((r) => r.node_ids.length === 0) : coverage, { total: coverage.length, covered, skipped: coverage.length - covered });
   }),
   http.get('/api/chapters/:id/errata', ({ params }) => ok(params.id === 'demo_sand' ? errata : [], { recognition: 2, suspect: 1 })),
+  http.get('/api/chapters/:id/trust', () => ok(trust)),
   http.get('/api/chapters/:id/routing', () => ok(routes)),
   http.get('/api/chapters/:id/tasks', ({ request, params }) => {
     const query = new URL(request.url).searchParams;
@@ -111,6 +113,24 @@ export const handlers = [
     const run = patchRun(String(params.id), { state: 'cancelled', finished_at: new Date().toISOString() });
     return run ? ok(run) : fail(404, 'not_found', 'Такого запуска нет');
   }),
+  http.get('/api/library', () => ok(sources.map(({ page_list: _, ...s }) => s))),
+  http.post('/api/library', async () => {
+    await delay(300);
+    return ok(sources[0] ?? {}, null, 201);
+  }),
+  http.get('/api/library/:id', ({ params }) => {
+    const found = sources.find((s) => s.id === params.id);
+    return found ? ok(found) : fail(404, 'not_found', 'Такого файла в базе знаний нет');
+  }),
+  http.get('/api/library/:id/pages/:page', ({ params }) => ok({ page: Number(params.page), text: pageText })),
+  http.get('/api/library/:id/original', () => new HttpResponse(null, { status: 404 })),
+  http.post('/api/library/:id/extract', ({ params }) => ok(makeRun({ command: 'extract', chapter: String(params.id) }), null, 201)),
+  http.post('/api/library/:id/chapters', () => ok({ id: 'demo_sand' }, null, 201)),
+  http.delete('/api/library/chapters/:id', ({ params }) => ok({ id: String(params.id) })),
+  http.delete('/api/library/:id', ({ params }) => ok({ id: String(params.id) })),
+  http.get('/api/domains', () => ok(['general', 'geology'])),
+  http.get('/api/settings/model', () => ok(model)),
+  http.post<never, object>('/api/settings/model', async ({ request }) => ok({ ...model, ...(await request.json()), origin: 'file' })),
   http.get('/api/reviews', () => ok(reviews)),
   http.get('/api/reviews/:id', ({ params }) => {
     const review = reviews.find((r) => r.package_id === params.id);

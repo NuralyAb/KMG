@@ -7,6 +7,9 @@
 - source_kind: text, formula, table, task, figure_caption, figure_description_model. Единицы с пометкой [описание распознавателя] — это figure_description_model, у таких утверждений by_model: true и needs_scan: true; тексту автора они не противопоставляются;
 - каждая единица, кроме заголовков, подтверждает хотя бы одно утверждение, пример или задачу;
 - числа только из единиц. Не пересчитывай и не округляй;
+- «Вся глава» дана, чтобы понять единицы узла: что значит обозначение, к чему относится «он», «эта величина», «формула (3)», какое допущение действует («далее принимаем…»). Цитируй и утверждай только по «Единицам узла»;
+- если смысл утверждения держится на условии из другого места главы, назови это условие в тексте утверждения, а в conditions добавь {"text":"условие","quote":"дословный кусок, где оно введено"};
+- читатель не знает про единицы, md и распознавание: в text и layers не пиши «не вошло в единицы», «в md», «фрагмент строки». Начало мысли найди во всей главе, а если его там нет — не делай из обрывка утверждение, занеси в needs_scan;
 - layers.main — суть, 2–3 фразы, первая главная. layers.topic — одна фраза, о чём узел. Всё остальное подробно раскрывай в mechanism, practice, nuances
 - layers.topic, main, mechanism, practice, nuances — связный текст своими словами, фразы до 20 слов, термин объясняется при первом употреблении; если для слоя в главе ничего нет, оставь одну короткую фразу об этом и не придумывай; не повторяй в каждом абзаце, что чего-то нет;
 - deeper — уточнения и детали, которые не поместились;
@@ -20,7 +23,7 @@
 - terms_used — термины из списка «Уже объяснены», на которые узел опирается. Термины, которых нет ни там, ни в terms_introduced, объясни на месте простыми словами.
 
 Верни только JSON с полями: layers, claims (без id), misconception, data_meaning, it_analogy, now_practice, inefficiency_lens, decision_on_data, worked_examples, book_tasks, terms_used, needs_scan, prerequisites (slug узлов-предпосылок из списка), glossary.
-Поле-текст — {"text":"…","by_model":true}. claims: {"text","kind","page_pdf","unit_id","quote","source_kind","by_model","needs_scan"}; by_model: false, если утверждение прямо из текста автора. glossary: [{"term":"…","definition":"…"}] для всех terms_introduced.
+Поле-текст — {"text":"…","by_model":true}. claims: {"text","kind","page_pdf","unit_id","quote","source_kind","by_model","needs_scan","conditions":[]}; by_model: false, если утверждение прямо из текста автора. glossary: [{"term":"…","definition":"…"}] для всех terms_introduced.
 
 Точные формы вложенных полей:
 - misconception: {"ref":"misc.…" или null,"text":"…","by_model":true} или null

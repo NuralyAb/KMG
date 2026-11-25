@@ -1,6 +1,7 @@
 """Учебный слой: план узлов по единицам главы -> узлы с цитатами -> таблица покрытия."""
 
 import json
+import os
 import re
 from collections import Counter
 from collections.abc import Mapping, Sequence
@@ -10,7 +11,7 @@ from typing import Any
 
 import jsonschema
 
-from glava.llm import Provider, Reply, ask_json
+from glava.llm import CACHE_BREAK, Provider, Reply, ask_json
 from glava.stages.errata import for_pages, number_sources, prompt_block
 from glava.stages.wording import normal_layers, plain_node
 from glava.units import Unit
@@ -66,6 +67,12 @@ def _grounded(claim: Mapping[str, Any], units: Sequence[Unit]) -> dict[str, Any]
     return {**claim, "unit_id": unit.unit_id, **by_machine}
 
 
+def mark_unsure_claims(node: Mapping[str, Any], units: Sequence[Unit]) -> dict[str, Any]:
+    """Утверждение со страницы, которой нельзя верить, сверяют со сканом, даже если та же цитата есть на надёжной."""
+    unsure = {u.page_pdf for u in units if u.needs_scan}
+    return {**node, "claims": [{**c, "needs_scan": True} if c["page_pdf"] in unsure else c for c in node["claims"]]}
+
+
 def assemble_node(raw: Mapping, plan_node: Mapping, order: int, prefix: str, units: Sequence[Unit]) -> dict[str, Any]:
     """Ответ модели + служебные поля, которые ставит код: id, порядок, страницы, связи."""
     node_id = f"{prefix}.{plan_node['slug']}"
@@ -91,12 +98,21 @@ def _schema_issues(node: Mapping) -> list[str]:
     return [f"схема: {'/'.join(map(str, e.absolute_path))}: {e.message[:160]}" for e in validator.iter_errors(node)]
 
 
+def _is_condition(value: Any, pages: Mapping[int, str]) -> bool:
+    return (isinstance(value, Mapping) and bool(str(value.get("text") or "").strip()) and isinstance(value.get("quote"), str)
+            and find_quote_page(value["quote"], pages) is not None)
+
+
 def node_issues(node: Mapping, units: Sequence[Unit], plan_node: Mapping, errata: Sequence[Mapping] = ()) -> list[str]:
     schema_problems = _schema_issues(node)
     if schema_problems:
         return schema_problems
     pages = pages_of(units)
     issues = [f"{i.where}: {i.message}" for i in verify_layer({"nodes": [node]}, pages, number_sources(errata))]
+    own = {n: "\n\n".join(u.text for u in units if u.unit_id in plan_node["unit_ids"] and u.page_pdf == n) for n in pages}
+    issues += [f"{c['id']}: цитата не из единиц узла, а из другого места главы" for c in node["claims"]
+               if not any(quote_on_page(c["quote"], text) for text in own.values()) and find_quote_page(c["quote"], pages)]
+    issues += [f"{c['id']}: условия нет в главе дословно: {str(x)[:80]}" for c in node["claims"] for x in c.get("conditions") or [] if not _is_condition(x, pages)]
     cited = {c.get("unit_id") for c in node["claims"]}
     example_pages = {e["page_pdf"] for e in (*node.get("worked_examples", []), *node.get("book_tasks", []))}
     for unit in units:
@@ -125,6 +141,16 @@ def make_plan(provider: Provider, system: str, context: str, units: Sequence[Uni
     return ask_json(provider, system, prompt, lambda d: plan_issues(d, units), attempts=3)
 
 
+def chapter_block(units: Sequence[Unit], env: Mapping[str, str] = os.environ) -> str:
+    """Вся глава перед узлом: условие или обозначение, введённое в другом абзаце, иначе потеряется.
+
+    Одинаковое начало запроса поставщик кэширует. Модели с коротким контекстом: GLAVA_CONTEXT=node.
+    """
+    if env.get("GLAVA_CONTEXT", "chapter") != "chapter":
+        return ""
+    return "\n\n# Вся глава, только для понимания\n\n" + "\n\n".join(_unit_text(u) for u in units)
+
+
 def make_node(
     provider: Provider, system: str, context: str, plan: Mapping, index: int, units: Sequence[Unit], prefix: str, errata: Sequence[Mapping] = (),
 ) -> tuple[dict, list[str], list[Reply]]:
@@ -132,7 +158,7 @@ def make_node(
     earlier = plan["nodes"][:index]
     known = ", ".join(t for n in earlier for t in n["terms_introduced"]) or "пока ничего"
     own = [u for u in units if u.unit_id in set(plan_node["unit_ids"])]
-    prompt = (f"{context}\n\n# Узел\n{json.dumps(plan_node, ensure_ascii=False)}\n\n# Узлы до него (slug: название)\n"
+    prompt = (f"{context}{chapter_block(units)}{CACHE_BREAK}# Узел\n{json.dumps(plan_node, ensure_ascii=False)}\n\n# Узлы до него (slug: название)\n"
               + ("\n".join(f"{n['slug']}: {n['title']}" for n in earlier) or "это первый узел")
               + f"\n\n# Уже объяснены\n{known}\n\n# Единицы узла\n\n" + "\n\n".join(_unit_text(u) for u in own)
               + prompt_block(for_pages(errata, sorted({u.page_pdf for u in own}))))
@@ -142,7 +168,7 @@ def make_node(
         return node_issues(assemble_node(raw, plan_node, index + 1, prefix, units), units, plan_node, errata)
 
     raw, replies = ask_json(provider, system, prompt, check, attempts=3)
-    node = repair_pages(assemble_node(raw, plan_node, index + 1, prefix, units), pages)
+    node = mark_unsure_claims(repair_pages(assemble_node(raw, plan_node, index + 1, prefix, units), pages), units)
     return node, node_issues(node, units, plan_node, errata), replies
 
 

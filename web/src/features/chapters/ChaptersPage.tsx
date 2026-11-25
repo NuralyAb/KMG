@@ -1,6 +1,6 @@
 import { IconBook2 } from '@tabler/icons-react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useChapters } from '@/api/queries';
 import type { ChapterCard } from '@/api/types';
 import { counted, formatMoney, formatTokens, FORMS } from '@/lib/format';
@@ -46,7 +46,7 @@ export default function ChaptersPage() {
       <PageHeader title="Главы" docTitle="Главы" subtitle={query.data?.length ? summary(query.data) : undefined} />
       <QueryView query={query} rows={4}>
         {(chapters) => chapters.length === 0
-          ? <EmptyState icon={<IconBook2 size={32} aria-hidden />} title="Глав пока нет" text="Добавьте главу в chapters.json в корне проекта, и она появится здесь." />
+          ? <EmptyState icon={<IconBook2 size={32} aria-hidden />} title="Глав пока нет" text="Загрузите книгу в базу знаний и выберите в ней страницы главы." action={<Link to="/library">Открыть базу знаний</Link>} />
           : <ChapterList chapters={chapters} onBuild={setTarget} />}
       </QueryView>
       {target && (

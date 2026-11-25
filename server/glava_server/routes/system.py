@@ -1,6 +1,5 @@
 """Состояние, поиск, расход и файлы курса."""
 
-import os
 from dataclasses import asdict
 from typing import Annotated
 
@@ -20,8 +19,8 @@ router = APIRouter()
 
 
 @router.get("/api/health")
-def get_health() -> Envelope[Health]:
-    return ok(health(os.environ))
+def get_health(services: ServicesDep) -> Envelope[Health]:
+    return ok(health(services.models.env()))
 
 
 @router.get("/api/search")

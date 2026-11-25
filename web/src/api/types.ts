@@ -36,7 +36,7 @@ export interface RawNodeDetail {
 }
 
 export type RunState = 'queued' | 'running' | 'done' | 'failed' | 'cancelled';
-export type RunCommand = 'build' | StageName | 'review' | 'video';
+export type RunCommand = 'build' | StageName | 'review' | 'video' | 'extract' | 'audit' | 'verify';
 
 export interface Run {
   id: string; command: RunCommand; chapter: string; args: Record<string, unknown>; state: RunState;
@@ -44,7 +44,7 @@ export interface Run {
 }
 
 export interface RunRequest {
-  command: RunCommand; chapter: string; limit?: number; node?: string; format?: 'short' | 'wide'; template?: string;
+  command: RunCommand; chapter: string; limit?: number; node?: string; format?: 'short' | 'wide'; template?: string; mutants?: boolean;
 }
 
 export const SEVERITIES = ['critical', 'significant', 'minor'] as const;
@@ -101,6 +101,42 @@ export interface SearchHit {
 export interface Health {
   status: string; provider: string; model: string; claude_found: boolean; ffmpeg_found: boolean;
 }
+
+export const PAGE_STATES = ['text', 'doubtful', 'scan', 'empty'] as const;
+export type PageState = (typeof PAGE_STATES)[number];
+export interface LibraryPage { page: number; state: PageState; method: string; chars: number; reasons: string[] }
+export type SourceState = 'uploaded' | 'extracting' | 'ready' | 'failed';
+
+export interface Source {
+  id: string; name: string; kind: string; bytes: number; added_at: string; state: SourceState; run: string | null;
+  pages: number; counts: Record<PageState, number>; chapters: string[];
+}
+export interface SourceDetail extends Source { page_list: LibraryPage[] }
+export interface PageText { page: number; text: string }
+export interface NewChapter { title: string; book: string | null; pages: [number, number][]; domain: string }
+
+export interface Sensitivity {
+  made: number; caught: number; recall: number | null; kinds: Record<string, { made: number; caught: number }>;
+  controls?: { made: number; caught: number }; unchecked?: number;
+}
+export interface FlaggedClaim { claim_id: string; node_id: string; text: string; quote: string; page_pdf: number; flags: string[] }
+export interface AuditReport {
+  claims: number; needs_scan: number; by_model: number; flagged: FlaggedClaim[]; by_flag: Record<string, number>;
+  early_terms: { term: string; explained_in: string; used_in: string[] }[]; sensitivity?: Sensitivity;
+}
+export type Verdict = 'follows' | 'partial' | 'no' | 'contradicts' | 'unchecked';
+export type VerdictCounts = Record<Verdict | 'total', number>;
+export interface WeakItem { id: string; text: string; verdict: Verdict; why: string; quote?: string }
+export interface VerifyReport { checker: string; claims: VerdictCounts; prose: VerdictCounts; weak: WeakItem[]; sensitivity?: Sensitivity; text_chars?: Record<string, number> }
+export interface Trust { audit: AuditReport | null; audit_stale: boolean; verify: VerifyReport | null; verify_stale: boolean }
+
+export const PROVIDERS = ['claude_code', 'anthropic', 'openai', 'local'] as const;
+export type ProviderName = (typeof PROVIDERS)[number];
+export interface ModelChoice {
+  provider: ProviderName; model: string | null; base_url: string | null; price_in: number | null; price_out: number | null;
+  budget_usd: number | null; context: number | null;
+}
+export interface ModelSettings extends Omit<ModelChoice, 'provider'> { provider: string; origin: 'file' | 'env'; keys: Record<string, boolean> }
 
 export interface CoverageMeta { total: number; covered: number; skipped: number }
 export interface ErrataMeta { recognition: number; suspect: number }

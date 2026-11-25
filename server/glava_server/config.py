@@ -23,6 +23,7 @@ class Settings:
     port: int = DEFAULT_PORT
     max_processes: int = 2
     max_body_bytes: int = 80 * MEGABYTE
+    max_book_bytes: int = 400 * MEGABYTE
     allowed_origins: frozenset[str] = frozenset({"http://127.0.0.1:5190", "http://localhost:5190"})
     poll_seconds: float = 0.3
 

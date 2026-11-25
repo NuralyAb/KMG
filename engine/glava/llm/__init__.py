@@ -3,6 +3,7 @@
 import hashlib
 import json
 import logging
+import math
 import os
 import threading
 from collections.abc import Callable, Sequence
@@ -10,7 +11,11 @@ from dataclasses import asdict, dataclass, field, replace
 from pathlib import Path
 from typing import Any, Protocol
 
+from glava.llm.errors import ProviderUnavailable
+
 log = logging.getLogger(__name__)
+# до этой метки запросы этапа одинаковы: поставщик, который умеет, кэширует начало
+CACHE_BREAK = "\n\n<!-- дальше своё у каждого узла -->\n\n"
 
 
 class BudgetExceeded(RuntimeError):
@@ -24,6 +29,7 @@ class Reply:
     input_tokens: int
     output_tokens: int
     cost_usd: float
+    is_cut: bool = False  # модель упёрлась в длину: конец ответа потерян
 
 
 class Provider(Protocol):
@@ -85,10 +91,19 @@ class _Metered:
         with self.lock:
             if self.spent_usd >= self.budget_usd:
                 raise BudgetExceeded(f"потрачено ${self.spent_usd:.2f} при бюджете ${self.budget_usd:.2f}")
-        reply = self.inner.ask(system, prompt, *([files] if files else []))
-        with self.lock:
-            self.spent_usd += reply.cost_usd
+        try:
+            reply = self.inner.ask(system, prompt, *([files] if files else []))
+        except ProviderUnavailable as error:
+            self._spend(error.cost_usd)
+            raise
+        self._spend(reply.cost_usd)
         return reply
+
+    def _spend(self, cost_usd: float) -> None:
+        if not (math.isfinite(cost_usd) and cost_usd >= 0):
+            raise BudgetExceeded("стоимость ответа неизвестна: потолок расхода не работает")
+        with self.lock:
+            self.spent_usd += cost_usd
 
 
 def metered(provider: Provider, budget_usd: float) -> Provider:
@@ -123,6 +138,8 @@ class _Cached:
         if saved:
             return replace(saved, cost_usd=0.0)
         reply = self.inner.ask(system, prompt, *([files] if files else []))
+        if reply.is_cut:
+            return reply
         self.folder.mkdir(parents=True, exist_ok=True)
         draft = path.with_suffix(f".{threading.get_ident()}.tmp")
         draft.write_text(json.dumps(asdict(reply), ensure_ascii=False), encoding="utf-8")
@@ -151,27 +168,41 @@ def ask_json(
     files: Sequence[Path] = (),
 ) -> tuple[Any, list[Reply]]:
     """Ответ в JSON; замечания проверки возвращаются модели. После последней попытки отдаётся последний разобранный ответ."""
+    asked: list[str] = []
+    is_good = False
+    try:
+        data, replies, is_good = _ask_until_good(provider, system, prompt, validate, attempts, files, asked)
+        return data, replies
+    finally:
+        # и после сбоя посреди попыток: неудачный ответ не должен вернуться из кэша
+        if not is_good and hasattr(provider, "forget"):
+            for failed in asked:
+                provider.forget(system, failed, files)
+
+
+def _ask_until_good(
+    provider: Provider, system: str, prompt: str, validate: Callable[[Any], list[str]], attempts: int, files: Sequence[Path], asked: list[str],
+) -> tuple[Any, list[Reply], bool]:
     replies: list[Reply] = []
     data: Any = None
+    issues: list[str] = []
     question = prompt
-    asked: list[str] = []
     for attempt in range(attempts):
+        asked.append(question)
         reply = provider.ask(system, question, *([files] if files else []))
         replies.append(reply)
-        asked.append(question)
         try:
+            if reply.is_cut:
+                raise ValueError("ответ обрезан по длине, пиши короче")
             data = extract_json(reply.text)
             issues = validate(data)
-        except (ValueError, KeyError, TypeError, AttributeError, IndexError) as error:
+        except (ValueError, KeyError, TypeError, AttributeError, IndexError, ArithmeticError, RecursionError) as error:
             issues = [f"ответ не разобран как JSON нужной формы: {error!r}"]
         if not issues:
-            return data, replies
+            return data, replies, True
         log.info("попытка %s: замечаний %s", attempt + 1, len(issues))
         question = (f"{prompt}\n\n# Твой прошлый ответ\n{reply.text}\n\n# Замечания машинной проверки\n"
                     + "\n".join(f"- {i}" for i in issues[:40]) + "\n\nИсправь только это и верни полный JSON заново.")
-    if hasattr(provider, "forget"):
-        for failed in asked:
-            provider.forget(system, failed, files)
     if data is None:
         raise ValueError("модель не вернула JSON: " + "; ".join(issues[:3]))
-    return data, replies
+    return data, replies, False

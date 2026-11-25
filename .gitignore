@@ -23,3 +23,9 @@ work/*/videos/
 node_modules/
 web/dist/
 work/review_uploads/
+# база знаний: загруженные книги, их слои, курсы и листы опечаток не публикуются
+/library/
+/settings.local.json
+/work/lib_*/
+/out/lib_*/
+/domain/*/errata/lib_*

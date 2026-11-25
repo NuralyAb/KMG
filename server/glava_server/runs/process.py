@@ -23,12 +23,12 @@ def child_env(env: Mapping[str, str]) -> dict[str, str]:
 
 
 class ProcessTree:
-    def __init__(self, command: Sequence[str], cwd: Path, log_file: Path) -> None:
+    def __init__(self, command: Sequence[str], cwd: Path, log_file: Path, env: Mapping[str, str] | None = None) -> None:
         log_file.parent.mkdir(parents=True, exist_ok=True)
         with log_file.open("ab") as out:
             # список аргументов без оболочки: значения из запроса не могут стать командой
             self._process = subprocess.Popen(list(command), cwd=cwd, stdin=subprocess.DEVNULL, stdout=out, stderr=subprocess.STDOUT,
-                                             env=child_env(os.environ), start_new_session=sys.platform != "win32")
+                                             env=child_env(os.environ if env is None else env), start_new_session=sys.platform != "win32")
         self._job = self._join_job()
 
     def _join_job(self) -> "Job | None":

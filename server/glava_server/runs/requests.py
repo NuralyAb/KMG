@@ -24,6 +24,10 @@ def run_args(request: RunRequest, repository: Repository) -> dict[str, Any]:
     """Значимые параметры запуска. Лишний параметр — ошибка: иначе запуск потратит не то, что ждали."""
     chapter = repository.chapter(request.chapter)
     given = {k: v for k, v in request.model_dump(include={"limit", *VIDEO_FIELDS}).items() if v is not None}
+    if request.mutants:
+        if request.command != "verify":
+            raise invalid("Замер на порче есть только у проверки моделью")
+        given["mutants"] = True
     if "limit" in given and request.command not in LIMITED:
         raise invalid("Ограничение числа узлов есть только у команд build и layer")
     if request.command == "video":
@@ -34,4 +38,5 @@ def run_args(request: RunRequest, repository: Repository) -> dict[str, Any]:
 
 
 def cli_options(args: dict[str, Any]) -> list[str]:
-    return [part for name in ("limit", *VIDEO_FIELDS) if name in args for part in (f"--{name}", str(args[name]))]
+    flags = ["--mutants"] if args.get("mutants") else []
+    return [part for name in ("limit", *VIDEO_FIELDS) if name in args for part in (f"--{name}", str(args[name]))] + flags

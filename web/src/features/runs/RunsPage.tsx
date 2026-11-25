@@ -1,7 +1,7 @@
 import { IconChevronRight, IconListDetails } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { isActive, useChapters, useRuns } from '@/api/queries';
+import { isActive, useChapters, useRuns, useSources } from '@/api/queries';
 import type { Run } from '@/api/types';
 import { formatDateTime, runDuration } from '@/lib/format';
 import { COMMAND, label } from '@/lib/labels';
@@ -27,7 +27,9 @@ function RunItem({ run, title, isOpen, onToggle }: { run: Run; title: string; is
       {isOpen && (
         <div className="run-body">
           <RunLog run={run} />
-          <p className="muted" style={{ marginTop: 8 }}><Link to={`/chapters/${encodeURIComponent(run.chapter)}`}>Открыть главу</Link></p>
+          <p className="muted" style={{ marginTop: 8 }}>{run.command === 'extract'
+            ? <Link to={`/library/${encodeURIComponent(run.chapter)}`}>Открыть книгу</Link>
+            : <Link to={`/chapters/${encodeURIComponent(run.chapter)}`}>Открыть главу</Link>}</p>
         </div>
       )}
     </li>
@@ -38,6 +40,7 @@ function RunList({ runs }: { runs: Run[] }) {
   const [params, setParams] = useSearchParams();
   const [show, setShow] = useState<Show>('all');
   const chapters = useChapters().data ?? [];
+  const sources = useSources().data ?? [];
   const open = params.get('run');
   const activeId = runs.find(isActive)?.id;
 
@@ -58,7 +61,7 @@ function RunList({ runs }: { runs: Run[] }) {
       {shown.length === 0 ? <EmptyState title="Таких запусков нет" /> : (
         <ul className="run-rows" style={{ marginTop: 12 }}>
           {shown.map((run) => (
-            <RunItem key={run.id} run={run} title={chapters.find((c) => c.id === run.chapter)?.title ?? run.chapter} isOpen={open === run.id}
+            <RunItem key={run.id} run={run} title={chapters.find((c) => c.id === run.chapter)?.title ?? sources.find((s) => s.id === run.chapter)?.name ?? run.chapter} isOpen={open === run.id}
               onToggle={() => setParams({ run: open === run.id ? '' : run.id }, { replace: true })} />
           ))}
         </ul>

@@ -1,8 +1,8 @@
 import { useMutation, useQuery, useQueryClient, keepPreviousData } from '@tanstack/react-query';
-import { apiPath, get, post } from './client';
+import { apiPath, get, post, remove } from './client';
 import type {
-  ChapterCard, ChapterDetail, CoverageMeta, CoverageRow, ErrataMeta, ErrataRow, Health, Illustration, MetricRow, MetricsMeta,
-  PageMeta, RawNodeDetail, Review, RouteRow, Run, RunRequest, SearchHit, Task, TasksMeta, Video,
+  ChapterCard, ChapterDetail, CoverageMeta, CoverageRow, ErrataMeta, ErrataRow, Health, Illustration, MetricRow, MetricsMeta, ModelChoice,
+  ModelSettings, NewChapter, PageMeta, PageText, RawNodeDetail, Review, RouteRow, Run, RunRequest, SearchHit, Source, SourceDetail, Task, TasksMeta, Trust, Video,
 } from './types';
 
 const RUNS_POLL_MS = 4_000;
@@ -58,6 +58,10 @@ export function useErrata(id: string) {
     queryKey: ['chapter', id, 'errata'],
     queryFn: ({ signal }) => get<ErrataRow[], ErrataMeta | null>(apiPath(['chapters', id, 'errata']), signal),
   });
+}
+
+export function useTrust(id: string) {
+  return useQuery({ queryKey: ['chapter', id, 'trust'], queryFn: async ({ signal }) => (await get<Trust>(apiPath(['chapters', id, 'trust']), signal)).data });
 }
 
 export function useRouting(id: string) {
@@ -131,7 +135,7 @@ export function useReview(id: string) {
 export function useRefreshAll(): () => void {
   const client = useQueryClient();
   return () => {
-    for (const key of ['runs', 'chapters', 'chapter', 'metrics', 'reviews']) void client.invalidateQueries({ queryKey: [key] });
+    for (const key of ['runs', 'chapters', 'chapter', 'metrics', 'reviews', 'library']) void client.invalidateQueries({ queryKey: [key] });
   };
 }
 
@@ -148,5 +152,73 @@ export function useCancelRun() {
   return useMutation({
     mutationFn: async (id: string) => (await post<Run>(apiPath(['runs', id, 'cancel']))).data,
     onSettled: refresh,
+  });
+}
+
+// --- база знаний и модель ---
+
+const isExtracting = (source: Pick<Source, 'state'>): boolean => source.state === 'extracting';
+
+export function useSources() {
+  return useQuery({
+    queryKey: ['library', 'list'],
+    queryFn: async ({ signal }) => (await get<Source[]>('/api/library', signal)).data,
+    refetchInterval: (query) => (query.state.data?.some(isExtracting) ? RUNS_POLL_MS / 2 : false),
+  });
+}
+
+export function useSource(id: string) {
+  return useQuery({
+    queryKey: ['library', 'source', id],
+    queryFn: async ({ signal }) => (await get<SourceDetail>(apiPath(['library', id]), signal)).data,
+    refetchInterval: (query) => (query.state.data && isExtracting(query.state.data) ? RUNS_POLL_MS / 2 : false),
+  });
+}
+
+/** stamp меняется после нового извлечения, чтобы не показать прежний текст. */
+export function usePageText(id: string, page: number | null, stamp: string) {
+  return useQuery({
+    queryKey: ['library', 'page', id, page, stamp],
+    queryFn: async ({ signal }) => (await get<PageText>(apiPath(['library', id, 'pages', String(page)]), signal)).data,
+    enabled: page !== null,
+  });
+}
+
+export function useDomains() {
+  return useQuery({ queryKey: ['domains'], queryFn: async ({ signal }) => (await get<string[]>('/api/domains', signal)).data });
+}
+
+export function useExtract(id: string) {
+  const refresh = useRefreshAll();
+  return useMutation({ mutationFn: async (vision: boolean) => (await post<Run>(apiPath(['library', id, 'extract']), { vision })).data, onSettled: refresh });
+}
+
+export function useCreateChapter(id: string) {
+  const refresh = useRefreshAll();
+  return useMutation({ mutationFn: async (body: NewChapter) => (await post<{ id: string }>(apiPath(['library', id, 'chapters']), body)).data, onSettled: refresh });
+}
+
+export function useRemoveSource() {
+  const refresh = useRefreshAll();
+  return useMutation({ mutationFn: async (id: string) => (await remove<{ id: string }>(apiPath(['library', id]))).data, onSettled: refresh });
+}
+
+export function useRemoveChapter() {
+  const refresh = useRefreshAll();
+  return useMutation({ mutationFn: async (id: string) => (await remove<{ id: string }>(apiPath(['library', 'chapters', id]))).data, onSettled: refresh });
+}
+
+export function useModel() {
+  return useQuery({ queryKey: ['model'], queryFn: async ({ signal }) => (await get<ModelSettings>('/api/settings/model', signal)).data });
+}
+
+export function useSaveModel() {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: async (body: ModelChoice) => (await post<ModelSettings>('/api/settings/model', body)).data,
+    onSuccess: (saved) => {
+      client.setQueryData(['model'], saved);
+      void client.invalidateQueries({ queryKey: ['health'] });
+    },
   });
 }

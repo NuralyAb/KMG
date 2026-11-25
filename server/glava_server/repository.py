@@ -1,6 +1,8 @@
 """Файлы конвейера: где лежат и как читаются. Путь строится только из проверенных имён реестра."""
 
+import hashlib
 import logging
+import re
 from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -11,9 +13,10 @@ from glava_server.errors import ApiError, not_found
 from glava_server.jsonstore import JsonStore, rows
 from glava_server.metrics import read_metrics
 from glava_server.names import is_key_file, is_safe_id
-from glava_server.schemas import MetricRow
+from glava_server.schemas import MetricRow, Trust
 
 log = logging.getLogger("glava_server")
+LIBRARY_CHAPTER = re.compile(r"lib_[0-9a-f]{8}")
 STAGES = ("errata", "layer", "routing", "tasks", "illustrations", "course")
 
 
@@ -61,7 +64,12 @@ class Repository:
         listed = registry.get("chapters") if isinstance(registry, dict) else None
         if not isinstance(listed, dict):
             raise ApiError(500, "no_registry", "Не удалось прочитать реестр глав chapters.json")
-        return [info for chapter_id, raw in listed.items() if (info := _info(chapter_id, raw))]
+        own = self._store.read_object(self.root / "library" / "chapters.json").get("chapters")
+        # глава базы знаний не может подменить главу реестра
+        safe = {c: i for c, i in own.items() if LIBRARY_CHAPTER.fullmatch(c)} if isinstance(own, dict) else {}
+        both = {**safe, **listed}
+        names = [*listed, *(c for c in both if c not in listed)]
+        return [info for chapter_id in names if (info := _info(chapter_id, both[chapter_id]))]
 
     def chapter(self, chapter_id: str) -> ChapterInfo:
         found = next((c for c in self.chapters() if c.id == chapter_id), None) if is_safe_id(chapter_id) else None
@@ -100,6 +108,20 @@ class Repository:
     def issue_count(self, chapter_id: str) -> int:
         issues = self._store.read_object(self._work(chapter_id, "layer_report.json")).get("issues")
         return sum(len(v) for v in issues.values() if isinstance(v, list)) if isinstance(issues, dict) else 0
+
+    def trust(self, chapter_id: str) -> Trust:
+        """Отчёт, сделанный по другому слою, устарел."""
+        try:
+            current = hashlib.sha256(self._work(chapter_id, "layer.json").read_bytes()).hexdigest()
+        except OSError:
+            current = ""
+
+        def report(name: str) -> tuple[dict[str, Any] | None, bool]:
+            found = self._store.read_object(self._work(chapter_id, name)) or None
+            return found, found is not None and found.get("layer_sha256") != current
+
+        audit, verify = report("audit.json"), report("trust.json")
+        return Trust(audit=audit[0], audit_stale=audit[1], verify=verify[0], verify_stale=verify[1])
 
     def routes(self, chapter_id: str) -> list[dict[str, Any]]:
         return self._store.read_rows(self._work(chapter_id, "routing.json"), "routes")

@@ -1,4 +1,4 @@
-import type { RunCommand, RunState, Severity, StageName, StageState, TaskType } from '@/api/types';
+import type { PageState, ProviderName, RunCommand, RunState, SourceState, Verdict, Severity, StageName, StageState, TaskType } from '@/api/types';
 
 /** Русские подписи значений контракта. Незнакомое значение показывается как есть, а не прячется. */
 export function label(map: Readonly<Record<string, string>>, key: string | null | undefined): string {
@@ -13,7 +13,7 @@ export const STAGE: Record<StageName, string> = {
 export const STAGE_STATE: Record<StageState, string> = { ready: 'готово', stale: 'устарело', missing: 'нет' };
 
 export const COMMAND: Record<RunCommand, string> = {
-  build: 'Вся сборка', ...STAGE, review: 'Проверка пакета', video: 'Ролик',
+  build: 'Вся сборка', ...STAGE, review: 'Проверка пакета', video: 'Ролик', extract: 'Извлечение текста', audit: 'Сверка кодом', verify: 'Проверка моделью',
 };
 
 export const RUN_STATE: Record<RunState, string> = {
@@ -70,4 +70,27 @@ export const ORIGIN: Record<string, string> = {
 
 export const LINK_TYPE: Record<string, string> = {
   prerequisite: 'нужно раньше', example_of: 'пример для', refutes_misconception: 'опровергает', to_data: 'данные',
+};
+
+export const PAGE_STATE: Record<PageState, string> = { text: 'надёжно', doubtful: 'сверить', scan: 'нет текста', empty: 'пустая' };
+
+export const SOURCE_STATE: Record<SourceState, string> = {
+  uploaded: 'текст не извлечён', extracting: 'извлекается текст', ready: 'готово', failed: 'извлечь не удалось',
+};
+
+export const PROVIDER: Record<ProviderName, string> = {
+  claude_code: 'Claude Code', anthropic: 'Anthropic API', openai: 'OpenAI', local: 'Своя модель (Ollama, LM Studio, vLLM)',
+};
+
+export const VERDICT: Record<Verdict, string> = {
+  follows: 'следует из источника', partial: 'следует частично', no: 'в источнике нет', contradicts: 'противоречит', unchecked: 'не проверено',
+};
+
+export const FLAG: Record<string, string> = {
+  number: 'число не из цитаты', unit: 'другая единица', negation: 'отрицание', direction: 'направление', quantifier: 'лишнее обобщение', condition: 'потеряна оговорка',
+};
+
+export const DAMAGE: Record<string, string> = {
+  sign_flip: 'перевёрнуто направление', number: 'изменено число', unit: 'подменена единица', negation_removed: 'убрано «не»', negation_added: 'добавлено «не»',
+  lost_condition: 'убрана оговорка', overgeneralization: 'добавлено «всегда»',
 };

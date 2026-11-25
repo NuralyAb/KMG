@@ -2,7 +2,7 @@
 
 import re
 from collections.abc import Iterable, Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 PAGE_MARK = re.compile(r"<!--\s*page\s+(\d+)\s*-->")
 FIGURE_BLOCK = re.compile(r"^━+\s*FORMAT")
@@ -19,6 +19,7 @@ class Unit:
     page_pdf: int
     text: str
     by_recogniser: bool = False
+    needs_scan: bool = False
 
     @property
     def excerpt(self) -> str:
@@ -90,3 +91,8 @@ def parse_units(pages: Mapping[int, str]) -> list[Unit]:
             kind = _kind(text, in_figure, in_tasks)
             units.append(Unit(f"p{page:03d}.{index:02d}", kind, page, text, by_recogniser=in_figure))
     return units
+
+
+def mark_unsure(units: Iterable[Unit], pages: set[int]) -> list[Unit]:
+    """Единицы страниц, текст которых читала модель или программа распознавания."""
+    return [replace(u, needs_scan=True) if u.page_pdf in pages else u for u in units]

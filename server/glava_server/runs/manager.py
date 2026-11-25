@@ -1,9 +1,10 @@
 """Очередь запусков: не больше двух процессов сразу и не больше одного незавершённого запуска на главу."""
 
 import logging
+import os
 import secrets
 import threading
-from collections.abc import Sequence
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass, replace
 from datetime import UTC, datetime
 from pathlib import Path
@@ -26,11 +27,12 @@ class _Live:
 
 
 class RunManager:
-    def __init__(self, root: Path, command: Sequence[str], max_processes: int) -> None:
+    def __init__(self, root: Path, command: Sequence[str], max_processes: int, env: Callable[[], Mapping[str, str]] = lambda: os.environ) -> None:
         self.store = RunStore(root / "work" / "runs")
         self._root = root
         self._command = tuple(command)
         self._max_processes = max_processes
+        self._env = env
         self._lock = threading.RLock()
         self._records: dict[str, RunRecord] = {}
         self._waiting: list[tuple[str, tuple[str, ...]]] = []
@@ -136,7 +138,7 @@ class RunManager:
 
     def _launch(self, run_id: str, arguments: Sequence[str]) -> None:
         try:
-            process = ProcessTree([*self._command, *arguments], self._root, self.store.log_path(run_id))
+            process = ProcessTree([*self._command, *arguments], self._root, self.store.log_path(run_id), self._env())
         except OSError as error:
             log.error("запуск %s: %s", run_id, error)
             self.store.note(run_id, "Не удалось запустить процесс: команда не найдена или недоступна")
