@@ -1,6 +1,6 @@
 import { useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
 import {
-  IconBook2, IconBooks, IconChartBar, IconCpu, IconListDetails, IconMenu2, IconMoon, IconSearch, IconShieldCheck, IconSun, IconX,
+  IconBook2, IconBooks, IconBookUpload, IconChartBar, IconCpu, IconListDetails, IconMenu2, IconMoon, IconSearch, IconShieldCheck, IconSun, IconX,
 } from '@tabler/icons-react';
 import { Suspense, useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
@@ -12,6 +12,7 @@ import './shell.css';
 const NAV = [
   [
     { to: '/admin/library', label: 'База знаний', Icon: IconBooks },
+    { to: '/admin/books', label: 'Книги', Icon: IconBookUpload },
     { to: '/admin', label: 'Главы', Icon: IconBook2 },
     { to: '/admin/review', label: 'Проверка пакета', Icon: IconShieldCheck },
     { to: '/admin/search', label: 'Поиск', Icon: IconSearch },

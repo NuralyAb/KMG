@@ -73,11 +73,21 @@ def test_arguments_reach_the_command(client: TestClient) -> None:
     assert json.loads(second["log_tail"][0])["argv"] == ["video", CHAPTER, "--node", "alpha.first", "--format", "wide", "--template", "well_tool"]
 
 
+def test_simulation_takes_a_node_and_may_stop_after_design(client: TestClient) -> None:
+    run = data_of(start(client, "simulation", node="alpha.first", until="design"), 201)
+    done = wait_state(client, run["id"], "done")
+
+    assert json.loads(done["log_tail"][0])["argv"] == ["simulation", CHAPTER, "--node", "alpha.first", "--until", "design"]
+
+
 @pytest.mark.parametrize("payload", [
     {"command": "units"}, {"command": "review"}, {"command": "rm"}, {"command": "layer", "limit": 0}, {"command": "tasks", "limit": 3},
     {"command": "errata", "node": "alpha.first"}, {"command": "video"}, {"command": "video", "node": "alpha.first"},
     {"command": "video", "node": "--help", "template": "well_tool"}, {"command": "video", "node": "alpha.first", "template": "../x"},
     {"command": "video", "node": "alpha.first", "template": "nope"}, {"command": "video", "node": "alpha.first", "template": "well_tool", "format": "4:3"},
+    {"command": "simulation"}, {"command": "simulation", "node": "alpha.nope"}, {"command": "simulation", "node": "--help"},
+    {"command": "simulation", "node": "alpha.first", "template": "well_tool"}, {"command": "simulation", "node": "alpha.first", "until": "x"},
+    {"command": "layer", "until": "design"},
     {"command": "layer", "limt": 2}, {"command": "layer", "chapter": ""},
 ])
 def test_wrong_run_request_is_422_or_404(client: TestClient, payload: dict[str, Any]) -> None:

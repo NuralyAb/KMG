@@ -1,7 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Button } from '@mantine/core';
+import { IconCube } from '@tabler/icons-react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import type { RouteRow } from '@/api/types';
 import { LINK_TYPE, SCORE, label } from '@/lib/labels';
 import { RichText } from '@/ui/RichText';
+import { BuildDialog } from '../runs/BuildDialog';
 import type { LayerNode } from './model';
 
 const MAX_SCORE = 2;
@@ -37,10 +41,27 @@ function RoutePanel({ route }: { route: RouteRow | null }) {
   );
 }
 
+function SimulationPanel({ chapter, node }: { chapter: string; node: LayerNode }) {
+  const [isOpen, setOpen] = useState(false);
+  const navigate = useNavigate();
+  return (
+    <section>
+      <h2>Симулятор</h2>
+      <p className="muted">Агент строит 3D-сцену из утверждений этого шага и проверяет её физику.</p>
+      <Button variant="default" leftSection={<IconCube size={18} />} onClick={() => setOpen(true)}>Сделать симулятор</Button>
+      {isOpen && (
+        <BuildDialog isOpen command="simulation" target={{ id: chapter, title: node.title }} nodes={[{ id: node.id, title: node.title }]}
+          onClose={() => setOpen(false)} onStarted={() => navigate('/admin/runs')} />
+      )}
+    </section>
+  );
+}
+
 export function NodeAside({ chapter, node, route, titles }: { chapter: string; node: LayerNode; route: RouteRow | null; titles: Map<string, string> }) {
   return (
     <aside className="node-aside" aria-label="О шаге">
       <RoutePanel route={route} />
+      <SimulationPanel chapter={chapter} node={node} />
       {node.whyHere && <section><h2>Почему здесь</h2><p className="aside-text"><RichText text={node.whyHere.text} /></p></section>}
       {node.links.length > 0 && (
         <section>

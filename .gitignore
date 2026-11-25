@@ -21,6 +21,11 @@ work/review/
 work/runs/
 work/*/videos/
 node_modules/
+simulators/dist/
+simulators/jobs/
+simulators/sims/
+/books/
+/chapters.json.tmp
 web/dist/
 work/review_uploads/
 # база знаний: загруженные книги, их слои, курсы и листы опечаток не публикуются

@@ -1,0 +1,41 @@
+{
+  "id": "smoke", "template": "compose", "title": "Проба всех кирпичиков", "goal": "Проверка движка", "node_id": "test.smoke", "difficulty": {"primary": "П"}, "provenance": "схема", "seed": 3,
+  "why_3d": "Проверяем, что каждый тип объекта собирается и меняется.", "misconception": "misc.model_knows",
+  "world": {"size": [400, 60, 300], "y": [-40, 20], "ve": 2, "camera": {"yaw": 30, "pitch": 26}},
+  "params": {"h": {"range": [10, 18], "unit": "m", "from": "assumption", "control": [5, 25, 1, "Высота бара"]}, "R": {"value": 80, "unit": "m", "from": "assumption"}, "q": {"value": 40, "unit": "m/yr", "from": "assumption"}, "dir": {"range": [-1, 1], "unit": "1", "from": "assumption"}, "k1": {"value": 0.05, "unit": "1/yr", "from": "assumption"}, "vm": {"value": 100, "unit": "m3", "from": "assumption"}},
+  "tables": {"tb": {"x_unit": "m", "y_unit": "%", "rows": [[-40, 5], [0, 25]]}},
+  "functions": {"bar(x,z)": "h*gauss((x-xf)/R)*gauss(z/(1.4*R))-12+1*fbm(x/60,z/60,0,seed)", "por(x,y,z)": "tb(y)*(0.7+0.3*fbm(x/50,y/8,z/50,seed))"},
+  "states": {"V": {"init": "0", "rate": "k1*(vm-V)", "unit": "m3"}},
+  "vars": {"xf": {"expr": "-120+q*t", "unit": "m", "label": "Фронт", "digits": 0}, "V2": {"expr": "V", "unit": "m3", "label": "Объём"}},
+  "time": {"min": 0, "max": 6, "unit": "yr", "duration": 4, "label": "Время", "stages": [{"until": 0.5, "text": "Бар растёт"}, {"until": 1, "text": "Бар сместился на {xf:m:0} м"}]},
+  "objects": [
+    {"type": "solid", "id": "s1", "top": "bar(x,z)", "bottom": "-24", "lith": "sand", "fluid": "oil", "name_ru": "песок"},
+    {"type": "solid", "top": "-24+1.5*fbm(x/80,z/80,1,seed)", "bottom": "-40", "lith": "shale", "name_ru": "глина"},
+    {"type": "surface", "id": "top", "y": "bar(x,z)+0.2", "value": "bar(x,z)", "min": -14, "max": 8, "color": "reef", "contour": 4, "clip": false, "opacity": "if(revealed,0.25,0.9)"},
+    {"type": "section", "axis": "z", "at": "if(revealed,0,150)", "value": "por(x,y,z)", "min": 0, "max": 0.3, "mask": "y<bar(x,z) && y>-24", "classes": [{"when": "y<-18 && por(x,y,z)>0.12", "color": "water", "name": "вода"}]},
+    {"type": "water", "level": "8"},
+    {"type": "tube", "path": [["150", "20", "0"], ["150", "-30", "0"]], "radius": "2"},
+    {"type": "prefab", "name": "derrick", "at": ["150", "20", "0"]},
+    {"type": "prefab", "name": "tool", "at": ["150", "-30+20*T", "0"], "show": "step>1"},
+    {"type": "shape", "shape": "sphere", "at": ["xf", "12", "0"], "size": ["14", "14", "14"], "color": "measure", "glow": true},
+    {"type": "shape", "shape": "ring", "at": ["0", "14", "0"], "size": ["60+10*T", "60", "60"], "color": "PRESSURE", "show": "t>0"},
+    {"type": "scatter", "n": 120, "at": ["(r1-0.5)*380", "bar((r1-0.5)*380,(r2-0.5)*280)+2", "(r2-0.5)*280"], "size": ["4+4*r3", "4+4*r3", "4+4*r3"], "color": "limestone"},
+    {"type": "particles", "n": 200, "velocity": ["20+5*noise(x/40,z/40,0,1)", "0", "0"], "box": [[-200, 9, -150], [200, 16, 150]], "color": "water"},
+    {"type": "arrows", "vector": ["1", "0", "0.3*sin(x/60)"], "box": [[-160, 14, -120], [160, 14, 120]], "grid": [5, 1, 4], "color": "muted", "scale": 2},
+    {"type": "label", "text": "фронт {xf:m:0} м", "at": ["xf", "18", "0"]},
+    {"type": "column", "at": "picks", "value": "por(x,y,z)", "top": "bar(x,z)", "bottom": "-24", "min": 0, "max": 0.3, "good": "v>0.15"}
+  ],
+  "charts": [{"id": "c", "title": "Объём", "x": {"var": "t", "min": 0, "max": 6, "unit": "yr", "label": "Время"}, "lines": [{"expr": "V", "unit": "m3", "color": "water", "label": "объём"}]}, {"id": "d", "kind": "depth", "title": "Пористость", "x": {"var": "y", "min": -40, "max": 0, "unit": "m"}, "y": {"label": "kп"}, "lines": [{"expr": "por(150,y,0)", "unit": "%", "color": "POR", "label": "пористость"}], "cursor": "-30+20*T"}],
+  "steps": [
+    {"kind": "predict", "q": "Куда сместится бар?", "options": ["Вправо", "Влево"], "answer": 0, "why": "Его двигает поток."},
+    {"kind": "explore", "text": "Запустите время.", "use": ["time", "param:h", "chart:c", "read:xf"], "until": "T>0.95"},
+    {"kind": "guess", "id": "g1", "text": "Сколько метров пройдёт?", "min": 10, "max": 500, "unit": "m", "truth": "3*R"},
+    {"kind": "pick", "text": "Поставьте три скважины.", "n": 3, "target": "top", "score": "max(0,bar(x,z)+12)", "min_dist": 40},
+    {"kind": "choose", "id": "ch", "q": "Бар выше 14 м?", "options": [{"text": "Да", "correct": "h>14", "why": "Высота {h:m:0} м."}, {"text": "Нет", "correct": "h<=14", "why": "Высота {h:m:0} м."}]},
+    {"kind": "reveal", "text": "Разрез открыт.", "use": ["chart:d"], "camera": {"yaw": 8, "pitch": 16}}
+  ],
+  "claims": [{"id": "c1", "text": "Бары укрупняются вверх", "quote": "постепенным увеличением размера зерен кверху", "page": 35}],
+  "checks": [{"name": "бар положителен", "expr": "bar(xf,0)+14"}, {"name": "растёт", "expr": "V+1", "over": {"t": [0, 6]}}, {"name": "пористость > 0", "expr": "por(x,-10,0)", "over": {"x": [-200, 200]}}],
+  "assumptions": ["всё условно"], "exaggerations": ["высота ×2"],
+  "transfer": {"q": "А если поток сильнее?", "options": ["Дальше", "Ближе"], "answer": 0, "why": "Быстрее."}, "data_bridge": "Проверка."
+}

@@ -9,7 +9,7 @@ from glava_server.access import AccessGuard
 from glava_server.config import Settings
 from glava_server.errors import install_handlers
 from glava_server.guards import Guard
-from glava_server.routes import chapters, learn, library, runs, system
+from glava_server.routes import books, chapters, learn, library, runs, system
 from glava_server.services import build_services
 
 
@@ -29,6 +29,6 @@ def create_app(settings: Settings) -> FastAPI:
     app.add_middleware(AccessGuard, access=services.access)
     app.add_middleware(Guard, settings=settings)
     install_handlers(app)
-    for router in (learn.router, chapters.router, library.router, runs.router, system.router):
+    for router in (learn.router, books.router, chapters.router, library.router, runs.router, system.router):
         app.include_router(router)
     return app

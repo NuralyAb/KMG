@@ -25,6 +25,7 @@ const HINT: Partial<Record<RunCommand, string>> = {
   course: 'Страницы курса собираются из готовых файлов. Модель не нужна, бесплатно.',
   audit: 'Код сверит утверждения с цитатами и измерит, сколько внесённых ошибок он замечает. Бесплатно.',
   verify: 'Модель сверит каждое утверждение с цитатой и каждую фразу с утверждениями. Этап платный.',
+  simulation: 'Агент построит 3D-симулятор по этому шагу: замысел, модель, сцена, игра, проверка. Этап платный, потолок — 1,5 доллара по прайсу.',
   video: 'Один ролик по одному шагу: сценарий, кадры, озвучка, паспорт. Этап платный.',
 };
 
@@ -37,6 +38,8 @@ export function BuildDialog({ target, command, isOpen, onClose, nodes = [], onSt
   const [format, setFormat] = useState<'short' | 'wide'>('short');
   const [template, setTemplate] = useState('');
   const isVideo = command === 'video';
+  const isSimulation = command === 'simulation';
+  const [until, setUntil] = useState<'design' | 'all'>('design');
 
   const close = (): void => {
     start.reset();
@@ -49,6 +52,7 @@ export function BuildDialog({ target, command, isOpen, onClose, nodes = [], onSt
       command, chapter: target.id,
       ...(WITH_LIMIT.has(command) && typeof limit === 'number' ? { limit } : {}),
       ...(isVideo ? { node: node || nodes[0]?.id, format, template: template.trim() } : {}),
+      ...(isSimulation ? { node: nodes[0]?.id, ...(until === 'design' ? { until } : {}) } : {}),
     };
     start.mutate(body, {
       onSuccess: (run) => {
@@ -69,6 +73,10 @@ export function BuildDialog({ target, command, isOpen, onClose, nodes = [], onSt
           </div>
           {WITH_LIMIT.has(command) && (
             <NumberInput label="Только первые шаги" description="Пусто: вся глава" min={1} max={200} allowDecimal={false} value={limit} onChange={setLimit} />
+          )}
+          {isSimulation && (
+            <NativeSelect label="Докуда" value={until} onChange={(e) => setUntil(e.currentTarget.value === 'all' ? 'all' : 'design')}
+              data={[{ value: 'design', label: 'Только замысел: дёшево, можно посмотреть и решить' }, { value: 'all', label: 'До конца: сцена встанет в курс' }]} />
           )}
           {isVideo && (
             <>

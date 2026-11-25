@@ -8,11 +8,15 @@ import json
 import logging
 import os
 import random
+import re
+import shutil
+import subprocess
 from collections import Counter
 from collections.abc import Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
+from types import SimpleNamespace
 from typing import Any
 
 from glava.course.build import build_course
@@ -74,10 +78,12 @@ def load_chapter(chapter_id: str) -> Chapter:
         if own is None:
             raise LibraryError(f"главы {chapter_id} нет ни в chapters.json, ни в базе знаний")
         return load_library_chapter(chapter_id, own)
-    md = (ROOT / os.environ.get("GLAVA_BOOKS", registry["root"]) / info["file"]).read_text(encoding="utf-8")
+    # загруженные книги лежат в своей папке, файлы организаторов — в общей
+    texts, scans = (info["root"], info["root"]) if info.get("root") else (os.environ.get("GLAVA_BOOKS", registry["root"]), os.environ.get("GLAVA_PDFS", registry["pdf_root"]))
+    md = (ROOT / texts / info["file"]).read_text(encoding="utf-8-sig")
     units = parse_units(read_pages(md, [tuple(r) for r in info["pages"]]))
     return Chapter(chapter_id, info["prefix"], info["title"], info["book"], ROOT / "domain" / info["domain"], tuple(units), info["file"],
-                   ROOT / os.environ.get("GLAVA_PDFS", registry["pdf_root"]) / info["pdf"] if info.get("pdf") else None)
+                   ROOT / scans / info["pdf"] if info.get("pdf") else None)
 
 
 def load_library_chapter(chapter_id: str, info: Mapping[str, Any]) -> Chapter:
@@ -377,7 +383,8 @@ def build_site(chapter: Chapter) -> Path:
     work = chapter.work
     layer = read(work / "layer.json")
     out = build_course(layer, read_or(work / "routing.json", {"routes": []}), read_or(work / "tasks.json", {"tasks": []})["tasks"],
-                       read_or(work / "illustrations.json", {"illustrations": []})["illustrations"], ROOT / "out" / chapter.chapter_id, work / "pictures")
+                       read_or(work / "illustrations.json", {"illustrations": []})["illustrations"], ROOT / "out" / chapter.chapter_id, work / "pictures",
+                       simulations=work / "simulations.json")
     log.info("курс: %s", out / "index.html")
     return out
 
@@ -416,18 +423,41 @@ def build_video(chapter: Chapter, provider: Provider, node_id: str, kind: str, t
     write_metrics(chapter, "video", 1, replies, passport["audio_check"]["duration_s"])
 
 
+def build_simulation(chapter: Chapter, node_id: str, until: str | None) -> None:
+    """3D-симулятор по узлу слоя. Конвейер сцен — на Node.js, потолки расхода — simulators/agent/steps.json."""
+    if node_id not in {n["id"] for n in read(chapter.work / "layer.json")["nodes"]}:
+        raise SystemExit(f"в слое нет узла {node_id}")
+    program, folder = shutil.which("node"), ROOT / "simulators"
+    if program is None or not (folder / "node_modules").is_dir():
+        raise SystemExit("нужен Node.js 22; один раз выполните: cd simulators; npm ci")
+    job = re.sub(r"[^a-z0-9_]+", "_", node_id.lower())
+    state = folder / "jobs" / job / "state.json"
+    before = len(read_or(state, {}).get("spend", []))
+    command = [program, "agent/pipeline.mjs", job, "--chapter", chapter.chapter_id, "--node", node_id, *(["--to", until] if until else [])]
+    code = subprocess.run(command, cwd=folder, check=False).returncode  # noqa: S603 — аргументы проверены по слою
+    spent = [SimpleNamespace(input_tokens=s.get("in") or 0, output_tokens=s.get("out") or 0, cost_usd=s.get("usd") or 0)
+             for s in read_or(state, {}).get("spend", [])[before:]]
+    if spent:
+        write_metrics(chapter, "simulation", 1, spent)
+    if code:
+        raise SystemExit(code)
+    if not until:
+        build_site(chapter)
+
+
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
-    parser.add_argument("command", choices=["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video", "units", "extract", "audit", "verify"])
+    parser.add_argument("command", choices=["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video", "simulation", "units", "extract", "audit", "verify"])
     parser.add_argument("chapter")
     parser.add_argument("--limit", type=int, default=None, help="собрать только первые N узлов")
     parser.add_argument("--package", type=Path, default=None, help="папка чужого пакета для review")
     parser.add_argument("--vision", action="store_true", help="ненадёжные страницы в extract прочитать моделью по изображению (платно)")
     parser.add_argument("--mutants", action="store_true", help="verify: ещё и замерить, сколько внесённой порчи замечает проверяющая модель (платно)")
-    parser.add_argument("--node", help="узел для video")
+    parser.add_argument("--node", help="узел для video и simulation")
     parser.add_argument("--format", choices=["short", "wide"], default="short", help="формат ролика")
     parser.add_argument("--template", help="шаблон сцены ролика из доменного пакета")
+    parser.add_argument("--until", choices=["design"], help="simulation: остановиться после замысла")
     args = parser.parse_args()
     try:
         run(args, parser)
@@ -453,6 +483,11 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
         return
     if args.command == "course":
         build_site(chapter)
+        return
+    if args.command == "simulation":
+        if not args.node:
+            parser.error("укажите --node")
+        build_simulation(chapter, args.node, args.until)
         return
     provider = open_provider()
     if args.command == "review":

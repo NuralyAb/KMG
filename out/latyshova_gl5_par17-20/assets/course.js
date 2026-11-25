@@ -74,7 +74,7 @@
     document.body.classList.remove('locked');
     document.querySelector('.skip').inert = false;
     app.innerHTML = `<div class="bar"><button type="button" class="btn" data-menu aria-expanded="false" aria-controls="side">Путь</button><strong>${core.esc(s ? s.short_title : tab === '#/' ? C.title : label)}</strong></div><div class="shell"><aside class="side" id="side" aria-label="Путь по курсу">${ui.side(C, state, { tab, s })}</aside><main class="sheet" id="main" tabindex="-1">${s ? ui.step(C, s) : page(C, state)}</main></div>`;
-    if (s) { mountTasks(s); mountVideos(); }
+    if (s) { mountTasks(s); mountVideos(); window.Simulations?.mount(app); }
     const map = app.querySelector('.map');
     if (map) ui.mountMap(C, map);
     applyTheme();

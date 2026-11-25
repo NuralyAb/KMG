@@ -1,0 +1,14 @@
+{
+ "name": "trainers-3d",
+ "private": true,
+ "type": "module",
+ "scripts": {
+  "build": "node build.mjs",
+  "test": "node --test tests/models.test.mjs tests/compose.test.mjs tests/pipeline.test.mjs",
+  "course": "node build-course.mjs"
+ },
+ "dependencies": {
+  "esbuild": "0.24.0",
+  "three": "0.170.0"
+ }
+}

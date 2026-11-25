@@ -32,7 +32,7 @@ type ChapterCard = {
 type NodeRow = { id: string; order: number; title: string; short_title: string; difficulty: { primary: string; secondary: string | null }; threshold: boolean; pages: number[]; claims: number; tasks: number; format: string | null; needs_scan: number }
 type ChapterDetail = ChapterCard & { parts: { title: string; nodes: NodeRow[] }[] }
 type NodeDetail = { node: object /* узел layer.json как есть */; route: object | null; tasks: object[]; illustrations: object[]; prev: string | null; next: string | null }
-type Run = { id: string; command: 'build' | StageName | 'review' | 'video'; chapter: string; args: object; state: 'queued' | 'running' | 'done' | 'failed' | 'cancelled'; started_at: string | null; finished_at: string | null; exit_code: number | null; log_tail: string[] }
+type Run = { id: string; command: 'build' | StageName | 'review' | 'video' | 'simulation'; chapter: string; args: object; state: 'queued' | 'running' | 'done' | 'failed' | 'cancelled'; started_at: string | null; finished_at: string | null; exit_code: number | null; log_tail: string[] }
 type Remark = { target: string; category: string; severity: 'critical' | 'significant' | 'minor'; problem: string; fix: string; page_pdf: number | null; quote: string | null }
 type Review = { package_id: string; chapter: string | null; created_at: string; remarks: Remark[]; counts: { critical: number; significant: number; minor: number } }
 type Video = { id: string; chapter: string; title: string; format: '9:16' | '16:9'; duration_s: number; url: string; subtitles_url: string | null; passport: object; problems: string[] }
@@ -44,6 +44,10 @@ type MetricRow = { chapter: string; stage: string; nodes: number; llm_tokens_in:
 | Метод и путь | Ответ `data` |
 | --- | --- |
 | GET `/api/health` | `{status: "ok", provider: string, model: string, claude_found: boolean, ffmpeg_found: boolean}` |
+| GET `/api/books` | `{id, title, file, uploaded, has_pdf}[]` |
+| POST `/api/books` (форма: `file` md, `pdf`) | книга, 201 |
+| GET `/api/books/{id}` | книга, `sections: {id, title, level, first, last}[]`, `first_page`, `last_page`, `domains` |
+| POST `/api/books/{id}/chapters` `{title, pages: [[9, 14], [20, 30]], domain}` | `{id}`, 201 |
 | GET `/api/chapters` | `ChapterCard[]` |
 | GET `/api/chapters/{id}` | `ChapterDetail` |
 | GET `/api/chapters/{id}/nodes/{node_id}` | `NodeDetail` |
