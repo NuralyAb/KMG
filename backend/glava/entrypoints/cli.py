@@ -13,8 +13,10 @@ from glava.pipeline.steps.audit import build_audit
 from glava.pipeline.steps.course import build_site
 from glava.pipeline.steps.errata import build_errata
 from glava.pipeline.steps.extract import build_extract
+from glava.pipeline.steps.fact import apply_fact, show_fact
 from glava.pipeline.steps.illustrations import build_illustrations
 from glava.pipeline.steps.layer import build_layer
+from glava.pipeline.steps.passport import build_passport
 from glava.pipeline.steps.reports import build_process, build_ready, build_templates
 from glava.pipeline.steps.narration import build_narration
 from glava.pipeline.steps.review import build_review
@@ -35,7 +37,7 @@ from glava.shared.paths import workspace
 
 log = logging.getLogger("glava")
 COMMANDS = ["build", "errata", "layer", "routing", "tasks", "illustrations", "narrate", "course", "review", "video", "rebuild", "voices", "templates", "ready", "process",
-            "simulation", "units", "extract", "audit", "verify"]
+            "simulation", "units", "extract", "audit", "verify", "fact", "passport"]
 TRAINING = ("latyshova_gl5_par17-20", "basniev_gl23-24_1", "kuznetsov_gl10")
 
 
@@ -53,9 +55,10 @@ def main() -> None:
     parser.add_argument("--template", help="шаблон сцены ролика из доменного пакета")
     parser.add_argument("--spec", type=Path, help="video: собрать ролик из готовой спецификации, модель не нужна")
     parser.add_argument("--spec-only", action="store_true", help="video: только спецификация, без озвучки и рендера — для проверки ментором")
-    parser.add_argument("--accept", action="store_true", help="video --spec: фразы сверены с утверждениями, снять пометку «факт изменился»")
+    parser.add_argument("--accept", action="store_true", help="video --spec: фразы сверены с утверждениями, снять пометку «факт изменился»; fact --apply: число вне цитаты подтвердил человек")
     parser.add_argument("--voice", choices=["elevenlabs", "edge"], help="голос ролика; по умолчанию VOICE_PROVIDER")
     parser.add_argument("--until", choices=["design"], help="simulation: остановиться после замысла")
+    parser.add_argument("--apply", action="store_true", help="fact: разнести правку факта и пересобрать курс; без ключа только показать, что она задела")
     args = parser.parse_args()
     try:
         run(args, parser)
@@ -83,6 +86,8 @@ def run_reports(args: argparse.Namespace) -> bool:
 def run_video(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
     chapter = load_chapter(args.chapter)
     if args.command == "rebuild":
+        # число из исправленного утверждения сперва доходит до текста шага и заданий, потом до роликов
+        apply_fact(chapter, build=False, accept=True)
         rebuild(chapter, open_provider, args.node, args.voice)
     elif args.spec and args.accept:
         accept_spec(chapter, args.spec)
@@ -122,6 +127,11 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
         return
     if args.command == "narrate":
         build_narration(chapter)
+    if args.command == "fact":
+        apply_fact(chapter, accept=args.accept) if args.apply else show_fact(chapter)
+        return
+    if args.command == "passport":
+        build_passport(chapter)
         return
     if args.command == "simulation":
         if not args.node:

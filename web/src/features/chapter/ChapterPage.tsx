@@ -10,6 +10,8 @@ import { Facts } from '@/ui/bits';
 import { PageHeader } from '@/ui/PageHeader';
 import { QueryView } from '@/ui/states';
 import { BuildDialog } from '../runs/BuildDialog';
+import { FactTab } from '../fact/FactTab';
+import { PassportTab } from '../fact/PassportTab';
 import { BuildTab } from './BuildTab';
 import { CoverageTab } from './CoverageTab';
 import { ErrataTab } from './ErrataTab';
@@ -23,7 +25,7 @@ import './chapter.css';
 
 const TABS = [
   ['path', 'Путь'], ['coverage', 'Покрытие'], ['errata', 'Опечатки'], ['tasks', 'Задания'], ['pictures', 'Рисунки'],
-  ['videos', 'Ролики'], ['trust', 'Доверие'], ['build', 'Сборка'],
+  ['videos', 'Ролики'], ['trust', 'Доверие'], ['fact', 'Живой факт'], ['passport', 'Паспорт'], ['build', 'Сборка'],
 ] as const;
 type TabKey = (typeof TABS)[number][0];
 
@@ -84,6 +86,8 @@ function ChapterView({ chapter }: { chapter: ChapterDetail }) {
         <Tabs.Panel value="pictures"><PicturesTab id={chapter.id} /></Tabs.Panel>
         <Tabs.Panel value="videos"><VideosTab chapter={chapter} /></Tabs.Panel>
         <Tabs.Panel value="trust"><TrustTab chapter={chapter} /></Tabs.Panel>
+        <Tabs.Panel value="fact"><FactTab chapter={chapter} /></Tabs.Panel>
+        <Tabs.Panel value="passport"><PassportTab chapter={chapter} /></Tabs.Panel>
         <Tabs.Panel value="build"><BuildTab chapter={chapter} /></Tabs.Panel>
       </Tabs>
       <PublishDialog chapter={chapter} isOpen={isPublishing} onClose={() => setPublishing(false)} />

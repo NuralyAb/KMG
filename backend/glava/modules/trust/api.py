@@ -1,6 +1,6 @@
 """Публичный вход модуля: проверка слоя. Другие модули импортируют только отсюда."""
 
-from glava.modules.trust.audit import audit_layer
+from glava.modules.trust.audit import audit_layer, claim_flags
 from glava.modules.trust.entail import (
     CLAIM_GROUP,
     check_claims,
@@ -14,6 +14,7 @@ __all__ = [
     "CLAIM_GROUP",
     "audit_layer",
     "check_claims",
+    "claim_flags",
     "measure",
     "mutants",
     "source_of",

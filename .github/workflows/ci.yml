@@ -50,6 +50,9 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /backend/glava/modules/course/assets/
+            /backend/glava/modules/lab/assets/
+            /backend/tests/lab_ui/
+            /workspace/domain/geology/practice/
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "22"
@@ -58,6 +61,8 @@ jobs:
         run: |
           set -e
           for file in backend/glava/modules/course/assets/*.js; do node --check "$file"; done
+      - name: Тесты лаборатории
+        run: node --test backend/tests/lab_ui/*.test.js
 
   web:
     runs-on: ubuntu-24.04

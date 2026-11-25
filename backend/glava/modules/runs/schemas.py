@@ -6,7 +6,7 @@ from pydantic import ConfigDict, Field
 
 from glava.shared.http.dto import Model
 
-RunCommand = Literal["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video", "simulation", "extract", "audit", "verify"]
+RunCommand = Literal["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video", "simulation", "extract", "audit", "verify", "fact"]
 RunState = Literal["queued", "running", "done", "failed", "cancelled"]
 
 

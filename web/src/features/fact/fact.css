@@ -1,0 +1,14 @@
+.fact, .fact-editor, .fact-reach { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+.fact { margin-top: 16px; }
+.fact-editor > button { justify-self: start; }
+.fact-change { display: grid; gap: 8px; }
+.fact-change del { color: var(--app-muted); } .fact-change ins { text-decoration: none; font-weight: 600; }
+.fact-places { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+.fact-place { padding: 14px 16px; border: 1px solid var(--app-border); border-radius: var(--radius); background: var(--app-surface); }
+.fact-place:not([data-hit]) { opacity: .65; }
+.fact-place h4 { display: flex; justify-content: space-between; margin: 0 0 8px; }
+.fact-place ul, .fact-replaced ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; max-height: 280px; overflow: auto; }
+.fact-replaced code { color: var(--app-muted); font-size: 14px; }
+.fact-apply { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: 12px; align-items: end; }
+@media (max-width: 800px) { .fact-apply { grid-template-columns: minmax(0, 1fr); } }
+.passport-frame { width: 100%; height: 75vh; margin-top: 16px; border: 1px solid var(--app-border); border-radius: var(--radius); }
