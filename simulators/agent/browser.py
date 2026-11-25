@@ -89,7 +89,7 @@ with sync_playwright() as p:
                 e = pg.evaluate('([s,q])=>__t.load(s,q)', [spec, 100 + q]); pg.wait_for_timeout(250)
                 if e: issues.extend(e)
             if not mobile:
-                pg2 = open_page(b); pg2.evaluate('__t.cur.M.E.revealed=1;__t.cur.refresh();__t.cur.setK&&__t.cur.setK(.6)'); pg2.wait_for_timeout(900); pg2.add_style_tag(content='.lbl,.badge,#hint{visibility:hidden!important}')
+                pg2 = open_page(b); pg2.evaluate('__t.cur.setK(.5)'); pg2.wait_for_timeout(900); pg2.add_style_tag(content='.lbl,.badge,#hint{visibility:hidden!important}')
                 pg2.screenshot(path=str(job / 'thumb.png'), clip={'x': 40, 'y': 90, 'width': 780, 'height': 520}); pg2.close()
                 from PIL import Image
                 Image.open(job / 'thumb.png').convert('RGB').resize((480, 320)).save(job / 'thumb.webp', quality=80); res['thumb'] = str(job / 'thumb.webp')

@@ -12,8 +12,9 @@ const used = JSON.parse(fs.readFileSync('course.json', 'utf8'));
 for (const [chapter, steps] of Object.entries(used)) {
   const work = path.join(ROOT, 'work', chapter), dir = path.join(work, 'simulations');
   if (!fs.existsSync(path.join(work, 'layer.json'))) { console.log('пропуск, слоя нет:', chapter); continue; }
-  fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true });
-  const out = {};
+  fs.mkdirSync(dir, { recursive: true });
+  // сцены агента не трогаем, обновляем только свои
+  const cf = path.join(work, 'simulations.json'), out = {}, old = fs.existsSync(cf) ? JSON.parse(fs.readFileSync(cf, 'utf8')).steps : {};
   for (const [node, list] of Object.entries(steps)) out[node] = list.map(({ scene, as, claims }) => {
     const s = resolve(raw, scene), e = validate(s, [s.seed, 1, 2, 3, 4, 5]);
     if (e.length) throw new Error(`${scene}: ${e.join('; ')}`);
@@ -21,7 +22,8 @@ for (const [chapter, steps] of Object.entries(used)) {
     if (fs.existsSync(`tex/thumb_${scene}.webp`)) fs.copyFileSync(`tex/thumb_${scene}.webp`, path.join(dir, as + '.webp'));
     return { scene: as, claims };
   });
-  fs.writeFileSync(path.join(work, 'simulations.json'), JSON.stringify({ chapter, steps: out }, null, 1) + '\n');
+  for (const [node, list] of Object.entries(old)) { const a = list.filter(x => x.origin === 'agent'); if (a.length) out[node] = [...(out[node] || []), ...a]; }
+  fs.writeFileSync(cf, JSON.stringify({ chapter, steps: out }, null, 1) + '\n');
   console.log('✓', chapter, Object.values(out).flat().length, 'сцен');
 }
 

@@ -13,7 +13,7 @@ export const STAGE: Record<StageName, string> = {
 export const STAGE_STATE: Record<StageState, string> = { ready: 'готово', stale: 'устарело', missing: 'нет' };
 
 export const COMMAND: Record<RunCommand, string> = {
-  build: 'Вся сборка', ...STAGE, review: 'Проверка пакета', video: 'Ролик',
+  build: 'Вся сборка', ...STAGE, review: 'Проверка пакета', simulation: 'Симулятор', video: 'Ролик',
 };
 
 export const RUN_STATE: Record<RunState, string> = {

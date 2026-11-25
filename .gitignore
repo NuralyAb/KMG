@@ -23,5 +23,6 @@ work/*/videos/
 node_modules/
 simulators/dist/
 simulators/jobs/
+simulators/sims/
 web/dist/
 work/review_uploads/

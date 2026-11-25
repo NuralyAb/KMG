@@ -25,7 +25,8 @@ def bound_scene(scene: Mapping, claim_ids: list[str], claims: Mapping[str, Mappi
     if scene.get("provenance") not in LABELS:
         raise ValueError(f"симулятор {scene.get('id')}: метка происхождения не из списка")
     sources = [{"claim": claims[c]["text"], "page": claims[c]["page_pdf"], "claim_id": c} for c in claim_ids]
-    return {**scene, "sources": sources}
+    fresh = [{"id": c, "text": claims[c]["text"], "quote": claims[c]["quote"], "page": claims[c]["page_pdf"]} for c in claim_ids]
+    return {**scene, "sources": sources, **({"claims": fresh} if "claims" in scene else {})}
 
 
 def publish_simulations(layer: Mapping, config: Path, player: Path, out: Path) -> dict[str, dict[str, Any]]:

@@ -29,3 +29,16 @@ test('правка факта пересчитывает только завис
 test('в запросы попадает каталог', () => { const o = run('--plan'); for (const n of ['model', 'scene', 'game']) assert.ok(+new RegExp(n + '\\s+≈(\\d+)').exec(o)[1] > 900, o); });
 test('3D не нужен — конвейер честно останавливается', () => { w('facts', { fit_3d: false, why: 'хватит схемы', claims: cl }); const o = run('--from', 'facts', '--to', 'facts'); assert.match(o, /3D не нужен: хватит схемы/); w('facts', { fit_3d: true, why: 'x', claims: cl }); });
 test('до конца: кадры, прохождение, сдача', { skip: !process.env.FULL }, () => { const o = run('--from', 'facts'); assert.match(o, /Готово/, o); fs.rmSync('sims/' + job + '.json', { force: true }); fs.rmSync('sims/' + job + '.webp', { force: true }); spawnSync('node', ['build.mjs']); });
+
+test('по узлу слоя: факты без модели, готовая сцена встаёт на шаг', { skip: !process.env.FULL }, () => {
+  const W = path.join('..', 'work', 'zz_test_chapter'); fs.mkdirSync(W, { recursive: true });
+  try {
+    const cl2 = cl.map(c => ({ ...c, id: 'zz.node#' + c.id, page_pdf: 35, source_kind: 'text' }));
+    fs.writeFileSync(W + '/layer.json', JSON.stringify({ title: 'Глава', nodes: [{ id: 'zz.node', title: 'Узел', claims: cl2, layers: { main: { text: 'м' }, mechanism: { text: 'м' } } }] }));
+    const r = spawnSync('node', ['agent/pipeline.mjs', 'zz_node', '--chapter', 'zz_test_chapter', '--node', 'zz.node', '--fake', fake], { encoding: 'utf8', timeout: 400000 }), o = r.stdout + r.stderr;
+    assert.match(o, /утверждений из слоя, без модели/, o); assert.match(o, /привязано к шагу zz.node/, o);
+    const c = JSON.parse(fs.readFileSync(W + '/simulations.json', 'utf8')).steps['zz.node'][0];
+    assert.equal(c.origin, 'agent'); assert.deepEqual(c.claims, cl2.map(x => x.id)); assert.ok(fs.existsSync(W + '/simulations/zz_node.json'));
+  } finally { for (const d of [W, 'jobs/zz_node', 'sims/zz_node.json', 'sims/zz_node.webp']) fs.rmSync(d, { recursive: true, force: true, maxRetries: 5 }); }
+});
+test('узла нет в слое — отказ до траты', () => { const r = spawnSync('node', ['agent/pipeline.mjs', 'zz_no', '--chapter', 'zz_absent', '--node', 'zz.no'], { encoding: 'utf8' }); assert.notEqual(r.status, 0); fs.rmSync('jobs/zz_no', { recursive: true, force: true }); });

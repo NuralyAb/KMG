@@ -36,7 +36,7 @@ export interface RawNodeDetail {
 }
 
 export type RunState = 'queued' | 'running' | 'done' | 'failed' | 'cancelled';
-export type RunCommand = 'build' | StageName | 'review' | 'video';
+export type RunCommand = 'build' | StageName | 'review' | 'video' | 'simulation';
 
 export interface Run {
   id: string; command: RunCommand; chapter: string; args: Record<string, unknown>; state: RunState;
@@ -44,7 +44,7 @@ export interface Run {
 }
 
 export interface RunRequest {
-  command: RunCommand; chapter: string; limit?: number; node?: string; format?: 'short' | 'wide'; template?: string;
+  command: RunCommand; chapter: string; limit?: number; node?: string; format?: 'short' | 'wide'; template?: string; until?: 'design';
 }
 
 export const SEVERITIES = ['critical', 'significant', 'minor'] as const;

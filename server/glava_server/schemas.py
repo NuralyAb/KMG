@@ -6,7 +6,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 StageName = Literal["errata", "layer", "routing", "tasks", "illustrations", "course"]
 StageState = Literal["missing", "ready", "stale"]
-RunCommand = Literal["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video"]
+RunCommand = Literal["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video", "simulation"]
 RunState = Literal["queued", "running", "done", "failed", "cancelled"]
 Severity = Literal["critical", "significant", "minor"]
 TaskType = Literal["single", "multiple", "order", "gap", "calc"]
@@ -144,12 +144,13 @@ class Run(Model):
 class RunRequest(Model):
     model_config = ConfigDict(frozen=True, extra="forbid")
 
-    command: Literal["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "video"]
+    command: Literal["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "video", "simulation"]
     chapter: str = Field(min_length=1, max_length=200)
     limit: int | None = Field(default=None, ge=1, le=1000)
     node: str | None = Field(default=None, max_length=200)
     format: Literal["short", "wide"] | None = None
     template: str | None = Field(default=None, max_length=200)
+    until: Literal["design"] | None = None
 
 
 class Remark(Model):

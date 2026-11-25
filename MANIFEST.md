@@ -15,6 +15,7 @@
 | Курс | модели нет | `engine/glava/course` | локально | ничего | — |
 | Модуль проверки | Claude Sonnet | то же | облако Anthropic через Claude Code | чужой пакет и его кадры, текст страниц главы, чек-лист физики; `key.json` не копируется и не передаётся | то же |
 | Спецификация ролика | Claude Sonnet по умолчанию; первые пробы 25.11 — Claude Opus | `sonnet`; в пробах `claude-opus-5-5` | облако Anthropic через Claude Code | узел слоя, описание шаблона сцены, чек-лист физики | `LLM_MODEL` |
+| Агент симуляторов | Claude Sonnet | алиас `sonnet`; с настоящей моделью ещё не запускался | облако Anthropic через Claude Code | утверждения и цитаты узла слоя, кадры симулятора | `LLM_MODEL` или `simulators/agent/steps.json` |
 | Озвучка | онлайн-голос Microsoft | `ru-RU-DmitryNeural`, темп −6%; `edge-tts` 7.3.1 | облако Microsoft | только текст закадровых фраз | `VOICE` и `RATE` в `engine/glava/video/speech.py` |
 | Проверка дорожки | Whisper | `small`, int8, CPU; `faster-whisper` 1.2.1, `ctranslate2` 4.9.1 | локально | ничего; веса один раз скачиваются с Hugging Face | параметр `model_name` функции `recognise` в `engine/glava/video/check.py` |
 
@@ -37,6 +38,9 @@
 | edge-tts | 7.3.1 | клиент голоса Microsoft | текст закадровых фраз |
 | faster-whisper | 1.2.1 | распознавание готовой дорожки | нет |
 | numpy / onnxruntime / av (зависимости Whisper) | 2.5.5 / 1.32.0 / 19.0.2 | распознавание | нет |
+| Three.js | 0.170.0 | 3D-симуляторы курса | нет |
+| esbuild | 0.24.0 | сборка проигрывателя симуляторов | нет |
+| Playwright и Chrome | Playwright 1.64.1 | кадры и прохождение симулятора агентом | нет |
 | FFmpeg | 9.0.2 full build, gyan.dev | сборка видео и звука, замер громкости | нет |
 | KaTeX | 0.16.22 | формулы в курсе, лежит в репозитории | нет |
 | IBM Plex Sans | переменный шрифт, woff2 | текст курса, лежит в репозитории | нет |

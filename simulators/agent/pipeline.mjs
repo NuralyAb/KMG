@@ -1,5 +1,6 @@
 // Пошаговый конвейер: глава → симуляция. Каждый шаг — короткий вызов с чистым контекстом и машинной проверкой.
 // node agent/pipeline.mjs <задание> --book путь.md --pages 34-35 [--topic "…"]   создать и запустить
+// node agent/pipeline.mjs <задание> --chapter <глава> --node <узел>       по узлу учебного слоя: факты и цитаты берутся из слоя, без модели
 //   --plan        показать шаги и размер запросов, ничего не тратить
 //   --to design   остановиться после шага      --from scene   переделать с шага
 //   --critic      добавить независимого критика   --fake папка   подставные ответы вместо модели (для тестов)
@@ -15,6 +16,15 @@ const CFG = JSON.parse(fs.readFileSync(path.join(ROOT, 'agent', 'steps.json'), '
 const DIR = path.join(ROOT, 'jobs', job), F = n => path.join(DIR, n), rd = n => JSON.parse(fs.readFileSync(F(n), 'utf8')), wr = (n, o) => fs.writeFileSync(F(n), JSON.stringify(o, null, 1));
 fs.mkdirSync(F('shots'), { recursive: true });
 if (opt('book')) wr('job.json', { job, book: path.resolve(opt('book')), pages: opt('pages').split('-').map(Number), topic: opt('topic', 'выберите сами'), audience: 'ИТ-специалисты без геологии' });
+if (opt('node')) {
+  const layer = JSON.parse(fs.readFileSync(path.join(ROOT, '..', 'work', opt('chapter'), 'layer.json'), 'utf8')), n = layer.nodes.find(x => x.id === opt('node'));
+  if (!n) { console.error('в слое нет узла ' + opt('node')); process.exit(2); }
+  const cl = n.claims.filter(c => c.quote.length >= 12 && c.source_kind !== 'figure_description_model').slice(0, 16), pg = [...new Set(cl.map(c => c.page_pdf))].sort((a, b) => a - b);
+  if (cl.length < 3) { console.error('у узла меньше трёх утверждений с цитатами'); process.exit(2); }
+  fs.writeFileSync(F('source.md'), pg.map(p => `<!-- page ${p} -->\n` + cl.filter(c => c.page_pdf === p).map(c => c.quote).join('\n\n')).join('\n'));
+  wr('facts.json', { fit_3d: true, why: 'выбран узел слоя', idea: n.layers.main.text, mechanism: n.layers.mechanism.text, claims: cl.map(c => ({ id: c.id, text: c.text, quote: c.quote, page: c.page_pdf })), misconceptions: n.misconception ? [n.misconception.text] : [], examples: (n.worked_examples || []).slice(0, 2), terms: (n.glossary || []).map(g => g.term) });
+  wr('job.json', { job, chapter: opt('chapter'), node: n.id, book: F('source.md'), pages: [pg[0], pg[pg.length - 1]], topic: n.title, subtitle: layer.title, audience: 'ИТ-специалисты без геологии' });
+}
 const J = rd('job.json'), [pa, pb = pa] = J.pages;
 const parts = fs.readFileSync(J.book, 'utf8').split(/<!--\s*page\s+(\d+)\s*-->/), pages = {}; for (let i = 1; i < parts.length; i += 2) pages[+parts[i]] = parts[i + 1];
 let TEXT = ''; for (let p = pa; p <= pb; p++) TEXT += `\n=== стр. ${p}\n${(pages[p] || '').replace(/FORMAT \d[\s\S]*?KEYWORDS:[^\n]*/g, '[описание рисунка пропущено]').trim()}\n`;
@@ -31,7 +41,7 @@ const BASE = `Вы — шаг конвейера, который строит о
 const part = n => (fs.existsSync(F(n + '.json')) ? rd(n + '.json') : {});
 function assemble(over = {}) {
   const f = over.facts || part('facts'), d = over.design || part('design'), m = over.model || part('model'), s = over.scene || part('scene'), g = over.game || part('game');
-  return { template: 'compose', id: job, seed: 1, provenance: 'симуляция', node_id: d.node_id || job + '.node', subtitle: J.subtitle || '', ...pick(d, ['title', 'goal', 'intro', 'difficulty', 'misconception', 'why_3d', 'transfer', 'data_bridge', 'analogy']),
+  return { template: 'compose', id: job, seed: 1, provenance: 'симуляция', node_id: J.node || d.node_id || job + '.node', subtitle: J.subtitle || '', ...pick(d, ['title', 'goal', 'intro', 'difficulty', 'misconception', 'why_3d', 'transfer', 'data_bridge', 'analogy']),
     claims: f.claims || [], ...pick(m, ['params', 'tables', 'functions', 'states', 'vars', 'time', 'checks', 'examples']), ...pick(s, ['world', 'objects']), ...pick(g, ['steps', 'charts']),
     assumptions: [...(m.assumptions || []), ...(s.assumptions || [])], exaggerations: s.exaggerations || [] };
 }
@@ -49,9 +59,10 @@ JSON: {"fit_3d": true|false, "why": "что объём показывает лу
     gate: o => [...need(o, STEPS.facts.need), ...(o.claims && o.claims.length < 3 ? ['нужно не меньше трёх утверждений'] : []), ...quotes(o.claims)], stop: o => o.fit_3d === false && ('3D не нужен: ' + o.why) },
   design: { deps: ['facts'], need: ['title', 'goal', 'intro', 'node_id', 'difficulty', 'misconception', 'why_3d', 'decision', 'varies', 'storyboard', 'transfer', 'data_bridge', 'analogy'],
     prompt: () => `Шаг 2. Замысел, без формул. Ученик предполагает → действует → видит последствия. Решение должно менять ответ от случая к случаю (что варьируется — в varies).
+Если движение и объём ничего не добавляют к плоской схеме, верните только {"fit_3d":false,"why":"причина"}.
 JSON: {"title":"3–6 слов","goal":"одна фраза","intro":"1–2 фразы","node_id":"${job}.краткое_имя_латиницей","difficulty":{"primary":"М|В|И|Ф|П|Пр|Н|Р","secondary":null},"misconception":"…","why_3d":"не короче 25 знаков","decision":"что решает ученик и по каким признакам","varies":["что меняется между случаями"],"invisible":"что невидимое становится видимым","storyboard":["4–6 шагов: что на экране и что делает ученик"],"model_sketch":"какие величины и связи нужны, 3–6 штук","transfer":{"q":"","options":["",""],"answer":0,"why":""},"data_bridge":"как это выглядит в данных и что ломается","analogy":{"text":"ИТ-аналогия","breaks_where":""}}
 Факты: ${JSON.stringify(part('facts'))}`,
-    gate: o => [...need(o, STEPS.design.need), ...(o.why_3d && o.why_3d.length < 25 ? ['why_3d слишком короткое'] : [])] },
+    stop: o => o.fit_3d === false && ('3D не нужен: ' + o.why), gate: o => o.fit_3d === false && o.why ? [] : [...need(o, STEPS.design.need), ...(o.why_3d && o.why_3d.length < 25 ? ['why_3d слишком короткое'] : [])] },
   model: { deps: ['facts', 'design'], need: ['params', 'vars', 'checks', 'assumptions'],
     prompt: () => `Шаг 3. Модель: только величины, формулы и проверки физики. Без объектов и текстов. Простая: до 8 параметров, до 6 функций.
 Если процесс во времени — задайте time. Функции формы тел объявите здесь: top(x,z) и т. п. checks — не меньше трёх, каждая может нарушиться при ошибке (знак, порядок слоёв, баланс, предел).
@@ -81,6 +92,7 @@ ${cat('Графики', 'Игра')}
   critic: { deps: ['look'], optional: true, code: critic },
   finish: { deps: ['look'], code: finish },
 };
+if (J.node) STEPS.facts = { deps: [], code: async () => { const e = quotes(part('facts').claims); if (e.length) throw new Error('факты слоя: ' + e.join('; ')); ST.steps.facts = { key: 1 }; save(); console.log(`✓ facts: ${part('facts').claims.length} утверждений из слоя, без модели`); } };
 const ORDER = Object.keys(STEPS);
 // ---------- состояние: шаг повторяется, только если изменился его вход
 const ST = fs.existsSync(F('state.json')) ? rd('state.json') : { steps: {}, spend: [] }, save = () => wr('state.json', ST);
@@ -95,11 +107,11 @@ function ask(step, prompt, { images } = {}) {
   return new Promise((res, rej) => {
     const env = { ...process.env }; for (const k of Object.keys(env)) if (/^CLAUDECODE$|^CLAUDE_CODE_(?!GIT_BASH)/.test(k)) delete env[k];
     const cwd = F('sandbox'); fs.mkdirSync(cwd, { recursive: true });
-    const a = ['-p', '--output-format', 'json', '--model', c.model, '--system-prompt', BASE, '--setting-sources', '', '--strict-mcp-config', '--no-session-persistence', '--max-budget-usd', String(Math.min(c.budget_usd, CFG.total_budget_usd - spent())), '--tools', images ? 'Read' : '']; if (images) a.push('--allowedTools', 'Read', '--add-dir', F('shots')); if (c.effort) a.push('--effort', c.effort);
-    const t0 = Date.now(), p = spawn(process.platform === 'win32' ? 'claude.exe' : 'claude', a, { cwd, env }); let o = '', e = '', killed = false;
+    const a = ['-p', '--output-format', 'json', '--model', process.env.LLM_MODEL || c.model, '--system-prompt', BASE, '--setting-sources', '', '--strict-mcp-config', '--no-session-persistence', '--max-budget-usd', String(Math.min(c.budget_usd, CFG.total_budget_usd - spent())), '--tools', images ? 'Read' : '']; if (images) a.push('--allowedTools', 'Read', '--add-dir', F('shots')); if (c.effort) a.push('--effort', c.effort);
+    const t0 = Date.now(), p = spawn(process.env.CLAUDE_EXE || (process.platform === 'win32' ? 'claude.exe' : 'claude'), a, { cwd, env }); let o = '', e = '', killed = false;
     const timer = setTimeout(() => { killed = true; p.kill(); }, c.timeout_min * 60000);
     p.stdout.on('data', d => (o += d)); p.stderr.on('data', d => (e += d)); p.on('error', x => { clearTimeout(timer); rej(x); }); p.stdin.end(prompt);
-    p.on('close', () => { clearTimeout(timer); let j = {}; try { j = JSON.parse(o); } catch { } ST.spend.push({ step, model: c.model, minutes: +((Date.now() - t0) / 60000).toFixed(1), usd: j.total_cost_usd, out: j.usage && j.usage.output_tokens, stopped: killed || undefined }); save(); if (killed) return rej(new Error(`шаг ${step}: вышло время ${c.timeout_min} мин`)); if (j.is_error || j.result === undefined) return rej(new Error(`шаг ${step}: ${(j.result || j.subtype || e || o).toString().slice(0, 300)}`)); res({ text: j.result, usd: j.total_cost_usd }); });
+    p.on('close', () => { clearTimeout(timer); let j = {}; try { j = JSON.parse(o); } catch { } ST.spend.push({ step, model: c.model, minutes: +((Date.now() - t0) / 60000).toFixed(1), usd: j.total_cost_usd, in: j.usage && (j.usage.input_tokens || 0) + (j.usage.cache_read_input_tokens || 0) + (j.usage.cache_creation_input_tokens || 0), out: j.usage && j.usage.output_tokens, stopped: killed || undefined }); save(); if (killed) return rej(new Error(`шаг ${step}: вышло время ${c.timeout_min} мин`)); if (j.is_error || j.result === undefined) return rej(new Error(`шаг ${step}: ${(j.result || j.subtype || e || o).toString().slice(0, 300)}`)); res({ text: j.result, usd: j.total_cost_usd }); });
   });
 }
 const json = t => { const a = t.indexOf('{'), b = t.lastIndexOf('}'); return JSON.parse(t.slice(a, b + 1)); };
@@ -120,6 +132,7 @@ const tool = (...a) => { const r = spawnSync('node', [path.join(ROOT, 'agent', '
 const build = () => fs.writeFileSync(F('sim.json'), JSON.stringify(assemble(), null, 1));
 function shots() { const n = part('game').steps.length, out = []; for (const a of [['--step', '1', '--t', '0.5'], ['--step', String(n - 1), '--reveal', '--t', '1'], ['--step', String(n - 1), '--reveal', '--t', '1', '--mobile']]) { const t = tool('look', ...a); try { out.push(json(t)); } catch { throw new Error('look: ' + t.slice(0, 300)); } } return out; }
 async function look() {
+  if (!fs.existsSync(path.join(ROOT, 'dist', 'тренажёры.html'))) spawnSync('node', ['build.mjs'], { cwd: ROOT, stdio: 'ignore' });
   build(); const t = tool('check'); if (!t.includes('ОК: ошибок нет')) throw new Error('полная проверка: ' + t.slice(0, 500));
   const c = { ...CFG.default, ...CFG.steps.look };
   for (let k = 0; k <= c.retries; k++) {
@@ -132,7 +145,14 @@ async function look() {
   ST.steps.look = { key: 1 }; save();
 }
 async function critic() { const r = await ask('critic', `Независимая проверка. Ищите, где симуляция врёт или учит неверному: усиление автора, знак, причинность, порядок слоёв, угадываемость. Ответ JSON: {"verdict":"принять|доработать|отклонить","issues":[{"level":"критическая|существенная|мелкая","where":"","what":"","fix":"","page":0}]}. Нет проблем — пустой список.\nСцена: ${JSON.stringify(assemble())}\nГлава: ${TEXT}`); wr('critic.json', json(r.text)); ST.steps.critic = { key: 1 }; save(); console.log('✓ critic: ' + json(r.text).verdict); }
-async function finish() { if (fs.existsSync(F('critic.json')) && has('critic') && rd('critic.json').issues.some(i => i.level === 'критическая')) throw new Error('критик нашёл критическую ошибку, смотрите critic.json'); const p = tool('play'); if (!/"ok": true/.test(p)) throw new Error('play: ' + p.slice(-500)); const t = tool('finish'); if (!t.includes('Готово')) throw new Error(t); spawnSync('node', ['build.mjs'], { cwd: ROOT, stdio: 'ignore' }); ST.steps.finish = { key: 1 }; save(); console.log('✓ ' + t.trim()); }
+// Готовая сцена встаёт на шаг курса: work/<глава>/simulations
+function attach() {
+  const work = path.join(ROOT, '..', 'work', J.chapter), dir = path.join(work, 'simulations'), cf = path.join(work, 'simulations.json'), s = rd('sim.json'); fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, job + '.json'), JSON.stringify(s, null, 1) + '\n'); if (fs.existsSync(F('thumb.webp'))) fs.copyFileSync(F('thumb.webp'), path.join(dir, job + '.webp'));
+  const c = fs.existsSync(cf) ? JSON.parse(fs.readFileSync(cf, 'utf8')) : { chapter: J.chapter, steps: {} }, list = (c.steps[J.node] || []).filter(x => x.scene !== job);
+  c.steps[J.node] = [...list, { scene: job, claims: s.claims.map(x => x.id), origin: 'agent' }]; fs.writeFileSync(cf, JSON.stringify(c, null, 1) + '\n'); console.log('привязано к шагу ' + J.node);
+}
+async function finish() { if (fs.existsSync(F('critic.json')) && has('critic') && rd('critic.json').issues.some(i => i.level === 'критическая')) throw new Error('критик нашёл критическую ошибку, смотрите critic.json'); const p = tool('play'); if (!/"ok": true/.test(p)) throw new Error('play: ' + p.slice(-500)); const t = tool('finish'); if (!t.includes('Готово')) throw new Error(t); if (J.node) attach(); spawnSync('node', ['build.mjs'], { cwd: ROOT, stdio: 'ignore' }); ST.steps.finish = { key: 1 }; save(); console.log('✓ ' + t.trim()); }
 
 // ---------- запуск
 if (has('plan')) { console.log(`Страницы ${pa}–${pb}, текст ≈${tokens(TEXT)} токенов. Потолок всего ${CFG.total_budget_usd} (условных $).`); for (const n of ORDER) { const c = { ...CFG.default, ...CFG.steps[n] }; console.log(`${n.padEnd(8)} ${STEPS[n].prompt ? '≈' + tokens(STEPS[n].prompt()) + ' ток. (без ещё не готовых частей)' : STEPS[n].code === finish ? 'код, без модели' : 'код + модель'}  ${STEPS[n].code === finish ? '' : c.model + ', до ' + c.timeout_min + ' мин, попыток ' + (c.retries + 1)}${STEPS[n].optional ? '  (по желанию)' : ''}`); } process.exit(0); }
