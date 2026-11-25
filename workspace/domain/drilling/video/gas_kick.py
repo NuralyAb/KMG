@@ -142,8 +142,8 @@ def _bore(ctx: cairo.Context, box: tuple[float, float, float, float], params: Ma
     fill_rect(ctx, x, at(params["depth"] * 0.93), w, height * 0.13, style["lithology"]["sand"]["color"])
     fill_rect(ctx, axis - half, top, 2 * half, height, style["fluids"]["mud"]["color"])
     for side in (-1, 1):
-        fill_rect(ctx, axis + side * half - 5, top, 10, at(params["casing"]) - top, style["steel"]["color"])
-    fill_rect(ctx, axis - half * 0.3, top, half * 0.6, height * 0.97, style["steel"]["color"], 0.9)
+        fill_rect(ctx, axis + side * half - 5, top, 10, at(params["casing"]) - top, style["wellbore"]["steel"]["color"])
+    fill_rect(ctx, axis - half * 0.3, top, half * 0.6, height * 0.97, style["wellbore"]["drillpipe"]["color"], 0.9)
     y1, y2 = at(now["top"]), at(now["bottom"])
     if y2 - y1 < 14:
         y1 = y2 - 14
