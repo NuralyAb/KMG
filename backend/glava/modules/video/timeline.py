@@ -25,7 +25,8 @@ def place(beats: Sequence[Mapping[str, Any]], speeches: Sequence[Speech]) -> tup
     clock = LEAD
     for beat, speech in zip(beats, speeches, strict=True):
         placed = [*placed, Placed(beat, clock, clock + speech.duration, speech)]
-        clock += speech.duration + GAP + float(beat.get("pause_after") or 0)
+        # пауза на предсказание заменяет обычный зазор, а не добавляется к нему: ТЗ требует 1–1,5 с тишины
+        clock += speech.duration + (float(beat.get("pause_after") or 0) or GAP)
     return placed, clock - GAP + FINAL_HOLD
 
 

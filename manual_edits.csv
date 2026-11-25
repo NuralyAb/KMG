@@ -1,2 +1,4 @@
 time,chapter,file,what_changed,person_minutes,people,run_no,reason
 2026-11-26T02:35,latyshova_gl5_par17-20,workspace/work/latyshova_gl5_par17-20/video_specs/latyshova_mud_effects_on_borehole_short.json,спецификация шортса написана ИИ-ассистентом в сессии а не командой video,0,0,1,"проверить озвучку и рендер без платного вызова модели; минуты человека не замерялись"
+2026-11-26T04:20,latyshova_gl5_par17-20,workspace/work/latyshova_gl5_par17-20/video_specs/latyshova_gnk_by_neutron_short.json,"проницаемость верхнего газового пласта 0,25 -> 0,35: иначе зона не расформировывалась к фразе о стабилизации",2,1,1,"проверка спецификации до рендера ИИ-ассистентом"
+2026-11-26T04:25,latyshova_gl5_par17-20,workspace/work/latyshova_gl5_par17-20/video_specs/latyshova_radial_gradient_and_dynamic_short.json,"убраны линия контакта без объяснения и фраза о масштабе: ролик длиннее 90 с",2,1,1,"проверка ролика по стандарту ТЗ ИИ-ассистентом"

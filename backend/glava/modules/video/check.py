@@ -15,7 +15,9 @@ from glava.shared.evidence import unsupported_numbers
 MAX_SAY_WORDS = 18
 MAX_SCREEN_WORDS = 8
 MIN_PAUSE, MAX_PAUSE = 1.0, 1.5
-MIN_CAPTION_S, MAX_STILL_S = 1.5, 8.0
+MIN_CAPTION_S, MAX_STILL_S = 1.5, 5.0
+HOOK_WORDS = 8
+MAX_STILL_BEATS = 1
 FIRST, LAST = "hook", "transfer"
 # frame — фраза о самой картинке (масштаб, что где нарисовано): факта главы в ней нет
 NOT_FACTS = {"hook", "prediction", "transfer", "frame"}
@@ -45,12 +47,29 @@ def script_errors(spec: Mapping[str, Any], node: Mapping[str, Any]) -> list[str]
     beats = spec["beats"]
     errors = [e for i, b in enumerate(beats, start=1) for e in _beat_errors(b, i, claims, source)]
     roles = [b["role"] for b in beats]
+    opening = re.split(r"(?<=[.!?])\s+", beats[0]["say"].strip())[0]
+    if "?" not in opening or len(opening.split()) > HOOK_WORDS:
+        errors.append(f"крючок: первое предложение — вопрос не длиннее {HOOK_WORDS} слов, он должен прозвучать за 3 секунды")
     errors += ["первая фраза — крючок (hook) с вопросом"] if roles[0] != FIRST or "?" not in beats[0]["say"] else []
     errors += ["последняя фраза — вопрос на перенос (transfer)"] if roles[-1] != LAST or "?" not in beats[-1]["say"] else []
     guesses = [b for b in beats if b["role"] == "prediction"]
     if len(guesses) != 1 or not MIN_PAUSE <= float(guesses[0].get("pause_after") or 0) <= MAX_PAUSE:
         errors.append(f"нужна одна фраза prediction с паузой {MIN_PAUSE}–{MAX_PAUSE} с")
     errors += [f"поле {k} пустое" for k in REQUIRED_LISTS if not spec.get(k)]
+    return errors
+
+
+def motion_errors(beats: Sequence[Mapping[str, Any]], initial: Mapping[str, float]) -> list[str]:
+    """Сцена движется с первой фразы и не стоит дольше одной фразы подряд; действие, которое ничего не меняет, движением не считается."""
+    state, still, errors = dict(initial), 0, []
+    for number, beat in enumerate(beats, start=1):
+        moved = any(abs(float(v) - state.get(k, 0.0)) > 1e-6 for k, v in beat["action"].items())
+        state = {**state, **{k: float(v) for k, v in beat["action"].items()}}
+        still = 0 if moved or beat["role"] == "prediction" else still + 1
+        if number == 1 and not moved:
+            errors.append("фраза 1: в кадре ничего не движется, крючку нужно действие")
+        elif still > MAX_STILL_BEATS and number < len(beats):
+            errors.append(f"фраза {number}: вторая фраза подряд без движения в сцене")
     return errors
 
 
@@ -107,7 +126,8 @@ def pace_problems(placed: Sequence[Placed], total: float) -> list[str]:
     ends = [*(p.start for p in placed[1:]), total]
     shown = [(i, end - p.start, p) for i, (p, end) in enumerate(zip(placed, ends, strict=True), start=1)]
     short = [f"фраза {i}: подпись на экране {s:.1f} с, нужно {MIN_CAPTION_S}" for i, s, _ in shown if s < MIN_CAPTION_S]
-    return short + [f"фраза {i}: {s:.0f} с без движения в сцене" for i, s, p in shown[:-1] if s > MAX_STILL_S and not p.beat["action"]]
+    still = [(i, s) for i, s, p in shown[:-1] if s > MAX_STILL_S and not p.beat["action"] and p.beat["role"] != "prediction"]
+    return short + [f"фраза {i}: {s:.0f} с без движения в сцене, нужно до {MAX_STILL_S:.0f}" for i, s in still]
 
 
 def loudness(audio: Path) -> float:

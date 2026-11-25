@@ -10,10 +10,10 @@ import cairo
 from glava.sdk.video import arrow, dot, fill_rect, polygon, polyline, text, wrap
 from glava.sdk.video import LAYOUTS
 
-SUMMARY = """well_tool_curve — вертикальный разрез со скважиной: слои, ствол, корка, проникновение фильтрата, прибор едет снизу вверх и пишет кривые, вычисленные из тех же слоёв. params: {"depth_top":м,"depth_bottom":м,"depth_tick":м,"tool_resolution_m":0.3,"layers":[сверху вниз {"top":м,"bottom":м,"lith":"sand|shale|limestone|dolomite|dense|salt|anhydrite","label":"до 14 знаков","fluid":"oil|gas|water" или null,"permeable":true|false,"wall":диаметр стенки в долях долота (1.0 номинал, больше 1 — каверна),"cake":толщина корки с каждой стороны в долях долота (0, если нет),"props":{"GR":число,…}}],"curves":[{"key":"CALIPER|GR|RES|SP|NEUTRON|DENSITY|SONIC","prop":"d или ключ props","label":"до 12 знаков","unit":"","min":0,"max":1}]}. Для CALIPER prop всегда "d": диаметр считает код как wall − 2·cake. 1–2 кривые. Глубины и числа условные, если их нет в утверждениях: тогда их не произносят. Действия: tool (глубина прибора, едет снизу вверх), cake 0..1, invasion 0..1, flow 0..1 (стрелки фильтрата), nominal 0..1 (линия номинального диаметра), focus (номер слоя с 1, 0 — снять), true_scale 0..1 (врезка в истинном масштабе)."""
+SUMMARY = """well_tool_curve — вертикальный разрез со скважиной: слои, ствол, корка, проникновение фильтрата, прибор едет снизу вверх и пишет кривые, вычисленные из тех же слоёв. params: {"depth_top":м,"depth_bottom":м,"depth_tick":м,"tool_resolution_m":0.3,"layers":[сверху вниз {"top":м,"bottom":м,"lith":"sand|shale|limestone|dolomite|dense|salt|anhydrite","label":"до 14 знаков","fluid":"oil|gas|water" или null,"permeable":true|false,"wall":диаметр стенки в долях долота (1.0 номинал, больше 1 — каверна),"cake":толщина корки с каждой стороны в долях долота (0, если нет),"props":{"GR":число,…}}],"curves":[{"key":"CALIPER|GR|RES|SP|NEUTRON|DENSITY|SONIC","prop":"d или ключ props","label":"до 12 знаков","unit":"","min":0,"max":1}]}. Для CALIPER prop всегда "d": диаметр считает код как wall − 2·cake. Необязательное "show_drilling": true — ролик начинается с бурения: долото проходит интервал, потом инструмент поднимают, и только после этого идёт прибор. 1–2 кривые. Глубины и числа условные, если их нет в утверждениях: тогда их не произносят. Действия: drill 0..1 (долото проходит интервал, только с show_drilling), pull 0..1 (подъём бурильного инструмента), washout 0..1 (каверны разрастаются; без show_drilling они есть сразу), tool (глубина прибора, едет снизу вверх), cake 0..1, invasion 0..1, flow 0..1 (стрелки фильтрата), nominal 0..1 (линия номинального диаметра), focus (номер слоя с 1, 0 — снять), true_scale 0..1 (врезка в истинном масштабе)."""
 STATE_MODEL = "слои с диаметром стенки, коркой и свойствами; ствол и кривые считаются из них по глубине прибора"
 FITS = ("ствол", "корк", "фильтрат|проникновен", "прибор|зонд", "диаметр", "диаграмм|кривая|кривой")
-ACTIONS = {"tool", "cake", "invasion", "flow", "nominal", "focus", "true_scale"}
+ACTIONS = {"drill", "pull", "washout", "tool", "cake", "invasion", "flow", "nominal", "focus", "true_scale"}
 SEALED = {"shale", "salt", "anhydrite", "dense"}
 STEP_M = 0.05
 REAL_BIT_M = 0.2
@@ -43,6 +43,16 @@ def check(params: Mapping[str, Any], beats: Sequence[Mapping[str, Any]]) -> list
         if c["key"] == "CALIPER" and c["prop"] != "d":
             issues.append("CALIPER считается только из d")
     issues += [f"действия {k} у шаблона нет" for b in beats for k in b["action"] if k not in ACTIONS]
+    if params.get("show_drilling"):
+        done = {"drill": 0.0, "pull": 0.0}
+        for b in beats:
+            done = {**done, **{k: b["action"][k] for k in done if k in b["action"]}}
+            if b["action"].get("pull", 0) > 0 and done["drill"] < 1:
+                issues.append("pull: сначала добурите интервал (drill 1)")
+            if "tool" in b["action"] and done["pull"] < 1:
+                issues.append("tool: сначала поднимите бурильный инструмент (pull 1)")
+    elif any(k in b["action"] for b in beats for k in ("drill", "pull")):
+        issues.append("drill и pull работают только с show_drilling")
     tools = [b["action"]["tool"] for b in beats if "tool" in b["action"]]
     if any(b > a for a, b in zip(tools, tools[1:], strict=False)) or any(not params["depth_top"] <= v <= params["depth_bottom"] for v in tools):
         issues.append("прибор едет снизу вверх внутри интервала")
@@ -50,7 +60,8 @@ def check(params: Mapping[str, Any], beats: Sequence[Mapping[str, Any]]) -> list
 
 
 def initial(params: Mapping[str, Any]) -> dict[str, float]:
-    return {"tool": params["depth_bottom"], "cake": 0.0, "invasion": 0.0, "flow": 0.0, "nominal": 0.0, "focus": 0.0, "true_scale": 0.0}
+    ready = 0.0 if params.get("show_drilling") else 1.0
+    return {"drill": ready, "pull": ready, "washout": ready, "tool": params["depth_bottom"], "cake": 0.0, "invasion": 0.0, "flow": 0.0, "nominal": 0.0, "focus": 0.0, "true_scale": 0.0}
 
 
 def plaque(params: Mapping[str, Any], kind: str) -> str:
@@ -73,19 +84,20 @@ def _smooth(params: Mapping[str, Any], depth: float, value: Any, window: float) 
     return sum(value(_layer(params, d)) for d in inside) / len(inside)
 
 
-def wall(params: Mapping[str, Any], depth: float) -> float:
-    return _smooth(params, depth, lambda x: x["wall"], 0.4)
+def wall(params: Mapping[str, Any], depth: float, washout: float = 1.0) -> float:
+    """Диаметр стенки: каверна растёт от номинала, пока раствор вымывает породу."""
+    return _smooth(params, depth, lambda x: 1 + (x["wall"] - 1) * washout if x["wall"] > 1 else x["wall"], 0.4)
 
 
 def cake(params: Mapping[str, Any], depth: float, grown: float) -> float:
     return grown * _smooth(params, depth, lambda x: x.get("cake") or 0.0, 0.3)
 
 
-def measured(params: Mapping[str, Any], curve: Mapping[str, Any], depth: float, grown: float) -> float:
+def measured(params: Mapping[str, Any], curve: Mapping[str, Any], depth: float, grown: float, washout: float = 1.0) -> float:
     """Показание прибора: свойство модели, усреднённое по разрешению прибора."""
     window = params.get("tool_resolution_m", 0.3)
     if curve["prop"] == "d":
-        return wall(params, depth) - 2 * cake(params, depth, grown)
+        return wall(params, depth, washout) - 2 * cake(params, depth, grown)
     return _smooth(params, depth, lambda x: x["props"][curve["prop"]], window)
 
 
@@ -155,18 +167,22 @@ def _pores(ctx: cairo.Context, params: Mapping[str, Any], state: Mapping[str, fl
 def _bore(ctx: cairo.Context, params: Mapping[str, Any], state: Mapping[str, float], t: float, x: float, w: float, at: Any, style: Mapping[str, Any]) -> None:
     axis, half = _geometry(x, w)
     top, bottom = params["depth_top"], params["depth_bottom"]
-    grid = [top + i * STEP_M for i in range(int((bottom - top) / STEP_M) + 1)]
+    reached = top + (bottom - top) * state["drill"]
+    grid = [top + i * STEP_M for i in range(int((reached - top) / STEP_M) + 1)]
 
     def outline(width: Any) -> list[tuple[float, float]]:
         return [(axis - half * width(d), at(d)) for d in grid] + [(axis + half * width(d), at(d)) for d in reversed(grid)]
 
-    polygon(ctx, outline(lambda d: wall(params, d)), style["lithology"]["shale"]["color"])
-    polygon(ctx, outline(lambda d: wall(params, d)), "#0F1419", 0.2)
-    polygon(ctx, outline(lambda d: wall(params, d) - 2 * cake(params, d, state["cake"])), style["fluids"]["mud"]["color"])
+    washed = state["washout"]
+    polygon(ctx, outline(lambda d: wall(params, d, washed)), style["lithology"]["shale"]["color"])
+    polygon(ctx, outline(lambda d: wall(params, d, washed)), "#0F1419", 0.2)
+    polygon(ctx, outline(lambda d: wall(params, d, washed) - 2 * cake(params, d, state["cake"])), style["fluids"]["mud"]["color"])
     rng = random.Random(7)
     for _ in range(70):
-        depth = top + ((rng.random() + t * 0.02) % 1) * (bottom - top)
-        dot(ctx, axis + (rng.random() - 0.5) * half * 1.5, at(depth), 2.5, "#ECEFF4", 0.25)
+        # при бурении раствор поднимается по затрубью и выносит шлам
+        place, side, spread = rng.random(), rng.choice((-1, 1)), rng.random()
+        depth = top + ((place - t * 0.12) % 1 if state["pull"] < 0.05 else place) * (reached - top)
+        dot(ctx, axis + side * half * (0.42 + 0.42 * spread), at(depth), 3.5 if state["pull"] < 0.05 else 2.5, "#ECEFF4", 0.45 if state["pull"] < 0.05 else 0.25)
     if state["nominal"] > 0.01:
         for side in (-1, 1):
             polyline(ctx, [(axis + side * half, at(top)), (axis + side * half, at(bottom))], style["text"], 3, 0.9 * state["nominal"], (14, 10))
@@ -176,19 +192,49 @@ def _bore(ctx: cairo.Context, params: Mapping[str, Any], state: Mapping[str, flo
                 y = at(layer["top"] + (layer["bottom"] - layer["top"]) * share)
                 for side in (-1, 1):
                     arrow(ctx, axis + side * half * 0.5, y, axis + side * half * 2.1, y, style["fluids"]["filtrate"]["color"], 7, state["flow"])
-    _tool(ctx, params, state, axis, half, at, style)
+    if state["pull"] < 0.99:
+        _string(ctx, params, state, t, axis, half, at, style)
+    else:
+        _tool(ctx, params, state, axis, half, at, style)
+
+
+def _string(ctx: cairo.Context, params: Mapping[str, Any], state: Mapping[str, float], t: float, axis: float, half: float, at: Any, style: Mapping[str, Any]) -> None:
+    """Бурильные трубы с замками и шарошечное долото; трубы вращаются, пока долото идёт вниз."""
+    top, bottom = params["depth_top"], params["depth_bottom"]
+    nose = at(top + (bottom - top) * state["drill"]) - (at(bottom) - at(top) + 160) * state["pull"]
+    ceiling, steel = at(top) - 200, "#B8C2CC"
+    fill_rect(ctx, axis - half * 0.26, ceiling, half * 0.52, nose - 64 - ceiling, steel)
+    fill_rect(ctx, axis - half * 0.26, ceiling, half * 0.14, nose - 64 - ceiling, "#0F1419", 0.18)
+    joint = nose - 180
+    while joint > ceiling:
+        fill_rect(ctx, axis - half * 0.36, joint, half * 0.72, 40, "#97A3AF", radius=6)
+        joint -= 260
+    fill_rect(ctx, axis - half * 0.5, nose - 100, half, 46, "#6B7783", radius=6)
+    turning = state["pull"] < 0.02 and state["drill"] < 0.999
+    for k in range(3):
+        shift = math.sin(t * 7 + k * 2.094) if turning else (k - 1)
+        polygon(ctx, [(axis - half * 0.95 + k * half * 0.62, nose - 56), (axis - half * 0.3 + k * half * 0.62, nose - 56), (axis - half * 0.62 + k * half * 0.62 + shift * 6, nose)], "#4C5661")
+        for tooth in range(3):
+            dot(ctx, axis - half * 0.8 + k * half * 0.62 + tooth * half * 0.17 + shift * 5, nose - 40 + tooth % 2 * 14, 5, "#D5DCE3")
 
 
 def _tool(ctx: cairo.Context, params: Mapping[str, Any], state: Mapping[str, float], axis: float, half: float, at: Any, style: Mapping[str, Any]) -> None:
     y, color = at(state["tool"]), style["measurement"]["color"]
-    polyline(ctx, [(axis, at(params["depth_top"])), (axis, y - 60)], style["text"], 4)
-    fill_rect(ctx, axis - 13, y - 62, 26, 124, "#39424D", radius=12)
-    fill_rect(ctx, axis - 13, y - 10, 26, 20, color)
+    # бронированный кабель, кабельная головка, корпус, окно датчика
+    polyline(ctx, [(axis, at(params["depth_top"])), (axis, y - 100)], "#97A3AF", 6)
+    polyline(ctx, [(axis, at(params["depth_top"])), (axis, y - 100)], "#39424D", 2, 1.0, (6, 6))
+    polygon(ctx, [(axis - 7, y - 104), (axis + 7, y - 104), (axis + 15, y - 84), (axis - 15, y - 84)], "#6B7783")
+    fill_rect(ctx, axis - 15, y - 86, 30, 152, "#8793A0", radius=8)
+    fill_rect(ctx, axis - 15, y - 86, 9, 152, "#FFFFFF", 0.18, 4)
+    for ring in (-70, 34):
+        fill_rect(ctx, axis - 17, y + ring, 34, 8, "#4C5661", radius=2)
+    fill_rect(ctx, axis - 11, y - 10, 22, 22, color, radius=4)
+    polygon(ctx, [(axis - 15, y + 64), (axis + 15, y + 64), (axis, y + 84)], "#6B7783")
     if any(c["key"] == "CALIPER" for c in params["curves"]):
-        reach = half * (wall(params, state["tool"]) - 2 * cake(params, state["tool"], state["cake"]))
+        reach = half * (wall(params, state["tool"], state["washout"]) - 2 * cake(params, state["tool"], state["cake"]))
         for side in (-1, 1):
-            polyline(ctx, [(axis + side * 10, y - 44), (axis + side * reach, y)], color, 6)
-            dot(ctx, axis + side * reach, y, 8, color)
+            polyline(ctx, [(axis + side * 12, y - 50), (axis + side * reach, y), (axis + side * 12, y + 44)], color, 6)
+            fill_rect(ctx, axis + side * reach - 5, y - 16, 10, 32, color, radius=4)
 
 
 def _labels(ctx: cairo.Context, params: Mapping[str, Any], state: Mapping[str, float], x: float, w: float, at: Any, style: Mapping[str, Any], layout: Any) -> None:
@@ -225,7 +271,7 @@ def _track(ctx: cairo.Context, params: Mapping[str, Any], state: Mapping[str, fl
         polyline(ctx, [(place(1.0), top), (place(1.0), top + height)], style["text"], 3, 0.8 * state["nominal"], (14, 10))
     count = int((params["depth_bottom"] - state["tool"]) / STEP_M)
     depths = [params["depth_bottom"] - i * STEP_M for i in range(count + 1)]
-    points = [(place(measured(params, curve, d, state["cake"])), at(d)) for d in depths]
+    points = [(place(measured(params, curve, d, state["cake"], state["washout"])), at(d)) for d in depths]
     polyline(ctx, points, color, 8)
     if len(points) > 1:
         dot(ctx, *points[-1], 12, color)
