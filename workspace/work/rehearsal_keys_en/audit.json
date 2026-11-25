@@ -1,0 +1,187 @@
+{
+ "chapter": "rehearsal_keys_en",
+ "claims": 136,
+ "flagged": [
+  {
+   "claim_id": "keys.porosity_basics#c8",
+   "node_id": "keys.porosity_basics",
+   "text": "Во многих породах общую пористость (total porosity) и эффективную пористость (effective porosity) непросто различить.",
+   "quote": "Further, total porosity and effective porosity are not easily distinguished in many rocks.",
+   "page_pdf": 15,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "keys.total_effective_porosity#c9",
+   "node_id": "keys.total_effective_porosity",
+   "text": "В некоторой литературе по каротажу термин «пористость» (porosity) означает эффективную пористость.",
+   "quote": "In some logging literature, the term \"porosity\" is used for effective porosity",
+   "page_pdf": 15,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "keys.primary_secondary_porosity#c6",
+   "node_id": "keys.primary_secondary_porosity",
+   "text": "Вторичные поровые пространства образуются после того, как порода отложилась.",
+   "quote": "Secondary pore spaces, which are formed after the rock is deposited, tend to be nonhomogeneous.",
+   "page_pdf": 15,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "keys.saturated_true_resistivity#c3",
+   "node_id": "keys.saturated_true_resistivity",
+   "text": "Истинное сопротивление (true resistivity), Rt, отличают от Ro — сопротивления породы, на 100 процентов насыщенной пластовой водой.",
+   "quote": "True resistivity, $R_{t}$, is distinguished from $R_{o}$",
+   "page_pdf": 13,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "keys.formation_factor#c8",
+   "node_id": "keys.formation_factor",
+   "text": "Рис. 1 основан на средних значениях для неглинистых зернистых водоносных пластов, поэтому при применении к конкретному водоносному пласту он приблизителен.",
+   "quote": "The figure is based on average values for clay-free granular aquifers and is, therefore, approximate when applied to a particular aquifer.",
+   "page_pdf": 14,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "keys.formation_factor#c9",
+   "node_id": "keys.formation_factor",
+   "text": "При прочих равных условиях (рис. 1) чем выше пористость и солёность, тем ниже сопротивление водоносного пласта.",
+   "quote": "Thus, if all other factors are equal (fig. 1), the higher the porosity and salinity, the lower the aquifer resistivity.",
+   "page_pdf": 14,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "keys.fluid_conductivity_chart#c7",
+   "node_id": "keys.fluid_conductivity_chart",
+   "text": "Если в воде присутствуют другие ионы, для перевода в электрически эквивалентную концентрацию NaCl можно использовать множители (Lynch, 1962): Ca⁺² — 0,95; Mg⁺² — 2,00; K⁺¹ — 1,00; SO₄⁻² — 0,50; HCO₃⁻¹ — 0,27; CO₃⁻² — 1,26.",
+   "quote": "converting to electrically equivalent sodium chloride concentrations: $\\mathrm{Ca}^{+2}=0.95$, $\\mathrm{Mg}^{+2}=2.00$, $\\mathrm{K}^{+1}=1.00$, $\\mathrm{SO}_{4}^{-2}=0.50$, $\\mathrm{HCO}_{3}^{-1}=0.27$, and $\\mathrm{CO}_{3}^{-2}=1.26$",
+   "page_pdf": 16,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "keys.fluid_conductivity_chart#c15",
+   "node_id": "keys.fluid_conductivity_chart",
+   "text": "На верхней горизонтальной оси рис. 2 отложено удельное сопротивление в Ом·м по логарифмической шкале с отметками от 0,3 до 200.",
+   "quote": "- Верхняя ось X: RESISTIVITY — ohm-meters (удельное сопротивление, Ом·м), логарифмическая шкала, подписаны отметки .3, .5, 1, 2, 5, 10, 20, 50, 100, 200.",
+   "page_pdf": 17,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "keys.fluid_conductivity_chart#c21",
+   "node_id": "keys.fluid_conductivity_chart",
+   "text": "Отдельные точки на рис. 2 не нанесены; значения снимают с линий приближённо.",
+   "quote": "Отдельные точки не нанесены, значения снимаются с линий (приблизительно).",
+   "page_pdf": 17,
+   "flags": [
+    "condition"
+   ]
+  }
+ ],
+ "by_flag": {
+  "negation": 1,
+  "condition": 5,
+  "number": 3
+ },
+ "needs_scan": 7,
+ "by_model": 7,
+ "prose_numbers": [],
+ "early_terms": [
+  {
+   "term": "глинистые минералы",
+   "explained_in": "keys.porosity_measurement_pitfalls",
+   "used_in": [
+    "keys.total_effective_porosity"
+   ]
+  },
+  {
+   "term": "извилистость",
+   "explained_in": "keys.rock_resistivity",
+   "used_in": [
+    "keys.resistivity_unit"
+   ]
+  },
+  {
+   "term": "интерпретация каротажа",
+   "explained_in": "keys.ambiguous_response",
+   "used_in": [
+    "keys.log_and_rock"
+   ]
+  },
+  {
+   "term": "каротажная диаграмма",
+   "explained_in": "keys.ambiguous_response",
+   "used_in": [
+    "keys.log_and_rock"
+   ]
+  },
+  {
+   "term": "общая пористость",
+   "explained_in": "keys.total_effective_porosity",
+   "used_in": [
+    "keys.porosity_basics"
+   ]
+  },
+  {
+   "term": "солёность",
+   "explained_in": "keys.rock_resistivity",
+   "used_in": [
+    "keys.resistivity_unit"
+   ]
+  },
+  {
+   "term": "эффективная пористость",
+   "explained_in": "keys.total_effective_porosity",
+   "used_in": [
+    "keys.porosity_basics"
+   ]
+  }
+ ],
+ "repeated_quotes": 19,
+ "sensitivity": {
+  "seed": 0,
+  "kinds": {
+   "sign_flip": {
+    "made": 6,
+    "caught": 5
+   },
+   "number": {
+    "made": 19,
+    "caught": 19
+   },
+   "unit": {
+    "made": 1,
+    "caught": 1
+   },
+   "negation_removed": {
+    "made": 8,
+    "caught": 5
+   },
+   "lost_condition": {
+    "made": 13,
+    "caught": 10
+   }
+  },
+  "made": 47,
+  "caught": 40,
+  "recall": 0.851,
+  "flagged_originals": 9,
+  "originals": 136
+ },
+ "layer_sha256": "5d8e1a4a25f4bae8345bfb328ddbadd16a4ca105c44566677542c904ff6bfa3d"
+}

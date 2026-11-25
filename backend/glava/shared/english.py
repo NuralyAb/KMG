@@ -16,6 +16,8 @@ CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 PLAIN = str.maketrans({"’": "'", "‘": "'", "ʼ": "'", "`": "'", "´": "'", "“": '"', "”": '"', "„": '"', "«": '"', "»": '"',
                        "–": "-", "—": "-", "−": "-", "\u2011": "-", "\u2010": "-", "×": "x", "…": "..."})
 BREAK = re.compile(r"(?<=[A-Za-z])-[ \t]*\n[ \t]*(?=[a-z])|\u00ad\s*")
+# \u0440\u0430\u0441\u043f\u043e\u0437\u043d\u0430\u0432\u0430\u0442\u0435\u043b\u044c \u044d\u043a\u0440\u0430\u043d\u0438\u0440\u0443\u0435\u0442 \u0437\u043d\u0430\u043a\u0438 \u0440\u0430\u0437\u043c\u0435\u0442\u043a\u0438: \$0.75, 15\%; \u043c\u043e\u0434\u0435\u043b\u044c \u0446\u0438\u0442\u0438\u0440\u0443\u0435\u0442 \u0438\u0445 \u0431\u0435\u0437 \u043e\u0431\u0440\u0430\u0442\u043d\u043e\u0439 \u0447\u0435\u0440\u0442\u044b
+ESCAPE = re.compile(r"\\(?=[$%&#_])")
 
 
 def _read(line: str) -> str:
@@ -35,7 +37,7 @@ def plain_numbers(source: str) -> list[str]:
 
 def _letters(text: str) -> tuple[str, list[int]]:
     """Текст без пробелов и переносов, с обычными кавычками и дефисами; для каждого знака — его место в исходном тексте."""
-    hidden = {i for m in BREAK.finditer(text) for i in range(*m.span())}
+    hidden = {i for pattern in (BREAK, ESCAPE) for m in pattern.finditer(text) for i in range(*m.span())}
     letters: list[str] = []
     places: list[int] = []
     for i, char in enumerate(text):

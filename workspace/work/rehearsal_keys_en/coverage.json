@@ -1,0 +1,431 @@
+{
+ "chapter": "rehearsal_keys_en",
+ "rows": [
+  {
+   "unit_id": "p012.01",
+   "kind": "paragraph",
+   "page_pdf": 12,
+   "excerpt": "well logging costs in Canada averaged \\$0.75 per foot compared with drilling",
+   "node_ids": [
+    "keys.cost_and_training"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p012.02",
+   "kind": "paragraph",
+   "page_pdf": 12,
+   "excerpt": "In order to improve the cost-benefit ratio of logging, interpretation must be",
+   "node_ids": [
+    "keys.cost_and_training"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p012.03",
+   "kind": "paragraph",
+   "page_pdf": 12,
+   "excerpt": "One fundamental problem in the application of geophysical logs is that the",
+   "node_ids": [
+    "keys.ambiguous_response"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p012.04",
+   "kind": "paragraph",
+   "page_pdf": 12,
+   "excerpt": "There is no text that gives unambiguous rules for log interpretation. For",
+   "node_ids": [
+    "keys.empirical_and_borehole"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p012.05",
+   "kind": "paragraph",
+   "page_pdf": 12,
+   "excerpt": "Following are steps essential to obtaining the maximum benefit from a geophysical",
+   "node_ids": [
+    "keys.logging_program_steps"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p012.06",
+   "kind": "paragraph",
+   "page_pdf": 12,
+   "excerpt": "1. Plan the logging program on the basis of the data needed.",
+   "node_ids": [
+    "keys.logging_program_steps"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p012.07",
+   "kind": "heading",
+   "page_pdf": 12,
+   "excerpt": "# Lithologic Parameters",
+   "node_ids": [
+    "keys.log_and_rock"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p012.08",
+   "kind": "paragraph",
+   "page_pdf": 12,
+   "excerpt": "Most characteristics of rocks, the fluids they contain, and the borehole have",
+   "node_ids": [
+    "keys.log_and_rock"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p013.01",
+   "kind": "paragraph",
+   "page_pdf": 13,
+   "excerpt": "on the response of geophysical-logging instruments. Table 1 is a simplified tabulation",
+   "node_ids": [
+    "keys.log_and_rock"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p013.02",
+   "kind": "heading",
+   "page_pdf": 13,
+   "excerpt": "## Resistivity",
+   "node_ids": [
+    "keys.resistivity_unit"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p013.03",
+   "kind": "paragraph",
+   "page_pdf": 13,
+   "excerpt": "The electrical resistivity of a rock depends on physical properties of the",
+   "node_ids": [
+    "keys.resistivity_unit",
+    "keys.rock_resistivity"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p013.04",
+   "kind": "paragraph",
+   "page_pdf": 13,
+   "excerpt": "The resistivity of a rock that is 100-percent saturated with formation water",
+   "node_ids": [
+    "keys.saturated_true_resistivity"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p013.05",
+   "kind": "paragraph",
+   "page_pdf": 13,
+   "excerpt": "Table 1. — Summary of log applications",
+   "node_ids": [
+    "keys.log_selection_rock"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p013.06",
+   "kind": "table",
+   "page_pdf": 13,
+   "excerpt": "| Required information on the properties of rocks, fluid, wells, or the",
+   "node_ids": [
+    "keys.log_selection_rock",
+    "keys.log_selection_water_well"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p014.01",
+   "kind": "paragraph",
+   "page_pdf": 14,
+   "excerpt": "Using $R_{o}$ from logs and $F$, it is simple to calculate $R_{w}$,",
+   "node_ids": [
+    "keys.formation_factor"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p014.02",
+   "kind": "formula",
+   "page_pdf": 14,
+   "excerpt": "$$ R_{w}=\\frac{R_{o}}{F}. $$",
+   "node_ids": [
+    "keys.formation_factor"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p014.03",
+   "kind": "heading",
+   "page_pdf": 14,
+   "excerpt": "## Formation factor",
+   "node_ids": [
+    "keys.formation_factor"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p014.04",
+   "kind": "paragraph",
+   "page_pdf": 14,
+   "excerpt": "The formation resistivity factor $(F)$ is defined as the ratio of the",
+   "node_ids": [
+    "keys.formation_factor",
+    "keys.aquifer_salinity_chart"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p014.05",
+   "kind": "heading",
+   "page_pdf": 14,
+   "excerpt": "## Permeability",
+   "node_ids": [
+    "keys.permeability_definition"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p014.06",
+   "kind": "paragraph",
+   "page_pdf": 14,
+   "excerpt": "Permeability or hydraulic conductivity are the lithologic parameters most needed by the",
+   "node_ids": [
+    "keys.permeability_definition",
+    "keys.permeability_from_logs"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p014.07",
+   "kind": "paragraph",
+   "page_pdf": 14,
+   "excerpt": "When attempting to derive permeability from logs, one must remember that permeability",
+   "node_ids": [
+    "keys.permeability_limits"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p014.08",
+   "kind": "figure",
+   "page_pdf": 14,
+   "excerpt": "━━━ FORMAT 6: XY PLOT / CHART WITH DATA ━━━ Оси координат:",
+   "node_ids": [
+    "keys.aquifer_salinity_chart"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p014.09",
+   "kind": "figure",
+   "page_pdf": 14,
+   "excerpt": "Figure 1. — Approximate resistivity of granular aquifers versus porosity for several",
+   "node_ids": [
+    "keys.aquifer_salinity_chart"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p015.01",
+   "kind": "paragraph",
+   "page_pdf": 15,
+   "excerpt": "situ permeability measurements are needed to evaluate core permeabilities. For these reasons,",
+   "node_ids": [
+    "keys.permeability_limits"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p015.02",
+   "kind": "heading",
+   "page_pdf": 15,
+   "excerpt": "## Porosity",
+   "node_ids": [
+    "keys.porosity_basics"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p015.03",
+   "kind": "paragraph",
+   "page_pdf": 15,
+   "excerpt": "Porosity $(\\phi)$ may be derived from gamma-gamma, neutron, acoustic-velocity and electric logs.",
+   "node_ids": [
+    "keys.porosity_basics"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p015.04",
+   "kind": "paragraph",
+   "page_pdf": 15,
+   "excerpt": "Total porosity, which will be called simply porosity in this manual, includes",
+   "node_ids": [
+    "keys.total_effective_porosity",
+    "keys.porosity_measurement_pitfalls"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p015.05",
+   "kind": "paragraph",
+   "page_pdf": 15,
+   "excerpt": "Porosity is also divided into primary porosity, or intergranular pore space, and",
+   "node_ids": [
+    "keys.primary_secondary_porosity"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p015.06",
+   "kind": "heading",
+   "page_pdf": 15,
+   "excerpt": "## Specific yield",
+   "node_ids": [
+    "keys.specific_yield"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p015.07",
+   "kind": "paragraph",
+   "page_pdf": 15,
+   "excerpt": "Specific yield is very important in ground-water studies because, when gravity drainage",
+   "node_ids": [
+    "keys.specific_yield"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p015.08",
+   "kind": "paragraph",
+   "page_pdf": 15,
+   "excerpt": "447-003 O - 71 - 2",
+   "node_ids": [],
+   "reason": "колонтитул: типографская сигнатура листа"
+  },
+  {
+   "unit_id": "p016.01",
+   "kind": "paragraph",
+   "page_pdf": 16,
+   "excerpt": "retention equals effective porosity. Meyer (1963) described the use of a neutron",
+   "node_ids": [
+    "keys.specific_yield"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p016.02",
+   "kind": "heading",
+   "page_pdf": 16,
+   "excerpt": "## Grain size",
+   "node_ids": [
+    "keys.grain_size"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p016.03",
+   "kind": "paragraph",
+   "page_pdf": 16,
+   "excerpt": "The importance of grain size in analyzing the hydrologic characteristics of a",
+   "node_ids": [
+    "keys.grain_size"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p016.04",
+   "kind": "heading",
+   "page_pdf": 16,
+   "excerpt": "# Fluid Parameters",
+   "node_ids": [
+    "keys.borehole_vs_formation_water"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p016.05",
+   "kind": "paragraph",
+   "page_pdf": 16,
+   "excerpt": "In addition to the lithologic parameters, a second important category of information",
+   "node_ids": [
+    "keys.borehole_vs_formation_water"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p016.06",
+   "kind": "heading",
+   "page_pdf": 16,
+   "excerpt": "## Fluid conductivity",
+   "node_ids": [
+    "keys.fluid_conductivity_chart"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p016.07",
+   "kind": "paragraph",
+   "page_pdf": 16,
+   "excerpt": "The conductivity or resistivity $(R_{w})$ of fluid in a well bore or",
+   "node_ids": [
+    "keys.fluid_conductivity_chart",
+    "keys.nacl_equivalent"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p017.01",
+   "kind": "figure",
+   "page_pdf": 17,
+   "excerpt": "━━━ FORMAT 6: XY PLOT / CHART WITH DATA ━━━ Оси координат:",
+   "node_ids": [
+    "keys.fluid_conductivity_chart",
+    "keys.nacl_equivalent"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p017.02",
+   "kind": "figure",
+   "page_pdf": 17,
+   "excerpt": "Figure 2. — Electrically equivalent concentrations of a sodium chloride solution as",
+   "node_ids": [
+    "keys.fluid_conductivity_chart",
+    "keys.nacl_equivalent"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p017.03",
+   "kind": "paragraph",
+   "page_pdf": 17,
+   "excerpt": "The conductivity of fluid in the hole and rock must also be",
+   "node_ids": [
+    "keys.salinity_log_corrections"
+   ],
+   "reason": null
+  },
+  {
+   "unit_id": "p017.04",
+   "kind": "paragraph",
+   "page_pdf": 17,
+   "excerpt": "The relationship of water in the hole to water in the surrounding",
+   "node_ids": [
+    "keys.borehole_vs_formation_water"
+   ],
+   "reason": null
+  }
+ ]
+}
