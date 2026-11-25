@@ -6,6 +6,7 @@ from typing import Any
 
 from glava.modules.course.api import build_course
 from glava.pipeline.chapter import Chapter
+from glava.pipeline.steps.lab import fresh_pictures, fresh_tasks, put_lab
 from glava.shared.json_files import read, read_or
 from glava.shared.paths import workspace
 
@@ -30,9 +31,10 @@ def course_videos(chapter_id: str) -> dict[str, list[dict[str, Any]]]:
 def build_site(chapter: Chapter) -> Path:
     work = chapter.work
     layer = read(work / "layer.json")
-    out = build_course(layer, read_or(work / "routing.json", {"routes": []}), read_or(work / "tasks.json", {"tasks": []})["tasks"],
-                       read_or(work / "illustrations.json", {"illustrations": []})["illustrations"], workspace() / "out" / chapter.chapter_id, work / "pictures",
+    out = build_course(layer, read_or(work / "routing.json", {"routes": []}), fresh_tasks(work),
+                       fresh_pictures(work), workspace() / "out" / chapter.chapter_id, work / "pictures",
                        extras={step: {"videos": videos} for step, videos in course_videos(chapter.chapter_id).items() if step in {n["id"] for n in layer["nodes"]}},
                        simulations=work / "simulations.json")
+    put_lab(chapter, layer, out)
     log.info("курс: %s", out / "index.html")
     return out

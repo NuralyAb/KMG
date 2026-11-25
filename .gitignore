@@ -35,3 +35,8 @@ workspace/work/review_uploads/
 /workspace/work/lib_*/
 /workspace/out/lib_*/
 /workspace/domain/*/errata/lib_*
+
+# след сборки и отчёты команд fact и passport: создаются заново
+workspace/work/*/built.json
+workspace/work/*/passport.json
+workspace/work/*/fact_report.json

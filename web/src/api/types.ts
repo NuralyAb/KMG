@@ -37,7 +37,7 @@ export interface RawNodeDetail {
 }
 
 export type RunState = 'queued' | 'running' | 'done' | 'failed' | 'cancelled';
-export type RunCommand = 'build' | StageName | 'review' | 'video' | 'simulation' | 'extract' | 'audit' | 'verify';
+export type RunCommand = 'build' | StageName | 'review' | 'video' | 'simulation' | 'extract' | 'audit' | 'verify' | 'fact';
 
 export interface Run {
   id: string; command: RunCommand; chapter: string; args: Record<string, unknown>; state: RunState;
