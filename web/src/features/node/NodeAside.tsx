@@ -1,11 +1,14 @@
 import { Button } from '@mantine/core';
 import { IconCube } from '@tabler/icons-react';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useRefreshAll } from '@/api/queries';
+import { isBuilding, useNodeSimulations } from '@/api/simulations';
 import type { RouteRow } from '@/api/types';
 import { LINK_TYPE, SCORE, label } from '@/lib/labels';
 import { RichText } from '@/ui/RichText';
 import { BuildDialog } from '../runs/BuildDialog';
+import { SIMULATION_ID } from '../simulation/SimulationSection';
 import type { LayerNode } from './model';
 
 const MAX_SCORE = 2;
@@ -43,15 +46,26 @@ function RoutePanel({ route }: { route: RouteRow | null }) {
 
 function SimulationPanel({ chapter, node }: { chapter: string; node: LayerNode }) {
   const [isOpen, setOpen] = useState(false);
-  const navigate = useNavigate();
+  const { data } = useNodeSimulations(chapter, node.id);
+  const refresh = useRefreshAll();
+  const isLive = isBuilding(data?.run ?? null);
+  const hasScenes = (data?.scenes.length ?? 0) > 0;
+  // ход работы виден на этой же странице, в разделе «Симулятор»
+  const started = (): void => {
+    refresh();
+    requestAnimationFrame(() => document.getElementById(SIMULATION_ID)?.scrollIntoView({ block: 'start' }));
+  };
   return (
     <section>
       <h2>Симулятор</h2>
       <p className="muted">Агент строит 3D-сцену из утверждений этого шага и проверяет её физику.</p>
-      <Button variant="default" leftSection={<IconCube size={18} />} onClick={() => setOpen(true)}>Сделать симулятор</Button>
+      <Button variant="default" leftSection={<IconCube size={18} />} disabled={isLive} onClick={() => setOpen(true)}>
+        {isLive ? 'Агент работает' : hasScenes ? 'Переделать симулятор' : 'Сделать симулятор'}
+      </Button>
+      {(isLive || hasScenes) && <p className="aside-text"><a href={`#${SIMULATION_ID}`}>{isLive ? 'Посмотреть ход работы' : 'Открыть на этой странице'}</a></p>}
       {isOpen && (
         <BuildDialog isOpen command="simulation" target={{ id: chapter, title: node.title }} nodes={[{ id: node.id, title: node.title }]}
-          onClose={() => setOpen(false)} onStarted={() => navigate('/admin/runs')} />
+          onClose={() => setOpen(false)} onStarted={started} />
       )}
     </section>
   );

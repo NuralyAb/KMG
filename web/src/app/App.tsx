@@ -10,6 +10,7 @@ const ChaptersPage = lazy(() => import('@/features/chapters/ChaptersPage'));
 const BooksPage = lazy(() => import('@/features/books/BooksPage'));
 const ChapterPage = lazy(() => import('@/features/chapter/ChapterPage'));
 const NodePage = lazy(() => import('@/features/node/NodePage'));
+const CoursePreviewPage = lazy(() => import('@/features/simulation/CoursePreviewPage'));
 const ReviewPage = lazy(() => import('@/features/review/ReviewPage'));
 const ReviewDetailPage = lazy(() => import('@/features/review/ReviewDetailPage'));
 const CatalogPage = lazy(() => import('@/features/learn/CatalogPage'));
@@ -40,6 +41,7 @@ export function App() {
         <Route index element={<ChaptersPage />} />
         <Route path="books" element={<BooksPage />} />
         <Route path="chapters/:id" element={<ChapterPage />} />
+        <Route path="chapters/:id/preview" element={<CoursePreviewPage />} />
         <Route path="chapters/:id/nodes/:nodeId" element={<NodePage />} />
         <Route path="library" element={<LibraryPage />} />
         <Route path="library/:id" element={<SourcePage />} />

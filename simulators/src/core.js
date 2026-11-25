@@ -118,8 +118,8 @@ export class Stage {
   }
   // Подсказка над сценой: номер шага и что сделать сейчас.
   hint(i, steps) {
-    const h = document.querySelector('#hint'); h.hidden = false;
-    h.innerHTML = `<b>Шаг ${i + 1} из ${steps.length}</b><span>${steps[i]}</span><i>${steps.map((_, k) => `<u class="${k < i ? 'was' : k === i ? 'now' : ''}"></u>`).join('')}</i>`;
+    const h = document.querySelector('#hint'), text = this.low ? steps[i].replace('вопрос справа', 'вопрос ниже') : steps[i]; h.hidden = false;
+    h.innerHTML = `<b>Шаг ${i + 1} из ${steps.length}</b><span>${text}</span><i>${steps.map((_, k) => `<u class="${k < i ? 'was' : k === i ? 'now' : ''}"></u>`).join('')}</i>`;
   }
   label(text, pos, cls = '') {
     const e = document.createElement('div'); e.className = 'lbl ' + cls; e.innerHTML = text;

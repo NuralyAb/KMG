@@ -11,6 +11,7 @@ import { PageHeader } from '@/ui/PageHeader';
 import { RichText } from '@/ui/RichText';
 import { EmptyState, ErrorState, QueryView } from '@/ui/states';
 import { Picture } from '../chapter/Picture';
+import { SimulationSection } from '../simulation/SimulationSection';
 import { TaskView } from '../tasks/TaskView';
 import { ClaimList } from './ClaimList';
 import { normalizeNode, type LayerNode } from './model';
@@ -97,6 +98,7 @@ function NodeView({ chapter, detail, node }: { chapter: string; detail: RawNodeD
         </div>
         <NodeAside chapter={chapter} node={node} route={detail.route} titles={titles} />
       </div>
+      <SimulationSection key={node.id} chapter={chapter} node={node.id} />
       <section className="section" aria-labelledby="claims">
         <div className="section-head"><h2 id="claims" className="section-title">Утверждения и цитаты</h2><span className="muted">{counted(node.claims.length, FORMS.claim)}</span></div>
         <ClaimList claims={node.claims} />

@@ -191,6 +191,7 @@ def test_every_route_is_closed_unless_opened_for_learners(locked):
             if method != "HEAD" and locked.request(method, path, headers=ORIGIN, json={}).status_code != 401:
                 opened.add((method, route.path))
     assert opened == {("GET", "/api/learn/courses"), ("GET", "/api/learn/courses/{course_id}"), ("GET", "/learn/{course_id}/{path:path}"),
+                      ("GET", "/api/learn/courses/{course_id}/simulations/building"),
                       ("GET", "/api/auth/me"), ("POST", "/api/auth/login"), ("POST", "/api/auth/logout")}
 
 

@@ -1,4 +1,4 @@
-# Симулятор внутри собранного курса: открыть с диска без сети, пройти, закрыть. python course_play.py <папка курса> <номер шага> [папка кадров]
+# Симулятор внутри собранного курса: открыть с диска без сети, запустить на месте, пройти, закрыть. python course_play.py <папка курса> <номер шага> [папка кадров]
 import pathlib
 import sys
 from playwright.sync_api import sync_playwright
@@ -23,16 +23,18 @@ with sync_playwright() as p:
         pg.on('request', lambda r: bad.append('сеть: ' + r.url[:90]) if r.url.startswith('http') else None)
         pg.goto((course / 'index.html').as_uri() + '#/')
         pg.evaluate('n=>{location.hash="#/step/"+n}', step)
-        pg.wait_for_selector('.sim-card')
-        check(tag + ': две карточки', pg.locator('.sim-card').count() == 2)
+        pg.wait_for_selector('.sim-box')
+        check(tag + ': две сцены на выбор', pg.locator('.sim-tab').count() == 2)
         check(tag + ': сцена не грузится заранее', pg.locator('iframe').count() == 0)
         check(tag + ': нет горизонтальной прокрутки', not pg.evaluate('document.documentElement.scrollWidth>innerWidth'))
-        pg.locator('.sim-card').first.scroll_into_view_if_needed()
+        pg.locator('.sim-box').first.scroll_into_view_if_needed()
         pg.wait_for_timeout(400)
         if shots:
             pg.screenshot(path=str(shots / f'{tag}_course.png'))
-        pg.locator('.sim-card button').first.click()
-        f = pg.frame_locator('.sim-window iframe')
+        pg.locator('.sim-go').click()
+        pg.wait_for_selector('.sim-box[data-state="live"]', timeout=30000)
+        check(tag + ': сцена на месте, новой вкладки нет', len(ctx.pages) == 1 and pg.locator('dialog').count() == 0)
+        f = pg.frame_locator('.sim-box iframe')
         f.locator('.opt').first.click(timeout=20000)
         f.locator('button.main').first.click()
         f.locator('.chip').first.wait_for(timeout=25000)
@@ -48,17 +50,18 @@ with sync_playwright() as p:
         check(tag + ': пройден до итога', True)
         f.locator('.hon summary').click()
         check(tag + ': источники из слоя', f.locator('.hon').inner_text().find('αСП = 0,7') > 0)
-        check(tag + ': редактор спрятан', not f.locator('#edit').is_visible() and not f.locator('#scene').is_visible())
+        check(tag + ': шапка проигрывателя спрятана', not f.locator('header').is_visible())
         pg.wait_for_timeout(1500)
         if shots:
             pg.screenshot(path=str(shots / f'{tag}_sim.png'))
-        pg.locator('.sim-bar button').click()
-        check(tag + ': закрыт и выгружен', pg.locator('iframe').count() == 0 and pg.locator('.sim-window').count() == 0)
-        pg.locator('.sim-card button').nth(1).click()
+        pg.get_by_role('button', name='Закрыть симулятор').click()
+        check(tag + ': закрыт и выгружен', pg.locator('iframe').count() == 0 and pg.locator('.sim-go').is_visible())
+        pg.locator('.sim-tab').nth(1).click()
+        pg.locator('.sim-go').click()
         f.locator('#panel h2:has-text("солёный раствор")').wait_for(timeout=15000)
         pg.go_back()
         pg.wait_for_timeout(600)
-        check(tag + ': «назад» не оставляет окно', pg.locator('.sim-window').count() == 0)
+        check(tag + ': «назад» выгружает сцену', pg.locator('iframe').count() == 0)
         ctx.close()
     b.close()
 print('прошло:', len(ok))

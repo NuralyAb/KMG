@@ -85,6 +85,7 @@ export const handlers = [
     const byType = Object.fromEntries(['single', 'multiple', 'order', 'gap', 'calc'].map((type) => [type, all.filter((t) => t.type === type).length]));
     return ok(shown, { total: shown.length, by_type: byType });
   }),
+  http.get('/api/chapters/:id/nodes/:node/simulations', () => ok({ scenes: [], run: null })),
   http.get('/api/chapters/:id/illustrations', ({ params }) => ok(params.id === 'demo_sand' ? illustrations : [])),
   http.get('/api/chapters/:id/videos', ({ params }) => ok(params.id === 'demo_sand' ? videos : [])),
   http.get('/api/search', ({ request }) => {

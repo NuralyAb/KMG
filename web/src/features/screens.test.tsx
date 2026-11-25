@@ -51,7 +51,7 @@ describe('chapters', () => {
   test('shows chapters, splits built and not built', async () => {
     renderApp(<App />, '/admin');
     const entry = await screen.findByRole('article', { name: /Песок в банке/ });
-    expect(within(entry).getByRole('link', { name: /Предпросмотр/ })).toHaveAttribute('href', '/course/demo_sand/index.html');
+    expect(within(entry).getByRole('link', { name: /Предпросмотр/ })).toHaveAttribute('href', '/admin/chapters/demo_sand/preview');
     expect(within(entry).getByText('устарело')).toBeVisible();
     expect(screen.getByRole('heading', { name: 'Ещё не собраны' })).toBeVisible();
     expect(screen.getByRole('button', { name: 'Собрать: Давление в закрытой банке' })).toBeEnabled();

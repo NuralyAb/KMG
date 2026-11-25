@@ -1,5 +1,5 @@
 import { Button } from '@mantine/core';
-import { IconAlertTriangle, IconCheck, IconExternalLink, IconPlayerPlay } from '@tabler/icons-react';
+import { IconAlertTriangle, IconCheck, IconPlayerPlay } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import { courseHref } from '@/api/client';
 import type { ChapterCard } from '@/api/types';
@@ -57,7 +57,7 @@ export function ChapterEntry({ chapter, onBuild }: EntryProps) {
         )}
         <div className="entry-actions">
           {course && (
-            <Button component="a" href={course} target="_blank" rel="noopener noreferrer" rightSection={<IconExternalLink size={16} aria-hidden />}>
+            <Button component={Link} to={`${chapterPath(chapter.id)}/preview`}>
               Предпросмотр
             </Button>
           )}

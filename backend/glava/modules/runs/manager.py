@@ -12,7 +12,7 @@ from typing import Any
 
 from glava.modules.runs.process import ProcessTree
 from glava.modules.runs.schemas import RunCommand, RunState
-from glava.modules.runs.store import RunRecord, RunStore, now
+from glava.modules.runs.store import RunRecord, RunStore, decode, now
 from glava.shared.http.errors import ApiError, conflict, not_found
 from glava.shared.identifiers import is_safe_id
 
@@ -73,6 +73,11 @@ class RunManager:
         if record is None:
             raise not_found("Такого запуска нет")
         return record
+
+    def log_lines(self, run_id: str) -> list[str]:
+        """Журнал с начала: по нему видно, где сейчас короткий запуск."""
+        raw = self.store.read_from(self.get(run_id).id, 0)
+        return [decode(line) for line in raw.split(b"\n")]
 
     def active_by_chapter(self) -> dict[str, str]:
         return {r.chapter: r.id for r in self.records() if r.is_active}

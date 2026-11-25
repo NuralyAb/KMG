@@ -19,13 +19,14 @@ from glava.modules.publishing.api import Publications
 from glava.modules.review import module as review
 from glava.modules.runs import module as runs
 from glava.modules.runs.api import RunManager
+from glava.modules.simulations import module as simulations
 from glava.modules.system import module as system
 from glava.shared.http.container import Container
 from glava.shared.http.errors import install_handlers
 from glava.shared.http.settings import Settings
 
 # порядок сборки: модуль стоит после тех, от чьих сервисов зависит
-MODULES = (access, llm, catalog, runs, publishing, library, books, review, system)
+MODULES = (access, llm, catalog, runs, publishing, library, books, review, simulations, system)
 
 
 def build_container(settings: Settings) -> Container:
