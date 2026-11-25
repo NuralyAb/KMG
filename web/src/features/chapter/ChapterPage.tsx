@@ -55,7 +55,7 @@ function ChapterView({ chapter }: { chapter: ChapterDetail }) {
   return (
     <>
       <PageHeader
-        title={chapter.title} docTitle={chapter.title} above={<Link to="/">Главы</Link>}
+        title={chapter.title} docTitle={chapter.title} above={<Link to="/admin/chapters">Главы</Link>}
         subtitle={`${chapter.book}. Стр. ${formatPages(chapter.pages)}. Предмет: ${chapter.domain}`}
         actions={
           <>

@@ -4,6 +4,7 @@ from pathlib import Path
 import pytest
 from conftest import CHAPTER, EMPTY_CHAPTER, T0, data_of, error_of, write_json
 from fastapi.testclient import TestClient
+from glava.modules.catalog.views import is_accounted
 
 BASE = f"/api/chapters/{CHAPTER}"
 
@@ -13,7 +14,7 @@ def test_card_collects_counts_cost_and_stages(client: TestClient) -> None:
 
     assert card["id"] == CHAPTER
     assert card["pages"] == [10, 11, 12, 20, 21]
-    assert card["counts"] == {"nodes": 3, "claims": 4, "tasks": 3, "illustrations": 1, "errata": 2, "units": 3, "units_covered": 2, "videos": 1}
+    assert card["counts"] == {"nodes": 3, "claims": 4, "tasks": 3, "illustrations": 1, "errata": 2, "units": 3, "units_covered": 3, "videos": 1}
     assert card["issues"] == 3
     assert (card["cost_usd"], card["tokens_in"], card["tokens_out"]) == (1.5, 1500, 300)
     assert card["course_url"] == f"/course/{CHAPTER}/index.html"
@@ -168,3 +169,11 @@ def test_foreign_shapes_inside_files_do_not_break_answers(client: TestClient, ro
 
     assert detail["parts"][0]["nodes"][0]["id"] == "alpha.odd"
     assert detail["issues"] == 0
+
+
+@pytest.mark.parametrize(("row", "accounted"), [
+    ({"kind": "figure", "node_ids": ["a"], "reason": None}, True), ({"kind": "heading", "node_ids": [], "reason": "заголовок"}, True),
+    ({"kind": "heading", "node_ids": [], "reason": None}, False), ({"kind": "paragraph", "node_ids": [], "reason": "повтор"}, False),
+])
+def test_only_named_headings_may_stay_out(row: dict, accounted: bool) -> None:
+    assert is_accounted(row) is accounted

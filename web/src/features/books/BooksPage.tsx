@@ -103,7 +103,7 @@ export default function BooksPage() {
   const detail = useQuery({ queryKey: ['books', id], enabled: id !== null, queryFn: async ({ signal }) => (await get<BookDetail>(`/api/books/${encodeURIComponent(id ?? '')}`, signal)).data });
   return (
     <>
-      <PageHeader title="Книги" docTitle="Книги" subtitle="Загрузите книгу, выберите главы и создайте из них курс." />
+      <PageHeader title="Конструктор курсов" docTitle="Конструктор курсов" subtitle="Загрузите книгу, выберите главы и создайте из них курс." />
       <Upload onDone={(book) => { setCurrent(book); refresh(); void books.refetch(); }} />
       <QueryView query={books} rows={3}>
         {(list) => list.length === 0

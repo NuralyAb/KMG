@@ -51,6 +51,11 @@ def is_covered(row: Row) -> bool:
     return bool(row.get("node_ids"))
 
 
+def is_accounted(row: Row) -> bool:
+    """Единица учтена: вошла в узел или это заголовок с названной причиной. Иное с причиной остаётся пропуском."""
+    return is_covered(row) or (row.get("kind") == "heading" and bool(row.get("reason")))
+
+
 def coverage_meta(coverage: Sequence[Row]) -> dict[str, int]:
     covered = sum(is_covered(r) for r in coverage)
     return {"total": len(coverage), "covered": covered, "skipped": len(coverage) - covered}
@@ -67,7 +72,7 @@ def build_card(repository: Repository, chapter: ChapterInfo, metrics: Sequence[M
     counts = Counts(
         nodes=len(nodes), claims=sum(len(rows(n.get("claims"))) for n in nodes), tasks=len(repository.tasks(chapter.id)),
         illustrations=len(repository.illustrations(chapter.id)), errata=len(repository.errata(chapter.id)), units=len(coverage),
-        units_covered=coverage_meta(coverage)["covered"], videos=len(repository.passports(chapter.id)),
+        units_covered=sum(is_accounted(r) for r in coverage), videos=len(repository.passports(chapter.id)),
     )
     return ChapterCard(
         id=chapter.id, title=chapter.title, book=chapter.book, domain=chapter.domain, pages=chapter.pages, counts=counts,
