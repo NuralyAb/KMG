@@ -1,6 +1,7 @@
 """График зависимости: по формуле или точкам главы, либо качественный ход без чисел на осях."""
 
 import math
+import re
 from collections.abc import Mapping, Sequence
 from typing import Any
 
@@ -9,13 +10,13 @@ from glava.scenes.formula import evaluate
 
 LABEL = "симуляция"
 FRAME_CLASS = "A"
-SUMMARY = """plot — зависимость одной величины от другой. data: {"x_label":"до 34 знаков с единицей","y_label":"до 34 знаков с единицей","numeric":true|false,"log_x":false,"log_y":false,"params":{"a":1},"series":[{"name":"до 40 знаков","color":"ключ цвета легенды или пусто","points":[[x,y],…]} или {"name":"…","formula":"a * x ** (-m)","from":0.05,"to":0.3}],"marks":[{"x":0.1,"y":5,"text":"до 24 знаков"}]}. numeric:true — все числа из главы, формула главы считается кодом (функции exp, log, log10, sqrt, sin, cos; переменная x); numeric:false — ход кривой без чисел, координаты 0..1. 1–4 кривых."""
+SUMMARY = """plot — зависимость одной величины от другой. data: {"x_label":"до 34 знаков с единицей","y_label":"до 34 знаков с единицей","numeric":true|false,"log_x":false,"log_y":false,"y_down":false,"params":{"a":1},"series":[{"name":"до 40 знаков","color":"ключ цвета легенды или пусто","points":[[x,y],…]} или {"name":"…","formula":"a * x ** (-m)","from":0.05,"to":0.3}],"marks":[{"x":0.1,"y":5,"text":"до 24 знаков"}]}. numeric:true — все числа из главы, формула главы считается кодом (функции exp, log, log10, sqrt, sin, cos; переменная x); numeric:false — ход кривой без чисел, координаты 0..1. 1–4 кривых. Метка стоит на кривой. Глубина — только на оси y и с y_down:true."""
 POINT = {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}
 SCHEMA = {
     "type": "object", "required": ["x_label", "y_label", "numeric", "series"], "additionalProperties": False,
     "properties": {
         "x_label": {"type": "string", "maxLength": 40}, "y_label": {"type": "string", "maxLength": 40}, "numeric": {"type": "boolean"},
-        "log_x": {"type": "boolean"}, "log_y": {"type": "boolean"}, "params": {"type": "object", "additionalProperties": {"type": "number"}},
+        "log_x": {"type": "boolean"}, "log_y": {"type": "boolean"}, "y_down": {"type": "boolean"}, "params": {"type": "object", "additionalProperties": {"type": "number"}},
         "series": {"type": "array", "minItems": 1, "maxItems": 4, "items": {
             "type": "object", "required": ["name"], "additionalProperties": False,
             "properties": {"name": {"type": "string", "maxLength": 48}, "color": {"type": ["string", "null"]},
@@ -28,6 +29,7 @@ SCHEMA = {
     },
 }
 SAMPLES = 60
+MARK_GAP = 0.05
 PLOT_H = 300
 FALLBACK = ("#F1C40F", "#3498DB", "#E84393", "#2ECC71")
 LEFT, RIGHT = 76, W - PAD
@@ -59,9 +61,55 @@ def check(data: Mapping[str, Any], style: Mapping[str, Any]) -> list[str]:
         for axis, flag in ((0, "log_x"), (1, "log_y")):
             if data.get(flag) and any(p[axis] <= 0 for p in points):
                 issues.append(f"{series['name']}: логарифмической оси нужны значения больше нуля")
+    issues += _axis_issues(data, style)
+    if not issues:
+        issues += _mark_issues(data)
     if not data["numeric"] and (data.get("log_x") or data.get("log_y")):
         issues.append("логарифмическая ось бывает только у графика с числами")
     return issues
+
+
+def _axis_issues(data: Mapping[str, Any], style: Mapping[str, Any]) -> list[str]:
+    def grows_down(label: str) -> bool:
+        return any(re.search(p, label.strip(), re.IGNORECASE) for p in style.get("axes_down", []))
+
+    issues = [f"«{data['x_label']}» растёт вниз: поставь её на ось y и задай y_down:true"] if grows_down(data["x_label"]) else []
+    if grows_down(data["y_label"]) != bool(data.get("y_down")):
+        issues.append("y_down:true нужен только величине, которая растёт вниз, и для неё обязателен")
+    return issues
+
+
+def _mark_issues(data: Mapping[str, Any]) -> list[str]:
+    """Метка не висит в пустоте: она лежит на одной из кривых."""
+    curves = [points_of(s, data) for s in data["series"]]
+    log_x, log_y = bool(data.get("log_x")), bool(data.get("log_y"))
+    span_x, span_y = _spans(data, curves)
+    issues = []
+    for mark in data.get("marks", []):
+        if (log_x and mark["x"] <= 0) or (log_y and mark["y"] <= 0):
+            issues.append(f"метка «{mark['text']}»: логарифмической оси нужны значения больше нуля")
+            continue
+        spot = (_place(mark["x"], span_x, log_x), _place(mark["y"], span_y, log_y))
+        placed = [[(_place(x, span_x, log_x), _place(y, span_y, log_y)) for x, y in c] for c in curves]
+        if min(_distance(spot, a, b) for c in placed for a, b in zip(c, c[1:], strict=False)) > MARK_GAP:
+            issues.append(f"метка «{mark['text']}» не лежит на кривой")
+    return issues
+
+
+def _distance(p: tuple[float, float], a: tuple[float, float], b: tuple[float, float]) -> float:
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    length = dx * dx + dy * dy
+    t = 0.0 if length == 0 else max(0.0, min(1.0, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / length))
+    return math.hypot(p[0] - a[0] - t * dx, p[1] - a[1] - t * dy)
+
+
+def _spans(data: Mapping[str, Any], curves: Sequence[Points]) -> tuple[tuple[float, float], tuple[float, float]]:
+    if not data["numeric"]:
+        return (0.0, 1.0), (0.0, 1.0)
+    marks = data.get("marks", [])
+    xs = [p[0] for c in curves for p in c] + [m["x"] for m in marks if m["x"] > 0 or not data.get("log_x")]
+    ys = [p[1] for c in curves for p in c] + [m["y"] for m in marks if m["y"] > 0 or not data.get("log_y")]
+    return _scale(xs, bool(data.get("log_x"))), _scale(ys, bool(data.get("log_y")))
 
 
 def _color(key: str | None, index: int, style: Mapping[str, Any]) -> str:
@@ -106,20 +154,20 @@ def draw(data: Mapping[str, Any], style: Mapping[str, Any]) -> tuple[str, float]
     log_x, log_y = bool(data.get("log_x")), bool(data.get("log_y"))
     curves = [points_of(s, data) for s in data["series"]]
     marks = data.get("marks", [])
-    span_x = _scale([p[0] for c in curves for p in c] + [m["x"] for m in marks], log_x) if data["numeric"] else (0.0, 1.0)
-    span_y = _scale([p[1] for c in curves for p in c] + [m["y"] for m in marks], log_y) if data["numeric"] else (0.0, 1.0)
+    span_x, span_y = _spans(data, curves)
+    down = bool(data.get("y_down"))
     head = wrap(data["y_label"], W - 2 * PAD)
     left = LEFT if data["numeric"] else 40
     top = PAD + LINE * len(head) + 8
     bottom = top + PLOT_H
 
     def at(x: float, y: float) -> tuple[float, float]:
-        return left + _place(x, span_x, log_x) * (RIGHT - left), bottom - _place(y, span_y, log_y) * PLOT_H
+        return left + _place(x, span_x, log_x) * (RIGHT - left), (top if down else bottom) + (1 if down else -1) * _place(y, span_y, log_y) * PLOT_H
 
     body = lines(PAD, PAD + FONT - 2, head, style["muted"])
     if data["numeric"]:
         body += _grid(at, span_x, span_y, log_x, log_y, left, top, bottom, style)
-    body += arrow(left, bottom, left, top - 4, style["muted"], 2, 7) + arrow(left, bottom, RIGHT + 6, bottom, style["muted"], 2, 7)
+    body += (arrow(left, top, left, bottom + 6, style["muted"], 2, 7) if down else arrow(left, bottom, left, top - 4, style["muted"], 2, 7)) + arrow(left, bottom, RIGHT + 6, bottom, style["muted"], 2, 7)
     colors = [_color(s.get("color"), i, style) for i, s in enumerate(data["series"])]
     body += "".join(path([at(*p) for p in c], color, 4) for c, color in zip(curves, colors, strict=True))
     for mark in marks:

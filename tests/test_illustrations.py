@@ -7,12 +7,12 @@ import jsonschema
 import pytest
 
 from glava.llm import Reply
-from glava.scenes import load_templates
+from glava.scenes import load_style, load_templates
 from glava.stages.illustrations import illustration_issues, make_illustrations, records
 from glava.stages.layer import load_schema
 
 DOMAIN = Path(__file__).resolve().parents[1] / "domain" / "geology"
-STYLE = json.loads((DOMAIN / "styleguide.json").read_text(encoding="utf-8"))
+STYLE = load_style(DOMAIN)
 TEMPLATES = load_templates(DOMAIN / "templates")
 NODES = [{"id": "lat.a", "short_title": "Глина", "layers": {"main": {"text": "Глинистость от 5 до 20 %."}}, "pages": [90],
           "claims": [{"id": "lat.a#c1", "text": "Глинистость от 5 до 20 %.", "quote": "от 5 до 20 %", "page_pdf": 90}]}]
@@ -32,7 +32,7 @@ def test_valid_scene_has_no_issues():
 
 
 @pytest.mark.parametrize("bad", [
-    {"template": "hologram"}, {"claim_ids": ["lat.b#c1"]}, {"claim_ids": []}, {"caption": "Предел 77 %"}, {"data": {"unit": "%"}},
+    {"template": "hologram"}, {"claim_ids": ["lat.b#c1"]}, {"claim_ids": []}, {"caption": "Предел 77 %"}, {"caption": "Порог k_п"}, {"alt": "доля $x$"}, {"data": {"unit": "%"}},
     {"data": {"unit": "%", "items": [{"name": "глина", "from": 5, "to": 33}, {"name": "б", "value": 20}]}},
 ])
 def test_wrong_scene_is_reported(bad):

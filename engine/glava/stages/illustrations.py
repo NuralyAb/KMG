@@ -55,9 +55,12 @@ def _scene_problems(scene: Mapping[str, Any], node: Mapping[str, Any], templates
     if problems:
         return problems
     shown = " ; ".join([scene["caption"], scene["alt"], *_strings(scene["data"]), *(f"{v:g}" for v in _values(scene))])
+    raw = [t for t in (scene["caption"], scene["alt"], *_strings(scene["data"])) if set(t) & set("_$\\")]
+    if raw and scene["template"] != "plot" or any(set(t) & set("_$\\") for t in (scene["caption"], scene["alt"])):
+        problems = [f"подписи без подчёркиваний и LaTeX: {raw[0][:40]}"]
     foreign = unsupported_numbers(shown, _source(node, scene["claim_ids"]))
     if foreign:
-        problems = [f"чисел нет в утверждениях claim_ids: {', '.join(sorted(foreign))}"]
+        problems = [*problems, f"чисел нет в утверждениях claim_ids: {', '.join(sorted(foreign))}"]
     return problems + ([f"подпись длиннее {MAX_CAPTION} знаков"] if len(scene["caption"]) > MAX_CAPTION else [])
 
 

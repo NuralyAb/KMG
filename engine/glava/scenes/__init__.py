@@ -4,6 +4,7 @@
 """
 
 import importlib.util
+import json
 from collections.abc import Mapping
 from pathlib import Path
 from types import ModuleType
@@ -14,10 +15,17 @@ import jsonschema
 from glava.scenes import bars, compare, flow, plot
 from glava.scenes.canvas import PAD, W, rect, text, wrap
 
-__all__ = ["load_templates", "render", "scene_issues", "wrap"]
+__all__ = ["load_style", "load_templates", "render", "scene_issues", "wrap"]
 
 GENERIC = {"flow": flow, "compare": compare, "plot": plot, "bars": bars}
 BADGE_H = 40
+
+
+def load_style(domain: Path) -> dict[str, Any]:
+    """Стайлгайд вместе с доменным правилом осей (axes.json не обязателен)."""
+    style = json.loads((domain / "styleguide.json").read_text(encoding="utf-8"))
+    axes = domain / "axes.json"
+    return {**style, "axes_down": json.loads(axes.read_text(encoding="utf-8"))["down"] if axes.exists() else []}
 
 
 def load_templates(folder: Path) -> dict[str, ModuleType]:

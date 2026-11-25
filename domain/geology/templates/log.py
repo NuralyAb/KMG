@@ -38,6 +38,9 @@ def check(data: Mapping[str, Any], style: Mapping[str, Any]) -> list[str]:
     layers = data["layers"]
     issues = [f"{c['name']}: уровней {len(c['levels'])}, слоёв {len(layers)}" for c in data["curves"] if len(c["levels"]) != len(layers)]
     issues += [f"слой «{x['label']}»: флюид только в коллекторе" for x in layers if x.get("fluid") and x["lithology"] not in RESERVOIRS]
+    for x in layers:
+        if len(wrap(x["label"], LITHO_W - 34)) * LINE > x["thickness"] * UNIT_H:
+            issues.append(f"подпись «{x['label']}» не влезает в слой: короче или толще слой")
     if issues:
         return issues
     if len({c["name"] for c in data["curves"]}) != len(data["curves"]):

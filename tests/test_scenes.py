@@ -1,16 +1,15 @@
 """Шаблоны сцен: SVG строит код, физика и читаемость проверяются до рисования."""
 
-import json
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import pytest
 
-from glava.scenes import load_templates, render, scene_issues, wrap
+from glava.scenes import load_style, load_templates, render, scene_issues, wrap
 from glava.scenes.formula import evaluate
 
 DOMAIN = Path(__file__).resolve().parents[1] / "domain" / "geology"
-STYLE = json.loads((DOMAIN / "styleguide.json").read_text(encoding="utf-8"))
+STYLE = load_style(DOMAIN)
 TEMPLATES = load_templates(DOMAIN / "templates")
 
 GOOD = {
@@ -27,7 +26,7 @@ GOOD = {
             "curves": [{"name": "GR", "levels": ["high", "low", "low"]}, {"name": "RES", "levels": ["low", "high", "low"]}], "filtrate": "fresh"},
     "section": {"shape": "anticline", "layers": [{"lithology": "shale", "label": "покрышка"}, {"lithology": "sand", "label": "пласт", "fluids": ["oil", "water"]},
                                                  {"lithology": "shale", "label": "глина"}], "wells": [{"x": 0.5, "label": "1"}]},
-    "borehole": {"collector": True, "lithology": "sand", "fluid": "oil", "pressure": "mud_above"},
+    "borehole": {"collector": True, "lithology": "sand", "fluid": "oil", "pressure": "mud_above", "bore": "mud", "cake": True},
     "grains": {"pores": "intergranular", "clay": "dispersed", "fluid": "oil", "water_film": True},
 }
 
@@ -117,3 +116,36 @@ def test_formula_is_calculated_without_python_access():
         evaluate("x.real", {"x": 1})
     with pytest.raises(ValueError):
         evaluate("9 ** 9 ** 9 ** 9", {})
+
+
+def test_depth_must_grow_down():
+    flat = {**GOOD["plot"], "x_label": "Глубина H"}
+    assert scene_issues(TEMPLATES["plot"], flat, STYLE)
+    down = {**GOOD["plot"], "x_label": "сопротивление", "y_label": "Глубина H", "y_down": True}
+    assert scene_issues(TEMPLATES["plot"], down, STYLE) == []
+    assert scene_issues(TEMPLATES["plot"], {**down, "y_down": False}, STYLE)
+
+
+def test_penetration_depth_is_not_a_depth_axis():
+    assert broken("plot", y_label="Глубина проникновения фильтрата") == []
+
+
+def test_mark_must_sit_on_a_curve():
+    assert broken("plot", marks=[{"x": 0.5, "y": 0.9, "text": "висит"}])
+    assert broken("plot", marks=[{"x": 0.5, "y": 0.4, "text": "на кривой"}]) == []
+
+
+def test_side_labels_of_a_branch_must_fit_together():
+    edges = [{"from": "a", "to": "b", "label": ""}, {"from": "b", "to": "c", "label": "простые задачи"}, {"from": "b", "to": "d", "label": "сложные"}]
+    assert broken("flow", edges=edges)
+
+
+def test_cake_needs_mud_and_invasion():
+    assert broken("borehole", bore="water", cake=True)
+    assert broken("borehole", bore="water", cake=False) == []
+    assert broken("borehole", pressure="mud_below", cake=True)
+
+
+def test_thin_layer_keeps_its_whole_label():
+    layers = [{**x, "thickness": 1, "label": "очень длинная подпись"[:20]} for x in GOOD["log"]["layers"]]
+    assert broken("log", layers=layers)

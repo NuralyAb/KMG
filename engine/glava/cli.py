@@ -14,7 +14,7 @@ from glava.course.build import build_course
 from glava.llm import Ledger, Provider, Reply, cached
 from glava.llm.providers import provider_from_env
 from glava.review.engine import review_package, workspace
-from glava.scenes import load_templates
+from glava.scenes import load_style, load_templates
 from glava.stages.errata import make_errata, render_page
 from glava.stages.illustrations import make_illustrations, records
 from glava.stages.layer import coverage_rows, drop_unsupported, load_schema, make_node, make_plan, pages_of
@@ -161,7 +161,7 @@ def build_tasks(chapter: Chapter, provider: Provider) -> None:
 
 def build_illustrations(chapter: Chapter, provider: Provider) -> None:
     nodes = read(chapter.work / "layer.json")["nodes"]
-    templates, style = load_templates(chapter.domain / "templates"), read(chapter.domain / "styleguide.json")
+    templates, style = load_templates(chapter.domain / "templates"), load_style(chapter.domain)
     prompt = prompt_file("illustrations")
 
     def scenes_for(part: Sequence[dict]) -> tuple[list[dict], list[Reply]]:
