@@ -1,0 +1,36 @@
+{
+ "chapter": "basniev_gl23-24_1",
+ "source": "analysis books/Басниев_и_др_-_Нефтегазовая_гидромеханика_-_2005.md",
+ "ideas": [
+  {"id": "bas.01", "idea": "Упругий запас жидкости (elastic storage): ΔVз = β*·V0·Δp.", "kind": "definition", "pages": [475, 476], "analysis_section": "key_definitions / Упругий запас жидкости"},
+  {"id": "bas.02", "idea": "Коэффициент упругоёмкости пласта (bulk compressibility): β* = m·βж + βс.", "kind": "definition", "pages": [476], "analysis_section": "key_definitions / Коэффициент упругоемкости пласта"},
+  {"id": "bas.03", "idea": "Коэффициент пьезопроводности (hydraulic diffusivity): κ = k/(μβ*), размерность L²/T, термин Щелкачёва.", "kind": "definition", "pages": [480, 481], "analysis_section": "key_definitions / Коэффициент пьезопроводности"},
+  {"id": "bas.04", "idea": "Типовые значения κ: 0,1–5 м²/с.", "kind": "correlation", "pages": [481], "analysis_section": "empirical_correlations_and_parameters / Коэффициент пьезопроводности"},
+  {"id": "bas.05", "idea": "Уравнение пьезопроводности ∂p/∂t = κΔp — основное уравнение упругого режима.", "kind": "idea", "pages": [480], "analysis_section": "named_methods_and_models / Уравнение пьезопроводности"},
+  {"id": "bas.06", "idea": "Область применимости: упругий режим однофазной фильтрации (давление выше давления насыщения), слабосжимаемая жидкость β(p − p0) << 1.", "kind": "condition", "pages": [474, 481], "analysis_section": "empirical_correlations_and_parameters / κ, validity_domain"},
+  {"id": "bas.07", "idea": "Точное решение для скважины с постоянным дебитом через интегральную показательную функцию Ei — основная формула теории упругого режима.", "kind": "idea", "pages": [490, 491], "analysis_section": "use_cases / Расчёт неустановившейся фильтрации"},
+  {"id": "bas.08", "idea": "Основная формула служит для интерпретации исследований скважин (КВД, ГДИС).", "kind": "nuance", "pages": [491], "analysis_section": "topic_coverage / 8_2_well_testing"},
+  {"id": "bas.09", "idea": "Метод ПССС (Чарный): пласт делят на возмущённую область с установившимся распределением и невозмущённую.", "kind": "idea", "pages": [494], "analysis_section": "named_methods_and_models / Метод ПССС"},
+  {"id": "bas.10", "idea": "Галерея, Q = const: граница возмущённой области l(t) = √(2κt).", "kind": "correlation", "pages": [496], "analysis_section": "named_methods_and_models / Метод ПССС"},
+  {"id": "bas.11", "idea": "Скважина, Q = const: R(t) = √(rс² + 4κt).", "kind": "correlation", "pages": [498], "analysis_section": "named_methods_and_models / Метод ПССС"},
+  {"id": "bas.12", "idea": "Приближённые методы называют приближёнными и дают погрешность: 25 % (галерея, Q = const), 11 % (галерея, p = const), 10,6; 7,5; 5,7 % (скважина, Q = const), около 5 % (скважина, p = const).", "kind": "condition", "pages": [496, 497, 499], "analysis_section": "tone_and_style / synthesis_guidance (4); числа — страницы"},
+  {"id": "bas.13", "idea": "ПССС даёт грубое распределение давления; связь дебита и депрессии точнее, особенно в радиальном потоке.", "kind": "nuance", "pages": [500], "analysis_section": "named_methods_and_models / Метод ПССС (приближённый)"},
+  {"id": "bas.14", "idea": "В модели k = const и μ = const; изменение проницаемости с давлением не учтено, для глубоких пластов модель ограничена.", "kind": "condition", "pages": [478], "analysis_section": "misleading_or_weak_sections / Глава XIX, §8"},
+  {"id": "bas.15", "idea": "Двойная пористость трещиноватых и кавернозных сред не учтена.", "kind": "condition", "pages": null, "analysis_section": "agent_routing_card / reservoir_type_warning"},
+  {"id": "bas.16", "idea": "Функция Лейбензона (псевдодавление) — приём сведения уравнений фильтрации.", "kind": "definition", "pages": [478, 479], "analysis_section": "key_definitions / Функция Лейбензона"},
+  {"id": "bas.17", "idea": "В ПССС дебит скважины берут по формуле, аналогичной формуле Дюпюи, с подвижным контуром питания R(t).", "kind": "idea", "pages": [498, 499], "analysis_section": "named_methods_and_models / Формула Дюпюи; ПССС"},
+  {"id": "bas.18", "idea": "Численные константы βж, βс — ориентировочные диапазоны, для пласта определяют отдельно.", "kind": "condition", "pages": [475, 476], "analysis_section": "agent_routing_card / quantitative_safety_warning"},
+  {"id": "bas.19", "idea": "Цепочка предпосылок: закон Дарси (XVIII) → модели фильтрации (XIX) → XXIII → XXIV.", "kind": "condition", "pages": [478, 494], "analysis_section": "chapter_dependencies / dependency_chains"},
+  {"id": "bas.20", "idea": "Точность с графика (распределения давления, Ei) потеряна: годится ход кривой, числа считать по формуле.", "kind": "condition", "pages": [484, 491, 495, 498, 499], "analysis_section": "visual_and_structured_content / mediation_quality / XY-PLOT"},
+  {"id": "bas.21", "idea": "Как сейчас: уравнения лежат в основе симуляторов (Eclipse, tNavigator, CMG) и программ ГДИС (Saphir/Kappa); ручной расчёт заменён.", "kind": "outdated", "pages": [491, 494, 499], "analysis_section": "depth_analysis / technological_note; practical_value / software_relevance"},
+  {"id": "bas.22", "idea": "Книга — теория, для конкретного месторождения нужны проверка исходных данных и границ применимости.", "kind": "condition", "pages": null, "analysis_section": "agent_routing_card / caution"},
+  {"id": "bas.23", "idea": "Мост терминов: пьезопроводность — hydraulic diffusivity, упругий запас — elastic storage, функция Лейбензона — pseudo-pressure, скорость фильтрации — Darcy velocity.", "kind": "definition", "pages": [475, 478, 480], "analysis_section": "agent_routing_card / school_warning; key_definitions"},
+  {"id": "bas.24", "idea": "Метод Пирвердяна (парабола, плавное смыкание) уточняет ПССС; в страницы главы попадает только начало §2.", "kind": "nuance", "pages": [500], "analysis_section": "named_methods_and_models / Метод А.М. Пирвердяна"},
+  {"id": "bas.25", "idea": "Теория упругого режима — действующая парадигма, не устарела.", "kind": "nuance", "pages": [475, 494], "analysis_section": "depth_analysis / paradigm_note"}
+ ],
+ "page_findings_not_from_analysis": [
+  {"page": 490, "kind": "misprint", "text": "Формула (23.51) напечатана с 2πkh перед интегралом по u; из подстановки dξ/ξ = du/2u и формулы (23.52) должно быть 4πkh. Проверено по скану."},
+  {"page": 491, "kind": "suspect", "text": "«для r²/(4κt) ≤ 1 давление можно определять по (23.53)»: рядом погрешность 9,7 % уже при x ≤ 0,14. Порог 1 расходится с соседними числами, проверить по скану."},
+  {"page": 478, "kind": "nuance", "text": "Обычно при упругом режиме отбирают 2–5 % (стр. 477), на Тенгизе ожидается до 20 %: оговорка-исключение, легко теряется."}
+ ]
+}

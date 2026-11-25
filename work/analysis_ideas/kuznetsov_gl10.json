@@ -1,0 +1,37 @@
+{
+ "chapter": "kuznetsov_gl10",
+ "source": "analysis books/Кузнецов Литология природных резервуаров нефти и газа 2012.md",
+ "ideas": [
+  {"id": "kuz.01", "idea": "Биостром, биогерм и риф различают по форме, положению в рельефе и мощности относительно синхронных отложений (биостром — примерно равна, биогерм и риф — больше).", "kind": "definition", "pages": [200, 201], "analysis_section": "key_definitions / Биогерм, биостром, риф"},
+  {"id": "kuz.02", "idea": "Риф — волноустойчивая карбонатная постройка.", "kind": "definition", "pages": [201, 202], "analysis_section": "key_definitions / Биогерм, биостром, риф"},
+  {"id": "kuz.03", "idea": "Фациальная зональность рифа управляет размещением коллекторов.", "kind": "idea", "pages": [203, 204, 207], "analysis_section": "use_cases / Анализ строения рифового резервуара"},
+  {"id": "kuz.04", "idea": "Тенгиз, атолловидный риф: пористость гребня 6–18 %, бассейновых склонов 2–5 %, лагуны 4,5–9,5 %.", "kind": "correlation", "pages": [207, 209], "analysis_section": "field_case_studies / Тенгиз"},
+  {"id": "kuz.05", "idea": "Карачаганак: эффективная мощность 67,6 % в ядре и 27,8 % на склоне.", "kind": "correlation", "pages": [209], "analysis_section": "field_case_studies / Карачаганак"},
+  {"id": "kuz.06", "idea": "На Карачаганаке распределение разное: куполовидная пермская часть и атолловидная каменноугольная. Числа 67,6/27,8 — только пермская; у атолла 61,1 % в кольце и 38,9 % в лагуне.", "kind": "condition", "pages": [209], "analysis_section": "field_case_studies / Карачаганак; второе условие — страница"},
+  {"id": "kuz.07", "idea": "В куполовидном рифе лучшие коллекторы в ядре, в плосковершинном и атолловидном — кольцом по гребню и верхней части внешнего склона, лагуна хуже.", "kind": "idea", "pages": [205, 207, 216], "analysis_section": "use_cases / «в гребне или в лагуне»"},
+  {"id": "kuz.08", "idea": "Даже «массивный» крупный риф имеет слоистое или линзовидно-слоистое строение; представление об однородном массиве упрощено.", "kind": "nuance", "pages": [209, 214], "analysis_section": "field_case_studies / Карачаганак, analog_applicability"},
+  {"id": "kuz.09", "idea": "Массивный резервуар — первое приближение для биогермов и небольших просто построенных рифов.", "kind": "condition", "pages": [209, 216], "analysis_section": "key_definitions / Массивный, пластовый, литологически ограниченный"},
+  {"id": "kuz.10", "idea": "Плотные пачки Карачаганака трещиноваты, поэтому пористые пласты, видимо, гидродинамически связаны.", "kind": "nuance", "pages": [214], "analysis_section": "field_case_studies / Карачаганак"},
+  {"id": "kuz.11", "idea": "Трещиноватость выше в краевых фациях и повышает проницаемость гребня.", "kind": "idea", "pages": [207], "analysis_section": "topic_coverage / 2_3_natural_fractures (гл. 10)"},
+  {"id": "kuz.12", "idea": "Тип резервуара задаёт миграцию внутри него: вертикальную и латеральную либо с затруднённой вертикальной.", "kind": "idea", "pages": [216], "analysis_section": "key_definitions / Массивный, пластовый…"},
+  {"id": "kuz.13", "idea": "Четыре группы рифовых ловушек: палеогеоморфологические, литолого-, структурно-палеогеоморфологические и с литологическим экранированием.", "kind": "idea", "pages": [218, 219], "analysis_section": "named_methods_and_models / Типы рифовых ловушек"},
+  {"id": "kuz.14", "idea": "Система разведки зависит от типа рифа: многоствольные скважины, кольцевая система, профили.", "kind": "idea", "pages": [220, 221, 222], "analysis_section": "named_methods_and_models / Типы рифовых ловушек"},
+  {"id": "kuz.15", "idea": "Доломиты между рифом и солями могут быть ложной покрышкой (полупокрышкой) и ограничивать высоту залежи.", "kind": "nuance", "pages": [216], "analysis_section": "key_definitions / Ложная покрышка; named_methods_and_models"},
+  {"id": "kuz.16", "idea": "Природный резервуар не равен ловушке и залежи.", "kind": "definition", "pages": [205, 216, 218], "analysis_section": "scientific_debates_and_positions / Терминологическое смешение"},
+  {"id": "kuz.17", "idea": "Генезис пустот важен: первичная пористость и вторичные выщелачивание, перекристаллизация, доломитизация.", "kind": "nuance", "pages": [203, 204, 205, 214], "analysis_section": "tone_and_style / synthesis_guidance (5); scientific_debates / доломиты"},
+  {"id": "kuz.18", "idea": "Доломитизация сама по себе не означает высокую пористость; в рифах она усложняет, но не стирает первичную неоднородность.", "kind": "nuance", "pages": [203, 214], "analysis_section": "scientific_debates_and_positions / Происхождение доломитов"},
+  {"id": "kuz.19", "idea": "Примеры-аналоги: Рейнбоу (Канада), Шуртан (Узбекистан).", "kind": "idea", "pages": [205, 206, 209, 211], "analysis_section": "use_cases / рифовый резервуар"},
+  {"id": "kuz.20", "idea": "Числа по месторождениям локальны, переносить на другие объекты нельзя.", "kind": "condition", "pages": [207, 209, 214], "analysis_section": "agent_routing_card / quantitative_safety_warning"},
+  {"id": "kuz.21", "idea": "Схемы обобщены; реальные объекты сложнее.", "kind": "condition", "pages": [209, 214, 220], "analysis_section": "agent_routing_card / caution"},
+  {"id": "kuz.22", "idea": "Легенды разрезов и карт потеряны: «литология не определяется без легенды». Литологию брать из подписи и скана.", "kind": "misprint", "pages": [201, 206, 208, 211, 212, 213], "analysis_section": "misleading_or_weak_sections / Рисунки карт и разрезов"},
+  {"id": "kuz.23", "idea": "Фотографии не годятся для распознавания по описанию: эталон потерян.", "kind": "condition", "pages": null, "analysis_section": "mediation_quality / Фотографии керна и шлифов"},
+  {"id": "kuz.24", "idea": "Как сейчас: размещение скважин и строение рифа решают по 3D-сейсмике, атрибутам, секвенс-стратиграфии и 3D-моделям; в книге этого нет.", "kind": "outdated", "pages": [220, 221, 222], "analysis_section": "depth_analysis / technological_note; complementary_topics"},
+  {"id": "kuz.25", "idea": "Мост терминов: природный резервуар — reservoir rock body, биогерм — bioherm, ложная покрышка — leaky seal; структурные типы ↔ Dunham.", "kind": "definition", "pages": [200, 202, 216], "analysis_section": "agent_routing_card / school_warning; key_definitions"},
+  {"id": "kuz.26", "idea": "Единицы смешанные: 10⁻¹⁵ м² соответствует мД.", "kind": "definition", "pages": [207, 209, 214], "analysis_section": "meta / units_note"},
+  {"id": "kuz.27", "idea": "Глава читается отдельно, но опирается на понятия пустот и ФЕС (гл. 2–3).", "kind": "condition", "pages": null, "analysis_section": "chapter_dependencies"}
+ ],
+ "page_findings_not_from_analysis": [
+  {"page": 209, "kind": "misprint", "text": "Источник по Тенгизу: в тексте [Павлов, 1993], в подписи рис. 10.4 (стр. 210) [Павлов, 1963]. Проверить по скану."},
+  {"page": null, "kind": "analysis_error", "text": "Анализ (topic_coverage / 12_2) относит к главе 10 поглощения раствора на Бобровской площади; на стр. 200–222 и во всём md слова нет."}
+ ]
+}

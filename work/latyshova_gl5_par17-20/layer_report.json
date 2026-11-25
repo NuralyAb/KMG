@@ -1,6 +1,7 @@
 {
  "issues": {},
  "dropped_claims": [],
+ "not_enriched": [],
  "nodes": 44,
  "claims": 604
 }

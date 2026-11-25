@@ -1,6 +1,7 @@
 """Команды конвейера. Одна команда на главу: glava build <глава>."""
 
 import argparse
+import ast
 import csv
 import json
 import logging
@@ -127,7 +128,7 @@ def enrich_nodes(chapter: Chapter, provider: Provider, nodes: Sequence[dict], er
 
 def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) -> dict[str, Any]:
     context = context_of(chapter)
-    errata = read_or(chapter.errata_file, {"entries": []})["entries"]
+    errata = errata_of(chapter)
     plan, plan_replies = make_plan(provider, prompt_file("plan"), context, chapter.units)
     save(chapter.work / "plan.json", plan)
     unfixed = plan_issues(plan, chapter.units)
@@ -166,9 +167,29 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
     return layer
 
 
+def errata_of(chapter: Chapter) -> list[dict]:
+    """Лист опечаток этапа errata и записи человека из <глава>.manual.json."""
+    files = (chapter.errata_file, chapter.errata_file.with_suffix(".manual.json"))
+    return [e for file in files for e in read_or(file, {"entries": []})["entries"]]
+
+
+def routing_context(chapter: Chapter) -> str:
+    pictures = [t.SUMMARY for t in load_templates(chapter.domain / "templates").values()]
+    videos = [line for file in sorted((chapter.domain / "video").glob("*.py")) if (line := template_summary(file))]
+    difficulty = (chapter.domain / "difficulty.md").read_text(encoding="utf-8")
+    return "\n".join(["Рисунки и интерактив:", *pictures, "", "Видео:", *videos, "", difficulty])
+
+
+def template_summary(file: Path) -> str:
+    """SUMMARY видеошаблона читается из текста: для рендера нужен cairo, а для маршрутизации нет."""
+    for node in ast.parse(file.read_text(encoding="utf-8")).body:
+        if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "SUMMARY" for t in node.targets) and isinstance(node.value, ast.Constant):
+            return str(node.value.value)
+    return ""
+
+
 def build_routing(chapter: Chapter, provider: Provider) -> None:
-    templates = "\n".join(load_templates(chapter.domain / "templates"))
-    routing, replies = make_routing(provider, prompt_file("routing"), read(chapter.work / "layer.json"), templates)
+    routing, replies = make_routing(provider, prompt_file("routing"), read(chapter.work / "layer.json"), routing_context(chapter))
     save(chapter.work / "routing.json", routing)
     write_metrics(chapter, "routing", len(routing["routes"]), replies)
     log.info("маршруты: %s", len(routing["routes"]))
@@ -188,7 +209,7 @@ def build_illustrations(chapter: Chapter, provider: Provider) -> None:
     nodes = read(chapter.work / "layer.json")["nodes"]
     templates, style = load_templates(chapter.domain / "templates"), load_style(chapter.domain)
     prompt = prompt_file("illustrations")
-    errata = read_or(chapter.errata_file, {"entries": []})["entries"]
+    errata = errata_of(chapter)
 
     def scenes_for(part: Sequence[dict]) -> tuple[list[dict], list[Reply]]:
         return make_illustrations(provider, prompt, part, templates, style, errata)
