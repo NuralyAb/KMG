@@ -4,10 +4,11 @@ import hashlib
 import logging
 import os
 from collections.abc import Mapping, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
+from glava.modules.figure_reading.api import with_readings
 from glava.modules.library.api import (
     SAFE_ID,
     LibraryError,
@@ -39,6 +40,12 @@ class Chapter:
     units: tuple[Unit, ...]
     source: str
     pdf: Path | None = None
+    # единицы до прочтения рисунков: их сверяют со сканом этапы figures и errata
+    recognised: tuple[Unit, ...] = ()
+
+    @property
+    def source_units(self) -> tuple[Unit, ...]:
+        return self.recognised or self.units
 
     @property
     def is_english(self) -> bool:
@@ -78,8 +85,8 @@ def load_chapter(chapter_id: str) -> Chapter:
     texts, scans = (info["root"], info["root"]) if info.get("root") else (os.environ.get("GLAVA_BOOKS", registry["root"]), os.environ.get("GLAVA_PDFS", registry["pdf_root"]))
     md = (workspace() / texts / info["file"]).read_text(encoding="utf-8-sig")
     units = parse_units(_pages(chapter_id, md, info["pages"]))
-    return Chapter(chapter_id, info["prefix"], info["title"], info["book"], workspace() / "domain" / info["domain"], tuple(units), info["file"],
-                   workspace() / scans / info["pdf"] if info.get("pdf") else None)
+    return _read_figures(Chapter(chapter_id, info["prefix"], info["title"], info["book"], workspace() / "domain" / info["domain"], tuple(units), info["file"],
+                                 workspace() / scans / info["pdf"] if info.get("pdf") else None))
 
 
 def load_library_chapter(chapter_id: str, info: Mapping[str, Any]) -> Chapter:
@@ -89,7 +96,19 @@ def load_library_chapter(chapter_id: str, info: Mapping[str, Any]) -> Chapter:
         raise LibraryError("текст книги ещё не извлечён: выполните glava extract")
     pages = _pages(chapter_id, source.text.read_text(encoding="utf-8"), info["pages"])
     units = mark_unsure(parse_units(pages), unsure_pages(source))
-    return Chapter(chapter_id, info["prefix"], info["title"], info["book"], workspace() / "domain" / info["domain"], tuple(units), source.original.name, source.pdf)
+    return _read_figures(Chapter(chapter_id, info["prefix"], info["title"], info["book"], workspace() / "domain" / info["domain"], tuple(units), source.original.name, source.pdf))
+
+
+def figures_file(chapter: Chapter) -> Path:
+    return chapter.work / "figures.json"
+
+
+def _read_figures(chapter: Chapter) -> Chapter:
+    """Рисунки, прочитанные этапом figures, заменяют описания распознавателя во всех следующих этапах."""
+    readings = [r for page in read_or(figures_file(chapter), {"pages": []})["pages"] for r in page["figures"]]
+    if not readings:
+        return chapter
+    return replace(chapter, units=tuple(with_readings(chapter.units, readings)), recognised=chapter.units)
 
 
 def layer_of(chapter_id: str) -> tuple[Path, dict[str, Any]]:
@@ -108,8 +127,8 @@ def file_digest(path: Path) -> str:
 
 
 def errata_of(chapter: Chapter) -> list[dict]:
-    """Лист опечаток этапа errata и записи человека из <глава>.manual.json."""
-    files = (chapter.errata_file, chapter.errata_file.with_suffix(".manual.json"))
+    """Лист опечаток этапа errata, расхождения рисунков с распознавателем (этап figures) и записи человека из <глава>.manual.json."""
+    files = (chapter.errata_file, chapter.errata_file.with_suffix(".figures.json"), chapter.errata_file.with_suffix(".manual.json"))
     return [e for file in files for e in read_or(file, {"entries": []})["entries"]]
 
 
