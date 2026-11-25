@@ -31,6 +31,14 @@ def _strings(value: Any) -> Iterator[str]:
             yield from _strings(inner)
 
 
+def _codes(schema: Any) -> set[str]:
+    """Значения перечислений шаблона: это ключи для рисовальщика, читатель их не видит."""
+    if isinstance(schema, Mapping):
+        own = {v for v in schema.get("enum", ()) if isinstance(v, str)}
+        return own.union(*(_codes(v) for k, v in schema.items() if k != "enum"))
+    return set[str]().union(*(_codes(v) for v in schema)) if isinstance(schema, list) else set()
+
+
 def _values(scene: Mapping[str, Any]) -> list[float]:
     """Числа, которые читатель увидит как числа главы."""
     data = scene["data"]
@@ -66,7 +74,8 @@ def _scene_problems(scene: Mapping[str, Any], node: Mapping[str, Any], templates
     if problems:
         return problems
     shown = " ; ".join([scene["caption"], scene["alt"], *_strings(scene["data"]), *(_digits(v) for v in _values(scene))])
-    raw = [t for t in (scene["caption"], scene["alt"], *_strings(scene["data"])) if set(t) & set("_$\\")]
+    codes = _codes(getattr(template, "SCHEMA", {}))
+    raw = [t for t in (scene["caption"], scene["alt"], *(s for s in _strings(scene["data"]) if s not in codes)) if set(t) & set("_$\\")]
     if raw and scene["template"] != "plot" or any(set(t) & set("_$\\") for t in (scene["caption"], scene["alt"])):
         problems = [f"подписи без подчёркиваний и LaTeX: {raw[0][:40]}"]
     foreign = unsupported_numbers(shown, _source(node, scene["claim_ids"]))

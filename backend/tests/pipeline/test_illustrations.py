@@ -43,6 +43,12 @@ def test_wrong_scene_is_reported(bad):
     assert issues(scene(**bad))
 
 
+def test_template_codes_may_have_underscores_but_labels_may_not():
+    data = {"collector": True, "lithology": "sand", "fluid": "oil", "pressure": "mud_above", "bore": "oil_mud", "cake": False}
+    assert issues(scene(template="borehole", data=data)) == []
+    assert issues(scene(template="borehole", data=data, caption="Порог k_п"))
+
+
 def test_every_node_needs_a_scene():
     assert illustration_issues({"illustrations": []}, NODES, TEMPLATES, STYLE)
 
