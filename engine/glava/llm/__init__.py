@@ -3,8 +3,10 @@
 import hashlib
 import json
 import logging
+import os
+import threading
 from collections.abc import Callable, Sequence
-from dataclasses import asdict, dataclass, replace
+from dataclasses import asdict, dataclass, field, replace
 from pathlib import Path
 from typing import Any, Protocol
 
@@ -51,6 +53,48 @@ class Ledger:
         return self
 
 
+def _saved_reply(path: Path) -> Reply | None:
+    """Повреждённый файл кэша — промах, а не поломка прогона."""
+    try:
+        return Reply(**json.loads(path.read_text(encoding="utf-8")))
+    except FileNotFoundError:
+        return None
+    except (ValueError, TypeError):
+        log.warning("файл кэша повреждён, спрашиваю заново: %s", path.name)
+        return None
+
+
+@dataclass
+class _Metered:
+    """Общий счётчик расхода для всех потоков прогона."""
+
+    inner: Provider
+    budget_usd: float
+    spent_usd: float = 0.0
+    lock: threading.Lock = field(default_factory=threading.Lock)
+
+    @property
+    def name(self) -> str:
+        return self.inner.name
+
+    @property
+    def model(self) -> str:
+        return self.inner.model
+
+    def ask(self, system: str, prompt: str, files: Sequence[Path] = ()) -> Reply:
+        with self.lock:
+            if self.spent_usd >= self.budget_usd:
+                raise BudgetExceeded(f"потрачено ${self.spent_usd:.2f} при бюджете ${self.budget_usd:.2f}")
+        reply = self.inner.ask(system, prompt, *([files] if files else []))
+        with self.lock:
+            self.spent_usd += reply.cost_usd
+        return reply
+
+
+def metered(provider: Provider, budget_usd: float) -> Provider:
+    return _Metered(provider, budget_usd)
+
+
 @dataclass(frozen=True)
 class _Cached:
     inner: Provider
@@ -68,11 +112,14 @@ class _Cached:
         marks = [hashlib.sha256(f.read_bytes()).hexdigest() for f in files]
         key = hashlib.sha256("\0".join([self.name, self.model, system, prompt, *marks]).encode()).hexdigest()[:32]
         path = self.folder / f"{key}.json"
-        if path.exists():
-            return replace(Reply(**json.loads(path.read_text(encoding="utf-8"))), cost_usd=0.0)
+        saved = _saved_reply(path)
+        if saved:
+            return replace(saved, cost_usd=0.0)
         reply = self.inner.ask(system, prompt, *([files] if files else []))
         self.folder.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(asdict(reply), ensure_ascii=False), encoding="utf-8")
+        draft = path.with_suffix(f".{threading.get_ident()}.tmp")
+        draft.write_text(json.dumps(asdict(reply), ensure_ascii=False), encoding="utf-8")
+        os.replace(draft, path)
         return reply
 
 
@@ -106,7 +153,7 @@ def ask_json(
         try:
             data = extract_json(reply.text)
             issues = validate(data)
-        except (ValueError, KeyError, TypeError) as error:
+        except (ValueError, KeyError, TypeError, AttributeError, IndexError) as error:
             issues = [f"ответ не разобран как JSON нужной формы: {error!r}"]
         if not issues:
             return data, replies

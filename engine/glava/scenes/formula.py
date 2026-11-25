@@ -16,7 +16,7 @@ def evaluate(formula: str, values: Mapping[str, float]) -> float:
         raise ValueError("формула слишком длинная")
     try:
         result = _walk(ast.parse(formula.replace("^", "**"), mode="eval").body, values)
-    except (SyntaxError, ArithmeticError, TypeError) as error:
+    except (SyntaxError, ArithmeticError, TypeError, RecursionError) as error:
         raise ValueError(f"формула не считается: {error}") from error
     if isinstance(result, complex) or not math.isfinite(result):
         raise ValueError("значение не число")
@@ -25,9 +25,9 @@ def evaluate(formula: str, values: Mapping[str, float]) -> float:
 
 def _walk(node: ast.AST, values: Mapping[str, float]) -> float:
     if isinstance(node, ast.Constant) and isinstance(node.value, int | float):
-        return node.value
+        return float(node.value)
     if isinstance(node, ast.Name) and node.id in values:
-        return values[node.id]
+        return float(values[node.id])
     if isinstance(node, ast.UnaryOp) and isinstance(node.op, ast.USub):
         return -_walk(node.operand, values)
     if isinstance(node, ast.BinOp) and type(node.op) in OPERATORS:

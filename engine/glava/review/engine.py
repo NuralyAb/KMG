@@ -1,17 +1,22 @@
 """Модуль проверки: два независимых прохода ищут ошибки, судья отсеивает ложные тревоги, страницу ставит код."""
 
 import json
+import re
 import shutil
 from collections.abc import Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any
 
+import jsonschema
+
 from glava.llm import Provider, Reply, ask_json
 from glava.review.checks import quick_notes
 from glava.stages.layer import load_schema
 from glava.verify import find_quote_page, quote_on_page
 
+SAFE_ID = re.compile(r"[A-Za-z0-9_][A-Za-z0-9_.-]*")
+IMAGES = {".png", ".jpg", ".jpeg"}
 GROUP = 8
 FRAME_GROUP = 3
 JUDGE_GROUP = 5
@@ -24,14 +29,36 @@ Remark = Mapping[str, Any]
 Item = Mapping[str, Any]
 
 
-def workspace(source: Path, target: Path) -> Path:
-    """Рабочая копия пакета без ключа: модель с правом читать файлы не должна его увидеть."""
+def load_package(source: Path) -> dict[str, Any]:
+    """Чужой файл: сначала схема и пути, потом работа."""
+    package = json.loads((source / "package.json").read_text(encoding="utf-8"))
+    error = next(jsonschema.Draft202012Validator(load_schema("review_package")).iter_errors(package), None)
+    if error:
+        raise ValueError(f"пакет не по схеме: {'/'.join(map(str, error.absolute_path))}: {error.message[:200]}")
+    if not SAFE_ID.fullmatch(package["package_id"]):
+        raise ValueError("package_id: только буквы, цифры, точка, дефис и подчёркивание")
+    root = source.resolve()
+    for frame in package["frames"]:
+        path = (root / frame["file"]).resolve()
+        if not path.is_relative_to(root) or path.suffix.lower() not in IMAGES:
+            raise ValueError(f"кадр {frame['id']}: недопустимый файл {frame['file']}")
+    return package
+
+
+def workspace(source: Path, root: Path, name: str) -> Path:
+    """Рабочая копия пакета без ключа: модель с правом читать файлы не должна его увидеть. Копируются только картинки."""
+    target = (root / name).resolve()
+    if not name or target.parent != root.resolve():
+        raise ValueError(f"недопустимое имя рабочей папки: {name!r}")
     if target.exists():
         shutil.rmtree(target)
     target.mkdir(parents=True)
     shutil.copy2(source / "package.json", target / "package.json")
-    if (source / "frames").exists():
-        shutil.copytree(source / "frames", target / "frames", ignore=shutil.ignore_patterns("*.json"))
+    for image in source.rglob("*"):
+        if image.is_file() and not image.is_symlink() and image.suffix.lower() in IMAGES:
+            place = target / image.relative_to(source)
+            place.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(image, place)
     return target
 
 
@@ -103,6 +130,13 @@ def _valid(remark: Remark) -> bool:
             and bool(str(remark.get("problem") or "").strip()) and bool(str(remark.get("fix") or "").strip()))
 
 
+def _confidence(verdict: Remark) -> float:
+    try:
+        return float(verdict.get("confidence", 0))
+    except (TypeError, ValueError):
+        return 0.0
+
+
 def _group_by_target(remarks: Sequence[Remark]) -> dict[str, list[Remark]]:
     grouped: dict[str, list[Remark]] = {}
     for remark in remarks:
@@ -139,9 +173,11 @@ def review_package(
         verdicts = list(pool.map(decide, _batches([(t, doubts[t]) for t in sorted(doubts, key=place)], JUDGE_GROUP)))
     final: dict[str, dict] = {}
     for verdict in (v for vs, _ in verdicts for v in vs):
-        sure = verdict.get("confirmed") is True and verdict.get("confidence", 0) >= min_confidence
+        sure = verdict.get("confirmed") is True and _confidence(verdict) >= min_confidence
         if sure and _valid(verdict) and verdict["target"] not in final:
             page = settle_page(verdict, pages, _claim_page(by_id[verdict["target"]], package))
-            final = {**final, verdict["target"]: {**{k: verdict.get(k) for k in FIELDS}, "page_pdf": page}}
+            quote = verdict.get("quote")
+            quote = quote if isinstance(quote, str) and find_quote_page(quote, pages) else None
+            final = {**final, verdict["target"]: {**{k: verdict.get(k) for k in FIELDS}, "page_pdf": page, "quote": quote}}
     remarks = sorted(final.values(), key=lambda r: (ORDER[r["severity"]], r["target"]))
     return {"package_id": package["package_id"], "remarks": remarks}, [r for _, rs in (*found, *verdicts) for r in rs]

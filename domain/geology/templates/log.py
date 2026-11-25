@@ -26,7 +26,7 @@ SCHEMA = {
 }
 NAMES = {"SP": "ПС", "GR": "ГК", "RES": "КС", "RES_SHALLOW": "МКЗ", "NEUTRON": "НГК", "DENSITY": "ГГК-П", "SONIC": "АК", "CALIPER": "КВ"}
 FULL = {"SP": "потенциал собственной поляризации", "GR": "гамма-каротаж", "RES": "кажущееся сопротивление", "RES_SHALLOW": "микрозонд", "NEUTRON": "нейтронный каротаж",
-        "DENSITY": "плотностной каротаж", "SONIC": "акустический каротаж", "CALIPER": "диаметр скважины"}
+        "DENSITY": "плотность по ГГК-П", "SONIC": "акустический каротаж", "CALIPER": "диаметр скважины"}
 RESERVOIRS = {"sand", "limestone", "dolomite", "reef"}
 TIGHT = {"dense", "anhydrite", "salt"}
 UNIT_H = 46
@@ -52,7 +52,7 @@ def check(data: Mapping[str, Any], style: Mapping[str, Any]) -> list[str]:
     for curve in data["curves"]:
         rule = RULES.get(curve["name"])
         if rule:
-            issues += rule(Response([LEVELS[v] for v in curve["levels"]], layers, data.get("filtrate", "fresh")))
+            issues += [f"должно быть так: {i}" for i in rule(Response([LEVELS[v] for v in curve["levels"]], layers, data.get("filtrate", "fresh")))]
     return issues
 
 

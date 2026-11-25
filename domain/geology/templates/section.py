@@ -37,6 +37,10 @@ def check(data: Mapping[str, Any], style: Mapping[str, Any]) -> list[str]:
     layers = data["layers"]
     if data["shape"] in ("pinchout", "reef") and len(layers) < 3:
         issues.append("для выклинивания и рифа нужно не меньше трёх слоёв")
+    if data["shape"] == "pinchout" and len(layers) > 1 and layers[1]["lithology"] in SEALS:
+        issues.append("выклинивается второй слой, это должен быть коллектор")
+    if data["shape"] == "reef" and len(layers) > 1 and layers[1]["lithology"] != "reef":
+        issues.append("второй слой рифовой формы должен быть reef")
     for i, layer in enumerate(layers):
         fluids = layer.get("fluids") or []
         if not fluids:
@@ -56,7 +60,8 @@ def _relief(shape: str, u: float, depth: float) -> float:
     if shape in ("anticline", "reef"):
         return -RISE * math.exp(-((u - 0.5) / 0.2) ** 2) * (1 if shape == "anticline" else 0.35 * (1 - depth))
     if shape == "fault":
-        return FAULT_DROP if u > FAULT_X else 0
+        # пласт поднимается к разлому; правый блок опущен
+        return FAULT_DROP if u > FAULT_X else -RISE * 0.8 * u / FAULT_X
     if shape == "pinchout":
         return -70 * (u - 0.5)
     return 0

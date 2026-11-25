@@ -1,6 +1,7 @@
 """Иллюстрации шагов: модель выбирает шаблон и заполняет спецификацию, код проверяет её и рисует SVG."""
 
 import json
+import re
 from collections.abc import Iterator, Mapping, Sequence
 from pathlib import Path
 from types import ModuleType
@@ -12,6 +13,8 @@ from glava.verify import unsupported_numbers
 
 FIELDS = ("node_id", "template", "caption", "alt", "claim_ids", "data")
 MAX_CAPTION = 200
+LITERAL = re.compile(r"(?<![\w.])\d+(?:\.\d+)?")
+PLAIN_EXPONENTS = {1.0, 2.0}
 Templates = Mapping[str, ModuleType]
 
 
@@ -34,8 +37,14 @@ def _values(scene: Mapping[str, Any]) -> list[float]:
         return [i[k] for i in data["items"] for k in ("value", "from", "to") if k in i]
     if scene["template"] == "plot" and data.get("numeric"):
         points = [v for s in data["series"] for p in s.get("points", []) for v in p]
-        return points + list(data.get("params", {}).values())
+        formulas = [float(n) for s in data["series"] for n in LITERAL.findall(s.get("formula", ""))]
+        ends = [s[k] for s in data["series"] for k in ("from", "to") if k in s]
+        return points + list(data.get("params", {}).values()) + [f for f in formulas if f not in PLAIN_EXPONENTS] + ends
     return []
+
+
+def _digits(value: float) -> str:
+    return str(int(value)) if float(value).is_integer() else f"{value:.10f}".rstrip("0")
 
 
 def _source(node: Mapping[str, Any], claim_ids: Sequence[str]) -> str:
@@ -54,7 +63,7 @@ def _scene_problems(scene: Mapping[str, Any], node: Mapping[str, Any], templates
     problems = [f"{scene['template']}: {i}" for i in scene_issues(template, scene["data"], style)]
     if problems:
         return problems
-    shown = " ; ".join([scene["caption"], scene["alt"], *_strings(scene["data"]), *(f"{v:g}" for v in _values(scene))])
+    shown = " ; ".join([scene["caption"], scene["alt"], *_strings(scene["data"]), *(_digits(v) for v in _values(scene))])
     raw = [t for t in (scene["caption"], scene["alt"], *_strings(scene["data"])) if set(t) & set("_$\\")]
     if raw and scene["template"] != "plot" or any(set(t) & set("_$\\") for t in (scene["caption"], scene["alt"])):
         problems = [f"подписи без подчёркиваний и LaTeX: {raw[0][:40]}"]

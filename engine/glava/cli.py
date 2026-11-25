@@ -4,6 +4,7 @@ import argparse
 import csv
 import json
 import logging
+import os
 from collections.abc import Sequence
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
@@ -11,20 +12,20 @@ from pathlib import Path
 from typing import Any
 
 from glava.course.build import build_course
-from glava.llm import Ledger, Provider, Reply, cached
+from glava.llm import Provider, Reply, cached, metered
 from glava.llm.providers import provider_from_env
-from glava.review.engine import review_package, workspace
+from glava.review.engine import load_package, review_package, workspace
 from glava.scenes import load_style, load_templates
 from glava.stages.errata import make_errata, render_page
 from glava.stages.illustrations import make_illustrations, records
-from glava.stages.layer import coverage_rows, drop_unsupported, load_schema, make_node, make_plan, pages_of
+from glava.stages.layer import coverage_rows, drop_unsupported, load_schema, make_node, make_plan, pages_of, plan_issues
 from glava.stages.routing import make_routing
 from glava.stages.tasks import chapter_task_issues, groups, make_tasks, number_tasks
 from glava.units import Unit, parse_units, read_pages
 
 ROOT = Path(__file__).resolve().parents[2]
 PARALLEL = 4
-BUDGET_USD = 12.0
+BUDGET_USD = float(os.environ.get("GLAVA_BUDGET_USD", "25"))
 METRIC_FIELDS = ("chapter", "stage", "nodes", "llm_tokens_in", "llm_tokens_out", "money_usd", "person_minutes", "mentor_minutes",
                  "video_seconds", "manual_share")
 log = logging.getLogger("glava")
@@ -111,7 +112,9 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
     errata = read_or(chapter.errata_file, {"entries": []})["entries"]
     plan, plan_replies = make_plan(provider, prompt_file("plan"), context, chapter.units)
     save(chapter.work / "plan.json", plan)
-    Ledger(BUDGET_USD).add("plan", *plan_replies).check()
+    unfixed = plan_issues(plan, chapter.units)
+    if unfixed:
+        raise SystemExit("план главы не прошёл проверку: " + "; ".join(unfixed[:5]))
     count = min(limit or len(plan["nodes"]), len(plan["nodes"]))
     log.info("план: узлов %s, собираю %s", len(plan["nodes"]), count)
 
@@ -136,6 +139,9 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
     save(chapter.work / "layer_report.json", report)
     replies = [*plan_replies, *(r for _, _, rs in results for r in rs)]
     write_metrics(chapter, "layer", len(layer["nodes"]), replies)
+    broken = [n for n, found in report["issues"].items() if any(i.startswith("схема") for i in found)]
+    if broken:
+        raise SystemExit(f"узлы не прошли схему: {', '.join(broken)}; слой сохранён, повторите команду")
     log.info("слой: узлов %s, утверждений %s, отброшено %s, замечания в узлах: %s, $%.2f", report["nodes"], report["claims"],
              len(report["dropped_claims"]), len(report["issues"]), sum(r.cost_usd for r in replies))
     return layer
@@ -194,8 +200,8 @@ def build_site(chapter: Chapter) -> Path:
 
 def build_review(chapter: Chapter, source: Path, provider: Provider) -> Path:
     """Проверка чужого пакета; ответ — out/review/<пакет>.json."""
-    folder = workspace(source, ROOT / "work" / "review" / source.name)
-    package = read(folder / "package.json")
+    package = load_package(source)
+    folder = workspace(source, ROOT / "work" / "review", package["package_id"])
     prompts = {role: prompt_file(f"review_{role}") for role in ("find", "physics", "judge")}
     checklist = (chapter.domain / "physics_checklist.json").read_text(encoding="utf-8")
     answer, replies = review_package(package, pages_of(chapter.units), provider, prompts, checklist, folder)
@@ -223,7 +229,7 @@ def main() -> None:
     if args.command == "course":
         build_site(chapter)
         return
-    provider = cached(provider_from_env(), ROOT / ".cache")
+    provider = cached(metered(provider_from_env(), BUDGET_USD), ROOT / ".cache")
     if args.command == "review":
         if args.package is None:
             parser.error("укажите --package")

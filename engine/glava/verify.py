@@ -40,22 +40,34 @@ def unsupported_numbers(text: str, source: str) -> set[str]:
     return numbers_in(text) - numbers_in(source)
 
 
+SERVICE_KEYS = {"quote", "id", "ref", "unit_id", "page_pdf", "page_print", "target", "number"}
+TEXT_FIELDS = ("layers", "misconception", "data_meaning", "it_analogy", "now_practice", "inefficiency_lens", "decision_on_data", "glossary", "worked_examples",
+               "book_tasks")
+
+
+def _strings(value: object, where: str) -> Iterator[tuple[str, str]]:
+    if isinstance(value, str):
+        yield where, value
+    elif isinstance(value, Mapping):
+        for key, inner in value.items():
+            if key not in SERVICE_KEYS:
+                yield from _strings(inner, f"{where}.{key}")
+    elif isinstance(value, list):
+        for i, inner in enumerate(value):
+            yield from _strings(inner, f"{where}[{i}]")
+
+
 def node_texts(node: Mapping) -> Iterator[tuple[str, str]]:
-    """Тексты узла, в которых числа должны держаться на главе (аналогия и гипотезы — слова модели, но тоже без чисел)."""
-    layers = node["layers"]
-    for name in ("topic", "main", "mechanism", "practice", "nuances"):
-        yield f"layers.{name}", layers[name]["text"]
-    for i, deeper in enumerate(layers.get("deeper", [])):
-        yield f"layers.deeper[{i}]", deeper["text"]
+    """Все тексты узла, которые увидит читатель: в них не может быть чисел, которых нет на страницах узла."""
+    for field in TEXT_FIELDS:
+        yield from _strings(node.get(field), field)
     for claim in node["claims"]:
         yield claim["id"], claim["text"]
-    for i, example in enumerate(node.get("worked_examples", [])):
-        yield f"worked_examples[{i}]", " ".join([example["condition"], *example["steps"], example["result"]])
 
 
-def _node_source(node: Mapping, pages: Mapping[int, str]) -> str:
+def node_source(node: Mapping, pages: Mapping[int, str]) -> str:
     cited = {c["page_pdf"] for c in node["claims"]} | set(node.get("pages", []))
-    cited |= {e["page_pdf"] for e in node.get("worked_examples", [])}
+    cited |= {e["page_pdf"] for key in ("worked_examples", "book_tasks") for e in node.get(key) or []}
     return "\n".join(pages.get(n, "") for n in sorted(cited))
 
 
@@ -71,7 +83,7 @@ def _quote_issues(node: Mapping, pages: Mapping[int, str]) -> Iterator[Issue]:
 
 
 def _number_issues(node: Mapping, pages: Mapping[int, str]) -> Iterator[Issue]:
-    source = _node_source(node, pages)
+    source = node_source(node, pages)
     for where, text in node_texts(node):
         missing = unsupported_numbers(text, source)
         if missing:

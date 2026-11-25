@@ -48,8 +48,12 @@ class ClaudeCode:
             with tempfile.TemporaryDirectory() as clean_folder:
                 copies = [shutil.copy2(file, clean_folder) for file in files]
                 question = f"Сначала открой инструментом Read картинки: {', '.join(copies)}. {prompt}" if files else prompt
-                done = subprocess.run(command, input=question, capture_output=True, text=True, encoding="utf-8",
-                                      cwd=clean_folder, timeout=TIMEOUT_S, check=False)
+                try:
+                    done = subprocess.run(command, input=question, capture_output=True, text=True, encoding="utf-8",
+                                          cwd=clean_folder, timeout=TIMEOUT_S, check=False)
+                except subprocess.TimeoutExpired:
+                    detail = f"нет ответа за {TIMEOUT_S} с"
+                    continue
             payload = _payload(done.stdout)
             if payload is not None and not payload.get("is_error"):
                 usage = payload["usage"]

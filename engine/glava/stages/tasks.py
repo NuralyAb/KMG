@@ -78,5 +78,4 @@ def groups(nodes: Sequence[Mapping], size: int = GROUP) -> list[Sequence[Mapping
 def make_tasks(provider: Provider, system: str, group: Sequence[Mapping]) -> tuple[list[dict], list[Reply]]:
     prompt = "# Узлы\n" + json.dumps([_brief(n) for n in group], ensure_ascii=False, indent=0)
     data, replies = ask_json(provider, system, prompt, lambda d: task_issues(d, group))
-    bad = {i.split(":")[0] for i in task_issues(data, group)}
-    return [t for t in data["tasks"] if t["id"] not in bad], replies
+    return [t for t in data["tasks"] if isinstance(t, dict) and not task_issues({"tasks": [t]}, group)], replies

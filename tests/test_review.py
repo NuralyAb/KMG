@@ -90,7 +90,7 @@ def test_workspace_never_contains_the_key(tmp_path):
     (source / "key.json").write_text("{}", encoding="utf-8")
     (source / "frames" / "F01.png").write_bytes(b"png")
 
-    target = workspace(source, tmp_path / "out")
+    target = workspace(source, tmp_path, "out")
 
     names = {p.name for p in target.rglob("*")}
     assert "key.json" not in names

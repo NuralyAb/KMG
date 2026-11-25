@@ -14,10 +14,10 @@ from glava.llm import Provider, Reply, ask_json
 from glava.stages.errata import for_pages, number_sources, prompt_block
 from glava.stages.wording import normal_layers, plain_node
 from glava.units import Unit
-from glava.verify import find_quote_page, unsupported_numbers, verify_layer, with_extra
+from glava.verify import find_quote_page, node_source, quote_on_page, unsupported_numbers, verify_layer, with_extra
 
 SCHEMAS = Path(__file__).parent.parent / "schemas"
-SLUG = re.compile(r"^[a-z0-9_]+$")
+SLUG = re.compile(r"[a-z0-9_]+")
 SKIPPABLE_KINDS = {"heading"}
 SHORT_JUNK_CHARS = 40
 FORBIDDEN_REASON = re.compile(r"непоказ|подробн|не важн|вторичн", re.IGNORECASE)
@@ -47,7 +47,7 @@ def plan_issues(plan: Mapping, units: Sequence[Unit]) -> list[str]:
                                            or (unit.kind not in SKIPPABLE_KINDS and len(unit.text) > SHORT_JUNK_CHARS)):
             issues.append(f"единицу {uid} ({unit.kind}) нельзя пропустить: {reason}")
     slugs = Counter(n["slug"] for n in plan["nodes"])
-    issues += [f"slug {s} повторяется или не латиницей" for s, count in slugs.items() if count > 1 or not SLUG.match(s)]
+    issues += [f"slug {s} повторяется или не латиницей" for s, count in slugs.items() if count > 1 or not SLUG.fullmatch(s)]
     terms = Counter(t.casefold() for n in plan["nodes"] for t in n["terms_introduced"])
     issues += [f"термин «{t}» объясняется в {count} узлах" for t, count in terms.items() if count > 1]
     in_parts = [s for p in plan.get("parts", []) for s in p["slugs"]]
@@ -56,11 +56,21 @@ def plan_issues(plan: Mapping, units: Sequence[Unit]) -> list[str]:
     return issues
 
 
+def _grounded(claim: Mapping[str, Any], units: Sequence[Unit]) -> dict[str, Any]:
+    """Единицу и вид источника определяет место цитаты, а не модель."""
+    home = [u for u in units if quote_on_page(claim["quote"], u.text)]
+    if not home:
+        return dict(claim)
+    unit = next((u for u in home if u.unit_id == claim.get("unit_id")), home[0])
+    by_machine = {"source_kind": "figure_description_model", "by_model": True} if all(u.by_recogniser for u in home) else {}
+    return {**claim, "unit_id": unit.unit_id, **by_machine}
+
+
 def assemble_node(raw: Mapping, plan_node: Mapping, order: int, prefix: str, units: Sequence[Unit]) -> dict[str, Any]:
     """Ответ модели + служебные поля, которые ставит код: id, порядок, страницы, связи."""
     node_id = f"{prefix}.{plan_node['slug']}"
     used = {u.unit_id: u for u in units if u.unit_id in set(plan_node["unit_ids"])}
-    claims = [{"page_print": None, **c, "id": f"{node_id}#c{i}"} for i, c in enumerate(raw["claims"], start=1)]
+    claims = [{"page_print": None, **_grounded(c, list(used.values())), "id": f"{node_id}#c{i}"} for i, c in enumerate(raw["claims"], start=1)]
     links = [{"type": "prerequisite", "target": f"{prefix}.{slug}"} for slug in raw.get("prerequisites", [])]
     ref = (raw.get("misconception") or {}).get("ref")
     links += [{"type": "refutes_misconception", "target": ref}] if ref else []
@@ -138,13 +148,17 @@ def make_node(
 
 def repair_pages(node: Mapping, pages: Mapping[int, str]) -> dict[str, Any]:
     """Страница утверждения ставится по месту цитаты: если модель ошиблась номером, код его знает точно."""
-    claims = [{**c, "page_pdf": find_quote_page(c["quote"], pages) or c["page_pdf"]} for c in node["claims"]]
+    def page(claim: Mapping[str, Any]) -> int:
+        own = claim["page_pdf"]
+        return own if quote_on_page(claim["quote"], pages.get(own, "")) else find_quote_page(claim["quote"], pages) or own
+
+    claims = [{**c, "page_pdf": page(c)} for c in node["claims"]]
     return {**node, "claims": claims}
 
 
 def drop_unsupported(node: Mapping, pages: Mapping[int, str], errata: Sequence[Mapping] = ()) -> tuple[dict[str, Any], list[str]]:
     """Утверждения без найденной цитаты или с чужими числами не попадают в слой; список отдаётся в отчёт."""
-    source = "\n".join(with_extra(pages, number_sources(errata)).values())
+    source = node_source(node, with_extra(pages, number_sources(errata)))
     good = [c for c in node["claims"] if find_quote_page(c["quote"], pages) and not unsupported_numbers(c["text"], source)]
     dropped = [c["id"] for c in node["claims"] if c not in good]
     return plain_node({**node, "claims": good}), dropped
