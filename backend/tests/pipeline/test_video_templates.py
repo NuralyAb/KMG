@@ -20,7 +20,15 @@ PRESSURE = {"p0": 20, "unit": "МПа", "drop": 0.5, "kappa": 1.0, "t_max": 3600
 REEF = {"sea": [[0, 10], [0.45, 60], [0.6, 30], [1, 120]], "max_growth": 110, "photic": 40, "erosion": 40, "base": 0, "half_width": 800, "slope": 0.6,
         "zones": [{"key": "core", "label": "ядро"}], "observe": 0.0}
 KICK = {"depth": 3000, "density": 1250, "area": 0.03, "gas": 2.0, "hole_mm": 216, "casing": 1800, "formation": 38}
-SCENES = [("geology", "pressure_wave", PRESSURE, [{"time": 0.4, "observe": 1}, {"time": 1, "naive": 1}, {"true_scale": 1}]),
+INVASION = {"mode": "neutron", "depth_max": 0.6, "contact": 2, "cased": True, "probes": [{"label": "НГК", "depth": 0.4, "curve": "NEUTRON"}], "layers": [
+    {"label": "газ", "lith": "sand", "fluid": "gas", "perm": 0.9, "native": 3.0, "invaded": 1.5}, {"label": "газ, плохая", "lith": "sand", "fluid": "gas", "perm": 0.3, "native": 3.0, "invaded": 1.5},
+    {"label": "нефть", "lith": "sand", "fluid": "oil", "perm": 0.6, "native": 1.4, "invaded": 1.4}]}
+WELL = {"show_drilling": True, "depth_top": 0, "depth_bottom": 8, "depth_tick": 2, "curves": [{"key": "CALIPER", "prop": "d", "label": "диаметр", "unit": "", "min": 0.7, "max": 1.4}], "layers": [
+    {"top": 0, "bottom": 4, "lith": "shale", "label": "глина", "fluid": None, "permeable": False, "wall": 1.25, "cake": 0, "props": {}},
+    {"top": 4, "bottom": 8, "lith": "sand", "label": "коллектор", "fluid": "water", "permeable": True, "wall": 1.0, "cake": 0.08, "props": {}}]}
+SCENES = [("geology", "invasion_zone", INVASION, [{"invade": 1, "tracks": 1}, {"casing": 1}, {"dissipate": 1, "history": 1}, {"contact": 1}]),
+          ("geology", "well_tool_curve", WELL, [{"drill": 1}, {"pull": 1, "washout": 1}, {"tool": 1, "cake": 1}]),
+          ("geology", "pressure_wave", PRESSURE, [{"time": 0.4, "observe": 1}, {"time": 1, "naive": 1}, {"true_scale": 1}]),
           ("geology", "reef_growth", REEF, [{"time": 0.6, "pores": 1}, {"time": 1, "zones": 1, "well": 1}, {"true_scale": 1}]),
           ("drilling", "gas_kick", KICK, [{"open": 0.2, "scales": 1, "pit": 1}, {"shut": 1}, {"closed": 1}, {"true_scale": 1}])]
 
@@ -106,6 +114,34 @@ def test_gas_kick_needs_a_shut_well_before_closed_rise():
     scene = template("drilling", "gas_kick")
     assert scene.check(KICK, [beat({"closed": 0.5})])
     assert scene.check(KICK, [beat({"shut": 1}), beat({"open": 0.5})])
+
+
+def test_invasion_zone_physics():
+    scene = template("geology", "invasion_zone")
+    quick, slow, _ = INVASION["layers"]
+    assert scene.extent(quick, INVASION, 1, 0) > scene.extent(slow, INVASION, 1, 0)
+    assert scene.extent(quick, INVASION, 1, 0.7) == 0 < scene.extent(slow, INVASION, 1, 0.7)
+    small, large = scene.extent(quick, INVASION, 0.2, 0.3), scene.extent(quick, INVASION, 1, 0.3)
+    assert small == 0 < large
+    assert scene.extent(quick, INVASION, 1, 0.1) < scene.extent(quick, INVASION, 1, 0)
+    shallow, deep = {"depth": 0.1}, {"depth": 0.8}
+    zone = scene.grown(quick, INVASION, 0.3)
+    assert abs(scene.reading(quick, shallow, zone) - quick["invaded"]) < abs(scene.reading(quick, deep, zone) - quick["invaded"])
+    assert scene.reading(quick, deep, 0) == quick["native"]
+    assert scene.reading(quick, deep, 1) == pytest.approx(quick["invaded"])
+
+
+def test_invasion_zone_refuses_growth_behind_casing():
+    scene = template("geology", "invasion_zone")
+    assert scene.check(INVASION, [beat({"casing": 1}), beat({"invade": 1})])
+    assert scene.check({**INVASION, "layers": INVASION["layers"][::-1]}, [beat({})])
+
+
+def test_tool_goes_down_only_after_the_string_is_pulled():
+    scene = template("geology", "well_tool_curve")
+    assert scene.check(WELL, [beat({"tool": 4})])
+    assert scene.check({**WELL, "show_drilling": False}, [beat({"drill": 1})])
+    assert scene.wall(WELL, 2, 0) == pytest.approx(1.0) and scene.wall(WELL, 2, 1) == pytest.approx(1.25)
 
 
 def test_shipped_specs_pass_their_own_checks():

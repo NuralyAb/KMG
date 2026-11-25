@@ -32,12 +32,13 @@ from glava.pipeline.steps.video import (
     list_voices,
     rebuild,
 )
+from glava.pipeline.steps.videos import build_videos
 from glava.shared.json_files import read
 from glava.shared.json_schemas import load_schema
 from glava.shared.paths import workspace
 
 log = logging.getLogger("glava")
-COMMANDS = ["build", "errata", "figures", "layer", "routing", "tasks", "illustrations", "narrate", "course", "review", "video", "rebuild", "voices", "templates", "ready", "process",
+COMMANDS = ["build", "errata", "figures", "layer", "routing", "tasks", "illustrations", "narrate", "course", "review", "video", "videos", "rebuild", "voices", "templates", "ready", "process",
             "simulation", "units", "extract", "audit", "verify", "fact", "passport"]
 TRAINING = ("latyshova_gl5_par17-20", "basniev_gl23-24_1", "kuznetsov_gl10")
 
@@ -47,7 +48,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
     parser.add_argument("command", choices=COMMANDS)
     parser.add_argument("chapter", nargs="?", help="глава; для ready и process можно не указывать — тогда обучающие главы")
-    parser.add_argument("--limit", type=int, default=None, help="собрать только первые N узлов")
+    parser.add_argument("--limit", type=int, default=None, help="layer: собрать только первые N узлов; videos: снять не больше N роликов")
     parser.add_argument("--package", type=Path, default=None, help="папка чужого пакета для review")
     parser.add_argument("--vision", action="store_true", help="ненадёжные страницы в extract прочитать моделью по изображению (платно)")
     parser.add_argument("--mutants", action="store_true", help="verify: ещё и замерить, сколько внесённой порчи замечает проверяющая модель (платно)")
@@ -86,7 +87,10 @@ def run_reports(args: argparse.Namespace) -> bool:
 
 def run_video(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
     chapter = load_chapter(args.chapter)
-    if args.command == "rebuild":
+    if args.command == "videos":
+        build_videos(chapter, open_provider, args.limit, args.voice)
+        build_site(chapter)
+    elif args.command == "rebuild":
         # число из исправленного утверждения сперва доходит до текста шага и заданий, потом до роликов
         apply_fact(chapter, build=False, accept=True)
         rebuild(chapter, open_provider, args.node, args.voice)
@@ -105,7 +109,7 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
         return
     if not args.chapter:
         parser.error("укажите главу")
-    if args.command in ("video", "rebuild"):
+    if args.command in ("video", "videos", "rebuild"):
         run_video(args, parser)
         return
     if args.command == "extract":
@@ -161,6 +165,8 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
     if args.command in ("build", "illustrations"):
         build_illustrations(chapter, provider)
     if args.command == "build":
+        build_videos(chapter, open_provider, None, args.voice)
+        build_templates(chapter.chapter_id)
         build_site(chapter)
 
 

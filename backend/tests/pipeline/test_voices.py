@@ -81,6 +81,10 @@ def test_stress_marks_can_be_turned_off():
     assert voice(Server(None), stress=False).prepare("колле́ктор") == "коллектор"
 
 
+def test_microsoft_voice_gets_no_stress_mark_before_short_i():
+    assert Edge().prepare("бурово́й номина́льный Бурово́Й") == "буровой номина́льный БуровоЙ"
+
+
 def test_busy_service_is_retried():
     server = Server(http_error(429, "busy"), http_error(500, "oops"), None)
     assert voice(server).speak("да")[0] == b"mp3"
@@ -97,7 +101,7 @@ def test_hopeless_errors_stop_at_once_and_do_not_show_the_key(code):
 
 
 def test_key_is_not_in_repr_description_or_cache_key():
-    made = voice_from_env(ENV)
+    made = voice_from_env(ENV, "elevenlabs")
     assert KEY not in repr(made) + json.dumps(made.describe()) + made.key
 
 
@@ -125,13 +129,15 @@ def test_fallback_voices_the_whole_film(tmp_path):
 
 def test_provider_is_chosen_by_key_and_by_name():
     assert isinstance(voice_from_env({}), Edge)
-    assert isinstance(voice_from_env(ENV), ElevenLabs)
+    assert isinstance(voice_from_env(ENV), Edge)
+    assert isinstance(voice_from_env({**ENV, "VOICE_PROVIDER": "elevenlabs"}), ElevenLabs)
     assert isinstance(voice_from_env({**ENV, "VOICE_PROVIDER": "edge"}), Edge)
     assert isinstance(voice_from_env(ENV, "edge"), Edge)
 
 
-@pytest.mark.parametrize("env", [{"VOICE_PROVIDER": "elevenlabs"}, {"ELEVENLABS_API_KEY": KEY}, {**ENV, "ELEVENLABS_SPEED": "2"}, {**ENV, "ELEVENLABS_STABILITY": "много"},
-                                 {**ENV, "ELEVENLABS_VOICE_ID": "../x"}, {"VOICE_PROVIDER": "чудо"}])
+@pytest.mark.parametrize("env", [{"VOICE_PROVIDER": "elevenlabs"}, {"ELEVENLABS_API_KEY": KEY, "VOICE_PROVIDER": "elevenlabs"},
+                                 *({**ENV, "VOICE_PROVIDER": "elevenlabs", k: v} for k, v in (("ELEVENLABS_SPEED", "2"), ("ELEVENLABS_STABILITY", "много"), ("ELEVENLABS_VOICE_ID", "../x"))),
+                                 {"VOICE_PROVIDER": "чудо"}])
 def test_wrong_settings_are_explained(env):
     with pytest.raises(VoiceNotConfigured):
         voice_from_env(env)

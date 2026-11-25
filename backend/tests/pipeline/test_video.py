@@ -5,7 +5,7 @@ from pathlib import Path
 
 import jsonschema
 import pytest
-from glava.modules.video.check import script_errors, speech_rate, word_error_rate
+from glava.modules.video.check import motion_errors, script_errors, speech_rate, word_error_rate
 from glava.modules.video.passport import build_passport
 from glava.modules.video.speech import Speech, Word, dictionaries, spoken
 from glava.modules.video.timeline import place, srt, state_at
@@ -39,7 +39,7 @@ def test_beats_follow_each_other_with_pauses():
     placed, total = place(SPEC["beats"], speeches())
     assert placed[0].start == pytest.approx(0.2)
     assert all(b.start >= a.end for a, b in zip(placed, placed[1:], strict=False))
-    assert placed[2].start - placed[1].end >= 1.2
+    assert placed[2].start - placed[1].end == pytest.approx(1.2)
     assert total >= placed[-1].end + 2
 
 
@@ -79,6 +79,19 @@ def test_script_rules():
     ]
     for change in bad:
         assert script_errors({**SPEC, **change}, NODE), change
+
+
+def test_hook_asks_at_once():
+    late = beat("Скважину бурили одним долотом. Почему местами она уже?", role="hook", on_screen="Уже?")
+    assert any("крючок" in e for e in script_errors({**SPEC, "beats": [late, *SPEC["beats"][1:]]}, NODE))
+
+
+def test_scene_must_keep_moving():
+    moving = [beat("а", action={"tool": 1}), beat("б"), beat("в", action={"tool": 2}), beat("г")]
+    assert motion_errors(moving, {"tool": 0}) == []
+    assert motion_errors([beat("а"), *moving], {"tool": 0})
+    assert motion_errors([beat("а", action={"tool": 0}), *moving], {"tool": 0})
+    assert motion_errors([moving[0], beat("б"), beat("в"), moving[2]], {"tool": 0})
 
 
 def test_word_errors_ignore_case_and_yo():
