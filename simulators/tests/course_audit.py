@@ -151,7 +151,7 @@ with sync_playwright() as p:
     check('ссылка на утверждение у задания', link.count() == 1)
     if link.count():
         link.click(); pg.wait_for_timeout(400)
-        check('ссылка открывает утверждение во вкладке «Источник»', pg.locator('[data-tab="source"][aria-selected="true"]').count() == 1 and pg.locator('.claims li.target').count() == 1)
+        check('ссылка открывает утверждение во вкладке «Источник»', pg.locator('[data-tab="source"][aria-selected="true"]').count() == 1 and pg.evaluate('document.activeElement.matches(".claims li") && document.activeElement.querySelector("details").open'))
     # перетаскивание пальцем
     order_step = pg.evaluate('window.COURSE.steps.find(s => s.tasks.some(t => t.type === "order")).order')
     pg.evaluate(f'location.hash="#/step/{order_step}"'); pg.wait_for_timeout(300)
