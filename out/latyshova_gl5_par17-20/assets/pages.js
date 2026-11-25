@@ -16,7 +16,7 @@
     <div><dt><span class="chip">сверить со сканом</span></dt><dd>Текст страницы распознан с потерями или описан по рисунку, поэтому деталь стоит проверить по книге.</dd></div>
     <div><dt>стр. N</dt><dd>Страница книги по файлу PDF, с которой взят абзац.</dd></div></dl></details>`;
 
-  const pages = (list) => (list?.length ? ` <span class="page">стр. ${list.map(esc).join(', ')}</span>` : '');
+  const pages = (list) => (list?.length ? ` <span class="page">стр.&nbsp;${list.map(esc).join(', ')}</span>` : '');
   const chip = (text) => ` <span class="chip">${text}</span>`;
   const who = (key) => (key ? `<span class="chip who ${key}">${WHO[key]}</span>` : '');
   const byModel = (field) => (field?.by_model === false ? 'author' : 'model');

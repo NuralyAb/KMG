@@ -26,7 +26,7 @@
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--frame); color: var(--text); font: 400 17px/1.6 "IBM Plex Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-wrap: break-word; }
+body { margin: 0; background: var(--frame); color: var(--text); font: 400 17px/1.6 "IBM Plex Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-wrap: anywhere; }
 body.locked { overflow: hidden; }
 .sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 h1, h2, h3 { margin: 0; line-height: 1.3; font-weight: 600; text-wrap: balance; }
@@ -64,7 +64,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .head { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; }
 .page { color: var(--muted); font-size: 16px; }
 .by { color: var(--muted); font-size: 16px; }
-.chip { display: inline-block; padding: 0 8px; border-radius: 4px; background: var(--raised); font-size: 16px; }
+.chip { display: inline-block; max-width: 100%; padding: 0 8px; border-radius: 4px; background: var(--raised); font-size: 16px; }
 .who.author { background: var(--brand-soft); } .who.model { background: transparent; box-shadow: inset 0 0 0 1px var(--control); }
 .term { text-decoration: underline dotted var(--brand) 2px; text-underline-offset: 4px; font-weight: 500; cursor: pointer; border-radius: 2px; } .term[aria-expanded="true"] { background: var(--brand-soft); }
 .card { padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); }
@@ -86,7 +86,7 @@ blockquote { margin: 6px 0 0; padding-left: 14px; border-left: 2px solid var(--c
 dl { margin: 0; display: grid; gap: 10px; } dt { font-weight: 600; } dd { margin: 0; }
 ol, ul { margin: 0; padding-left: 24px; display: grid; gap: 6px; grid-template-columns: minmax(0, 1fr); }
 ol:has(> li:nth-child(10)), .column > .block > ol { padding-left: 34px; } .block > ol > li > a, p > a:only-child { display: inline-block; padding: 2px 0; }
-.scroll { overflow-x: auto; } table { border-collapse: collapse; min-width: 100%; font-size: 16px; }
+.scroll { overflow-x: auto; } table { border-collapse: collapse; min-width: 100%; font-size: 16px; overflow-wrap: break-word; }
 th, td { padding: 8px 12px 8px 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); min-width: 7em; } th { font-weight: 500; color: var(--muted); }
 td.fixed { background: var(--warn-soft); padding-left: 8px; } .was { display: block; color: var(--muted); }
 figure { margin: 0; display: grid; gap: 8px; grid-template-columns: minmax(0, 1fr); } figure img, figure svg { width: 100%; max-width: 480px; height: auto; border-radius: var(--radius); display: block; }
