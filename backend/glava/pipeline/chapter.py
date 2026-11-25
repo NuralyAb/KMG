@@ -65,6 +65,24 @@ def _pages(chapter_id: str, md: str, ranges: Sequence[Sequence[int]]) -> dict[in
     return pages
 
 
+def cut_units(chapter_id: str, units: Sequence[Unit], starts_at: str | None, ends_before: str | None) -> list[Unit]:
+    """Глава начинается или кончается посреди страницы: чужие параграфы на краях диапазона не попадают в слой.
+
+    starts_at и ends_before — начало текста единицы (обычно заголовка). Ненайденная граница — ошибка до первого платного запроса.
+    """
+    found = list(units)
+    for mark, keep_after in ((starts_at, True), (ends_before, False)):
+        if not mark:
+            continue
+        at = next((i for i, u in enumerate(found) if u.text.lstrip().startswith(mark)), None)
+        if at is None:
+            raise LibraryError(f"глава {chapter_id}: нет единицы, которая начинается с «{mark}»; проверьте starts_at и ends_before")
+        found = found[at:] if keep_after else found[:at]
+    if not found:
+        raise LibraryError(f"глава {chapter_id}: между starts_at и ends_before не осталось текста")
+    return found
+
+
 def load_chapter(chapter_id: str) -> Chapter:
     registry = read(workspace() / "chapters.json")
     info = registry["chapters"].get(chapter_id)
@@ -77,7 +95,7 @@ def load_chapter(chapter_id: str) -> Chapter:
     # загруженные книги лежат в своей папке, файлы организаторов — в общей
     texts, scans = (info["root"], info["root"]) if info.get("root") else (os.environ.get("GLAVA_BOOKS", registry["root"]), os.environ.get("GLAVA_PDFS", registry["pdf_root"]))
     md = (workspace() / texts / info["file"]).read_text(encoding="utf-8-sig")
-    units = parse_units(_pages(chapter_id, md, info["pages"]))
+    units = cut_units(chapter_id, parse_units(_pages(chapter_id, md, info["pages"])), info.get("starts_at"), info.get("ends_before"))
     return Chapter(chapter_id, info["prefix"], info["title"], info["book"], workspace() / "domain" / info["domain"], tuple(units), info["file"],
                    workspace() / scans / info["pdf"] if info.get("pdf") else None)
 
