@@ -1,5 +1,5 @@
 /** Логика курса без страницы: ответы, карточки, прогресс, текст, карта. */
-import type { BookTable, Part, Step, Task, TaskOption, Term } from './types';
+import type { BookTable, Course, Part, Step, Task, TaskOption, Term } from './types';
 
 // ---------- ответы ----------
 // ρ и похожие латинские буквы с русской клавиатуры не набрать, поэтому они приравнены к русским
@@ -76,7 +76,7 @@ type Raw = Record<string, unknown>;
 export type CardMark = 'know' | 'again';
 export type Theme = 'auto' | 'light' | 'dark';
 export interface State {
-  done: string[]; solved: Record<string, boolean>; cards: Record<string, CardMark>; repeat: string[]; last: number | null; theme: Theme; notes: Record<string, string>;
+  done: string[]; solved: Record<string, boolean>; first: Record<string, boolean>; cards: Record<string, CardMark>; repeat: string[]; last: number | null; theme: Theme; notes: Record<string, string>;
 }
 const THEMES: readonly unknown[] = ['auto', 'light', 'dark'];
 const isObject = (v: unknown): v is Raw => v !== null && typeof v === 'object' && !Array.isArray(v);
@@ -87,12 +87,42 @@ export const cleanState = (raw: unknown, ids: string[]): State => {
   return {
     done: list(r.done, ids),
     solved: pick<boolean>(r.solved, (_, v) => typeof v === 'boolean'),
+    first: pick<boolean>(r.first, (_, v) => typeof v === 'boolean'),
     cards: pick<CardMark>(r.cards, (k, v) => ids.includes(k) && (v === 'know' || v === 'again')),
     repeat: list(r.repeat, ids),
     last: typeof r.last === 'number' && Number.isInteger(r.last) ? r.last : null,
     theme: THEMES.includes(r.theme) ? r.theme as Theme : 'auto',
     notes: pick<string>(r.notes, (k, v) => ids.includes(k) && typeof v === 'string' && v !== ''),
   };
+};
+
+// ---------- сводка для проверки на новичках: только из прогресса в браузере, в сеть ничего не уходит ----------
+type Scored = Pick<Course, 'title'> & { steps: (Pick<Step, 'id' | 'short_title'> & { tasks: Pick<Task, 'id'>[] })[] };
+export interface Results { tasks: number; tried: number; first: number; solved: number; steps: number; done: number; known: number }
+export const results = (course: Scored, state: State): Results => {
+  const ids = course.steps.flatMap((s) => s.tasks.map((t) => t.id));
+  return {
+    tasks: ids.length, tried: ids.filter((id) => id in state.solved).length, first: ids.filter((id) => state.first[id] === true).length,
+    solved: ids.filter((id) => state.solved[id] === true).length, steps: course.steps.length, done: state.done.length,
+    known: Object.values(state.cards).filter((m) => m === 'know').length,
+  };
+};
+const share = (n: number, of: number): string => (of ? `${Math.round((n / of) * 100)} %` : '—');
+/** Текст для буфера обмена: его вставляют в таблицу результатов (docs/newcomers_results.csv). */
+export const resultsText = (course: Scored, state: State, num: (id: string) => string, when: string): string => {
+  const r = results(course, state);
+  const rows = course.steps.filter((s) => s.tasks.some((t) => t.id in state.solved)).map((s) => {
+    const own = s.tasks.map((t) => t.id);
+    return `${num(s.id)} ${s.short_title}: решено ${own.filter((id) => state.solved[id] === true).length} из ${own.length}, с первой попытки ${own.filter((id) => state.first[id] === true).length}`;
+  });
+  return [
+    `Курс: ${course.title}`, `Дата: ${when}`,
+    `Заданий в курсе: ${r.tasks}; начато: ${r.tried}`,
+    `Решено с первой попытки: ${r.first} из ${r.tried} начатых (${share(r.first, r.tried)})`,
+    `Решено всего: ${r.solved} из ${r.tried} начатых (${share(r.solved, r.tried)})`,
+    `Уроков пройдено: ${r.done} из ${r.steps}; карточек «знаю»: ${r.known}`,
+    '', 'По урокам:', ...(rows.length ? rows : ['заданий пока не решали']),
+  ].join('\n');
 };
 
 // ---------- адреса: #/, #/map, #/help, #/step/3, #/step/3/how ----------

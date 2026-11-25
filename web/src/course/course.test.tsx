@@ -251,3 +251,25 @@ test('cards go through new ones, then repeats', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'Повторить' }));
   expect(screen.getByRole('button', { name: 'Показать ответ' })).toBeVisible();
 });
+
+describe('results for newcomers', () => {
+  test('first attempt is kept, the summary is copied as text and can be wiped', async () => {
+    const writeText = vi.fn(() => Promise.resolve());
+    vi.stubGlobal('navigator', { ...navigator, clipboard: { writeText } });
+    vi.stubGlobal('confirm', vi.fn(() => true));
+    const { container } = open('#/step/1/tasks');
+    const task = within(container.querySelector<HTMLElement>('[data-task="t1"]')!);
+    await userEvent.click(task.getByRole('button', { name: 'Вода' }));
+    await userEvent.click(task.getByRole('button', { name: 'Проверить' }));
+    await userEvent.click(task.getByRole('button', { name: 'Ещё раз' }));
+    await userEvent.click(task.getByRole('button', { name: 'Песок' }));
+    await userEvent.click(task.getByRole('button', { name: 'Проверить' }));
+    expect(saved()).toMatchObject({ solved: { t1: true }, first: { t1: false } });
+    await goTo('#/help');
+    await userEvent.click(screen.getByRole('button', { name: 'Скопировать результат' }));
+    expect(writeText).toHaveBeenCalledWith(expect.stringContaining('Решено с первой попытки: 0 из 1 начатых'));
+    expect(screen.getByRole('status')).toHaveTextContent('Результат скопирован');
+    await userEvent.click(screen.getByRole('button', { name: 'Стереть для следующего участника' }));
+    expect(saved()).toMatchObject({ solved: {}, first: {}, done: [] });
+  });
+});

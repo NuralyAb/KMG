@@ -101,13 +101,13 @@ test('repeat marks saved by an older version are not lost', () => {
 
 // ---------- состояние ----------
 test('broken progress falls back to a clean state', () => {
-  const clean = { done: [], solved: {}, cards: {}, repeat: [], last: null, theme: 'auto', notes: {} };
+  const clean = { done: [], solved: {}, first: {}, cards: {}, repeat: [], last: null, theme: 'auto', notes: {} };
   for (const raw of [null, 5, 'x', [], { done: null, solved: [], cards: 'no', repeat: {}, last: {}, theme: 'pink', notes: ['x'] }]) assert.deepEqual(core.cleanState(raw, ['a']), clean);
 });
 
 test('progress of unknown steps is dropped, the rest survives', () => {
   const state = core.cleanState({ done: ['a', 'gone', 'a'], solved: { t: true, z: 'yes' }, cards: { a: 'know', gone: 'again' }, repeat: ['gone'], last: 2, theme: 'dark', notes: { a: 'запомнить', b: '', gone: 'х' } }, ['a', 'b']);
-  assert.deepEqual(state, { done: ['a'], solved: { t: true }, cards: { a: 'know' }, repeat: [], last: 2, theme: 'dark', notes: { a: 'запомнить' } });
+  assert.deepEqual(state, { done: ['a'], solved: { t: true }, first: {}, cards: { a: 'know' }, repeat: [], last: 2, theme: 'dark', notes: { a: 'запомнить' } });
 });
 
 // ---------- содержание курса ----------
@@ -217,4 +217,16 @@ test('neighbours of a step are its supports and the steps that rest on it', () =
 test('table rows are padded and a correction keeps the original value', () => {
   const rows = core.tableRows({ header: ['a', 'b'], rows: [['1'], ['2', '3']], corrections: [{ row: 1, col: 1, from: '8', to: '3' }] });
   assert.deepEqual(rows, [[{ text: '1', from: null }, { text: '', from: null }], [{ text: '2', from: null }, { text: '3', from: '8' }]]);
+});
+
+// ---------- сводка результатов ----------
+test('results count first attempts and solved tasks from saved progress only', () => {
+  const course = { title: 'Курс', steps: [{ id: 'a', short_title: 'Первый', tasks: [{ id: 't1' }, { id: 't2' }] }, { id: 'b', short_title: 'Второй', tasks: [{ id: 't3' }] }] };
+  const state = core.cleanState({ done: ['a'], solved: { t1: true, t2: true, t3: false }, first: { t1: true, t2: false, t3: false }, cards: { a: 'know' } }, ['a', 'b']);
+  assert.deepEqual(core.results(course, state), { tasks: 3, tried: 3, first: 1, solved: 2, steps: 2, done: 1, known: 1 });
+  const text = core.resultsText(course, state, (id) => (id === 'a' ? '1.1' : '1.2'), '26.11.2026');
+  assert.match(text, /Решено с первой попытки: 1 из 3 начатых \(33 %\)/);
+  assert.match(text, /Решено всего: 2 из 3 начатых \(67 %\)/);
+  assert.match(text, /1\.1 Первый: решено 2 из 2, с первой попытки 1/);
+  assert.match(core.resultsText(course, core.cleanState(null, ['a', 'b']), String, ''), /заданий пока не решали/);
 });

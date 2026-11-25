@@ -161,7 +161,9 @@ export function TaskCard({ task }: { task: Task }) {
     const isRight = isCorrect(task, picked, values);
     setWarning('');
     setVerdict(isRight);
-    store.set({ solved: { ...store.get().solved, [task.id]: store.get().solved[task.id] === true || isRight } });
+    const { solved, first } = store.get();
+    // первая попытка записывается один раз: по ней считают долю решённых новичками
+    store.set({ solved: { ...solved, [task.id]: solved[task.id] === true || isRight }, first: task.id in first ? first : { ...first, [task.id]: isRight } });
   };
   const again = (): void => {
     setVerdict(null);
