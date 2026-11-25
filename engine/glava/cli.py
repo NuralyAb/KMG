@@ -13,6 +13,7 @@ from typing import Any
 from glava.course.build import build_course
 from glava.llm import Ledger, Provider, Reply, cached
 from glava.llm.providers import provider_from_env
+from glava.review.engine import review_package, workspace
 from glava.scenes import load_templates
 from glava.stages.illustrations import make_illustrations, records
 from glava.stages.layer import coverage_rows, drop_unsupported, load_schema, make_node, make_plan, pages_of
@@ -168,12 +169,27 @@ def build_site(chapter: Chapter) -> Path:
     return out
 
 
+def build_review(chapter: Chapter, source: Path, provider: Provider) -> Path:
+    """Проверка чужого пакета; ответ — out/review/<пакет>.json."""
+    folder = workspace(source, ROOT / "work" / "review" / source.name)
+    package = read(folder / "package.json")
+    prompts = {role: prompt_file(f"review_{role}") for role in ("find", "physics", "judge")}
+    checklist = (chapter.domain / "physics_checklist.json").read_text(encoding="utf-8")
+    answer, replies = review_package(package, pages_of(chapter.units), provider, prompts, checklist, folder)
+    target = ROOT / "out" / "review" / f"{package['package_id']}.json"
+    save(target, answer)
+    write_metrics(chapter, "review", len(package["items"]) + len(package["frames"]), replies)
+    log.info("замечаний %s, $%.2f, ответ: %s", len(answer["remarks"]), sum(r.cost_usd for r in replies), target)
+    return target
+
+
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
-    parser.add_argument("command", choices=["build", "layer", "routing", "tasks", "illustrations", "course", "units"])
+    parser.add_argument("command", choices=["build", "layer", "routing", "tasks", "illustrations", "course", "review", "units"])
     parser.add_argument("chapter")
     parser.add_argument("--limit", type=int, default=None, help="собрать только первые N узлов")
+    parser.add_argument("--package", type=Path, default=None, help="папка чужого пакета для review")
     args = parser.parse_args()
     chapter = load_chapter(args.chapter)
     load_schema("node")
@@ -185,6 +201,11 @@ def main() -> None:
         build_site(chapter)
         return
     provider = cached(provider_from_env(), ROOT / ".cache")
+    if args.command == "review":
+        if args.package is None:
+            parser.error("укажите --package")
+        build_review(chapter, args.package, provider)
+        return
     if args.command in ("build", "layer"):
         build_layer(chapter, provider, args.limit)
     if args.command in ("build", "routing"):

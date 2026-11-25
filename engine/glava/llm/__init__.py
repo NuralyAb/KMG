@@ -3,7 +3,7 @@
 import hashlib
 import json
 import logging
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 from typing import Any, Protocol
@@ -28,7 +28,7 @@ class Provider(Protocol):
     name: str
     model: str
 
-    def ask(self, system: str, prompt: str) -> Reply: ...
+    def ask(self, system: str, prompt: str, files: Sequence[Path] = ()) -> Reply: ...
 
 
 @dataclass(frozen=True)
@@ -64,12 +64,13 @@ class _Cached:
     def model(self) -> str:
         return self.inner.model
 
-    def ask(self, system: str, prompt: str) -> Reply:
-        key = hashlib.sha256("\0".join([self.name, self.model, system, prompt]).encode()).hexdigest()[:32]
+    def ask(self, system: str, prompt: str, files: Sequence[Path] = ()) -> Reply:
+        marks = [hashlib.sha256(f.read_bytes()).hexdigest() for f in files]
+        key = hashlib.sha256("\0".join([self.name, self.model, system, prompt, *marks]).encode()).hexdigest()[:32]
         path = self.folder / f"{key}.json"
         if path.exists():
             return replace(Reply(**json.loads(path.read_text(encoding="utf-8"))), cost_usd=0.0)
-        reply = self.inner.ask(system, prompt)
+        reply = self.inner.ask(system, prompt, *([files] if files else []))
         self.folder.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(asdict(reply), ensure_ascii=False), encoding="utf-8")
         return reply
@@ -93,13 +94,14 @@ def extract_json(text: str) -> Any:
 
 def ask_json(
     provider: Provider, system: str, prompt: str, validate: Callable[[Any], list[str]], attempts: int = 3,
+    files: Sequence[Path] = (),
 ) -> tuple[Any, list[Reply]]:
     """Ответ в JSON; замечания проверки возвращаются модели. После последней попытки отдаётся последний разобранный ответ."""
     replies: list[Reply] = []
     data: Any = None
     question = prompt
     for attempt in range(attempts):
-        reply = provider.ask(system, question)
+        reply = provider.ask(system, question, *([files] if files else []))
         replies.append(reply)
         try:
             data = extract_json(reply.text)

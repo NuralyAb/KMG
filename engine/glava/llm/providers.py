@@ -1,13 +1,15 @@
 """Провайдеры моделей. Выбор: LLM_PROVIDER=claude_code|anthropic, LLM_MODEL=<имя>."""
 
+import base64
 import json
 import os
 import shutil
 import subprocess
 import tempfile
 import time
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from pathlib import Path
 
 from glava.llm import Provider, Reply
 
@@ -37,12 +39,17 @@ class ClaudeCode:
     exe: str
     name: str = "claude_code"
 
-    def ask(self, system: str, prompt: str) -> Reply:
-        command = [self.exe, "-p", "--output-format", "json", "--model", self.model, "--tools", "", "--strict-mcp-config",
+    def ask(self, system: str, prompt: str, files: Sequence[Path] = ()) -> Reply:
+        # картинки копируются в чистую папку; чтение вне её в этом режиме не разрешается
+        command = [self.exe, "-p", "--output-format", "json", "--model", self.model, "--tools", "Read" if files else "", "--strict-mcp-config",
                    "--setting-sources", "", "--system-prompt", system]
+        if files:
+            prompt = f"Сначала открой инструментом Read картинки: {', '.join(f.name for f in files)}.\n\n{prompt}"
         detail = ""
         for attempt in range(RETRIES):
             with tempfile.TemporaryDirectory() as clean_folder:
+                for file in files:
+                    shutil.copy2(file, clean_folder)
                 done = subprocess.run(command, input=prompt, capture_output=True, text=True, encoding="utf-8",
                                       cwd=clean_folder, timeout=TIMEOUT_S, check=False)
             payload = _payload(done.stdout)
@@ -63,12 +70,15 @@ class AnthropicApi:
     model: str
     name: str = "anthropic"
 
-    def ask(self, system: str, prompt: str) -> Reply:
+    def ask(self, system: str, prompt: str, files: Sequence[Path] = ()) -> Reply:
         import anthropic
+
+        images = [{"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": base64.b64encode(f.read_bytes()).decode()}}
+                  for f in files]
 
         client = anthropic.Anthropic(max_retries=RETRIES)
         with client.messages.stream(
-            model=self.model, max_tokens=32_000, messages=[{"role": "user", "content": prompt}],
+            model=self.model, max_tokens=32_000, messages=[{"role": "user", "content": [*images, {"type": "text", "text": prompt}]}],
             system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
         ) as stream:
             message = stream.get_final_message()
