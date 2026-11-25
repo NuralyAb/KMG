@@ -53,6 +53,30 @@ def test_template_is_taken_from_the_route_then_guessed_by_the_text():
     assert template_coverage(layer, [route(format="карточки", video_scores={k: 0 for k in SCORES})], [wave]) == []
 
 
+def test_videos_stage_picks_nodes_and_survives_failures(root, monkeypatch):
+    from glava.pipeline.steps import videos
+
+    chapter = Chapter("demo", "dm", "Глава", "Книга", root, (), "demo.md")
+    other = {**NODE, "id": "dm.b", "order": 2}
+    save(chapter.work / "layer.json", {"nodes": [NODE, other]})
+    save(chapter.work / "routing.json", {"routes": [route(), route(node_id="dm.b", format="длинное видео", template="t"), route(node_id="dm.c")]})
+    monkeypatch.setattr(videos, "video_templates", lambda d: [VideoTemplate("t", "модель", ())])
+    monkeypatch.setattr(videos.importlib.util, "find_spec", lambda name: object())
+    monkeypatch.setattr(videos, "build_video", lambda *a: (_ for _ in ()).throw(ValueError("спецификация не прошла")))
+    rows = {r["node_id"]: r for r in videos.build_videos(chapter, lambda: None, 2)}
+    assert rows["dm.a"]["result"] == "нужен новый шаблон"
+    assert rows["dm.b"]["format"] == "wide" and rows["dm.b"]["result"].startswith("не снят")
+    assert "dm.c" not in rows and (chapter.work / "video_report.json").exists()
+
+
+def test_videos_limit_comes_from_the_environment():
+    from glava.pipeline.steps.videos import limit_from_env
+
+    assert (limit_from_env({}), limit_from_env({"GLAVA_VIDEOS": "0"})) == (2, 0)
+    with pytest.raises(SystemExit):
+        limit_from_env({"GLAVA_VIDEOS": "много"})
+
+
 def test_video_templates_of_both_packs_describe_their_state_model():
     for domain in ("geology", "drilling"):
         found = video_templates(Path(__file__).resolve().parents[3] / "workspace" / "domain" / domain)

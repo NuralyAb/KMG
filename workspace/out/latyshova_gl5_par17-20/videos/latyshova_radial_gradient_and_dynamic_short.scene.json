@@ -1,0 +1,486 @@
+{
+ "title": "Нет разницы на кривых — нет коллектора?",
+ "params": {
+  "mode": "resistivity",
+  "layers": [
+   {
+    "label": "глина",
+    "lith": "shale",
+    "fluid": null,
+    "perm": 0,
+    "native": 5,
+    "invaded": 5
+   },
+   {
+    "label": "верхний",
+    "lith": "sand",
+    "fluid": "oil",
+    "perm": 0.7,
+    "native": 40,
+    "invaded": 12
+   },
+   {
+    "label": "средний",
+    "lith": "sand",
+    "fluid": "oil",
+    "perm": 0.6,
+    "native": 18,
+    "invaded": 18
+   },
+   {
+    "label": "нижний",
+    "lith": "sand",
+    "fluid": "water",
+    "perm": 0.8,
+    "native": 4,
+    "invaded": 20
+   }
+  ],
+  "probes": [
+   {
+    "label": "МБК",
+    "depth": 0.1,
+    "curve": "RES_SHALLOW"
+   },
+   {
+    "label": "БК",
+    "depth": 0.9,
+    "curve": "RES"
+   }
+  ],
+  "depth_max": 0.4,
+  "cased": false,
+  "contact": 0
+ },
+ "objects": [
+  "скважина с буровым раствором",
+  "глинистый пласт",
+  "три песчаных пласта",
+  "зона проникновения фильтрата",
+  "мелкий зонд МБК",
+  "глубокий зонд БК",
+  "кривые сопротивления по пластам",
+  "история показаний во времени",
+  "линия контакта нефти и воды"
+ ],
+ "invariants": [
+  "Порядок пластов сверху вниз: глина, верхний, средний, нижний",
+  "Нефть лежит над водой, контакт горизонтален",
+  "В глину фильтрат не входит",
+  "Флюиды находятся в порах породы",
+  "МБК всегда исследует мельче, чем БК",
+  "Глубина растёт вниз",
+  "Кривые считаются из той же модели, что и зона проникновения",
+  "Скважина всё время необсажена, раствор один и тот же",
+  "В среднем пласте сопротивление зоны равно сопротивлению неизменной части"
+ ],
+ "assumptions": [
+  "Фильтрат входит из скважины в пласт, потому что давление в скважине выше пластового",
+  "Зона проникновения радиально симметрична, пласты горизонтальны и однородны",
+  "Сопротивления зоны и неизменной части в каждом пласте постоянны, меняется только размер зоны",
+  "Совпадение сопротивлений в среднем пласте задано как идеальный случай",
+  "Показаны только формирование зоны и неизменные условия; метод двух растворов лишь назван",
+  "При неизменном растворе кривые среднего пласта остаются совпадающими; один повтор замеров коллектор здесь не выявляет",
+  "Глина тоже не даёт расхождения кривых, поэтому по этому признаку её от среднего пласта не отличить"
+ ],
+ "exaggerations": [
+  "скважина и слои не в масштабе",
+  "Глубина проникновения занимает до 0,4 ширины вида, радиальный масштаб не соблюдён",
+  "Глубинности зондов условные: 0,1 и 0,9 ширины вида",
+  "Сопротивления условные: от 4 до 40, не измерения",
+  "Время формирования зоны сжато до секунд ролика",
+  "Мощности пластов и диаметр скважины показаны не в масштабе",
+  "Граница зоны проникновения нарисована резкой, в природе переход постепенный",
+  "В среднем пласте разница равна нулю точно, на практике она лишь незаметна",
+  "Зонды МБК и БК-3 показаны схематично; сейчас используют многозондовые приборы"
+ ],
+ "plaque": [
+  "скважина и слои не в масштабе",
+  "Числа и масштаб условные"
+ ],
+ "prediction_question": "Во всех трёх песчаных пластах приборы разойдутся?",
+ "transfer_question": "В другой скважине кривые совпали: что сделаете дальше?",
+ "data_it_bridge": "Совпадение мелкой и глубокой кривых не даёт метку «не коллектор»: это «по одному замеру не решено». Для таких интервалов нужны данные во времени с отметкой, менялся ли раствор.",
+ "terms_to_check": [
+  "коллектор",
+  "фильтрат",
+  "микробоковой",
+  "каротаж",
+  "МБК",
+  "БК",
+  "кажущееся",
+  "проникновения",
+  "насыщение",
+  "замеров"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Четыре горизонтальных пласта не меняют порядок"
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет"
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Несогласий в сцене нет"
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Нефть, вода и фильтрат находятся в порах песчаника"
+  },
+  "pc.gas_oil_water": {
+   "answer": "да",
+   "note": "Нефтяные пласты выше водяного, контакт горизонтален, газа нет"
+  },
+  "pc.flow_high_to_low": {
+   "answer": "да",
+   "note": "Фильтрат идёт из скважины в пласт при избыточном давлении; сверху глина"
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала проникновение, затем замер, затем наблюдение во времени"
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Фильтрат замещает поровый флюид, вытесняя его дальше от скважины; это упрощённо"
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Разрез, кривые и история считаются из одного состояния"
+  },
+  "pc.tool_mechanism": {
+   "answer": "да",
+   "note": "Зонды бокового каротажа измеряют сопротивление на разной глубинности"
+  },
+  "pc.signal_vs_property": {
+   "answer": "да",
+   "note": "Голос называет показания кажущимся сопротивлением, то есть откликом прибора"
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Названы случай без заметного градиента и причины, а также условия двух динамических методов"
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "Кривые вычисляются из params и положения зоны"
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Сопротивления в единицах и десятках правдоподобны, вслух не произносятся"
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Доли вида и диапазон значений перечислены в exaggerations"
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Два зонда не меняют конструкцию и глубинность"
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Зонды находятся в стволе скважины, колонны нет"
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "Глубина растёт вниз, кривые подписаны названиями зондов"
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Кадры считаются из params и помечены как симуляция; отсутствие масштаба подписано"
+  },
+  "pc.modern_or_historic": {
+   "answer": "да",
+   "note": "Зонды схематичны, замена современными приборами указана в exaggerations"
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Давления по стволу не показаны"
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа и закрытой скважины нет"
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Приёмной ёмкости в сцене нет"
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Ствол необсажен во всех кадрах, конструкция не меняется"
+  }
+ },
+ "beats": [
+  {
+   "say": "Кривые не расходятся — значит, коллектора нет?",
+   "claim_id": null,
+   "on_screen": "Нет разницы — нет коллектора?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "invade": 0.2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Ищем коллектор: проницаемый пласт, куда проходит жидкость раствора.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c1",
+   "on_screen": "Ищем проницаемый пласт",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "invade": 0.35
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Эта жидкость, фильтрат, меняет сопротивление, потому что проникает в пласт.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c1",
+   "on_screen": "Фильтрат меняет околоскважинную зону",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "invade": 0.5
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Мелко меряет микробоковой каротаж, сокращённо МБК.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c3",
+   "on_screen": "МБК смотрит у скважины",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "invade": 0.58,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Глубже смотрит боковой каротаж, или БК.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c2",
+   "on_screen": "БК смотрит глубже",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "invade": 0.65,
+    "focus": 4
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Предскажите: во всех трёх песчаных пластах приборы разойдутся?",
+   "claim_id": null,
+   "on_screen": "Везде ли будет разница?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "invade": 0.72,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 1.3,
+   "role": "prediction"
+  },
+  {
+   "say": "В верхнем песчаном пласте МБК показывает меньше, чем БК.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c5",
+   "on_screen": "Верхний: МБК меньше БК",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "tracks": 1,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Это понижающее проникновение фильтрата.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c5",
+   "on_screen": "Понижающее проникновение",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "invade": 0.78
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "В нижнем наоборот: МБК больше, проникновение повышающее.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c4",
+   "on_screen": "Нижний: проникновение повышающее",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 4
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Это кажущееся сопротивление: отклик прибора, а не свойство породы.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c4",
+   "on_screen": "Прибор даёт кажущееся сопротивление",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "invade": 0.82,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Изменение сопротивления от скважины вглубь называют радиальным градиентом.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c1",
+   "on_screen": "Это радиальный градиент",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "invade": 0.86,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "А в среднем заметной разницы нет, но коллектор это не отрицает.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c6",
+   "on_screen": "Совпали — ещё не приговор",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Насыщение вместе с сопротивлениями фильтрата и пластовой воды могут скрыть градиент.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c7",
+   "on_screen": "Свойства могут скрыть разницу",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "invade": 0.9
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Если отдельных замеров мало, зону проникновения наблюдают во времени.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c9",
+   "on_screen": "Мало замера — смотрим динамику",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "history": 0.4,
+    "invade": 0.93,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Условия в скважине прежние — это метод повторных замеров.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c11",
+   "on_screen": "Те же условия: повторные замеры",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "history": 0.75,
+    "invade": 0.97
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Сменили раствор — это уже метод двух растворов.",
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c12",
+   "on_screen": "Новый раствор: метод двух растворов",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "history": 1,
+    "invade": 1,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "В другой скважине кривые совпали: что сделаете дальше?",
+   "claim_id": null,
+   "on_screen": "Кривые совпали: ваш шаг?",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "latyshova_radial_gradient_and_dynamic_short",
+ "chapter": "latyshova_gl5_par17-20",
+ "node_id": "latyshova.radial_gradient_and_dynamic",
+ "format": "short",
+ "template": "invasion_zone",
+ "claim_marks": {
+  "latyshova.radial_gradient_and_dynamic#c1": "e445d606bbaf",
+  "latyshova.radial_gradient_and_dynamic#c2": "b534fc6339c1",
+  "latyshova.radial_gradient_and_dynamic#c3": "5d67efbdda05",
+  "latyshova.radial_gradient_and_dynamic#c4": "251dc3a781d4",
+  "latyshova.radial_gradient_and_dynamic#c5": "b9640a8edf4c",
+  "latyshova.radial_gradient_and_dynamic#c6": "92c41b7e046e",
+  "latyshova.radial_gradient_and_dynamic#c7": "f680343f3ec1",
+  "latyshova.radial_gradient_and_dynamic#c8": "b2e1f44761b2",
+  "latyshova.radial_gradient_and_dynamic#c9": "ef8122b5db64",
+  "latyshova.radial_gradient_and_dynamic#c10": "54133ec56b13",
+  "latyshova.radial_gradient_and_dynamic#c11": "339a08f9c5b2",
+  "latyshova.radial_gradient_and_dynamic#c12": "e1855a74e779",
+  "latyshova.radial_gradient_and_dynamic#c13": "e7751ee5b728",
+  "latyshova.radial_gradient_and_dynamic#c14": "981fbfe9088b"
+ },
+ "written_by": "claude_code/sonnet",
+ "claim_kinds": {
+  "latyshova.radial_gradient_and_dynamic#c1": "observation",
+  "latyshova.radial_gradient_and_dynamic#c2": "observation",
+  "latyshova.radial_gradient_and_dynamic#c3": "observation",
+  "latyshova.radial_gradient_and_dynamic#c4": "observation",
+  "latyshova.radial_gradient_and_dynamic#c5": "observation",
+  "latyshova.radial_gradient_and_dynamic#c6": "inference",
+  "latyshova.radial_gradient_and_dynamic#c7": "inference",
+  "latyshova.radial_gradient_and_dynamic#c8": "observation",
+  "latyshova.radial_gradient_and_dynamic#c9": "observation",
+  "latyshova.radial_gradient_and_dynamic#c10": "observation",
+  "latyshova.radial_gradient_and_dynamic#c11": "observation",
+  "latyshova.radial_gradient_and_dynamic#c12": "observation",
+  "latyshova.radial_gradient_and_dynamic#c13": "observation",
+  "latyshova.radial_gradient_and_dynamic#c14": "observation"
+ }
+}

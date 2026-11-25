@@ -66,38 +66,38 @@
   --viz-track: #14303A;
 }
 
-/* Область ученика: лавандовая рамка и фиолетовый акцент, те же, что в course.css самого курса. */
+/* Область ученика: белые поверхности, тонкие границы, синий акцент — те же, что в course.css самого курса. */
 :root:has(.learn, .player, .player-state) {
-  --app-frame: #ECEAFA;
-  --app-raised: #F8F7FD;
-  --app-active: #E8E3FD;
-  --app-border: #EBE9F6;
-  --app-control: #CFCBE6;
-  --app-text: #17133F;
-  --app-muted: #5F5C7E;
-  --app-brand: #6741E6;
-  --app-brand-soft: #F0ECFF;
-  --learn-glow: #DCD2FF;
-  --learn-fill: #6741E6;
-  --learn-fill-hover: #5733CC;
-  --viz-bar: #6741E6;
-  --viz-track: #E3DBFB;
+  --app-frame: #F5F7F8;
+  --app-raised: #F5F7F8;
+  --app-active: #E3EEFC;
+  --app-border: #DAE1ED;
+  --app-control: #A4ADBA;
+  --app-text: #1F1F1F;
+  --app-muted: #5B6780;
+  --app-brand: #0056D2;
+  --app-brand-soft: #F0F6FF;
+  --learn-glow: #CFE0FA;
+  --learn-fill: #0056D2;
+  --learn-fill-hover: #00419E;
+  --viz-bar: #1F8354;
+  --viz-track: #E3E7EC;
 }
 
 [data-mantine-color-scheme='dark']:has(.learn, .player, .player-state) {
-  --app-frame: #0B0A14;
-  --app-surface: #14121F;
-  --app-raised: #1A1828;
-  --app-active: #2C2650;
-  --app-border: #292640;
-  --app-control: #4B4769;
-  --app-text: #F1EFFB;
-  --app-muted: #ACA8C8;
-  --app-brand: #A78FFF;
-  --app-brand-soft: #241F42;
-  --learn-glow: #352A6B;
-  --learn-fill: #7150EE;
-  --learn-fill-hover: #7F61F3;
-  --viz-bar: #8E70F7;
-  --viz-track: #2C2650;
+  --app-frame: #0E1013;
+  --app-surface: #121417;
+  --app-raised: #1B1E23;
+  --app-active: #1D2B44;
+  --app-border: #2C323B;
+  --app-control: #5F6876;
+  --app-text: #EEF1F5;
+  --app-muted: #A8B1BE;
+  --app-brand: #7FB0FF;
+  --app-brand-soft: #182337;
+  --learn-glow: #1D2B44;
+  --learn-fill: #3D7FF0;
+  --learn-fill-hover: #5A92F5;
+  --viz-bar: #2E9C64;
+  --viz-track: #2C323B;
 }

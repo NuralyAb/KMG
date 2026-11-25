@@ -8,11 +8,12 @@ from pathlib import Path
 from glava.modules.library.api import LibraryError
 from glava.modules.llm.api import BudgetExceeded, ProviderUnavailable
 from glava.pipeline.chapter import load_chapter
-from glava.pipeline.runtime import open_provider, verifier_env
+from glava.pipeline.runtime import figures_env, open_provider, verifier_env
 from glava.pipeline.steps.audit import build_audit
 from glava.pipeline.steps.course import build_site
 from glava.pipeline.steps.errata import build_errata
 from glava.pipeline.steps.extract import build_extract
+from glava.pipeline.steps.figures import build_figures
 from glava.pipeline.steps.fact import apply_fact, show_fact
 from glava.pipeline.steps.illustrations import build_illustrations
 from glava.pipeline.steps.layer import build_layer
@@ -31,12 +32,13 @@ from glava.pipeline.steps.video import (
     list_voices,
     rebuild,
 )
+from glava.pipeline.steps.videos import build_videos
 from glava.shared.json_files import read
 from glava.shared.json_schemas import load_schema
 from glava.shared.paths import workspace
 
 log = logging.getLogger("glava")
-COMMANDS = ["build", "errata", "layer", "routing", "tasks", "illustrations", "narrate", "course", "review", "video", "rebuild", "voices", "templates", "ready", "process",
+COMMANDS = ["build", "errata", "figures", "layer", "routing", "tasks", "illustrations", "narrate", "course", "review", "video", "videos", "rebuild", "voices", "templates", "ready", "process",
             "simulation", "units", "extract", "audit", "verify", "fact", "passport"]
 TRAINING = ("latyshova_gl5_par17-20", "basniev_gl23-24_1", "kuznetsov_gl10")
 
@@ -46,7 +48,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
     parser.add_argument("command", choices=COMMANDS)
     parser.add_argument("chapter", nargs="?", help="глава; для ready и process можно не указывать — тогда обучающие главы")
-    parser.add_argument("--limit", type=int, default=None, help="собрать только первые N узлов")
+    parser.add_argument("--limit", type=int, default=None, help="layer: собрать только первые N узлов; videos: снять не больше N роликов")
     parser.add_argument("--package", type=Path, default=None, help="папка чужого пакета для review")
     parser.add_argument("--vision", action="store_true", help="ненадёжные страницы в extract прочитать моделью по изображению (платно)")
     parser.add_argument("--mutants", action="store_true", help="verify: ещё и замерить, сколько внесённой порчи замечает проверяющая модель (платно)")
@@ -85,7 +87,10 @@ def run_reports(args: argparse.Namespace) -> bool:
 
 def run_video(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
     chapter = load_chapter(args.chapter)
-    if args.command == "rebuild":
+    if args.command == "videos":
+        build_videos(chapter, open_provider, args.limit, args.voice)
+        build_site(chapter)
+    elif args.command == "rebuild":
         # число из исправленного утверждения сперва доходит до текста шага и заданий, потом до роликов
         apply_fact(chapter, build=False, accept=True)
         rebuild(chapter, open_provider, args.node, args.voice)
@@ -104,7 +109,7 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
         return
     if not args.chapter:
         parser.error("укажите главу")
-    if args.command in ("video", "rebuild"):
+    if args.command in ("video", "videos", "rebuild"):
         run_video(args, parser)
         return
     if args.command == "extract":
@@ -146,6 +151,10 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
         return
     if args.command in ("build", "errata"):
         build_errata(chapter, provider)
+    if args.command in ("build", "figures"):
+        build_figures(chapter, open_provider(figures_env(os.environ)) if os.environ.get("LLM_FIGURES_MODEL") else provider)
+        # прочтения рисунков заменяют описания распознавателя в единицах следующих этапов
+        chapter = load_chapter(args.chapter)
     if args.command in ("build", "layer"):
         build_layer(chapter, provider, args.limit)
         build_audit(chapter.chapter_id)
@@ -156,6 +165,8 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
     if args.command in ("build", "illustrations"):
         build_illustrations(chapter, provider)
     if args.command == "build":
+        build_videos(chapter, open_provider, None, args.voice)
+        build_templates(chapter.chapter_id)
         build_site(chapter)
 
 

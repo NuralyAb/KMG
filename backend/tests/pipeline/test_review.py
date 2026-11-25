@@ -122,3 +122,39 @@ def test_cache_distinguishes_files(tmp_path):
 def test_remark_without_fix_is_not_sent(missing):
     answer, _ = review_package(PACKAGE, PAGES, Scripted([{**REMARK, missing: ""}], {"C001"}), PROMPTS, "")
     assert answer["remarks"] == []
+
+
+def test_swapped_condition_word_is_pointed_out():
+    from glava.modules.review.checks import foreign_condition_words
+    page = "При низких значениях давления и минерализации вод применяются все методы."
+    assert foreign_condition_words("При умеренном давлении и низкой минерализации применяются все методы.", page) == ["умеренном"]
+    assert foreign_condition_words("При низком давлении применяют все методы.", page) == []
+    item = {"id": "C009", "type": "claim", "text": "Глина всегда видна.", "page_pdf": 9, "quote": "Показания ГК против глин максимальны"}
+    assert any("всегда" in n for n in quick_notes(item, PAGES))
+
+
+def test_frame_takes_the_page_of_the_line_spoken_at_its_time():
+    pages = {9: PAGES[9], 10: PAGES[10]}
+    package = {**PACKAGE, "items": [*PACKAGE["items"],
+                                    {"id": "L02", "type": "script_line", "text": "Сопротивление растёт.", "claim_ref": "C002", "video_id": "v", "t_start": 5.0}],
+               "frames": [{"id": "F01", "video_id": "v", "file": "frames/F01.png", "t": 7.0, "frame_class": "A", "label": "симуляция",
+                           "shows": "кривая", "plaque": ""}]}
+    package["items"][2] = {**package["items"][2], "t_start": 0.0}
+    remark = {**REMARK, "target": "F01", "category": "frame_error", "page_pdf": 9}
+    answer, _ = review_package(package, pages, Scripted([remark], {"F01"}), PROMPTS, "")
+    # цитата стоит на стр. 9, но кадр в 7 с иллюстрирует фразу L02 и утверждение C002 со стр. 10
+    assert [(r["target"], r["page_pdf"]) for r in answer["remarks"]] == [("F01", 10)]
+
+
+def test_claim_with_sound_citation_keeps_its_own_page():
+    elsewhere = {**REMARK, "target": "C002", "quote": "если нет калиевых полевых шпатов"}
+    answer, _ = review_package(PACKAGE, PAGES, Scripted([elsewhere], {"C002"}), PROMPTS, "")
+    # модель процитировала стр. 9, но C002 стоит на стр. 10 и его цитата там есть; чужая цитата не остаётся при чужой странице
+    assert [(r["target"], r["page_pdf"], r["quote"]) for r in answer["remarks"]] == [("C002", 10, None)]
+
+
+def test_claim_with_broken_citation_follows_the_quote():
+    package = {**PACKAGE, "items": [{**PACKAGE["items"][1], "quote": "такой фразы в главе нет"}, *PACKAGE["items"][2:]]}
+    remark = {**REMARK, "target": "C002", "quote": "если нет калиевых полевых шпатов"}
+    answer, _ = review_package(package, PAGES, Scripted([remark], {"C002"}), PROMPTS, "")
+    assert [(r["target"], r["page_pdf"]) for r in answer["remarks"]] == [("C002", 9)]

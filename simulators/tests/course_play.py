@@ -23,6 +23,7 @@ with sync_playwright() as p:
         pg.on('request', lambda r: bad.append('сеть: ' + r.url[:90]) if r.url.startswith('http') else None)
         pg.goto((course / 'index.html').as_uri() + '#/')
         pg.evaluate('n=>{location.hash="#/step/"+n}', step)
+        pg.evaluate('n=>{location.hash="#/step/"+n+"/sim"}', step)
         pills = pg.locator('.pills button:has-text("Симулятор")')
         pg.wait_for_selector('.pills, .sim-box')
         if pills.count():
