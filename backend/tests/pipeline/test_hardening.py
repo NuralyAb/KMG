@@ -1,11 +1,9 @@
 """Дефекты, найденные ревью: чужие пути, кривые ответы модели, лазейки проверки."""
 
 import json
-from pathlib import Path
 
 import pytest
 import test_layer as tl
-from glava.modules.course import build as course_build
 from glava.modules.drawing.formula import evaluate
 from glava.modules.drawing.scenes import scene_issues
 from glava.modules.illustrations.generator import illustration_issues
@@ -207,13 +205,6 @@ def test_fault_trap_rises_to_the_fault_and_special_layers_have_their_place():
     assert template.tops(fault, 0.5)[1] < template.tops(fault, 0.0)[1]
     assert scene_issues(template, {"shape": "pinchout", "layers": [base, seal, sand]}, STYLE)
     assert scene_issues(template, {"shape": "reef", "layers": [seal, {**sand, "fluids": []}, base]}, STYLE)
-
-
-def test_course_escapes_pages():
-    folder = Path(course_build.__file__).parent / "assets"
-    script = "".join(f.read_text(encoding="utf-8") for f in sorted(folder.glob("*.js")))
-    assert "list.map(esc).join" in script
-    assert "list.join" not in script
 
 
 def test_failed_answers_are_not_kept_for_the_next_run(tmp_path):

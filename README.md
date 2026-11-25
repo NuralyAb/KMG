@@ -141,7 +141,7 @@ $env:PYTHONPATH = 'backend'
 
 ```powershell
 uv run pytest
-node --check backend/glava/modules/course/assets/course.js
+cd web; npm ci; npm test
 ```
 
 Тестам роликов нужен pycairo. В основном окружении его нет, поэтому без него падает `test_audio_problems_are_named`. Полный набор: `$env:PYTHONPATH = 'backend'`, затем `uv pip install --python .venv-video\Scripts\python.exe pytest` и `.venv-video\Scripts\python.exe -m pytest`. Те же проверки идут в GitHub Actions (`.github/workflows/ci.yml`).
@@ -157,6 +157,14 @@ cd web; npm ci; npm run dev             # второй терминал, зат�
 
 Тесты: `uv run pytest` и `cd web; npm run typecheck; npm test; npm run build`.
 
+## Озвученные разборы
+
+`.venv-video\Scripts\python.exe -m glava narrate <глава>` делает разбор каждого шага: фразы берутся из слоя дословно, голос Microsoft бесплатный, модель не нужна. Это не mp4: дорожка лежит в `workspace/out/<глава>/narration/`, а картинку — фразы и схему, которая проступает по ходу рассказа, — рисует плеер. Обозначения, которых нет в `pronunciation.md`, голос не угадывает: такая фраза пропускается, список — в `workspace/work/<глава>/narration.json`. Готовые фразы берутся из кэша; сервис часто отвечает пусто, повторы встроены. Ролики mp4 (`video`) стоят на сцене первыми, разбор — рядом.
+
+## Плеер курса
+
+Сам курс — React-приложение `web/src/course`. `cd web; npm run build:course` собирает его одним файлом в `backend/glava/modules/course/assets/course.js`; файл лежит в git, поэтому конвейеру Node не нужен, а курс открывается двойным щелчком без сервера. Правите `web/src/course` — пересоберите плеер и закоммитьте `course.js`: CI сверяет его с кодом. Оформление курса — `course.css` там же, сборка ему не нужна.
+
 ## Ученик и автор
 
 `http://127.0.0.1:5190/` — экран ученика: опубликованные курсы и прогресс. `/admin` — экран автора. Чтобы ученик не попал к автору, запустите сервер с паролем: `$env:GLAVA_ADMIN_PASSWORD = '…'` (от 8 знаков). Курс появляется у учеников после кнопки «Опубликовать» на странице главы; снимок лежит в `workspace/published/` и в git не попадает. Сервер слушает только этот компьютер, прогресс хранится в браузере, поэтому у двух учеников на одном компьютере он общий.
@@ -171,8 +179,8 @@ cd web; npm ci; npm run dev             # второй терминал, зат�
 | --- | --- |
 | `backend/glava` | Python: конвейер и сервер, один проект. Устройство — [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
 | `backend/architecture.toml` | разрешённые зависимости модулей, их проверяет тест |
-| `backend/tests` | `pipeline`, `http`, `course_ui`, `architecture` |
-| `web` | React: экраны ученика и автора |
+| `backend/tests` | `pipeline`, `http`, `architecture` |
+| `web` | React: экраны ученика и автора (`src`), плеер курса (`src/course`) |
 | `simulators` | 3D-симуляторы и агент, который их строит |
 | `workspace` | данные: доменные пакеты, слои, курсы, реестр глав, расход; загруженные книги в git не идут |
 | `docs` | документация |

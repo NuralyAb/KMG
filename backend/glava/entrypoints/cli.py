@@ -15,6 +15,7 @@ from glava.pipeline.steps.errata import build_errata
 from glava.pipeline.steps.extract import build_extract
 from glava.pipeline.steps.illustrations import build_illustrations
 from glava.pipeline.steps.layer import build_layer
+from glava.pipeline.steps.narration import build_narration
 from glava.pipeline.steps.review import build_review
 from glava.pipeline.steps.routing import build_routing
 from glava.pipeline.steps.simulation import build_simulation
@@ -29,7 +30,7 @@ log = logging.getLogger("glava")
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
-    parser.add_argument("command", choices=["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video", "simulation", "units", "extract", "audit", "verify"])
+    parser.add_argument("command", choices=["build", "errata", "layer", "routing", "tasks", "illustrations", "narrate", "course", "review", "video", "simulation", "units", "extract", "audit", "verify"])
     parser.add_argument("chapter")
     parser.add_argument("--limit", type=int, default=None, help="собрать только первые N узлов")
     parser.add_argument("--package", type=Path, default=None, help="папка чужого пакета для review")
@@ -64,6 +65,9 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
         return
     if args.command == "course":
         build_site(chapter)
+        return
+    if args.command == "narrate":
+        build_narration(chapter)
         return
     if args.command == "simulation":
         if not args.node:

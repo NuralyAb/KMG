@@ -16,5 +16,5 @@
     "types": ["vite/client", "node", "@testing-library/jest-dom/vitest"],
     "paths": { "@/*": ["./src/*"] }
   },
-  "include": ["src", "vite.config.ts"]
+  "include": ["src", "vite.config.ts", "vite.course.config.ts"]
 }

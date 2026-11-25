@@ -7,12 +7,14 @@
     "dev": "vite",
     "dev:mock": "vite --mode mock",
     "build": "tsc --noEmit && vite build",
+    "build:course": "tsc --noEmit && vite build -c vite.course.config.ts",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
   "dependencies": {
     "@fontsource-variable/ibm-plex-sans": "5.3.0",
+    "@fontsource-variable/onest": "5.3.1",
     "@mantine/core": "7.17.8",
     "@mantine/hooks": "7.17.8",
     "@mantine/notifications": "7.17.8",
@@ -43,6 +45,8 @@
     "vitest": "3.2.4"
   },
   "msw": {
-    "workerDirectory": ["public"]
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

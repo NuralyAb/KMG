@@ -50,7 +50,6 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /backend/glava/modules/course/assets/
-            /backend/tests/course_ui/
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "22"
@@ -58,11 +57,7 @@ jobs:
       - name: Синтаксис
         run: |
           set -e
-          node --check backend/glava/modules/course/assets/course.js
           for file in backend/glava/modules/course/assets/*.js; do node --check "$file"; done
-      - name: Тесты интерфейса курса
-        if: hashFiles('backend/tests/course_ui/*.test.js') != ''
-        run: node --test backend/tests/course_ui/*.test.js
 
   web:
     runs-on: ubuntu-24.04
@@ -99,3 +94,9 @@ jobs:
         if: hashFiles('web/package-lock.json') != ''
         working-directory: web
         run: npm run build
+      - name: Плеер курса собран из текущего кода
+        if: hashFiles('web/package-lock.json') != ''
+        working-directory: web
+        run: |
+          npm run build:course
+          git diff --exit-code -- ../backend/glava/modules/course/assets/course.js

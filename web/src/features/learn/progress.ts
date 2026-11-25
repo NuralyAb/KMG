@@ -17,7 +17,8 @@ export function readProgress(course: string, steps: ReadonlySet<string>, storage
   }
 }
 
-/** Адрес файла курса внутри /learn/; шаг, на котором остановились, — в хвосте адреса. */
-export function courseSrc(course: string, last: number | null): string {
-  return `/learn/${encodeURIComponent(course)}/index.html${last === null ? '' : `#/step/${last}`}`;
+/** Адрес файла курса внутри /learn/; место из адреса страницы важнее шага, на котором остановились. */
+export function courseSrc(course: string, last: number | null, place = ''): string {
+  const hash = place.startsWith('#/') ? place : last === null ? '' : `#/step/${last}`;
+  return `/learn/${encodeURIComponent(course)}/index.html${hash}`;
 }

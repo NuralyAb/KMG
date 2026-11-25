@@ -69,6 +69,6 @@ backend/glava/modules/<имя>/
 
 ## Остальное
 
-`web` — React по функциям (`features/<имя>`), функция не импортирует другую функцию, общее лежит в `ui`, `lib`, `api`. `simulators` — отдельный JavaScript-проект; с Python связан файлами в `workspace/work` и собранным проигрывателем в `modules/course/assets/sim`.
+`web` — React по функциям (`features/<имя>`), функция не импортирует другую функцию, общее лежит в `ui`, `lib`, `api`. Плеер курса `src/course` отдельный: у него свой вход и своя сборка (`vite.course.config.ts`) в один обычный скрипт, потому что с `file://` браузер не грузит модули. Он не берёт ничего из `app`, `features` и Mantine; с Python его связывают `data.js` (типы — `src/course/types.ts`) и `assets/course.js`, с симуляторами — узел `[data-interactive]` и `Simulations.mount`. В приложении курс показан в рамке: опубликованный снимок хранит плеер вместе с данными, и новый плеер не ломает старые курсы. `simulators` — отдельный JavaScript-проект; с Python связан файлами в `workspace/work` и собранным проигрывателем в `modules/course/assets/sim`.
 
 Где какие данные: `workspace/work` — слои и этапы, `workspace/out` — курсы, `workspace/domain` — доменные пакеты. Другая папка данных задаётся переменной `GLAVA_ROOT`.

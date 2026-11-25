@@ -22,6 +22,7 @@ layer          = ["errata", "llm", "source_text"]  # учебный слой
 library        = ["errata", "llm", "publishing", "runs"]  # база знаний
 llm            = []  # модели и их выбор
 metrics        = []  # расход
+narration      = []  # озвученные разборы шагов
 publishing     = ["catalog", "runs"]  # публикация курса
 review         = ["catalog", "llm", "runs"]  # проверка чужого пакета
 runs           = ["catalog", "llm"]  # запуски конвейера

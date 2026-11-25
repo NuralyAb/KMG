@@ -20,6 +20,11 @@ STEM = 6
 HOW_BLOCKS = (("mechanism", "Механизм"), ("practice", "Как работает специалист"), ("nuances", "Нюансы"))
 EXTRA_LISTS = ("procedure", "numbers", "formulas", "tables", "videos")
 EXTRA_BLOCKS = (*EXTRA_LISTS, "interactive")
+# схема вставляется в страницу, чтобы её части появлялись по словам: только рисующие теги холста, без ссылок и сценариев
+MAX_INLINE_SVG = 64 * 1024
+DRAWING_TAGS = frozenset({"svg", "g", "defs", "clipPath", "rect", "line", "text", "tspan", "circle", "ellipse", "path", "polyline", "polygon"})
+TAG = re.compile(r"<\s*/?\s*([A-Za-z!?][\w:-]*)")
+ACTIVE = re.compile(r"\son\w+\s*=|href|javascript:|<!", re.IGNORECASE)
 VIEW_BOX = re.compile(r'viewBox="[\d.-]+[ ,]+[\d.-]+[ ,]+([\d.]+)[ ,]+([\d.]+)"')
 
 INDEX = """<!doctype html>
@@ -39,9 +44,6 @@ INDEX = """<!doctype html>
 <noscript>Для курса нужен JavaScript.</noscript>
 <script src="assets/katex/katex.min.js"></script>
 <script src="data.js"></script>
-<script src="assets/core.js"></script>
-<script src="assets/tasks.js"></script>
-<script src="assets/pages.js"></script>
 <script src="assets/simulation.js"></script>
 <script src="assets/course.js"></script>
 </body>
@@ -133,6 +135,13 @@ def picture_size(svg: Path) -> dict[str, int]:
     return {"width": int(float(found[1])), "height": int(float(found[2]))} if found else {}
 
 
+def inline_svg(svg: Path) -> dict[str, str]:
+    if svg.suffix != ".svg" or not svg.exists() or svg.stat().st_size > MAX_INLINE_SVG:
+        return {}
+    text = svg.read_text(encoding="utf-8")
+    return {} if ACTIVE.search(text) or not set(TAG.findall(text)) <= DRAWING_TAGS else {"svg": text}
+
+
 def _into_videos(source: str, out: Path) -> str:
     """Файл снаружи копируется в videos/ курса; путь внутри курса остаётся как есть."""
     path = Path(source)
@@ -157,19 +166,23 @@ def publish_video(video: Mapping, out: Path) -> dict[str, Any]:
 
 def build_course(
     layer: Mapping, routing: Mapping, tasks: Sequence[Mapping], pictures: Sequence[Mapping], out: Path, picture_files: Path | None = None,
-    extras: Mapping[str, Mapping] | None = None, simulations: Path | None = None,
+    extras: Mapping[str, Mapping] | None = None, simulations: Path | None = None, narrations: Mapping[str, Mapping] | None = None,
 ) -> Path:
     out.mkdir(parents=True, exist_ok=True)
+    # файлы прежней версии плеера не остаются рядом с новыми
+    shutil.rmtree(out / "assets", ignore_errors=True)
     shutil.copytree(ASSETS, out / "assets", dirs_exist_ok=True, ignore=shutil.ignore_patterns("sim"))
     blocks = publish_simulations(layer, simulations, ASSETS / "sim", out) if simulations else {}
     shutil.rmtree(out / "pictures", ignore_errors=True)
     if picture_files and picture_files.exists():
         shutil.copytree(picture_files, out / "pictures", ignore=shutil.ignore_patterns("*.json"))
-    sized = [{**p, **(picture_size(out / p["file"]) if p.get("file") else {})} for p in pictures]
+    spoken = narrations or {}
+    sized = [{**p, **(picture_size(out / p["file"]) if p.get("file") else {}), **(inline_svg(out / p["file"]) if p.get("file") and p["step_id"] in spoken else {})} for p in pictures]
     ready = {step: {**e, "videos": [publish_video(v, out) for v in e.get("videos") or []]} for step, e in (extras or {}).items()}
     for step, block in blocks.items():
         ready[step] = {**ready.get(step, {}), **block}
-    data = course_data(layer, routing, tasks, sized, ready)
+    plain = course_data(layer, routing, tasks, sized, ready)
+    data = {**plain, "steps": [{**s, "narration": spoken.get(s["id"])} for s in plain["steps"]]}
     payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     (out / "data.js").write_text(f"window.COURSE={payload};\n", encoding="utf-8")
     title = data["title"].replace("&", "&amp;").replace("<", "&lt;")
