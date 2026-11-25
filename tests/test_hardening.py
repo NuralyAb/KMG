@@ -207,3 +207,24 @@ def test_fault_trap_rises_to_the_fault_and_special_layers_have_their_place():
 def test_course_escapes_pages():
     script = (Path(__file__).resolve().parents[1] / "engine/glava/course/assets/course.js").read_text(encoding="utf-8")
     assert "list.map(esc).join" in script
+
+
+def test_failed_answers_are_not_kept_for_the_next_run(tmp_path):
+    inner = Says('{"n": 1}')
+    for _ in range(2):
+        ask_json(cached(inner, tmp_path), "s", "p", lambda d: ["плохо"], attempts=2)
+    assert inner.calls == 4
+
+
+def test_good_answers_stay_in_the_cache(tmp_path):
+    inner = Says('{"n": 1}')
+    for _ in range(2):
+        ask_json(cached(inner, tmp_path), "s", "p", lambda d: [], attempts=2)
+    assert inner.calls == 1
+
+
+def test_unknown_price_is_refused():
+    from glava.llm.providers import ProviderUnavailable, provider_from_env
+
+    with pytest.raises(ProviderUnavailable):
+        provider_from_env({"LLM_PROVIDER": "anthropic", "LLM_MODEL": "новая-модель"})

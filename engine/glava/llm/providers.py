@@ -95,6 +95,8 @@ def provider_from_env(env: Mapping[str, str] = os.environ) -> Provider:
     kind = env.get("LLM_PROVIDER", "claude_code")
     model = env.get("LLM_MODEL", DEFAULT_MODEL)
     if kind == "anthropic":
+        if model not in PRICES:
+            raise ProviderUnavailable(f"цена модели {model} неизвестна, бюджет не сработает: добавьте её в PRICES")
         return AnthropicApi(model)
     if kind != "claude_code":
         raise ProviderUnavailable(f"неизвестный LLM_PROVIDER: {kind}")

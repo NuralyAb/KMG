@@ -16,6 +16,7 @@ from glava.llm import Provider, Reply, cached, metered
 from glava.llm.providers import provider_from_env
 from glava.review.engine import load_package, review_package, workspace
 from glava.scenes import load_style, load_templates
+from glava.stages.enrich import apply, make_enrichment
 from glava.stages.errata import make_errata, render_page
 from glava.stages.illustrations import make_illustrations, records
 from glava.stages.layer import coverage_rows, drop_unsupported, load_schema, make_node, make_plan, pages_of, plan_issues
@@ -54,15 +55,15 @@ class Chapter:
 def load_chapter(chapter_id: str) -> Chapter:
     registry = json.loads((ROOT / "chapters.json").read_text(encoding="utf-8"))
     info = registry["chapters"][chapter_id]
-    md = (Path(registry["root"]) / info["file"]).read_text(encoding="utf-8")
+    md = (ROOT / os.environ.get("GLAVA_BOOKS", registry["root"]) / info["file"]).read_text(encoding="utf-8")
     units = parse_units(read_pages(md, [tuple(r) for r in info["pages"]]))
     return Chapter(chapter_id, info["prefix"], info["title"], info["book"], ROOT / "domain" / info["domain"], tuple(units), info["file"],
-                   Path(registry["pdf_root"]) / info["pdf"] if info.get("pdf") else None)
+                   ROOT / os.environ.get("GLAVA_PDFS", registry["pdf_root"]) / info["pdf"] if info.get("pdf") else None)
 
 
 def save(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
 
 
 def read(path: Path) -> Any:
@@ -86,7 +87,7 @@ def write_metrics(chapter: Chapter, stage: str, nodes: int, replies: Sequence[Re
     row = [chapter.chapter_id, stage, nodes, sum(r.input_tokens for r in replies), sum(r.output_tokens for r in replies),
            f"{sum(r.cost_usd for r in replies):.4f}", 0, 0, video_seconds, 0]
     with path.open("a", encoding="utf-8", newline="") as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, lineterminator="\n")
         if is_new:
             writer.writerow(METRIC_FIELDS)
         writer.writerow(row)
@@ -107,6 +108,23 @@ def build_errata(chapter: Chapter, provider: Provider) -> None:
     log.info("лист опечаток: %s записей, из них подозрительных мест издания: %s", len(entries), sum(e["kind"] == "suspect" for e in entries))
 
 
+def enrich_nodes(chapter: Chapter, provider: Provider, nodes: Sequence[dict], errata: Sequence[dict]) -> tuple[list[dict], list[Reply], list[str]]:
+    """Блоки страницы шага. Узел, который модель не дополнила, остаётся как был и попадает в отчёт."""
+    note = chapter.domain / "now_practice.md"
+    prompt, now = prompt_file("enrich"), note.read_text(encoding="utf-8") if note.exists() else ""
+
+    def rows_for(part: Sequence[dict]) -> tuple[dict[str, dict], list[Reply]]:
+        return make_enrichment(provider, prompt, part, now, errata)
+
+    with ThreadPoolExecutor(PARALLEL) as pool:
+        first = list(pool.map(rows_for, groups(nodes)))
+        done = {k for found, _ in first for k in found}
+        second = list(pool.map(rows_for, [[n] for n in nodes if n["id"] not in done]))
+    rows = {k: v for found, _ in (*first, *second) for k, v in found.items()}
+    units = chapter.units
+    return [apply(n, rows.get(n["id"]), units, errata) for n in nodes], [r for _, rs in (*first, *second) for r in rs], [n["id"] for n in nodes if n["id"] not in rows]
+
+
 def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) -> dict[str, Any]:
     context = context_of(chapter)
     errata = read_or(chapter.errata_file, {"entries": []})["entries"]
@@ -125,19 +143,20 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
         results = list(pool.map(one, range(count)))
     pages = pages_of(chapter.units)
     cleaned = [drop_unsupported(node, pages, errata) for node, _, _ in results]
+    nodes, enrich_replies, plain = enrich_nodes(chapter, provider, [node for node, _ in cleaned], errata)
     layer = {
         "chapter": chapter.chapter_id, "source": chapter.source, "pdf_pages": sorted({str(u.page_pdf) for u in chapter.units}),
         "generated_by": f"{provider.name}/{provider.model}", "title": chapter.title, "book": chapter.book,
         "parts": [{"title": p["title"], "nodes": [f"{chapter.prefix}.{s}" for s in p["slugs"]]} for p in plan["parts"]],
-        "nodes": [node for node, _ in cleaned],
+        "nodes": nodes,
     }
     report = {"issues": {node["id"]: issues for node, issues, _ in results if issues},
               "dropped_claims": [cid for _, dropped in cleaned for cid in dropped],
-              "nodes": len(layer["nodes"]), "claims": sum(len(n["claims"]) for n in layer["nodes"])}
+              "not_enriched": plain, "nodes": len(layer["nodes"]), "claims": sum(len(n["claims"]) for n in layer["nodes"])}
     save(chapter.work / "layer.json", layer)
     save(chapter.work / "coverage.json", {"chapter": chapter.chapter_id, "rows": coverage_rows(plan, chapter.units, chapter.prefix)})
     save(chapter.work / "layer_report.json", report)
-    replies = [*plan_replies, *(r for _, _, rs in results for r in rs)]
+    replies = [*plan_replies, *(r for _, _, rs in results for r in rs), *enrich_replies]
     write_metrics(chapter, "layer", len(layer["nodes"]), replies)
     broken = [n for n, found in report["issues"].items() if any(i.startswith("схема") for i in found)]
     if broken:

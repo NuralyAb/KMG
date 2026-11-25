@@ -47,7 +47,7 @@ def render_audio(placed: Sequence[Placed], total: float, out: Path) -> Path:
 def render_video(spec: Mapping[str, Any], placed: Sequence[Placed], total: float, template: ModuleType, style: Mapping[str, Any], audio: Path, out: Path) -> Path:
     layout = LAYOUTS[spec["format"]]
     subtitles = out.with_suffix(".srt")
-    subtitles.write_text(srt(placed), encoding="utf-8")
+    subtitles.write_text(srt(placed), encoding="utf-8", newline="\n")
     command = ["ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "bgr0", "-s", f"{layout.width}x{layout.height}", "-r", str(FPS), "-i", "-",
                "-i", str(audio), "-i", str(subtitles), "-map", "0:v", "-map", "1:a", "-map", "2:s", "-c:v", "libx264", "-preset", "medium", "-crf", "19",
                "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", "-c:s", "mov_text", "-metadata:s:s:0", "language=rus", "-movflags", "+faststart", str(out)]

@@ -9,3 +9,16 @@ __pycache__/
 work/sheet.*
 work/*/scans/
 .venv-video/
+.env.*
+!.env.example
+key.json
+*.pdf
+*.mp4
+*.mp3
+*.wav
+*.log
+work/review/
+work/runs/
+work/*/videos/
+node_modules/
+web/dist/

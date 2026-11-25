@@ -59,6 +59,7 @@ def test_spec_with_issues_is_refused():
 
 
 def test_audio_problems_are_named():
+    pytest.importorskip("cairo")
     from glava.video.produce import audio_problems
 
     assert audio_problems({"wer": 0.05, "words_per_minute": 130, "lufs": -16.1}) == []

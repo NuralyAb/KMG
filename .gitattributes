@@ -1,0 +1,21 @@
+# Текст хранится и выгружается с LF на любой системе.
+* text=auto eol=lf
+
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.woff2 binary
+*.ttf   binary
+*.pdf   binary
+*.mp3   binary
+*.mp4   binary
+*.wav   binary
+*.zip   binary
+
+# Сгенерированное: свёрнуто в просмотре изменений и не входит в статистику языков.
+uv.lock                                linguist-generated=true
+**/package-lock.json                   linguist-generated=true
+work/**                                linguist-generated=true
+out/**                                 linguist-generated=true
+engine/glava/course/assets/katex/**    linguist-vendored=true

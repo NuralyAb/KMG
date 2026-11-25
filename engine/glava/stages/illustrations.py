@@ -124,8 +124,8 @@ def records(scenes: Sequence[Mapping], nodes: Sequence[Mapping], templates: Temp
         template = templates[scene["template"]]
         number = sum(r["step_id"] == scene["node_id"] for r in found) + 1
         name = f"{scene['node_id'].split('.', 1)[-1]}_{number}"
-        (folder / f"{name}.svg").write_text(render(template, scene["data"], style), encoding="utf-8")
-        (folder / f"{name}.json").write_text(json.dumps(scene, ensure_ascii=False, indent=1), encoding="utf-8")
+        (folder / f"{name}.svg").write_text(render(template, scene["data"], style), encoding="utf-8", newline="\n")
+        (folder / f"{name}.json").write_text(json.dumps(scene, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
         pages = sorted({c["page_pdf"] for c in by_id[scene["node_id"]]["claims"] if c["id"] in scene["claim_ids"]})
         found = [*found, {
             "id": f"{scene['node_id']}.i{number}", "step_id": scene["node_id"], "node_id": scene["node_id"], "file": f"pictures/{name}.svg",

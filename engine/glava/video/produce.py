@@ -37,7 +37,7 @@ def produce(
     speeches = [say(spoken(b["say"], short, stress), work / "voice") for b in spec["beats"]]
     placed, total = place(spec["beats"], speeches)
     scene = out / f"{spec['video_id']}.scene.json"
-    scene.write_text(json.dumps(spec, ensure_ascii=False, indent=1), encoding="utf-8")
+    scene.write_text(json.dumps(spec, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
     track = render_audio(placed, total, work / f"{spec['video_id']}.wav")
     expected = " ".join(spoken(b["say"], short, {}) for b in spec["beats"])
     heard = recognise(track)
@@ -49,6 +49,6 @@ def produce(
     video = render_video(spec, placed, total, template, style, track, out / f"{spec['video_id']}.mp4")
     answers = {k: (v["answer"], v["note"]) for k, v in spec["physics"].items()}
     passport = build_passport(spec, node, placed, scene.name, checklist, answers, audio)
-    (out / f"{spec['video_id']}.passport.json").write_text(json.dumps(passport, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / f"{spec['video_id']}.passport.json").write_text(json.dumps(passport, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
     log.info("ролик %s, %.0f с, замечания к дорожке: %s", video, total, audio["problems"] or "нет")
     return passport

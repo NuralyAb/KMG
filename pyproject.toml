@@ -10,6 +10,7 @@ dependencies = [
 
 [dependency-groups]
 dev = ["pytest>=8.3", "pytest-cov>=6"]
+video = ["pycairo>=1.29", "edge-tts>=7.3", "faster-whisper>=1.2"]
 
 [project.scripts]
 glava = "glava.cli:main"

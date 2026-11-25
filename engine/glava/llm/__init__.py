@@ -108,10 +108,17 @@ class _Cached:
     def model(self) -> str:
         return self.inner.model
 
-    def ask(self, system: str, prompt: str, files: Sequence[Path] = ()) -> Reply:
+    def _path(self, system: str, prompt: str, files: Sequence[Path]) -> Path:
         marks = [hashlib.sha256(f.read_bytes()).hexdigest() for f in files]
         key = hashlib.sha256("\0".join([self.name, self.model, system, prompt, *marks]).encode()).hexdigest()[:32]
-        path = self.folder / f"{key}.json"
+        return self.folder / f"{key}.json"
+
+    def forget(self, system: str, prompt: str, files: Sequence[Path] = ()) -> None:
+        """Неудачный ответ не должен возвращаться при повторе команды."""
+        self._path(system, prompt, files).unlink(missing_ok=True)
+
+    def ask(self, system: str, prompt: str, files: Sequence[Path] = ()) -> Reply:
+        path = self._path(system, prompt, files)
         saved = _saved_reply(path)
         if saved:
             return replace(saved, cost_usd=0.0)
@@ -147,9 +154,11 @@ def ask_json(
     replies: list[Reply] = []
     data: Any = None
     question = prompt
+    asked: list[str] = []
     for attempt in range(attempts):
         reply = provider.ask(system, question, *([files] if files else []))
         replies.append(reply)
+        asked.append(question)
         try:
             data = extract_json(reply.text)
             issues = validate(data)
@@ -160,6 +169,9 @@ def ask_json(
         log.info("попытка %s: замечаний %s", attempt + 1, len(issues))
         question = (f"{prompt}\n\n# Твой прошлый ответ\n{reply.text}\n\n# Замечания машинной проверки\n"
                     + "\n".join(f"- {i}" for i in issues[:40]) + "\n\nИсправь только это и верни полный JSON заново.")
+    if hasattr(provider, "forget"):
+        for failed in asked:
+            provider.forget(system, failed, files)
     if data is None:
         raise ValueError("модель не вернула JSON: " + "; ".join(issues[:3]))
     return data, replies
