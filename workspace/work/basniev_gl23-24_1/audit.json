@@ -1,0 +1,34 @@
+{
+ "chapter": "basniev_gl23-24_1",
+ "claims": 23,
+ "flagged": [],
+ "by_flag": {},
+ "needs_scan": 0,
+ "by_model": 1,
+ "prose_numbers": [],
+ "early_terms": [],
+ "repeated_quotes": 0,
+ "sensitivity": {
+  "seed": 0,
+  "kinds": {
+   "sign_flip": {
+    "made": 4,
+    "caught": 3
+   },
+   "negation_removed": {
+    "made": 1,
+    "caught": 1
+   },
+   "lost_condition": {
+    "made": 2,
+    "caught": 2
+   }
+  },
+  "made": 7,
+  "caught": 6,
+  "recall": 0.857,
+  "flagged_originals": 0,
+  "originals": 23
+ },
+ "layer_sha256": "82c16cd4bee93780b8dea08f37c6b6446ded7bd604206c75ce97a9b254c518d9"
+}
