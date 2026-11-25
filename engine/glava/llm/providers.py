@@ -43,14 +43,12 @@ class ClaudeCode:
         # картинки копируются в чистую папку; чтение вне её в этом режиме не разрешается
         command = [self.exe, "-p", "--output-format", "json", "--model", self.model, "--tools", "Read" if files else "", "--strict-mcp-config",
                    "--setting-sources", "", "--system-prompt", system]
-        if files:
-            prompt = f"Сначала открой инструментом Read картинки: {', '.join(f.name for f in files)}.\n\n{prompt}"
         detail = ""
         for attempt in range(RETRIES):
             with tempfile.TemporaryDirectory() as clean_folder:
-                for file in files:
-                    shutil.copy2(file, clean_folder)
-                done = subprocess.run(command, input=prompt, capture_output=True, text=True, encoding="utf-8",
+                copies = [shutil.copy2(file, clean_folder) for file in files]
+                question = f"Сначала открой инструментом Read картинки: {', '.join(copies)}. {prompt}" if files else prompt
+                done = subprocess.run(command, input=question, capture_output=True, text=True, encoding="utf-8",
                                       cwd=clean_folder, timeout=TIMEOUT_S, check=False)
             payload = _payload(done.stdout)
             if payload is not None and not payload.get("is_error"):
