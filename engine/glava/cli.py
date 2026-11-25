@@ -28,7 +28,6 @@ from glava.units import Unit, parse_units, read_pages
 ROOT = Path(__file__).resolve().parents[2]
 PARALLEL = 4
 BUDGET_USD = float(os.environ.get("GLAVA_BUDGET_USD", "25"))
-STEP_BLOCKS = ("procedure", "numbers", "formulas", "tables")
 METRIC_FIELDS = ("chapter", "stage", "nodes", "llm_tokens_in", "llm_tokens_out", "money_usd", "person_minutes", "mentor_minutes",
                  "video_seconds", "manual_share")
 log = logging.getLogger("glava")
@@ -235,9 +234,8 @@ def read_or(path: Path, default: Any) -> Any:
 def build_site(chapter: Chapter) -> Path:
     work = chapter.work
     layer = read(work / "layer.json")
-    extras = {n["id"]: {k: n[k] for k in STEP_BLOCKS if n.get(k)} for n in layer["nodes"]}
     out = build_course(layer, read_or(work / "routing.json", {"routes": []}), read_or(work / "tasks.json", {"tasks": []})["tasks"],
-                       read_or(work / "illustrations.json", {"illustrations": []})["illustrations"], ROOT / "out" / chapter.chapter_id, work / "pictures", extras)
+                       read_or(work / "illustrations.json", {"illustrations": []})["illustrations"], ROOT / "out" / chapter.chapter_id, work / "pictures")
     log.info("курс: %s", out / "index.html")
     return out
 

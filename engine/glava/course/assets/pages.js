@@ -39,8 +39,9 @@
   const list = (items, tag, html) => (items?.length ? `<${tag}>${items.map(html).join('')}</${tag}>` : '');
   const procedure = (s) => list(s.procedure, 'ol', (x) => `<li>${rich(x.text)}${pages(x.pages)}</li>`);
   const numbers = (s) => (s.numbers?.length ? `<ul class="facts">${s.numbers.map((x) => `<li>${rich(x.text)}${pages([x.page])}</li>`).join('')}</ul>` : '');
-  const formula = (f) => `<div class="card"><div class="formula">${core.texOnly(f.tex, rich)}${pages([f.page])}</div>${f.legend?.length ? `<dl class="legend-list">${f.legend.map((l) => `<div><dt>${core.symbol(l.symbol, rich)}</dt><dd>${rich(l.meaning)}${l.unit ? `, ${core.symbol(l.unit, rich)}` : ''}</dd></div>`).join('')}</dl>` : ''}${f.errata ? `<p class="note warn"><span><strong>Исправлено по скану.</strong> ${rich(f.errata)}</span></p>` : ''}</div>`;
-  const cell = (c) => (c.from === null ? `<td>${rich(c.text)}</td>` : `<td class="fixed">${rich(c.text)}<span class="was"> исправлено, в распознанном тексте: «${esc(c.from)}»</span></td>`);
+  const formula = (f) => `<div class="card"><div class="formula">${core.texOnly(f.tex, rich)}${pages([f.page])}</div>${f.legend?.length ? `<dl class="legend-list">${f.legend.map((l) => `<div><dt>${core.symbol(l.symbol, rich)}</dt><dd>${rich(l.meaning)}${l.unit ? `, ${core.symbol(l.unit, rich)}` : ''}</dd></div>`).join('')}</dl>` : ''}${f.errata ? `<p class="note warn"><span><strong>Сверка со сканом.</strong> ${rich(f.errata)}</span></p>` : ''}</div>`;
+  const cellText = (s) => rich(String(s).replace(/[$]{2}/g, '$'));
+  const cell = (c) => (c.from === null ? `<td>${cellText(c.text)}</td>` : `<td class="fixed">${cellText(c.text)}<span class="was"> исправлено, в распознанном тексте: «${cellText(c.from)}»</span></td>`);
   const table = (t) => `<p>${rich(t.title)}${pages([t.page])}${t.corrections?.length ? `<br><span class="muted">Исправлено ячеек по скану: ${t.corrections.length}, они выделены.</span>` : ''}</p><div class="scroll" role="region" tabindex="0" aria-label="${esc(t.title)}, прокрутка вбок"><table aria-label="${esc(t.title)}">${t.header?.length ? `<thead><tr>${t.header.map((h) => `<th scope="col">${rich(h)}</th>`).join('')}</tr></thead>` : ''}<tbody>${core.tableRows(t).map((r) => `<tr>${r.map(cell).join('')}</tr>`).join('')}</tbody></table></div>`;
   const claim = (c) => `<li>${rich(c.text)}${pages([c.page_pdf])}${chip(KIND[c.kind] || '')}${c.by_model ? ` ${who('model')}` : ''}${c.source_kind === 'figure_description_model' ? chip('по описанию рисунка') : ''}${c.needs_scan ? chip('сверить со сканом') : ''}<details><summary>${c.source_kind === 'figure_description_model' ? 'Описание рисунка' : 'Цитата автора'}</summary><blockquote>${rich(c.quote)}</blockquote></details></li>`;
   const claims = (s) => (s.claims.length ? `<ul class="claims">${s.claims.map(claim).join('')}</ul>` : '');
@@ -56,7 +57,7 @@
   /** Блоки страницы по порядку; пустые не показываются и не попадают в оглавление. */
   const sections = (s) => [
     { id: 'how', title: 'Как это работает', who: 'model', body: how(s) },
-    { id: 'steps', title: 'По шагам', who: 'author', body: procedure(s) },
+    { id: 'steps', title: 'По шагам', who: 'model', body: procedure(s) },
     { id: 'decision', title: 'Решение на данных', who: 'model', body: decision(s.decision_on_data) },
     { id: 'examples', title: 'Разбор примеров из главы', who: 'author', body: (s.worked_examples || []).map(example).join('') },
     { id: 'numbers', title: 'Цифры и условия', who: 'author', body: numbers(s) },

@@ -91,6 +91,18 @@ def test_extra_blocks_reach_the_step():
     assert {k: step[k] for k in EXTRAS["lat.a"]} == EXTRAS["lat.a"] and step["videos"] == []
 
 
+def test_enriched_node_brings_its_own_blocks():
+    layer = {**LAYER, "nodes": [{**node(), **{k: EXTRAS["lat.a"][k] for k in ("procedure", "numbers", "formulas", "tables")}}]}
+    step = course_data(layer, {"routes": []}, TASKS, [])["steps"][0]
+    assert all(step[k] == EXTRAS["lat.a"][k] for k in ("procedure", "numbers", "formulas", "tables"))
+
+
+def test_extras_win_over_the_node():
+    layer = {**LAYER, "nodes": [{**node(), "numbers": [{"text": "из слоя", "page": 90}]}]}
+    step = course_data(layer, {"routes": []}, TASKS, [], {"lat.a": {"numbers": EXTRAS["lat.a"]["numbers"]}})["steps"][0]
+    assert step["numbers"] == EXTRAS["lat.a"]["numbers"]
+
+
 def test_steps_without_extras_get_empty_blocks():
     step = steps()[0]
     assert [step[k] for k in ("procedure", "numbers", "formulas", "tables", "videos", "interactive")] == [[], [], [], [], [], None]

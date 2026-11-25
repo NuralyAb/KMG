@@ -88,9 +88,10 @@ def checked_extras(extras: Mapping[str, Mapping] | None, known: set[str]) -> dic
     return checked
 
 
-def step_extras(extra: Mapping | None) -> dict[str, Any]:
-    extra = extra or {}
-    return {**{name: list(extra.get(name) or []) for name in EXTRA_LISTS}, "interactive": extra.get("interactive")}
+def step_extras(node: Mapping, extra: Mapping | None) -> dict[str, Any]:
+    """Блоки из обогащённого слоя; переданные отдельно дополнения важнее."""
+    merged = {**{name: node.get(name) for name in EXTRA_BLOCKS}, **(extra or {})}
+    return {**{name: list(merged[name] or []) for name in EXTRA_LISTS}, "interactive": merged["interactive"]}
 
 
 def step_data(
@@ -107,7 +108,7 @@ def step_data(
         "essence": layers["main"]["text"], "how": how, "deeper": deeper, "glossary": node.get("glossary", []),
         "format": (route or {}).get("format"), "format_why": (route or {}).get("why"),
         "tasks": [t for t in tasks if t["step_id"] == node["id"]], "pictures": [p for p in pictures if p["step_id"] == node["id"]],
-        **step_extras(extra),
+        **step_extras(node, extra),
     }
 
 
