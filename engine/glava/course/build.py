@@ -16,6 +16,9 @@ MIN_MINUTES = 2
 MIN_OVERLAP = 2
 STEM = 6
 HOW_BLOCKS = (("mechanism", "Механизм"), ("practice", "Как работает специалист"), ("nuances", "Нюансы"))
+EXTRA_LISTS = ("procedure", "numbers", "formulas", "tables", "videos")
+EXTRA_BLOCKS = (*EXTRA_LISTS, "interactive")
+VIEW_BOX = re.compile(r'viewBox="[\d.-]+[ ,]+[\d.-]+[ ,]+([\d.]+)[ ,]+([\d.]+)"')
 
 INDEX = """<!doctype html>
 <html lang="ru" data-theme="auto">
@@ -23,15 +26,20 @@ INDEX = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/katex/katex.min.css">
 <link rel="stylesheet" href="assets/course.css">
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
 <div id="app"></div>
+<div id="live" class="sr" aria-live="polite"></div>
 <noscript>Для курса нужен JavaScript.</noscript>
 <script src="assets/katex/katex.min.js"></script>
 <script src="data.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/tasks.js"></script>
+<script src="assets/pages.js"></script>
 <script src="assets/course.js"></script>
 </body>
 </html>
@@ -68,7 +76,26 @@ def _with_pages(text: str, node: Mapping) -> list[dict[str, Any]]:
     return [{"text": p, "pages": source_pages(p, node["claims"], node["pages"])} for p in paragraphs(text)]
 
 
-def step_data(node: Mapping, route: Mapping | None, tasks: Sequence[Mapping], pictures: Sequence[Mapping]) -> dict[str, Any]:
+def checked_extras(extras: Mapping[str, Mapping] | None, known: set[str]) -> dict[str, Mapping]:
+    """Дополнительные блоки шагов; опечатка в имени шага или блока — ошибка, а не тихая потеря."""
+    checked = dict(extras or {})
+    lost = sorted(set(checked) - known)
+    if lost:
+        raise ValueError(f"дополнения для неизвестных шагов: {', '.join(lost)}")
+    odd = sorted({name for extra in checked.values() for name in extra} - set(EXTRA_BLOCKS))
+    if odd:
+        raise ValueError(f"неизвестные дополнительные блоки: {', '.join(odd)}")
+    return checked
+
+
+def step_extras(extra: Mapping | None) -> dict[str, Any]:
+    extra = extra or {}
+    return {**{name: list(extra.get(name) or []) for name in EXTRA_LISTS}, "interactive": extra.get("interactive")}
+
+
+def step_data(
+    node: Mapping, route: Mapping | None, tasks: Sequence[Mapping], pictures: Sequence[Mapping], extra: Mapping | None = None,
+) -> dict[str, Any]:
     layers = node["layers"]
     how = [{"title": title, "by_model": layers[key]["by_model"], "paragraphs": _with_pages(layers[key]["text"], node)}
            for key, title in HOW_BLOCKS if layers[key]["text"].strip()]
@@ -78,29 +105,64 @@ def step_data(node: Mapping, route: Mapping | None, tasks: Sequence[Mapping], pi
     return {
         **{k: node.get(k) for k in kept}, "id": node["id"], "order": node["order"], "minutes": reading_minutes(node),
         "essence": layers["main"]["text"], "how": how, "deeper": deeper, "glossary": node.get("glossary", []),
-        "format": (route or {}).get("format"), "tasks": [t for t in tasks if t["step_id"] == node["id"]],
-        "pictures": [p for p in pictures if p["step_id"] == node["id"]],
+        "format": (route or {}).get("format"), "format_why": (route or {}).get("why"),
+        "tasks": [t for t in tasks if t["step_id"] == node["id"]], "pictures": [p for p in pictures if p["step_id"] == node["id"]],
+        **step_extras(extra),
     }
 
 
-def course_data(layer: Mapping, routing: Mapping, tasks: Sequence[Mapping], pictures: Sequence[Mapping]) -> dict[str, Any]:
+def course_data(
+    layer: Mapping, routing: Mapping, tasks: Sequence[Mapping], pictures: Sequence[Mapping], extras: Mapping[str, Mapping] | None = None,
+) -> dict[str, Any]:
     routes = {r["node_id"]: r for r in routing["routes"]}
     ordered = sorted(layer["nodes"], key=lambda n: n["order"])
+    extras = checked_extras(extras, {n["id"] for n in ordered})
     return {
         "id": layer["chapter"], "title": layer["title"], "book": layer["book"], "generated_by": layer["generated_by"], "parts": layer["parts"],
-        "steps": [step_data(n, routes.get(n["id"]), tasks, pictures) for n in ordered],
+        "steps": [step_data(n, routes.get(n["id"]), tasks, pictures, extras.get(n["id"])) for n in ordered],
     }
+
+
+def picture_size(svg: Path) -> dict[str, int]:
+    """Размер рисунка заранее: страница не прыгает, пока он грузится."""
+    found = VIEW_BOX.search(svg.read_text(encoding="utf-8")) if svg.suffix == ".svg" and svg.exists() else None
+    return {"width": int(float(found[1])), "height": int(float(found[2]))} if found else {}
+
+
+def _into_videos(source: str, out: Path) -> str:
+    """Файл снаружи копируется в videos/ курса; путь внутри курса остаётся как есть."""
+    path = Path(source)
+    if not path.is_absolute():
+        return source
+    target = out / "videos" / path.name
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(path, target)
+    return f"videos/{path.name}"
+
+
+def publish_video(video: Mapping, out: Path) -> dict[str, Any]:
+    """Субтитры кладутся и текстом: с file:// браузер не читает соседний .vtt."""
+    published = {**video, "src": _into_videos(video["src"], out)}
+    if not video.get("subtitles"):
+        return published
+    subtitles = _into_videos(video["subtitles"], out)
+    local = out / subtitles
+    text = local.read_text(encoding="utf-8-sig") if local.exists() else None
+    return {**published, "subtitles": subtitles, "vtt": text}
 
 
 def build_course(
     layer: Mapping, routing: Mapping, tasks: Sequence[Mapping], pictures: Sequence[Mapping], out: Path, picture_files: Path | None = None,
+    extras: Mapping[str, Mapping] | None = None,
 ) -> Path:
-    data = course_data(layer, routing, tasks, pictures)
     out.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ASSETS, out / "assets", dirs_exist_ok=True)
     shutil.rmtree(out / "pictures", ignore_errors=True)
     if picture_files and picture_files.exists():
         shutil.copytree(picture_files, out / "pictures", ignore=shutil.ignore_patterns("*.json"))
+    sized = [{**p, **(picture_size(out / p["file"]) if p.get("file") else {})} for p in pictures]
+    ready = {step: {**e, "videos": [publish_video(v, out) for v in e.get("videos") or []]} for step, e in (extras or {}).items()}
+    data = course_data(layer, routing, tasks, sized, ready)
     payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     (out / "data.js").write_text(f"window.COURSE={payload};\n", encoding="utf-8")
     title = data["title"].replace("&", "&amp;").replace("<", "&lt;")

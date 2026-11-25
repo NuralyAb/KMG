@@ -1,4 +1,8 @@
 import json
+import re
+from pathlib import Path
+
+import pytest
 
 from glava.course.build import build_course, course_data, paragraphs, reading_minutes, source_pages
 
@@ -22,6 +26,10 @@ def node(node_id="lat.a", order=1):
 
 LAYER = {"chapter": "lat", "title": "Глава", "book": "Книга", "source": "x.md", "generated_by": "fake", "parts": [{"title": "Часть", "nodes": ["lat.a"]}], "nodes": [node()]}
 TASKS = [{"id": "lat.a.t1", "type": "single", "step_id": "lat.a", "claim_ids": ["lat.a#c1"], "prompt": "?", "options": [], "answer": "a", "explanation": "э", "kind": "recall"}]
+
+
+def read_data(out):
+    return json.loads((out / "data.js").read_text(encoding="utf-8").removeprefix("window.COURSE=").rstrip(";\n"))
 
 
 def test_paragraphs_keep_every_sentence():
@@ -63,3 +71,85 @@ def test_closing_script_tag_in_text_cannot_break_the_page(tmp_path):
     nasty = {**LAYER, "title": "</script><b>"}
     build_course(nasty, {"routes": []}, TASKS, [], tmp_path)
     assert "</script>" not in (tmp_path / "data.js").read_text(encoding="utf-8")
+
+
+EXTRAS = {"lat.a": {
+    "procedure": [{"text": "Сначала замеряют.", "pages": [90]}],
+    "numbers": [{"text": "kп меньше 5 %", "page": 90, "claim_id": "lat.a#c1"}],
+    "formulas": [{"tex": "a=b", "page": 91, "legend": [{"symbol": "a", "meaning": "что-то", "unit": "м"}], "errata": None}],
+    "tables": [{"title": "Табл. 1", "page": 91, "header": ["x"], "rows": [["1"]], "corrections": [{"row": 0, "col": 0, "from": "7", "to": "1"}]}],
+    "interactive": {"kind": "slider", "params": {}},
+}}
+
+
+def steps(extras=None):
+    return course_data(LAYER, {"routes": [{"node_id": "lat.a", "format": "карточки", "why": "перечень"}]}, TASKS, [], extras)["steps"]
+
+
+def test_extra_blocks_reach_the_step():
+    step = steps(EXTRAS)[0]
+    assert {k: step[k] for k in EXTRAS["lat.a"]} == EXTRAS["lat.a"] and step["videos"] == []
+
+
+def test_steps_without_extras_get_empty_blocks():
+    step = steps()[0]
+    assert [step[k] for k in ("procedure", "numbers", "formulas", "tables", "videos", "interactive")] == [[], [], [], [], [], None]
+
+
+def test_extras_of_an_unknown_step_are_an_error():
+    with pytest.raises(ValueError, match="lat.zzz"):
+        steps({"lat.zzz": {}})
+
+
+def test_unknown_extra_block_is_an_error():
+    with pytest.raises(ValueError, match="procedures"):
+        steps({"lat.a": {"procedures": []}})
+
+
+def test_route_reason_reaches_the_step():
+    assert steps()[0]["format"] == "карточки" and steps()[0]["format_why"] == "перечень"
+
+
+def test_video_files_are_copied_and_subtitles_work_without_a_server(tmp_path):
+    (tmp_path / "in").mkdir()
+    (tmp_path / "in" / "v.mp4").write_bytes(b"mp4")
+    (tmp_path / "in" / "v.vtt").write_text("WEBVTT\n\n00:00.000 --> 00:01.000\nПривет\n", encoding="utf-8")
+    video = {"src": str(tmp_path / "in" / "v.mp4"), "subtitles": str(tmp_path / "in" / "v.vtt"), "title": "Ролик", "format": "16:9", "label": "симуляция"}
+    out = build_course(LAYER, {"routes": []}, TASKS, [], tmp_path / "out", extras={"lat.a": {"videos": [video]}})
+    built = read_data(out)["steps"][0]["videos"][0]
+    assert built["src"] == "videos/v.mp4" and (out / "videos" / "v.mp4").read_bytes() == b"mp4"
+    assert "Привет" in built["vtt"] and built["title"] == "Ролик"
+
+
+def test_video_already_in_the_course_folder_keeps_its_path(tmp_path):
+    (tmp_path / "videos").mkdir()
+    (tmp_path / "videos" / "v.vtt").write_text("WEBVTT\n", encoding="utf-8")
+    video = {"src": "videos/v.mp4", "subtitles": "videos/v.vtt", "title": "Ролик", "format": "9:16", "label": "схема"}
+    built = read_data(build_course(LAYER, {"routes": []}, TASKS, [], tmp_path, extras={"lat.a": {"videos": [video]}}))["steps"][0]["videos"][0]
+    assert built["src"] == "videos/v.mp4" and built["vtt"] == "WEBVTT\n"
+
+
+def test_missing_video_file_is_an_error(tmp_path):
+    video = {"src": str(tmp_path / "нет.mp4"), "title": "Ролик", "format": "9:16", "label": "схема"}
+    with pytest.raises(FileNotFoundError):
+        build_course(LAYER, {"routes": []}, TASKS, [], tmp_path / "out", extras={"lat.a": {"videos": [video]}})
+
+
+def test_picture_size_is_known_before_it_loads(tmp_path):
+    (tmp_path / "pics").mkdir()
+    (tmp_path / "pics" / "a.svg").write_text('<svg viewBox="0 0 480 448.5"></svg>', encoding="utf-8")
+    picture = {"id": "lat.a.i1", "step_id": "lat.a", "file": "pictures/a.svg", "alt": "а", "caption": "к", "label": "схема"}
+    built = read_data(build_course(LAYER, {"routes": []}, TASKS, [picture], tmp_path / "out", tmp_path / "pics"))["steps"][0]["pictures"][0]
+    assert (built["width"], built["height"]) == (480, 448)
+
+
+def test_page_loads_every_script_it_ships(tmp_path):
+    html = (build_course(LAYER, {"routes": []}, TASKS, [], tmp_path) / "index.html").read_text(encoding="utf-8")
+    linked = re.findall(r'(?:src|href)="([^"#:]+)"', html)
+    assert all((tmp_path / name).exists() for name in linked)
+    assert {p.name for p in (tmp_path / "assets").glob("*.js")} == {Path(n).name for n in linked if n.startswith("assets/") and n.count("/") == 1 and n.endswith(".js")}
+
+
+def test_page_has_one_live_region(tmp_path):
+    html = (build_course(LAYER, {"routes": []}, TASKS, [], tmp_path) / "index.html").read_text(encoding="utf-8")
+    assert html.count("aria-live") == 1

@@ -1,0 +1,42 @@
+.upload { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); max-width: 760px; }
+.drop { display: flex; gap: 16px; align-items: center; padding: 20px; border: 1.5px dashed var(--app-control); border-radius: var(--radius); background: var(--app-raised); }
+.drop[data-over] { border-color: var(--app-brand); background: var(--app-brand-soft); }
+.drop > svg { flex: none; color: var(--app-muted); }
+.drop-text { display: grid; flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.drop-text strong { font-weight: 500; }
+.upload-progress { display: grid; gap: 6px; }
+.upload-actions { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.text-bad { color: var(--app-bad); }
+
+.packages { list-style: none; padding: 0; border-top: 1px solid var(--app-border); }
+.packages > li { border-bottom: 1px solid var(--app-rule); }
+.packages a { display: grid; grid-template-columns: minmax(0, 1fr) auto 130px 20px; gap: 6px 20px; align-items: center; min-height: 64px; padding: 10px; margin: 0 -10px; border-radius: 6px; color: inherit; text-decoration: none; }
+.packages a:hover { background: var(--app-raised); }
+.packages a:hover strong { color: var(--app-brand); }
+.packages a > svg { color: var(--app-muted); }
+.package-main { display: grid; min-width: 0; }
+.package-main strong { font-weight: 500; overflow-wrap: anywhere; }
+
+.remark-tools > .mantine-InputWrapper-root { flex: 0 1 200px; }
+.remarks { margin-top: 24px; }
+.remarks > h2 { display: flex; gap: 10px; align-items: center; font-size: 18px; padding: 8px 14px; border-radius: 6px; background: var(--app-raised); }
+.remarks[data-tone='bad'] > h2 { background: var(--app-bad-soft); } .remarks[data-tone='bad'] > h2 svg { color: var(--app-bad); }
+.remarks[data-tone='warn'] > h2 { background: var(--app-warn-soft); } .remarks[data-tone='warn'] > h2 svg { color: var(--app-warn); }
+.remarks > ul { list-style: none; padding: 0 14px; }
+.remark { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 4px 28px; padding: 18px 0; border-bottom: 1px solid var(--app-rule); }
+.remark-side { display: grid; align-content: start; }
+.remark-side strong { overflow-wrap: anywhere; }
+.remark-main { display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); }
+.remark-fix { padding: 10px 14px; border-radius: 6px; background: var(--app-good-soft); max-width: 72ch; }
+.remark blockquote { padding-left: 14px; border-left: 2px solid var(--app-control); overflow-wrap: anywhere; }
+
+@media (max-width: 47.99375em) {
+  .drop { flex-direction: column; align-items: stretch; text-align: center; }
+  .drop > svg { align-self: center; }
+  .packages a { grid-template-columns: minmax(0, 1fr) auto; }
+  .packages a > svg { display: none; }
+  .package-main { grid-column: 1 / -1; }
+  .remarks > ul { padding: 0; }
+  .remark { grid-template-columns: minmax(0, 1fr); }
+  .remark-tools > .mantine-InputWrapper-root { flex: 1 1 100%; }
+}

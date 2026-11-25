@@ -1,0 +1,127 @@
+/* Mantine читает токены приложения, поэтому готовые компоненты следуют tokens.css */
+:root[data-mantine-color-scheme] {
+  --mantine-color-body: var(--app-surface);
+  --mantine-color-text: var(--app-text);
+  --mantine-color-dimmed: var(--app-muted);
+  --mantine-color-placeholder: var(--app-muted);
+  --mantine-color-default: var(--app-surface);
+  --mantine-color-default-hover: var(--app-raised);
+  --mantine-color-default-border: var(--app-control);
+  --mantine-color-anchor: var(--app-brand);
+}
+html { -webkit-text-size-adjust: 100%; scrollbar-gutter: stable; }
+html, body { background: var(--app-frame); color: var(--app-text); }
+body { font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-wrap: break-word; }
+#root { min-height: 100dvh; }
+h1, h2, h3, h4, p, dl, dd, ol, ul, blockquote, figure { margin: 0; }
+h1, h2, h3, h4 { line-height: 1.3; font-weight: 600; text-wrap: balance; }
+a { color: var(--app-brand); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--app-brand); outline-offset: 2px; }
+button { font: inherit; }
+mark { background: var(--app-mark); color: inherit; border-radius: 2px; padding: 0 1px; }
+sub, sup { line-height: 0; }
+.muted { color: var(--app-muted); }
+.num { font-variant-numeric: tabular-nums; }
+.nowrap { white-space: nowrap; }
+.prose { max-width: 68ch; white-space: pre-line; }
+.formula-block { display: block; overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+.formula, .formula-block { position: relative; }
+.formula .katex { font-size: 1.05em; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* шапка страницы */
+.page-head { display: flex; flex-wrap: wrap; gap: 16px 24px; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
+.page-head-text { display: grid; gap: 6px; min-width: 0; flex: 1 1 420px; }
+.page-head h1 { font-size: 26px; letter-spacing: -0.01em; max-width: 34ch; }
+.page-head .muted { max-width: 72ch; }
+.page-above { color: var(--app-muted); }
+.page-above a { color: inherit; }
+.page-above a:hover { color: var(--app-brand); }
+.page-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.section { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); margin-top: 32px; }
+.section > h2, .section-title { font-size: 20px; scroll-margin-top: 72px; }
+.section-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; }
+
+/* метки: значок и слово, цвет только поддерживает */
+.chip { display: inline-flex; align-items: center; gap: 5px; padding: 1px 8px; border-radius: 4px; background: var(--app-raised); color: var(--app-text);
+  white-space: nowrap; line-height: 1.5; }
+.chip svg { flex: none; width: 16px; height: 16px; }
+.chip[data-tone='brand'] { background: var(--app-brand-soft); }
+.chip[data-tone='good'] { background: var(--app-good-soft); } .chip[data-tone='good'] svg { color: var(--app-good); }
+.chip[data-tone='warn'] { background: var(--app-warn-soft); } .chip[data-tone='warn'] svg { color: var(--app-warn); }
+.chip[data-tone='bad'] { background: var(--app-bad-soft); } .chip[data-tone='bad'] svg { color: var(--app-bad); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+
+/* примечание: мягкий фон без рамки */
+.note { display: flex; gap: 12px; padding: 14px 16px; border-radius: var(--radius); background: var(--app-raised); }
+.note > svg { flex: none; margin-top: 2px; }
+.note > div { min-width: 0; flex: 1; }
+.note[data-tone='bad'] { background: var(--app-bad-soft); } .note[data-tone='bad'] > svg { color: var(--app-bad); }
+.note[data-tone='warn'] { background: var(--app-warn-soft); } .note[data-tone='warn'] > svg { color: var(--app-warn); }
+.note[data-tone='good'] { background: var(--app-good-soft); } .note[data-tone='good'] > svg { color: var(--app-good); }
+.note[data-tone='brand'] { background: var(--app-brand-soft); } .note[data-tone='brand'] > svg { color: var(--app-brand); }
+
+.state-loading { display: grid; gap: 10px; }
+.state-empty { display: grid; justify-items: center; gap: 8px; padding: 48px 16px; text-align: center; color: var(--app-muted); }
+.state-empty strong { color: var(--app-text); font-weight: 600; }
+.state-empty p { max-width: 52ch; }
+.mantine-Skeleton-root::before { background: var(--app-surface); }
+.mantine-Skeleton-root::after { background: var(--app-active); }
+
+.meter { display: block; height: 6px; border-radius: 99px; background: var(--viz-track); overflow: hidden; min-width: 48px; }
+.meter > i { display: block; height: 100%; background: var(--viz-bar); border-radius: 99px; transform-origin: left; transform: scaleX(var(--share)); }
+
+/* числа: один контейнер, разделённый волосными линиями */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(136px, 1fr)); border: 1px solid var(--app-border); border-radius: var(--radius); overflow: hidden; }
+.facts > div { padding: 12px 16px; box-shadow: -1px -1px 0 var(--app-border); min-width: 0; }
+.facts dt { color: var(--app-muted); }
+.facts dd { font-size: 22px; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.facts [data-tone='bad'] dd { color: var(--app-bad); }
+.facts [data-tone='warn'] dd { color: var(--app-warn); }
+
+/* фильтры */
+.filters { display: flex; flex-wrap: wrap; gap: 4px; }
+.filters button { display: inline-flex; gap: 8px; align-items: center; min-height: 40px; padding: 4px 12px; border: 1px solid transparent; border-radius: 6px; background: transparent;
+  color: var(--app-muted); cursor: pointer; }
+.filters button:hover { background: var(--app-raised); color: var(--app-text); }
+.filters button[aria-pressed='true'] { background: var(--app-active); color: var(--app-text); font-weight: 500; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-bottom: 16px; }
+
+/* в тёмной теме фирменный цвет светлый: текст на нём тёмный (autoContrast считает только по светлой шкале) */
+[data-mantine-color-scheme='dark'] .mantine-Button-root[data-variant='filled']:not(:disabled):not([data-disabled]) {
+  --button-bg: var(--app-brand) !important; --button-color: var(--app-brand-ink) !important; --button-hover: color-mix(in srgb, var(--app-brand) 88%, #fff) !important;
+}
+
+/* таблицы: волосные строки, прокрутка внутри */
+/* relative: скрытая разметка MathML от KaTeX иначе растягивает страницу */
+.table-scroll { position: relative; overflow-x: auto; border-radius: 4px; }
+.table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.table th { text-align: left; font-weight: 500; color: var(--app-muted); padding: 8px 16px 8px 0; border-bottom: 1px solid var(--app-border); white-space: nowrap; vertical-align: bottom; }
+.table td { padding: 10px 16px 10px 0; border-bottom: 1px solid var(--app-rule); vertical-align: top; }
+.table th:last-child, .table td:last-child { padding-right: 0; }
+.table .right { text-align: right; white-space: nowrap; }
+.table tfoot td { font-weight: 600; border-bottom: 0; }
+.table tbody tr:hover { background: var(--app-raised); }
+.table-wide { min-width: 760px; }
+
+/* вкладки Mantine */
+.mantine-Tabs-list { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.mantine-Tabs-list::-webkit-scrollbar { display: none; }
+.mantine-Tabs-tab { color: var(--app-muted); min-height: 44px; padding-inline: 14px; white-space: nowrap; }
+.mantine-Tabs-tab:first-of-type { padding-left: 2px; }
+.mantine-Tabs-tab[data-active] { color: var(--app-text); font-weight: 500; }
+.mantine-Tabs-tab:focus-visible { outline-offset: -2px; }
+.mantine-Tabs-panel { padding-top: 20px; }
+
+@media (max-width: 47.99375em) {
+  .page-head h1 { font-size: 23px; }
+  .facts { grid-template-columns: 1fr 1fr; }
+  .facts > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .page-actions { width: 100%; }
+  .page-actions > * { flex: 1 1 140px; }
+  .mantine-Button-root { min-height: 44px; }
+  .filters button { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

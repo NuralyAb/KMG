@@ -1,0 +1,17 @@
+.tasks { display: grid; grid-template-columns: minmax(0, 1fr); }
+.task { display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); padding: 18px 0; border-top: 1px solid var(--app-rule); }
+.task:first-child { border-top: 0; padding-top: 4px; }
+.task-meta { display: flex; flex-wrap: wrap; gap: 2px 14px; }
+.task-meta a { overflow-wrap: anywhere; min-width: 0; }
+.task-prompt { font-weight: 500; }
+.task-options { list-style: none; padding: 0; display: grid; gap: 2px; max-width: 76ch; }
+.task-options li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px; padding: 6px 10px; border-radius: 6px; }
+.task-options li[data-right] { background: var(--app-good-soft); }
+.task-mark { width: 20px; height: 20px; margin-top: 3px; border-radius: 4px; border: 1.5px solid var(--app-control); display: grid; place-items: center; }
+[data-right] > .task-mark { background: var(--app-good); border-color: var(--app-good); color: var(--app-surface); }
+.task-misc { display: block; overflow-wrap: anywhere; }
+.task-order { padding-left: 26px; display: grid; gap: 4px; max-width: 76ch; }
+.task-order li::marker { color: var(--app-good); font-weight: 600; }
+.task-gap { padding: 1px 6px; border-radius: 4px; background: var(--app-good-soft); font-weight: 600; }
+.task-calc { display: flex; gap: 8px; align-items: center; color: var(--app-text); }
+.task-calc svg { color: var(--app-good); flex: none; }

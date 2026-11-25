@@ -205,8 +205,10 @@ def test_fault_trap_rises_to_the_fault_and_special_layers_have_their_place():
 
 
 def test_course_escapes_pages():
-    script = (Path(__file__).resolve().parents[1] / "engine/glava/course/assets/course.js").read_text(encoding="utf-8")
+    folder = Path(__file__).resolve().parents[1] / "engine/glava/course/assets"
+    script = "".join(f.read_text(encoding="utf-8") for f in sorted(folder.glob("*.js")))
     assert "list.map(esc).join" in script
+    assert "list.join" not in script
 
 
 def test_failed_answers_are_not_kept_for_the_next_run(tmp_path):

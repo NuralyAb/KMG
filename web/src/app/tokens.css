@@ -1,0 +1,67 @@
+/*
+ * Токены METU (METU/web/src/app/tokens.css): единственное место, где названы цвета.
+ * Тонированная рамка вокруг белого листа, один фирменный цвет на данных, плоские поверхности.
+ */
+:root {
+  --app-frame: #EFF5F7;
+  --app-bg: #FFFFFF;
+  --app-surface: #FFFFFF;
+  --app-raised: #F4F7F8;
+  --app-active: #DFE9ED;
+  --app-border: #E1E8EB;
+  --app-rule: #EDF1F3;
+  --app-control: #C8D2D7;
+  --app-text: #10181C;
+  --app-muted: #55636B;
+
+  --app-brand: #0B6E8F;
+  --app-brand-ink: #FFFFFF;
+  --app-brand-soft: #E6F3F7;
+  --app-good: #1E6B46;
+  --app-good-soft: #E6F5EC;
+  --app-warn: #8A4F00;
+  --app-warn-mark: #B8800F;
+  --app-warn-soft: #FFF4DC;
+  --app-bad: #A8241D;
+  --app-bad-mark: #C4322A;
+  --app-bad-soft: #FDECEA;
+  --app-mark: #FFEBC7;
+
+  --sheet-radius: 16px;
+  --sheet-inset: 8px;
+  --radius: 8px;
+
+  --viz-grid: #E6ECEF;
+  --viz-bar: #0B6E8F;
+  --viz-track: #DCEDF2;
+}
+
+[data-mantine-color-scheme='dark'] {
+  --app-frame: #0C0D0E;
+  --app-bg: #141516;
+  --app-surface: #141516;
+  --app-raised: #1D1F20;
+  --app-active: #282B2D;
+  --app-border: #2C2F31;
+  --app-rule: #222426;
+  --app-control: #484C4F;
+  --app-text: #F3F5F5;
+  --app-muted: #AEB4B7;
+
+  --app-brand: #4FA9C9;
+  --app-brand-ink: #04161D;
+  --app-brand-soft: #14303A;
+  --app-good: #3FC07A;
+  --app-good-soft: #172A1D;
+  --app-warn: #E0B050;
+  --app-warn-mark: #D9A441;
+  --app-warn-soft: #2C2413;
+  --app-bad: #F07F79;
+  --app-bad-mark: #E5605A;
+  --app-bad-soft: #2C1A20;
+  --app-mark: #54400F;
+
+  --viz-grid: #2A2D2F;
+  --viz-bar: #4FA9C9;
+  --viz-track: #14303A;
+}
