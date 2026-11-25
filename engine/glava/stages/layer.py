@@ -11,6 +11,7 @@ from typing import Any
 import jsonschema
 
 from glava.llm import Provider, Reply, ask_json
+from glava.stages.wording import normal_layers, plain_node
 from glava.units import Unit
 from glava.verify import find_quote_page, unsupported_numbers, verify_layer
 
@@ -63,6 +64,8 @@ def assemble_node(raw: Mapping, plan_node: Mapping, order: int, prefix: str, uni
     ref = (raw.get("misconception") or {}).get("ref")
     links += [{"type": "refutes_misconception", "target": ref}] if ref else []
     kept = {k: v for k, v in raw.items() if k not in {"claims", "prerequisites"}}
+    if isinstance(kept.get("layers"), Mapping):
+        kept = {**kept, "layers": normal_layers(kept["layers"])}
     return {
         **kept, "id": node_id, "order": order, "title": plan_node["title"], "short_title": plan_node["short_title"],
         "why_here": {"text": plan_node["why_here"], "by_model": True}, "difficulty": plan_node["difficulty"],
@@ -142,4 +145,4 @@ def drop_unsupported(node: Mapping, pages: Mapping[int, str]) -> tuple[dict[str,
     source = "\n".join(pages.values())
     good = [c for c in node["claims"] if find_quote_page(c["quote"], pages) and not unsupported_numbers(c["text"], source)]
     dropped = [c["id"] for c in node["claims"] if c not in good]
-    return {**node, "claims": good}, dropped
+    return plain_node({**node, "claims": good}), dropped

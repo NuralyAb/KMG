@@ -5,7 +5,7 @@ from collections.abc import Iterable, Iterator, Mapping
 from dataclasses import dataclass
 
 MIN_QUOTE_CHARS = 8
-NUMBER = re.compile(r"(?<![\w.,])\d+(?:[.,]\d+)?")
+NUMBER = re.compile(r"(?<!\w)(?<!\d[.,])\d+(?:[.,]\d+)?")
 DASHES = str.maketrans({"–": "-", "—": "-", "−": "-", "‑": "-", "«": '"', "»": '"', "“": '"', "”": '"', "ё": "е"})
 
 

@@ -70,3 +70,8 @@ def test_term_used_before_it_is_introduced():
     doc = layer(terms_used=["пористость"])
     doc["nodes"].append({**doc["nodes"][0], "id": "lat.b", "order": 2, "terms_introduced": ["пористость"], "terms_used": []})
     assert any("пористость" in i.message for i in term_order_issues(doc["nodes"]))
+
+
+def test_number_right_after_abbreviation_is_found():
+    assert "72" in numbers_in("Рис.72. Кривые")
+    assert numbers_in("12.50 и 3,5") == {"12.5", "3.5"}

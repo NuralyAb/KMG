@@ -1,10 +1,116 @@
 {
  "issues": {
-  "latyshova.mud_effects_on_borehole": [
-   "схема: decision_on_data: {'signs': {'text': 'Соотношение d_c и d_a при бурении на глинистом растворе: d_c < d_a, d_c = d_a или d_c > d_a.', 'by_model': True}, 'rule': {'text': 'd_c < d_"
+  "latyshova.goals_of_log_interpretation": [
+   "схема: layers/deeper/0: 'Автор разделяет три уровня задач: литологический разрез, выделение коллекторов с насыщением и толщиной, промышленная оценка.' is not of type 'object'",
+   "схема: layers/deeper/1: 'Литологический разрез обычно строят качественно.' is not of type 'object'",
+   "схема: layers/deeper/2: 'Выделение коллекторов, насыщение и эффективная толщина: качественно для простейших коллекторов, количественно для сложных.' is not of type 'object'",
+   "схема: layers/deeper/3: 'Промышленная оценка опирается на пористость, нефтегазонасыщение и проницаемость для запасов и разработки.' is not of type 'object'",
+   "схема: layers/deeper/4: 'Для сложных коллекторов вместо нефтегазонасыщения допускается параметр насыщения Pп.' is not of type 'object'",
+   "схема: layers/deeper/5: 'Слежение за ВНК и ГЖК относится только к эксплуатационным скважинам.' is not of type 'object'",
+   "схема: layers/deeper/6: 'Методы расчёта, числа и пороги в этих единицах не даны.' is not of type 'object'"
+  ],
+  "latyshova.water_loss_and_mud_density": [
+   "схема: layers: 'deeper' is a required property"
+  ],
+  "latyshova.filtrate_salinity": [
+   "схема: layers/deeper/0: 'Термин «повышающее проникновение» в этих абзацах не определён.' is not of type 'object'",
+   "схема: layers/deeper/1: 'Есть только противоположный случай: понижающее проникновение, где ρп < ρпп.' is not of type 'object'",
+   "схема: layers/deeper/2: 'Он возникает в продуктивных коллекторах при ρф = ρп.' is not of type 'object'",
+   "схема: layers/deeper/3: 'В водоносных коллекторах при том же условии ρп ≈ ρпп.' is not of type 'object'",
+   "схема: layers/deeper/4: 'Для индукционного метода автор говорит лишь об изучении разреза в целом, а не о выделении коллектора.' is not of type 'object'",
+   "схема: layers/deeper/5: 'Об остальных условиях и числовых порогах в абзацах ничего не сказано.' is not of type 'object'"
+  ],
+  "latyshova.productivity_pn": [
+   "схема: layers/deeper/0: 'Автор не даёт самих формул (10), (11), поэтому связь Pн с коэффициентом нефтегазонасыщения здесь не раскрыта.' is not of type 'object'",
+   "схема: layers/deeper/1: 'Обозначения в единице искажены распознаванием, их нужно сверить со сканом.' is not of type 'object'",
+   "схема: layers/deeper/2: 'Единица не называет конкретных типов коллекторов и порогов Pн.' is not of type 'object'",
+   "схема: layers/deeper/3: 'Она лишь перечисляет методы для числителя и знаменателя и требует электрических методов для изучения изменения сопротивления по радиусу.' is not of type 'objec"
+  ],
+  "latyshova.build_litho_column": [
+   "схема: layers/deeper/0: 'Две операции построения разреза разделены: границы пластов находят по диаграммам отдельных методов, а литологию оценивают по сумме признаков.' is not of type '",
+   "схема: layers/deeper/1: 'Условная колонка нужна только в случае, когда совершенно неизвестны и минералогический состав, и литология.' is not of type 'object'",
+   "схема: layers/deeper/2: 'Образцы для уточнения колонки названы двух видов: извлечённые в процессе бурения и взятые боковым грунтоносом.' is not of type 'object'",
+   "схема: layers/deeper/3: 'Как именно сопоставляют колонку с образцами, в этих абзацах не описано.' is not of type 'object'"
+  ],
+  "latyshova.mixed_section_practice": [
+   "latyshova.mixed_section_practice:layers.nuances: чисел нет на страницах узла: 95"
+  ],
+  "latyshova.critical_permeability": [
+   "схема: layers/deeper: 'Критическая проницаемость стоит в одном перечне с критическими пористостью и глинистостью. Автор также называет геофизические параметры ΔJₙᵧ, ΔJᵧ, αCₙ, которые"
+  ],
+  "latyshova.permeability_threshold_on_logs": [
+   "схема: layers/deeper/0: 'Список связей на шаге 4 открытый: слова «и др.» означают, что названы не все методы.' is not of type 'object'",
+   "схема: layers/deeper/1: 'Звёздочка у величины (kн*, ΔJнт*, αСП*) обозначает её критическое значение.' is not of type 'object'",
+   "схема: layers/deeper/2: 'Связь для СП записана как αСП = (ηгл), без знака f.' is not of type 'object'",
+   "схема: layers/deeper/3: 'На шаге 3 пересчёт идёт от k*пр к kн* или ηгл* (kгл*). На шаге 4 от kн идут к показаниям методов.' is not of type 'object'",
+   "схема: layers/deeper/4: 'Для глинистости в единицах прямо не сказано, как получают показания метода из ηгл*, кроме примера αСП.' is not of type 'object'"
+  ],
+  "latyshova.nmr_and_method_choice": [
+   "latyshova.nmr_and_method_choice:layers.practice: чисел нет на страницах узла: 67",
+   "latyshova.nmr_and_method_choice:latyshova.nmr_and_method_choice#c5: чисел нет на страницах узла: 67"
+  ],
+  "latyshova.saturation_from_resistivity": [
+   "схема: layers/deeper: 'Вместо самого Pн можно использовать показания метода, который отражает изменение коэффициента водонасыщения в коллекторах. Соотношение (10) связывает все метод"
+  ],
+  "latyshova.phase_permeability_zones": [
+   "схема: layers/deeper/0: 'В распознанном тексте индексы kв и kп, а также обе кривые kор переданы одинаково, поэтому различать нефть и воду приходится по смыслу.' is not of type 'object'",
+   "схема: layers/deeper/1: 'Критерий второго рода выбирает внутри неоднозначной зоны одну точку по заданному соотношению нефти и воды в притоке.' is not of type 'object'",
+   "схема: layers/deeper/2: 'Автор называет единицу лишь примером такого соотношения.' is not of type 'object'",
+   "схема: layers/deeper/3: 'Числовых значений порогов в примере 48 нет.' is not of type 'object'"
+  ],
+  "latyshova.critical_values_examples": [
+   "схема: layers/deeper: 'В примере 49 с ростом насыщения от 30 до 56 и 80 % найденный Pн падает: 10, 3, 1,5. В примере 50 Pн убывает от 35 до 1,3, а приток меняется от чистой нефти до "
+  ],
+  "latyshova.clay_classes_critical": [
+   "схема: layers/deeper: {'text': 'Графики семейства (рис. 7, б) и кривые фазовых проницаемостей (рис. 70) не входят в единицы узла. По ним нельзя сказать, какая из границ kв* и kв** ле"
+  ],
+  "latyshova.effective_thickness_basic": [
+   "схема: layers: 'deeper' is a required property"
+  ],
+  "latyshova.vnk_transition_zone": [
+   "схема: layers/deeper/0: 'Для построения нужны четыре величины с диаграмм: Нк, Нп, ρншах и ρвп.' is not of type 'object'",
+   "схема: layers/deeper/1: 'Две критические величины, ρп* и ρп,пр, должны быть установлены для объекта одним из способов, рассмотренных выше.' is not of type 'object'",
+   "схема: layers/deeper/2: 'Глава называет только два возможных критерия для точки ВНК.' is not of type 'object'",
+   "схема: layers/deeper/3: 'Как выбирать между ними, кроме случая подсчёта запасов, здесь не сказано.' is not of type 'object'"
+  ],
+  "latyshova.thin_layers_resistivity": [
+   "схема: layers/deeper/0: 'В распознанном тексте индексы записаны как «cn», «nm», «sp». По смыслу это глина, продуктивный коллектор и эффективная толщина.' is not of type 'object'",
+   "схема: layers/deeper/1: 'Явное решение уравнения (63) относительно χсп в главе не приведено. Его можно получить алгебраически, это шаг модели.' is not of type 'object'",
+   "схема: layers/deeper/2: 'Для ρпм глава допускает два источника: керн или чистые коллекторы разреза.' is not of type 'object'"
+  ],
+  "latyshova.thin_layers_sp": [
+   "latyshova.thin_layers_sp:layers.nuances: чисел нет на страницах узла: 102",
+   "latyshova.thin_layers_sp:layers.deeper[0]: чисел нет на страницах узла: 72",
+   "latyshova.thin_layers_sp:latyshova.thin_layers_sp#c3: чисел нет на страницах узла: 72",
+   "latyshova.thin_layers_sp:latyshova.thin_layers_sp#c4: чисел нет на страницах узла: 72",
+   "latyshova.thin_layers_sp:latyshova.thin_layers_sp#c5: чисел нет на страницах узла: 72"
+  ],
+  "latyshova.thickness_practice": [
+   "схема: layers/deeper: \"Рис. 73 относится к хадумскому газоносному горизонту, линия глин обозначена 00'. Задача 102 использует константы уравнения среднего времени 170 и 580 мкс/м, их"
+  ],
+  "latyshova.normalization_overlay": [
+   "схема: layers/deeper: 'Расчётное значение ρm в единицах узла не расшифровано. Как его получают, глава здесь не говорит. Условия под рис. 76 заданы формулой, но символы в ней не поясн"
+  ],
+  "latyshova.kp_star_graph": [
+   "схема: layers/deeper: {'text': 'Кривые рис. 77 относятся к пяти типам коллекторов. Это рифовые отложения Башкирии и коллекторы карбона Башкирии. Ещё это известняки Вуктыла, доломиты "
+  ],
+  "latyshova.kp_star_table": [
+   "схема: layers/deeper/0: 'Таблица 23 обобщает результаты примера 55.' is not of type 'object'",
+   "схема: layers/deeper/1: 'В заголовке столбца значений стоит обозначение kп0* в процентах.' is not of type 'object'",
+   "схема: layers/deeper/2: 'Две строки с крупнозернистыми породами дают по 3 %, рифтовые отложения дают 1 %.' is not of type 'object'",
+   "схема: layers/deeper/3: 'Мелоподобные известняки дают 13 %.' is not of type 'object'",
+   "схема: layers/deeper/4: 'Задача 108 просит сравнить диапазон из задач 104–107 с этой таблицей.' is not of type 'object'",
+   "схема: layers/deeper/5: 'Рисунки к задачам указаны только номерами: 63, 58, 14, 53, 68 и 76.' is not of type 'object'"
+  ],
+  "latyshova.complex_collectors": [
+   "схема: layers/deeper: 'В этих двух абзацах нет числовых порогов, формул и конкретных признаков выделения. Они лишь вводят понятие и перечисляют классы. Признаки и методы оценки для о"
   ]
  },
- "dropped_claims": [],
- "nodes": 2,
- "claims": 21
+ "dropped_claims": [
+  "latyshova.thin_layers_sp#c3",
+  "latyshova.thin_layers_sp#c4",
+  "latyshova.thin_layers_sp#c5"
+ ],
+ "nodes": 44,
+ "claims": 625
 }
