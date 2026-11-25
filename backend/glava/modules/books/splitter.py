@@ -4,7 +4,7 @@ import re
 from collections import Counter
 from dataclasses import dataclass
 
-PAGE = re.compile(r"<!--\s*page\s+(\d+)\s*-->")
+PAGE = re.compile(r"<!--\s*page\s+(\d+)\s*-->", re.IGNORECASE)
 HEADING = re.compile(r"^(#{1,6})\s+(.*\S)\s*$")
 PART = re.compile(r"^(?:часть|part)\s+(?:[IVXLC]+|\d+)\b", re.IGNORECASE)
 CHAPTER = re.compile(r"^(?:глава|chapter)\s+(?:[IVXLC]+|\d+)\b\.?", re.IGNORECASE)

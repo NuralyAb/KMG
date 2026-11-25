@@ -6,6 +6,7 @@ from typing import Any
 
 from glava.modules.source_text.units import Unit
 from glava.shared.evidence import numbers_in, squeeze
+from glava.shared.language import is_english
 
 REFERENCE = re.compile(
     r"(?:рис\w*|табл\w*|формул\w*|уравнени\w*|соотношени\w*|выражени\w*|пример\w*|задач\w*|стр\w*|§+|fig\w*|table\w*|eq\w*)\.?\s*\(?\d+(?:[.,]\d+)*\)?"
@@ -46,7 +47,8 @@ def _table(unit: Unit, errata: Sequence[Mapping[str, Any]]) -> dict[str, Any] | 
     entries = [e for e in errata if e["page"] == unit.page_pdf and e["kind"] == "recognition"]
     fixed = [[_corrected(c, entries) for c in r] for r in rows]
     corrections = [{"row": i - 1, "col": j, "from": rows[i][j], "to": fixed[i][j]} for i in range(len(rows)) for j in range(len(rows[i])) if rows[i][j] != fixed[i][j]]
-    return {"title": f"Таблица книги, стр. {unit.page_pdf}", "page": unit.page_pdf, "unit_id": unit.unit_id, "header": fixed[0], "rows": fixed[1:], "corrections": corrections}
+    note = " (на языке книги)" if any(is_english(t) for t in ("\n".join(" ".join(r) for r in rows), unit.text)) else ""
+    return {"title": f"Таблица книги, стр. {unit.page_pdf}{note}", "page": unit.page_pdf, "unit_id": unit.unit_id, "header": fixed[0], "rows": fixed[1:], "corrections": corrections}
 
 
 def book_tables(node: Mapping[str, Any], units: Sequence[Unit], errata: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:

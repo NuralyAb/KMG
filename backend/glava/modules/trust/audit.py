@@ -11,7 +11,9 @@ from typing import Any
 from glava.modules.layer.api import sentences
 from glava.modules.source_text.api import BARE_REFERENCE, REFERENCE
 from glava.modules.trust.entail import source_of
-from glava.shared.evidence import DASHES, node_texts, numbers_in, unsupported_numbers
+from glava.modules.trust.english import english_flags
+from glava.shared.evidence import DASHES, bare_term, node_texts, unsupported_numbers
+from glava.shared.language import is_english
 
 NEGATION = re.compile(r"\b(?:не|нет|ни|без|нельзя|невозможно)\b|\bотсутств\w*", re.IGNORECASE)
 DOUBLE = re.compile(r"\bне\s+(?:только|менее|более)\b|\bни\b", re.IGNORECASE)
@@ -49,6 +51,9 @@ def claim_flags(text: str, quote: str) -> list[str]:
     flags = []
     if unsupported_numbers(_numbers(text), quote):
         flags.append("number")
+    if is_english(quote):
+        # русские правила по английским словам молчат или ошибаются: у перевода своя сверка
+        return flags + english_flags(text, quote)
     quoted = _units(quote)
     quoted_units = set().union(*quoted.values()) if quoted else set()
     if any(not units & quoted.get(number, quoted_units) for number, units in _units(text).items() if quoted_units):
@@ -78,7 +83,7 @@ def early_terms(nodes: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
     ordered = sorted(nodes, key=lambda n: n["order"])
     home: dict[str, tuple[int, str]] = {}
     for node in reversed(ordered):
-        home |= {t.casefold(): (node["order"], node["id"]) for t in node["terms_introduced"] if len(t) >= MIN_TERM}
+        home |= {bare_term(t): (node["order"], node["id"]) for t in node["terms_introduced"] if len(bare_term(t)) >= MIN_TERM}
     texts = {n["id"]: " ".join(t for where, t in node_texts(n) if where.startswith("layers")).casefold() for n in ordered}
     found = []
     for term, (order, where) in sorted(home.items()):
@@ -93,11 +98,10 @@ def prose_numbers(node: Mapping[str, Any]) -> list[dict[str, Any]]:
     """Фразы связного текста с числами, которых нет в утверждениях узла."""
     source = " ".join(f"{c['text']} {c['quote']}" for c in node["claims"]) + " " + " ".join(
         t for where, t in node_texts(node) if where.startswith(("worked_examples", "book_tasks")))
-    allowed = numbers_in(source)
     rows = []
     for where, text in node_texts(node):
         if where.startswith("layers"):
-            rows += [{"node_id": node["id"], "where": where, "text": s, "numbers": sorted(numbers_in(_numbers(s)) - allowed)} for s in sentences(text)]
+            rows += [{"node_id": node["id"], "where": where, "text": s, "numbers": sorted(unsupported_numbers(_numbers(s), source))} for s in sentences(text)]
     return [r for r in rows if r["numbers"]]
 
 

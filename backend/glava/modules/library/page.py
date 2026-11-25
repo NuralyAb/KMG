@@ -4,7 +4,7 @@ import re
 from dataclasses import dataclass, field
 from typing import Any
 
-PAGE_MARK = re.compile(r"<!--\s*page\s+(\d+)\s*-->")
+PAGE_MARK = re.compile(r"<!--\s*page\s+(\d+)\s*-->", re.IGNORECASE)
 MAX_PAGES = 2000
 PICTURES = "есть рисунки: их содержание в текст не попало"
 BAD_CHARS = re.compile(r"[�-\x00-\x08\x0b\x0e-\x1f]")

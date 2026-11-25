@@ -4,7 +4,14 @@ import re
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, replace
 
-PAGE_MARK = re.compile(r"<!--\s*page\s+(\d+)\s*-->")
+from glava.modules.source_text.english import (
+    Reader,
+    running_lines,
+    separate_headings,
+)
+from glava.shared.language import is_english
+
+PAGE_MARK = re.compile(r"<!--\s*page\s+(\d+)\s*-->", re.IGNORECASE)
 FIGURE_BLOCK = re.compile(r"^━+\s*FORMAT")
 CAPTION = re.compile(r"^\**(Рис(унок)?|Фиг|Fig(ure)?)\b\.?\s*\d", re.IGNORECASE)
 TASK_HEADING = re.compile(r"^#*\s*\**(Задач[аи]|Упражнени[ея]|Problems?|Exercises?)\**\.?\s*$", re.IGNORECASE)
@@ -20,6 +27,7 @@ class Unit:
     text: str
     by_recogniser: bool = False
     needs_scan: bool = False
+    skippable: bool = False
 
     @property
     def excerpt(self) -> str:
@@ -77,12 +85,32 @@ def _kind(text: str, in_figure: bool, in_tasks: bool) -> str:
     return "paragraph"
 
 
+def _english_units(blocks: Mapping[int, list[tuple[str, bool]]]) -> list[Unit]:
+    split = {page: separate_headings(blocks[page]) for page in sorted(blocks)}
+    running, reader = running_lines(split), Reader()
+    units: list[Unit] = []
+    for page, found in split.items():
+        for index, (text, in_figure) in enumerate(found):
+            # колонтитул посреди списка литературы или задач раздела не меняет
+            kind, skippable = ("heading" if text.startswith("#") else "paragraph", True) if (page, index) in running else reader.read(text, in_figure)
+            units.append(Unit(f"p{page:03d}.{index + 1:02d}", kind, page, text, by_recogniser=in_figure, skippable=skippable))
+    return units
+
+
+def is_english_source(units: Iterable[Unit]) -> bool:
+    """Описания рисунков распознаватель пишет по-русски и в английской книге, поэтому они не в счёт."""
+    return is_english("\n".join(u.text for u in units if not u.by_recogniser))
+
+
 def parse_units(pages: Mapping[int, str]) -> list[Unit]:
     """Единицы главы с устойчивыми id вида p095.03 (страница и порядок на ней)."""
+    blocks = {page: _blocks(pages[page]) for page in pages}
+    if is_english("\n".join(text for found in blocks.values() for text, in_figure in found if not in_figure)):
+        return _english_units(blocks)
     units: list[Unit] = []
     in_tasks = False
     for page in sorted(pages):
-        for index, (text, in_figure) in enumerate(_blocks(pages[page]), start=1):
+        for index, (text, in_figure) in enumerate(blocks[page], start=1):
             first = text.splitlines()[0].strip()
             if TASK_HEADING.match(first):
                 in_tasks = True
