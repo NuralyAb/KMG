@@ -116,8 +116,7 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
 
 
 def build_routing(chapter: Chapter, provider: Provider) -> None:
-    templates = "
-".join(p.stem for p in sorted((chapter.domain / "templates").glob("*"))) or "шаблонов пока нет"
+    templates = "\n".join(p.stem for p in sorted((chapter.domain / "templates").glob("*"))) or "шаблонов пока нет"
     routing, replies = make_routing(provider, prompt_file("routing"), read(chapter.work / "layer.json"), templates)
     save(chapter.work / "routing.json", routing)
     write_metrics(chapter, "routing", len(routing["routes"]), replies)
