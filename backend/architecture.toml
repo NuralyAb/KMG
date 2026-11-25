@@ -16,6 +16,7 @@ catalog        = ["metrics"]  # главы, узлы, поиск
 course         = ["simulations"]  # сборка курса
 drawing        = []  # холст и шаблоны рисунков
 errata         = ["llm"]  # сверка текста со сканом
+figure_reading = ["llm", "source_text"]  # рисунки со скана: прочтение моделью по изображению страницы
 format_routing = ["llm"]  # формат для узла
 impact         = ["catalog", "runs", "trust"]  # живой факт: что задела правка
 illustrations  = ["drawing", "errata", "llm"]  # рисунки

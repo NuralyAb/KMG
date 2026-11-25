@@ -1,15 +1,20 @@
-.learn-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 20px; }
-.learn-card { display: grid; grid-template-rows: auto 1fr; gap: 16px; padding: 16px 16px 20px; border: 1px solid var(--app-border); border-radius: 20px; background: var(--app-surface); }
-.learn-card:hover { border-color: var(--app-control); box-shadow: 0 8px 28px rgb(60 40 140 / 8%); }
-.learn-cover { display: flex; align-items: center; gap: 14px; padding: 20px; border-radius: 16px; background: linear-gradient(115deg, var(--app-brand-soft) 35%, var(--learn-glow)); font-weight: 500; }
-.learn-cover-icon { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: color-mix(in srgb, var(--learn-glow) 75%, transparent); color: var(--app-brand); }
-.learn-card > :not(.learn-cover) { margin-inline: 6px; }
-.learn-card-main { display: grid; gap: 8px; align-content: start; min-width: 0; overflow-wrap: anywhere; }
-.learn-card h2 { font-size: 20px; }
+.learn-cards { display: grid; gap: 16px; }
+.learn-card { display: grid; grid-template-columns: 200px minmax(0, 1fr) 220px; grid-template-areas: 'cover main side' 'cover facts side'; gap: 6px 24px; padding: 16px; border: 1px solid var(--app-border); border-radius: 8px; background: var(--app-surface); }
+.learn-card:hover { box-shadow: 0 2px 8px rgb(31 31 31 / 10%); }
+.learn-cover { grid-area: cover; display: grid; align-content: space-between; gap: 10px; min-height: 120px; padding: 14px; border-radius: 6px; background: linear-gradient(135deg, #0056D2, #3D7FF0 60%, #7FB0FF); color: #fff; font-weight: 500; }
+.learn-cover-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: rgb(255 255 255 / 18%); }
+.learn-card-main { grid-area: main; display: grid; gap: 6px; align-content: start; min-width: 0; overflow-wrap: anywhere; }
+.learn-card h2 { font-size: 20px; line-height: 1.3; }
 .learn-card h2 a { color: inherit; text-decoration: none; }
-.learn-card h2 a:hover { color: var(--app-brand); }
+.learn-card h2 a:hover { color: var(--app-brand); text-decoration: underline; }
+.learn-card-facts { grid-area: facts; color: var(--app-muted); align-self: end; }
+.learn-card-side { grid-area: side; display: grid; gap: 14px; align-content: center; }
 .learn-progress { display: grid; gap: 8px; }
-.learn-progress .meter { height: 8px; }
+.learn-progress .meter { height: 6px; }
+@media (max-width: 61.99em) {
+  .learn-card { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'cover' 'main' 'facts' 'side'; gap: 12px; }
+  .learn-cover { min-height: 0; grid-auto-flow: column; justify-content: start; align-items: center; }
+}
 .learn-login { display: grid; gap: 16px; max-width: 360px; }
 
 .player { height: 100dvh; }

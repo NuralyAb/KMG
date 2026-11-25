@@ -15,7 +15,7 @@ from typing import Any, Protocol
 
 API = "https://api.elevenlabs.io/v1"
 OWN_VARIABLES = ("VOICE_", "ELEVENLABS_")
-EDGE_VOICE, EDGE_RATE = "ru-RU-DmitryNeural", "-6%"
+EDGE_VOICE, EDGE_RATE = "ru-RU-DmitryNeural", "+0%"
 EDGE_RETRIES = 14
 ELEVEN_MODEL = "eleven_multilingual_v2"
 ELEVEN_RETRIES = 6
@@ -166,7 +166,8 @@ class Edge:
         return {"provider": "microsoft", "voice": self.voice, "model": "edge-tts", "rate": self.rate, "data_out": "текст закадровых фраз → Microsoft"}
 
     def prepare(self, text: str) -> str:
-        return text
+        """Перед «й» знак ударения голос Microsoft читает как «краткий»: «буровой краткий». Там он и не нужен: ударение на последнем слоге одно."""
+        return re.sub(f"{STRESS_MARK}(?=[йЙ])", "", text)
 
     def speak(self, text: str) -> tuple[bytes, list[Word]]:
         detail = ""
@@ -229,8 +230,8 @@ def eleven_from_env(env: Mapping[str, str]) -> ElevenLabs:
 
 
 def voice_from_env(env: Mapping[str, str], name: str | None = None) -> Voice:
-    """VOICE_PROVIDER: elevenlabs или edge. По умолчанию ElevenLabs, если дан ключ, иначе голос Microsoft."""
-    chosen = name or env.get("VOICE_PROVIDER") or ("elevenlabs" if env.get("ELEVENLABS_API_KEY") else "edge")
+    """VOICE_PROVIDER: edge (голос Microsoft, по ТЗ основной) или elevenlabs (запасной путь). По умолчанию edge, даже если ключ ElevenLabs есть."""
+    chosen = name or env.get("VOICE_PROVIDER") or "edge"
     if chosen == "elevenlabs":
         return eleven_from_env(env)
     if chosen == "edge":

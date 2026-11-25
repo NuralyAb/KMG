@@ -76,7 +76,7 @@ type Raw = Record<string, unknown>;
 export type CardMark = 'know' | 'again';
 export type Theme = 'auto' | 'light' | 'dark';
 export interface State {
-  done: string[]; solved: Record<string, boolean>; cards: Record<string, CardMark>; repeat: string[]; last: number | null; theme: Theme; notes: Record<string, string>;
+  done: string[]; solved: Record<string, boolean>; cards: Record<string, CardMark>; repeat: string[]; last: number | null; theme: Theme; notes: Record<string, string>; seen: Record<string, string[]>;
 }
 const THEMES: readonly unknown[] = ['auto', 'light', 'dark'];
 const isObject = (v: unknown): v is Raw => v !== null && typeof v === 'object' && !Array.isArray(v);
@@ -92,6 +92,7 @@ export const cleanState = (raw: unknown, ids: string[]): State => {
     last: typeof r.last === 'number' && Number.isInteger(r.last) ? r.last : null,
     theme: THEMES.includes(r.theme) ? r.theme as Theme : 'auto',
     notes: pick<string>(r.notes, (k, v) => ids.includes(k) && typeof v === 'string' && v !== ''),
+    seen: pick<string[]>(r.seen, (k, v) => ids.includes(k) && Array.isArray(v) && v.every((x) => typeof x === 'string')),
   };
 };
 

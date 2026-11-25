@@ -63,12 +63,23 @@ def workspace(source: Path, root: Path, name: str) -> Path:
     return target
 
 
+def _spoken_line(frame: Item, package: Mapping[str, Any]) -> Item | None:
+    """Фраза закадра, которая звучит в момент кадра: последняя начавшаяся к его времени."""
+    if not isinstance(frame.get("t"), int | float):
+        return None
+    lines = [i for i in package["items"] if i.get("type") == "script_line" and i.get("video_id") == frame.get("video_id")
+             and isinstance(i.get("t_start"), int | float) and i["t_start"] <= frame["t"]]
+    return max(lines, key=lambda i: i["t_start"], default=None)
+
+
 def _claim_page(item: Item, package: Mapping[str, Any]) -> int | None:
     by_id = {i["id"]: i for i in package["items"]}
     if item.get("page_pdf"):
         return item["page_pdf"]
     if item.get("claim_ref") in by_id:
         return by_id[item["claim_ref"]].get("page_pdf")
+    if (line := _spoken_line(item, package)) and by_id.get(line.get("claim_ref"), {}).get("page_pdf"):
+        return by_id[line["claim_ref"]]["page_pdf"]
     nodes = {item.get("node_id")} - {None} or {s["spec"].get("node_id") for s in package["scenes"] if s["video_id"] == item.get("video_id")}
     return next((i["page_pdf"] for i in package["items"] if i.get("node_id") in nodes and i.get("page_pdf")), None)
 
@@ -87,6 +98,24 @@ def settle_page(remark: Remark, pages: Pages, fallback: int | None) -> int | Non
         return page
     real = find_quote_page(quote, pages) if quote else None
     return real or fallback or (page if page in pages else None)
+
+
+def _cites_own_page(item: Item, package: Mapping[str, Any], pages: Pages) -> bool:
+    """Ссылка элемента исправна: его цитата (или цитата утверждения, на которое он опирается) стоит на его странице."""
+    by_id = {i["id"]: i for i in package["items"]}
+    source = item if item.get("page_pdf") else by_id.get(item.get("claim_ref") or "", {})
+    page, quote = source.get("page_pdf"), source.get("quote")
+    return bool(quote) and page in pages and quote_on_page(quote, pages[page])
+
+
+def remark_page(remark: Remark, item: Item, package: Mapping[str, Any], pages: Pages) -> int | None:
+    """Страница замечания. Кадр — страница утверждения, которое он иллюстрирует (фраза закадра в момент кадра).
+    Утверждение, фраза и аналогия с исправной ссылкой — своя страница: исправление проверяют там, где стоит утверждение,
+    а модель иногда берёт подходящую фразу из другого места главы. Иначе — страница цитаты модели."""
+    own = _claim_page(item, package)
+    if own in pages and (item["type"] == "frame" or _cites_own_page(item, package, pages)):
+        return own
+    return settle_page(remark, pages, own)
 
 
 def _listed(items: Sequence[Item], package: Mapping[str, Any], pages: Pages) -> str:
@@ -176,9 +205,9 @@ def review_package(
     for verdict in (v for vs, _ in verdicts for v in vs):
         sure = verdict.get("confirmed") is True and _confidence(verdict) >= min_confidence
         if sure and _valid(verdict) and verdict["target"] not in final:
-            page = settle_page(verdict, pages, _claim_page(by_id[verdict["target"]], package))
+            page = remark_page(verdict, by_id[verdict["target"]], package, pages)
             quote = verdict.get("quote")
-            quote = quote if isinstance(quote, str) and find_quote_page(quote, pages) else None
+            quote = quote if isinstance(quote, str) and page in pages and quote_on_page(quote, pages[page]) else None
             final = {**final, verdict["target"]: {**{k: verdict.get(k) for k in FIELDS}, "page_pdf": page, "quote": quote}}
     remarks = sorted(final.values(), key=lambda r: (ORDER[r["severity"]], r["target"]))
     return {"package_id": package["package_id"], "remarks": remarks}, [r for _, rs in (*found, *verdicts) for r in rs]
