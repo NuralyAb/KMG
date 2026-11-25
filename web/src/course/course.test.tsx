@@ -49,30 +49,51 @@ afterEach(() => {
 });
 
 describe('course', () => {
-  test('starts with modules and numbers lessons inside them', () => {
+  test('the overview shows the program, progress and the way back in', () => {
     open('#/');
     expect(screen.getByRole('heading', { level: 1, name: 'Песок в банке' })).toBeVisible();
     expect(screen.getByRole('link', { name: /Начать/ })).toHaveAttribute('href', '#/step/1');
-    const plan = screen.getByRole('complementary', { name: 'Содержание курса' });
-    expect(within(plan).getByText('1.2 Шаг 2')).toBeInTheDocument();
-    expect(within(plan).getByText('2.1 Шаг 3')).toBeInTheDocument();
-    expect(within(plan).getByText('Иванов А. Б.')).toBeInTheDocument();
+    const outline = screen.getByRole('complementary', { name: 'Содержание курса' });
+    expect(within(outline).getByText('1.2 Шаг 2')).toBeInTheDocument();
+    expect(within(outline).getByText('2.1 Шаг 3')).toBeInTheDocument();
+    expect(within(screen.getByRole('complementary', { name: 'О курсе' })).getByText('Иванов А. Б.')).toBeInTheDocument();
   });
 
-  test('a finished lesson is saved and leads to the next one', async () => {
-    open('#/step/1');
-    await userEvent.click(screen.getByRole('button', { name: 'Понятно, дальше' }));
-    expect(window.location.hash).toBe('#/step/2');
-    expect(saved()).toMatchObject({ done: ['s1'], last: 2 });
+  test('a lesson opens on its first item; the outline lists the items of the open lesson only', () => {
+    const { container } = open('#/step/1');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Разбор урока: Шаг 1');
+    const items = [...container.querySelectorAll('.outline .item')].map((x) => x.getAttribute('href'));
+    expect(items).toEqual(['#/step/1/talk', '#/step/1/read', '#/step/1/sim', '#/step/1/quiz']);
+    expect(container.querySelector('.outline .item[aria-current]')).toHaveAttribute('href', '#/step/1/talk');
+    expect(screen.getByRole('navigation', { name: 'Вы здесь' })).toHaveTextContent('Обзор курсаМодуль 1Урок 1.1Видео');
+  });
+
+  test('next goes item by item, then marks the lesson done and opens the next one', async () => {
+    open('#/step/2');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Шаг 2');
+    await userEvent.click(screen.getByRole('button', { name: /Урок пройден, дальше/ }));
+    expect(window.location.hash).toBe('#/step/3');
+    expect(saved()).toMatchObject({ done: ['s2'], seen: { s2: ['read'] } });
+    await goTo('#/step/1/sim');
+    await userEvent.click(screen.getByRole('button', { name: /Дальше: тренировка/ }));
+    expect(window.location.hash).toBe('#/step/1/quiz');
+  });
+
+  test('a seen item gets a check in the outline', async () => {
+    const { container } = open('#/step/1/read');
+    await goTo('#/step/1/quiz');
+    const read = container.querySelector('.outline .item[href="#/step/1/read"]');
+    expect(read).toHaveTextContent('просмотрено');
+    expect(container.querySelector('.outline .item[href="#/step/1/sim"]')).not.toHaveTextContent('просмотрено');
   });
 
   test('layer text never becomes markup', () => {
-    const { container } = open('#/step/1');
+    const { container } = open('#/step/1/read');
     expect(container.querySelector('#how b')).toBeNull();
     expect(container.querySelector('#how')).toHaveTextContent('<b>Не разметка</b>');
   });
 
-  test('nothing from the layer is run as markup: pages, captions, formulas, tables, terms', () => {
+  test('nothing from the layer is run as markup: pages, captions, formulas, tables, terms', async () => {
     const evil = '<img src=x onerror=alert(1)>';
     const bad = step(1, {
       short_title: evil, title: evil, essence: evil, pages: [evil as unknown as number], glossary: [{ term: evil, definition: evil }], numbers: [{ text: evil, page: evil as unknown as number }],
@@ -80,28 +101,18 @@ describe('course', () => {
       claims: [{ id: 'c', text: evil, quote: evil, page_pdf: 1, kind: evil }],
       tasks: [{ id: 't', type: 'gap', prompt: `${evil} {{1}}`, answer: [evil], explanation: evil }],
     });
-    window.location.hash = '#/step/1';
+    window.location.hash = '#/step/1/read';
     const { container } = render(<App course={{ ...course, title: evil, book: evil, steps: [bad] }} />);
     expect(container.querySelector('img')).toBeNull();
     expect(container).toHaveTextContent(`стр. ${evil}`);
+    await goTo('#/step/1/quiz');
+    expect(container.querySelector('img')).toBeNull();
   });
 
-  test('a section address opens its tab, the same link works twice', async () => {
+  test('a section address opens the item that holds it', () => {
     const { container } = open('#/step/1/numbers');
-    const tab = (): HTMLElement => screen.getByRole('tab', { name: 'Формулы и данные' });
-    expect(tab()).toHaveAttribute('aria-selected', 'true');
-    expect(container.querySelector('#panel-about')).toHaveAttribute('hidden', 'until-found');
-    await userEvent.click(screen.getByRole('tab', { name: 'Описание' }));
-    await goTo('#/step/1/numbers');
-    expect(tab()).toHaveAttribute('aria-selected', 'true');
-  });
-
-  test('tabs move by arrows; empty tabs are not shown', async () => {
-    open('#/step/2');
-    expect(screen.queryByRole('tab', { name: /Задания/ })).toBeNull();
-    screen.getByRole('tab', { name: 'Описание' }).focus();
-    await userEvent.keyboard('{ArrowLeft}');
-    expect(screen.getByRole('tab', { name: 'Заметки' })).toHaveFocus();
+    expect(container.querySelector('[data-item]')).toHaveAttribute('data-item', 'read');
+    expect(container.querySelector('#numbers')).toBeInTheDocument();
   });
 
   test('notes belong to the lesson and survive reopening', async () => {
@@ -115,7 +126,7 @@ describe('course', () => {
   });
 
   test('a term is explained under its paragraph', async () => {
-    const { container } = open('#/step/1');
+    const { container } = open('#/step/1/read');
     const term = screen.getByRole('button', { name: 'Пористость' });
     await userEvent.click(term);
     expect(container.querySelector('.term-note')).toHaveTextContent('доля пустот');
@@ -124,19 +135,24 @@ describe('course', () => {
     expect(container.querySelector('.term-note')).toBeNull();
   });
 
-  test('simulation node keeps its contract and is mounted once per lesson', async () => {
+  test('the simulation item keeps its contract and is mounted when opened', async () => {
     const { container } = open('#/step/1');
+    expect(window.Simulations?.mount).not.toHaveBeenCalled();
+    await goTo('#/step/1/sim');
     const node = container.querySelector<HTMLElement>('[data-interactive="simulation"]');
     expect(JSON.parse(node?.dataset.params ?? '{}')).toEqual({ items: [{ id: 'x' }] });
     expect(window.Simulations?.mount).toHaveBeenCalledTimes(1);
-    await userEvent.click(screen.getByRole('button', { name: 'Разбор' }));
-    expect(window.Simulations?.mount).toHaveBeenCalledTimes(1);
+  });
+
+  test('pictures stand in the reading; a lesson without media has no stage', async () => {
+    const { container } = open('#/step/1/read');
+    expect(screen.getByAltText('Схема банки')).toBeInTheDocument();
     await goTo('#/step/2');
-    expect(window.Simulations?.mount).toHaveBeenCalledTimes(2);
+    expect(container.querySelector('.stage, [data-scene]')).toBeNull();
   });
 });
 
-describe('stage', () => {
+describe('walkthrough', () => {
   const play = (container: HTMLElement, at: number): HTMLAudioElement => {
     const audio = container.querySelector('audio');
     if (!audio) throw new Error('нет дорожки');
@@ -146,34 +162,37 @@ describe('stage', () => {
     return audio;
   };
 
-  test('pictures stand in the text, the stage holds only what moves', async () => {
-    const { container } = open('#/step/1');
-    expect([...container.querySelectorAll('.pills button')].map((x) => x.textContent)).toEqual(['Разбор', 'Симулятор']);
-    expect(container.querySelector('.stage img')).toBeNull();
-    expect(within(container.querySelector<HTMLElement>('#panel-about') ?? container).getByAltText('Схема банки')).toBeInTheDocument();
-    await goTo('#/step/2');
-    expect(container.querySelector('.stage')).toBeNull();
-  });
-
-  test('the scene shows the phrase that sounds, its term and page', () => {
-    const { container } = open('#/step/1');
+  test('the scene shows the phrase that sounds, its term and page; the transcript follows', () => {
+    const { container } = open('#/step/1/talk');
     const scene = container.querySelector<HTMLElement>('[data-scene]');
     expect(scene).toHaveTextContent('Смотреть разбор, 0:06');
     play(container, 3);
     expect(scene?.querySelector('.scene-phrase')).toHaveTextContent('Пористость мала у песка.');
     expect(scene?.querySelector('.scene-term')).toHaveTextContent('пористость');
     expect(scene).toHaveTextContent('стр. 11');
+    expect(container.querySelector('.transcript [aria-current]')).toHaveTextContent('Пористость мала у песка.');
   });
 
-  test('after the end the scene leads to the tasks; a missing track is named', async () => {
-    const { container } = open('#/step/1');
+  test('a transcript line seeks the track', async () => {
+    const { container } = open('#/step/1/talk');
+    const audio = container.querySelector('audio') as HTMLAudioElement;
+    audio.play = vi.fn(() => Promise.resolve());
+    Object.defineProperty(audio, 'readyState', { value: 1, configurable: true });
+    await userEvent.click(screen.getByRole('button', { name: /Пористость мала у песка/ }));
+    expect(audio.currentTime).toBeCloseTo(2.01);
+    expect(audio.play).toHaveBeenCalled();
+  });
+
+  test('after the end the scene leads to the next item; a missing track is named', async () => {
+    const { container } = open('#/step/1/talk');
     const audio = play(container, 6);
     Object.defineProperty(audio, 'paused', { value: true, configurable: true });
     act(() => { audio.dispatchEvent(new Event('ended')); });
-    await userEvent.click(screen.getByRole('button', { name: 'К заданиям: 3' }));
-    expect(screen.getByRole('tab', { name: /Задания/ })).toHaveAttribute('aria-selected', 'true');
-    audio.currentTime = 0;
-    act(() => { audio.dispatchEvent(new Event('seeked')); audio.dispatchEvent(new Event('error')); });
+    await userEvent.click(within(container.querySelector('[data-scene]') as HTMLElement).getByRole('button', { name: 'Дальше' }));
+    expect(window.location.hash).toBe('#/step/1/read');
+    await goTo('#/step/1/talk');
+    const fresh = container.querySelector('audio') as HTMLAudioElement;
+    act(() => { fresh.dispatchEvent(new Event('error')); });
     expect(container.querySelector('[data-scene]')).toHaveTextContent('Озвучка не загрузилась');
   });
 });
@@ -186,7 +205,7 @@ describe('tasks', () => {
   };
 
   test('an empty answer is stopped, a wrong one shows the right one, a solved task stays solved', async () => {
-    const { container } = open('#/step/1/tasks');
+    const { container } = open('#/step/1/quiz');
     const task = within(card(container, 't1'));
     await userEvent.click(task.getByRole('button', { name: 'Проверить' }));
     expect(task.getByText('Сначала выберите ответ.')).toBeVisible();
@@ -206,7 +225,7 @@ describe('tasks', () => {
   });
 
   test('gaps are checked one by one, Enter checks', async () => {
-    const { container } = open('#/step/1/tasks');
+    const { container } = open('#/step/1/quiz');
     const task = within(card(container, 't2'));
     await userEvent.type(task.getByLabelText('Пропуск 1'), 'Песок');
     await userEvent.type(task.getByLabelText('Пропуск 2'), '6{Enter}');
@@ -215,7 +234,7 @@ describe('tasks', () => {
   });
 
   test('order never starts solved and is solved by arrows', async () => {
-    const { container } = open('#/step/1/tasks');
+    const { container } = open('#/step/1/quiz');
     const task = within(card(container, 't3'));
     await userEvent.click(task.getByRole('button', { name: 'Выше: Икс' }));
     expect(task.getByRole('button', { name: 'Выше: Икс' })).toHaveFocus();

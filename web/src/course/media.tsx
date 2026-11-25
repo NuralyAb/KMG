@@ -36,7 +36,13 @@ export function useMedia(ref: RefObject<HTMLMediaElement | null>, fallback = 0):
   };
   return {
     ...time, isPlaying, isMuted, rate, toggle, mute: () => setMuted(!isMuted), faster: () => setRate(RATES[(RATES.indexOf(rate) + 1) % RATES.length] ?? 1),
-    seek: (seconds) => { if (ref.current) ref.current.currentTime = seconds; },
+    seek: (seconds) => {
+      const media = ref.current;
+      if (!media) return;
+      // до чтения заголовка дорожки браузер перемотку забывает: ставим её, как только длина известна
+      if (media.readyState === 0) media.addEventListener('loadedmetadata', () => { media.currentTime = seconds; }, { once: true });
+      else media.currentTime = seconds;
+    },
   };
 }
 

@@ -8,7 +8,7 @@ from typing import Any
 import jsonschema
 
 from glava.modules.llm.api import Provider, Reply, ask_json
-from glava.modules.video.check import script_errors
+from glava.modules.video.check import motion_errors, script_errors
 
 TEXT = {"type": "string", "minLength": 2}
 TEXTS = {"type": "array", "minItems": 1, "items": TEXT}
@@ -40,6 +40,8 @@ def spec_issues(spec: Any, node: Mapping[str, Any], template: ModuleType, checkl
     if problems:
         return problems
     issues = [*script_errors(full, node), *template.check(full["params"], full["beats"])]
+    if not issues and hasattr(template, "initial"):
+        issues = motion_errors(full["beats"], template.initial(full["params"]))
     low, high = WORDS[kind]
     words = sum(len(b["say"].split()) for b in full["beats"])
     if not low <= words <= high:

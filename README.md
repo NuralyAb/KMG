@@ -47,7 +47,7 @@ uv run glava build latyshova_gl5_par17-20
 
 ### Отдельные этапы
 
-`build` выполняет этапы по порядку: `errata` → `figures` (рисунки со скана) → `layer` → `routing` → `tasks` → `illustrations` → `course`. Любой можно запустить отдельно: `uv run glava tasks <глава>`.
+`build` выполняет этапы по порядку: `errata` → `figures` (рисунки со скана) → `layer` → `routing` → `tasks` → `illustrations` → `videos` → `course`. Любой можно запустить отдельно: `uv run glava tasks <глава>`.
 
 | Команда | Что делает | Результат |
 | --- | --- | --- |
@@ -67,6 +67,7 @@ uv run glava build latyshova_gl5_par17-20
 | `review --package <папка>` | проверка чужого пакета | `workspace/out/review/<package_id>.json` |
 | `video --node … --template …` | ролик по узлу: спецификацию пишет модель | `workspace/work/<глава>/video_specs/`, `workspace/out/<глава>/videos/` |
 | `video --spec <файл>` | ролик из готовой спецификации; модель не нужна | то же |
+| `videos [--limit N]` | ролики по видеоузлам маршрутизации: шаблон подбирает код, спецификацию пишет модель; без шаблона — в отчёт | `workspace/work/<глава>/video_report.json` |
 | `rebuild [--node …]` | после правки факта: проверка слоя, ролики и страница шага | то же и `workspace/out/<глава>/` |
 | `voices` | голоса ElevenLabs и остаток знаков; знаки не тратит | журнал |
 | `templates` | каким шаблоном закрыт каждый видеоёмкий узел; модель не нужна | `workspace/work/<глава>/template_coverage.json` |
@@ -91,7 +92,7 @@ $env:PYTHONPATH = 'backend'
 .venv-video\Scripts\python.exe -m glava video latyshova_gl5_par17-20 --node latyshova.<узел> --template well_tool_curve --format short
 ```
 
-**Голос.** Скопируйте `.env.example` в `.env`, впишите `ELEVENLABS_API_KEY`, выберите голос командой `.venv-video\Scripts\python.exe -m glava voices` и впишите `ELEVENLABS_VOICE_ID`. Без ключа ролик озвучит бесплатный голос Microsoft; выбрать голос вручную — `--voice elevenlabs` или `--voice edge`. Готовые фразы повторно не оплачиваются, потолок — `ELEVENLABS_MAX_CHARS`. По ТЗ синтез — голосами Microsoft, другой сервис назван запасным путём: ElevenLabs основным голосом согласуйте с организаторами. Вся серия — одним голосом: после выбора пересоберите все ролики, это проверяет `ready`.
+**Голос.** Основной — онлайн-голос Microsoft, как требует ТЗ; ключ не нужен. Запасной путь — ElevenLabs: скопируйте `.env.example` в `.env`, впишите `ELEVENLABS_API_KEY`, найдите голос командой `.venv-video\Scripts\python.exe -m glava voices`, впишите `ELEVENLABS_VOICE_ID` и `VOICE_FALLBACK=elevenlabs`. Если Microsoft откажет, запасной голос озвучит ролик целиком; голос вручную — `--voice edge` или `--voice elevenlabs`. Готовые фразы повторно не оплачиваются, потолок — `ELEVENLABS_MAX_CHARS`. Вся серия — одним голосом: после смены голоса пересоберите все ролики, это проверяет `ready`.
 
 Ролик из готовой спецификации, без модели:
 
@@ -113,6 +114,7 @@ $env:PYTHONPATH = 'backend'
 | `LLM_VERIFY_MODEL` | как `LLM_MODEL` | модель для `verify`; лучше другая: свою ошибку модель замечает хуже |
 | `GLAVA_CONTEXT` | `chapter` | `node` — не давать узлу всю главу (для моделей с коротким контекстом) |
 | `GLAVA_FREE_NUMBERS` | — | `1` — разрешить в расчётных заданиях числа, которых нет в книге |
+| `GLAVA_VIDEOS` | `2` | сколько роликов снимает `build`; `0` — ни одного |
 | `GLAVA_BUDGET_USD` | `25` | потолок расхода одного запуска, доллары по прайсу |
 | `ANTHROPIC_API_KEY` | — | ключ для `LLM_PROVIDER=anthropic` |
 | `OPENAI_API_KEY` | — | ключ для `LLM_PROVIDER=openai`; на другие адреса не отправляется |
