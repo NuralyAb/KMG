@@ -1,20 +1,20 @@
 # Доменный пакет «геология»
 
-Всё предметное лежит здесь, движок `engine/glava` геологии не знает. Какой пакет взять, сказано у главы в `chapters.json` (поле `domain`); путь собирает `load_chapter` в `engine/glava/cli.py`.
+Всё предметное лежит здесь, движок `backend/glava` геологии не знает. Какой пакет взять, сказано у главы в `workspace/chapters.json` (поле `domain`); путь собирает `load_chapter` в `backend/glava/cli.py`.
 
 ## Что в пакете и кто это читает
 
 | Файл | Что внутри | Кто читает |
 | --- | --- | --- |
-| `misconceptions.json` | Заблуждения новичков, id `misc.*` | `context_of` в `engine/glava/cli.py`: подсказка слоя и заданий |
-| `difficulty.md` | Типы трудности М, В, И, Ф, П, Пр, Н, Р | `context_of` в `engine/glava/cli.py` |
-| `physics_checklist.json` | Чек-лист корректности, id `pc.*` | `engine/glava/cli.py`: модуль проверки и ролики, дальше `video/spec.py`, `video/passport.py` |
-| `styleguide.json` | Цвета пород, флюидов, кривых, метки происхождения, соглашения | `load_style` в `engine/glava/scenes/__init__.py` |
+| `misconceptions.json` | Заблуждения новичков, id `misc.*` | `context_of` в `backend/glava/cli.py`: подсказка слоя и заданий |
+| `difficulty.md` | Типы трудности М, В, И, Ф, П, Пр, Н, Р | `context_of` в `backend/glava/cli.py` |
+| `physics_checklist.json` | Чек-лист корректности, id `pc.*` | `backend/glava/cli.py`: модуль проверки и ролики, дальше `video/spec.py`, `video/passport.py` |
+| `styleguide.json` | Цвета пород, флюидов, кривых, метки происхождения, соглашения | `load_style` в `backend/glava/modules/drawing/__init__.py` |
 | `axes.json` | Какие величины на осях растут вниз | `load_style`, дальше `scenes/plot.py` |
-| `templates/*.py` | Предметные шаблоны рисунков: `log`, `section`, `borehole`, `grains` | `load_templates` в `engine/glava/scenes/__init__.py` |
-| `video/*.py` | Предметные шаблоны роликов | `load_module` через `engine/glava/cli.py` |
-| `pronunciation.md` | Как читать аббревиатуры и обозначения, базовые ударения | `dictionaries` в `engine/glava/video/speech.py` |
-| `errata/<глава>.json` | Расхождения md со сканом | `engine/glava/stages/errata.py` |
+| `templates/*.py` | Предметные шаблоны рисунков: `log`, `section`, `borehole`, `grains` | `load_templates` в `backend/glava/modules/drawing/__init__.py` |
+| `video/*.py` | Предметные шаблоны роликов | `load_module` через `backend/glava/cli.py` |
+| `pronunciation.md` | Как читать аббревиатуры и обозначения, базовые ударения | `dictionaries` в `backend/glava/modules/video/speech.py` |
+| `errata/<глава>.json` | Расхождения md со сканом | `backend/glava/modules/errata.py` |
 | `stress_dictionary.md` | Ударения: новые слова и словоформы, список «проверить на слух» | Формат тот же, что понимает `dictionaries`, но код файл пока не читает |
 | `glossary.md` | Термины: определение, английский аналог, обозначения двух школ, страницы глав | Люди: вычитка слоя и озвучки; код пока не читает |
 | `it_bridges.md` | ИТ-аналогии и где они ломаются | Люди; код пока не читает |
@@ -34,7 +34,7 @@ $env:PYTHONPATH = "engine"
 
 ## Как собрать пакет для нового домена
 
-Папка `domain/<имя>/` и строка `"domain": "<имя>"` у главы в `chapters.json`; код не меняется. Минуты — оценка для одного человека с моделью-помощником, не замер; фактические числа записывайте в `metrics.csv`.
+Папка `workspace/domain/<имя>/` и строка `"domain": "<имя>"` у главы в `workspace/chapters.json`; код не меняется. Минуты — оценка для одного человека с моделью-помощником, не замер; фактические числа записывайте в `workspace/metrics.csv`.
 
 | Шаг | Что сделать | Минуты |
 | --- | --- | --- |
@@ -53,7 +53,7 @@ $env:PYTHONPATH = "engine"
 
 ## Какие шаблоны перейдут без изменений
 
-- Общие в `engine/glava/scenes` предмета не знают: `flow`, `compare`, `plot`, `bars`.
+- Общие в `backend/glava/modules/drawing` предмета не знают: `flow`, `compare`, `plot`, `bars`.
 - `borehole` и `section` для бурения пригодятся частично: первый показывает раствор и перепад давления в прискважинной зоне, второй — разрез. Конструкцию скважины, колонны и оборудование они не рисуют.
 - `log` и `grains` нужны только там, где есть каротаж и поры.
-- В новом пакете шаблоны лежат в своей папке: `domain/geology/templates` другой домен не увидит.
+- В новом пакете шаблоны лежат в своей папке: `workspace/domain/geology/templates` другой домен не увидит.

@@ -14,14 +14,14 @@ import { lint, Model, COLORS } from '../src/models/compose.js';
 import { unit, unitRu } from '../src/expr.js';
 import { expand } from '../src/models/blocks.js';
 
-const ROOT = path.resolve(import.meta.dirname, '..'), [job, ...rest] = process.argv.slice(2), has = n => rest.includes('--' + n), opt = (n, d) => { const i = rest.indexOf('--' + n); return i < 0 ? d : rest[i + 1]; };
+const ROOT = path.resolve(import.meta.dirname, '..'), WORKSPACE = process.env.GLAVA_ROOT ? path.resolve(process.env.GLAVA_ROOT) : path.join(ROOT, '..', 'workspace'), [job, ...rest] = process.argv.slice(2), has = n => rest.includes('--' + n), opt = (n, d) => { const i = rest.indexOf('--' + n); return i < 0 ? d : rest[i + 1]; };
 if (!/^[\w.-]+$/.test(job || '')) { console.error('node agent/pipeline.mjs <задание> …'); process.exit(2); }
 const CFG = JSON.parse(fs.readFileSync(path.join(ROOT, 'agent', 'steps.json'), 'utf8'));
 const DIR = path.join(ROOT, 'jobs', job), F = n => path.join(DIR, n), rd = n => JSON.parse(fs.readFileSync(F(n), 'utf8')), wr = (n, o) => fs.writeFileSync(F(n), JSON.stringify(o, null, 1));
 fs.mkdirSync(F('shots'), { recursive: true });
 if (opt('book')) wr('job.json', { job, book: path.resolve(opt('book')), pages: opt('pages').split('-').map(Number), topic: opt('topic', 'выберите сами'), audience: 'ИТ-специалисты без геологии' });
 if (opt('node')) {
-  const layer = JSON.parse(fs.readFileSync(path.join(ROOT, '..', 'work', opt('chapter'), 'layer.json'), 'utf8')), n = layer.nodes.find(x => x.id === opt('node'));
+  const layer = JSON.parse(fs.readFileSync(path.join(WORKSPACE, 'work', opt('chapter'), 'layer.json'), 'utf8')), n = layer.nodes.find(x => x.id === opt('node'));
   if (!n) { console.error('в слое нет узла ' + opt('node')); process.exit(2); }
   const cl = n.claims.filter(c => c.quote.length >= 12 && c.source_kind !== 'figure_description_model').slice(0, 16), pg = [...new Set(cl.map(c => c.page_pdf))].sort((a, b) => a - b);
   if (cl.length < 3) { console.error('у узла меньше трёх утверждений с цитатами'); process.exit(2); }
@@ -272,7 +272,7 @@ async function look() {
 async function critic() { const r = await ask('critic', `Независимая проверка. Ищите, где симуляция врёт или учит неверному: усиление автора, знак, причинность, порядок слоёв, угадываемость. Ответ JSON: {"verdict":"принять|доработать|отклонить","issues":[{"level":"критическая|существенная|мелкая","where":"","what":"","fix":"","page":0}]}. Нет проблем — пустой список.\nСцена: ${JSON.stringify(assemble())}\nГлава: ${TEXT}`); wr('critic.json', json(r.text)); ST.steps.critic = { key: 1 }; save(); console.log('✓ critic: ' + json(r.text).verdict); }
 // Готовая сцена встаёт на шаг курса: work/<глава>/simulations
 function attach() {
-  const work = path.join(ROOT, '..', 'work', J.chapter), dir = path.join(work, 'simulations'), cf = path.join(work, 'simulations.json'), s = rd('sim.json'); fs.mkdirSync(dir, { recursive: true });
+  const work = path.join(WORKSPACE, 'work', J.chapter), dir = path.join(work, 'simulations'), cf = path.join(work, 'simulations.json'), s = rd('sim.json'); fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, job + '.json'), JSON.stringify(s, null, 1) + '\n'); if (fs.existsSync(F('thumb.webp'))) fs.copyFileSync(F('thumb.webp'), path.join(dir, job + '.webp'));
   const c = fs.existsSync(cf) ? JSON.parse(fs.readFileSync(cf, 'utf8')) : { chapter: J.chapter, steps: {} }, list = (c.steps[J.node] || []).filter(x => x.scene !== job);
   c.steps[J.node] = [...list, { scene: job, claims: s.claims.map(x => x.id), origin: 'agent' }]; fs.writeFileSync(cf, JSON.stringify(c, null, 1) + '\n'); console.log('привязано к шагу ' + J.node);

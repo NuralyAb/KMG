@@ -6,7 +6,7 @@
 
 ## Посмотреть без запуска
 
-Откройте в браузере `out/latyshova_gl5_par17-20/index.html`. Ничего ставить не нужно.
+Откройте в браузере `workspace/out/latyshova_gl5_par17-20/index.html`. Ничего ставить не нужно.
 
 ## Что нужно
 
@@ -25,7 +25,7 @@
 Все команды — из корня репозитория, в PowerShell.
 
 1. Поставьте зависимости: `uv sync --locked`.
-2. Откройте `chapters.json` и укажите в `root` папку с md, в `pdf_root` — папку с PDF. Относительный путь считается от корня репозитория, например `../хакатон/books md`.
+2. Откройте `workspace/chapters.json` и укажите в `root` папку с md, в `pdf_root` — папку с PDF. Относительный путь считается от `workspace/`, например `../../хакатон/books md`.
 3. Включите UTF-8: `$env:PYTHONUTF8 = '1'`.
 4. Проверьте, что глава читается (бесплатно, без модели): `uv run glava units latyshova_gl5_par17-20`.
 5. Соберите главу одной командой:
@@ -34,7 +34,7 @@
 uv run glava build latyshova_gl5_par17-20
 ```
 
-Курс появится в `out/<глава>/index.html`. Глава на 19 страниц собирается с пустым кэшем примерно 20–30 минут и стоит $10–16 по прайсу.
+Курс появится в `workspace/out/<глава>/index.html`. Глава на 19 страниц собирается с пустым кэшем примерно 20–30 минут и стоит $10–16 по прайсу.
 
 | Глава | Выборка | Команда |
 | --- | --- | --- |
@@ -52,17 +52,17 @@ uv run glava build latyshova_gl5_par17-20
 | Команда | Что делает | Результат |
 | --- | --- | --- |
 | `units` | печатает единицы главы | журнал; модель не нужна |
-| `errata` | сверяет md со сканом; без PDF пропускается | `domain/<домен>/errata/<глава>.json` |
-| `layer` | план, узлы, таблица покрытия, проверки | `work/<глава>/plan.json`, `layer.json`, `coverage.json`, `layer_report.json` |
-| `routing` | формат для каждого узла | `work/<глава>/routing.json` |
-| `tasks` | задания пяти типов | `work/<глава>/tasks.json` |
-| `illustrations` | рисунки SVG | `work/<глава>/illustrations.json`, `pictures/` |
-| `course` | сборка курса; модель не нужна | `out/<глава>/` |
-| `extract <файл> [--vision]` | страницы загруженной книги; с `--vision` ненадёжные страницы читает модель | `library/<файл>/text.md`, `pages.json` |
-| `audit` | сверка утверждений с цитатами кодом и её чутьё; модель и книга не нужны | `work/<глава>/audit.json` |
-| `verify [--mutants]` | вторая модель сверяет утверждения с цитатами и фразы с утверждениями | `work/<глава>/trust.json` |
-| `review --package <папка>` | проверка чужого пакета | `out/review/<package_id>.json` |
-| `video --node … --template …` | ролик по узлу | `out/<глава>/videos/` |
+| `errata` | сверяет md со сканом; без PDF пропускается | `workspace/domain/<домен>/errata/<глава>.json` |
+| `layer` | план, узлы, таблица покрытия, проверки | `workspace/work/<глава>/plan.json`, `layer.json`, `coverage.json`, `layer_report.json` |
+| `routing` | формат для каждого узла | `workspace/work/<глава>/routing.json` |
+| `tasks` | задания пяти типов | `workspace/work/<глава>/tasks.json` |
+| `illustrations` | рисунки SVG | `workspace/work/<глава>/illustrations.json`, `pictures/` |
+| `course` | сборка курса; модель не нужна | `workspace/out/<глава>/` |
+| `extract <файл> [--vision]` | страницы загруженной книги; с `--vision` ненадёжные страницы читает модель | `workspace/library/<файл>/text.md`, `pages.json` |
+| `audit` | сверка утверждений с цитатами кодом и её чутьё; модель и книга не нужны | `workspace/work/<глава>/audit.json` |
+| `verify [--mutants]` | вторая модель сверяет утверждения с цитатами и фразы с утверждениями | `workspace/work/<глава>/trust.json` |
+| `review --package <папка>` | проверка чужого пакета | `workspace/out/review/<package_id>.json` |
+| `video --node … --template …` | ролик по узлу | `workspace/out/<глава>/videos/` |
 
 `--limit N` у `layer` собирает только первые N узлов — для дешёвой пробы.
 
@@ -78,11 +78,11 @@ uv pip install --python .venv-video\Scripts\python.exe jsonschema==4.26.0 pymupd
 Сборка шортса 9:16 (разбор 16:9 — `--format wide`):
 
 ```powershell
-$env:PYTHONPATH = 'engine'
-.venv-video\Scripts\python.exe -m glava.cli video latyshova_gl5_par17-20 --node latyshova.<узел> --template well_tool_curve --format short
+$env:PYTHONPATH = 'backend'
+.venv-video\Scripts\python.exe -m glava video latyshova_gl5_par17-20 --node latyshova.<узел> --template well_tool_curve --format short
 ```
 
-При первом запуске скачается модель Whisper `small`. Рядом с роликом лежат паспорт, субтитры и спецификация сцены. `uv run glava video` пока не работает: пакетов для роликов нет в `pyproject.toml`.
+При первом запуске скачается модель Whisper `small`. Рядом с роликом лежат паспорт, субтитры и спецификация сцены. Пакеты роликов — группа `video` в `pyproject.toml`.
 
 ## Переменные среды
 
@@ -107,7 +107,7 @@ $env:PYTHONPATH = 'engine'
 ## Заменить модель
 
 - **Другая модель Claude:** `$env:LLM_MODEL = 'claude-sonnet-5-5'`.
-- **Прямой API:** `$env:LLM_PROVIDER = 'anthropic'`, полное имя в `LLM_MODEL`, ключ в `ANTHROPIC_API_KEY`; запуск `uv run --with anthropic glava build <глава>`. Цена берётся из `PRICES` в `engine/glava/llm/providers.py`; модель без цены не запускается.
+- **Прямой API:** `$env:LLM_PROVIDER = 'anthropic'`, полное имя в `LLM_MODEL`, ключ в `ANTHROPIC_API_KEY`; запуск `uv run --extra anthropic glava build <глава>`. Цена берётся из `PRICES` в `backend/glava/modules/llm/providers.py`; модель без цены не запускается.
 - **OpenAI:** `$env:LLM_PROVIDER = 'openai'`, имя в `LLM_MODEL`, ключ в `OPENAI_API_KEY`, цены в `LLM_PRICE_IN` и `LLM_PRICE_OUT`. Дополнительных пакетов не нужно.
 - **Локальная модель:** `$env:LLM_PROVIDER = 'local'`, имя в `LLM_MODEL`; подходит любой сервер с API OpenAI (Ollama, LM Studio, vLLM), адрес — в `LLM_BASE_URL`. Этапам `errata` и `review` нужна модель, которая видит картинки. У Ollama увеличьте `OLLAMA_CONTEXT_LENGTH`: при малом контексте она молча отбрасывает часть главы. Сильная обрезка ловится сама, точная проверка — по `LLM_CONTEXT`.
 - **Другой поставщик:** класс с методом `ask(system, prompt, files) -> Reply` и ветка в `provider_from_env` того же файла. Остальной код о поставщике не знает.
@@ -120,9 +120,9 @@ $env:PYTHONPATH = 'engine'
 
 | Что изменили | Что сделать | Что спросится заново |
 | --- | --- | --- |
-| факт в `work/<глава>/layer.json` | `uv run glava course <глава>`; ролик узла — команда `video` | страница шага — бесплатно; спецификация этого ролика — платно |
-| промпт `prompts/tasks.md` | `uv run glava tasks <глава>`, затем `course` | все задания |
-| промпт `prompts/node.md` | `uv run glava build <глава>` | все узлы и всё, что от них зависит |
+| факт в `workspace/work/<глава>/layer.json` | `uv run glava course <глава>`; ролик узла — команда `video` | страница шага — бесплатно; спецификация этого ролика — платно |
+| промпт `backend/glava/pipeline/prompts/tasks.md` | `uv run glava tasks <глава>`, затем `course` | все задания |
+| промпт `backend/glava/pipeline/prompts/node.md` | `uv run glava build <глава>` | все узлы и всё, что от них зависит |
 | `misconceptions.json`, `difficulty.md` | `uv run glava build <глава>` | план, узлы и дальше |
 | запись листа опечаток | `layer` и следующие этапы по одному, без `errata` | узлы этих страниц и этапы, куда они входят |
 | код или стиль курса | `uv run glava course <глава>` | ничего |
@@ -131,7 +131,7 @@ $env:PYTHONPATH = 'engine'
 
 ## Новая глава из книги
 
-В приложении: «Книги» → загрузить md с метками страниц и, если есть, PDF → отметить разделы → «Создать курс». Оглавление строит программа без модели, страницы можно поправить. Глава попадает в `chapters.json`, файлы — в `books/` (в git не идут). Сборка запускается отдельно и стоит денег.
+В приложении: «Книги» → загрузить md с метками страниц и, если есть, PDF → отметить разделы → «Создать курс». Оглавление строит программа без модели, страницы можно поправить. Глава попадает в `workspace/chapters.json`, файлы — в `workspace/books/` (в git не идут). Сборка запускается отдельно и стоит денег.
 
 ## Симуляторы
 
@@ -141,44 +141,43 @@ $env:PYTHONPATH = 'engine'
 
 ```powershell
 uv run pytest
-node --check engine/glava/course/assets/course.js
+node --check backend/glava/modules/course/assets/course.js
 ```
 
-Тестам роликов нужен pycairo. В основном окружении его нет, поэтому без него падает `test_audio_problems_are_named`. Полный набор: `$env:PYTHONPATH = 'engine'`, затем `uv pip install --python .venv-video\Scripts\python.exe pytest` и `.venv-video\Scripts\python.exe -m pytest`. Те же проверки идут в GitHub Actions (`.github/workflows/ci.yml`).
+Тестам роликов нужен pycairo. В основном окружении его нет, поэтому без него падает `test_audio_problems_are_named`. Полный набор: `$env:PYTHONPATH = 'backend'`, затем `uv pip install --python .venv-video\Scripts\python.exe pytest` и `.venv-video\Scripts\python.exe -m pytest`. Те же проверки идут в GitHub Actions (`.github/workflows/ci.yml`).
 
 ## Приложение
 
-`server/` (FastAPI, `127.0.0.1:8200`) и `web/` (React, порт 5190) — локальное приложение поверх файлов конвейера. Сейчас в разработке, контракт — [docs/API.md](docs/API.md). Курсы открываются и без него.
+`backend/` (FastAPI, `127.0.0.1:8200`) и `web/` (React, порт 5190) — локальное приложение поверх файлов конвейера. Сейчас в разработке, контракт — [docs/API.md](docs/API.md). Курсы открываются и без него.
 
 ```powershell
-cd server; uv run glava-server          # первый терминал
+uv run glava-server          # первый терминал
 cd web; npm ci; npm run dev             # второй терминал, затем http://127.0.0.1:5190
 ```
 
-Тесты: `cd server; uv run pytest` и `cd web; npm run typecheck; npm test; npm run build`.
+Тесты: `uv run pytest` и `cd web; npm run typecheck; npm test; npm run build`.
 
 ## Ученик и автор
 
-`http://127.0.0.1:5190/` — экран ученика: опубликованные курсы и прогресс. `/admin` — экран автора. Чтобы ученик не попал к автору, запустите сервер с паролем: `$env:GLAVA_ADMIN_PASSWORD = '…'` (от 8 знаков). Курс появляется у учеников после кнопки «Опубликовать» на странице главы; снимок лежит в `published/` и в git не попадает. Сервер слушает только этот компьютер, прогресс хранится в браузере, поэтому у двух учеников на одном компьютере он общий.
+`http://127.0.0.1:5190/` — экран ученика: опубликованные курсы и прогресс. `/admin` — экран автора. Чтобы ученик не попал к автору, запустите сервер с паролем: `$env:GLAVA_ADMIN_PASSWORD = '…'` (от 8 знаков). Курс появляется у учеников после кнопки «Опубликовать» на странице главы; снимок лежит в `workspace/published/` и в git не попадает. Сервер слушает только этот компьютер, прогресс хранится в браузере, поэтому у двух учеников на одном компьютере он общий.
 
 ## База знаний
 
-Раздел «База знаний» в приложении: загрузите PDF, DOCX, MD, TXT или картинку, сверьте извлечённый текст со страницами, выберите страницы и предметную область — глава появится в списке. Файлы лежат в `library/`; они, их слои, курсы и листы опечаток (`lib_*`) в git не попадают. Страницы, которым нельзя верить (скан, слой распознавания, формулы, колонки), помечены, а утверждения с них просят сверки. Предметная область по умолчанию — `domain/general`.
+Раздел «База знаний» в приложении: загрузите PDF, DOCX, MD, TXT или картинку, сверьте извлечённый текст со страницами, выберите страницы и предметную область — глава появится в списке. Файлы лежат в `workspace/library/`; они, их слои, курсы и листы опечаток (`lib_*`) в git не попадают. Страницы, которым нельзя верить (скан, слой распознавания, формулы, колонки), помечены, а утверждения с них просят сверки. Предметная область по умолчанию — `workspace/domain/general`.
 
 ## Папки
 
 | Папка или файл | Что внутри |
 | --- | --- |
-| `engine/glava` | движок: разбор, этапы, проверки, курс, модуль проверки, ролики; геологии не знает |
-| `engine/glava/schemas` | схемы организаторов |
-| `domain/geology` | доменный пакет: заблуждения, чек-лист физики, стайлгайд, произношение, шаблоны сцен, листы опечаток |
-| `prompts` | промпты всех этапов |
-| `work/<глава>` | слой, покрытие, маршруты, задания, рисунки |
-| `out` | курсы и ответы модуля проверки |
-| `tests` | тесты движка |
-| `chapters.json` | реестр глав и пути к книгам |
-| `metrics.csv` | расход по этапам, строка на запуск |
+| `backend/glava` | Python: конвейер и сервер, один проект. Устройство — [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
+| `backend/architecture.toml` | разрешённые зависимости модулей, их проверяет тест |
+| `backend/tests` | `pipeline`, `http`, `course_ui`, `architecture` |
+| `web` | React: экраны ученика и автора |
+| `simulators` | 3D-симуляторы и агент, который их строит |
+| `workspace` | данные: доменные пакеты, слои, курсы, реестр глав, расход; загруженные книги в git не идут |
+| `docs` | документация |
+| `scripts` | разовые команды разработчика |
 | `manual_edits.csv` | журнал ручных правок |
 | [MANIFEST.md](MANIFEST.md) | модели и инструменты, что уходит с ПК |
-| [docs/PLAYBOOK.md](docs/PLAYBOOK.md) | работа по шагам |
-| [docs/PUSH_CHECKLIST.md](docs/PUSH_CHECKLIST.md) | что можно и нельзя отправлять в GitHub |
+
+После перехода со старой раскладки один раз выполните `uv run python scripts/migrate_workspace.py --apply`: загруженные книги, публикации и журналы переедут в `workspace/`. Кэш ответов модели `.cache/` остаётся на месте.

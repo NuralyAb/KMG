@@ -16,6 +16,6 @@
 # Сгенерированное: свёрнуто в просмотре изменений и не входит в статистику языков.
 uv.lock                                linguist-generated=true
 **/package-lock.json                   linguist-generated=true
-workspace/work/**                              linguist-generated=true
-workspace/out/**                               linguist-generated=true
-backend/glava/modules/course/assets/katex/**    linguist-vendored=true
+workspace/work/**                                linguist-generated=true
+workspace/out/**                                 linguist-generated=true
+backend/glava/modules/course/assets/katex/**     linguist-vendored=true

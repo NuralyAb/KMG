@@ -12,16 +12,16 @@
 | Лист опечаток | Claude Sonnet | алиас `sonnet`, фактически отвечала `claude-sonnet-5-5` | облако Anthropic через Claude Code | текст страницы md и **скан этой страницы** (PNG 150 dpi) | `LLM_MODEL`, `LLM_PROVIDER` |
 | Учебный слой | Claude Sonnet | то же | облако Anthropic через Claude Code | текст единиц главы, лист опечаток, заблуждения, описание трудностей | то же |
 | Маршруты, задания, иллюстрации | Claude Sonnet | то же | облако Anthropic через Claude Code | узлы слоя с цитатами главы, стайлгайд, описание шаблонов | то же |
-| Курс | модели нет | `engine/glava/course` | локально | ничего | — |
+| Курс | модели нет | `backend/glava/modules/course` | локально | ничего | — |
 | Модуль проверки | Claude Sonnet | то же | облако Anthropic через Claude Code | чужой пакет и его кадры, текст страниц главы, чек-лист физики; `key.json` не копируется и не передаётся | то же |
 | Спецификация ролика | Claude Sonnet по умолчанию; первые пробы 25.11 — Claude Opus | `sonnet`; в пробах `claude-opus-5-5` | облако Anthropic через Claude Code | узел слоя, описание шаблона сцены, чек-лист физики | `LLM_MODEL` |
 | Агент симуляторов | Claude Sonnet | алиас `sonnet`; замысел проверен, до конца не прогонялся | облако Anthropic через Claude Code | утверждения и цитаты узла слоя, кадры симулятора | `LLM_MODEL` или `simulators/agent/steps.json` |
-| Озвучка | онлайн-голос Microsoft | `ru-RU-DmitryNeural`, темп −6%; `edge-tts` 7.3.1 | облако Microsoft | только текст закадровых фраз | `VOICE` и `RATE` в `engine/glava/video/speech.py` |
-| Проверка дорожки | Whisper | `small`, int8, CPU; `faster-whisper` 1.2.1, `ctranslate2` 4.9.1 | локально | ничего; веса один раз скачиваются с Hugging Face | параметр `model_name` функции `recognise` в `engine/glava/video/check.py` |
+| Озвучка | онлайн-голос Microsoft | `ru-RU-DmitryNeural`, темп −6%; `edge-tts` 7.3.1 | облако Microsoft | только текст закадровых фраз | `VOICE` и `RATE` в `backend/glava/modules/video/speech.py` |
+| Проверка дорожки | Whisper | `small`, int8, CPU; `faster-whisper` 1.2.1, `ctranslate2` 4.9.1 | локально | ничего; веса один раз скачиваются с Hugging Face | параметр `model_name` функции `recognise` в `backend/glava/modules/video/check.py` |
 
 Провайдер — Claude Code 2.1.329 (`--version` исполняемого файла). Он запускается без настроек пользователя и MCP, в пустой временной папке; инструменты выключены, а для вызовов с картинками разрешён только `Read`. Журналы вызовов Claude Code остаются на ПК, в `~/.claude/projects`: в них есть текст главы.
 
-Второй провайдер — `LLM_PROVIDER=anthropic` (прямой API, ключ `ANTHROPIC_API_KEY`). Наружу уходит то же самое. Пакет `anthropic` в зависимости не входит, этим путём главы ещё не собирались.
+Второй провайдер — `LLM_PROVIDER=anthropic` (прямой API, ключ `ANTHROPIC_API_KEY`). Наружу уходит то же самое. Пакет `anthropic` — дополнительный (`uv run --extra anthropic`), этим путём главы ещё не собирались.
 
 Алиас `sonnet` со временем может указать на другую модель. К заморозке нужно задать полное имя `LLM_MODEL=claude-sonnet-5-5`. Имя входит в ключ кэша, поэтому первая сборка после смены платная.
 
@@ -47,7 +47,7 @@
 | Segoe UI | системный шрифт Windows | текст в кадрах роликов | нет |
 | pytest / pytest-cov | 9.2.0 / 7.1.0 | тесты | нет |
 | Node.js / npm | 22.14.0 / 10.9.2 | проверка `course.js`, фронтенд `web/` | npm скачивает пакеты |
-| FastAPI, Uvicorn и остальное сервера | `server/uv.lock` | локальный сервер на `127.0.0.1` | нет |
+| FastAPI, Uvicorn и остальное сервера | `uv.lock` | локальный сервер на `127.0.0.1` | нет |
 | React 18.3.1, Vite 6.4.1, Mantine 7.17.8 и остальное | `web/package-lock.json` | локальный интерфейс | нет |
 | Git / GitHub CLI | 2.49.0 / 2.101.0 | хранение; репозиторий приватный | содержимое репозитория — на серверы GitHub |
 

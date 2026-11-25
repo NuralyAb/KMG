@@ -17,7 +17,7 @@ concurrency:
 # Выгрузка частичная: слои, курсы и листы опечаток с цитатами книг на исполнителя не попадают, тестам они не нужны.
 
 jobs:
-  engine:
+  backend:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -27,9 +27,9 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
-            !/work/
-            !/out/
-            !/domain/*/errata/
+            !/workspace/work/
+            !/workspace/out/
+            !/workspace/domain/*/errata/
       - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
         with:
           version: "0.11.7"
@@ -37,7 +37,7 @@ jobs:
       # У pycairo нет готовой сборки под Linux, а produce.py и render.py импортируют cairo при загрузке.
       - name: Библиотека cairo
         run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends libcairo2-dev pkg-config
-      - name: Тесты движка
+      - name: Тесты конвейера, сервера и границ модулей
         run: uv run --locked --python 3.12 --with pycairo==1.29.2 pytest -q --tb=short
 
   course-js:
@@ -49,8 +49,8 @@ jobs:
           persist-credentials: false
           sparse-checkout-cone-mode: false
           sparse-checkout: |
-            /engine/glava/course/assets/
-            /tests/course_ui/
+            /backend/glava/modules/course/assets/
+            /backend/tests/course_ui/
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "22"
@@ -58,35 +58,11 @@ jobs:
       - name: Синтаксис
         run: |
           set -e
-          node --check engine/glava/course/assets/course.js
-          for file in engine/glava/course/assets/*.js; do node --check "$file"; done
+          node --check backend/glava/modules/course/assets/course.js
+          for file in backend/glava/modules/course/assets/*.js; do node --check "$file"; done
       - name: Тесты интерфейса курса
-        if: hashFiles('tests/course_ui/*.test.js') != ''
-        run: node --test tests/course_ui/*.test.js
-
-  server:
-    runs-on: ubuntu-24.04
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-          sparse-checkout-cone-mode: false
-          sparse-checkout: |
-            /*
-            !/work/
-            !/out/
-            !/domain/*/errata/
-      # Пока нет пакета или тестов, шаги пропускаются и задание проходит.
-      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
-        if: hashFiles('server/pyproject.toml') != '' && hashFiles('server/tests/**/test_*.py') != ''
-        with:
-          version: "0.11.7"
-          enable-cache: false
-      - name: Тесты сервера
-        if: hashFiles('server/pyproject.toml') != '' && hashFiles('server/tests/**/test_*.py') != ''
-        working-directory: server
-        run: uv run --locked --python 3.12 pytest --tb=short
+        if: hashFiles('backend/tests/course_ui/*.test.js') != ''
+        run: node --test backend/tests/course_ui/*.test.js
 
   web:
     runs-on: ubuntu-24.04
@@ -98,9 +74,9 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
-            !/work/
-            !/out/
-            !/domain/*/errata/
+            !/workspace/work/
+            !/workspace/out/
+            !/workspace/domain/*/errata/
       # Пока нет web/package-lock.json, шаги пропускаются и задание проходит.
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         if: hashFiles('web/package-lock.json') != ''

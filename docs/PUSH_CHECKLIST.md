@@ -6,13 +6,13 @@
 
 | Риск | Что | Где | Решение |
 | --- | --- | --- | --- |
-| Высокий | Почти вся глава дословно: 604 цитаты закрывают 65 % текста страниц 90–108 Латышовой | `work/…/layer.json` и `out/…/data.js` (по ≈76 тыс. знаков, совпавших с md), `coverage.json` (12 тыс.), `tasks.json`; есть и в истории | оставить: слой, покрытие и курс — предмет сдачи. Репозиторий только приватный |
-| Высокий | Озвучка и ролики не игнорируются: `git add .` их добавит. Папка `work/…/videos/` уже появилась | `work/*/videos/`, `out/*/videos/*.mp4` | добавить в `.gitignore` до первого `git add` |
-| Средний | Контрольный пакет организаторов: `package.json` и 9 кадров, 1,5 МБ. В сдачу не входит, движок создаёт копию сам | `work/review/контрольный_пакет/`, в истории с коммита `ca879e1` | убрать из git и из истории, пока push не было |
-| Средний | Ответ модуля на контрольный пакет: список найденных закладок с цитатами | `out/review/ctrl_vendelshtein.json` | можно оставить; при передаче репозитория другим командам убрать |
+| Высокий | Почти вся глава дословно: 604 цитаты закрывают 65 % текста страниц 90–108 Латышовой | `workspace/work/…/layer.json` и `workspace/out/…/data.js` (по ≈76 тыс. знаков, совпавших с md), `coverage.json` (12 тыс.), `tasks.json`; есть и в истории | оставить: слой, покрытие и курс — предмет сдачи. Репозиторий только приватный |
+| Высокий | Озвучка и ролики не игнорируются: `git add .` их добавит. Папка `workspace/work/…/videos/` уже появилась | `workspace/work/*/videos/`, `workspace/out/*/videos/*.mp4` | добавить в `.gitignore` до первого `git add` |
+| Средний | Контрольный пакет организаторов: `package.json` и 9 кадров, 1,5 МБ. В сдачу не входит, движок создаёт копию сам | `workspace/work/review/контрольный_пакет/`, в истории с коммита `ca879e1` | убрать из git и из истории, пока push не было |
+| Средний | Ответ модуля на контрольный пакет: список найденных закладок с цитатами | `workspace/out/review/ctrl_vendelshtein.json` | можно оставить; при передаче репозитория другим командам убрать |
 | Средний | Личная почта автора в каждом коммите | метаданные всех 25 коммитов | решить владельцу до push, см. ниже |
-| Низкий | Выдержки из книги в листе опечаток, 8,6 тыс. знаков | `domain/geology/errata/` | оставить: часть доменного пакета |
-| Низкий | Пути этого ПК `D:/kmg/…` | `chapters.json`, `docs/BRIEF.md` | заменить на относительные; имени пользователя в них нет |
+| Низкий | Выдержки из книги в листе опечаток, 8,6 тыс. знаков | `workspace/domain/geology/errata/` | оставить: часть доменного пакета |
+| Низкий | Пути этого ПК `D:/kmg/…` | `workspace/chapters.json`, `docs/BRIEF.md` | заменить на относительные; имени пользователя в них нет |
 | Низкий | Внутренние заметки: список расхождений с ТЗ и запись, что автор случайно увидел начало ключа (содержания ключа нет) | `docs/BRIEF.md` | решить владельцу: жюри это увидит |
 | Низкий | Две короткие фразы книги (по 50 знаков) в тестах | `tests/test_units.py`, `tests/test_errata.py` | оставить |
 
@@ -31,12 +31,12 @@
 
 | Оставить | Почему |
 | --- | --- |
-| `engine/`, `domain/`, `prompts/`, `tests/`, `pyproject.toml`, `uv.lock`, `chapters.json` | конвейер и доменный пакет |
-| `work/<глава>/*.json`, `pictures/` | слой, покрытие, маршруты, задания: их проверяет жюри, с ними сверяют журнал правок |
-| `out/<глава>/` без роликов, `out/review/` | курсы и ответы модуля — предмет сдачи |
-| `out/<глава>/videos/*.json`, `*.srt` | паспорта, спецификации, субтитры |
-| `metrics.csv`, `manual_edits.csv`, `MANIFEST.md`, `README.md`, `docs/` | процесс |
-| **Не хранить:** `work/review/`, `work/*/scans/`, `work/*/videos/`, `*.mp4`, `*.mp3`, `*.wav`, `*.pdf`, `key.json`, `.cache/`, `.env` | ролики передаются организаторам файлами |
+| `backend/`, `workspace/domain/`, `backend/glava/pipeline/prompts/`, `tests/`, `pyproject.toml`, `uv.lock`, `workspace/chapters.json` | конвейер и доменный пакет |
+| `workspace/work/<глава>/*.json`, `pictures/` | слой, покрытие, маршруты, задания: их проверяет жюри, с ними сверяют журнал правок |
+| `workspace/out/<глава>/` без роликов, `workspace/out/review/` | курсы и ответы модуля — предмет сдачи |
+| `workspace/out/<глава>/videos/*.json`, `*.srt` | паспорта, спецификации, субтитры |
+| `workspace/metrics.csv`, `manual_edits.csv`, `MANIFEST.md`, `README.md`, `docs/` | процесс |
+| **Не хранить:** `workspace/work/review/`, `workspace/work/*/scans/`, `workspace/work/*/videos/`, `*.mp4`, `*.mp3`, `*.wav`, `*.pdf`, `key.json`, `.cache/`, `.env` | ролики передаются организаторам файлами |
 
 ## Шаги
 
@@ -53,9 +53,9 @@ key.json
 *.mp3
 *.wav
 *.log
-work/review/
-work/runs/
-work/*/videos/
+workspace/work/review/
+workspace/work/runs/
+workspace/work/*/videos/
 node_modules/
 web/dist/
 ```
@@ -63,7 +63,7 @@ web/dist/
 ### 2. Убрать контрольный пакет из текущей версии
 
 ```powershell
-git rm -r --cached --quiet work/review
+git rm -r --cached --quiet workspace/work/review
 git add .gitignore .gitattributes .editorconfig .env.example .github README.md MANIFEST.md manual_edits.csv docs
 git commit -m "chore: prepare the repository for the first push"
 ```
@@ -74,7 +74,7 @@ git commit -m "chore: prepare the repository for the first push"
 
 | Вариант | Что получится | Риск |
 | --- | --- | --- |
-| **А. Вырезать `work/review` (рекомендуется)** | 25 коммитов с датами и сообщениями сохраняются, пакет исчезает из всех | меняются все хеши: сейчас безвредно, после push потребует force push. Проверено на копии |
+| **А. Вырезать `workspace/work/review` (рекомендуется)** | 25 коммитов с датами и сообщениями сохраняются, пакет исчезает из всех | меняются все хеши: сейчас безвредно, после push потребует force push. Проверено на копии |
 | Б. Ничего не вырезать | история как есть | материалы организаторов на GitHub; удалить после push трудно: GitHub хранит недостижимые коммиты и отдаёт по хешу |
 | В. Один начальный коммит | старых версий слоя и почты в коммитах нет | теряется история работы. «Журнал совпадает с историей коммитов» касается теста и не пострадает, но процесс жюри не увидит |
 
@@ -83,8 +83,8 @@ git commit -m "chore: prepare the repository for the first push"
 ```powershell
 git bundle create D:\kmg\kmg_hack_before_push.bundle --all   # резервная копия всей истории, на GitHub не отправлять
 $env:FILTER_BRANCH_SQUELCH_WARNING = '1'
-git filter-branch --index-filter "git rm -r -q --cached --ignore-unmatch work/review" -- main
-git log --oneline main -- work/review                        # должно быть пусто
+git filter-branch --index-filter "git rm -r -q --cached --ignore-unmatch workspace/work/review" -- main
+git log --oneline main -- workspace/work/review                        # должно быть пусто
 git rev-list --count main                                    # столько же коммитов, сколько было
 ```
 
@@ -94,7 +94,7 @@ git rev-list --count main                                    # столько ж
 
 ```powershell
 git config user.email "<адрес noreply>"
-git filter-branch --env-filter "export GIT_AUTHOR_EMAIL='<адрес noreply>' GIT_COMMITTER_EMAIL='<адрес noreply>'" --index-filter "git rm -r -q --cached --ignore-unmatch work/review" -- main
+git filter-branch --env-filter "export GIT_AUTHOR_EMAIL='<адрес noreply>' GIT_COMMITTER_EMAIL='<адрес noreply>'" --index-filter "git rm -r -q --cached --ignore-unmatch workspace/work/review" -- main
 ```
 
 Риск: коммиты всех авторов получат один адрес; сейчас автор один.
@@ -103,8 +103,8 @@ git filter-branch --env-filter "export GIT_AUTHOR_EMAIL='<адрес noreply>' G
 
 ```powershell
 git status --short                                                            # пусто
-git ls-files | Select-String 'key\.json|\.pdf$|\.mp4$|\.mp3$|\.wav$|/scans/|work/review|^\.cache|^\.env$'   # пусто
-git log main --name-only --format= | Select-String 'key\.json|/scans/|\.pdf$|\.mp[34]$|work/review'         # пусто
+git ls-files | Select-String 'key\.json|\.pdf$|\.mp4$|\.mp3$|\.wav$|/scans/|workspace/work/review|^\.cache|^\.env$'   # пусто
+git log main --name-only --format= | Select-String 'key\.json|/scans/|\.pdf$|\.mp[34]$|workspace/work/review'         # пусто
 git ls-files | ForEach-Object { Get-Item -LiteralPath $_ -ErrorAction SilentlyContinue } | Where-Object Length -gt 5MB   # пусто
 ```
 
@@ -119,4 +119,4 @@ git ls-files | ForEach-Object { Get-Item -LiteralPath $_ -ErrorAction SilentlyCo
 
 ## Что решить с организаторами
 
-Приватный репозиторий — не публикация, но 65 % текста главы окажется на серверах GitHub, за пределами ПК. Получите согласие организаторов письменно. Если нужен запрет на вынос текста, в GitHub идёт только код (`engine`, `domain` без `errata`, `prompts`, `tests`, `docs`) с новой историей, а `work/` и `out/` передаются файлом.
+Приватный репозиторий — не публикация, но 65 % текста главы окажется на серверах GitHub, за пределами ПК. Получите согласие организаторов письменно. Если нужен запрет на вынос текста, в GitHub идёт только код (`engine`, `domain` без `errata`, `prompts`, `tests`, `docs`) с новой историей, а `workspace/work/` и `workspace/out/` передаются файлом.

@@ -75,7 +75,7 @@ test('3D не нужен — конвейер честно останавлив�
 test('до конца: кадры, прохождение, сдача', { skip: !process.env.FULL }, () => { const o = run('--from', 'facts'); assert.match(o, /Готово/, o); fs.rmSync('sims/' + job + '.json', { force: true }); fs.rmSync('sims/' + job + '.webp', { force: true }); spawnSync('node', ['build.mjs']); });
 
 test('по узлу слоя: факты без модели, готовая сцена встаёт на шаг', { skip: !process.env.FULL }, () => {
-  const W = path.join('..', 'work', 'zz_test_chapter'); fs.mkdirSync(W, { recursive: true });
+  const W = path.join('..', 'workspace', 'work', 'zz_test_chapter'); fs.mkdirSync(W, { recursive: true });
   try {
     const cl2 = cl.map(c => ({ ...c, id: 'zz.node#' + c.id, page_pdf: 35, source_kind: 'text' }));
     fs.writeFileSync(W + '/layer.json', JSON.stringify({ title: 'Глава', nodes: [{ id: 'zz.node', title: 'Узел', claims: cl2, layers: { main: { text: 'м' }, mechanism: { text: 'м' } } }] }));

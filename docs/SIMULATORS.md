@@ -5,7 +5,7 @@
 ## Как попадает в курс
 
 1. `simulators/course.json` связывает шаг главы, сцену и утверждения слоя.
-2. `cd simulators; npm ci; npm run course` проверяет физику сцен, пишет `work/<глава>/simulations.json`, `work/<глава>/simulations/` и проигрыватель `engine/glava/course/assets/sim/`.
+2. `cd simulators; npm ci; npm run course` проверяет физику сцен, пишет `workspace/work/<глава>/simulations.json`, `workspace/work/<глава>/simulations/` и проигрыватель `backend/glava/modules/course/assets/sim/`.
 3. `uv run glava course <глава>` собирает курс. Node для этого шага не нужен, модель тоже.
 
 Источники в окне «Откуда это и что упрощено» берутся из утверждений слоя. Правка `layer.json` и пересборка курса меняют и их. Если утверждения или шага больше нет, сборка останавливается с понятной ошибкой.
@@ -26,7 +26,7 @@
 
 Вручную: скопировать сцену из `simulators/scenes`, см. `simulators/README.md`.
 
-Агентом по узлу слоя: `uv run glava simulation <глава> --node <узел> --until design` делает только замысел, без `--until` доходит до конца и ставит сцену в курс. То же самое — кнопка «Сделать симулятор» на странице шага в приложении. Факты и цитаты берутся из слоя без модели; модель делает замысел, формулы, сцену, игру и смотрит кадры. Потолки — `simulators/agent/steps.json`, расход пишется в `metrics.csv`. Нужны Node.js 22, `npm ci` в `simulators`, Chrome и Python с playwright и Pillow. С настоящей моделью проверен только замысел: 1 вызов Sonnet, 30 с, $0,04. До конца ещё не прогонялось.
+Агентом по узлу слоя: `uv run glava simulation <глава> --node <узел> --until design` делает только замысел, без `--until` доходит до конца и ставит сцену в курс. То же самое — кнопка «Сделать симулятор» на странице шага в приложении. Факты и цитаты берутся из слоя без модели; модель делает замысел, формулы, сцену, игру и смотрит кадры. Потолки — `simulators/agent/steps.json`, расход пишется в `workspace/metrics.csv`. Нужны Node.js 22, `npm ci` в `simulators`, Chrome и Python с playwright и Pillow. С настоящей моделью проверен только замысел: 1 вызов Sonnet, 30 с, $0,04. До конца ещё не прогонялось.
 
 ## Проверки
 
