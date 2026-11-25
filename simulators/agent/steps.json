@@ -1,0 +1,12 @@
+{
+ "total_budget_usd": 1.5,
+ "default": { "model": "sonnet", "timeout_min": 4, "retries": 2, "budget_usd": 0.5, "effort": "low" },
+ "steps": {
+  "facts": { "retries": 1 },
+  "design": { "retries": 1 },
+  "model": { "effort": "medium" },
+  "scene": { "effort": "medium" },
+  "look": { "retries": 1 },
+  "critic": { "retries": 0 }
+ }
+}

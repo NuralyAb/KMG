@@ -7,6 +7,8 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
+from glava.course.simulations import publish_simulations
+
 ASSETS = Path(__file__).parent / "assets"
 SENTENCE = re.compile(r"(?<=[.!?])\s+(?=[А-ЯЁA-Z«\d$(])")
 WORD = re.compile(r"[а-яёa-z]{4,}", re.IGNORECASE)
@@ -40,6 +42,7 @@ INDEX = """<!doctype html>
 <script src="assets/core.js"></script>
 <script src="assets/tasks.js"></script>
 <script src="assets/pages.js"></script>
+<script src="assets/simulation.js"></script>
 <script src="assets/course.js"></script>
 </body>
 </html>
@@ -154,15 +157,18 @@ def publish_video(video: Mapping, out: Path) -> dict[str, Any]:
 
 def build_course(
     layer: Mapping, routing: Mapping, tasks: Sequence[Mapping], pictures: Sequence[Mapping], out: Path, picture_files: Path | None = None,
-    extras: Mapping[str, Mapping] | None = None,
+    extras: Mapping[str, Mapping] | None = None, simulations: Path | None = None,
 ) -> Path:
     out.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(ASSETS, out / "assets", dirs_exist_ok=True)
+    shutil.copytree(ASSETS, out / "assets", dirs_exist_ok=True, ignore=shutil.ignore_patterns("sim"))
+    blocks = publish_simulations(layer, simulations, ASSETS / "sim", out) if simulations else {}
     shutil.rmtree(out / "pictures", ignore_errors=True)
     if picture_files and picture_files.exists():
         shutil.copytree(picture_files, out / "pictures", ignore=shutil.ignore_patterns("*.json"))
     sized = [{**p, **(picture_size(out / p["file"]) if p.get("file") else {})} for p in pictures]
     ready = {step: {**e, "videos": [publish_video(v, out) for v in e.get("videos") or []]} for step, e in (extras or {}).items()}
+    for step, block in blocks.items():
+        ready[step] = {**ready.get(step, {}), **block}
     data = course_data(layer, routing, tasks, sized, ready)
     payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     (out / "data.js").write_text(f"window.COURSE={payload};\n", encoding="utf-8")

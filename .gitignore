@@ -21,5 +21,7 @@ work/review/
 work/runs/
 work/*/videos/
 node_modules/
+simulators/dist/
+simulators/jobs/
 web/dist/
 work/review_uploads/

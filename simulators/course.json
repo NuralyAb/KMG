@@ -1,0 +1,20 @@
+{
+  "latyshova_gl5_par17-20": {
+    "latyshova.saturation_examples_tasks": [
+      {
+        "scene": "1_log_fresh",
+        "as": "log_fresh",
+        "claims": [
+          "latyshova.phase_permeability_zones#c17", "latyshova.phase_permeability_zones#c18", "latyshova.phase_permeability_zones#c19",
+          "latyshova.clay_classes_critical#c9", "latyshova.clay_classes_critical#c10", "latyshova.clay_classes_critical#c11",
+          "latyshova.clay_classes_critical#c12", "latyshova.clay_classes_critical#c13"
+        ]
+      },
+      {
+        "scene": "2_log_salty",
+        "as": "log_salty",
+        "claims": ["latyshova.filtrate_salinity#c3", "latyshova.filtrate_salinity#c4", "latyshova.filtrate_salinity#c6", "latyshova.clay_classes_critical#c9"]
+      }
+    ]
+  }
+}

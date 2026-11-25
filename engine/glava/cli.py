@@ -235,7 +235,8 @@ def build_site(chapter: Chapter) -> Path:
     work = chapter.work
     layer = read(work / "layer.json")
     out = build_course(layer, read_or(work / "routing.json", {"routes": []}), read_or(work / "tasks.json", {"tasks": []})["tasks"],
-                       read_or(work / "illustrations.json", {"illustrations": []})["illustrations"], ROOT / "out" / chapter.chapter_id, work / "pictures")
+                       read_or(work / "illustrations.json", {"illustrations": []})["illustrations"], ROOT / "out" / chapter.chapter_id, work / "pictures",
+                       simulations=work / "simulations.json")
     log.info("курс: %s", out / "index.html")
     return out
 
