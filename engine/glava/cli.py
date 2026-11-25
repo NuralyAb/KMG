@@ -80,11 +80,11 @@ def context_of(chapter: Chapter) -> str:
     return f"# Глава\n{chapter.title}. {chapter.book}\n\n# Заблуждения новичков\n{listed}\n\n# {difficulty}"
 
 
-def write_metrics(chapter: Chapter, stage: str, nodes: int, replies: Sequence[Reply]) -> None:
+def write_metrics(chapter: Chapter, stage: str, nodes: int, replies: Sequence[Reply], video_seconds: float = 0) -> None:
     path = ROOT / "metrics.csv"
     is_new = not path.exists()
     row = [chapter.chapter_id, stage, nodes, sum(r.input_tokens for r in replies), sum(r.output_tokens for r in replies),
-           f"{sum(r.cost_usd for r in replies):.4f}", 0, 0, 0, 0]
+           f"{sum(r.cost_usd for r in replies):.4f}", 0, 0, video_seconds, 0]
     with path.open("a", encoding="utf-8", newline="") as file:
         writer = csv.writer(file)
         if is_new:
@@ -212,13 +212,34 @@ def build_review(chapter: Chapter, source: Path, provider: Provider) -> Path:
     return target
 
 
+def build_video(chapter: Chapter, provider: Provider, node_id: str, kind: str, template_name: str) -> None:
+    """Ролик по одному узлу. Нужны пакеты группы video (pycairo, edge-tts, faster-whisper) и ffmpeg."""
+    from glava.scenes import load_module
+    from glava.video.produce import produce
+    from glava.video.spec import make_spec
+
+    node = next((n for n in read(chapter.work / "layer.json")["nodes"] if n["id"] == node_id), None)
+    if node is None:
+        raise SystemExit(f"узла {node_id} нет в слое")
+    template = load_module(chapter.domain / "video" / f"{template_name}.py")
+    checklist = read(chapter.domain / "physics_checklist.json")
+    video_id = f"{node_id.replace('.', '_')}_{kind}"
+    spec, replies = make_spec(provider, prompt_file("video"), node, template, template_name, checklist, kind, video_id, chapter.chapter_id)
+    passport = produce(spec, node, template, load_style(chapter.domain), (chapter.domain / "pronunciation.md").read_text(encoding="utf-8"), checklist,
+                       chapter.work / "videos", ROOT / "out" / chapter.chapter_id / "videos")
+    write_metrics(chapter, "video", 1, replies, passport["audio_check"]["duration_s"])
+
+
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
-    parser.add_argument("command", choices=["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "units"])
+    parser.add_argument("command", choices=["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video", "units"])
     parser.add_argument("chapter")
     parser.add_argument("--limit", type=int, default=None, help="собрать только первые N узлов")
     parser.add_argument("--package", type=Path, default=None, help="папка чужого пакета для review")
+    parser.add_argument("--node", help="узел для video")
+    parser.add_argument("--format", choices=["short", "wide"], default="short", help="формат ролика")
+    parser.add_argument("--template", help="шаблон сцены ролика из доменного пакета")
     args = parser.parse_args()
     chapter = load_chapter(args.chapter)
     load_schema("node")
@@ -234,6 +255,11 @@ def main() -> None:
         if args.package is None:
             parser.error("укажите --package")
         build_review(chapter, args.package, provider)
+        return
+    if args.command == "video":
+        if not args.node or not args.template:
+            parser.error("укажите --node и --template")
+        build_video(chapter, provider, args.node, args.format, args.template)
         return
     if args.command in ("build", "errata"):
         build_errata(chapter, provider)

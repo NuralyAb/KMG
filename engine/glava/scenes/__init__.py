@@ -15,7 +15,7 @@ import jsonschema
 from glava.scenes import bars, compare, flow, plot
 from glava.scenes.canvas import PAD, W, rect, text, wrap
 
-__all__ = ["load_style", "load_templates", "render", "scene_issues", "wrap"]
+__all__ = ["load_module", "load_style", "load_templates", "render", "scene_issues", "wrap"]
 
 GENERIC = {"flow": flow, "compare": compare, "plot": plot, "bars": bars}
 BADGE_H = 40
@@ -28,15 +28,19 @@ def load_style(domain: Path) -> dict[str, Any]:
     return {**style, "axes_down": json.loads(axes.read_text(encoding="utf-8"))["down"] if axes.exists() else []}
 
 
+def load_module(file: Path) -> ModuleType:
+    spec = importlib.util.spec_from_file_location(f"domain_template_{file.stem}", file)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"шаблон {file} не читается")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def load_templates(folder: Path) -> dict[str, ModuleType]:
     found: dict[str, ModuleType] = dict(GENERIC)
     for file in sorted(folder.glob("*.py")):
-        spec = importlib.util.spec_from_file_location(f"domain_template_{file.stem}", file)
-        if spec is None or spec.loader is None:
-            raise ImportError(f"шаблон {file} не читается")
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
-        found = {**found, file.stem: module}
+        found = {**found, file.stem: load_module(file)}
     return found
 
 

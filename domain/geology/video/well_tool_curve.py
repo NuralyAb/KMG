@@ -8,6 +8,7 @@ from typing import Any
 import cairo
 
 from glava.video.draw import arrow, dot, fill_rect, polygon, polyline, text, wrap
+from glava.video.overlay import LAYOUTS
 
 SUMMARY = """well_tool_curve — вертикальный разрез со скважиной: слои, ствол, корка, проникновение фильтрата, прибор едет снизу вверх и пишет кривые, вычисленные из тех же слоёв. params: {"depth_top":м,"depth_bottom":м,"depth_tick":м,"tool_resolution_m":0.3,"layers":[сверху вниз {"top":м,"bottom":м,"lith":"sand|shale|limestone|dolomite|dense|salt|anhydrite","label":"до 14 знаков","fluid":"oil|gas|water" или null,"permeable":true|false,"wall":диаметр стенки в долях долота (1.0 номинал, больше 1 — каверна),"cake":толщина корки с каждой стороны в долях долота (0, если нет),"props":{"GR":число,…}}],"curves":[{"key":"CALIPER|GR|RES|SP|NEUTRON|DENSITY|SONIC","prop":"d или ключ props","label":"до 12 знаков","unit":"","min":0,"max":1}]}. Для CALIPER prop всегда "d": диаметр считает код как wall − 2·cake. 1–2 кривые. Глубины и числа условные, если их нет в утверждениях: тогда их не произносят. Действия: tool (глубина прибора, едет снизу вверх), cake 0..1, invasion 0..1, flow 0..1 (стрелки фильтрата), nominal 0..1 (линия номинального диаметра), focus (номер слоя с 1, 0 — снять), true_scale 0..1 (врезка в истинном масштабе)."""
 ACTIONS = {"tool", "cake", "invasion", "flow", "nominal", "focus", "true_scale"}
@@ -48,6 +49,16 @@ def check(params: Mapping[str, Any], beats: Sequence[Mapping[str, Any]]) -> list
 
 def initial(params: Mapping[str, Any]) -> dict[str, float]:
     return {"tool": params["depth_bottom"], "cake": 0.0, "invasion": 0.0, "flow": 0.0, "nominal": 0.0, "focus": 0.0, "true_scale": 0.0}
+
+
+def plaque(params: Mapping[str, Any], kind: str) -> str:
+    """Во сколько раз ствол шире истинного: считается из тех же размеров, что и рисунок."""
+    layout = LAYOUTS[kind]
+    _, _, w, h = layout.scene
+    section_w = w * (0.56 if len(params["curves"]) == 1 else 0.48)
+    bore_px = 2 * section_w * 0.11
+    metre_px = (h - layout.small * 2.4) / (params["depth_bottom"] - params["depth_top"])
+    return f"ствол шире в {bore_px / (REAL_BIT_M * metre_px):.0f} раз"
 
 
 def _layer(params: Mapping[str, Any], depth: float) -> Mapping[str, Any]:
@@ -148,7 +159,7 @@ def _bore(ctx: cairo.Context, params: Mapping[str, Any], state: Mapping[str, flo
         return [(axis - half * width(d), at(d)) for d in grid] + [(axis + half * width(d), at(d)) for d in reversed(grid)]
 
     polygon(ctx, outline(lambda d: wall(params, d)), style["lithology"]["shale"]["color"])
-    polygon(ctx, outline(lambda d: wall(params, d)), "#0F1419", 0.45)
+    polygon(ctx, outline(lambda d: wall(params, d)), "#0F1419", 0.2)
     polygon(ctx, outline(lambda d: wall(params, d) - 2 * cake(params, d, state["cake"])), style["fluids"]["mud"]["color"])
     rng = random.Random(7)
     for _ in range(70):
