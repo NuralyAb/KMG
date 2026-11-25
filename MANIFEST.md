@@ -15,7 +15,7 @@
 | Курс | модели нет | `engine/glava/course` | локально | ничего | — |
 | Модуль проверки | Claude Sonnet | то же | облако Anthropic через Claude Code | чужой пакет и его кадры, текст страниц главы, чек-лист физики; `key.json` не копируется и не передаётся | то же |
 | Спецификация ролика | Claude Sonnet по умолчанию; первые пробы 25.11 — Claude Opus | `sonnet`; в пробах `claude-opus-5-5` | облако Anthropic через Claude Code | узел слоя, описание шаблона сцены, чек-лист физики | `LLM_MODEL` |
-| Агент симуляторов | Claude Sonnet | алиас `sonnet`; с настоящей моделью ещё не запускался | облако Anthropic через Claude Code | утверждения и цитаты узла слоя, кадры симулятора | `LLM_MODEL` или `simulators/agent/steps.json` |
+| Агент симуляторов | Claude Sonnet | алиас `sonnet`; замысел проверен, до конца не прогонялся | облако Anthropic через Claude Code | утверждения и цитаты узла слоя, кадры симулятора | `LLM_MODEL` или `simulators/agent/steps.json` |
 | Озвучка | онлайн-голос Microsoft | `ru-RU-DmitryNeural`, темп −6%; `edge-tts` 7.3.1 | облако Microsoft | только текст закадровых фраз | `VOICE` и `RATE` в `engine/glava/video/speech.py` |
 | Проверка дорожки | Whisper | `small`, int8, CPU; `faster-whisper` 1.2.1, `ctranslate2` 4.9.1 | локально | ничего; веса один раз скачиваются с Hugging Face | параметр `model_name` функции `recognise` в `engine/glava/video/check.py` |
 

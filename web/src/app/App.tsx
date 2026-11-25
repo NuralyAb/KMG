@@ -5,6 +5,7 @@ import { EmptyState } from '@/ui/states';
 import { Shell } from './Shell';
 
 const ChaptersPage = lazy(() => import('@/features/chapters/ChaptersPage'));
+const BooksPage = lazy(() => import('@/features/books/BooksPage'));
 const ChapterPage = lazy(() => import('@/features/chapter/ChapterPage'));
 const NodePage = lazy(() => import('@/features/node/NodePage'));
 const ReviewPage = lazy(() => import('@/features/review/ReviewPage'));
@@ -22,6 +23,7 @@ export function App() {
     <Routes>
       <Route element={<Shell />}>
         <Route index element={<ChaptersPage />} />
+        <Route path="books" element={<BooksPage />} />
         <Route path="chapters/:id" element={<ChapterPage />} />
         <Route path="chapters/:id/nodes/:nodeId" element={<NodePage />} />
         <Route path="review" element={<ReviewPage />} />

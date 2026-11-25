@@ -60,10 +60,12 @@ class Chapter:
 def load_chapter(chapter_id: str) -> Chapter:
     registry = json.loads((ROOT / "chapters.json").read_text(encoding="utf-8"))
     info = registry["chapters"][chapter_id]
-    md = (ROOT / os.environ.get("GLAVA_BOOKS", registry["root"]) / info["file"]).read_text(encoding="utf-8")
+    # загруженные книги лежат в своей папке, файлы организаторов — в общей
+    texts, scans = (info["root"], info["root"]) if info.get("root") else (os.environ.get("GLAVA_BOOKS", registry["root"]), os.environ.get("GLAVA_PDFS", registry["pdf_root"]))
+    md = (ROOT / texts / info["file"]).read_text(encoding="utf-8-sig")
     units = parse_units(read_pages(md, [tuple(r) for r in info["pages"]]))
     return Chapter(chapter_id, info["prefix"], info["title"], info["book"], ROOT / "domain" / info["domain"], tuple(units), info["file"],
-                   ROOT / os.environ.get("GLAVA_PDFS", registry["pdf_root"]) / info["pdf"] if info.get("pdf") else None)
+                   ROOT / scans / info["pdf"] if info.get("pdf") else None)
 
 
 def save(path: Path, data: Any) -> None:

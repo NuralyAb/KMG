@@ -37,6 +37,10 @@ type MetricRow = { chapter: string; stage: string; nodes: number; llm_tokens_in:
 | Метод и путь | Ответ `data` |
 | --- | --- |
 | GET `/api/health` | `{status: "ok", provider: string, model: string, claude_found: boolean, ffmpeg_found: boolean}` |
+| GET `/api/books` | `{id, title, file, uploaded, has_pdf}[]` |
+| POST `/api/books` (форма: `file` md, `pdf`) | книга, 201 |
+| GET `/api/books/{id}` | книга, `sections: {id, title, level, first, last}[]`, `first_page`, `last_page`, `domains` |
+| POST `/api/books/{id}/chapters` `{title, pages: [[9, 14], [20, 30]], domain}` | `{id}`, 201 |
 | GET `/api/chapters` | `ChapterCard[]` |
 | GET `/api/chapters/{id}` | `ChapterDetail` |
 | GET `/api/chapters/{id}/nodes/{node_id}` | `NodeDetail` |

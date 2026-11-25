@@ -8,7 +8,7 @@ from fastapi import FastAPI
 from glava_server.config import Settings
 from glava_server.errors import install_handlers
 from glava_server.guards import Guard
-from glava_server.routes import chapters, runs, system
+from glava_server.routes import books, chapters, runs, system
 from glava_server.services import build_services
 
 
@@ -26,6 +26,6 @@ def create_app(settings: Settings) -> FastAPI:
     app.state.services = services
     app.add_middleware(Guard, settings=settings)
     install_handlers(app)
-    for router in (chapters.router, runs.router, system.router):
+    for router in (books.router, chapters.router, runs.router, system.router):
         app.include_router(router)
     return app

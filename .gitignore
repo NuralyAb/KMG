@@ -24,5 +24,7 @@ node_modules/
 simulators/dist/
 simulators/jobs/
 simulators/sims/
+/books/
+/chapters.json.tmp
 web/dist/
 work/review_uploads/
