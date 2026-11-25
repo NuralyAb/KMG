@@ -10,29 +10,38 @@
    },
    {
     "lithology": "sand",
-    "fluid": "gas",
-    "label": "Газ",
-    "thickness": 2
-   },
-   {
-    "lithology": "sand",
     "fluid": "oil",
-    "label": "Нефть",
+    "label": "Нефтяной коллектор",
     "thickness": 2
    },
    {
     "lithology": "sand",
     "fluid": "water",
-    "label": "Вода, минерал.",
+    "label": "Водоносный коллектор",
     "thickness": 2
    }
   ],
   "curves": [
    {
+    "name": "SP",
+    "levels": [
+     "high",
+     "low",
+     "low"
+    ]
+   },
+   {
+    "name": "GR",
+    "levels": [
+     "high",
+     "mid",
+     "mid"
+    ]
+   },
+   {
     "name": "NEUTRON",
     "levels": [
      "low",
-     "high",
      "mid",
      "mid"
     ]
@@ -40,12 +49,11 @@
   ],
   "filtrate": "fresh"
  },
- "caption": "Нейтронные показания: у глин минимальные, у водо- и нефтеносных коллекторов средние, у газового коллектора максимальные.",
- "alt": "Планшет с четырьмя слоями: глина, газовый, нефтяной и водоносный песчаники. Нейтронная кривая низкая против глины, максимальная против газа, средняя против нефти и воды.",
+ "caption": "Глина даёт максимум СП и ГК и минимум нейтронных показаний. Против коллекторов СП минимален, ГК и нейтронные показания средние.",
+ "alt": "Планшет с тремя слоями: глина, нефтяной и водоносный коллекторы. Кривые СП и ГК против глины максимальны, нейтронная кривая минимальна; против коллекторов СП низкая, остальные средние.",
  "claim_ids": [
-  "latyshova.table21_clays_sands_gas#c11",
-  "latyshova.table21_clays_sands_gas#c13",
-  "latyshova.table21_clays_sands_gas#c15",
-  "latyshova.table21_clays_sands_gas#c16"
+  "latyshova.table21_clays_sands_gas#c9",
+  "latyshova.table21_clays_sands_gas#c10",
+  "latyshova.table21_clays_sands_gas#c11"
  ]
 }

@@ -83,3 +83,11 @@ def test_prompt_lists_templates_and_claims():
     assert len(scenes) == 1
     assert "borehole" in fake.prompts[0]
     assert "lat.a#c1" in fake.prompts[0]
+
+
+def test_suspect_value_is_shown_only_with_a_warning():
+    suspect = [{"page": 90, "md": "от 5 до 20 %", "scan": "от 5 до 20 долей", "kind": "suspect"}]
+    plain = illustration_issues({"illustrations": [scene()]}, NODES, TEMPLATES, STYLE, suspect)
+    assert any("опечатка" in i for i in plain)
+    warned = scene(caption="Как в книге; вероятно, опечатка издания")
+    assert illustration_issues({"illustrations": [warned]}, NODES, TEMPLATES, STYLE, suspect) == []

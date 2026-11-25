@@ -2,15 +2,16 @@
  "node_id": "latyshova.phase_permeability_zones",
  "template": "plot",
  "data": {
-  "x_label": "Водонасыщение kв",
-  "y_label": "Относительная проницаемость",
+  "x_label": "водонасыщенность kв (от kв.св до 1)",
+  "y_label": "относительная проницаемость",
   "numeric": false,
   "log_x": false,
   "log_y": false,
+  "y_down": false,
   "params": {},
   "series": [
    {
-    "name": "Нефть",
+    "name": "kпр.н — нефть",
     "color": "",
     "points": [
      [
@@ -18,45 +19,45 @@
       1
      ],
      [
-      0.2,
+      0.3,
       0.8
      ],
      [
-      0.4,
-      0.35
-     ],
-     [
-      0.6,
-      0.08
+      0.5,
+      0.5
      ],
      [
       0.8,
+      0.05
+     ],
+     [
+      0.95,
       0
      ]
     ]
    },
    {
-    "name": "Вода",
+    "name": "kпр.в — вода",
     "color": "",
     "points": [
      [
-      0.2,
+      0.05,
       0
      ],
      [
-      0.4,
+      0.3,
       0.05
      ],
      [
-      0.6,
-      0.3
+      0.5,
+      0.5
      ],
      [
       0.8,
-      0.7
+      0.8
      ],
      [
-      1,
+      0.95,
       1
      ]
     ]
@@ -65,23 +66,35 @@
   "marks": [
    {
     "x": 0.3,
-    "y": 0.55,
+    "y": 0.8,
     "text": "kв*"
    },
    {
     "x": 0.8,
-    "y": 0.7,
+    "y": 0.8,
     "text": "kв**"
+   },
+   {
+    "x": 0.5,
+    "y": 0.5,
+    "text": "kпр.н = kпр.в"
    }
   ]
  },
- "caption": "Две кривые фазовой проницаемости; kв* и kв** ограничивают среднюю зону двухфазного течения, слева течёт нефть, справа вода.",
- "alt": "График: проницаемость для нефти падает, для воды растёт с ростом водонасыщения. Отметки kв* и kв** делят ось на три интервала: нефть, смесь, вода.",
- "claim_ids": [
+ "caption": "Кривые kпр.н и kпр.в от kв: слева течёт нефть, между kв* и kв** нефть с водой, правее kв** вода. Пересечение кривых — отношение 1.",
+ "alt": "Две качественные кривые: проницаемость по нефти падает, по воде растёт с ростом водонасыщенности. Отмечены пороги kв*, kв** и точка пересечения кривых.",
+ " claim_ids": [
   "latyshova.phase_permeability_zones#c5",
-  "latyshova.phase_permeability_zones#c6",
   "latyshova.phase_permeability_zones#c7",
   "latyshova.phase_permeability_zones#c8",
-  "latyshova.phase_permeability_zones#c15"
+  "latyshova.phase_permeability_zones#c9",
+  "latyshova.phase_permeability_zones#c23"
+ ],
+ "claim_ids": [
+  "latyshova.phase_permeability_zones#c5",
+  "latyshova.phase_permeability_zones#c7",
+  "latyshova.phase_permeability_zones#c8",
+  "latyshova.phase_permeability_zones#c9",
+  "latyshova.phase_permeability_zones#c23"
  ]
 }

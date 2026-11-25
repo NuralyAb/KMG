@@ -9,6 +9,7 @@ from typing import Any
 
 from glava.llm import Provider, Reply, ask_json
 from glava.scenes import render, scene_issues
+from glava.stages.errata import suspects_in
 from glava.verify import unsupported_numbers
 
 FIELDS = ("node_id", "template", "caption", "alt", "claim_ids", "data")
@@ -53,7 +54,8 @@ def _source(node: Mapping[str, Any], claim_ids: Sequence[str]) -> str:
     return "\n".join([*(c["text"] for c in claims), *(c["quote"] for c in claims), *examples])
 
 
-def _scene_problems(scene: Mapping[str, Any], node: Mapping[str, Any], templates: Templates, style: Mapping[str, Any]) -> list[str]:
+def _scene_problems(scene: Mapping[str, Any], node: Mapping[str, Any], templates: Templates, style: Mapping[str, Any],
+                    errata: Sequence[Mapping] = ()) -> list[str]:
     template = templates.get(scene["template"])
     if template is None:
         return [f"шаблона {scene['template']} нет"]
@@ -70,10 +72,15 @@ def _scene_problems(scene: Mapping[str, Any], node: Mapping[str, Any], templates
     foreign = unsupported_numbers(shown, _source(node, scene["claim_ids"]))
     if foreign:
         problems = [*problems, f"чисел нет в утверждениях claim_ids: {', '.join(sorted(foreign))}"]
+    doubtful = suspects_in([c["quote"] for c in node["claims"] if c["id"] in scene["claim_ids"]], errata)
+    if doubtful and "опечатк" not in scene["caption"].lower():
+        problems = [*problems, f"в книге вероятная опечатка «{doubtful[0]['md'][:60]}»: в caption напиши «как в книге; вероятно, опечатка издания» или возьми другие утверждения"]
     return problems + ([f"подпись длиннее {MAX_CAPTION} знаков"] if len(scene["caption"]) > MAX_CAPTION else [])
 
 
-def illustration_issues(data: Mapping[str, Any], nodes: Sequence[Mapping], templates: Templates, style: Mapping[str, Any]) -> list[str]:
+def illustration_issues(
+    data: Mapping[str, Any], nodes: Sequence[Mapping], templates: Templates, style: Mapping[str, Any], errata: Sequence[Mapping] = (),
+) -> list[str]:
     by_id = {n["id"]: n for n in nodes}
     issues: list[str] = []
     for scene in data["illustrations"]:
@@ -83,7 +90,7 @@ def illustration_issues(data: Mapping[str, Any], nodes: Sequence[Mapping], templ
         elif scene["node_id"] not in by_id:
             issues.append(f"{scene['node_id']}: такого узла нет")
         else:
-            issues += [f"{scene['node_id']}: {p}" for p in _scene_problems(scene, by_id[scene["node_id"]], templates, style)]
+            issues += [f"{scene['node_id']}: {p}" for p in _scene_problems(scene, by_id[scene["node_id"]], templates, style, errata)]
     drawn = {s.get("node_id") for s in data["illustrations"]}
     return issues + [f"{n}: нет иллюстрации" for n in by_id if n not in drawn]
 
@@ -95,14 +102,14 @@ def _brief(node: Mapping[str, Any]) -> dict[str, Any]:
 
 
 def make_illustrations(
-    provider: Provider, system: str, nodes: Sequence[Mapping], templates: Templates, style: Mapping[str, Any],
+    provider: Provider, system: str, nodes: Sequence[Mapping], templates: Templates, style: Mapping[str, Any], errata: Sequence[Mapping] = (),
 ) -> tuple[list[dict], list[Reply]]:
     listed = "\n".join(f"- {t.SUMMARY}" for t in templates.values())
     prompt = f"# Шаблоны\n{listed}\n\n# Узлы\n{json.dumps([_brief(n) for n in nodes], ensure_ascii=False, indent=0)}"
-    data, replies = ask_json(provider, system, prompt, lambda d: illustration_issues(d, nodes, templates, style))
+    data, replies = ask_json(provider, system, prompt, lambda d: illustration_issues(d, nodes, templates, style, errata))
     by_id = {n["id"]: n for n in nodes}
     good = [s for s in data["illustrations"] if all(f in s for f in FIELDS) and s["node_id"] in by_id
-            and not _scene_problems(s, by_id[s["node_id"]], templates, style)]
+            and not _scene_problems(s, by_id[s["node_id"]], templates, style, errata)]
     return good, replies
 
 

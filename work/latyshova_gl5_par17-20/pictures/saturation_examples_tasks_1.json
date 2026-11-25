@@ -1,52 +1,50 @@
 {
  "node_id": "latyshova.saturation_examples_tasks",
- "template": "flow",
+ "template": "compare",
  "data": {
-  "nodes": [
+  "left_title": "Pн и αСП",
+  "right_title": "Ответ",
+  "rows": [
    {
-    "id": "a",
-    "text": "Заданы Pн и αСП",
-    "kind": "data"
+    "aspect": "Случай а",
+    "left": "Pн = 10, αСП = 0,9",
+    "right": "нефтеносный"
    },
    {
-    "id": "b",
-    "text": "Находим точку на рис. 7, б",
-    "kind": "step"
+    "aspect": "Случай б",
+    "left": "Pн = 5, αСП = 0,8",
+    "right": "нефтеносный"
    },
    {
-    "id": "c",
-    "text": "Какой области принадлежит точка: I, II или III",
-    "kind": "choice"
+    "aspect": "Случай в",
+    "left": "Pн = 5, αСП = 0,95",
+    "right": "нефть с небольшим количеством воды"
    },
    {
-    "id": "d",
-    "text": "Характер насыщения коллектора",
-    "kind": "result"
-   }
-  ],
-  "edges": [
-   {
-    "from": "a",
-    "to": "b",
-    "label": ""
+    "aspect": "Случай г",
+    "left": "Pн = 3, αСП = 0,7",
+    "right": "предельно нефтенасыщенный"
    },
    {
-    "from": "b",
-    "to": "c",
-    "label": ""
+    "aspect": "Случай д",
+    "left": "Pн = 3, αСП = 0,9",
+    "right": "нефть с водой"
    },
    {
-    "from": "c",
-    "to": "d",
-    "label": "область"
+    "aspect": "Случай е",
+    "left": "Pн = 2, αСП = 0,9",
+    "right": "вода с признаками нефти"
    }
   ]
  },
- "caption": "Порядок решения примера 53: пара значений Pн и αСП даёт точку, область точки даёт ответ о насыщении.",
- "alt": "Схема из четырёх блоков: заданные Pн и αСП, точка на графике, определение области I, II или III, характер насыщения коллектора.",
+ "caption": "Шесть пар Pн и αСП и ответ по области, в которую попала точка на графике. Смотрите, как меняется ответ.",
+ "alt": "Таблица из шести случаев. Для каждой пары значений Pн и αСП указан характер насыщения: от нефтеносного до воды с признаками нефти.",
  "claim_ids": [
-  "latyshova.saturation_examples_tasks#c1",
-  "latyshova.saturation_examples_tasks#c2",
-  "latyshova.saturation_examples_tasks#c3"
+  "latyshova.saturation_examples_tasks#c4",
+  "latyshova.saturation_examples_tasks#c5",
+  "latyshova.saturation_examples_tasks#c6",
+  "latyshova.saturation_examples_tasks#c7",
+  "latyshova.saturation_examples_tasks#c8",
+  "latyshova.saturation_examples_tasks#c9"
  ]
 }

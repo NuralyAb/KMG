@@ -7,14 +7,14 @@
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 0,
+    "invisible": 1,
     "scale": 0,
     "counterintuitive": 0,
     "cause_effect": 1
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: перечень задач ГИС и уровней оценки (качественно/количественно). Видеоёмкость низкая, критерии почти не выражены (cause_effect слабо), поэтому карточки."
+   "why": "Трудность типа Пр/Н: перечень задач и параметров. Видеоёмкость низкая (invisible 1, cause_effect 1), поэтому карточки."
   },
   {
    "node_id": "latyshova.mud_effects_on_borehole",
@@ -23,43 +23,43 @@
    "video_scores": {
     "time": 1,
     "invisible": 2,
-    "scale": 2,
-    "counterintuitive": 1,
+    "scale": 1,
+    "counterintuitive": 0,
     "cause_effect": 2
    },
    "hook_short": false,
    "template": "borehole",
-   "why": "Трудность М: невидимое образование корки и зоны проникновения в породе, переход от скважины к масштабу пор. Критерии invisible, scale, cause_effect; сумма 8, процесс на нескольких масштабах, поэтому длинное видео."
+   "why": "Трудность типа М/И, сумма 6. Невидимое (корка и зона проникновения в стенке) становится видимым (invisible), причина ведёт к следствию (cause_effect), масштаб скважина–пласт (scale). Решение на данных, поэтому длинное видео."
   },
   {
    "node_id": "latyshova.water_loss_and_mud_density",
-   "format": "шортс",
+   "format": "карточки",
    "secondary_format": null,
    "video_scores": {
     "time": 1,
-    "invisible": 2,
-    "scale": 1,
+    "invisible": 1,
+    "scale": 0,
     "counterintuitive": 1,
     "cause_effect": 2
    },
    "hook_short": false,
-   "template": "borehole",
-   "why": "Трудность М: водоотдача и репрессия невидимо управляют глубиной проникновения фильтрата. Критерии invisible, cause_effect, отчасти time и counterintuitive (рост плотности равен росту водоотдачи); сумма 7, одна цепочка причин, подходит шортс."
+   "template": null,
+   "why": "Трудность типа М/Н: параметры раствора и их связь с проникновением. Сумма 5, ниже порога 6, поэтому карточки (cause_effect 2, counterintuitive 1)."
   },
   {
    "node_id": "latyshova.filtrate_salinity",
-   "format": "интерактив",
+   "format": "длинное видео",
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 1,
-    "scale": 0,
+    "invisible": 2,
+    "scale": 1,
     "counterintuitive": 2,
     "cause_effect": 2
    },
    "hook_short": false,
    "template": "compare",
-   "why": "Трудность И: одна и та же минерализация помогает одним методам и мешает другим. Критерии counterintuitive и cause_effect; сумма 5 меньше 6, поэтому видео не берём, а ρф и ρп сравниваем в интерактиве."
+   "why": "Трудность типа И, сумма 7. Фильтрат невидим (invisible), эффект неоднозначен: одни задачи ухудшаются, другие улучшаются (counterintuitive), есть цепочка причина–следствие (cause_effect). Решение на данных, поэтому длинное видео со сравнением ρф и ρв."
   },
   {
    "node_id": "latyshova.water_and_nonfiltering_muds",
@@ -67,14 +67,14 @@
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 0,
-    "scale": 0,
+    "invisible": 1,
+    "scale": 1,
     "counterintuitive": 1,
-    "cause_effect": 1
+    "cause_effect": 2
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Н: ограничения набора методов для двух типов раствора, это набор условий и исключений. Критерии выражены слабо (counterintuitive, cause_effect), подходят карточки."
+   "why": "Трудность типа Н/М: какой раствор какие методы допускает. Это соответствия «раствор → набор методов» (cause_effect 2), поэтому карточки."
   },
   {
    "node_id": "latyshova.section_and_collector_types",
@@ -89,7 +89,7 @@
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Р: классификация разрезов и коллекторов по составу и морфологии пор. Из критериев только слабый scale, поэтому карточки."
+   "why": "Трудность типа Р/П: классификация разрезов и коллекторов. Видеоёмкость минимальна (scale 1), поэтому карточки."
   },
   {
    "node_id": "latyshova.four_method_groups",
@@ -104,7 +104,7 @@
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность И: четыре группы методов с условиями применимости, это скорее справочная классификация. Критерии почти не выражены (invisible слабо); сумма 1, подходят карточки."
+   "why": "Трудность типа И/Р: группы методов и условия их применимости. Сумма 1 (invisible 1), поэтому карточки."
   },
   {
    "node_id": "latyshova.productivity_pn",
@@ -114,12 +114,12 @@
     "time": 0,
     "invisible": 1,
     "scale": 0,
-    "counterintuitive": 0,
+    "counterintuitive": 1,
     "cause_effect": 1
    },
    "hook_short": false,
    "template": "plot",
-   "why": "Трудность Ф: параметр Pн связывает физическое свойство с нефтегазонасыщением, порог Pн больше 1. Критерии invisible и cause_effect выражены слабо; зависимость удобно исследовать в интерактиве."
+   "why": "Трудность типа Ф: зависимость Pн от нефтегазонасыщения и порог Pн > 1. Критерии: invisible 1, counterintuitive 1, cause_effect 1. Интерактив с графиком и ползунком."
   },
   {
    "node_id": "latyshova.methods_overlap",
@@ -134,7 +134,7 @@
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Н: групповое деление условно, у метода шире сфера применения. Критерии counterintuitive и invisible слабые; сумма 2, карточки с перекрёстными связями."
+   "why": "Трудность типа Н/Пр: перекрытие сфер методов и обоснование полного комплекса. Видеоёмкость низкая (invisible 1, counterintuitive 1), поэтому карточки."
   },
   {
    "node_id": "latyshova.build_litho_column",
@@ -142,62 +142,17 @@
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 0,
-    "scale": 0,
+    "invisible": 1,
+    "scale": 1,
     "counterintuitive": 0,
     "cause_effect": 1
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: определение границ пластов и оценка литологии по сумме признаков на диаграммах. Критерии выражены слабо (cause_effect); сумма 1, нужна работа на реальных кривых, поэтому практикум на данных."
+   "why": "Трудность типа Пр: построить границы и оценить литологию по сумме признаков с диаграмм. Критерии слабые (invisible 1, scale 1, cause_effect 1), навык отрабатывается на данных."
   },
   {
    "node_id": "latyshova.table21_clays_sands_gas",
-   "format": "карточки",
-   "secondary_format": null,
-   "video_scores": {
-    "time": 0,
-    "invisible": 0,
-    "scale": 0,
-    "counterintuitive": 1,
-    "cause_effect": 0
-   },
-   "hook_short": false,
-   "template": null,
-   "why": "Трудность Р: опознавание пород по набору кривых из таблицы. Критерий counterintuitive слабый (нефть и газ почти не различаются); подходят карточки-образцы."
-  },
-  {
-   "node_id": "latyshova.table21_carbonates_salts",
-   "format": "карточки",
-   "secondary_format": null,
-   "video_scores": {
-    "time": 0,
-    "invisible": 0,
-    "scale": 0,
-    "counterintuitive": 0,
-    "cause_effect": 0
-   },
-   "hook_short": false,
-   "template": null,
-   "why": "Трудность Р: продолжение справочной таблицы признаков карбонатов и солей. Видеокритерии не выражены, поэтому карточки."
-  },
-  {
-   "node_id": "latyshova.mixed_section_practice",
-   "format": "практикум на данных",
-   "secondary_format": null,
-   "video_scores": {
-    "time": 0,
-    "invisible": 0,
-    "scale": 0,
-    "counterintuitive": 1,
-    "cause_effect": 1
-   },
-   "hook_short": false,
-   "template": null,
-   "why": "Трудность Пр: на рис. 68 и в задаче 91 нужно отметить неоднозначные интервалы в смешанном разрезе. Критерии counterintuitive и cause_effect слабые; практикум на данных."
-  },
-  {
-   "node_id": "latyshova.direct_signs_of_collector",
    "format": "карточки",
    "secondary_format": null,
    "video_scores": {
@@ -209,22 +164,67 @@
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Р: набор прямых признаков коллектора (сужение диаметра, приращения микрозондов, проникновение). Критерии invisible и cause_effect слабые; карточки."
+   "why": "Трудность типа Р/И: справочный набор признаков пород в таблице 21. Видеоёмкость низкая (invisible 1, cause_effect 1), поэтому карточки «порода → признаки»."
   },
   {
-   "node_id": "latyshova.radial_gradient_and_dynamic",
-   "format": "шортс",
+   "node_id": "latyshova.table21_carbonates_salts",
+   "format": "карточки",
    "secondary_format": null,
    "video_scores": {
-    "time": 1,
-    "invisible": 2,
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Трудность типа Р/Н: набор признаков для карбонатов, ангидритов, гипсов и солей. Это справочный материал (cause_effect 1), поэтому карточки."
+  },
+  {
+   "node_id": "latyshova.mixed_section_practice",
+   "format": "практикум на данных",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
     "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Трудность типа Пр/Н: смешанный разрез, где качественных признаков мало, и неоднозначные интервалы (рис. 68, задача 91). Критерии: invisible 1, scale 1, counterintuitive 1, cause_effect 1. Нужен практикум на данных."
+  },
+  {
+   "node_id": "latyshova.direct_signs_of_collector",
+   "format": "карточки",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
     "counterintuitive": 0,
     "cause_effect": 2
    },
    "hook_short": false,
+   "template": null,
+   "why": "Трудность типа Р/М: перечень прямых признаков коллектора, каждый — следствие фильтрации (cause_effect 2, invisible 1). Сумма 3, поэтому карточки."
+  },
+  {
+   "node_id": "latyshova.radial_gradient_and_dynamic",
+   "format": "длинное видео",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
    "template": "borehole",
-   "why": "Трудность И: изменение сопротивления вглубь пласта из-за проникновения фильтрата, которое не видно глазами. Критерии invisible, cause_effect, отчасти time и scale; сумма 6, шортс."
+   "why": "Трудность типа И/Н, сумма 7. Зона проникновения невидима (invisible), динамические методы следят за ней во времени (time), отсутствие градиента не значит отсутствие коллектора (counterintuitive). Решение на данных, поэтому длинное видео."
   },
   {
    "node_id": "latyshova.critical_permeability",
@@ -239,7 +239,7 @@
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Н: граничная проницаемость не универсальна, зависит от флюида и условий. Критерии counterintuitive и cause_effect слабые; карточки с оговорками."
+   "why": "Трудность типа Н/Ф: понятие граничной проницаемости и правило «выше порога — коллектор». Видеоёмкость низкая (counterintuitive 1, cause_effect 1), поэтому карточки."
   },
   {
    "node_id": "latyshova.debit_to_critical_perm",
@@ -248,13 +248,13 @@
    "video_scores": {
     "time": 0,
     "invisible": 0,
-    "scale": 0,
+    "scale": 1,
     "counterintuitive": 0,
-    "cause_effect": 1
+    "cause_effect": 2
    },
    "hook_short": false,
    "template": "flow",
-   "why": "Трудность Ф: двухшаговый расчёт от дебита через коэффициент продуктивности η к k*пр. Из критериев только слабый cause_effect; цепочку формул удобно пройти в интерактиве."
+   "why": "Трудность типа Ф/Пр: двухшаговая цепочка «дебит → η → k*пр» с депрессией и толщиной. Критерии: cause_effect 2, scale 1. Интерактив-цепочка с изменением входов."
   },
   {
    "node_id": "latyshova.permeability_threshold_on_logs",
@@ -263,28 +263,28 @@
    "video_scores": {
     "time": 0,
     "invisible": 1,
-    "scale": 0,
+    "scale": 1,
     "counterintuitive": 0,
-    "cause_effect": 1
+    "cause_effect": 2
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: пересчёт k*пр в критические показания методов и проведение уровня на диаграммах. Критерии invisible и cause_effect слабые; работа с реальными кривыми, поэтому практикум на данных."
+   "why": "Трудность типа Пр/Ф: пересчёт k*пр → kп* или ηгл* → пороги ΔJпγ*, ΔТ*, αСП* на диаграмме. Критерии: cause_effect 2, invisible 1, scale 1. Навык отрабатывается на данных."
   },
   {
    "node_id": "latyshova.nmr_and_method_choice",
-   "format": "интерактив",
+   "format": "карточки",
    "secondary_format": null,
    "video_scores": {
     "time": 0,
     "invisible": 2,
-    "scale": 1,
-    "counterintuitive": 0,
+    "scale": 0,
+    "counterintuitive": 1,
     "cause_effect": 1
    },
    "hook_short": false,
-   "template": "log",
-   "why": "Трудность И: ЯМР показывает свободный флюид, и по Iсф с порогом 1 % выделяют коллектор. Критерии invisible, scale, cause_effect; сумма 4 меньше 6, поэтому интерактив на кривых."
+   "template": null,
+   "why": "Трудность типа И/Пр: ЯМР как диаграмма эффективной пористости и выбор методов по типу разреза. Сумма 4 (invisible 2), ниже порога 6, поэтому карточки."
   },
   {
    "node_id": "latyshova.saturation_from_resistivity",
@@ -294,12 +294,12 @@
     "time": 0,
     "invisible": 1,
     "scale": 0,
-    "counterintuitive": 0,
+    "counterintuitive": 1,
     "cause_effect": 2
    },
    "hook_short": false,
    "template": "compare",
-   "why": "Трудность Ф: сравнение реального сопротивления с ожидаемым при полном водонасыщении. Критерии cause_effect и invisible (непосредственно не измеряемое сопротивление); интерактив со сравнением."
+   "why": "Трудность типа Ф/И: Pн = ρп/ρвп, где ρвп получают косвенно через пористость и ρв. Критерии: cause_effect 2, invisible 1, counterintuitive 1. Интерактив со сравнением ρп и ρвп."
   },
   {
    "node_id": "latyshova.compare_resistivity_porosity",
@@ -310,11 +310,11 @@
     "invisible": 1,
     "scale": 0,
     "counterintuitive": 1,
-    "cause_effect": 1
+    "cause_effect": 2
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: сопоставление сопротивления и пористости тремя способами, диапазоны разных пластов перекрываются. Критерии invisible, counterintuitive, cause_effect слабые; практикум на данных."
+   "why": "Трудность типа Пр/И: сопоставление сопротивления и пористости тремя способами для оценки Pн. Критерии: cause_effect 2, invisible 1, counterintuitive 1. Отрабатывается на данных."
   },
   {
    "node_id": "latyshova.rho_kp_palette",
@@ -322,14 +322,14 @@
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 0,
+    "invisible": 1,
     "scale": 0,
-    "counterintuitive": 0,
+    "counterintuitive": 1,
     "cause_effect": 1
    },
    "hook_short": false,
    "template": "plot",
-   "why": "Трудность Ф: палетка ρп = f(kп) делит поле на области и кривые водонасыщения. Критерии почти не выражены (cause_effect); точку на графике лучше двигать в интерактиве."
+   "why": "Трудность типа Ф/Р: зависимость ρп = f(kп) с областями на палетке. Критерии: invisible 1, counterintuitive 1, cause_effect 1. Интерактив: точка на графике попадает в области."
   },
   {
    "node_id": "latyshova.reading_palette",
@@ -339,12 +339,12 @@
     "time": 0,
     "invisible": 0,
     "scale": 0,
-    "counterintuitive": 1,
+    "counterintuitive": 2,
     "cause_effect": 1
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: нанести точку ρп и kп на палетку и определить характер насыщения. Критерии counterintuitive (одного сопротивления недостаточно) и cause_effect слабые; практикум на данных."
+   "why": "Трудность типа Пр/Н: чтение палетки по паре ρп и kп. При ρп = 10 Ом·м разная пористость даёт разные выводы (counterintuitive 2, cause_effect 1). Практикум на данных."
   },
   {
    "node_id": "latyshova.critical_pn_kv",
@@ -354,12 +354,12 @@
     "time": 0,
     "invisible": 0,
     "scale": 0,
-    "counterintuitive": 0,
+    "counterintuitive": 1,
     "cause_effect": 1
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Н: два вида критических значений (Pн*, kв* и Pн,кр, kв,кр) и два способа их найти, легко спутать. Выражен только cause_effect; карточки с различением."
+   "why": "Трудность типа Н/Ф: критические Pн, kв двух видов и два способа их установки. Это набор определений (counterintuitive 1, cause_effect 1), поэтому карточки."
   },
   {
    "node_id": "latyshova.phase_permeability_zones",
@@ -368,13 +368,13 @@
    "video_scores": {
     "time": 0,
     "invisible": 1,
-    "scale": 0,
+    "scale": 1,
     "counterintuitive": 1,
     "cause_effect": 1
    },
    "hook_short": false,
    "template": "plot",
-   "why": "Трудность Ф: кривые относительных фазовых проницаемостей делят водонасыщение на три зоны. Критерии invisible, counterintuitive, cause_effect слабые; кривые исследуются в интерактиве."
+   "why": "Трудность типа Ф/Н: кривые kпр.н и kпр.в от kв делят пласт на зоны нефти, смеси и воды. Критерии: invisible 1, scale 1, counterintuitive 1, cause_effect 1. Интерактив с кривыми и порогами kв*, kв**."
   },
   {
    "node_id": "latyshova.critical_values_examples",
@@ -384,46 +384,16 @@
     "time": 0,
     "invisible": 0,
     "scale": 0,
-    "counterintuitive": 0,
-    "cause_effect": 1
+    "counterintuitive": 1,
+    "cause_effect": 2
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: чтение значений с рис. 70 (30, 56, 80 % и Pн 10, 3, 1,5) и прогноз притока. Критерии почти не выражены (cause_effect); практикум на данных."
+   "why": "Трудность типа Пр/Н: перевод kв в Pн по зависимости Pн = f(kв) (примеры 49, 50). Критерии: cause_effect 2, counterintuitive 1. Расчёт на данных."
   },
   {
    "node_id": "latyshova.clay_classes_critical",
    "format": "карточки",
-   "secondary_format": null,
-   "video_scores": {
-    "time": 0,
-    "invisible": 0,
-    "scale": 0,
-    "counterintuitive": 1,
-    "cause_effect": 1
-   },
-   "hook_short": false,
-   "template": null,
-   "why": "Трудность Н: критические значения нельзя брать одним набором, они зависят от класса глинистости (αСП). Критерии counterintuitive и cause_effect слабые; карточки по классам."
-  },
-  {
-   "node_id": "latyshova.saturation_examples_tasks",
-   "format": "практикум на данных",
-   "secondary_format": null,
-   "video_scores": {
-    "time": 0,
-    "invisible": 0,
-    "scale": 0,
-    "counterintuitive": 0,
-    "cause_effect": 1
-   },
-   "hook_short": false,
-   "template": null,
-   "why": "Трудность Пр: пример 53 и задачи 92–95 на оценку насыщения по Pн, αСП и диаграммам. Критерии почти не выражены (cause_effect); практикум на данных."
-  },
-  {
-   "node_id": "latyshova.effective_thickness_basic",
-   "format": "практикум на данных",
    "secondary_format": null,
    "video_scores": {
     "time": 0,
@@ -434,10 +404,10 @@
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: определение эффективной толщины однородного пласта и пласта у ВНК/ГВК по диаграммам. Критерии scale и cause_effect слабые; практикум на данных."
+   "why": "Трудность типа Н/Ф: критические значения для классов коллектора по αСП. Видеоёмкость низкая (scale 1, cause_effect 1), поэтому карточки."
   },
   {
-   "node_id": "latyshova.vnk_transition_zone",
+   "node_id": "latyshova.saturation_examples_tasks",
    "format": "практикум на данных",
    "secondary_format": null,
    "video_scores": {
@@ -449,22 +419,52 @@
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: проведение ВНК по линейному закону ρп в переходной зоне до критического значения. Критерии invisible и cause_effect слабые; практикум на данных."
+   "why": "Трудность типа Пр/Н: определение характера насыщения по точке (Pн, αСП) на рис. 7,б и задачи 92–95 на реальных диаграммах. Критерии низкие (invisible 1, cause_effect 1). Практикум на данных."
+  },
+  {
+   "node_id": "latyshova.effective_thickness_basic",
+   "format": "практикум на данных",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Трудность типа Пр/П: снять эффективную толщину однородного пласта и пласта у контакта с диаграммы. Критерии: invisible 1, scale 1, cause_effect 1. Практикум на данных."
+  },
+  {
+   "node_id": "latyshova.vnk_transition_zone",
+   "format": "практикум на данных",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Трудность типа Пр/Н: проведение ВНК по критическому ρп на графике ρп = f(Н) с допущением линейности. Критерии: invisible 1, scale 1, counterintuitive 1, cause_effect 1. Практикум на данных."
   },
   {
    "node_id": "latyshova.gnk_by_neutron",
-   "format": "шортс",
+   "format": "длинное видео",
    "secondary_format": null,
    "video_scores": {
     "time": 2,
     "invisible": 2,
     "scale": 1,
-    "counterintuitive": 0,
-    "cause_effect": 2
+    "counterintuitive": 1,
+    "cause_effect": 1
    },
    "hook_short": false,
    "template": "log",
-   "why": "Трудность И: расформирование зоны проникновения во времени, повторные замеры до стабилизации показаний НМ. Критерии time, invisible, cause_effect, отчасти scale; сумма 7, шортс на кривых."
+   "why": "Трудность типа И/М, сумма 7. Повторные замеры показывают расформирование зоны проникновения (time), контакт газ–нефть не виден глазом (invisible). Решение на данных, поэтому длинное видео с каротажной диаграммой."
   },
   {
    "node_id": "latyshova.nonreservoir_interlayers",
@@ -479,7 +479,7 @@
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Р: типы прослоев неколлектора и правило вычитания h,ф = h − Σhпл. Критерии scale и cause_effect слабые; карточки."
+   "why": "Трудность типа Р/Пр: типы прослоев неколлектора и правило вычитания толщин. Видеоёмкость низкая (scale 1, cause_effect 1), поэтому карточки."
   },
   {
    "node_id": "latyshova.thin_layers_resistivity",
@@ -487,14 +487,14 @@
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 1,
+    "invisible": 2,
     "scale": 1,
-    "counterintuitive": 0,
+    "counterintuitive": 1,
     "cause_effect": 1
    },
    "hook_short": false,
-   "template": "plot",
-   "why": "Трудность Ф: по общему ρп пачки уравнение (63) даёт долю глины χсп, затем формула (64) даёт толщину. Критерии invisible, scale, cause_effect слабые; параметры меняются ползунками в интерактиве."
+   "template": "section",
+   "why": "Трудность типа Ф/И: тонкие слои не различимы, пачка считается набором параллельных слоёв с суммой проводимостей. Критерии: invisible 2, scale 1, counterintuitive 1, cause_effect 1. Интерактив: меняем долю глины в пачке."
   },
   {
    "node_id": "latyshova.thin_layers_sp",
@@ -505,41 +505,41 @@
     "invisible": 1,
     "scale": 1,
     "counterintuitive": 1,
-    "cause_effect": 1
+    "cause_effect": 2
    },
    "hook_short": false,
    "template": "plot",
-   "why": "Трудность Ф: глинистость слоистой пачки по αСП и кривым Долля, плотные прослои влияют на СП иначе. Критерии invisible, scale, counterintuitive, cause_effect слабые; интерактив с расчётными кривыми."
+   "why": "Трудность типа Ф/Пр: палетка αСП = f(χгл) по формулам Долля и отдельный учёт плотных прослоев. Критерии: cause_effect 2, invisible 1, scale 1, counterintuitive 1. Интерактив с кривыми."
   },
   {
    "node_id": "latyshova.thickness_practice",
-   "format": "карточки",
+   "format": "практикум на данных",
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 0,
-    "scale": 0,
-    "counterintuitive": 0,
-    "cause_effect": 0
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: в шаге только условия задач 100–102 и рис. 73 без решений и без данных для практикума. Видеокритерии не выражены, поэтому карточки с условиями."
+   "why": "Трудность типа Пр/Ф: расчёт hэф слоистой пачки, ошибка при счёте по среднему сопротивлению (задачи 100, 101, рис. 73). Критерии: counterintuitive 1, invisible 1, scale 1, cause_effect 1. Практикум на данных."
   },
   {
    "node_id": "latyshova.ggm_ak_collectors",
-   "format": "карточки",
+   "format": "практикум на данных",
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 0,
+    "invisible": 2,
     "scale": 0,
     "counterintuitive": 0,
-    "cause_effect": 0
+    "cause_effect": 1
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность И: во фрагменте нет теории, только рис. 74–75 и задачи 101–103. Видеокритерии не выражены, данных для практикума нет, поэтому карточки с условиями."
+   "why": "Трудность типа И/Пр: пористость скрыта за плотностью и интервальным временем, затем сравнение с граничной kп,гр = 9 % (задача 103). Сумма 3 (invisible 2, cause_effect 1), ниже порога 6, поэтому практикум на данных."
   },
   {
    "node_id": "latyshova.carbonate_features",
@@ -547,14 +547,14 @@
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 0,
-    "scale": 0,
+    "invisible": 1,
+    "scale": 1,
     "counterintuitive": 1,
     "cause_effect": 1
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Н: четыре особенности карбонатов (низкая пористость, разброс структуры, разброс порога, слабая связь с глинистостью) осложняют оценку. Критерии counterintuitive и cause_effect слабые; карточки."
+   "why": "Трудность типа Н/М: список особенностей карбонатов, затрудняющих оценку насыщения. Сумма 4 (invisible 1, scale 1, counterintuitive 1, cause_effect 1), поэтому карточки."
   },
   {
    "node_id": "latyshova.normalization_overlay",
@@ -564,12 +564,12 @@
     "time": 0,
     "invisible": 1,
     "scale": 0,
-    "counterintuitive": 0,
-    "cause_effect": 1
+    "counterintuitive": 1,
+    "cause_effect": 2
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: совмещение кривой ρп с кривой метода пористости подбором масштаба. Критерии invisible и cause_effect слабые (расхождение кривых указывает на продуктивность); практикум на данных."
+   "why": "Трудность типа Пр/И: подбор шкалы, чтобы кривые совпали в неколлекторах, и расхождение как признак продуктивности. Критерии: cause_effect 2, invisible 1, counterintuitive 1. Практикум на данных."
   },
   {
    "node_id": "latyshova.example_54",
@@ -577,14 +577,14 @@
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 0,
-    "scale": 0,
+    "invisible": 1,
+    "scale": 1,
     "counterintuitive": 0,
     "cause_effect": 1
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Пр: процедура из трёх действий (единый масштаб, ВНК 1083 м, вычитание прослоев, итог 9 м). Критерий cause_effect слабый; практикум на данных."
+   "why": "Трудность типа Пр/Н: разбор примера 54 с нормализацией, ВНК на 1083 м (Pн,кр ≈ 2,5) и hэф = 13,5 − 4,5 = 9 м. Критерии: invisible 1, scale 1, cause_effect 1. Практикум на данных."
   },
   {
    "node_id": "latyshova.kp_star_graph",
@@ -593,13 +593,13 @@
    "video_scores": {
     "time": 0,
     "invisible": 1,
-    "scale": 0,
+    "scale": 1,
     "counterintuitive": 1,
     "cause_effect": 1
    },
    "hook_short": false,
    "template": "plot",
-   "why": "Трудность Ф: kп* зависит от структуры пор и читается по связи остаточной воды и пористости (рис. 77, порог 70 %). Критерии invisible, counterintuitive, cause_effect слабые; интерактив с кривыми для пяти типов."
+   "why": "Трудность типа Ф/Н: kп* снимают с кривой kв.св = f(kп) при kв.св = 70 % (пример 55). Критерии: invisible 1, scale 1, counterintuitive 1, cause_effect 1. Интерактив: порог на графике."
   },
   {
    "node_id": "latyshova.kp_star_table",
@@ -608,13 +608,13 @@
    "video_scores": {
     "time": 0,
     "invisible": 0,
-    "scale": 0,
+    "scale": 1,
     "counterintuitive": 1,
-    "cause_effect": 1
+    "cause_effect": 2
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Н: значения kп* для разных карбонатов, неверный порог даёт серьёзные погрешности толщины. Критерии counterintuitive и cause_effect слабые; карточки."
+   "why": "Трудность типа Н/Пр: значения kп* для разных карбонатов и последствия неверного порога. Критерии: cause_effect 2, scale 1, counterintuitive 1. Сумма 4, поэтому карточки."
   },
   {
    "node_id": "latyshova.complex_collectors",
@@ -622,14 +622,14 @@
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 0,
-    "scale": 0,
+    "invisible": 1,
+    "scale": 1,
     "counterintuitive": 0,
     "cause_effect": 0
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Р: определение сложного коллектора и перечень отличий от межзернового. Видеокритерии не выражены, поэтому карточки."
+   "why": "Трудность типа Р/П: классификация сложных коллекторов по составу и строению порового пространства (invisible 1, scale 1). Карточки."
   },
   {
    "node_id": "latyshova.fracture_matrix",
@@ -637,14 +637,14 @@
    "secondary_format": null,
    "video_scores": {
     "time": 0,
-    "invisible": 1,
-    "scale": 2,
+    "invisible": 2,
+    "scale": 1,
     "counterintuitive": 2,
-    "cause_effect": 2
+    "cause_effect": 1
    },
    "hook_short": false,
    "template": "section",
-   "why": "Трудность П: при малой ёмкости трещин (меньше 0,5 %) проницаемость и продуктивность огромны. Критерии counterintuitive, scale, cause_effect, отчасти invisible; сумма 7, но основная трудность в понимании, поэтому интерактив на разрезе."
+   "why": "Трудность типа П/М: геометрия плотных блоков и трещин. Малая пористость при высокой проницаемости (counterintuitive 2), невидимые трещины (invisible 2), масштаб блок–трещина (scale 1). Интерактив: меняем раскрытость трещин на разрезе."
   },
   {
    "node_id": "latyshova.fracture_detection",
@@ -659,7 +659,7 @@
    },
    "hook_short": false,
    "template": null,
-   "why": "Трудность Р: стандартный комплекс ГИС не видит трещинный коллектор, зоны отмечает ГТИ по поглощению и проходке. Критерии invisible, counterintuitive, cause_effect слабые; карточки."
+   "why": "Трудность типа Р/Н: стандартный комплекс ГИС не видит трещинный коллектор, признаки дают ГТИ (поглощение, снижение проходки). Критерии: invisible 1, counterintuitive 1, cause_effect 1. Карточки."
   }
  ]
 }

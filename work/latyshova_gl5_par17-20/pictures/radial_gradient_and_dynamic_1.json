@@ -1,28 +1,74 @@
 {
  "node_id": "latyshova.radial_gradient_and_dynamic",
- "template": "compare",
+ "template": "flow",
  "data": {
-  "left_title": "Повышающее",
-  "right_title": "Понижающее",
-  "rows": [
+  "nodes": [
    {
-    "aspect": "Проникновение фильтрата",
-    "left": "Повышающее",
-    "right": "Понижающее"
+    "id": "a",
+    "text": "Есть радиальный градиент сопротивления?",
+    "kind": "choice"
    },
    {
-    "aspect": "Микро-БК против БК-3",
-    "left": "ρп МБК больше ρп БК",
-    "right": "ρп МБК меньше ρп БК"
+    "id": "b",
+    "text": "Фильтрат проник в пласт: признак коллектора",
+    "kind": "result"
+   },
+   {
+    "id": "c",
+    "text": "Коллектор не исключён",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Динамические методы: зона проникновения во времени",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Повторные замеры: условия не менялись",
+    "kind": "result"
+   },
+   {
+    "id": "f",
+    "text": "Два раствора: условия сменили",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": "да"
+   },
+   {
+    "from": "a",
+    "to": "c",
+    "label": "нет"
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "f",
+    "label": ""
    }
   ]
  },
- "caption": "Тип радиального градиента определяют сравнением показаний микро-БК и трёхэлектродного БК-3.",
- "alt": "Таблица из двух столбцов: при повышающем проникновении ρп МБК больше ρп БК, при понижающем меньше.",
+ "caption": "Нет градиента — не значит нет коллектора: тогда зону проникновения наблюдают во времени двумя способами.",
+ "alt": "Схема решения: при наличии радиального градиента пласт признают коллектором, при его отсутствии применяют динамические методы: повторные замеры или метод двух растворов.",
  "claim_ids": [
-  "latyshova.radial_gradient_and_dynamic#c2",
-  "latyshova.radial_gradient_and_dynamic#c3",
-  "latyshova.radial_gradient_and_dynamic#c4",
-  "latyshova.radial_gradient_and_dynamic#c5"
+  "latyshova.radial_gradient_and_dynamic#c6",
+  "latyshova.radial_gradient_and_dynamic#c9",
+  "latyshova.radial_gradient_and_dynamic#c10",
+  "latyshova.radial_gradient_and_dynamic#c11",
+  "latyshova.radial_gradient_and_dynamic#c12"
  ]
 }

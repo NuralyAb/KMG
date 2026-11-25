@@ -4,42 +4,34 @@
  "data": {
   "layers": [
    {
-    "lithology": "limestone",
-    "label": "Вмещающая порода",
-    "thickness": 2
-   },
-   {
     "lithology": "dense",
-    "label": "Трещиноватая зона",
+    "label": "Плотная порода",
     "thickness": 2
    },
    {
     "lithology": "limestone",
-    "label": "Вмещающая порода",
-    "thickness": 2
+    "label": "Трещиноватая зона",
+    "thickness": 3
    }
   ],
   "curves": [
    {
-    "name": "SP",
-    "levels": [
-     "mid",
-     "low",
-     "mid"
-    ]
-   },
-   {
     "name": "RES",
     "levels": [
      "mid",
-     "high",
-     "mid"
+     "high"
+    ]
+   },
+   {
+    "name": "SP",
+    "levels": [
+     "mid",
+     "low"
     ]
    },
    {
     "name": "CALIPER",
     "levels": [
-     "mid",
      "mid",
      "mid"
     ]
@@ -47,11 +39,11 @@
   ],
   "filtrate": "fresh"
  },
- "caption": "В зоне трещиноватости СП низкий, разноглубинные зонды дают высокие показания, диаметр скважины номинальный.",
- "alt": "Планшет ГИС с тремя слоями. Против трещиноватой зоны кривая СП уходит вниз, кривая сопротивления растёт, кавернограмма остаётся на номинальном уровне.",
+ "caption": "В зоне трещиноватости сопротивление высокое, СП низкое, диаметр скважины номинальный. Радиального градиента нет.",
+ "alt": "Планшет ГИС: в трещиноватой зоне карбонатного разреза высокое сопротивление, низкая кривая СП и номинальный диаметр скважины.",
  "claim_ids": [
+  "latyshova.fracture_detection#c8",
   "latyshova.fracture_detection#c9",
-  "latyshova.fracture_detection#c10",
-  "latyshova.fracture_detection#c11"
+  "latyshova.fracture_detection#c10"
  ]
 }

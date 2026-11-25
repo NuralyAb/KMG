@@ -1,56 +1,36 @@
 {
  "node_id": "latyshova.nonreservoir_interlayers",
- "template": "log",
+ "template": "section",
  "data": {
+  "shape": "flat",
   "layers": [
    {
     "lithology": "sand",
-    "fluid": "oil",
-    "label": "Коллектор",
-    "thickness": 2
-   },
-   {
-    "lithology": "dense",
-    "label": "Плотный прослой",
-    "thickness": 1
-   },
-   {
-    "lithology": "sand",
-    "fluid": "oil",
-    "label": "Коллектор",
-    "thickness": 2
+    "label": "Коллектор"
    },
    {
     "lithology": "shale",
-    "label": "Глина",
-    "thickness": 1
+    "label": "Прослой: глина"
    },
    {
     "lithology": "sand",
-    "fluid": "oil",
-    "label": "Коллектор",
-    "thickness": 2
-   }
-  ],
-  "curves": [
+    "label": "Коллектор"
+   },
    {
-    "name": "GR",
-    "levels": [
-     "low",
-     "low",
-     "low",
-     "high",
-     "low"
-    ]
+    "lithology": "dense",
+    "label": "Плотный алевролит"
+   },
+   {
+    "lithology": "sand",
+    "label": "Коллектор"
    }
   ],
-  "filtrate": "fresh"
+  "wells": []
  },
- "caption": "Прослой глины виден на ГМ, а плотный прослой на ГМ почти не заметен. Суммарную толщину прослоев вычитают из толщины пласта.",
- "alt": "Планшет: пласт коллектора с прослоями плотной породы и глины. Кривая ГМ даёт высокие показания только против глины, против плотного прослоя она не отличается от коллектора.",
+ "caption": "Толщина пласта h включает прослои неколлектора (глина, плотный алевролит). Эффективная толщина: hэф = h − Σhпл.",
+ "alt": "Разрез мощного пласта: слои коллектора чередуются с прослоями глины и плотного алевролита. Прослои неколлектора вычитают из полной толщины.",
  "claim_ids": [
-  "latyshova.nonreservoir_interlayers#c2",
-  "latyshova.nonreservoir_interlayers#c4",
-  "latyshova.nonreservoir_interlayers#c8"
+  "latyshova.nonreservoir_interlayers#c1",
+  "latyshova.nonreservoir_interlayers#c2"
  ]
 }

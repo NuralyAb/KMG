@@ -149,3 +149,9 @@ def test_cake_needs_mud_and_invasion():
 def test_thin_layer_keeps_its_whole_label():
     layers = [{**x, "thickness": 1, "label": "очень длинная подпись"[:20]} for x in GOOD["log"]["layers"]]
     assert broken("log", layers=layers)
+
+
+def test_labels_of_arrows_into_one_block_must_fit_together():
+    nodes = [{"id": k, "text": f"блок {k}", "kind": "step"} for k in "abc"]
+    edges = [{"from": "a", "to": "c", "label": "числитель"}, {"from": "b", "to": "c", "label": "знаменатель"}]
+    assert broken("flow", nodes=nodes, edges=edges)

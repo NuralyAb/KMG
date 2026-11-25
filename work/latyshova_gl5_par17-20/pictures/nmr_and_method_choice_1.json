@@ -1,63 +1,44 @@
 {
  "node_id": "latyshova.nmr_and_method_choice",
- "template": "flow",
+ "template": "plot",
  "data": {
-  "nodes": [
+  "x_label": "Iсф.п, %",
+  "y_label": "kп.эф, %",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "params": {},
+  "series": [
    {
-    "id": "a",
-    "text": "Диаграмма ЯМ: индекс свободного флюида Iсф",
-    "kind": "data"
-   },
-   {
-    "id": "b",
-    "text": "Принимаем kп,эф = Iсф,в",
-    "kind": "step"
-   },
-   {
-    "id": "c",
-    "text": "kп,эф больше 1 %?",
-    "kind": "choice"
-   },
-   {
-    "id": "d",
-    "text": "Коллектор",
-    "kind": "result"
-   },
-   {
-    "id": "e",
-    "text": "Не коллектор: возможны помехи",
-    "kind": "result"
+    "name": "kп.эф = Iсф.п",
+    "color": "",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ]
+    ]
    }
   ],
-  "edges": [
+  "marks": [
    {
-    "from": "a",
-    "to": "b",
-    "label": ""
-   },
-   {
-    "from": "b",
-    "to": "c",
-    "label": ""
-   },
-   {
-    "from": "c",
-    "to": "d",
-    "label": "да"
-   },
-   {
-    "from": "c",
-    "to": "e",
-    "label": "нет"
+    "x": 0.3,
+    "y": 0.3,
+    "text": "порог 1 %"
    }
   ]
  },
- "caption": "График Iсф принимают за диаграмму эффективной пористости; пласты с kп,эф больше 1 % считают коллекторами.",
- "alt": "Схема: диаграмма ЯМ даёт индекс свободного флюида, он принимается за эффективную пористость. Если она больше 1 %, пласт коллектор, иначе возможны аппаратурные помехи.",
+ "caption": "Эффективная пористость равна Iсф.п. Пласты выше порога 1 % считают коллекторами, ниже — отклонения из-за помех.",
+ "alt": "Прямая, на которой эффективная пористость равна индексу свободного флюида. Отметка порога 1 % отделяет коллекторы от значений, вызванных помехами.",
  "claim_ids": [
-  "latyshova.nmr_and_method_choice#c1",
   "latyshova.nmr_and_method_choice#c2",
   "latyshova.nmr_and_method_choice#c3",
-  "latyshova.nmr_and_method_choice#c4"
+  "latyshova.nmr_and_method_choice#c4",
+  "latyshova.nmr_and_method_choice#c5"
  ]
 }

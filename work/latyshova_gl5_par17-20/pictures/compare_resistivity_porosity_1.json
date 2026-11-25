@@ -5,49 +5,58 @@
   "nodes": [
    {
     "id": "a",
-    "text": "Метод пористости в пласте",
+    "text": "Диаграмма сопротивления: ρп пласта",
     "kind": "data"
    },
    {
     "id": "b",
-    "text": "Ожидаемое ρвн при полном водонасыщении",
-    "kind": "step"
+    "text": "Метод пористости: ρвп при полном водонасыщении",
+    "kind": "data"
    },
    {
     "id": "c",
-    "text": "ρн больше ρвн?",
-    "kind": "choice"
+    "text": "Сравнение: Pн = ρп/ρвп",
+    "kind": "step"
    },
    {
     "id": "d",
-    "text": "Pн = ρн/ρвн > 1, значит kн < 1 (kн > 0)",
+    "text": "Пласт с ρп > ρвп, значит Pн > 1",
+    "kind": "choice"
+   },
+   {
+    "id": "e",
+    "text": "kв < 1, то есть kн > 0",
     "kind": "result"
    }
   ],
   "edges": [
    {
     "from": "a",
-    "to": "b",
+    "to": "c",
     "label": ""
    },
    {
     "from": "b",
     "to": "c",
-    "label": "сравнить"
+    "label": ""
    },
    {
     "from": "c",
     "to": "d",
-    "label": "да"
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": "Pн > 1"
    }
   ]
  },
- "caption": "Сопротивление пласта сравнивают с ρвн, которое даёт метод пористости. Если ρн больше ρвн, то Pн больше 1, а kн меньше 1.",
- "alt": "Схема из четырёх блоков: метод пористости даёт ρвн, пласт сравнивают с ним, и при ρн больше ρвн получается Pн больше 1 и kн меньше 1.",
+ "caption": "Как сопротивление пласта сравнивают с ρвп: из отношения получают Pн, а по Pн > 1 судят о наличии нефти или газа.",
+ "alt": "Схема: сопротивление пласта и значение ρвп из метода пористости дают параметр насыщения Pн. Если Pн больше единицы, водонасыщение меньше единицы и нефтегазонасыщение больше нуля.",
  "claim_ids": [
-  "latyshova.compare_resistivity_porosity#c11",
-  "latyshova.compare_resistivity_porosity#c12",
-  "latyshova.compare_resistivity_porosity#c13",
-  "latyshova.compare_resistivity_porosity#c14"
+  "latyshova.compare_resistivity_porosity#c9",
+  "latyshova.compare_resistivity_porosity#c10",
+  "latyshova.compare_resistivity_porosity#c11"
  ]
 }

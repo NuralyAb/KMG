@@ -9,15 +9,15 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Простые задачи ГИС решают по признакам на диаграммах, сложные и промышленную оценку коллекторов считают числами.",
-   "alt": "Схема: данные ГИС делятся на качественную и количественную интерпретацию, обе ведут к подсчёту запасов и проектированию разработки.",
+   "caption": "Задачи ГИС по порядку: от литологического разреза к количественным свойствам коллекторов, на которых строят запасы и разработку.",
+   "alt": "Цепочка из пяти блоков: литологический разрез, выделение коллекторов, оценка насыщения и толщины, количественные свойства, подсчёт запасов и проект разработки.",
    "source": "построено кодом по утверждениям главы, стр. 90",
    "claim_ids": [
+    "latyshova.goals_of_log_interpretation#c1",
+    "latyshova.goals_of_log_interpretation#c2",
     "latyshova.goals_of_log_interpretation#c5",
     "latyshova.goals_of_log_interpretation#c6",
-    "latyshova.goals_of_log_interpretation#c7",
-    "latyshova.goals_of_log_interpretation#c8",
-    "latyshova.goals_of_log_interpretation#c9"
+    "latyshova.goals_of_log_interpretation#c7"
    ],
    "prompt": null
   },
@@ -29,14 +29,13 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "Кавернометрия: в коллекторе диаметр меньше номинального (корка), в плотной породе равен ему, в глине и соли больше.",
-   "alt": "Планшет с кривой диаметра скважины: против коллектора диаметр уменьшен, против плотной породы номинальный, против глины и соли увеличен.",
+   "caption": "Диаметр скважины на кривой каверномера: в глине больше номинального, против коллектора меньше (корка), в плотной породе равен номинальному.",
+   "alt": "Планшет с тремя слоями: глина, коллектор, плотная порода. Кривая диаметра скважины в глине уходит выше номинального, в коллекторе ниже, в плотной породе остаётся на номинальном уровне.",
    "source": "построено кодом по утверждениям главы, стр. 90",
    "claim_ids": [
     "latyshova.mud_effects_on_borehole#c8",
     "latyshova.mud_effects_on_borehole#c9",
-    "latyshova.mud_effects_on_borehole#c10",
-    "latyshova.mud_effects_on_borehole#c11"
+    "latyshova.mud_effects_on_borehole#c10"
    ],
    "prompt": null
   },
@@ -48,13 +47,12 @@
    "frame_class": "A",
    "origin": "code_from_data",
    "label": "схема",
-   "caption": "Водоотдача раствора: при 4–8 см³/ч проникновение и корка минимальны, при 20 см³/ч условия для каротажа крайне неблагоприятны.",
-   "alt": "Столбчатая диаграмма: оптимальная водоотдача от 4 до 8 см³/ч, высокая водоотдача 20 см³/ч.",
+   "caption": "Водоотдача глинистого раствора: оптимальный диапазон 4—8 см³/ч против высокой водоотдачи 20 см³/ч, при которой условия для ГИС крайне неблагоприятны.",
+   "alt": "Столбчатая диаграмма: оптимальная водоотдача занимает диапазон от 4 до 8 см³/ч, высокая водоотдача равна 20 см³/ч.",
    "source": "построено кодом по утверждениям главы, стр. 90",
    "claim_ids": [
     "latyshova.water_loss_and_mud_density#c3",
-    "latyshova.water_loss_and_mud_density#c4",
-    "latyshova.water_loss_and_mud_density#c7"
+    "latyshova.water_loss_and_mud_density#c5"
    ],
    "prompt": null
   },
@@ -66,30 +64,12 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "Когда ρф приближается к ρп, СП и микрозонды хуже выделяют коллектор, а оценка продуктивности по разноглубинной электрометрии улучшается.",
-   "alt": "Две качественные кривые: эффективность СП и микрозондов падает по мере сближения ρф и ρп, а эффективность разноглубинной электрометрии растёт.",
+   "caption": "Пресный раствор (ρф > ρв): против коллектора кривая СП даёт отрицательную аномалию. Смотрите на отклонение кривой влево в коллекторе.",
+   "alt": "Планшет с двумя слоями, глиной и коллектором. Кривая СП в коллекторе уходит в отрицательную аномалию при пресном фильтрате.",
    "source": "построено кодом по утверждениям главы, стр. 91",
    "claim_ids": [
-    "latyshova.filtrate_salinity#c2",
-    "latyshova.filtrate_salinity#c6",
-    "latyshova.filtrate_salinity#c8"
-   ],
-   "prompt": null
-  },
-  {
-   "id": "latyshova.water_and_nonfiltering_muds.i1",
-   "step_id": "latyshova.water_and_nonfiltering_muds",
-   "node_id": "latyshova.water_and_nonfiltering_muds",
-   "file": "pictures/water_and_nonfiltering_muds_1.svg",
-   "frame_class": "B",
-   "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Бурение на воде при глинах: фильтрат уходит в пласт, зона проникновения глубокая, характер насыщения по ГИС, как правило, не оценить.",
-   "alt": "Разрез скважины с прискважинной зоной: промывочная жидкость идёт в проницаемый пласт и образует зону проникновения вокруг ствола.",
-   "source": "построено кодом по утверждениям главы, стр. 91",
-   "claim_ids": [
-    "latyshova.water_and_nonfiltering_muds#c2",
-    "latyshova.water_and_nonfiltering_muds#c3"
+    "latyshova.filtrate_salinity#c3",
+    "latyshova.filtrate_salinity#c4"
    ],
    "prompt": null
   },
@@ -98,16 +78,18 @@
    "step_id": "latyshova.section_and_collector_types",
    "node_id": "latyshova.section_and_collector_types",
    "file": "pictures/section_and_collector_types_1.svg",
-   "frame_class": "B",
+   "frame_class": "A",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Межзерновой коллектор терригенного разреза: поры между зёрнами, глина рассеяна в порах. Такие коллекторы там преобладают.",
-   "alt": "Порода под увеличением: зёрна с порами между ними, в порах рассеяна глина.",
+   "caption": "Два основных типа разреза: какие коллекторы в них преобладают и как межзерновые делят по геофизическим признакам.",
+   "alt": "Таблица сравнения терригенного и карбонатного разрезов по преобладающим коллекторам, делению межзерновых коллекторов и вторичным порам.",
    "source": "построено кодом по утверждениям главы, стр. 91",
    "claim_ids": [
-    "latyshova.section_and_collector_types#c4",
     "latyshova.section_and_collector_types#c6",
-    "latyshova.section_and_collector_types#c8"
+    "latyshova.section_and_collector_types#c7",
+    "latyshova.section_and_collector_types#c8",
+    "latyshova.section_and_collector_types#c11",
+    "latyshova.section_and_collector_types#c12"
    ],
    "prompt": null
   },
@@ -119,15 +101,16 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Две группы методов комплекса: что они дают и при каких условиях работают. Сравните тип раствора и условия.",
-   "alt": "Таблица из двух столбцов: методы пористости и методы глинистости, с их методами, типами раствора и условиями применимости.",
+   "caption": "Группы методов по задаче; справа условия, при которых метод работает. Видно, что у СП условия строже, чем у ГМ.",
+   "alt": "Таблица из четырёх строк: группа методов, сами методы и условия их применимости.",
    "source": "построено кодом по утверждениям главы, стр. 91, 92",
    "claim_ids": [
+    "latyshova.four_method_groups#c3",
+    "latyshova.four_method_groups#c5",
     "latyshova.four_method_groups#c6",
     "latyshova.four_method_groups#c7",
     "latyshova.four_method_groups#c8",
     "latyshova.four_method_groups#c10",
-    "latyshova.four_method_groups#c11",
     "latyshova.four_method_groups#c12"
    ],
    "prompt": null
@@ -140,13 +123,13 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Pн объединяет методы сопротивления (числитель) и методы пористости (знаменатель). Если Pн больше единицы, порода содержит нефть или газ.",
-   "alt": "Схема: два входа, методы сопротивления и методы пористости, сходятся в параметре Pн; при Pн больше единицы порода нефте- или газосодержащая.",
+   "caption": "Как получают Pн: числитель из методов сопротивления, знаменатель из методов пористости при известном ρв.",
+   "alt": "Схема: сопротивление неизменённой части пласта и сопротивление водонасыщенной породы дают Pн. Если Pн больше единицы, порода содержит нефть или газ.",
    "source": "построено кодом по утверждениям главы, стр. 92",
    "claim_ids": [
     "latyshova.productivity_pn#c3",
     "latyshova.productivity_pn#c4",
-    "latyshova.productivity_pn#c7"
+    "latyshova.productivity_pn#c5"
    ],
    "prompt": null
   },
@@ -158,13 +141,13 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "От глубины проникновения зависит, какие методы показывают газ и когда измерения нужно повторить после обсадки.",
-   "alt": "Схема: при неглубоком проникновении микрозонды, ГГМ и НМ дают сведения о продуктивности и газе. При глубоком нейтронные измерения повторяют после обсадки, зона проникновения расформировывается, и видны газонасыщенные интервалы.",
+   "caption": "Методы одной группы дают сведения о свойствах другой группы: пористости о глинистости, микрозонды о продуктивности.",
+   "alt": "Схема из двух стрелок: методы пористости ГГМ, НМ, АК дают сведения о глинистости, а микрозонды при неглубоком проникновении дают сведения о продуктивности.",
    "source": "построено кодом по утверждениям главы, стр. 92",
    "claim_ids": [
-    "latyshova.methods_overlap#c5",
-    "latyshova.methods_overlap#c6",
-    "latyshova.methods_overlap#c7"
+    "latyshova.methods_overlap#c1",
+    "latyshova.methods_overlap#c4",
+    "latyshova.methods_overlap#c6"
    ],
    "prompt": null
   },
@@ -176,14 +159,14 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Две операции построения разреза идут по одному комплексу диаграмм; чем больше признаков, тем точнее литология.",
-   "alt": "Схема: комплекс диаграмм разных методов используется для определения границ и толщин пластов и для оценки литологии интервалов по сумме признаков. Результат — литологическая колонка.",
+   "caption": "Из диаграмм разных методов делают две операции: находят границы пластов и оценивают литологию интервалов. Вместе они дают колонку.",
+   "alt": "Схема: комплекс диаграмм разных методов ведёт к двум операциям, определению границ и толщин пластов и оценке литологии интервалов, а они вместе дают литологическую колонку.",
    "source": "построено кодом по утверждениям главы, стр. 92",
    "claim_ids": [
     "latyshova.build_litho_column#c1",
     "latyshova.build_litho_column#c2",
-    "latyshova.build_litho_column#c4",
-    "latyshova.build_litho_column#c5"
+    "latyshova.build_litho_column#c3",
+    "latyshova.build_litho_column#c4"
    ],
    "prompt": null
   },
@@ -195,14 +178,13 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "Нейтронные показания: у глин минимальные, у водо- и нефтеносных коллекторов средние, у газового коллектора максимальные.",
-   "alt": "Планшет с четырьмя слоями: глина, газовый, нефтяной и водоносный песчаники. Нейтронная кривая низкая против глины, максимальная против газа, средняя против нефти и воды.",
+   "caption": "Глина даёт максимум СП и ГК и минимум нейтронных показаний. Против коллекторов СП минимален, ГК и нейтронные показания средние.",
+   "alt": "Планшет с тремя слоями: глина, нефтяной и водоносный коллекторы. Кривые СП и ГК против глины максимальны, нейтронная кривая минимальна; против коллекторов СП низкая, остальные средние.",
    "source": "построено кодом по утверждениям главы, стр. 93",
    "claim_ids": [
-    "latyshova.table21_clays_sands_gas#c11",
-    "latyshova.table21_clays_sands_gas#c13",
-    "latyshova.table21_clays_sands_gas#c15",
-    "latyshova.table21_clays_sands_gas#c16"
+    "latyshova.table21_clays_sands_gas#c9",
+    "latyshova.table21_clays_sands_gas#c10",
+    "latyshova.table21_clays_sands_gas#c11"
    ],
    "prompt": null
   },
@@ -214,13 +196,14 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Гипсы повторяют признаки ангидритов, кроме последнего столбца таблицы: у ангидритов максимум, у гипсов минимум.",
-   "alt": "Сравнение ангидритов и гипсов: проникновения нет, диаметр скважины равен номинальному у обоих. Различаются они значениями в последнем столбце: у ангидритов максимальные, у гипсов минимальные.",
+   "caption": "У ангидрита диаметр скважины номинальный. У галита он номинальный только в насыщенном солью растворе, иначе показания меняются.",
+   "alt": "Таблица сравнения ангидрита и галита по диаметру скважины, проникновению и показаниям последнего столбца.",
    "source": "построено кодом по утверждениям главы, стр. 94",
    "claim_ids": [
-    "latyshova.table21_carbonates_salts#c5",
     "latyshova.table21_carbonates_salts#c6",
-    "latyshova.table21_carbonates_salts#c7"
+    "latyshova.table21_carbonates_salts#c7",
+    "latyshova.table21_carbonates_salts#c10",
+    "latyshova.table21_carbonates_salts#c12"
    ],
    "prompt": null
   },
@@ -232,15 +215,13 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "В смешанном разрезе колонку и коллектор выделяют только количественной интерпретацией с опорой на геологию.",
-   "alt": "Схема: терригенные и карбонатные породы и разные флюиды ведут к количественной интерпретации с геологическими сведениями, а она к колонке разреза и выделению коллектора.",
+   "caption": "В смешанном разрезе разрез и коллектор строят только количественной интерпретацией ГИС вместе с геологическими сведениями.",
+   "alt": "Схема: разные породы и разные флюиды ведут к количественной интерпретации ГИС и геологическим сведениям, а вместе они дают построение разреза и выделение коллектора.",
    "source": "построено кодом по утверждениям главы, стр. 95",
    "claim_ids": [
     "latyshova.mixed_section_practice#c1",
     "latyshova.mixed_section_practice#c2",
-    "latyshova.mixed_section_practice#c3",
-    "latyshova.mixed_section_practice#c4",
-    "latyshova.mixed_section_practice#c5"
+    "latyshova.mixed_section_practice#c3"
    ],
    "prompt": null
   },
@@ -249,16 +230,15 @@
    "step_id": "latyshova.direct_signs_of_collector",
    "node_id": "latyshova.direct_signs_of_collector",
    "file": "pictures/direct_signs_of_collector_1.svg",
-   "frame_class": "B",
+   "frame_class": "A",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "Против коллектора на стенке скважины глинистая корка, за ней зона проникновения фильтрата в пласт.",
-   "alt": "Разрез скважины в проницаемом песчаном пласте: раствор, глинистая корка на стенке, зона проникновения фильтрата и нетронутый пласт.",
+   "label": "симуляция",
+   "caption": "Против коллектора кавернограмма показывает сужение скважины: на стенке растёт глинистая корка, диаметр меньше номинального.",
+   "alt": "Планшет с кавернограммой: против проницаемого пласта диаметр скважины меньше номинального из-за глинистой корки, против соседних пород номинальный.",
    "source": "построено кодом по утверждениям главы, стр. 96",
    "claim_ids": [
     "latyshova.direct_signs_of_collector#c3",
-    "latyshova.direct_signs_of_collector#c5",
-    "latyshova.direct_signs_of_collector#c7"
+    "latyshova.direct_signs_of_collector#c5"
    ],
    "prompt": null
   },
@@ -267,17 +247,18 @@
    "step_id": "latyshova.radial_gradient_and_dynamic",
    "node_id": "latyshova.radial_gradient_and_dynamic",
    "file": "pictures/radial_gradient_and_dynamic_1.svg",
-   "frame_class": "A",
+   "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Тип радиального градиента определяют сравнением показаний микро-БК и трёхэлектродного БК-3.",
-   "alt": "Таблица из двух столбцов: при повышающем проникновении ρп МБК больше ρп БК, при понижающем меньше.",
+   "caption": "Нет градиента — не значит нет коллектора: тогда зону проникновения наблюдают во времени двумя способами.",
+   "alt": "Схема решения: при наличии радиального градиента пласт признают коллектором, при его отсутствии применяют динамические методы: повторные замеры или метод двух растворов.",
    "source": "построено кодом по утверждениям главы, стр. 96",
    "claim_ids": [
-    "latyshova.radial_gradient_and_dynamic#c2",
-    "latyshova.radial_gradient_and_dynamic#c3",
-    "latyshova.radial_gradient_and_dynamic#c4",
-    "latyshova.radial_gradient_and_dynamic#c5"
+    "latyshova.radial_gradient_and_dynamic#c6",
+    "latyshova.radial_gradient_and_dynamic#c9",
+    "latyshova.radial_gradient_and_dynamic#c10",
+    "latyshova.radial_gradient_and_dynamic#c11",
+    "latyshova.radial_gradient_and_dynamic#c12"
    ],
    "prompt": null
   },
@@ -289,11 +270,12 @@
    "frame_class": "A",
    "origin": "code_from_data",
    "label": "схема",
-   "caption": "Критическая проницаемость: для нефтеносных коллекторов выше, чем для газовых. Диапазоны на логарифмической шкале.",
-   "alt": "Диапазоны критической проницаемости: у нефтеносных коллекторов от 1 до 10, у газовых от 0,1 до 1, в единицах 10³ мкм².",
+   "caption": "Диапазоны критической проницаемости: для газовых коллекторов порог ниже, чем для нефтеносных. Значения даны как в книге.",
+   "alt": "Диаграмма диапазонов критической проницаемости: у нефтеносных коллекторов от 1 до 10, у газовых от 0,1 до 1 в единицах 10³ мкм².",
    "source": "построено кодом по утверждениям главы, стр. 96",
    "claim_ids": [
-    "latyshova.critical_permeability#c7"
+    "latyshova.critical_permeability#c7",
+    "latyshova.critical_permeability#c8"
    ],
    "prompt": null
   },
@@ -305,16 +287,14 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Два шага расчёта: из дебита, депрессии и толщины получают η, затем по η, вязкости μ и радиусам Rк, rс находят k*пр.",
-   "alt": "Схема из трёх блоков: дебит, депрессия и толщина дают коэффициент продуктивности, а он даёт критическую проницаемость по формуле с вязкостью и радиусами.",
+   "caption": "Два шага: дебит, депрессия и толщина дают η, затем η с вязкостью и радиусами даёт критическую проницаемость.",
+   "alt": "Схема из трёх блоков: Qн, Δp и hэф дают коэффициент продуктивности η, а из η по формуле с μ, Rк и rс получается критическая проницаемость.",
    "source": "построено кодом по утверждениям главы, стр. 96, 97",
    "claim_ids": [
     "latyshova.debit_to_critical_perm#c1",
     "latyshova.debit_to_critical_perm#c3",
     "latyshova.debit_to_critical_perm#c6",
-    "latyshova.debit_to_critical_perm#c7",
-    "latyshova.debit_to_critical_perm#c8",
-    "latyshova.debit_to_critical_perm#c9"
+    "latyshova.debit_to_critical_perm#c7"
    ],
    "prompt": null
   },
@@ -326,15 +306,12 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "По связи показания метода с пористостью критическая kн* переводится в критическое ΔJнт*; этот уровень делит пласты на коллектор и неколлектор.",
-   "alt": "График возрастающей связи показания нейтронного метода с пористостью. Отмечена точка критической пористости и соответствующего критического показания.",
+   "caption": "По корреляционной связи критической проницаемости kпр* находят критическую пористость kп*, а по ней пороги показаний методов.",
+   "alt": "Качественная кривая связи проницаемости с пористостью. На ней отмечена точка, где критической проницаемости соответствует критическая пористость.",
    "source": "построено кодом по утверждениям главы, стр. 97",
    "claim_ids": [
-    "latyshova.permeability_threshold_on_logs#c2",
     "latyshova.permeability_threshold_on_logs#c4",
-    "latyshova.permeability_threshold_on_logs#c5",
     "latyshova.permeability_threshold_on_logs#c6",
-    "latyshova.permeability_threshold_on_logs#c7",
     "latyshova.permeability_threshold_on_logs#c8"
    ],
    "prompt": null
@@ -344,17 +321,17 @@
    "step_id": "latyshova.nmr_and_method_choice",
    "node_id": "latyshova.nmr_and_method_choice",
    "file": "pictures/nmr_and_method_choice_1.svg",
-   "frame_class": "B",
+   "frame_class": "A",
    "origin": "code_from_model",
-   "label": "схема",
-   "caption": "График Iсф принимают за диаграмму эффективной пористости; пласты с kп,эф больше 1 % считают коллекторами.",
-   "alt": "Схема: диаграмма ЯМ даёт индекс свободного флюида, он принимается за эффективную пористость. Если она больше 1 %, пласт коллектор, иначе возможны аппаратурные помехи.",
+   "label": "симуляция",
+   "caption": "Эффективная пористость равна Iсф.п. Пласты выше порога 1 % считают коллекторами, ниже — отклонения из-за помех.",
+   "alt": "Прямая, на которой эффективная пористость равна индексу свободного флюида. Отметка порога 1 % отделяет коллекторы от значений, вызванных помехами.",
    "source": "построено кодом по утверждениям главы, стр. 90",
    "claim_ids": [
-    "latyshova.nmr_and_method_choice#c1",
     "latyshova.nmr_and_method_choice#c2",
     "latyshova.nmr_and_method_choice#c3",
-    "latyshova.nmr_and_method_choice#c4"
+    "latyshova.nmr_and_method_choice#c4",
+    "latyshova.nmr_and_method_choice#c5"
    ],
    "prompt": null
   },
@@ -363,17 +340,17 @@
    "step_id": "latyshova.saturation_from_resistivity",
    "node_id": "latyshova.saturation_from_resistivity",
    "file": "pictures/saturation_from_resistivity_1.svg",
-   "frame_class": "A",
+   "frame_class": "B",
    "origin": "code_from_model",
-   "label": "симуляция",
-   "caption": "Сопротивление водонасыщенных пластов меняется мало, а нефте- и газонасыщенных заметно выше; по этому отличию оценивают характер насыщения.",
-   "alt": "График двух кривых по пластам разреза: низкая почти ровная кривая водонасыщенных пластов и заметно более высокая кривая нефте- или газонасыщенных.",
+   "label": "схема",
+   "caption": "Сопротивление водонасыщенного пласта ρвп считают косвенно, затем сопротивление пласта ρп делят на него и получают Pн.",
+   "alt": "Схема из четырёх блоков: пористость переводят в параметр пористости, умножают на сопротивление воды, получают ρвп, и делят на него ρп, получая Pн.",
    "source": "построено кодом по утверждениям главы, стр. 97",
    "claim_ids": [
-    "latyshova.saturation_from_resistivity#c12",
-    "latyshova.saturation_from_resistivity#c13",
-    "latyshova.saturation_from_resistivity#c14",
-    "latyshova.saturation_from_resistivity#c15"
+    "latyshova.saturation_from_resistivity#c3",
+    "latyshova.saturation_from_resistivity#c4",
+    "latyshova.saturation_from_resistivity#c5",
+    "latyshova.saturation_from_resistivity#c7"
    ],
    "prompt": null
   },
@@ -385,14 +362,13 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Сопротивление пласта сравнивают с ρвн, которое даёт метод пористости. Если ρн больше ρвн, то Pн больше 1, а kн меньше 1.",
-   "alt": "Схема из четырёх блоков: метод пористости даёт ρвн, пласт сравнивают с ним, и при ρн больше ρвн получается Pн больше 1 и kн меньше 1.",
+   "caption": "Как сопротивление пласта сравнивают с ρвп: из отношения получают Pн, а по Pн > 1 судят о наличии нефти или газа.",
+   "alt": "Схема: сопротивление пласта и значение ρвп из метода пористости дают параметр насыщения Pн. Если Pн больше единицы, водонасыщение меньше единицы и нефтегазонасыщение больше нуля.",
    "source": "построено кодом по утверждениям главы, стр. 97",
    "claim_ids": [
-    "latyshova.compare_resistivity_porosity#c11",
-    "latyshova.compare_resistivity_porosity#c12",
-    "latyshova.compare_resistivity_porosity#c13",
-    "latyshova.compare_resistivity_porosity#c14"
+    "latyshova.compare_resistivity_porosity#c9",
+    "latyshova.compare_resistivity_porosity#c10",
+    "latyshova.compare_resistivity_porosity#c11"
    ],
    "prompt": null
   },
@@ -404,17 +380,13 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "При малой пористости кривые 1 и 2 сливаются (неколлектор), в коллекторе расходятся. Кривые 3 отделяют безводную нефть, нефть с водой и воду.",
-   "alt": "График сопротивления от пористости: четыре кривых совпадают в области неколлекторов и расходятся веером в области коллекторов, разделяя безводную нефть, нефть с водой и воду.",
-   "source": "построено кодом по утверждениям главы, стр. 97, 98",
+   "caption": "Кривые 1 и 2 палетки: при уменьшении kп они сближаются и сливаются в одну зависимость ρвп = f(kп).",
+   "alt": "График зависимости ρп от kп с двумя кривыми. Кривая предельно нефтегазонасыщенных коллекторов идёт выше кривой водоносных, а при малой пористости они сливаются.",
+   "source": "построено кодом по утверждениям главы, стр. 98",
    "claim_ids": [
-    "latyshova.rho_kp_palette#c2",
-    "latyshova.rho_kp_palette#c4",
-    "latyshova.rho_kp_palette#c5",
-    "latyshova.rho_kp_palette#c13",
-    "latyshova.rho_kp_palette#c15",
-    "latyshova.rho_kp_palette#c16",
-    "latyshova.rho_kp_palette#c17"
+    "latyshova.rho_kp_palette#c17",
+    "latyshova.rho_kp_palette#c18",
+    "latyshova.rho_kp_palette#c19"
    ],
    "prompt": null
   },
@@ -424,17 +396,17 @@
    "node_id": "latyshova.reading_palette",
    "file": "pictures/reading_palette_1.svg",
    "frame_class": "A",
-   "origin": "code_from_data",
+   "origin": "code_from_model",
    "label": "схема",
-   "caption": "При одном ρп = 10 Ом·м вывод меняется с пористостью: от неколлектора до коллектора, дающего нефть с водой.",
-   "alt": "Три столбца пористости 15, 20 и 25 процентов при одном сопротивлении 10 Ом·м, подписаны выводами: неколлектор, нефтеносный коллектор, нефть с водой.",
+   "caption": "При одном и том же ρп = 10 Ом·м вывод зависит от пористости: сопротивления одного недостаточно.",
+   "alt": "Таблица: при сопротивлении 10 Ом·м и пористости 15, 20 и 25 процентов порода оказывается соответственно неколлектором, нефтеносным коллектором и коллектором с нефтью и водой.",
    "source": "построено кодом по утверждениям главы, стр. 98",
    "claim_ids": [
+    "latyshova.reading_palette#c3",
     "latyshova.reading_palette#c4",
     "latyshova.reading_palette#c5",
     "latyshova.reading_palette#c6",
-    "latyshova.reading_palette#c7",
-    "latyshova.reading_palette#c8"
+    "latyshova.reading_palette#c7"
    ],
    "prompt": null
   },
@@ -446,14 +418,13 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Pн и kв пласта сравнивают с критическими значениями: большой Pн и малый kв означают продуктивный коллектор.",
-   "alt": "Схема: вычисленные Pн и kв сравнивают с критическими; при большем Pн и меньшем kв коллектор продуктивный, иначе непродуктивный.",
-   "source": "построено кодом по утверждениям главы, стр. 98",
+   "caption": "Два порога: Pн*, kв* отделяют чистую нефть (газ), а Pн.кр, kв.кр — промышленный приток от непромышленного.",
+   "alt": "Схема: значения Pн и kв пласта сравнивают с порогом чистой нефти, затем с порогом промышленного притока. Получается чистая нефть, промышленный приток или непромышленный приток.",
+   "source": "построено кодом по утверждениям главы, стр. 98, 99",
    "claim_ids": [
-    "latyshova.critical_pn_kv#c2",
     "latyshova.critical_pn_kv#c3",
-    "latyshova.critical_pn_kv#c4",
-    "latyshova.critical_pn_kv#c5"
+    "latyshova.critical_pn_kv#c5",
+    "latyshova.critical_pn_kv#c6"
    ],
    "prompt": null
   },
@@ -465,15 +436,15 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "Две кривые фазовой проницаемости; kв* и kв** ограничивают среднюю зону двухфазного течения, слева течёт нефть, справа вода.",
-   "alt": "График: проницаемость для нефти падает, для воды растёт с ростом водонасыщения. Отметки kв* и kв** делят ось на три интервала: нефть, смесь, вода.",
+   "caption": "Кривые kпр.н и kпр.в от kв: слева течёт нефть, между kв* и kв** нефть с водой, правее kв** вода. Пересечение кривых — отношение 1.",
+   "alt": "Две качественные кривые: проницаемость по нефти падает, по воде растёт с ростом водонасыщенности. Отмечены пороги kв*, kв** и точка пересечения кривых.",
    "source": "построено кодом по утверждениям главы, стр. 99",
    "claim_ids": [
     "latyshova.phase_permeability_zones#c5",
-    "latyshova.phase_permeability_zones#c6",
     "latyshova.phase_permeability_zones#c7",
     "latyshova.phase_permeability_zones#c8",
-    "latyshova.phase_permeability_zones#c15"
+    "latyshova.phase_permeability_zones#c9",
+    "latyshova.phase_permeability_zones#c23"
    ],
    "prompt": null
   },
@@ -485,13 +456,12 @@
    "frame_class": "A",
    "origin": "code_from_data",
    "label": "симуляция",
-   "caption": "Каждому насыщению (30, 56, 80 %) соответствует свой Pн: 10, 3 и 1,5. Чем меньше kв, тем больше Pн.",
-   "alt": "График зависимости Pн от водонасыщения по трём точкам: при 30 % Pн равен 10, при 56 % равен 3, при 80 % равен 1,5.",
+   "caption": "Три критических значения kв, снятые с кривых фазовой проницаемости, и соответствующие им Pн. Чем больше воды, тем меньше Pн.",
+   "alt": "График: параметр насыщения убывает с ростом водонасыщенности. Отмечены три точки: 30 % и 10, 56 % и 3, 80 % и 1,5.",
    "source": "построено кодом по утверждениям главы, стр. 99",
    "claim_ids": [
     "latyshova.critical_values_examples#c2",
-    "latyshova.critical_values_examples#c3",
-    "latyshova.critical_values_examples#c4"
+    "latyshova.critical_values_examples#c3"
    ],
    "prompt": null
   },
@@ -503,16 +473,16 @@
    "frame_class": "A",
    "origin": "code_from_data",
    "label": "симуляция",
-   "caption": "Критические точки для αСП от 1,0 до 0,7 (табл. 22) образуют три разделяющие кривые: Pн*, Pн,sp и Pн**.",
-   "alt": "График в логарифмическом масштабе по Pн: три линии критических точек для четырёх классов глинистости. Верхняя линия Pн* идёт от 30 до 50 %, нижняя Pн** от 68 до 80 %, между ними Pн,sp.",
+   "caption": "Точки kв*, kв.кр, kв** и их Pн для αСП от 1,0 до 0,7 образуют три кривые. При падении αСП Pн* и Pн.кр снижаются.",
+   "alt": "График трёх кривых из таблицы значений для четырёх классов коллекторов. Кривая Pн* круто спадает от 10 до 2,1, Pн.кр около 58–59 % снижается от 2,9 до 1,8, Pн** почти постоянна около 1,5–1,6.",
    "source": "построено кодом по утверждениям главы, стр. 100",
    "claim_ids": [
     "latyshova.clay_classes_critical#c5",
-    "latyshova.clay_classes_critical#c6",
-    "latyshova.clay_classes_critical#c14",
-    "latyshova.clay_classes_critical#c15",
-    "latyshova.clay_classes_critical#c16",
-    "latyshova.clay_classes_critical#c17"
+    "latyshova.clay_classes_critical#c7",
+    "latyshova.clay_classes_critical#c10",
+    "latyshova.clay_classes_critical#c11",
+    "latyshova.clay_classes_critical#c12",
+    "latyshova.clay_classes_critical#c13"
    ],
    "prompt": null
   },
@@ -521,16 +491,19 @@
    "step_id": "latyshova.saturation_examples_tasks",
    "node_id": "latyshova.saturation_examples_tasks",
    "file": "pictures/saturation_examples_tasks_1.svg",
-   "frame_class": "B",
+   "frame_class": "A",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Порядок решения примера 53: пара значений Pн и αСП даёт точку, область точки даёт ответ о насыщении.",
-   "alt": "Схема из четырёх блоков: заданные Pн и αСП, точка на графике, определение области I, II или III, характер насыщения коллектора.",
+   "caption": "Шесть пар Pн и αСП и ответ по области, в которую попала точка на графике. Смотрите, как меняется ответ.",
+   "alt": "Таблица из шести случаев. Для каждой пары значений Pн и αСП указан характер насыщения: от нефтеносного до воды с признаками нефти.",
    "source": "построено кодом по утверждениям главы, стр. 100",
    "claim_ids": [
-    "latyshova.saturation_examples_tasks#c1",
-    "latyshova.saturation_examples_tasks#c2",
-    "latyshova.saturation_examples_tasks#c3"
+    "latyshova.saturation_examples_tasks#c4",
+    "latyshova.saturation_examples_tasks#c5",
+    "latyshova.saturation_examples_tasks#c6",
+    "latyshova.saturation_examples_tasks#c7",
+    "latyshova.saturation_examples_tasks#c8",
+    "latyshova.saturation_examples_tasks#c9"
    ],
    "prompt": null
   },
@@ -542,8 +515,8 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Коллектор у контакта: продуктивна только нефтеносная часть от кровли до ВНК, ниже контакта вода.",
-   "alt": "Разрез: глинистая покрышка, под ней песчаный коллектор, в верхней части нефть, в нижней вода. Эффективная толщина — от кровли коллектора до водонефтяного контакта.",
+   "caption": "Коллектор: продуктивна только верхняя часть, насыщенная нефтью. Эффективная толщина — от кровли до ВНК, ниже контакта вода.",
+   "alt": "Разрез: над коллектором лежит глинистая покрышка. Верхняя часть коллектора насыщена нефтью, нижняя водой, а граница между ними — ВНК.",
    "source": "построено кодом по утверждениям главы, стр. 100, 101",
    "claim_ids": [
     "latyshova.effective_thickness_basic#c5",
@@ -561,14 +534,16 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "Прямая соединяет точку кровли (Нк, ρншах) с подошвой (Нп, ρвп). ВНК проводят там, где ρп достигает критического значения.",
-   "alt": "График: сопротивление линейно падает с глубиной от значения в кровле переходной зоны до значения в подошве. На линии отмечена точка ВНК, где ρп равно критическому.",
+   "caption": "Прямая соединяет точки кровли и подошвы переходной зоны. ВНК проводят на глубине, где ρп равно критическому значению ρп.кр.",
+   "alt": "График: глубина вниз, сопротивление вправо. Прямая линия идёт от точки ρншах на кровле зоны к точке ρвп на подошве. На ней отмечена точка критического ρп, через которую проводят ВНК.",
    "source": "построено кодом по утверждениям главы, стр. 101",
    "claim_ids": [
+    "latyshova.vnk_transition_zone#c4",
     "latyshova.vnk_transition_zone#c5",
     "latyshova.vnk_transition_zone#c6",
+    "latyshova.vnk_transition_zone#c7",
     "latyshova.vnk_transition_zone#c8",
-    "latyshova.vnk_transition_zone#c9"
+    "latyshova.vnk_transition_zone#c10"
    ],
    "prompt": null
   },
@@ -580,10 +555,11 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "Повторные замеры идут, пока показания НМ меняются. Когда они стабилизируются, расформирование зоны проникновения завершено.",
-   "alt": "График: показания нейтронных методов со временем растут, затем выходят на постоянный уровень. Это признак завершённого расформирования зоны проникновения.",
+   "caption": "Повторные замеры в обсаженной скважине: когда показания НМ перестают меняться, зона проникновения расформирована и можно определять ГНК.",
+   "alt": "График: показания нейтронного метода растут со временем, затем выходят на плато. Плато означает завершение расформирования зоны проникновения.",
    "source": "построено кодом по утверждениям главы, стр. 101",
    "claim_ids": [
+    "latyshova.gnk_by_neutron#c1",
     "latyshova.gnk_by_neutron#c3",
     "latyshova.gnk_by_neutron#c4"
    ],
@@ -594,16 +570,15 @@
    "step_id": "latyshova.nonreservoir_interlayers",
    "node_id": "latyshova.nonreservoir_interlayers",
    "file": "pictures/nonreservoir_interlayers_1.svg",
-   "frame_class": "A",
+   "frame_class": "B",
    "origin": "code_from_model",
-   "label": "симуляция",
-   "caption": "Прослой глины виден на ГМ, а плотный прослой на ГМ почти не заметен. Суммарную толщину прослоев вычитают из толщины пласта.",
-   "alt": "Планшет: пласт коллектора с прослоями плотной породы и глины. Кривая ГМ даёт высокие показания только против глины, против плотного прослоя она не отличается от коллектора.",
+   "label": "схема",
+   "caption": "Толщина пласта h включает прослои неколлектора (глина, плотный алевролит). Эффективная толщина: hэф = h − Σhпл.",
+   "alt": "Разрез мощного пласта: слои коллектора чередуются с прослоями глины и плотного алевролита. Прослои неколлектора вычитают из полной толщины.",
    "source": "построено кодом по утверждениям главы, стр. 101",
    "claim_ids": [
-    "latyshova.nonreservoir_interlayers#c2",
-    "latyshova.nonreservoir_interlayers#c4",
-    "latyshova.nonreservoir_interlayers#c8"
+    "latyshova.nonreservoir_interlayers#c1",
+    "latyshova.nonreservoir_interlayers#c2"
    ],
    "prompt": null
   },
@@ -615,16 +590,15 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Порядок расчёта: из трёх сопротивлений находят глинистость пачки χсп, затем по ней считают эффективную толщину.",
-   "alt": "Схема: сопротивление пачки и заданные сопротивления глины и коллектора идут в уравнение сложения проводимостей, из него получают χсп, затем эффективную толщину.",
+   "caption": "От измеренного ρп к эффективной толщине: сначала находим глинистость χгл из уравнения для проводимостей, затем толщину.",
+   "alt": "Схема: сопротивление пачки и заданные сопротивления глины и коллектора подставляются в уравнение, из него находят глинистость, затем эффективную толщину пачки.",
    "source": "построено кодом по утверждениям главы, стр. 102",
    "claim_ids": [
     "latyshova.thin_layers_resistivity#c1",
     "latyshova.thin_layers_resistivity#c2",
     "latyshova.thin_layers_resistivity#c3",
     "latyshova.thin_layers_resistivity#c4",
-    "latyshova.thin_layers_resistivity#c6",
-    "latyshova.thin_layers_resistivity#c7"
+    "latyshova.thin_layers_resistivity#c6"
    ],
    "prompt": null
   },
@@ -634,16 +608,18 @@
    "node_id": "latyshova.thin_layers_sp",
    "file": "pictures/thin_layers_sp_1.svg",
    "frame_class": "A",
-   "origin": "code_from_model",
+   "origin": "code_from_data",
    "label": "симуляция",
-   "caption": "Кривые палетки αСП = f(χсп) начинаются в одной точке и спадают к нулю; при больших значениях параметра спад быстрее.",
-   "alt": "График двух убывающих кривых от глинистости. Обе начинаются высоко при нулевой глинистости и идут к нулю при полной глинистости. Кривая с большим параметром падает круче.",
+   "caption": "Палетка αСП от χгл: кривая с большим шифром (20) падает быстрее, чем с малым (0,2). Опорные точки сняты ориентировочно.",
+   "alt": "График двух кривых αСП от глинистости. Обе начинаются около 0,8–0,85. Кривая 20 быстро падает до 0,35 уже при χгл около 0,2, кривая 0,2 снижается медленно до 0,3 при 0,8.",
    "source": "построено кодом по утверждениям главы, стр. 102",
    "claim_ids": [
-    "latyshova.thin_layers_sp#c1",
+    "latyshova.thin_layers_sp#c3",
+    "latyshova.thin_layers_sp#c4",
     "latyshova.thin_layers_sp#c8",
     "latyshova.thin_layers_sp#c9",
-    "latyshova.thin_layers_sp#c10"
+    "latyshova.thin_layers_sp#c10",
+    "latyshova.thin_layers_sp#c11"
    ],
    "prompt": null
   },
@@ -655,11 +631,14 @@
    "frame_class": "A",
    "origin": "code_from_data",
    "label": "схема",
-   "caption": "Удельные сопротивления из условия задачи: глины на порядок ниже коллектора и плотных пород, поэтому среднее сопротивление смешивает их вклады.",
-   "alt": "Столбчатая диаграмма сопротивлений: плотные породы 38 Ом·м, продуктивный коллектор 25 Ом·м, глины 2,2 Ом·м. Шкала логарифмическая.",
+   "caption": "Удельные сопротивления компонентов пачки. Среднее 7,3 Ом·м смешивает все три, поэтому по нему одному долю коллектора не найти.",
+   "alt": "Столбчатая диаграмма сопротивлений: плотные прослои 38, коллектор 25, среднее по пачке 7,3, глины 2,2 Ом·м, логарифмическая шкала.",
    "source": "построено кодом по утверждениям главы, стр. 104",
    "claim_ids": [
-    "latyshova.thickness_practice#c8"
+    "latyshova.thickness_practice#c16",
+    "latyshova.thickness_practice#c17",
+    "latyshova.thickness_practice#c18",
+    "latyshova.thickness_practice#c19"
    ],
    "prompt": null
   },
@@ -671,13 +650,13 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Коллекторы выделяют по диаграммам ГГМ и АК: показания переводят в пористость и сравнивают с граничным значением 9 %.",
-   "alt": "Схема: диаграммы ГГМ и АК с константами скелета и флюида дают пористость, её сравнивают с граничной 9 %, пласты выше границы считают коллекторами.",
+   "caption": "ГГМ и АК дают плотность и время, а не пористость: её считают по константам и сравнивают с граничной 9 %.",
+   "alt": "Схема: плотность и интервальное время вместе с константами породы и флюида дают пористость. Если она не ниже 9 %, интервал считают коллектором.",
    "source": "построено кодом по утверждениям главы, стр. 105",
    "claim_ids": [
+    "latyshova.ggm_ak_collectors#c9",
     "latyshova.ggm_ak_collectors#c10",
-    "latyshova.ggm_ak_collectors#c11",
-    "latyshova.ggm_ak_collectors#c12"
+    "latyshova.ggm_ak_collectors#c11"
    ],
    "prompt": null
   },
@@ -689,31 +668,12 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "С уменьшением пористости фильтрат проникает глубже, но лишь до некоторого предела: слева кривая выходит на полку.",
-   "alt": "Качественный график: чем ниже пористость, тем глубже проникает фильтрат; в области самой низкой пористости рост прекращается и кривая идёт горизонтально.",
+   "caption": "С ростом пористости глубина проникновения фильтрата падает: у низкопористых карбонатов фильтрат уходит глубже.",
+   "alt": "График: по горизонтали пористость, по вертикали глубина проникновения фильтрата. Кривая плавно снижается: чем меньше пористость, тем глубже проникает фильтрат.",
    "source": "построено кодом по утверждениям главы, стр. 105",
    "claim_ids": [
-    "latyshova.carbonate_features#c3",
-    "latyshova.carbonate_features#c7",
-    "latyshova.carbonate_features#c8"
-   ],
-   "prompt": null
-  },
-  {
-   "id": "latyshova.normalization_overlay.i1",
-   "step_id": "latyshova.normalization_overlay",
-   "node_id": "latyshova.normalization_overlay",
-   "file": "pictures/normalization_overlay_1.svg",
-   "frame_class": "A",
-   "origin": "code_from_model",
-   "label": "симуляция",
-   "caption": "После нормализации кривая ρп и кривая метода пористости совпадают в неколлекторе и водоносном пласте и расходятся в продуктивном.",
-   "alt": "Планшет с тремя слоями: неколлектор, продуктивный коллектор и водоносный коллектор. Кривые сопротивления и нейтронного метода совпадают в неколлекторе и водоносном слое и расходятся в продуктивном.",
-   "source": "построено кодом по утверждениям главы, стр. 107",
-   "claim_ids": [
-    "latyshova.normalization_overlay#c2",
-    "latyshova.normalization_overlay#c3",
-    "latyshova.normalization_overlay#c6"
+    "latyshova.carbonate_features#c6",
+    "latyshova.carbonate_features#c7"
    ],
    "prompt": null
   },
@@ -725,11 +685,10 @@
    "frame_class": "A",
    "origin": "code_from_data",
    "label": "схема",
-   "caption": "Из общей толщины продуктивных отложений вычитают прослои неколлектора; остаётся эффективная толщина. ВНК проведён на глубине 1083 м.",
-   "alt": "Столбчатая диаграмма: общая толщина 13,5 м, прослои неколлектора 4,5 м, эффективная толщина 9 м.",
+   "caption": "Из общей толщины 13,5 м вычитают прослои неколлектора 4,5 м и получают hэф = 9 м.",
+   "alt": "Столбчатая диаграмма в метрах: общая толщина 13,5, прослои неколлектора 4,5, эффективная толщина 9.",
    "source": "построено кодом по утверждениям главы, стр. 107",
    "claim_ids": [
-    "latyshova.example_54#c6",
     "latyshova.example_54#c9",
     "latyshova.example_54#c12"
    ],
@@ -741,18 +700,15 @@
    "node_id": "latyshova.kp_star_graph",
    "file": "pictures/kp_star_graph_1.svg",
    "frame_class": "A",
-   "origin": "code_from_model",
-   "label": "симуляция",
-   "caption": "Кривые убывают: чем выше пористость, тем меньше остаточной воды. Критическую пористость kп* снимают там, где Кв.св = 70%; у разных типов она разная.",
-   "alt": "Три убывающие кривые остаточной воды от пористости; кривая 5 лежит выше кривой 1. Отмечен уровень 70% остаточной воды, по которому снимают критическую пористость.",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Kв.св при kп = 5 % для разных коллекторов (значения приблизительные): структура пор сильно меняет остаточную воду, а с ней и kп*.",
+   "alt": "Столбчатая диаграмма остаточной водонасыщенности при пористости 5 процентов: у кривой 2 около 35, у кривой 3 около 50, у кривой 4 около 65, у кривой 5 около 80.",
    "source": "построено кодом по утверждениям главы, стр. 107",
    "claim_ids": [
-    "latyshova.kp_star_graph#c2",
-    "latyshova.kp_star_graph#c4",
-    "latyshova.kp_star_graph#c5",
     "latyshova.kp_star_graph#c7",
-    "latyshova.kp_star_graph#c10",
-    "latyshova.kp_star_graph#c17"
+    "latyshova.kp_star_graph#c9",
+    "latyshova.kp_star_graph#c12"
    ],
    "prompt": null
   },
@@ -764,16 +720,16 @@
    "frame_class": "A",
    "origin": "code_from_data",
    "label": "схема",
-   "caption": "Граничная пористость kп* в таблице 23: у крупнозернистых коллекторов порог низкий, у мелоподобных известняков самый высокий.",
-   "alt": "Столбчатая диаграмма граничной пористости kп*: 1 % у рифтовых отложений, 3 % у крупнозернистых известняков и доломитов, 7 % у Оренбургского месторождения, 13 % у мелоподобных известняков.",
+   "caption": "Граничное kп* для карбонатных межзерновых коллекторов: у крупнопоровых пород порог низкий, у тонкозернистых мелоподобных известняков высокий.",
+   "alt": "Столбчатая диаграмма порога kп*: рифтовые отложения 1 %, крупнозернистые известняки и доломиты по 3 %, Оренбургское месторождение 7 %, мелоподобные известняки 13 %.",
    "source": "построено кодом по утверждениям главы, стр. 107, 108",
    "claim_ids": [
     "latyshova.kp_star_table#c1",
+    "latyshova.kp_star_table#c7",
     "latyshova.kp_star_table#c8",
     "latyshova.kp_star_table#c9",
     "latyshova.kp_star_table#c10",
-    "latyshova.kp_star_table#c11",
-    "latyshova.kp_star_table#c12"
+    "latyshova.kp_star_table#c11"
    ],
    "prompt": null
   },
@@ -785,8 +741,8 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Сложный коллектор отличается от межзернового строением пустот: к порам добавляются трещины и каверны, и привычные признаки не работают.",
-   "alt": "Таблица из двух строк сравнивает межзерновой и сложный коллекторы: сложный не выделяется по признакам межзернового и содержит трещины и каверны.",
+   "caption": "Сложный коллектор отличается строением порового пространства: к межзерновым порам добавляются трещины и каверны.",
+   "alt": "Таблица из двух строк, сравнивающая межзерновой и сложный коллектор по поровому пространству и по выделению по межзерновым признакам.",
    "source": "построено кодом по утверждениям главы, стр. 108",
    "claim_ids": [
     "latyshova.complex_collectors#c1",
@@ -803,12 +759,13 @@
    "frame_class": "B",
    "origin": "code_from_model",
    "label": "схема",
-   "caption": "Плотные блоки матрицы разделены трещинами: по ним идёт фильтрация, а ёмкость остаётся малой.",
-   "alt": "Порода под увеличением: плотные блоки, разделённые трещинами, которые заполнены флюидом.",
+   "caption": "Плотные блоки матрицы разделены трещинами: именно по трещинам идёт флюид, а ёмкость их невелика.",
+   "alt": "Порода под увеличением: плотные блоки, разделённые трещинами, по которым течёт флюид.",
    "source": "построено кодом по утверждениям главы, стр. 108",
    "claim_ids": [
     "latyshova.fracture_matrix#c4",
     "latyshova.fracture_matrix#c5",
+    "latyshova.fracture_matrix#c6",
     "latyshova.fracture_matrix#c7"
    ],
    "prompt": null
@@ -821,13 +778,51 @@
    "frame_class": "A",
    "origin": "code_from_model",
    "label": "симуляция",
-   "caption": "В зоне трещиноватости СП низкий, разноглубинные зонды дают высокие показания, диаметр скважины номинальный.",
-   "alt": "Планшет ГИС с тремя слоями. Против трещиноватой зоны кривая СП уходит вниз, кривая сопротивления растёт, кавернограмма остаётся на номинальном уровне.",
+   "caption": "В зоне трещиноватости сопротивление высокое, СП низкое, диаметр скважины номинальный. Радиального градиента нет.",
+   "alt": "Планшет ГИС: в трещиноватой зоне карбонатного разреза высокое сопротивление, низкая кривая СП и номинальный диаметр скважины.",
    "source": "построено кодом по утверждениям главы, стр. 108",
    "claim_ids": [
+    "latyshova.fracture_detection#c8",
     "latyshova.fracture_detection#c9",
-    "latyshova.fracture_detection#c10",
-    "latyshova.fracture_detection#c11"
+    "latyshova.fracture_detection#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.water_and_nonfiltering_muds.i1",
+   "step_id": "latyshova.water_and_nonfiltering_muds",
+   "node_id": "latyshova.water_and_nonfiltering_muds",
+   "file": "pictures/water_and_nonfiltering_muds_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Сравнение бурения на технической воде и на нефильтрующемся растворе: смотрите, как проникновение определяет, какие методы ГИС применимы.",
+   "alt": "Таблица из трёх строк. Вода даёт глубокие зоны проникновения и исключает оценку насыщения, нефильтрующийся раствор не проникает в пласт и допускает методы средней и малой глубинности.",
+   "source": "построено кодом по утверждениям главы, стр. 91",
+   "claim_ids": [
+    "latyshova.water_and_nonfiltering_muds#c4",
+    "latyshova.water_and_nonfiltering_muds#c5",
+    "latyshova.water_and_nonfiltering_muds#c12",
+    "latyshova.water_and_nonfiltering_muds#c15",
+    "latyshova.water_and_nonfiltering_muds#c16"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "latyshova.normalization_overlay.i1",
+   "step_id": "latyshova.normalization_overlay",
+   "node_id": "latyshova.normalization_overlay",
+   "file": "pictures/normalization_overlay_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Кривые ρк и метода пористости совпадают в неколлекторах и водоносных коллекторах, а в продуктивном коллекторе расходятся.",
+   "alt": "Две кривые идут вдоль глубины вместе, затем на одном интервале расходятся, и снова сходятся. Расхождение отмечено как признак продуктивного коллектора.",
+   "source": "построено кодом по утверждениям главы, стр. 107",
+   "claim_ids": [
+    "latyshova.normalization_overlay#c3",
+    "latyshova.normalization_overlay#c5",
+    "latyshova.normalization_overlay#c8"
    ],
    "prompt": null
   }

@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Any
 
 from glava.llm import Provider, Reply, ask_json
-from glava.verify import quote_on_page
+from glava.verify import quote_on_page, squeeze
 
 KINDS = ("recognition", "suspect")
 FIELDS = ("md", "scan", "kind")
@@ -50,6 +50,12 @@ def make_errata(provider: Provider, system: str, page: int, text: str, image: Pa
 
 def for_pages(entries: Sequence[Entry], pages: Sequence[int]) -> list[Entry]:
     return [e for e in entries if e["page"] in pages]
+
+
+def suspects_in(quotes: Sequence[str], entries: Sequence[Entry]) -> list[Entry]:
+    """Вероятные опечатки издания, на которые попадают цитаты."""
+    texts = [squeeze(q) for q in quotes]
+    return [e for e in entries if e["kind"] == "suspect" and any(squeeze(e["md"]) in t or t in squeeze(e["md"]) for t in texts)]
 
 
 def prompt_block(entries: Sequence[Entry]) -> str:

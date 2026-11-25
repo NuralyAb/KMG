@@ -4,8 +4,12 @@
  "data": {
   "layers": [
    {
+    "lithology": "shale",
+    "label": "Глина",
+    "thickness": 2
+   },
+   {
     "lithology": "sand",
-    "fluid": "water",
     "label": "Коллектор",
     "thickness": 2
    },
@@ -13,36 +17,25 @@
     "lithology": "dense",
     "label": "Плотная порода",
     "thickness": 2
-   },
-   {
-    "lithology": "shale",
-    "label": "Глина",
-    "thickness": 2
-   },
-   {
-    "lithology": "salt",
-    "label": "Соль",
-    "thickness": 2
    }
   ],
   "curves": [
    {
     "name": "CALIPER",
     "levels": [
-     "low",
-     "mid",
      "high",
-     "high"
+     "low",
+     "mid"
     ]
    }
-  ]
+  ],
+  "filtrate": "fresh"
  },
- "caption": "Кавернометрия: в коллекторе диаметр меньше номинального (корка), в плотной породе равен ему, в глине и соли больше.",
- "alt": "Планшет с кривой диаметра скважины: против коллектора диаметр уменьшен, против плотной породы номинальный, против глины и соли увеличен.",
+ "caption": "Диаметр скважины на кривой каверномера: в глине больше номинального, против коллектора меньше (корка), в плотной породе равен номинальному.",
+ "alt": "Планшет с тремя слоями: глина, коллектор, плотная порода. Кривая диаметра скважины в глине уходит выше номинального, в коллекторе ниже, в плотной породе остаётся на номинальном уровне.",
  "claim_ids": [
   "latyshova.mud_effects_on_borehole#c8",
   "latyshova.mud_effects_on_borehole#c9",
-  "latyshova.mud_effects_on_borehole#c10",
-  "latyshova.mud_effects_on_borehole#c11"
+  "latyshova.mud_effects_on_borehole#c10"
  ]
 }

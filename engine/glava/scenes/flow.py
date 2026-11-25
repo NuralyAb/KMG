@@ -52,10 +52,10 @@ def check(data: Mapping[str, Any], style: Mapping[str, Any]) -> list[str]:
         counts[value] += 1
     issues = [f"на уровне {k} блоков {v}, можно {PER_LEVEL}" for k, v in counts.items() if v > PER_LEVEL]
     issues += [f"стрелка {e['from']}->{e['to']} перескакивает уровень" for e in data["edges"] if level[e["to"]] - level[e["from"]] != 1]
-    for source in level:
-        labels = [e.get("label", "") for e in data["edges"] if e["from"] == source]
+    for number in set(level.values()):
+        labels = [e.get("label", "") for e in data["edges"] if level[e["from"]] == number]
         if len(labels) > 1 and sum(map(len, labels)) > BRANCH_LABELS:
-            issues.append(f"подписи стрелок из блока {source} вместе длиннее {BRANCH_LABELS} знаков")
+            issues.append(f"подписи соседних стрелок {labels} вместе длиннее {BRANCH_LABELS} знаков")
     return issues + [f"блок {i} ни с чем не связан" for i in level if i not in linked]
 
 

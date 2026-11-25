@@ -16,14 +16,14 @@ class Issue:
     message: str
 
 
-def _squeeze(text: str) -> str:
+def squeeze(text: str) -> str:
     return re.sub(r"\s+", "", text).casefold()
 
 
 def quote_on_page(quote: str, page: str) -> bool:
     """Цитата дословна; не учитываются только пробелы, переносы строк и регистр."""
-    needle = _squeeze(quote)
-    return len(needle) >= MIN_QUOTE_CHARS and needle in _squeeze(page)
+    needle = squeeze(quote)
+    return len(needle) >= MIN_QUOTE_CHARS and needle in squeeze(page)
 
 
 def find_quote_page(quote: str, pages: Mapping[int, str]) -> int | None:

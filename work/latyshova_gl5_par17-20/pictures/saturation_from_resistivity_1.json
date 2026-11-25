@@ -1,65 +1,53 @@
 {
  "node_id": "latyshova.saturation_from_resistivity",
- "template": "plot",
+ "template": "flow",
  "data": {
-  "x_label": "пласты в разрезе скважины",
-  "y_label": "удельное сопротивление",
-  "numeric": false,
-  "log_x": false,
-  "log_y": false,
-  "params": {},
-  "series": [
+  "nodes": [
    {
-    "name": "ρвн: водонасыщенные",
-    "color": "",
-    "points": [
-     [
-      0.0,
-      0.2
-     ],
-     [
-      0.5,
-      0.23
-     ],
-     [
-      1.0,
-      0.2
-     ]
-    ]
+    "id": "a",
+    "text": "Пористость kп и вода ρв",
+    "kind": "data"
    },
    {
-    "name": "ρн: нефть или газ",
-    "color": "",
-    "points": [
-     [
-      0.0,
-      0.75
-     ],
-     [
-      0.5,
-      0.85
-     ],
-     [
-      1.0,
-      0.78
-     ]
-    ]
+    "id": "b",
+    "text": "kп → Pп (по выражению 3)",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "ρвп = Pп·ρв",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Pн = ρп/ρвп",
+    "kind": "result"
    }
   ],
-  "marks": [
+  "edges": [
    {
-    "x": 0.5,
-    "y": 0.55,
-    "text": "ρн > ρвн"
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": "делим ρп"
    }
   ]
  },
- "caption": "Сопротивление водонасыщенных пластов меняется мало, а нефте- и газонасыщенных заметно выше; по этому отличию оценивают характер насыщения.",
- "alt": "График двух кривых по пластам разреза: низкая почти ровная кривая водонасыщенных пластов и заметно более высокая кривая нефте- или газонасыщенных.",
+ "caption": "Сопротивление водонасыщенного пласта ρвп считают косвенно, затем сопротивление пласта ρп делят на него и получают Pн.",
+ "alt": "Схема из четырёх блоков: пористость переводят в параметр пористости, умножают на сопротивление воды, получают ρвп, и делят на него ρп, получая Pн.",
  "claim_ids": [
-  "latyshova.saturation_from_resistivity#c12",
-  "latyshova.saturation_from_resistivity#c13",
-  "latyshova.saturation_from_resistivity#c14",
-  "latyshova.saturation_from_resistivity#c15"
+  "latyshova.saturation_from_resistivity#c3",
+  "latyshova.saturation_from_resistivity#c4",
+  "latyshova.saturation_from_resistivity#c5",
+  "latyshova.saturation_from_resistivity#c7"
  ]
 }

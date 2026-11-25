@@ -1,17 +1,41 @@
 {
  "node_id": "latyshova.direct_signs_of_collector",
- "template": "borehole",
+ "template": "log",
  "data": {
-  "collector": true,
-  "lithology": "sand",
-  "fluid": "water",
-  "pressure": "mud_above"
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "Неколлектор",
+    "thickness": 2
+   },
+   {
+    "lithology": "sand",
+    "fluid": "water",
+    "label": "Коллектор",
+    "thickness": 2
+   },
+   {
+    "lithology": "shale",
+    "label": "Неколлектор",
+    "thickness": 2
+   }
+  ],
+  "curves": [
+   {
+    "name": "CALIPER",
+    "levels": [
+     "mid",
+     "low",
+     "mid"
+    ]
+   }
+  ],
+  "filtrate": "fresh"
  },
- "caption": "Против коллектора на стенке скважины глинистая корка, за ней зона проникновения фильтрата в пласт.",
- "alt": "Разрез скважины в проницаемом песчаном пласте: раствор, глинистая корка на стенке, зона проникновения фильтрата и нетронутый пласт.",
+ "caption": "Против коллектора кавернограмма показывает сужение скважины: на стенке растёт глинистая корка, диаметр меньше номинального.",
+ "alt": "Планшет с кавернограммой: против проницаемого пласта диаметр скважины меньше номинального из-за глинистой корки, против соседних пород номинальный.",
  "claim_ids": [
   "latyshova.direct_signs_of_collector#c3",
-  "latyshova.direct_signs_of_collector#c5",
-  "latyshova.direct_signs_of_collector#c7"
+  "latyshova.direct_signs_of_collector#c5"
  ]
 }

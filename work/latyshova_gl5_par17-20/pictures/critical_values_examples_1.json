@@ -2,11 +2,12 @@
  "node_id": "latyshova.critical_values_examples",
  "template": "plot",
  "data": {
-  "x_label": "Водонасыщение kв, %",
-  "y_label": "Параметр насыщения Pн",
+  "x_label": "водонасыщенность kв, %",
+  "y_label": "параметр насыщения Pн",
   "numeric": true,
   "log_x": false,
-  "log_y": false,
+  "log_y": true,
+  "y_down": false,
   "params": {},
   "series": [
    {
@@ -32,25 +33,24 @@
    {
     "x": 30,
     "y": 10,
-    "text": "Pн* = 10"
+    "text": "kв* = 30 %, Pн* = 10"
    },
    {
     "x": 56,
     "y": 3,
-    "text": "Pн,кр = 3"
+    "text": "kв.кр = 56 %, Pн.кр = 3"
    },
    {
     "x": 80,
     "y": 1.5,
-    "text": "Pн** = 1,5"
+    "text": "kв** = 80 %, Pн** = 1,5"
    }
   ]
  },
- "caption": "Каждому насыщению (30, 56, 80 %) соответствует свой Pн: 10, 3 и 1,5. Чем меньше kв, тем больше Pн.",
- "alt": "График зависимости Pн от водонасыщения по трём точкам: при 30 % Pн равен 10, при 56 % равен 3, при 80 % равен 1,5.",
+ "caption": "Три критических значения kв, снятые с кривых фазовой проницаемости, и соответствующие им Pн. Чем больше воды, тем меньше Pн.",
+ "alt": "График: параметр насыщения убывает с ростом водонасыщенности. Отмечены три точки: 30 % и 10, 56 % и 3, 80 % и 1,5.",
  "claim_ids": [
   "latyshova.critical_values_examples#c2",
-  "latyshova.critical_values_examples#c3",
-  "latyshova.critical_values_examples#c4"
+  "latyshova.critical_values_examples#c3"
  ]
 }

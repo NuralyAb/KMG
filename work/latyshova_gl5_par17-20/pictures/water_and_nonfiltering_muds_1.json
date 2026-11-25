@@ -1,16 +1,34 @@
 {
  "node_id": "latyshova.water_and_nonfiltering_muds",
- "template": "borehole",
+ "template": "compare",
  "data": {
-  "collector": true,
-  "lithology": "sand",
-  "fluid": "water",
-  "pressure": "mud_above"
+  "left_title": "Техническая вода",
+  "right_title": "Нефильтр. раствор",
+  "rows": [
+   {
+    "aspect": "Проникновение в пласт",
+    "left": "Глубокие зоны проникновения",
+    "right": "Нет или очень малое"
+   },
+   {
+    "aspect": "Оценка насыщения",
+    "left": "Как правило, исключена",
+    "right": "Методы средней и малой глубинности"
+   },
+   {
+    "aspect": "Выделение коллекторов",
+    "left": "Микрозонды и каверномер почти бесполезны",
+    "right": "Без корок традиционные методы не работают"
+   }
+  ]
  },
- "caption": "Бурение на воде при глинах: фильтрат уходит в пласт, зона проникновения глубокая, характер насыщения по ГИС, как правило, не оценить.",
- "alt": "Разрез скважины с прискважинной зоной: промывочная жидкость идёт в проницаемый пласт и образует зону проникновения вокруг ствола.",
+ "caption": "Сравнение бурения на технической воде и на нефильтрующемся растворе: смотрите, как проникновение определяет, какие методы ГИС применимы.",
+ "alt": "Таблица из трёх строк. Вода даёт глубокие зоны проникновения и исключает оценку насыщения, нефильтрующийся раствор не проникает в пласт и допускает методы средней и малой глубинности.",
  "claim_ids": [
-  "latyshova.water_and_nonfiltering_muds#c2",
-  "latyshova.water_and_nonfiltering_muds#c3"
+  "latyshova.water_and_nonfiltering_muds#c4",
+  "latyshova.water_and_nonfiltering_muds#c5",
+  "latyshova.water_and_nonfiltering_muds#c12",
+  "latyshova.water_and_nonfiltering_muds#c15",
+  "latyshova.water_and_nonfiltering_muds#c16"
  ]
 }

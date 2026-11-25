@@ -26,7 +26,7 @@
     if (/^\$/.test(part)) return tex(part.slice(1, -1), false);
     return bare(part);
   }).join('');
-  const pages = (list) => (list?.length ? ` <span class="page">стр. ${list.join(', ')}</span>` : '');
+  const pages = (list) => (list?.length ? ` <span class="page">стр. ${list.map(esc).join(', ')}</span>` : '');
   const block = (title, body, id = '') => (body ? `<section class="block"${id ? ` id="${id}"` : ''}><h2>${title}</h2>${body}</section>` : '');
   const stepUrl = (s) => `#/step/${s.order}`;
   const stepById = (id) => C.steps.find((s) => s.id === id);

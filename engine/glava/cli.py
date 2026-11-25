@@ -169,9 +169,10 @@ def build_illustrations(chapter: Chapter, provider: Provider) -> None:
     nodes = read(chapter.work / "layer.json")["nodes"]
     templates, style = load_templates(chapter.domain / "templates"), load_style(chapter.domain)
     prompt = prompt_file("illustrations")
+    errata = read_or(chapter.errata_file, {"entries": []})["entries"]
 
     def scenes_for(part: Sequence[dict]) -> tuple[list[dict], list[Reply]]:
-        return make_illustrations(provider, prompt, part, templates, style)
+        return make_illustrations(provider, prompt, part, templates, style, errata)
 
     with ThreadPoolExecutor(PARALLEL) as pool:
         first = list(pool.map(scenes_for, groups(nodes)))

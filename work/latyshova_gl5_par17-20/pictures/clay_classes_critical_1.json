@@ -2,15 +2,16 @@
  "node_id": "latyshova.clay_classes_critical",
  "template": "plot",
  "data": {
-  "x_label": "Водонасыщение kв, %",
-  "y_label": "Параметр насыщения Pн",
+  "x_label": "водонасыщенность kв, %",
+  "y_label": "параметр насыщения Pн",
   "numeric": true,
   "log_x": false,
   "log_y": true,
+  "y_down": false,
   "params": {},
   "series": [
    {
-    "name": "Кривая Pн*",
+    "name": "Pн* (граница нефти)",
     "color": "",
     "points": [
      [
@@ -32,7 +33,7 @@
     ]
    },
    {
-    "name": "Кривая Pн,sp",
+    "name": "Pн.кр (равные проницаемости)",
     "color": "",
     "points": [
      [
@@ -54,7 +55,7 @@
     ]
    },
    {
-    "name": "Кривая Pн**",
+    "name": "Pн** (граница воды)",
     "color": "",
     "points": [
      [
@@ -89,14 +90,14 @@
    }
   ]
  },
- "caption": "Критические точки для αСП от 1,0 до 0,7 (табл. 22) образуют три разделяющие кривые: Pн*, Pн,sp и Pн**.",
- "alt": "График в логарифмическом масштабе по Pн: три линии критических точек для четырёх классов глинистости. Верхняя линия Pн* идёт от 30 до 50 %, нижняя Pн** от 68 до 80 %, между ними Pн,sp.",
+ "caption": "Точки kв*, kв.кр, kв** и их Pн для αСП от 1,0 до 0,7 образуют три кривые. При падении αСП Pн* и Pн.кр снижаются.",
+ "alt": "График трёх кривых из таблицы значений для четырёх классов коллекторов. Кривая Pн* круто спадает от 10 до 2,1, Pн.кр около 58–59 % снижается от 2,9 до 1,8, Pн** почти постоянна около 1,5–1,6.",
  "claim_ids": [
   "latyshova.clay_classes_critical#c5",
-  "latyshova.clay_classes_critical#c6",
-  "latyshova.clay_classes_critical#c14",
-  "latyshova.clay_classes_critical#c15",
-  "latyshova.clay_classes_critical#c16",
-  "latyshova.clay_classes_critical#c17"
+  "latyshova.clay_classes_critical#c7",
+  "latyshova.clay_classes_critical#c10",
+  "latyshova.clay_classes_critical#c11",
+  "latyshova.clay_classes_critical#c12",
+  "latyshova.clay_classes_critical#c13"
  ]
 }

@@ -2,52 +2,50 @@
  "node_id": "latyshova.permeability_threshold_on_logs",
  "template": "plot",
  "data": {
-  "x_label": "пористость kн",
-  "y_label": "показание метода ΔJнт",
+  "x_label": "Пористость kп (качественно)",
+  "y_label": "Проницаемость kпр (качественно)",
   "numeric": false,
   "log_x": false,
   "log_y": false,
+  "y_down": false,
   "params": {},
   "series": [
    {
-    "name": "связь ΔJнт = f(kн)",
+    "name": "Корреляционная связь",
     "color": "",
     "points": [
      [
-      0.05,
-      0.1
+      0,
+      0.05
      ],
      [
       0.3,
-      0.3
+      0.2
      ],
      [
       0.6,
-      0.6
+      0.5
      ],
      [
-      0.95,
-      0.9
+      1,
+      0.95
      ]
     ]
    }
   ],
   "marks": [
    {
-    "x": 0.45,
-    "y": 0.45,
-    "text": "kн* → ΔJнт*"
+    "x": 0.5,
+    "y": 0.4,
+    "text": "kп* ↔ kпр*"
    }
   ]
  },
- "caption": "По связи показания метода с пористостью критическая kн* переводится в критическое ΔJнт*; этот уровень делит пласты на коллектор и неколлектор.",
- "alt": "График возрастающей связи показания нейтронного метода с пористостью. Отмечена точка критической пористости и соответствующего критического показания.",
+ "caption": "По корреляционной связи критической проницаемости kпр* находят критическую пористость kп*, а по ней пороги показаний методов.",
+ "alt": "Качественная кривая связи проницаемости с пористостью. На ней отмечена точка, где критической проницаемости соответствует критическая пористость.",
  "claim_ids": [
-  "latyshova.permeability_threshold_on_logs#c2",
   "latyshova.permeability_threshold_on_logs#c4",
-  "latyshova.permeability_threshold_on_logs#c5",
   "latyshova.permeability_threshold_on_logs#c6",
-  "latyshova.permeability_threshold_on_logs#c7",
   "latyshova.permeability_threshold_on_logs#c8"
  ]
 }

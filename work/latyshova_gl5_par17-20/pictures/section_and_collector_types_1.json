@@ -1,17 +1,34 @@
 {
  "node_id": "latyshova.section_and_collector_types",
- "template": "grains",
+ "template": "compare",
  "data": {
-  "pores": "intergranular",
-  "clay": "dispersed",
-  "fluid": "water",
-  "water_film": false
+  "left_title": "Терригенный",
+  "right_title": "Карбонатный",
+  "rows": [
+   {
+    "aspect": "Преобладающие коллекторы",
+    "left": "межзерновые",
+    "right": "межзерновые, кавернозно-трещинные, смешанные"
+   },
+   {
+    "aspect": "Деление межзерновых",
+    "left": "по пористости и по глинистости",
+    "right": "только по пористости"
+   },
+   {
+    "aspect": "Вторичные поры",
+    "left": "не названы",
+    "right": "выщелачивание, перекристаллизация"
+   }
+  ]
  },
- "caption": "Межзерновой коллектор терригенного разреза: поры между зёрнами, глина рассеяна в порах. Такие коллекторы там преобладают.",
- "alt": "Порода под увеличением: зёрна с порами между ними, в порах рассеяна глина.",
+ "caption": "Два основных типа разреза: какие коллекторы в них преобладают и как межзерновые делят по геофизическим признакам.",
+ "alt": "Таблица сравнения терригенного и карбонатного разрезов по преобладающим коллекторам, делению межзерновых коллекторов и вторичным порам.",
  "claim_ids": [
-  "latyshova.section_and_collector_types#c4",
   "latyshova.section_and_collector_types#c6",
-  "latyshova.section_and_collector_types#c8"
+  "latyshova.section_and_collector_types#c7",
+  "latyshova.section_and_collector_types#c8",
+  "latyshova.section_and_collector_types#c11",
+  "latyshova.section_and_collector_types#c12"
  ]
 }
