@@ -5,6 +5,7 @@
 - prompt понятен без книги; для gap пропуски {{1}}, {{2}} внутри текста, answer — список слов по порядку;
 - options: {"id":"a","text":"…","misconception":null или "misc.…"}; неверные варианты правдоподобны, верный не длиннее остальных. Для order options — элементы в перемешанном порядке, answer — список id в верном порядке;
 - answer: single — id; multiple — список id (не меньше двух); calc — число, tolerance и unit обязательны; для calc ещё formula — выражение из + − * / ^ ( ) и имён, записанное знаками + - * / ^, и inputs — {"имя":число} из условия; код сам посчитает ответ и сверит;
+- числа из утверждений с source_kind figure_description_model в задания не бери: они прочитаны с описания рисунка приблизительно;
 - explanation — одна фраза, почему так;
 - claim_ids — утверждения узла, на которых держится ответ; step_id — id узла;
 - kind: recall, understanding, transfer, data. Не меньше трети — understanding, transfer или data.

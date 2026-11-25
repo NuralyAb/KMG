@@ -88,11 +88,31 @@ def errata_of(chapter: Chapter) -> list[dict]:
     return [e for file in files for e in read_or(file, {"entries": []})["entries"]]
 
 
+NOTES = (("glossary.md", "Словарь пакета (термин | определение | English)", 3), ("it_bridges.md", "ИТ-мосты пакета (понятие | аналогия | что передаёт | где ломается)", 4))
+MAX_NOTES = {"glossary.md": 40, "it_bridges.md": 10}
+STEM = 6
+
+
+def pack_notes(chapter: Chapter) -> str:
+    """Строки глоссария и ИТ-мостов, чьё понятие чаще всего встречается в главе: весь пакет в каждом запросе стоил бы лишних денег."""
+    text = " ".join(u.text for u in chapter.units).casefold()
+    blocks = ""
+    for name, title, columns in NOTES:
+        file = chapter.domain / name
+        lines = file.read_text(encoding="utf-8").splitlines() if file.exists() else []
+        rows = [[c.strip() for c in line.strip().strip("|").split("|")][:columns] for line in lines if line.startswith("|")]
+        usable = [row for row in rows if len(row) == columns and len(row[0]) >= 2 and set(row[0]) - set("-: ")]
+        counted = [(text.count(row[0].split()[0].casefold()[:STEM]), row) for row in usable]
+        found = [row for count, row in sorted(counted, key=lambda x: -x[0])[:MAX_NOTES[name]] if count]
+        blocks += f"\n\n# {title}\n" + "\n".join(" | ".join(row) for row in found) if found else ""
+    return blocks
+
+
 def context_of(chapter: Chapter) -> str:
     misconceptions = read(chapter.domain / "misconceptions.json")
     listed = "\n".join(f"{m['id']}: {m['text']}" for m in misconceptions)
     difficulty = (chapter.domain / "difficulty.md").read_text(encoding="utf-8")
-    return f"# Глава\n{chapter.title}. {chapter.book}\n\n# Заблуждения новичков\n{listed}\n\n# {difficulty}"
+    return f"# Глава\n{chapter.title}. {chapter.book}\n\n# Заблуждения новичков\n{listed}\n\n# {difficulty}{pack_notes(chapter)}"
 
 
 def write_metrics(chapter: Chapter, stage: str, nodes: int, replies: Sequence[Spent], video_seconds: float = 0) -> None:

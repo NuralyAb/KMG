@@ -1,0 +1,412 @@
+{
+ "title": "Почему ствол скважины меняет диаметр",
+ "params": {
+  "depth_top": 0,
+  "depth_bottom": 16,
+  "depth_tick": 4,
+  "tool_resolution_m": 0.3,
+  "layers": [
+   {
+    "top": 0,
+    "bottom": 3,
+    "lith": "salt",
+    "label": "соль",
+    "fluid": null,
+    "permeable": false,
+    "wall": 1.3,
+    "cake": 0,
+    "props": {}
+   },
+   {
+    "top": 3,
+    "bottom": 7,
+    "lith": "shale",
+    "label": "глина",
+    "fluid": null,
+    "permeable": false,
+    "wall": 1.25,
+    "cake": 0,
+    "props": {}
+   },
+   {
+    "top": 7,
+    "bottom": 11,
+    "lith": "dense",
+    "label": "плотная",
+    "fluid": null,
+    "permeable": false,
+    "wall": 1.0,
+    "cake": 0,
+    "props": {}
+   },
+   {
+    "top": 11,
+    "bottom": 16,
+    "lith": "sand",
+    "label": "коллектор",
+    "fluid": "water",
+    "permeable": true,
+    "wall": 1.0,
+    "cake": 0.08,
+    "props": {}
+   }
+  ],
+  "curves": [
+   {
+    "key": "CALIPER",
+    "prop": "d",
+    "label": "диаметр",
+    "unit": "",
+    "min": 0.7,
+    "max": 1.4
+   }
+  ]
+ },
+ "objects": [
+  "разрез из четырёх слоёв",
+  "ствол скважины",
+  "глинистая корка",
+  "фильтрат в порах",
+  "каверномер на кабеле",
+  "кривая диаметра"
+ ],
+ "invariants": [
+  "порядок слоёв и глубина вниз",
+  "корка только против коллектора",
+  "кривая равна диаметру ствола за вычетом корки на глубине прибора",
+  "пунктир номинального диаметра неподвижен"
+ ],
+ "assumptions": [
+  "каверны в глине и соли уже образовались к началу ролика",
+  "корка одинакова по толщине вдоль коллектора",
+  "глубины условные"
+ ],
+ "exaggerations": [
+  "глинистая корка толще реальной",
+  "точки в порах увеличены",
+  "глубины условные"
+ ],
+ "plaque": [
+  "корка и поры увеличены",
+  "глубины условные"
+ ],
+ "prediction_question": "Против какой породы ствол станет уже?",
+ "transfer_question": "Верны ли те же признаки, если скважину промывали технической водой?",
+ "data_it_bridge": "Диаметр ствола — столбец данных рядом с номиналом. Знак разницы даёт признак породы: меньше, равен, больше. Класс «больше» неоднозначен: глина, трещины, карст и соль дают одно и то же, поэтому одного столбца модели мало.",
+ "terms_to_check": [
+  "номинальный",
+  "фильтрат",
+  "коллектор",
+  "глинистый",
+  "сцементированной"
+ ],
+ "references": [
+  "пакет организаторов: фото-референсы скважинных приборов (рычажный каверномер) и каротажа открытого ствола"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "порядок слоёв задан в params и не меняется"
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "разломов нет"
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "несогласий нет"
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "вода и фильтрат показаны точками в порах породы"
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "в сцене один флюид, вода"
+  },
+  "pc.flow_high_to_low": {
+   "answer": "да",
+   "note": "фильтрат идёт из ствола в пласт, куда его толкает давление раствора"
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "сначала уход фильтрата, затем рост корки, затем замер"
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "корка растёт только там, куда ушёл фильтрат"
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "кривая считается из той же стенки и корки, что в разрезе"
+  },
+  "pc.tool_mechanism": {
+   "answer": "да",
+   "note": "рычаги каверномера касаются стенки ствола или корки"
+  },
+  "pc.signal_vs_property": {
+   "answer": "да",
+   "note": "измеряется диаметр, тип породы — вывод с контрпримером"
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "названо условие: глинистый раствор"
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "точка кривой стоит на глубине прибора"
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "глубины условные, вслух не произносятся; в истинном масштабе взят ствол 0,2 м"
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "во сколько раз расширен ствол, считает код и пишет плашка"
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "прибор и ствол не меняют конструкцию"
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "прибор в стволе, рычаги достают до стенки"
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "глубина растёт вниз, стрелка подписана"
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "метка «симуляция»: сцена считается из params; преувеличение названо числом"
+  },
+  "pc.modern_or_historic": {
+   "answer": "да",
+   "note": "рычажный каверномер применяют и сейчас"
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "давление в стволе не показано числом"
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "газа нет"
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "приёмной ёмкости нет"
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "ствол открытый во всех кадрах"
+  }
+ },
+ "beats": [
+  {
+   "say": "Скважину бурили одним долотом. Почему местами она уже, а местами шире?",
+   "claim_id": null,
+   "on_screen": "Одно долото, разный ствол?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "nominal": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Пунктир отмечает номинальный диаметр, с ним и будем сравнивать.",
+   "claim_id": null,
+   "on_screen": "Пунктир: номинальный диаметр",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "nominal": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "По книге, чаще всего скважину промывают глинистым раствором.",
+   "claim_id": "latyshova.mud_effects_on_borehole#c6",
+   "on_screen": "Промывка глинистым раствором",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {},
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Угадайте, против какой породы ствол станет уже номинала.",
+   "claim_id": null,
+   "on_screen": "Где ствол сузится?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 1.3,
+   "role": "prediction"
+  },
+  {
+   "say": "Против коллектора, породы с порами: жидкая часть раствора, фильтрат, уходит в них.",
+   "claim_id": "latyshova.mud_effects_on_borehole#c8",
+   "on_screen": "Фильтрат уходит в поры",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "flow": 1,
+    "invasion": 1,
+    "focus": 4
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "На стенке остаётся глинистая корка, поэтому диаметр меньше номинального.",
+   "claim_id": "latyshova.mud_effects_on_borehole#c8",
+   "on_screen": "Корка сужает ствол",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "flow": 0,
+    "cake": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Справа кривая диаметра. Её считает тот же ствол, что слева.",
+   "claim_id": null,
+   "on_screen": "Прибор едет вверх",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "tool": 11.2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "В плотной сцементированной породе диаметр остаётся равным номинальному.",
+   "claim_id": "latyshova.mud_effects_on_borehole#c9",
+   "on_screen": "Плотная порода: без изменений",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 3,
+    "tool": 7.2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "В глинах диаметр растёт: частицы разбухают, и струя раствора их вымывает.",
+   "claim_id": "latyshova.mud_effects_on_borehole#c10",
+   "on_screen": "Глина: ствол шире",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 2,
+    "tool": 3.2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Но широкий ствол ещё не значит глину: растворимые соли тоже могут его увеличить.",
+   "claim_id": "latyshova.mud_effects_on_borehole#c11",
+   "on_screen": "Контрпример: соль",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1,
+    "tool": 0.2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Признаки сформулированы именно для глинистого раствора.",
+   "claim_id": "latyshova.mud_effects_on_borehole#c7",
+   "on_screen": "Условие: глинистый раствор",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Поэтому специалист сравнивает диаметр с номинальным, а вывод проверяет другими методами.",
+   "claim_id": "latyshova.mud_effects_on_borehole#c8",
+   "on_screen": "Уже, равен или шире?",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 4
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Вот истинный масштаб: ствол здесь тонкий, на рисунке мы его расширили.",
+   "claim_id": null,
+   "on_screen": "Истинный масштаб",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 1,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "А если скважину промывали технической водой, можно ли верить тем же признакам?",
+   "claim_id": null,
+   "on_screen": "А на технической воде?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "latyshova_mud_effects_on_borehole_short",
+ "chapter": "latyshova_gl5_par17-20",
+ "node_id": "latyshova.mud_effects_on_borehole",
+ "format": "short",
+ "template": "well_tool_curve",
+ "claim_marks": {
+  "latyshova.mud_effects_on_borehole#c1": "eba9238ca79b",
+  "latyshova.mud_effects_on_borehole#c2": "422ad5689c10",
+  "latyshova.mud_effects_on_borehole#c3": "3f809394dbac",
+  "latyshova.mud_effects_on_borehole#c4": "aab78fae9e18",
+  "latyshova.mud_effects_on_borehole#c5": "3c848d902a97",
+  "latyshova.mud_effects_on_borehole#c6": "b258adac92ad",
+  "latyshova.mud_effects_on_borehole#c7": "48e399fc967f",
+  "latyshova.mud_effects_on_borehole#c8": "09e581755808",
+  "latyshova.mud_effects_on_borehole#c9": "995bd3174f7e",
+  "latyshova.mud_effects_on_borehole#c10": "35458cb01191",
+  "latyshova.mud_effects_on_borehole#c11": "becc173f9be2"
+ },
+ "written_by": "Claude Opus 5.5 в сессии 2026-11-26, не командой video"
+}

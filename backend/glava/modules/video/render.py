@@ -9,6 +9,7 @@ from typing import Any
 import cairo
 
 from glava.modules.video.draw import fill_rect
+from glava.modules.video.ffmpeg import ffmpeg, loudness_filter
 from glava.modules.video.overlay import LAYOUTS, draw_overlay
 from glava.modules.video.timeline import Placed, srt, state_at
 
@@ -21,7 +22,7 @@ def frame(t: float, spec: Mapping[str, Any], placed: Sequence[Placed], template:
     surface = cairo.ImageSurface(cairo.FORMAT_RGB24, layout.width, layout.height)
     ctx = cairo.Context(surface)
     fill_rect(ctx, 0, 0, layout.width, layout.height, style["background"])
-    state = state_at(t, placed, template.initial(spec["params"]))
+    state = state_at(t, placed, template.initial(spec["params"]), getattr(template, "DISCRETE", ("focus",)))
     template.draw(ctx, layout.scene, spec["params"], state, t, style, layout)
     draw_overlay(ctx, t, placed, spec, style, layout)
     return surface
@@ -38,8 +39,8 @@ def render_audio(placed: Sequence[Placed], total: float, out: Path) -> Path:
     delays = [f"[{i}:a]aresample=48000,adelay={round(p.start * 1000)}:all=1[a{i}]" for i, p in enumerate(placed)]
     mix = "".join(f"[a{i}]" for i in range(len(placed))) + f"amix=inputs={len(placed)}:normalize=0,apad=whole_dur={total:.3f}[mix]"
     raw = out.with_suffix(".raw.wav")
-    _run(["ffmpeg", "-y", *inputs, "-filter_complex", ";".join([*delays, mix]), "-map", "[mix]", "-ac", "1", "-t", f"{total:.3f}", str(raw)])
-    _run(["ffmpeg", "-y", "-i", str(raw), "-af", f"loudnorm=I={LUFS}:TP=-1.5:LRA=11", "-ar", "48000", str(out)])
+    _run([ffmpeg(), "-y", *inputs, "-filter_complex", ";".join([*delays, mix]), "-map", "[mix]", "-ac", "1", "-t", f"{total:.3f}", str(raw)])
+    _run([ffmpeg(), "-y", "-i", str(raw), "-af", loudness_filter(raw, LUFS), "-ar", "48000", str(out)])
     raw.unlink()
     return out
 
@@ -48,7 +49,7 @@ def render_video(spec: Mapping[str, Any], placed: Sequence[Placed], total: float
     layout = LAYOUTS[spec["format"]]
     subtitles = out.with_suffix(".srt")
     subtitles.write_text(srt(placed), encoding="utf-8", newline="\n")
-    command = ["ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "bgr0", "-s", f"{layout.width}x{layout.height}", "-r", str(FPS), "-i", "-",
+    command = [ffmpeg(), "-y", "-f", "rawvideo", "-pix_fmt", "bgr0", "-s", f"{layout.width}x{layout.height}", "-r", str(FPS), "-i", "-",
                "-i", str(audio), "-i", str(subtitles), "-map", "0:v", "-map", "1:a", "-map", "2:s", "-c:v", "libx264", "-preset", "medium", "-crf", "19",
                "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", "-c:s", "mov_text", "-metadata:s:s:0", "language=rus", "-movflags", "+faststart", str(out)]
     with out.with_suffix(".log").open("wb") as log, subprocess.Popen(command, stdin=subprocess.PIPE, stdout=log, stderr=log) as process:

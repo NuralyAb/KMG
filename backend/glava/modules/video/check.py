@@ -1,19 +1,24 @@
 """Проверки ролика: сценарий до озвучки, дорожка после неё."""
 
 import re
-import subprocess
 from collections.abc import Mapping, Sequence
+from dataclasses import dataclass
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
 
+from glava.modules.video.ffmpeg import measured, samples_16k
 from glava.modules.video.timeline import Placed
+from glava.modules.video.voices import Word
 from glava.shared.evidence import unsupported_numbers
 
 MAX_SAY_WORDS = 18
 MAX_SCREEN_WORDS = 8
 MIN_PAUSE, MAX_PAUSE = 1.0, 1.5
+MIN_CAPTION_S, MAX_STILL_S = 1.5, 8.0
 FIRST, LAST = "hook", "transfer"
-NOT_FACTS = {"hook", "prediction", "transfer"}
+# frame — фраза о самой картинке (масштаб, что где нарисовано): факта главы в ней нет
+NOT_FACTS = {"hook", "prediction", "transfer", "frame"}
 GREEK_OR_FORMULA = re.compile(r"[\u0370-\u03FF=<>≤≥≈∝^_]")
 REQUIRED_LISTS = ("objects", "invariants", "assumptions", "exaggerations", "plaque")
 
@@ -69,18 +74,41 @@ def speech_rate(placed: Sequence[Placed]) -> float:
     return words / sum(p.end - p.start for p in placed) * 60
 
 
-def recognise(audio: Path, model_name: str = "small") -> str:
+@dataclass(frozen=True)
+class Heard:
+    text: str
+    words: tuple[Word, ...]
+
+
+def recognise(audio: Path, model_name: str = "small") -> Heard:
     """Локальное распознавание; модель Whisper работает на этом компьютере."""
+    import numpy
     from faster_whisper import WhisperModel
 
-    segments, _ = WhisperModel(model_name, device="cpu", compute_type="int8").transcribe(str(audio), language="ru", beam_size=5)
-    return " ".join(s.text.strip() for s in segments)
+    # звук декодирует ffmpeg: так распознавание не зависит от версии PyAV
+    sound = numpy.frombuffer(samples_16k(audio), numpy.int16).astype(numpy.float32) / 32768
+
+    segments, _ = WhisperModel(model_name, device="cpu", compute_type="int8").transcribe(sound, language="ru", beam_size=5, word_timestamps=True)
+    found = list(segments)
+    return Heard(" ".join(s.text.strip() for s in found), tuple(Word(w.start, w.end, w.word) for s in found for w in s.words or []))
+
+
+def sync_error(placed: Sequence[Placed], heard: Sequence[Word]) -> float | None:
+    """Худшее из 95 % расхождений между словом на дорожке и временем, к которому привязана сцена; None — слов совпало мало."""
+    planned = [(token, p.start + w.start) for p in placed for w in p.speech.words for token in _words(w.text)]
+    actual = [(token, w.start) for w in heard for token in _words(w.text)]
+    blocks = SequenceMatcher(None, [t for t, _ in planned], [t for t, _ in actual], autojunk=False).get_matching_blocks()
+    gaps = sorted(abs(planned[b.a + k][1] - actual[b.b + k][1]) for b in blocks for k in range(b.size))
+    return round(gaps[int(len(gaps) * 0.95)], 2) if len(gaps) * 2 >= len(planned) and gaps else None
+
+
+def pace_problems(placed: Sequence[Placed], total: float) -> list[str]:
+    """Подпись держится не меньше 1,5 с, шаг сцены — не дольше 8 с."""
+    ends = [*(p.start for p in placed[1:]), total]
+    shown = [(i, end - p.start, p) for i, (p, end) in enumerate(zip(placed, ends, strict=True), start=1)]
+    short = [f"фраза {i}: подпись на экране {s:.1f} с, нужно {MIN_CAPTION_S}" for i, s, _ in shown if s < MIN_CAPTION_S]
+    return short + [f"фраза {i}: {s:.0f} с без движения в сцене" for i, s, p in shown[:-1] if s > MAX_STILL_S and not p.beat["action"]]
 
 
 def loudness(audio: Path) -> float:
-    done = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(audio), "-af", "ebur128", "-f", "null", "-"], capture_output=True, text=True,
-                          encoding="utf-8", errors="replace", check=True)
-    found = re.findall(r"I:\s+(-?\d+(?:\.\d+)?) LUFS", done.stderr)
-    if not found:
-        raise RuntimeError("громкость не измерена")
-    return float(found[-1])
+    return measured(audio)[0]

@@ -16,7 +16,8 @@
 | Модуль проверки | Claude Sonnet | то же | облако Anthropic через Claude Code | чужой пакет и его кадры, текст страниц главы, чек-лист физики; `key.json` не копируется и не передаётся | то же |
 | Спецификация ролика | Claude Sonnet по умолчанию; первые пробы 25.11 — Claude Opus | `sonnet`; в пробах `claude-opus-5-5` | облако Anthropic через Claude Code | узел слоя, описание шаблона сцены, чек-лист физики | `LLM_MODEL` |
 | Агент симуляторов | Claude Sonnet | алиас `sonnet`; замысел проверен, до конца не прогонялся | облако Anthropic через Claude Code | утверждения и цитаты узла слоя, кадры симулятора | `LLM_MODEL` или `simulators/agent/steps.json` |
-| Озвучка | онлайн-голос Microsoft | `ru-RU-DmitryNeural`, темп −6%; `edge-tts` 7.3.1 | облако Microsoft | только текст закадровых фраз | `VOICE` и `RATE` в `backend/glava/modules/video/speech.py` |
+| Озвучка, ElevenLabs | `eleven_multilingual_v2`; голос и темп — в `.env`, пишутся в паспорт ролика | API v1 на 26.11.2026; работа с настоящим ключом ещё не проверена | облако ElevenLabs | только текст закадровых фраз | `VOICE_PROVIDER`, `ELEVENLABS_*` |
+| Озвучка, Microsoft (без ключа ElevenLabs и запасной путь) | онлайн-голос Microsoft | `ru-RU-DmitryNeural`, темп −6%; `edge-tts` 7.3.1 | облако Microsoft | только текст закадровых фраз | `VOICE_EDGE_NAME`, `VOICE_EDGE_RATE` |
 | Проверка дорожки | Whisper | `small`, int8, CPU; `faster-whisper` 1.2.1, `ctranslate2` 4.9.1 | локально | ничего; веса один раз скачиваются с Hugging Face | параметр `model_name` функции `recognise` в `backend/glava/modules/video/check.py` |
 
 Провайдер — Claude Code 2.1.329 (`--version` исполняемого файла). Он запускается без настроек пользователя и MCP, в пустой временной папке; инструменты выключены, а для вызовов с картинками разрешён только `Read`. Журналы вызовов Claude Code остаются на ПК, в `~/.claude/projects`: в них есть текст главы.
@@ -41,6 +42,8 @@
 | Three.js | 0.170.0 | 3D-симуляторы курса | нет |
 | esbuild | 0.24.0 | сборка проигрывателя симуляторов | нет |
 | Playwright и Chrome | Playwright 1.64.1 | кадры и прохождение симулятора агентом | нет |
+| numpy | `uv.lock` | звук для распознавания | нет |
+| imageio-ffmpeg | `uv.lock` | ffmpeg, если его нет в PATH | нет |
 | FFmpeg | 9.0.2 full build, gyan.dev | сборка видео и звука, замер громкости | нет |
 | KaTeX | 0.16.22 | формулы в курсе, лежит в репозитории | нет |
 | IBM Plex Sans | переменный шрифт, woff2 | текст курса, лежит в репозитории | нет |

@@ -10,6 +10,7 @@ from glava.modules.video.draw import dot, fill_rect, text, text_size, wrap
 from glava.modules.video.timeline import Placed, current
 
 FADE = 0.25
+KINDS = {"observation": "наблюдение", "inference": "вывод", "assumption": "допущение"}
 
 
 @dataclass(frozen=True)
@@ -39,7 +40,9 @@ def draw_overlay(ctx: cairo.Context, t: float, placed: Sequence[Placed], spec: M
     alpha = min(1.0, max(0.0, (t - item.start) / FADE)) if item is not placed[0] else 1.0
     _caption(ctx, item.beat, style, layout, alpha)
     _badge(ctx, item.beat["label"], style, layout)
-    _plaque(ctx, spec["plaque"][0], style, layout)
+    _kind(ctx, item.beat, spec.get("claim_kinds") or {}, style, layout)
+    notes = [*spec["plaque"], *([style["school"]] if item.beat["frame_class"] == "A" and style.get("school") else [])]
+    _plaque(ctx, notes[placed.index(item) % len(notes)], style, layout)
     _steps(ctx, t, placed, style, layout)
     if item.beat["role"] == "prediction" and t > item.end:
         _guess(ctx, spec["prediction_question"], style, layout)
@@ -62,12 +65,24 @@ def _badge(ctx: cairo.Context, label: str, style: Mapping[str, Any], layout: Lay
     text(ctx, layout.side + width / 2, y + layout.small * 1.15, label, layout.small, "#FFFFFF", True, "middle")
 
 
+def _kind(ctx: cairo.Context, beat: Mapping[str, Any], kinds: Mapping[str, str], style: Mapping[str, Any], layout: Layout) -> None:
+    """Наблюдение, вывод или допущение: зритель видит, что измерено, а что из этого следует."""
+    word = "аналогия" if beat["is_analogy"] else KINDS.get(kinds.get(beat["claim_id"] or "", ""))
+    if not word:
+        return
+    x = layout.side + text_size(ctx, beat["label"], layout.small, True) + layout.small * 1.4
+    y = layout.height - layout.bottom - layout.small * 1.6
+    width = text_size(ctx, word, layout.small, True) + layout.small
+    fill_rect(ctx, x, y, width, layout.small * 1.6, style["panel"], radius=10)
+    text(ctx, x + width / 2, y + layout.small * 1.15, word, layout.small, style["text"], True, "middle")
+
+
 def _plaque(ctx: cairo.Context, plaque: str, style: Mapping[str, Any], layout: Layout) -> None:
-    left = layout.side + text_size(ctx, "реальные данные", layout.small, True) + layout.small * 1.6
-    size = layout.small
-    while size > layout.small * 0.6 and text_size(ctx, plaque, size) > layout.width - layout.side - left:
+    """Плашка честности строкой под метками: места хватает и длинной оговорке."""
+    size = float(layout.small)
+    while size > layout.small * 0.6 and text_size(ctx, plaque, size) > layout.width - 2 * layout.side:
         size -= 1
-    text(ctx, layout.width - layout.side, layout.height - layout.bottom - layout.small * 0.45, plaque, size, style["muted"], False, "end")
+    text(ctx, layout.side, layout.height - layout.bottom + layout.small * 1.1, plaque, size, style["muted"])
 
 
 def _steps(ctx: cairo.Context, t: float, placed: Sequence[Placed], style: Mapping[str, Any], layout: Layout) -> None:

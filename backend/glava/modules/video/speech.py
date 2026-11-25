@@ -1,29 +1,23 @@
-"""Озвучка онлайн-голосом Microsoft: наружу уходит только текст сценария. Ответы кэшируются, отказы повторяются."""
+"""Озвучка фраз: произношение по словарю, кэш готовых фраз, потолок знаков платного голоса, запасной голос на весь ролик."""
 
-import asyncio
 import hashlib
 import json
+import logging
 import re
-import time
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
-VOICE = "ru-RU-DmitryNeural"
-RATE = "-6%"
-RETRIES = 14
+from glava.modules.video.voices import (
+    ElevenLabs,
+    SpeechFailed,
+    Voice,
+    VoiceNotConfigured,
+    Word,
+)
+
+log = logging.getLogger("glava")
 TAIL = 0.15
-
-
-class SpeechFailed(RuntimeError):
-    pass
-
-
-@dataclass(frozen=True)
-class Word:
-    start: float
-    end: float
-    text: str
 
 
 @dataclass(frozen=True)
@@ -65,40 +59,51 @@ def dictionaries(pronunciation: str) -> tuple[dict[str, str], dict[str, str]]:
     return short, stress
 
 
-async def _stream(text: str, voice: str, rate: str) -> tuple[bytes, list[Word]]:
-    import edge_tts
-
-    audio, words = b"", []
-    async for chunk in edge_tts.Communicate(text, voice, rate=rate, boundary="WordBoundary").stream():
-        if chunk["type"] == "audio":
-            audio += chunk["data"]
-        elif chunk["type"] == "WordBoundary":
-            start = chunk["offset"] / 1e7
-            words = [*words, Word(start, start + chunk["duration"] / 1e7, chunk["text"])]
-    return audio, words
+def _cached(text: str, folder: Path, voice: Voice) -> tuple[Path, Path]:
+    key = hashlib.sha256(f"{voice.key}|{text}".encode()).hexdigest()[:24]
+    return folder / f"{key}.mp3", folder / f"{key}.json"
 
 
-def say(text: str, folder: Path, voice: str = VOICE, rate: str = RATE) -> Speech:
-    key = hashlib.sha256(f"{voice}|{rate}|{text}".encode()).hexdigest()[:24]
-    audio_path, words_path = folder / f"{key}.mp3", folder / f"{key}.json"
-    if not words_path.exists():
+def say(text: str, folder: Path, voice: Voice) -> Speech:
+    text = voice.prepare(text)
+    audio_path, words_path = _cached(text, folder, voice)
+    if not (words_path.exists() and audio_path.exists()):
         folder.mkdir(parents=True, exist_ok=True)
-        audio, words = _with_retries(text, voice, rate)
+        audio, words = voice.speak(text)
         audio_path.write_bytes(audio)
         words_path.write_text(json.dumps([[w.start, w.end, w.text] for w in words], ensure_ascii=False), encoding="utf-8")
     words = tuple(Word(*w) for w in json.loads(words_path.read_text(encoding="utf-8")))
     return Speech(audio_path, words[-1].end + TAIL, words)
 
 
-def _with_retries(text: str, voice: str, rate: str) -> tuple[bytes, list[Word]]:
-    detail = ""
-    for attempt in range(RETRIES):
-        try:
-            audio, words = asyncio.run(_stream(text, voice, rate))
-            if audio and words:
-                return audio, words
-            detail = "пустой ответ"
-        except Exception as error:  # noqa: BLE001 — сетевые ошибки edge_tts разнородны, причина уходит в сообщение
-            detail = repr(error)
-        time.sleep(min(30, 2**attempt))
-    raise SpeechFailed(f"голос {voice} не ответил {RETRIES} раз: {detail[:200]}; смените голос всей серии или повторите позже")
+def unspoken_chars(texts: Sequence[str], folder: Path, voice: Voice) -> int:
+    """Сколько знаков придётся озвучить заново: готовые фразы бесплатны."""
+    ready = [voice.prepare(t) for t in texts]
+    return sum(len(t) for t in dict.fromkeys(ready) if not _cached(t, folder, voice)[1].exists())
+
+
+@dataclass(frozen=True)
+class Voiced:
+    speeches: tuple[Speech, ...]
+    voice: Voice
+    paid_chars: int
+
+
+def _all(texts: Sequence[str], folder: Path, voice: Voice, limit: int) -> Voiced:
+    chars = unspoken_chars(texts, folder, voice) if isinstance(voice, ElevenLabs) else 0
+    if chars > limit:
+        raise VoiceNotConfigured(f"озвучка займёт {chars} знаков, потолок {limit}: поднимите ELEVENLABS_MAX_CHARS или сократите сценарий")
+    if chars:
+        log.info("ElevenLabs: %s знаков", chars)
+    return Voiced(tuple(say(t, folder, voice) for t in texts), voice, chars)
+
+
+def say_all(texts: Sequence[str], folder: Path, voice: Voice, fallback: Voice | None, limit: int) -> Voiced:
+    """Весь ролик одним голосом: если основной отказал, запасной озвучивает все фразы с начала."""
+    try:
+        return _all(texts, folder, voice, limit)
+    except SpeechFailed as error:
+        if fallback is None:
+            raise
+        log.warning("%s; весь ролик озвучит запасной голос %s", error, fallback.describe()["voice"])
+        return _all(texts, folder, fallback, limit)

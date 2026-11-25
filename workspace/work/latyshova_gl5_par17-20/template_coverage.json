@@ -1,0 +1,69 @@
+{
+ "chapter": "latyshova_gl5_par17-20",
+ "domain": "geology",
+ "rows": [
+  {
+   "node_id": "latyshova.mud_effects_on_borehole",
+   "title": "Как глинистый раствор образует корку и зону проникновения и меняет диаметр скважины",
+   "format": "шортс",
+   "video_score": 6,
+   "template": "well_tool_curve",
+   "state_model": "well_tool_curve — вертикальный разрез со скважиной: слои, ствол, корка, проникновение фильтрата, прибор едет снизу вверх и пишет кривые, вычисленные из тех же слоёв",
+   "status": "назначен маршрутизацией"
+  },
+  {
+   "node_id": "latyshova.water_loss_and_mud_density",
+   "title": "Водоотдача и плотность раствора определяют глубину проникновения и доступность коллектора для методов",
+   "format": "интерактив",
+   "video_score": 5,
+   "template": null,
+   "state_model": null,
+   "status": "нужен новый"
+  },
+  {
+   "node_id": "latyshova.filtrate_salinity",
+   "title": "Как минерализация фильтрата влияет на выделение коллектора и на оценку продуктивности",
+   "format": "интерактив",
+   "video_score": 5,
+   "template": null,
+   "state_model": null,
+   "status": "нужен новый"
+  },
+  {
+   "node_id": "latyshova.radial_gradient_and_dynamic",
+   "title": "Радиальный градиент сопротивления и динамические методы выделения коллектора",
+   "format": "шортс",
+   "video_score": 6,
+   "template": "well_tool_curve",
+   "state_model": "well_tool_curve — вертикальный разрез со скважиной: слои, ствол, корка, проникновение фильтрата, прибор едет снизу вверх и пишет кривые, вычисленные из тех же слоёв",
+   "status": "назначен маршрутизацией"
+  },
+  {
+   "node_id": "latyshova.gnk_by_neutron",
+   "title": "Положение газонефтяного контакта по повторным нейтронным замерам",
+   "format": "шортс",
+   "video_score": 7,
+   "template": "well_tool_curve",
+   "state_model": "well_tool_curve — вертикальный разрез со скважиной: слои, ствол, корка, проникновение фильтрата, прибор едет снизу вверх и пишет кривые, вычисленные из тех же слоёв",
+   "status": "назначен маршрутизацией"
+  },
+  {
+   "node_id": "latyshova.thin_layers_resistivity",
+   "title": "Тонкослоистая пачка: глинистость и эффективная толщина по сопротивлению",
+   "format": "интерактив",
+   "video_score": 5,
+   "template": null,
+   "state_model": null,
+   "status": "нужен новый"
+  },
+  {
+   "node_id": "latyshova.fracture_matrix",
+   "title": "Трещинный коллектор: плотные блоки, малая ёмкость трещин и высокая проницаемость",
+   "format": "интерактив",
+   "video_score": 7,
+   "template": null,
+   "state_model": null,
+   "status": "нужен новый"
+  }
+ ]
+}
