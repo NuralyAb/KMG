@@ -3,6 +3,7 @@
 from glava.modules.errata.scan_check import (
     for_pages,
     make_errata,
+    not_caught,
     number_sources,
     prompt_block,
     render_page,
@@ -12,6 +13,7 @@ from glava.modules.errata.scan_check import (
 __all__ = [
     "for_pages",
     "make_errata",
+    "not_caught",
     "number_sources",
     "prompt_block",
     "render_page",

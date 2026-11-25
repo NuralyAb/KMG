@@ -68,6 +68,15 @@ def suspects_in(quotes: Sequence[str], entries: Sequence[Entry]) -> list[Entry]:
     return [e for e in entries if e["kind"] == "suspect" and any(touches(squeeze(e["md"]), t) for t in texts)]
 
 
+def not_caught(found: Sequence[Entry], entries: Sequence[Entry]) -> list[Entry]:
+    """Записи правила, которых нет в листе модели: та же страница и тот же кусок md (общих не меньше OVERLAP знаков)."""
+    def same(a: Entry, b: Entry) -> bool:
+        x, y = squeeze(a["md"]), squeeze(b["md"])
+        return a["page"] == b["page"] and SequenceMatcher(None, x, y, autojunk=False).find_longest_match().size >= min(OVERLAP, len(x), len(y))
+
+    return [f for f in found if not any(same(f, e) for e in entries)]
+
+
 def prompt_block(entries: Sequence[Entry]) -> str:
     if not entries:
         return ""

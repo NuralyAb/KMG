@@ -6,6 +6,7 @@ from glava.modules.source_text.blocks import (
     book_tables,
     number_blocks,
 )
+from glava.modules.source_text.symbols import kappa_suspects
 from glava.modules.source_text.units import (
     Unit,
     is_english_source,
@@ -20,6 +21,7 @@ __all__ = [
     "Unit",
     "book_tables",
     "is_english_source",
+    "kappa_suspects",
     "mark_unsure",
     "number_blocks",
     "parse_units",
