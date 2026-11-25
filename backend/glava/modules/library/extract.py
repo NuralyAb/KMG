@@ -25,6 +25,7 @@ COMMON = re.compile(r"[оеаинтслвр]")
 CYRILLIC = re.compile(r"[а-яё]", re.IGNORECASE)
 MID_CAPITAL = re.compile(r"(?<=[а-яё])[А-ЯЁ]")
 LOST_SHARE = 0.002
+LATIN_SHARE = 0.15
 GUESSED = "кодировка не UTF-8, определена по догадке"
 
 
@@ -62,6 +63,9 @@ def _guess(raw: bytes) -> str:
         foreign = sum(ord(c) > 127 for c in text) - letters + len(MID_CAPITAL.findall(text))
         return (len(COMMON.findall(text)) - foreign) / letters if letters else -1.0
 
+    # в английском тексте не из ASCII только кавычки, тире и градусы, в русском — почти все буквы
+    if sum(b > 127 for b in raw) < LATIN_SHARE * sum(chr(b).isalpha() for b in raw if b < 128):
+        return raw.decode("cp1252", "replace")
     return max((raw.decode(e, "replace") for e in OLD_ENCODINGS), key=score)
 
 

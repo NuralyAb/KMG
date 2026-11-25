@@ -8,6 +8,7 @@ from typing import Any
 
 from glava.modules.source_text.api import BARE_REFERENCE, REFERENCE
 from glava.modules.trust.audit import HEDGE, NEGATION, OPPOSITES, UNIT, claim_flags
+from glava.modules.trust.english import is_hedged
 from glava.modules.trust.entail import source_of
 
 SWAPS = {
@@ -115,7 +116,7 @@ def measure(claims: Sequence[Mapping[str, Any]], check: Callable[[str, str], lis
     clean = [c for c in claims if not before[c["id"]]]
     rows: dict[str, list[bool]] = {}
     for mutant in mutants(clean, seed):
-        if mutant.kind in CIRCULAR or (mutant.kind == "lost_condition" and not HEDGE.search(mutant.quote)):
+        if mutant.kind in CIRCULAR or (mutant.kind == "lost_condition" and not (HEDGE.search(mutant.quote) or is_hedged(mutant.quote))):
             continue
         rows.setdefault(mutant.kind, []).append(bool(check(mutant.text, mutant.quote)))
     kinds = {k: {"made": len(v), "caught": sum(v)} for k, v in rows.items()}

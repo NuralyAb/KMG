@@ -25,9 +25,8 @@ OpenProvider = Callable[[], Provider]
 
 def list_voices() -> None:
     # pycairo ставится отдельно: группа video нужна только этим командам
-    from glava.modules.video.api import VoiceNotConfigured
+    from glava.modules.video.api import VoiceNotConfigured, voice_env
     from glava.modules.video.api import list_voices as available
-    from glava.modules.video.api import voice_env
 
     try:
         rows = available(voice_env(REPOSITORY / ".env"))
@@ -98,7 +97,7 @@ def _write_spec(chapter: Chapter, provider: Provider, node: Mapping[str, Any], k
     from glava.modules.video.api import make_spec
 
     video_id = f"{node['id'].replace('.', '_')}_{kind}"
-    spec, replies = make_spec(provider, prompt_file("video"), node, _template(chapter, template_name), template_name, read(chapter.domain / "physics_checklist.json"), kind,
+    spec, replies = make_spec(provider, prompt_file("video", chapter.is_english), node, _template(chapter, template_name), template_name, read(chapter.domain / "physics_checklist.json"), kind,
                               video_id, chapter.chapter_id)
     spec = {**spec, "claim_marks": claim_marks(node), "written_by": f"{provider.name}/{provider.model}"}
     save(specs_folder(chapter) / f"{video_id}.json", spec)

@@ -1,0 +1,1 @@
+Цитаты на английском, утверждения на русском: сверяй смысл. Точный перевод — follows; перевод термина, запись 1,250 как 1250 и 0.5 как 0,5, название единицы по-русски расхождением не считаются. Потеря may, might, usually, generally, some, about, if, unless, only — partial; перевёрнутое not, no, increase/decrease, above/below, greater/less — contradicts; пересчёт единиц — partial.

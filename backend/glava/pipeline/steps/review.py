@@ -22,7 +22,7 @@ def build_review(chapter: Chapter, source: Path, provider: Provider) -> Path:
         raise LibraryError("проверка пакета по главе базы знаний не поддерживается: ответ с цитатами книги попал бы в git")
     package = load_package(source)
     folder = review_workspace(source, workspace() / "work" / "review", package["package_id"])
-    prompts = {role: prompt_file(f"review_{role}") for role in ("find", "physics", "judge")}
+    prompts = {role: prompt_file(f"review_{role}", chapter.is_english) for role in ("find", "physics", "judge")}
     checklist = (chapter.domain / "physics_checklist.json").read_text(encoding="utf-8")
     answer, replies = review_package(package, pages_of(chapter.units), provider, prompts, checklist, folder)
     target = workspace() / "out" / "review" / f"{package['package_id']}.json"

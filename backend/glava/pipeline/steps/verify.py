@@ -20,6 +20,7 @@ from glava.pipeline.chapter import file_digest, layer_of
 from glava.pipeline.prompts import prompt_file
 from glava.pipeline.runtime import PARALLEL
 from glava.shared.json_files import save
+from glava.shared.language import is_english
 
 MODEL_MUTANTS = 20
 log = logging.getLogger("glava")
@@ -29,7 +30,8 @@ def build_verify(chapter_id: str, provider: Provider, with_mutants: bool) -> dic
     """Платно: вторая модель сверяет утверждения с цитатами и фразы с утверждениями."""
     work, layer = layer_of(chapter_id)
     digest = file_digest(work / "layer.json")  # пока модель отвечает, слой могут изменить
-    prompts = {"claims": prompt_file("verify_claims"), "prose": prompt_file("verify_prose")}
+    english = is_english("\n".join(c["quote"] for n in layer["nodes"] for c in n["claims"]))
+    prompts = {"claims": prompt_file("verify_claims", english), "prose": prompt_file("verify_prose", english)}
     with ThreadPoolExecutor(PARALLEL) as pool:
         results = list(pool.map(lambda n: verify_node(provider, prompts, n), layer["nodes"]))
     report = trust_report(chapter_id, f"{provider.name}/{provider.model}", [c for cs, _, _ in results for c in cs], [p for _, ps, _ in results for p in ps], layer["nodes"])

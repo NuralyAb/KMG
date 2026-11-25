@@ -1,7 +1,7 @@
 """layer: учебный слой главы."""
 
 import logging
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
@@ -21,6 +21,7 @@ from glava.pipeline.chapter import Chapter, context_of, errata_of, write_metrics
 from glava.pipeline.prompts import prompt_file
 from glava.pipeline.runtime import PARALLEL
 from glava.shared.json_files import save
+from glava.shared.language import is_untranslated
 
 log = logging.getLogger("glava")
 
@@ -28,7 +29,7 @@ log = logging.getLogger("glava")
 def enrich_nodes(chapter: Chapter, provider: Provider, nodes: Sequence[dict], errata: Sequence[dict]) -> tuple[list[dict], list[Reply], list[str]]:
     """Блоки страницы шага. Узел, который модель не дополнила, остаётся как был и попадает в отчёт."""
     note = chapter.domain / "now_practice.md"
-    prompt, now = prompt_file("enrich"), note.read_text(encoding="utf-8") if note.exists() else ""
+    prompt, now = prompt_file("enrich", chapter.is_english), note.read_text(encoding="utf-8") if note.exists() else ""
 
     def rows_for(part: Sequence[dict]) -> tuple[dict[str, dict], list[Reply]]:
         return make_enrichment(provider, prompt, part, now, errata)
@@ -42,10 +43,16 @@ def enrich_nodes(chapter: Chapter, provider: Provider, nodes: Sequence[dict], er
     return [apply(n, rows.get(n["id"]), units, errata) for n in nodes], [r for _, rs in (*first, *second) for r in rs], [n["id"] for n in nodes if n["id"] not in rows]
 
 
+def course_title(chapter: Chapter, plan: Mapping[str, Any]) -> str:
+    """Название английской главы в реестре часто остаётся английским: тогда берётся перевод из плана."""
+    translated = str(plan.get("title") or "").strip()
+    return translated if translated and chapter.is_english and is_untranslated(chapter.title, 1) else chapter.title
+
+
 def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) -> dict[str, Any]:
     context = context_of(chapter)
     errata = errata_of(chapter)
-    plan, plan_replies = make_plan(provider, prompt_file("plan"), context, chapter.units)
+    plan, plan_replies = make_plan(provider, prompt_file("plan", chapter.is_english), context, chapter.units)
     save(chapter.work / "plan.json", plan)
     unfixed = plan_issues(plan, chapter.units)
     if unfixed:
@@ -54,7 +61,7 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
     log.info("план: узлов %s, собираю %s", len(plan["nodes"]), count)
 
     def one(index: int) -> tuple[dict, list[str], list[Reply]]:
-        return make_node(provider, prompt_file("node"), context, plan, index, chapter.units, chapter.prefix, errata)
+        return make_node(provider, prompt_file("node", chapter.is_english), context, plan, index, chapter.units, chapter.prefix, errata)
 
     with ThreadPoolExecutor(PARALLEL) as pool:
         results = list(pool.map(one, range(count)))
@@ -63,7 +70,7 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
     nodes, enrich_replies, plain = enrich_nodes(chapter, provider, [node for node, _ in cleaned], errata)
     layer = {
         "chapter": chapter.chapter_id, "source": chapter.source, "pdf_pages": sorted({str(u.page_pdf) for u in chapter.units}),
-        "generated_by": f"{provider.name}/{provider.model}", "title": chapter.title, "book": chapter.book,
+        "generated_by": f"{provider.name}/{provider.model}", "title": course_title(chapter, plan), "book": chapter.book,
         "parts": [{"title": p["title"], "nodes": [f"{chapter.prefix}.{s}" for s in p["slugs"]]} for p in plan["parts"]],
         "nodes": nodes,
     }

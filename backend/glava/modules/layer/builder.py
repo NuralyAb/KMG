@@ -12,16 +12,20 @@ import jsonschema
 from glava.modules.errata.api import for_pages, number_sources, prompt_block
 from glava.modules.layer.wording import normal_layers, plain_node
 from glava.modules.llm.api import CACHE_BREAK, Provider, Reply, ask_json
-from glava.modules.source_text.api import Unit
+from glava.modules.source_text.api import Unit, is_english_source
 from glava.shared.evidence import (
+    bare_term,
     find_quote_page,
     node_source,
+    node_texts,
     quote_on_page,
+    restored_quote,
     unsupported_numbers,
     verify_layer,
     with_extra,
 )
 from glava.shared.json_schemas import load_schema
+from glava.shared.language import is_untranslated
 
 SLUG = re.compile(r"[a-z0-9_]+")
 SKIPPABLE_KINDS = {"heading"}
@@ -45,16 +49,32 @@ def plan_issues(plan: Mapping, units: Sequence[Unit]) -> list[str]:
     for uid, reason in skipped.items():
         unit = by_id.get(uid)
         if unit and uid not in placed and (FORBIDDEN_REASON.search(reason) or not reason.strip()
-                                           or (unit.kind not in SKIPPABLE_KINDS and len(unit.text) > SHORT_JUNK_CHARS)):
+                                           or (unit.kind not in SKIPPABLE_KINDS and not unit.skippable and len(unit.text) > SHORT_JUNK_CHARS)):
             issues.append(f"единицу {uid} ({unit.kind}) нельзя пропустить: {reason}")
     slugs = Counter(n["slug"] for n in plan["nodes"])
     issues += [f"slug {s} повторяется или не латиницей" for s, count in slugs.items() if count > 1 or not SLUG.fullmatch(s)]
-    terms = Counter(t.casefold() for n in plan["nodes"] for t in n["terms_introduced"])
+    terms = Counter(bare_term(t) for n in plan["nodes"] for t in n["terms_introduced"])
     issues += [f"термин «{t}» объясняется в {count} узлах" for t, count in terms.items() if count > 1]
     in_parts = [s for p in plan.get("parts", []) for s in p["slugs"]]
     if sorted(in_parts) != sorted(slugs):
         issues.append("parts должны перечислять каждый slug ровно один раз")
+    if is_english_source(units):
+        issues += [f"{n['slug']}: {field} на языке книги, нужен перевод на русский" for n in plan["nodes"] for field in ("title", "short_title", "why_here")
+                   if is_untranslated(str(n[field]))]
+        issues += [f"часть «{p['title']}» на языке книги, нужен перевод на русский" for p in plan["parts"] if is_untranslated(str(p["title"]))]
     return issues
+
+
+def _with_exact_quotes(claim: Mapping[str, Any], own: Sequence[Unit], units: Sequence[Unit]) -> dict[str, Any]:
+    """Английской цитате возвращается вид страницы, если модель поменяла кавычки, тире или сняла перенос. Русские цитаты не трогаются."""
+    def exact(quote: Any, places: Sequence[Unit]) -> Any:
+        if not isinstance(quote, str) or any(quote_on_page(quote, u.text) for u in places):
+            return quote
+        return next((found for u in places if (found := restored_quote(quote, u.text))), quote)
+
+    given = claim.get("conditions")
+    conditions = [{**x, "quote": exact(x["quote"], units)} if isinstance(x, Mapping) and "quote" in x else x for x in given] if isinstance(given, list) else given
+    return {**claim, "quote": exact(claim["quote"], own), **({"conditions": conditions} if "conditions" in claim else {})}
 
 
 def _grounded(claim: Mapping[str, Any], units: Sequence[Unit]) -> dict[str, Any]:
@@ -77,7 +97,9 @@ def assemble_node(raw: Mapping, plan_node: Mapping, order: int, prefix: str, uni
     """Ответ модели + служебные поля, которые ставит код: id, порядок, страницы, связи."""
     node_id = f"{prefix}.{plan_node['slug']}"
     used = {u.unit_id: u for u in units if u.unit_id in set(plan_node["unit_ids"])}
-    claims = [{"page_print": None, **_grounded(c, list(used.values())), "id": f"{node_id}#c{i}"} for i, c in enumerate(raw["claims"], start=1)]
+    own = list(used.values())
+    said = [_with_exact_quotes(c, own, units) for c in raw["claims"]] if is_english_source(units) else raw["claims"]
+    claims = [{"page_print": None, **_grounded(c, own), "id": f"{node_id}#c{i}"} for i, c in enumerate(said, start=1)]
     links = [{"type": "prerequisite", "target": f"{prefix}.{slug}"} for slug in raw.get("prerequisites", [])]
     ref = (raw.get("misconception") or {}).get("ref")
     links += [{"type": "refutes_misconception", "target": ref}] if ref else []
@@ -113,10 +135,12 @@ def node_issues(node: Mapping, units: Sequence[Unit], plan_node: Mapping, errata
     issues += [f"{c['id']}: цитата не из единиц узла, а из другого места главы" for c in node["claims"]
                if not any(quote_on_page(c["quote"], text) for text in own.values()) and find_quote_page(c["quote"], pages)]
     issues += [f"{c['id']}: условия нет в главе дословно: {str(x)[:80]}" for c in node["claims"] for x in c.get("conditions") or [] if not _is_condition(x, pages)]
+    if is_english_source(units):
+        issues += [f"{where}: текст на языке книги, нужен перевод на русский" for where, text in node_texts(node) if is_untranslated(text)]
     cited = {c.get("unit_id") for c in node["claims"]}
     example_pages = {e["page_pdf"] for e in (*node.get("worked_examples", []), *node.get("book_tasks", []))}
     for unit in units:
-        if unit.unit_id not in plan_node["unit_ids"] or unit.kind == "heading" or len(unit.text) <= SHORT_JUNK_CHARS:
+        if unit.unit_id not in plan_node["unit_ids"] or unit.kind == "heading" or unit.skippable or len(unit.text) <= SHORT_JUNK_CHARS:
             continue
         backed_by_task = unit.kind == "task" and unit.page_pdf in example_pages
         if unit.unit_id not in cited and not backed_by_task:

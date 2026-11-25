@@ -3,10 +3,16 @@
 import re
 from collections.abc import Iterable, Iterator, Mapping
 from dataclasses import dataclass
+from functools import lru_cache
+
+from glava.shared.english import SPACED, exact_quote, plain_numbers
+from glava.shared.language import has_english
 
 MIN_QUOTE_CHARS = 8
 NUMBER = re.compile(r"(?<!\w)(?<!\d[.,])\d+(?:[.,]\d+)?")
 DASHES = str.maketrans({"–": "-", "—": "-", "−": "-", "‑": "-", "«": '"', "»": '"', "“": '"', "”": '"', "ё": "е"})
+
+ORIGINAL = re.compile(r"\s*\([A-Za-z][A-Za-z\d\s,;/'’-]*[a-z][A-Za-z\d\s,;/'’-]*\)")
 
 
 @dataclass(frozen=True)
@@ -30,14 +36,29 @@ def find_quote_page(quote: str, pages: Mapping[int, str]) -> int | None:
     return next((n for n in sorted(pages) if quote_on_page(quote, pages[n])), None)
 
 
+def restored_quote(quote: str, text: str) -> str | None:
+    """Английская цитата с прямыми кавычками или без переноса, в точности как на странице. Слова и числа не правятся."""
+    found = exact_quote(quote, text) if has_english(text) else None
+    return found if found and quote_on_page(found, text) else None
+
+
 def numbers_in(text: str) -> set[str]:
     plain = text.translate(DASHES)
     found = (m.group().replace(",", ".") for m in NUMBER.finditer(plain.replace("-", " ")))
     return {n.rstrip("0").rstrip(".") if "." in n else (n.lstrip("0") or "0") for n in found}
 
 
+@lru_cache(maxsize=512)
+def _english_numbers(source: str) -> frozenset[str]:
+    return frozenset().union(*(numbers_in(t) for t in plain_numbers(source)))
+
+
 def unsupported_numbers(text: str, source: str) -> set[str]:
-    return numbers_in(text) - numbers_in(source)
+    if not has_english(source):
+        return numbers_in(text) - numbers_in(source)
+    # в английском источнике 1,000 — тысяча; в русском тексте её пишут и слитно, и с пробелом
+    allowed = _english_numbers(source)
+    return min((numbers_in(t) - allowed for t in (text, SPACED.sub("", text))), key=len)
 
 
 SERVICE_KEYS = {"quote", "id", "ref", "unit_id", "page_pdf", "page_print", "target", "number"}
@@ -90,15 +111,20 @@ def _number_issues(node: Mapping, pages: Mapping[int, str]) -> Iterator[Issue]:
             yield Issue("number_not_in_source", f"{node['id']}:{where}", f"чисел нет на страницах узла: {', '.join(sorted(missing))}")
 
 
+def bare_term(term: str) -> str:
+    """Термин без английского оригинала в скобках: «пористость (porosity)» и «пористость» — одно и то же."""
+    return ORIGINAL.sub("", term).strip().casefold() or term.casefold()
+
+
 def term_order_issues(nodes: Iterable[Mapping]) -> list[Issue]:
     """Ни один термин не используется раньше узла, где он объяснён."""
     ordered = sorted(nodes, key=lambda n: n["order"])
-    home = {t.casefold(): n["order"] for n in reversed(ordered) for t in n["terms_introduced"]}
+    home = {bare_term(t): n["order"] for n in reversed(ordered) for t in n["terms_introduced"]}
     return [
-        Issue("term_before_definition", node["id"], f"термин «{term}» объяснён позже, в узле {home[term.casefold()]}")
+        Issue("term_before_definition", node["id"], f"термин «{term}» объяснён позже, в узле {home[bare_term(term)]}")
         for node in ordered
         for term in node.get("terms_used", [])
-        if home.get(term.casefold(), 0) > node["order"]
+        if home.get(bare_term(term), 0) > node["order"]
     ]
 
 
