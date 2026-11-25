@@ -3,7 +3,7 @@
 import json
 
 from glava.llm import Reply
-from glava.stages.errata import errata_issues, for_pages, make_errata, number_sources, prompt_block
+from glava.stages.errata import errata_issues, for_pages, make_errata, number_sources, prompt_block, suspects_in
 from glava.verify import verify_layer
 
 PAGES = {96: "Пределы (1-10) · 10³ мкм². Коэффициент k_n больше 5.", 97: "Текст."}
@@ -53,3 +53,10 @@ def test_numbers_from_the_scan_are_supported_but_quotes_stay_verbatim():
     assert verify_layer({"nodes": [node]}, PAGES, number_sources([ENTRY])) == []
     fake_quote = {**node, "claims": [{**node["claims"][0], "quote": "Коэффициент kв больше 7"}]}
     assert "quote_not_found" in [i.code for i in verify_layer({"nodes": [fake_quote]}, PAGES, number_sources([ENTRY]))]
+
+
+def test_partly_overlapping_quote_meets_the_suspect():
+    suspect = {**ENTRY, "kind": "suspect", "md": "(1-10) · 10³ мкм², для газовых - (0,1-1) · 10³ мкм²"}
+    assert suspects_in(["Для нефтеносных коллекторов оно лежит в пределах (1-10) · 10³ мкм²"], [suspect]) == [suspect]
+    assert suspects_in(["Критическое значение зависит от свойств флюидов"], [suspect]) == []
+    assert suspects_in(["(1-10) · 10³ мкм²"], [{**suspect, "kind": "recognition"}]) == []

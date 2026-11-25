@@ -1,6 +1,7 @@
 """Лист опечаток главы: модель сравнивает md со сканом страницы, код оставляет только проверяемые записи."""
 
 from collections.abc import Mapping, Sequence
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
 
@@ -10,6 +11,7 @@ from glava.verify import quote_on_page, squeeze
 KINDS = ("recognition", "suspect")
 FIELDS = ("md", "scan", "kind")
 DPI = 150
+OVERLAP = 10
 Entry = Mapping[str, Any]
 
 
@@ -54,8 +56,12 @@ def for_pages(entries: Sequence[Entry], pages: Sequence[int]) -> list[Entry]:
 
 def suspects_in(quotes: Sequence[str], entries: Sequence[Entry]) -> list[Entry]:
     """Вероятные опечатки издания, на которые попадают цитаты."""
+    def touches(md: str, quote: str) -> bool:
+        match = SequenceMatcher(None, md, quote, autojunk=False).find_longest_match()
+        return match.size >= min(OVERLAP, len(md))
+
     texts = [squeeze(q) for q in quotes]
-    return [e for e in entries if e["kind"] == "suspect" and any(squeeze(e["md"]) in t or t in squeeze(e["md"]) for t in texts)]
+    return [e for e in entries if e["kind"] == "suspect" and any(touches(squeeze(e["md"]), t) for t in texts)]
 
 
 def prompt_block(entries: Sequence[Entry]) -> str:
