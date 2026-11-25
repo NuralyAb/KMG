@@ -49,9 +49,9 @@ afterAll(() => server.close());
 
 describe('chapters', () => {
   test('shows chapters, splits built and not built', async () => {
-    renderApp(<App />);
+    renderApp(<App />, '/admin');
     const entry = await screen.findByRole('article', { name: /Песок в банке/ });
-    expect(within(entry).getByRole('link', { name: /Открыть курс/ })).toHaveAttribute('href', '/course/demo_sand/index.html');
+    expect(within(entry).getByRole('link', { name: /Предпросмотр/ })).toHaveAttribute('href', '/course/demo_sand/index.html');
     expect(within(entry).getByText('устарело')).toBeVisible();
     expect(screen.getByRole('heading', { name: 'Ещё не собраны' })).toBeVisible();
     expect(screen.getByRole('button', { name: 'Собрать: Давление в закрытой банке' })).toBeEnabled();
@@ -59,13 +59,13 @@ describe('chapters', () => {
 
   test('empty registry', async () => {
     server.use(http.get('/api/chapters', () => envelope([])));
-    renderApp(<App />);
+    renderApp(<App />, '/admin');
     expect(await screen.findByText('Глав пока нет')).toBeVisible();
   });
 
   test('server error shows its message and can be retried', async () => {
     server.use(http.get('/api/chapters', () => failure(500, 'broken', 'Файл chapters.json не читается'), { once: true }));
-    renderApp(<App />);
+    renderApp(<App />, '/admin');
     expect(await screen.findByText('Файл chapters.json не читается')).toBeVisible();
     await userEvent.click(screen.getByRole('button', { name: 'Повторить' }));
     expect(await screen.findByRole('article', { name: /Песок в банке/ })).toBeVisible();
@@ -73,7 +73,7 @@ describe('chapters', () => {
 
   test('a paid build asks first and shows a conflict', async () => {
     server.use(http.post('/api/runs', () => failure(409, 'busy', 'По этой главе уже идёт сборка')));
-    renderApp(<App />);
+    renderApp(<App />, '/admin');
     await userEvent.click(await screen.findByRole('button', { name: 'Собрать: Камни разного размера' }));
     const dialog = await screen.findByRole('dialog');
     expect(within(dialog).getByText(/Модель работает платно/)).toBeVisible();
@@ -84,35 +84,35 @@ describe('chapters', () => {
 
 describe('chapter', () => {
   test('path rows link to nodes and filters narrow them', async () => {
-    renderApp(<App />, '/chapters/demo_sand');
+    renderApp(<App />, '/admin/chapters/demo_sand');
     const row = (await screen.findByText('Что видно через стекло')).closest('a');
-    expect(row).toHaveAttribute('href', '/chapters/demo_sand/nodes/demo.look');
+    expect(row).toHaveAttribute('href', '/admin/chapters/demo_sand/nodes/demo.look');
     await userEvent.click(screen.getByRole('button', { name: /Сверить со сканом/ }));
     expect(screen.queryByText('Что видно через стекло')).not.toBeInTheDocument();
     expect(screen.getByText(/встряхнуть/)).toBeVisible();
   });
 
   test('coverage tab lists skipped units with the reason', async () => {
-    renderApp(<App />, '/chapters/demo_sand?tab=coverage');
+    renderApp(<App />, '/admin/chapters/demo_sand?tab=coverage');
     expect(await screen.findByText('повторяет пример на той же странице')).toBeVisible();
     await userEvent.click(screen.getByRole('button', { name: /Не вошли/ }));
     await waitFor(() => expect(screen.queryByText('p010.01')).not.toBeInTheDocument());
   });
 
   test('tasks show the right answer', async () => {
-    renderApp(<App />, '/chapters/demo_sand?tab=tasks');
+    renderApp(<App />, '/admin/chapters/demo_sand?tab=tasks');
     expect(await screen.findByText('Разделить', { exact: false, selector: 'li[data-right] span' })).toBeVisible();
     expect(screen.getByText('меньше').closest('.task-gap')).not.toBeNull();
   });
 
   test('unknown chapter', async () => {
-    renderApp(<App />, '/chapters/nope');
+    renderApp(<App />, '/admin/chapters/nope');
     expect(await screen.findByText('Такой главы нет в реестре')).toBeVisible();
     expect(screen.queryByRole('button', { name: 'Повторить' })).not.toBeInTheDocument();
   });
 
   test('live log streams lines and stops at the final state', async () => {
-    renderApp(<App />, '/chapters/demo_water?tab=build');
+    renderApp(<App />, '/admin/chapters/demo_water?tab=build');
     const log = await screen.findByRole('log');
     const source = FakeSource.last;
     expect(source?.url).toBe('/api/runs/run-live/events');
@@ -128,7 +128,7 @@ describe('chapter', () => {
 
 describe('node', () => {
   test('claims stand next to the quote and the page', async () => {
-    renderApp(<App />, '/chapters/demo_sand/nodes/demo.pores');
+    renderApp(<App />, '/admin/chapters/demo_sand/nodes/demo.pores');
     expect(await screen.findByText('По виду сбоку долю пустот не узнать.')).toBeVisible();
     expect(screen.getByText('Через стекло видно только крайние песчинки')).toBeVisible();
     expect(screen.getByText(/в книге 9/)).toBeVisible();
@@ -137,7 +137,7 @@ describe('node', () => {
   });
 
   test('arrow keys page through nodes', async () => {
-    renderApp(<App />, '/chapters/demo_sand/nodes/demo.pores');
+    renderApp(<App />, '/admin/chapters/demo_sand/nodes/demo.pores');
     await screen.findByText('По виду сбоку долю пустот не узнать.');
     await userEvent.keyboard('{ArrowRight}');
     expect(await screen.findByRole('heading', { level: 1, name: /встряхнуть/ })).toBeVisible();
@@ -148,7 +148,7 @@ describe('node', () => {
       node: { id: 'x', title: '<img src=x onerror=alert(1)>', claims: [], layers: { main: { text: '$\\href{javascript:alert(1)}{x}$ <script>1</script>', by_model: true } } },
       route: null, tasks: [], illustrations: [], prev: null, next: null,
     })));
-    renderApp(<App />, '/chapters/demo_sand/nodes/x');
+    renderApp(<App />, '/admin/chapters/demo_sand/nodes/x');
     expect(await screen.findByRole('heading', { level: 1 })).toHaveTextContent('<img src=x onerror=alert(1)>');
     expect(document.querySelector('main script, main img, main a[href^="javascript"]')).toBeNull();
   });
@@ -156,7 +156,7 @@ describe('node', () => {
 
 describe('review', () => {
   test('remarks are grouped and filtered', async () => {
-    renderApp(<App />, '/review/demo_package');
+    renderApp(<App />, '/admin/review/demo_package');
     expect(await screen.findByRole('region', { name: 'Критические' })).toBeVisible();
     await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Вид ошибки' }), 'frame_error');
     expect(screen.queryByRole('region', { name: 'Критические' })).not.toBeInTheDocument();
@@ -164,7 +164,7 @@ describe('review', () => {
   });
 
   test('a wrong file is refused before sending', async () => {
-    renderApp(<App />, '/review');
+    renderApp(<App />, '/admin/review');
     await screen.findByRole('link', { name: /demo_package/ });
     await userEvent.upload(screen.getByLabelText('Файл пакета'), new File(['x'], 'a.txt'), { applyAccept: false });
     expect(await screen.findByRole('alert')).toHaveTextContent('Нужен файл .zip');
@@ -172,14 +172,14 @@ describe('review', () => {
   });
 
   test('a package without remarks', async () => {
-    renderApp(<App />, '/review/demo_clean');
+    renderApp(<App />, '/admin/review/demo_clean');
     expect(await screen.findByText('Замечаний нет')).toBeVisible();
   });
 });
 
 describe('other screens', () => {
   test('metrics: chart and table agree', async () => {
-    renderApp(<App />, '/metrics');
+    renderApp(<App />, '/admin/metrics');
     const chart = await screen.findByRole('figure');
     expect(within(chart).getAllByRole('listitem')[0]).toHaveTextContent('Слой$12,15');
     await userEvent.click(screen.getByRole('button', { name: 'По главам' }));
@@ -187,25 +187,25 @@ describe('other screens', () => {
   });
 
   test('search highlights and needs two letters', async () => {
-    renderApp(<App />, '/search');
+    renderApp(<App />, '/admin/search');
     expect(await screen.findByText('Введите хотя бы два знака')).toBeVisible();
     await userEvent.type(screen.getByRole('searchbox', { name: 'Что найти' }), 'РОВНЫЙ');
     expect(await screen.findByText('Ровный')).toHaveProperty('tagName', 'MARK');
   });
 
   test('search with no results', async () => {
-    renderApp(<App />, '/search?q=zzzz');
+    renderApp(<App />, '/admin/search?q=zzzz');
     expect(await screen.findByText('Ничего не нашлось')).toBeVisible();
   });
 
   test('runs can be empty', async () => {
     server.use(http.get('/api/runs', () => envelope([])));
-    renderApp(<App />, '/runs');
+    renderApp(<App />, '/admin/runs');
     expect(await screen.findByText('Запусков ещё не было')).toBeVisible();
   });
 
   test('unknown address', async () => {
-    renderApp(<App />, '/nowhere');
+    renderApp(<App />, '/admin/nowhere');
     expect(await screen.findByText('Такой страницы нет')).toBeVisible();
   });
 });

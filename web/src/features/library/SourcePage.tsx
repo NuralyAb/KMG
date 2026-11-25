@@ -114,7 +114,7 @@ function Chapters({ source }: { source: SourceDetail }) {
         <ul className="lib-chapters">
           {source.chapters.map((id) => (
             <li key={id}>
-              <Link to={`/chapters/${encodeURIComponent(id)}`}>{chapters.find((c) => c.id === id)?.title ?? id}</Link>
+              <Link to={`/admin/chapters/${encodeURIComponent(id)}`}>{chapters.find((c) => c.id === id)?.title ?? id}</Link>
               <Button size="sm" variant="default" loading={drop.isPending && drop.variables === id} onClick={() => drop.mutate(id)}
                 aria-label={`Убрать главу: ${chapters.find((c) => c.id === id)?.title ?? id}`}>Убрать из списка</Button>
             </li>
@@ -139,7 +139,7 @@ function RemoveButton({ source }: { source: SourceDetail }) {
         {drop.isError && <p role="alert" className="lib-bad">{errorMessage(drop.error)}</p>}
         <div className="page-actions" style={{ justifyContent: 'flex-end', marginTop: 16 }}>
           <Button variant="default" onClick={() => setOpen(false)}>Оставить</Button>
-          <Button color="red" loading={drop.isPending} onClick={() => drop.mutate(source.id, { onSuccess: () => navigate('/library') })}>Удалить файл</Button>
+          <Button color="red" loading={drop.isPending} onClick={() => drop.mutate(source.id, { onSuccess: () => navigate('/admin/library') })}>Удалить файл</Button>
         </div>
       </Modal>
     </>
@@ -152,7 +152,7 @@ export default function SourcePage() {
   const source = query.data;
   return (
     <>
-      <PageHeader title={source?.name ?? 'Книга'} docTitle={source?.name ?? 'Книга'} above={<Link to="/library">База знаний</Link>}
+      <PageHeader title={source?.name ?? 'Книга'} docTitle={source?.name ?? 'Книга'} above={<Link to="/admin/library">База знаний</Link>}
         subtitle={source && [sizeText(source.bytes), source.pages > 0 && counted(source.pages, FORMS.page)].filter(Boolean).join(', ')}
         actions={source && <><SourceChip source={source} /><RemoveButton source={source} /></>} />
       <QueryView query={query} rows={4}>

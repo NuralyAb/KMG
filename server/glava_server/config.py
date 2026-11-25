@@ -2,13 +2,14 @@
 
 import json
 from collections.abc import Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 HOST = "127.0.0.1"
 DEFAULT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_COMMAND = ("uv", "run", "glava")
 DEFAULT_PORT = 8200
+MIN_PASSWORD = 8
 MEGABYTE = 1024 * 1024
 
 
@@ -23,6 +24,7 @@ class Settings:
     port: int = DEFAULT_PORT
     max_processes: int = 2
     max_body_bytes: int = 80 * MEGABYTE
+    admin_password: str | None = field(default=None, repr=False)
     max_book_bytes: int = 400 * MEGABYTE
     allowed_origins: frozenset[str] = frozenset({"http://127.0.0.1:5190", "http://localhost:5190"})
     poll_seconds: float = 0.3
@@ -55,5 +57,14 @@ def _port(value: str | None) -> int:
     return int(value)
 
 
+def _password(value: str | None) -> str | None:
+    if not value:
+        return None
+    if len(value) < MIN_PASSWORD:
+        raise ConfigError(f"GLAVA_ADMIN_PASSWORD: нужно не меньше {MIN_PASSWORD} знаков")
+    return value
+
+
 def settings_from_env(env: Mapping[str, str]) -> Settings:
-    return Settings(root=_root(env.get("GLAVA_ROOT")), run_command=_command(env.get("GLAVA_RUN_COMMAND")), port=_port(env.get("GLAVA_PORT")))
+    return Settings(root=_root(env.get("GLAVA_ROOT")), run_command=_command(env.get("GLAVA_RUN_COMMAND")), port=_port(env.get("GLAVA_PORT")),
+                    admin_password=_password(env.get("GLAVA_ADMIN_PASSWORD")))

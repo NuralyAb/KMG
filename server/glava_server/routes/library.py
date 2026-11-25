@@ -6,6 +6,7 @@ from fastapi import APIRouter, Form, UploadFile
 from fastapi.responses import FileResponse
 
 from glava_server.envelope import Envelope, ok
+from glava_server.errors import conflict
 from glava_server.library import domain_names
 from glava_server.schemas import ExtractRequest, ModelChoice, ModelSettings, NewChapter, Run, Source, SourceDetail
 from glava_server.services import ServicesDep
@@ -66,6 +67,8 @@ def delete_source(source_id: str, services: ServicesDep) -> Envelope[dict[str, s
 
 @router.delete("/library/chapters/{chapter_id}")
 def delete_chapter(chapter_id: str, services: ServicesDep) -> Envelope[dict[str, str]]:
+    if services.publications.published_at(chapter_id):
+        raise conflict("Курс опубликован: сначала снимите его с публикации")
     services.library.remove_chapter(chapter_id)
     return ok({"id": chapter_id})
 

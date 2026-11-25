@@ -10,6 +10,13 @@
 - `key.json` не читается и не отдаётся никогда.
 - Даты — ISO 8601, деньги — доллары по прайсу (`float`).
 
+## Две области
+
+- **Ученик** (`/`): каталог и курс, только опубликованное. **Автор** (`/admin`): главы, база знаний, сборка, проверки, публикация.
+- Если у сервера задан `GLAVA_ADMIN_PASSWORD` (от 8 знаков), без входа открыты только `/api/learn/…`, `/api/auth/…` и `/learn/…`; остальное, в том числе `/course/…`, отвечает 401. Новый адрес закрыт, пока его не добавили в `PUBLIC` (`access.py`). Без пароля сервер открыт целиком.
+- Публикация копирует собранный курс в `published/<id>/`: пересборка не меняет то, что видят ученики. В снимок идут только файлы страницы. Курс, собранный из другой версии слоя, не публикуется; каждое замечание автор отмечает сам.
+- Прогресс ученика — в его браузере, ключ `glava.<id>`.
+
 ## Типы
 
 ```ts
@@ -57,6 +64,14 @@ type MetricRow = { chapter: string; stage: string; nodes: number; llm_tokens_in:
 | GET `/api/reviews` | `Review[]` |
 | GET `/api/reviews/{package_id}` | `Review` |
 | POST `/api/reviews` multipart: `chapter`, `file` (zip с `package.json` и `frames/`) | `Run` команды review, код 201. Zip распаковывается безопасно: без выхода из папки, только `package.json` и картинки, файл с «key» в имени отбрасывается |
+| GET `/api/auth/me` | `{role: "admin" \| "learner", protected}` |
+| POST `/api/auth/login` `{password}` | `Me` и cookie сеанса на 12 часов; 401 — не тот пароль, 429 — пять неверных за минуту |
+| POST `/api/auth/logout` | `Me` |
+| GET `/api/learn/courses`, GET `/api/learn/courses/{id}` | `LearnCourse`: `{id, title, book, steps, minutes, tasks, parts, published_at}` |
+| GET `/learn/{id}/…` | файлы опубликованного курса |
+| GET `/api/chapters/{id}/publication` | `{published_at, is_current, problem, checks: {code, text}[], accepted}` |
+| POST `/api/chapters/{id}/publication` `{accepted: code[]}` | то же; 409, если отмечены не все замечания или курс не годится |
+| DELETE `/api/chapters/{id}/publication` | снять с публикации |
 | GET `/api/library` | `Source[]`, новые сверху |
 | POST `/api/library` multipart: `file`, `vision` | `Source`, код 201; сразу запускает `extract`. До 400 МБ; pdf, docx, md, txt, png, jpg; тип сверяется с содержимым; повтор файла — 409 |
 | GET `/api/library/{id}` | `Source` и `page_list: {page, state, method, chars, reasons}`; state: text, doubtful, scan, empty |
@@ -73,6 +88,8 @@ type MetricRow = { chapter: string; stage: string; nodes: number; llm_tokens_in:
 Запуск сборки — отдельный процесс `uv run glava <команда> <глава>` из корня репозитория с `PYTHONUTF8=1`, вывод идёт в журнал запуска `work/runs/<id>.log`. Одновременно не больше двух процессов, остальные в очереди. После перезапуска сервера незавершённые запуски помечаются `failed`.
 
 ## Экраны фронтенда
+
+Экраны 1–5 — область автора, их адреса начинаются с `/admin`. У ученика: каталог `/`, курс `/courses/:id`, вход автора `/login`.
 
 1. **Главы** `/`: карточка главы с этапами, покрытием, числом шагов, утверждений, заданий, ценой; кнопки «Открыть курс», «Собрать».
 2. **Глава** `/chapters/:id`: вкладки Путь, Покрытие, Опечатки, Задания, Рисунки, Ролики, Сборка (этапы, журнал запуска вживую).

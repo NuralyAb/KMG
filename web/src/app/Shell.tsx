@@ -4,27 +4,27 @@ import {
 } from '@tabler/icons-react';
 import { Suspense, useEffect, useRef, useState, type FormEvent } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { isActive, useHealth, useRuns } from '@/api/queries';
+import { isActive, useHealth, useLogout, useMe, useRuns } from '@/api/queries';
 import { Loading } from '@/ui/states';
 import { ErrorBoundary } from './ErrorBoundary';
 import './shell.css';
 
 const NAV = [
   [
-    { to: '/library', label: 'База знаний', Icon: IconBooks },
-    { to: '/', label: 'Главы', Icon: IconBook2 },
-    { to: '/review', label: 'Проверка пакета', Icon: IconShieldCheck },
-    { to: '/search', label: 'Поиск', Icon: IconSearch },
+    { to: '/admin/library', label: 'База знаний', Icon: IconBooks },
+    { to: '/admin', label: 'Главы', Icon: IconBook2 },
+    { to: '/admin/review', label: 'Проверка пакета', Icon: IconShieldCheck },
+    { to: '/admin/search', label: 'Поиск', Icon: IconSearch },
   ],
   [
-    { to: '/runs', label: 'Запуски', Icon: IconListDetails },
-    { to: '/metrics', label: 'Расход', Icon: IconChartBar },
-    { to: '/model', label: 'Модель', Icon: IconCpu },
+    { to: '/admin/runs', label: 'Запуски', Icon: IconListDetails },
+    { to: '/admin/metrics', label: 'Расход', Icon: IconChartBar },
+    { to: '/admin/model', label: 'Модель', Icon: IconCpu },
   ],
 ];
 
 const isCurrent = (to: string, path: string): boolean =>
-  (to === '/' ? path === '/' || path.startsWith('/chapters') : path.startsWith(to));
+  (to === '/admin' ? path === '/admin' || path === '/admin/' || path.startsWith('/admin/chapters') : path.startsWith(to));
 
 function Health() {
   const { data, isPending, isError } = useHealth();
@@ -35,7 +35,7 @@ function Health() {
   return <span className="app-health" data-state={missing ? 'wait' : 'ok'} title={missing || 'Сервер на связи'}>{missing ? `${text}, ${missing}` : text}</span>;
 }
 
-function ThemeToggle() {
+export function ThemeToggle() {
   const { setColorScheme } = useMantineColorScheme();
   const scheme = useComputedColorScheme('light', { getInitialValueInEffect: false });
   const isDark = scheme === 'dark';
@@ -47,12 +47,20 @@ function ThemeToggle() {
   );
 }
 
+function Logout() {
+  const { data } = useMe();
+  const logout = useLogout();
+  const navigate = useNavigate();
+  if (!data?.protected) return null;
+  return <button type="button" className="app-switch" disabled={logout.isPending} onClick={() => logout.mutate(undefined, { onSuccess: () => navigate('/') })}>Выйти</button>;
+}
+
 function QuickSearch() {
   const navigate = useNavigate();
   const submit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     const q = String(new FormData(event.currentTarget).get('q') ?? '').trim();
-    navigate(q ? `/search?q=${encodeURIComponent(q)}` : '/search');
+    navigate(q ? `/admin/search?q=${encodeURIComponent(q)}` : '/admin/search');
   };
   return (
     <form role="search" className="app-find" onSubmit={submit}>
@@ -96,9 +104,9 @@ export function Shell() {
         <button type="button" className="app-icon app-burger" aria-expanded={isOpen} aria-controls="nav" aria-label="Меню" onClick={() => setOpen(!isOpen)}>
           {isOpen ? <IconX size={22} /> : <IconMenu2 size={22} />}
         </button>
-        <Link to="/" className="app-brand"><img src="/icon.svg" width={28} height={28} alt="" />Глава → курс</Link>
+        <Link to="/admin" className="app-brand"><img src="/icon.svg" width={28} height={28} alt="" />Глава → курс</Link>
         <QuickSearch />
-        <div className="app-top-end"><Health /><ThemeToggle /></div>
+        <div className="app-top-end"><Health /><span className="app-switches"><Link to="/" className="app-switch">Экран ученика</Link><Logout /></span><ThemeToggle /></div>
       </header>
       <nav id="nav" className="app-nav" aria-label="Разделы" data-open={isOpen || undefined}>
         {NAV.map((group) => (
@@ -107,12 +115,13 @@ export function Shell() {
               <li key={to}>
                 <Link to={to} aria-current={isCurrent(to, pathname) ? 'page' : undefined}>
                   <Icon aria-hidden />{label}
-                  {to === '/runs' && active > 0 && <span className="app-count" aria-label={`идёт: ${active}`}>{active}</span>}
+                  {to === '/admin/runs' && active > 0 && <span className="app-count" aria-label={`идёт: ${active}`}>{active}</span>}
                 </Link>
               </li>
             ))}
           </ul>
         ))}
+        <div className="app-nav-switches"><Link to="/" className="app-switch">Экран ученика</Link><Logout /></div>
       </nav>
       <main id="main" className="app-sheet" ref={sheet} tabIndex={-1}>
         <div className="app-page">

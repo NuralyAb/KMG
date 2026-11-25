@@ -46,13 +46,13 @@ export default function ChaptersPage() {
       <PageHeader title="Главы" docTitle="Главы" subtitle={query.data?.length ? summary(query.data) : undefined} />
       <QueryView query={query} rows={4}>
         {(chapters) => chapters.length === 0
-          ? <EmptyState icon={<IconBook2 size={32} aria-hidden />} title="Глав пока нет" text="Загрузите книгу в базу знаний и выберите в ней страницы главы." action={<Link to="/library">Открыть базу знаний</Link>} />
+          ? <EmptyState icon={<IconBook2 size={32} aria-hidden />} title="Глав пока нет" text="Загрузите книгу в базу знаний и выберите в ней страницы главы." action={<Link to="/admin/library">Открыть базу знаний</Link>} />
           : <ChapterList chapters={chapters} onBuild={setTarget} />}
       </QueryView>
       {target && (
         <BuildDialog key={target.id} isOpen command="build" onClose={() => setTarget(null)}
           target={target}
-          onStarted={() => navigate(`/chapters/${encodeURIComponent(target.id)}?tab=build`)} />
+          onStarted={() => navigate(`/admin/chapters/${encodeURIComponent(target.id)}?tab=build`)} />
       )}
     </>
   );

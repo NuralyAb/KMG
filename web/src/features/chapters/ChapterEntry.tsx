@@ -1,5 +1,5 @@
 import { Button } from '@mantine/core';
-import { IconAlertTriangle, IconExternalLink, IconPlayerPlay } from '@tabler/icons-react';
+import { IconAlertTriangle, IconCheck, IconExternalLink, IconPlayerPlay } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import { courseHref } from '@/api/client';
 import type { ChapterCard } from '@/api/types';
@@ -10,7 +10,7 @@ import { StageTrack } from './StageTrack';
 
 interface EntryProps { chapter: ChapterCard; onBuild: () => void }
 
-const chapterPath = (id: string): string => `/chapters/${encodeURIComponent(id)}`;
+const chapterPath = (id: string): string => `/admin/chapters/${encodeURIComponent(id)}`;
 
 function Figures({ chapter }: { chapter: ChapterCard }) {
   const { counts } = chapter;
@@ -51,13 +51,14 @@ export function ChapterEntry({ chapter, onBuild }: EntryProps) {
           <span className="muted">{formatTokens(chapter.tokens_in + chapter.tokens_out)} токенов</span>
         </div>
         <Coverage chapter={chapter} />
+        {chapter.published_at && <div><Chip tone="good" icon={<IconCheck aria-hidden />}>Опубликован</Chip></div>}
         {chapter.issues > 0 && (
           <div><Chip tone="warn" icon={<IconAlertTriangle aria-hidden />}>{counted(chapter.issues, FORMS.issue)}</Chip></div>
         )}
         <div className="entry-actions">
           {course && (
             <Button component="a" href={course} target="_blank" rel="noopener noreferrer" rightSection={<IconExternalLink size={16} aria-hidden />}>
-              Открыть курс
+              Предпросмотр
             </Button>
           )}
           {chapter.active_run

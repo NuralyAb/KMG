@@ -25,6 +25,7 @@ web/dist/
 work/review_uploads/
 # база знаний: загруженные книги, их слои, курсы и листы опечаток не публикуются
 /library/
+/published/
 /settings.local.json
 /work/lib_*/
 /out/lib_*/

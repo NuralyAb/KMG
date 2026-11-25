@@ -28,8 +28,8 @@ function RunItem({ run, title, isOpen, onToggle }: { run: Run; title: string; is
         <div className="run-body">
           <RunLog run={run} />
           <p className="muted" style={{ marginTop: 8 }}>{run.command === 'extract'
-            ? <Link to={`/library/${encodeURIComponent(run.chapter)}`}>Открыть книгу</Link>
-            : <Link to={`/chapters/${encodeURIComponent(run.chapter)}`}>Открыть главу</Link>}</p>
+            ? <Link to={`/admin/library/${encodeURIComponent(run.chapter)}`}>Открыть книгу</Link>
+            : <Link to={`/admin/chapters/${encodeURIComponent(run.chapter)}`}>Открыть главу</Link>}</p>
         </div>
       )}
     </li>

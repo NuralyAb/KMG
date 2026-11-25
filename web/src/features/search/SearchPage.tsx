@@ -18,7 +18,7 @@ function Hit({ hit, query, chapterTitle }: { hit: SearchHit; query: string; chap
   return (
     <li className="hit">
       <p className="hit-where muted">
-        <Link to={`/chapters/${encodeURIComponent(hit.chapter)}/nodes/${encodeURIComponent(hit.node_id)}#${encodeURIComponent(anchor)}`}><RichText text={hit.node_title} /></Link>
+        <Link to={`/admin/chapters/${encodeURIComponent(hit.chapter)}/nodes/${encodeURIComponent(hit.node_id)}#${encodeURIComponent(anchor)}`}><RichText text={hit.node_title} /></Link>
         <span>{chapterTitle}</span>{hit.page_pdf !== null && <span className="nowrap">стр. {hit.page_pdf}</span>}
       </p>
       <p className="hit-text"><RichText text={hit.text} query={query} /></p>

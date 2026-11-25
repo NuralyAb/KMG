@@ -94,3 +94,7 @@
 .trust-sense ul { list-style: none; padding: 0; display: grid; gap: 6px; }
 .trust-sense li { display: grid; grid-template-columns: minmax(0, 240px) minmax(48px, 1fr) 90px; gap: 12px; align-items: center; }
 @media (max-width: 47.99375em) { .trust-sense li { grid-template-columns: minmax(0, 1fr) 90px; } .trust-sense li .meter { grid-column: 1 / -1; grid-row: 2; } }
+
+.publish-checks { display: grid; gap: 10px; margin: 0; padding: 14px 16px; border: 1px solid var(--app-border); border-radius: var(--radius); }
+.publish-checks legend { padding: 0 6px; font-weight: 500; }
+.publish-bad { color: var(--app-bad); }

@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => {
       host: '127.0.0.1',
       port: 5190,
       strictPort: true,
-      proxy: mock ? undefined : { '^/api/': BACKEND, '^/course/': BACKEND },
+      proxy: mock ? undefined : { '^/api/': BACKEND, '^/course/': BACKEND, '^/learn/': BACKEND },
     },
     build: {
       rollupOptions: {

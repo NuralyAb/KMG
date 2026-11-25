@@ -14,6 +14,7 @@ import { BuildTab } from './BuildTab';
 import { CoverageTab } from './CoverageTab';
 import { ErrataTab } from './ErrataTab';
 import { PathTab } from './PathTab';
+import { PublishDialog } from './PublishDialog';
 import { PicturesTab } from './PicturesTab';
 import { TasksTab } from './TasksTab';
 import { TrustTab } from './TrustTab';
@@ -46,6 +47,7 @@ function ChapterFacts({ chapter }: { chapter: ChapterDetail }) {
 function ChapterView({ chapter }: { chapter: ChapterDetail }) {
   const [params, setParams] = useSearchParams();
   const [isBuilding, setBuilding] = useState(false);
+  const [isPublishing, setPublishing] = useState(false);
   const tab = asTab(params.get('tab'));
   const course = courseHref(chapter.course_url);
   const open = (next: string | null): void => setParams(next && next !== 'path' ? { tab: next } : {}, { replace: true });
@@ -59,9 +61,10 @@ function ChapterView({ chapter }: { chapter: ChapterDetail }) {
           <>
             {course && (
               <Button component="a" href={course} target="_blank" rel="noopener noreferrer" rightSection={<IconExternalLink size={16} aria-hidden />}>
-                Открыть курс
+                Предпросмотр
               </Button>
             )}
+            {course && <Button variant="default" onClick={() => setPublishing(true)}>{chapter.published_at ? 'Опубликован' : 'Опубликовать'}</Button>}
             <Button variant={course ? 'default' : 'filled'} leftSection={<IconPlayerPlay size={16} aria-hidden />}
               disabled={chapter.active_run !== null} onClick={() => setBuilding(true)}>
               {chapter.active_run ? 'Сборка идёт' : 'Собрать'}
@@ -83,6 +86,7 @@ function ChapterView({ chapter }: { chapter: ChapterDetail }) {
         <Tabs.Panel value="trust"><TrustTab chapter={chapter} /></Tabs.Panel>
         <Tabs.Panel value="build"><BuildTab chapter={chapter} /></Tabs.Panel>
       </Tabs>
+      <PublishDialog chapter={chapter} isOpen={isPublishing} onClose={() => setPublishing(false)} />
       {isBuilding && (
         <BuildDialog isOpen command="build" target={chapter} onClose={() => setBuilding(false)} onStarted={() => open('build')} />
       )}

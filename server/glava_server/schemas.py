@@ -49,6 +49,7 @@ class ChapterCard(Model):
     tokens_out: int
     course_url: str | None
     active_run: str | None
+    published_at: str | None = None
 
 
 class Difficulty(Model):
@@ -268,3 +269,50 @@ class ModelSettings(Model):
     context: int | None = None
     origin: Literal["file", "env"]
     keys: dict[str, bool]
+
+
+class CourseStep(Model):
+    id: str
+    order: int
+    title: str
+    minutes: int
+
+
+class CoursePart(Model):
+    title: str
+    steps: tuple[CourseStep, ...]
+
+
+class LearnCourse(Model):
+    id: str
+    title: str
+    book: str
+    steps: int
+    minutes: int
+    tasks: int
+    parts: tuple[CoursePart, ...]
+    published_at: str
+
+
+class PublishCheck(Model):
+    code: str
+    text: str
+
+
+class Publication(Model):
+    published_at: str | None
+    is_current: bool
+    problem: str | None
+    checks: tuple[PublishCheck, ...]
+    accepted: tuple[str, ...]
+
+
+class PublishRequest(Model):
+    model_config = ConfigDict(frozen=True, extra="forbid")
+
+    accepted: tuple[Annotated[str, Field(max_length=100)], ...] = Field(default=(), max_length=50)
+
+
+class Me(Model):
+    role: Literal["admin", "learner"]
+    protected: bool

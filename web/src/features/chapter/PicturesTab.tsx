@@ -14,7 +14,7 @@ export function PicturesTab({ id }: { id: string }) {
           <div className="pictures">
             {pictures.map((picture) => (
               <Picture key={picture.id} picture={picture}
-                link={<Link to={`/chapters/${encodeURIComponent(id)}/nodes/${encodeURIComponent(picture.step_id)}`}>К шагу</Link>} />
+                link={<Link to={`/admin/chapters/${encodeURIComponent(id)}/nodes/${encodeURIComponent(picture.step_id)}`}>К шагу</Link>} />
             ))}
           </div>
         )}

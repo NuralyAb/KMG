@@ -50,7 +50,7 @@ export function NodeAside({ chapter, node, route, titles }: { chapter: string; n
               <li key={i}>
                 <span className="muted">{label(LINK_TYPE, link.type)}: </span>
                 {titles.has(link.target)
-                  ? <Link to={`/chapters/${encodeURIComponent(chapter)}/nodes/${encodeURIComponent(link.target)}`}><RichText text={titles.get(link.target) ?? link.target} /></Link>
+                  ? <Link to={`/admin/chapters/${encodeURIComponent(chapter)}/nodes/${encodeURIComponent(link.target)}`}><RichText text={titles.get(link.target) ?? link.target} /></Link>
                   : <span className="anywhere">{link.target}</span>}
               </li>
             ))}

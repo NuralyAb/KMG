@@ -18,7 +18,7 @@ function ReviewList({ reviews }: { reviews: Review[] }) {
     <ul className="packages">
       {sorted.map((review) => (
         <li key={review.package_id}>
-          <Link to={`/review/${encodeURIComponent(review.package_id)}`}>
+          <Link to={`/admin/review/${encodeURIComponent(review.package_id)}`}>
             <span className="package-main">
               <strong>{review.package_id}</strong>
               <span className="muted">{chapters.find((c) => c.id === review.chapter)?.title ?? review.chapter ?? 'глава не указана'}</span>
@@ -56,7 +56,7 @@ export default function ReviewPage() {
           {isDone && typeof packageId === 'string' && (
             <div className="note" data-tone="good">
               <IconCheck size={20} aria-hidden />
-              <div>Проверка закончена. <Link to={`/review/${encodeURIComponent(packageId)}`}>Открыть замечания</Link></div>
+              <div>Проверка закончена. <Link to={`/admin/review/${encodeURIComponent(packageId)}`}>Открыть замечания</Link></div>
             </div>
           )}
         </section>

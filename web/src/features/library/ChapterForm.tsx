@@ -28,7 +28,7 @@ export function ChapterForm({ source }: { source: SourceDetail }) {
     create.mutate({ title, book: book.trim() || null, pages: ranges, domain: domain || domains[0] || 'general' }, {
       onSuccess: ({ id }) => {
         notifications.show({ message: 'Глава создана. Осталось собрать её' });
-        navigate(`/chapters/${encodeURIComponent(id)}?tab=build`);
+        navigate(`/admin/chapters/${encodeURIComponent(id)}?tab=build`);
       },
     });
   };

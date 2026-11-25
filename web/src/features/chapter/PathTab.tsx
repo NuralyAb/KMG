@@ -18,7 +18,7 @@ function Row({ node, chapter }: { node: NodeRow; chapter: string }) {
   const difficulty = [primary, secondary].filter((d): d is string => Boolean(d)).map((d) => label(DIFFICULTY, d)).join(', ');
   return (
     <li>
-      <Link className="step" to={`/chapters/${encodeURIComponent(chapter)}/nodes/${encodeURIComponent(node.id)}`}>
+      <Link className="step" to={`/admin/chapters/${encodeURIComponent(chapter)}/nodes/${encodeURIComponent(node.id)}`}>
         <span className="step-order num">{node.order}</span>
         <span className="step-main">
           <span className="step-title"><RichText text={node.title} /></span>

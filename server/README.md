@@ -19,6 +19,7 @@ uv run glava-server
 | `GLAVA_ROOT` | корень репозитория | папка над `server` |
 | `GLAVA_PORT` | порт | `8200` |
 | `GLAVA_RUN_COMMAND` | команда сборки, список JSON | `["uv", "run", "glava"]` |
+| `GLAVA_ADMIN_PASSWORD` | пароль автора, от 8 знаков; без него открыто всё | нет |
 | `LLM_PROVIDER`, `LLM_MODEL`, `CLAUDE_EXE` | передаются конвейеру | как в конвейере |
 
 Чтобы проверить интерфейс без трат, подставьте свою команду в `GLAVA_RUN_COMMAND`: к ней добавятся имя этапа, глава и параметры.

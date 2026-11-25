@@ -54,28 +54,28 @@ describe('files', () => {
 
 describe('library', () => {
   test('lists books with the worst page state', async () => {
-    renderApp(<App />, '/library');
+    renderApp(<App />, '/admin/library');
     expect(await screen.findByRole('link', { name: /Песок\.txt/ })).toHaveTextContent('без текста: 1');
     expect(screen.getByRole('link', { name: /Камни\.pdf/ })).toHaveTextContent('готово');
   });
 
   test('empty library', async () => {
     server.use(http.get('/api/library', () => HttpResponse.json({ success: true, data: [], error: null, meta: null })));
-    renderApp(<App />, '/library');
+    renderApp(<App />, '/admin/library');
     expect(await screen.findByText('Здесь пока пусто')).toBeVisible();
   });
 
   test('a wrong file is refused and nothing is sent', async () => {
     const sent = vi.fn();
     server.use(http.post('/api/library', () => { sent(); return failure(500, 'x'); }));
-    renderApp(<App />, '/library');
+    renderApp(<App />, '/admin/library');
     await userEvent.upload(await screen.findByLabelText('Файлы книг'), new File(['x'], 'a.exe'), { applyAccept: false });
     expect(await screen.findByRole('alert')).toHaveTextContent('a.exe: Такой файл не подходит');
     expect(sent).not.toHaveBeenCalled();
   });
 
   test('page text is shown as text and reasons are visible', async () => {
-    renderApp(<App />, '/library/src_0000000000aa');
+    renderApp(<App />, '/admin/library/src_0000000000aa');
     expect(await screen.findByText('Песок в банке. <b>Не разметка</b>')).toBeVisible();
     await userEvent.click(screen.getByRole('button', { name: 'Страница 2, сверить' }));
     expect(await screen.findByText('формулы могли исказиться')).toBeVisible();
@@ -85,7 +85,7 @@ describe('library', () => {
 
   test('a chapter needs readable page numbers and the server has the last word', async () => {
     server.use(http.post('/api/library/:id/chapters', () => failure(422, 'Страницы без текста: 3')));
-    renderApp(<App />, '/library/src_0000000000aa');
+    renderApp(<App />, '/admin/library/src_0000000000aa');
     await userEvent.type(await screen.findByLabelText(/Название главы/), 'Глава');
     await userEvent.type(screen.getByLabelText(/Страницы/, { selector: 'input' }), 'с пятой');
     await userEvent.click(screen.getByRole('button', { name: 'Создать главу' }));
@@ -97,7 +97,7 @@ describe('library', () => {
   });
 
   test('a created chapter opens its build tab', async () => {
-    renderApp(<App />, '/library/src_0000000000aa');
+    renderApp(<App />, '/admin/library/src_0000000000aa');
     await userEvent.type(await screen.findByLabelText(/Название главы/), 'Глава');
     await userEvent.type(screen.getByLabelText(/Страницы/, { selector: 'input' }), '1-2');
     await userEvent.click(screen.getByRole('button', { name: 'Создать главу' }));
@@ -106,7 +106,7 @@ describe('library', () => {
 
   test('deleting asks first and shows why it is impossible', async () => {
     server.use(http.delete('/api/library/:id', () => failure(409, 'Из этой книги сделаны главы')));
-    renderApp(<App />, '/library/src_0000000000bb');
+    renderApp(<App />, '/admin/library/src_0000000000bb');
     await userEvent.click(await screen.findByRole('button', { name: 'Удалить' }));
     const dialog = await screen.findByRole('dialog');
     await userEvent.click(within(dialog).getByRole('button', { name: 'Удалить файл' }));
@@ -114,14 +114,14 @@ describe('library', () => {
   });
 
   test('unknown book', async () => {
-    renderApp(<App />, '/library/src_nope');
+    renderApp(<App />, '/admin/library/src_nope');
     expect(await screen.findByText('Такого файла в базе знаний нет')).toBeVisible();
   });
 });
 
 describe('trust', () => {
   test('shows findings, how sharp the check is, and that nothing else was checked', async () => {
-    renderApp(<App />, '/chapters/demo_sand?tab=trust');
+    renderApp(<App />, '/admin/chapters/demo_sand?tab=trust');
     expect(await screen.findByText('доля пустот падает')).toBeVisible();
     expect(screen.getByText('направление')).toBeVisible();
     expect(screen.getByText(/замечено 7 из 10 ошибок/)).toBeVisible();
@@ -130,7 +130,7 @@ describe('trust', () => {
   });
 
   test('a paid check asks first', async () => {
-    renderApp(<App />, '/chapters/demo_sand?tab=trust');
+    renderApp(<App />, '/admin/chapters/demo_sand?tab=trust');
     await userEvent.click(await screen.findByRole('button', { name: 'Проверить моделью' }));
     expect(within(await screen.findByRole('dialog')).getByText(/Этап платный/)).toBeVisible();
   });
@@ -144,7 +144,7 @@ describe('model', () => {
       saved(body);
       return HttpResponse.json({ success: true, data: { ...body, origin: 'file', keys: {} }, error: null, meta: null });
     }));
-    renderApp(<App />, '/model');
+    renderApp(<App />, '/admin/model');
     await userEvent.selectOptions(await screen.findByLabelText('Кто отвечает'), 'local');
     expect(screen.getByText(/останется на этом компьютере/)).toBeVisible();
     await userEvent.type(screen.getByLabelText(/Адрес сервера/), 'https://models.example/v1');
@@ -160,7 +160,7 @@ describe('model', () => {
   });
 
   test('a missing key is named, never asked for', async () => {
-    renderApp(<App />, '/model');
+    renderApp(<App />, '/admin/model');
     await userEvent.selectOptions(await screen.findByLabelText('Кто отвечает'), 'openai');
     expect(screen.getByText('OPENAI_API_KEY')).toBeVisible();
     expect(document.querySelector('input[type="password"]')).toBeNull();

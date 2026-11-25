@@ -68,9 +68,9 @@ function ReviewView({ review }: { review: Review }) {
   const chapter = useChapters().data?.find((c) => c.id === review.chapter);
   return (
     <>
-      <PageHeader title={review.package_id} docTitle={`Пакет ${review.package_id}`} above={<Link to="/review">Проверка пакета</Link>}
+      <PageHeader title={review.package_id} docTitle={`Пакет ${review.package_id}`} above={<Link to="/admin/review">Проверка пакета</Link>}
         subtitle={<>{counted(review.remarks.length, FORMS.remark)}, {formatDateTime(review.created_at)}.{' '}
-          {review.chapter && <>Глава: <Link to={`/chapters/${encodeURIComponent(review.chapter)}`}>{chapter?.title ?? review.chapter}</Link></>}</>} />
+          {review.chapter && <>Глава: <Link to={`/admin/chapters/${encodeURIComponent(review.chapter)}`}>{chapter?.title ?? review.chapter}</Link></>}</>} />
       <Remarks review={review} />
     </>
   );

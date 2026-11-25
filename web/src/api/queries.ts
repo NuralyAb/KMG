@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient, keepPreviousData } from '@tanstack/react-query';
 import { apiPath, get, post, remove } from './client';
 import type {
-  ChapterCard, ChapterDetail, CoverageMeta, CoverageRow, ErrataMeta, ErrataRow, Health, Illustration, MetricRow, MetricsMeta, ModelChoice,
+  ChapterCard, ChapterDetail, LearnCourse, Me, Publication, CoverageMeta, CoverageRow, ErrataMeta, ErrataRow, Health, Illustration, MetricRow, MetricsMeta, ModelChoice,
   ModelSettings, NewChapter, PageMeta, PageText, RawNodeDetail, Review, RouteRow, Run, RunRequest, SearchHit, Source, SourceDetail, Task, TasksMeta, Trust, Video,
 } from './types';
 
@@ -135,7 +135,7 @@ export function useReview(id: string) {
 export function useRefreshAll(): () => void {
   const client = useQueryClient();
   return () => {
-    for (const key of ['runs', 'chapters', 'chapter', 'metrics', 'reviews', 'library']) void client.invalidateQueries({ queryKey: [key] });
+    for (const key of ['runs', 'chapters', 'chapter', 'metrics', 'reviews', 'library', 'learn']) void client.invalidateQueries({ queryKey: [key] });
   };
 }
 
@@ -221,4 +221,59 @@ export function useSaveModel() {
       void client.invalidateQueries({ queryKey: ['health'] });
     },
   });
+}
+
+// --- ученик, вход и публикация ---
+
+export function useMe() {
+  return useQuery({ queryKey: ['me'], queryFn: async ({ signal }) => (await get<Me>('/api/auth/me', signal)).data });
+}
+
+export function useLogin() {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: async (password: string) => (await post<Me>('/api/auth/login', { password })).data,
+    onSuccess: (me) => client.setQueryData(['me'], me),
+  });
+}
+
+/** После выхода данные автора уходят и из памяти страницы. */
+export function useLogout() {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: async () => (await post<Me>('/api/auth/logout')).data,
+    onSuccess: (me) => {
+      client.clear();
+      client.setQueryData(['me'], me);
+    },
+  });
+}
+
+export function useCourses() {
+  return useQuery({ queryKey: ['learn', 'list'], queryFn: async ({ signal }) => (await get<LearnCourse[]>('/api/learn/courses', signal)).data });
+}
+
+export function useCourse(id: string) {
+  return useQuery({ queryKey: ['learn', 'course', id], queryFn: async ({ signal }) => (await get<LearnCourse>(apiPath(['learn', 'courses', id]), signal)).data });
+}
+
+export function usePublication(id: string, isOpen: boolean) {
+  return useQuery({
+    queryKey: ['chapter', id, 'publication'],
+    queryFn: async ({ signal }) => (await get<Publication>(apiPath(['chapters', id, 'publication']), signal)).data,
+    enabled: isOpen, staleTime: 0,
+  });
+}
+
+export function usePublish(id: string) {
+  const refresh = useRefreshAll();
+  return useMutation({
+    mutationFn: async (accepted: string[]) => (await post<Publication>(apiPath(['chapters', id, 'publication']), { accepted })).data,
+    onSettled: refresh,
+  });
+}
+
+export function useUnpublish(id: string) {
+  const refresh = useRefreshAll();
+  return useMutation({ mutationFn: async () => (await remove<Publication>(apiPath(['chapters', id, 'publication']))).data, onSettled: refresh });
 }

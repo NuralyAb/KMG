@@ -19,7 +19,7 @@ def test_card_collects_counts_cost_and_stages(client: TestClient) -> None:
     assert card["course_url"] == f"/course/{CHAPTER}/index.html"
     assert card["active_run"] is None
     assert set(card) == {"id", "title", "book", "domain", "pages", "counts", "issues", "stages", "cost_usd", "tokens_in", "tokens_out", "course_url",
-                         "active_run"}
+                         "active_run", "published_at"}
 
 
 def test_stage_older_than_previous_is_stale(client: TestClient) -> None:

@@ -30,7 +30,7 @@ function Rows({ rows, chapter }: { rows: CoverageRow[]; chapter: ChapterDetail }
                 <td className="cell-text">
                   {row.node_ids.length > 0
                     ? <ul className="plain">{row.node_ids.map((id) => (
-                      <li key={id}><Link to={`/chapters/${encodeURIComponent(chapter.id)}/nodes/${encodeURIComponent(id)}`}><RichText text={titles.get(id) ?? id} /></Link></li>
+                      <li key={id}><Link to={`/admin/chapters/${encodeURIComponent(chapter.id)}/nodes/${encodeURIComponent(id)}`}><RichText text={titles.get(id) ?? id} /></Link></li>
                     ))}</ul>
                     : <span className="muted">{row.reason ?? 'причина не указана'}</span>}
                 </td>

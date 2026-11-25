@@ -18,7 +18,7 @@ import { NodeLayers, NodeExtras } from './NodeLayers';
 import { NodeAside } from './NodeAside';
 import './node.css';
 
-const nodePath = (chapter: string, node: string): string => `/chapters/${encodeURIComponent(chapter)}/nodes/${encodeURIComponent(node)}`;
+const nodePath = (chapter: string, node: string): string => `/admin/chapters/${encodeURIComponent(chapter)}/nodes/${encodeURIComponent(node)}`;
 
 /** Стрелки листают шаги, если человек не печатает в поле и не держит модификатор. */
 function useArrowPaging(chapter: string, prev: string | null, next: string | null): void {
@@ -79,7 +79,7 @@ function NodeView({ chapter, detail, node }: { chapter: string; detail: RawNodeD
   return (
     <>
       <PageHeader title={<RichText text={node.title} />} docTitle={plainText(node.title)}
-        above={<><Link to={`/chapters/${encodeURIComponent(chapter)}`}>{parent?.title ?? 'Глава'}</Link>, шаг {node.order}{titles.size > 0 && ` из ${titles.size}`}</>} />
+        above={<><Link to={`/admin/chapters/${encodeURIComponent(chapter)}`}>{parent?.title ?? 'Глава'}</Link>, шаг {node.order}{titles.size > 0 && ` из ${titles.size}`}</>} />
       <div className="node-top">
         <Flags node={node} />
         <p className="muted">Тексты шага написала модель по цитатам главы. Отдельно помечены гипотезы и слова автора.</p>

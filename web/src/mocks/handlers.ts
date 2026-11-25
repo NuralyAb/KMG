@@ -3,6 +3,7 @@ import type { Run, RunRequest } from '@/api/types';
 import { cards, detailOf, nodes } from './fixtures/chapters';
 import { coverage, errata, illustrations, rawNode, routes, tasks, videos } from './fixtures/content';
 import { model, pageText, sources, trust } from './fixtures/library';
+import { courses, publication } from './fixtures/learn';
 import { logLines, metrics, reviews, runs as startRuns } from './fixtures/work';
 
 const LINE_MS = 700;
@@ -113,6 +114,18 @@ export const handlers = [
     const run = patchRun(String(params.id), { state: 'cancelled', finished_at: new Date().toISOString() });
     return run ? ok(run) : fail(404, 'not_found', 'Такого запуска нет');
   }),
+  http.get('/api/auth/me', () => ok({ role: 'admin', protected: false })),
+  http.post('/api/auth/login', () => fail(409, 'conflict', 'Пароль автора не задан, вход не нужен')),
+  http.post('/api/auth/logout', () => ok({ role: 'admin', protected: false })),
+  http.get('/api/learn/courses', () => ok(courses)),
+  http.get('/api/learn/courses/:id', ({ params }) => {
+    const found = courses.find((c) => c.id === params.id);
+    return found ? ok(found) : fail(404, 'not_found', 'Такого курса нет');
+  }),
+  http.get('/learn/*', () => new HttpResponse('<!doctype html><p>Курс</p>', { headers: { 'Content-Type': 'text/html' } })),
+  http.get('/api/chapters/:id/publication', () => ok(publication)),
+  http.post('/api/chapters/:id/publication', () => ok({ ...publication, published_at: '2026-11-25T12:00:00Z', is_current: true })),
+  http.delete('/api/chapters/:id/publication', () => ok(publication)),
   http.get('/api/library', () => ok(sources.map(({ page_list: _, ...s }) => s))),
   http.post('/api/library', async () => {
     await delay(300);

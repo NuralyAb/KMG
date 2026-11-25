@@ -6,16 +6,23 @@ import './app/styles.css';
 
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { ApiError } from './api/client';
 import { App } from './app/App';
 import { theme } from './app/theme';
 
 const STALE_MS = 15_000;
 
-const queryClient = new QueryClient({
+// сеанс автора кончился: экран переспросит, кто пришёл, и покажет вход
+const onExpired = (error: unknown): void => {
+  if (error instanceof ApiError && error.status === 401) void queryClient.invalidateQueries({ queryKey: ['me'] });
+};
+
+const queryClient: QueryClient = new QueryClient({
+  queryCache: new QueryCache({ onError: onExpired }),
   defaultOptions: { queries: { retry: 1, staleTime: STALE_MS, refetchOnWindowFocus: true } },
 });
 

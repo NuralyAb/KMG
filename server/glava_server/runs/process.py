@@ -14,7 +14,7 @@ if sys.platform == "win32":
 log = logging.getLogger("glava_server")
 KILL_TIMEOUT_S = 10
 # переменные окружения самого сервера не должны менять окружение корня
-DROPPED_ENV = frozenset({"VIRTUAL_ENV", "PYTHONHOME", "PYTHONPATH", "UV_PROJECT_ENVIRONMENT"})
+DROPPED_ENV = frozenset({"VIRTUAL_ENV", "PYTHONHOME", "PYTHONPATH", "UV_PROJECT_ENVIRONMENT", "GLAVA_ADMIN_PASSWORD"})
 
 
 def child_env(env: Mapping[str, str]) -> dict[str, str]:

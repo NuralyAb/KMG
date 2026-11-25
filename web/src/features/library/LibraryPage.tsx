@@ -22,7 +22,7 @@ export function SourceChip({ source }: { source: Source }) {
 function SourceRow({ source }: { source: Source }) {
   return (
     <li>
-      <Link to={`/library/${encodeURIComponent(source.id)}`}>
+      <Link to={`/admin/library/${encodeURIComponent(source.id)}`}>
         <span className="lib-row-main">
           <strong>{source.name}</strong>
           <span className="muted">

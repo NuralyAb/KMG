@@ -56,7 +56,7 @@ function Audit({ report, chapter }: { report: AuditReport; chapter: ChapterDetai
               {report.flagged.slice(0, limit).map((row) => (
                 <tr key={row.claim_id}>
                   <td><span className="chips">{row.flags.map((f) => <Chip key={f} tone="warn">{label(FLAG, f)}</Chip>)}</span></td>
-                  <td className="cell-text"><Link to={`/chapters/${encodeURIComponent(chapter.id)}/nodes/${encodeURIComponent(row.node_id)}`}><RichText text={row.text} /></Link></td>
+                  <td className="cell-text"><Link to={`/admin/chapters/${encodeURIComponent(chapter.id)}/nodes/${encodeURIComponent(row.node_id)}`}><RichText text={row.text} /></Link></td>
                   <td className="cell-text"><RichText text={row.quote} /></td>
                   <td className="right">{row.page_pdf}</td>
                 </tr>

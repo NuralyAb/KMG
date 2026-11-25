@@ -48,3 +48,22 @@
   .app-find { display: none; }
   .app-health { font-size: 0; gap: 0; padding: 0 4px; }
 }
+.app-switch { display: inline-flex; align-items: center; min-height: 36px; padding: 0 10px; border: 0; border-radius: 6px; background: transparent; color: var(--app-text); font: inherit; text-decoration: none; white-space: nowrap; cursor: pointer; }
+.app-switch:hover { background: var(--app-active); }
+
+/* на телефоне в шапке им нет места: они внизу меню */
+.app-switches { display: inline-flex; flex: none; }
+.app-nav-switches { display: none; }
+@media (max-width: 61.99em) { .app-switches { display: none; } .app-nav-switches { display: grid; justify-items: start; border-top: 1px solid var(--app-border); padding-top: 12px; } .app-nav-switches .app-switch { min-height: 48px; } }
+
+/* экран ученика: одна шапка, без боковой панели */
+.learn { display: grid; grid-template-rows: 56px minmax(0, 1fr); min-height: 100dvh; background: var(--app-frame); }
+.learn-top { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 12px; padding: 0 16px; background: var(--app-frame); }
+.learn-top .app-brand { width: auto; }
+.learn-main { margin: 0 var(--sheet-inset) var(--sheet-inset); padding: 32px 32px 56px; min-width: 0; background: var(--app-surface); border: 1px solid var(--app-border); border-radius: var(--sheet-radius); }
+.learn-main:focus { outline: none; }
+.learn-main > div { max-width: 1040px; margin: 0 auto; }
+@media (max-width: 47.99375em) {
+  .learn-top { padding: 0 8px 0 12px; gap: 6px; border-bottom: 1px solid var(--app-border); }
+  .learn-main { margin: 0; border: 0; border-radius: 0; padding: 20px 16px 64px; }
+}

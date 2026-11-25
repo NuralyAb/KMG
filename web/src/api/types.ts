@@ -18,6 +18,7 @@ export interface ChapterCard {
   cost_usd: number; tokens_in: number; tokens_out: number;
   course_url: string | null;
   active_run: string | null;
+  published_at?: string | null;
 }
 
 export interface Difficulty { primary: string; secondary: string | null }
@@ -129,6 +130,15 @@ export type VerdictCounts = Record<Verdict | 'total', number>;
 export interface WeakItem { id: string; text: string; verdict: Verdict; why: string; quote?: string }
 export interface VerifyReport { checker: string; claims: VerdictCounts; prose: VerdictCounts; weak: WeakItem[]; sensitivity?: Sensitivity; text_chars?: Record<string, number> }
 export interface Trust { audit: AuditReport | null; audit_stale: boolean; verify: VerifyReport | null; verify_stale: boolean }
+
+export interface CourseStep { id: string; order: number; title: string; minutes: number }
+export interface CoursePart { title: string; steps: CourseStep[] }
+export interface LearnCourse {
+  id: string; title: string; book: string; steps: number; minutes: number; tasks: number; parts: CoursePart[]; published_at: string;
+}
+export interface PublishCheck { code: string; text: string }
+export interface Publication { published_at: string | null; is_current: boolean; problem: string | null; checks: PublishCheck[]; accepted: string[] }
+export interface Me { role: 'admin' | 'learner'; protected: boolean }
 
 export const PROVIDERS = ['claude_code', 'anthropic', 'openai', 'local'] as const;
 export type ProviderName = (typeof PROVIDERS)[number];

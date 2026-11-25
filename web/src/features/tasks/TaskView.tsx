@@ -52,7 +52,7 @@ export function TaskView({ task, chapter, hasNodeLink = false }: { task: Task; c
       <p className="task-meta muted">
         <span>{label(TASK_TYPE, task.type)}</span>
         {task.kind && <span>{label(TASK_KIND, task.kind)}</span>}
-        {hasNodeLink && <Link to={`/chapters/${encodeURIComponent(chapter)}/nodes/${encodeURIComponent(task.step_id)}`}>{task.step_id}</Link>}
+        {hasNodeLink && <Link to={`/admin/chapters/${encodeURIComponent(chapter)}/nodes/${encodeURIComponent(task.step_id)}`}>{task.step_id}</Link>}
       </p>
       <div className="task-prompt prose"><Prompt task={task} /></div>
       <Answer task={task} />

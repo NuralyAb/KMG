@@ -16,14 +16,16 @@ Rows = Envelope[list[dict[str, Any]]]
 @router.get("")
 def list_chapters(services: ServicesDep) -> Envelope[list[ChapterCard]]:
     repository, metrics, active = services.repository, services.repository.metrics(), services.runs.active_by_chapter()
-    return ok([view.build_card(repository, c, metrics, active.get(c.id)) for c in repository.chapters()])
+    cards = [view.build_card(repository, c, metrics, active.get(c.id)) for c in repository.chapters()]
+    return ok([c.model_copy(update={"published_at": services.publications.published_at(c.id)}) for c in cards])
 
 
 @router.get("/{chapter_id}")
 def get_chapter(chapter_id: str, services: ServicesDep) -> Envelope[ChapterDetail]:
     repository = services.repository
     chapter = repository.chapter(chapter_id)
-    return ok(view.build_detail(repository, chapter, repository.metrics(), services.runs.active_by_chapter().get(chapter.id)))
+    found = view.build_detail(repository, chapter, repository.metrics(), services.runs.active_by_chapter().get(chapter.id))
+    return ok(found.model_copy(update={"published_at": services.publications.published_at(chapter.id)}))
 
 
 @router.get("/{chapter_id}/nodes/{node_id}")
