@@ -27,7 +27,7 @@
   const stepById = (id) => C.steps.find((s) => s.id === id);
 
   // ---------- страница шага ----------
-  const picture = (p) => `<figure>${p.svg || `<img src="pictures/${esc(p.file)}" alt="${esc(p.alt)}" loading="lazy">`}<figcaption>${rich(p.caption)} <span class="chip">${esc(p.label)}</span>${p.source ? ` ${esc(p.source)}` : ''}</figcaption></figure>`;
+  const picture = (p) => `<figure>${p.svg || `<img src="${esc(p.file)}" alt="${esc(p.alt)}" loading="lazy">`}<figcaption>${rich(p.caption)} <span class="chip">${esc(p.label)}</span>${p.source ? ` ${esc(p.source)}` : ''}</figcaption></figure>`;
   const how = (s) => s.how.map((b) => `<h3>${b.title}</h3>${b.paragraphs.map((p) => `<p>${rich(p.text)}${pages(p.pages)}</p>`).join('')}`).join('') + '<p class="by">Изложено моделью по утверждениям автора, они перечислены ниже с цитатами.</p>';
   const claims = (s) => `<ul class="claims">${s.claims.map((c) => `<li>${rich(c.text)}${pages([c.page_pdf])} <span class="chip">${KIND[c.kind]}</span>${c.source_kind === 'figure_description_model' ? ' <span class="chip">описание рисунка моделью</span>' : ''}<details><summary>Цитата автора</summary><blockquote>${rich(c.quote)}</blockquote></details></li>`).join('')}</ul>`;
   const example = (e) => `<div class="card"><p><strong>Условие.</strong> ${rich(e.condition)}</p><ol>${e.steps.map((x) => `<li>${rich(x)}</li>`).join('')}</ol><p><strong>Итог.</strong> ${rich(e.result)}${pages([e.page_pdf])}</p>${e.figure ? `<p class="muted">Нужен рисунок: ${esc(e.figure)}</p>` : ''}</div>`;

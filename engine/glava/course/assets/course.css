@@ -38,7 +38,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .muted { color: var(--muted); } .num { font-variant-numeric: tabular-nums; }
 
 .shell { display: grid; grid-template-columns: 300px minmax(0, 1fr); min-height: 100dvh; }
-.side { position: sticky; top: 0; height: 100dvh; overflow: auto; padding: 16px 12px; }
+.side { scrollbar-width: thin; scrollbar-color: var(--control) transparent; position: sticky; top: 0; height: 100dvh; overflow: auto; padding: 16px 12px; }
 .brand { display: flex; align-items: center; gap: 10px; padding: 0 8px 14px; font-weight: 600; color: var(--text); text-decoration: none; }
 .brand svg { flex: none; }
 .side nav a { color: var(--text); text-decoration: none; }
@@ -73,7 +73,7 @@ dl { margin: 0; display: grid; gap: 10px; } dt { font-weight: 600; } dd { margin
 ol, ul { margin: 0; padding-left: 24px; display: grid; gap: 6px; }
 .scroll { overflow-x: auto; } table { border-collapse: collapse; min-width: 100%; font-size: 16px; }
 th, td { padding: 8px 12px 8px 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); } th { font-weight: 500; color: var(--muted); }
-figure { margin: 0; display: grid; gap: 8px; } figure img, figure svg { width: 100%; height: auto; border-radius: var(--radius); display: block; }
+figure { margin: 0; display: grid; gap: 8px; } figure img, figure svg { width: 100%; max-width: 480px; height: auto; border-radius: var(--radius); display: block; }
 figcaption { font-size: 16px; color: var(--muted); }
 .katex { font-size: 1.05em; } .katex-display { overflow-x: auto; overflow-y: hidden; margin: 0; padding: 4px 0; }
 

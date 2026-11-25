@@ -13,6 +13,8 @@ from typing import Any
 from glava.course.build import build_course
 from glava.llm import Ledger, Provider, Reply, cached
 from glava.llm.providers import provider_from_env
+from glava.scenes import load_templates
+from glava.stages.illustrations import make_illustrations, records
 from glava.stages.layer import coverage_rows, drop_unsupported, load_schema, make_node, make_plan, pages_of
 from glava.stages.routing import make_routing
 from glava.stages.tasks import chapter_task_issues, groups, make_tasks, number_tasks
@@ -116,7 +118,7 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
 
 
 def build_routing(chapter: Chapter, provider: Provider) -> None:
-    templates = "\n".join(p.stem for p in sorted((chapter.domain / "templates").glob("*"))) or "шаблонов пока нет"
+    templates = "\n".join(load_templates(chapter.domain / "templates"))
     routing, replies = make_routing(provider, prompt_file("routing"), read(chapter.work / "layer.json"), templates)
     save(chapter.work / "routing.json", routing)
     write_metrics(chapter, "routing", len(routing["routes"]), replies)
@@ -131,6 +133,27 @@ def build_tasks(chapter: Chapter, provider: Provider) -> None:
     save(chapter.work / "tasks.json", {"chapter": chapter.chapter_id, "tasks": tasks})
     write_metrics(chapter, "tasks", len(nodes), [r for _, rs in results for r in rs])
     log.info("задания: %s; замечания: %s", len(tasks), chapter_task_issues(tasks) or "нет")
+
+
+def build_illustrations(chapter: Chapter, provider: Provider) -> None:
+    nodes = read(chapter.work / "layer.json")["nodes"]
+    templates, style = load_templates(chapter.domain / "templates"), read(chapter.domain / "styleguide.json")
+    prompt = prompt_file("illustrations")
+
+    def scenes_for(part: Sequence[dict]) -> tuple[list[dict], list[Reply]]:
+        return make_illustrations(provider, prompt, part, templates, style)
+
+    with ThreadPoolExecutor(PARALLEL) as pool:
+        first = list(pool.map(scenes_for, groups(nodes)))
+        drawn = {s["node_id"] for found, _ in first for s in found}
+        # узлы без рисунка спрашиваются ещё раз по одному
+        second = list(pool.map(scenes_for, [[n] for n in nodes if n["id"] not in drawn]))
+    results = [*first, *second]
+    found = records([s for scenes, _ in results for s in scenes], nodes, templates, style, chapter.work / "pictures")
+    save(chapter.work / "illustrations.json", {"chapter": chapter.chapter_id, "illustrations": found})
+    write_metrics(chapter, "illustrations", len(nodes), [r for _, rs in results for r in rs])
+    without = sorted({n["id"] for n in nodes} - {r["step_id"] for r in found})
+    log.info("иллюстрации: %s; шаги без рисунка: %s", len(found), without or "нет")
 
 
 def read_or(path: Path, default: Any) -> Any:
@@ -148,7 +171,7 @@ def build_site(chapter: Chapter) -> Path:
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
-    parser.add_argument("command", choices=["build", "layer", "routing", "tasks", "course", "units"])
+    parser.add_argument("command", choices=["build", "layer", "routing", "tasks", "illustrations", "course", "units"])
     parser.add_argument("chapter")
     parser.add_argument("--limit", type=int, default=None, help="собрать только первые N узлов")
     args = parser.parse_args()
@@ -168,6 +191,8 @@ def main() -> None:
         build_routing(chapter, provider)
     if args.command in ("build", "tasks"):
         build_tasks(chapter, provider)
+    if args.command in ("build", "illustrations"):
+        build_illustrations(chapter, provider)
     if args.command == "build":
         build_site(chapter)
 
