@@ -85,7 +85,7 @@
     const poster = () => {
       if (!item.poster) return [];
       const img = make('img', 'sim-poster');
-      Object.assign(img, { src: item.poster, alt: '', loading: 'lazy' });
+      Object.assign(img, { src: item.poster, alt: `Кадр симулятора «${item.title}»`, loading: 'lazy' });
       return [img];
     };
     const idle = () => {

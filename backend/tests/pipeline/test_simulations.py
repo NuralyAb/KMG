@@ -79,3 +79,9 @@ def test_other_extras_of_the_step_survive(tmp_path):
     out = build_course(LAYER, {"routes": []}, TASKS, [], tmp_path / "out", extras=extras, simulations=chapter(tmp_path, GOOD))
     step = read_data(out)["steps"][0]
     assert step["procedure"] and step["interactive"]["kind"] == "simulation"
+
+
+def test_simulator_poster_has_alt_text():
+    from glava.modules.course.build import ASSETS
+    script = (ASSETS / "simulation.js").read_text(encoding="utf-8")
+    assert "alt: ''" not in script and "Кадр симулятора" in script
