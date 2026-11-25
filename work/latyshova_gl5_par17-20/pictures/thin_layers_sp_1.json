@@ -1,0 +1,55 @@
+{
+ "node_id": "latyshova.thin_layers_sp",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "αСП = средняя аномалия СП в пачке / максимум в чистом коллекторе",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Палетка по ρпм/ρсп, кривая по ρпм/ρ_sn",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "По αСП на кривой палетки снять χсп",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Суммарная толщина пачки по χсп",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Глинистость пачки снимают с палетки кривых Долля по относительной амплитуде СП и выбранным отношениям сопротивлений.",
+ "alt": "Схема: относительная амплитуда СП и шифры палетки и кривой определяют глинистость χсп, по ней находят суммарную толщину пачки.",
+ "claim_ids": [
+  "latyshova.thin_layers_sp#c1",
+  "latyshova.thin_layers_sp#c2",
+  "latyshova.thin_layers_sp#c12",
+  "latyshova.thin_layers_sp#c16",
+  "latyshova.thin_layers_sp#c17",
+  "latyshova.thin_layers_sp#c18"
+ ]
+}

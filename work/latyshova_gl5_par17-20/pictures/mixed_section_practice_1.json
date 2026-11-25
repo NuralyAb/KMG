@@ -1,0 +1,54 @@
+{
+ "node_id": "latyshova.mixed_section_practice",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Терригенные и карбонатные породы с разными порами",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Насыщение водой разной минерализации, нефтью или газом",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Количественная интерпретация ГИС с геологическими сведениями",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Построение разреза и выделение коллектора",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Смешанный разрез и разные флюиды делают необходимой количественную интерпретацию: только она позволяет выделить коллектор.",
+ "alt": "Схема: две причины трудности, смесь терригенных и карбонатных пород и разные флюиды, ведут к количественной интерпретации с геологическими сведениями, а она к построению разреза и выделению коллектора.",
+ "claim_ids": [
+  "latyshova.mixed_section_practice#c1",
+  "latyshova.mixed_section_practice#c2",
+  "latyshova.mixed_section_practice#c3",
+  "latyshova.mixed_section_practice#c4",
+  "latyshova.mixed_section_practice#c5"
+ ]
+}

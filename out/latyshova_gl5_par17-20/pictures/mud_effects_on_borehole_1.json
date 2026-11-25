@@ -1,0 +1,38 @@
+{
+ "node_id": "latyshova.mud_effects_on_borehole",
+ "template": "compare",
+ "data": {
+  "left_title": "Что происходит",
+  "right_title": "Диаметр",
+  "rows": [
+   {
+    "aspect": "Межзерновой коллектор",
+    "left": "Корка и зона проникновения",
+    "right": "d_c < d_a"
+   },
+   {
+    "aspect": "Плотная сцементированная порода",
+    "left": "Диаметр не меняется",
+    "right": "d_c = d_a"
+   },
+   {
+    "aspect": "Глины, сланцы, аргиллиты",
+    "left": "Разбухание и вымывание струёй",
+    "right": "d_c > d_a"
+   },
+   {
+    "aspect": "Трещины, карст, соли",
+    "left": "Диаметр может увеличиваться",
+    "right": "d_c > d_a"
+   }
+  ]
+ },
+ "caption": "Смотрите, как диаметр скважины d_c соотносится с номинальным d_a в разных породах при глинистом растворе.",
+ "alt": "Таблица: в межзерновом коллекторе диаметр скважины меньше номинального, в плотной породе равен ему, в глинах, трещиноватых породах, карсте и солях больше.",
+ "claim_ids": [
+  "latyshova.mud_effects_on_borehole#c8",
+  "latyshova.mud_effects_on_borehole#c9",
+  "latyshova.mud_effects_on_borehole#c10",
+  "latyshova.mud_effects_on_borehole#c11"
+ ]
+}

@@ -53,7 +53,10 @@
 
 ## Состояние (25.11.2026)
 
-- Готово: `engine/glava/units.py`, `verify.py`, `llm/` (провайдеры claude_code и anthropic, кэш, бюджет), `stages/layer.py`, `cli.py` (`uv run glava layer <глава>`), `prompts/{plan,node}.md`, `domain/geology`, `chapters.json`, 33 теста.
+- Готово: разбор и проверки, слой, маршруты, задания, иллюстрации (SVG кодом: общие шаблоны `engine/glava/scenes`, предметные `domain/geology/templates`), сборщик курса, модуль проверки. Команды: `uv run glava build|layer|routing|tasks|illustrations|course <глава>`, `uv run glava review <глава> --package <папка>`.
+- Латышова: 44 узла, 628 утверждений, 0 замечаний, 88 заданий всех 5 типов, 44 рисунка. Около $16 по прайсу.
+- Самопроверка модуля на контрольном пакете: 90 % по весу, 0 ложных тревог, $2.82. Промпты модуля больше не менять.
 - Решение пользователя: модель через Claude Code на этом ПК; сначала глава Латышовой до конца, потом остальные.
-- Дальше: stages/routing, stages/tasks, stages/illustrations, course/ (сборщик HTML в дизайне METU: `METU/web/src/app/tokens.css`, IBM Plex Sans), review/, ролики.
+- Дальше: ролики (симуляция, озвучка, паспорт), доменный пакет (глоссарий, ИТ-мосты, ударения, опечатки), остальные главы, MANIFEST, плейбук, заморозка.
+- Большие heredoc и обратные слэши в Bash ломаются: файлы с ними писать через Write/Edit.
 - Хук GateGuard: перед Write в новую папку сделать `ls` этой папки и привести факты, тогда отказа нет.

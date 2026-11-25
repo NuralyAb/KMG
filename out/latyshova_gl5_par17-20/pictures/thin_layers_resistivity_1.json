@@ -1,0 +1,65 @@
+{
+ "node_id": "latyshova.thin_layers_resistivity",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "ρп пачки по БЭЗ или фокусированным методам",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Заданы ρпм коллектора и ρсп вмещающих глин",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Сложить проводимости с весами χсп и (1 − χсп), решить для χсп",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Относительная глинистость пачки χсп",
+    "kind": "result"
+   },
+   {
+    "id": "e",
+    "text": "Эффективная толщина = толщина пачки × (1 − χсп)",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Порядок расчёта: три сопротивления дают χсп, а по нему находят эффективную толщину тонкослоистой пачки.",
+ "alt": "Схема: сопротивление пачки и заданные сопротивления коллектора и глин подставляют в уравнение сложения проводимостей, находят глинистость χсп, затем эффективную толщину.",
+ "claim_ids": [
+  "latyshova.thin_layers_resistivity#c1",
+  "latyshova.thin_layers_resistivity#c2",
+  "latyshova.thin_layers_resistivity#c3",
+  "latyshova.thin_layers_resistivity#c4",
+  "latyshova.thin_layers_resistivity#c6",
+  "latyshova.thin_layers_resistivity#c7"
+ ]
+}

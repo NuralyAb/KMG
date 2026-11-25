@@ -15,11 +15,14 @@
   // ---------- текст: экранирование и формулы ----------
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const tex = (code, display) => { try { return katex.renderToString(code, { displayMode: display, throwOnError: false, strict: 'ignore' }); } catch { return esc(code); } };
+  // модель иногда пишет формулу без знаков доллара: берём кусок без кириллицы с командой LaTeX
+  const BARE = /([^Ѐ-ӿ\n]*\\[a-zA-Z]+[^Ѐ-ӿ\n]*)/;
+  const bare = (s) => s.split(BARE).map((part) => (/\\[a-zA-Z]/.test(part) ? ` ${tex(part.replace(/\\[()[\]]/g, '').trim(), false)} ` : esc(part))).join('');
   const rich = (s) => String(s ?? '').split(/(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\$[^$\n]+?\$|\\\([\s\S]+?\\\))/).map((part) => {
     if (/^(\$\$|\\\[)/.test(part)) return tex(part.slice(2, -2), true);
     if (/^\\\(/.test(part)) return tex(part.slice(2, -2), false);
     if (/^\$/.test(part)) return tex(part.slice(1, -1), false);
-    return esc(part);
+    return bare(part);
   }).join('');
   const pages = (list) => (list?.length ? ` <span class="page">стр. ${list.join(', ')}</span>` : '');
   const block = (title, body, id = '') => (body ? `<section class="block"${id ? ` id="${id}"` : ''}><h2>${title}</h2>${body}</section>` : '');
@@ -27,7 +30,7 @@
   const stepById = (id) => C.steps.find((s) => s.id === id);
 
   // ---------- страница шага ----------
-  const picture = (p) => `<figure>${p.svg || `<img src="pictures/${esc(p.file)}" alt="${esc(p.alt)}" loading="lazy">`}<figcaption>${rich(p.caption)} <span class="chip">${esc(p.label)}</span>${p.source ? ` ${esc(p.source)}` : ''}</figcaption></figure>`;
+  const picture = (p) => `<figure>${p.svg || `<img src="${esc(p.file)}" alt="${esc(p.alt)}" loading="lazy">`}<figcaption>${rich(p.caption)} <span class="chip">${esc(p.label)}</span>${p.source ? ` ${esc(p.source)}` : ''}</figcaption></figure>`;
   const how = (s) => s.how.map((b) => `<h3>${b.title}</h3>${b.paragraphs.map((p) => `<p>${rich(p.text)}${pages(p.pages)}</p>`).join('')}`).join('') + '<p class="by">Изложено моделью по утверждениям автора, они перечислены ниже с цитатами.</p>';
   const claims = (s) => `<ul class="claims">${s.claims.map((c) => `<li>${rich(c.text)}${pages([c.page_pdf])} <span class="chip">${KIND[c.kind]}</span>${c.source_kind === 'figure_description_model' ? ' <span class="chip">описание рисунка моделью</span>' : ''}<details><summary>Цитата автора</summary><blockquote>${rich(c.quote)}</blockquote></details></li>`).join('')}</ul>`;
   const example = (e) => `<div class="card"><p><strong>Условие.</strong> ${rich(e.condition)}</p><ol>${e.steps.map((x) => `<li>${rich(x)}</li>`).join('')}</ol><p><strong>Итог.</strong> ${rich(e.result)}${pages([e.page_pdf])}</p>${e.figure ? `<p class="muted">Нужен рисунок: ${esc(e.figure)}</p>` : ''}</div>`;

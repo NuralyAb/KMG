@@ -15,11 +15,14 @@
   // ---------- текст: экранирование и формулы ----------
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const tex = (code, display) => { try { return katex.renderToString(code, { displayMode: display, throwOnError: false, strict: 'ignore' }); } catch { return esc(code); } };
+  // модель иногда пишет формулу без знаков доллара: берём кусок без кириллицы с командой LaTeX
+  const BARE = /([^Ѐ-ӿ\n]*\\[a-zA-Z]+[^Ѐ-ӿ\n]*)/;
+  const bare = (s) => s.split(BARE).map((part) => (/\\[a-zA-Z]/.test(part) ? ` ${tex(part.replace(/\\[()[\]]/g, '').trim(), false)} ` : esc(part))).join('');
   const rich = (s) => String(s ?? '').split(/(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\$[^$\n]+?\$|\\\([\s\S]+?\\\))/).map((part) => {
     if (/^(\$\$|\\\[)/.test(part)) return tex(part.slice(2, -2), true);
     if (/^\\\(/.test(part)) return tex(part.slice(2, -2), false);
     if (/^\$/.test(part)) return tex(part.slice(1, -1), false);
-    return esc(part);
+    return bare(part);
   }).join('');
   const pages = (list) => (list?.length ? ` <span class="page">стр. ${list.join(', ')}</span>` : '');
   const block = (title, body, id = '') => (body ? `<section class="block"${id ? ` id="${id}"` : ''}><h2>${title}</h2>${body}</section>` : '');

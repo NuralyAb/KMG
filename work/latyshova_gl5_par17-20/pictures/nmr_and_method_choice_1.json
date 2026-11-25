@@ -1,0 +1,63 @@
+{
+ "node_id": "latyshova.nmr_and_method_choice",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "График индекса свободного флюида Iсф по ЯМ",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Принимаем kп,эф = Iсф,в",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "kп,эф больше 1 %?",
+    "kind": "choice"
+   },
+   {
+    "id": "d",
+    "text": "Коллектор",
+    "kind": "result"
+   },
+   {
+    "id": "e",
+    "text": "Не коллектор: возможна помеха",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": "да"
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": "нет"
+   }
+  ]
+ },
+ "caption": "Iсф принимают за эффективную пористость; порог 1 % отделяет коллектор от возможных помех.",
+ "alt": "Схема: график Iсф по ЯМ принимают за эффективную пористость. Если она больше одного процента, пласт считают коллектором, иначе это не коллектор, возможна помеха.",
+ "claim_ids": [
+  "latyshova.nmr_and_method_choice#c1",
+  "latyshova.nmr_and_method_choice#c2",
+  "latyshova.nmr_and_method_choice#c3",
+  "latyshova.nmr_and_method_choice#c4"
+ ]
+}

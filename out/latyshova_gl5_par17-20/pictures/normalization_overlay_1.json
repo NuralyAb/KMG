@@ -1,0 +1,53 @@
+{
+ "node_id": "latyshova.normalization_overlay",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Кривая ρп глубинного фокусированного метода",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Кривая метода пористости: НМ, акустика или ГГМ",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Шкалу одной кривой подбирают до совпадения",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Кривые разошлись: продуктивный коллектор",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": "расхождение"
+   }
+  ]
+ },
+ "caption": "Две кривые совмещают по шкале в опорных интервалах; там, где они расходятся, смотрите на признак продуктивного коллектора.",
+ "alt": "Схема: кривые ρп и метода пористости совмещают подбором шкалы в неколлекторах и водоносных коллекторах; расхождение кривых указывает на продуктивный коллектор.",
+ "claim_ids": [
+  "latyshova.normalization_overlay#c2",
+  "latyshova.normalization_overlay#c3",
+  "latyshova.normalization_overlay#c4",
+  "latyshova.normalization_overlay#c6"
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "node_id": "latyshova.complex_collectors",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Сложные поры: кроме межзерновых есть трещины и каверны",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Сложный минеральный состав скелета",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Не выделяется по признакам межзернового коллектора",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Две особенности сложного коллектора и общий итог: привычные признаки не позволяют его выделить.",
+ "alt": "Схема: сложное строение пор с трещинами и кавернами и сложный минеральный состав скелета ведут к тому, что коллектор не выделяется по признакам межзернового коллектора.",
+ "claim_ids": [
+  "latyshova.complex_collectors#c1",
+  "latyshova.complex_collectors#c2",
+  "latyshova.complex_collectors#c3",
+  "latyshova.complex_collectors#c4"
+ ]
+}

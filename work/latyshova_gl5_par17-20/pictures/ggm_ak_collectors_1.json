@@ -1,0 +1,39 @@
+{
+ "node_id": "latyshova.ggm_ak_collectors",
+ "template": "compare",
+ "data": {
+  "left_title": "ГГМ",
+  "right_title": "АК",
+  "rows": [
+   {
+    "aspect": "Кривая",
+    "left": "плотность δп",
+    "right": "интервальное время ΔТ"
+   },
+   {
+    "aspect": "Скелет",
+    "left": "δск = 2,65 г/см³",
+    "right": "ΔТск = 170 мкс/м"
+   },
+   {
+    "aspect": "Флюид",
+    "left": "δфл = 0,9",
+    "right": "ΔТф = 600 мкс/м"
+   },
+   {
+    "aspect": "Шкала кривой",
+    "left": "2,4–2,0 г/см³",
+    "right": "200–240–280 мкс/м"
+   }
+  ]
+ },
+ "caption": "Параметры задачи 103: у каждого метода свои кривая, константы скелета и флюида; граничная пористость для обоих одна, kп,гр = 9 %.",
+ "alt": "Таблица сравнения ГГМ и АК: измеряемая кривая, константы скелета и флюида, шкала кривой. Граничная пористость 9 процентов задана для обоих методов.",
+ "claim_ids": [
+  "latyshova.ggm_ak_collectors#c10",
+  "latyshova.ggm_ak_collectors#c11",
+  "latyshova.ggm_ak_collectors#c12",
+  "latyshova.ggm_ak_collectors#c18",
+  "latyshova.ggm_ak_collectors#c19"
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "node_id": "latyshova.clay_classes_critical",
+ "template": "plot",
+ "data": {
+  "x_label": "Водонасыщение kв, %",
+  "y_label": "Параметр насыщения Pн",
+  "numeric": true,
+  "log_x": false,
+  "log_y": true,
+  "params": {},
+  "series": [
+   {
+    "name": "Pн* (граница нефти)",
+    "color": "",
+    "points": [
+     [
+      30,
+      10
+     ],
+     [
+      37,
+      5
+     ],
+     [
+      42,
+      3.1
+     ],
+     [
+      50,
+      2.1
+     ]
+    ]
+   },
+   {
+    "name": "Pн** (граница воды)",
+    "color": "",
+    "points": [
+     [
+      68,
+      1.5
+     ],
+     [
+      74,
+      1.55
+     ],
+     [
+      77,
+      1.6
+     ],
+     [
+      80,
+      1.6
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 30,
+    "y": 10,
+    "text": "αСП = 1,0"
+   },
+   {
+    "x": 50,
+    "y": 2.1,
+    "text": "αСП = 0,7"
+   }
+  ]
+ },
+ "caption": "Критические точки для разной глинистости (αСП) образуют две разделяющие кривые Pн* и Pн**.",
+ "alt": "График с двумя кривыми критических точек. Pн* сильно падает при переходе от αСП 1,0 к 0,7, а Pн** почти не меняется и держится около 1,5–1,6.",
+ "claim_ids": [
+  "latyshova.clay_classes_critical#c14",
+  "latyshova.clay_classes_critical#c15",
+  "latyshova.clay_classes_critical#c16",
+  "latyshova.clay_classes_critical#c17",
+  "latyshova.clay_classes_critical#c6"
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "node_id": "latyshova.four_method_groups",
+ "template": "compare",
+ "data": {
+  "left_title": "Методы",
+  "right_title": "Условия применения",
+  "rows": [
+   {
+    "aspect": "Выделение коллекторов",
+    "left": "Микрозонды, каверномер, ЯМ-метод",
+    "right": "Глинистая корка на глинистом растворе"
+   },
+   {
+    "aspect": "Пористость",
+    "left": "Гамма-гамма, акустический, нейтронные",
+    "right": "Глинистый, вода, нефильтрующийся"
+   },
+   {
+    "aspect": "Глинистость",
+    "left": "СП и ГМ",
+    "right": "СП: ρф > ρн; ГМ: любые скважины"
+   }
+  ]
+ },
+ "caption": "Три из четырёх групп методов и условия их применимости. Четвёртая группа, оценка продуктивности, здесь не показана.",
+ "alt": "Таблица: группы методов выделения коллекторов, пористости и глинистости, их методы и условия применения.",
+ "claim_ids": [
+  "latyshova.four_method_groups#c2",
+  "latyshova.four_method_groups#c3",
+  "latyshova.four_method_groups#c4",
+  "latyshova.four_method_groups#c5",
+  "latyshova.four_method_groups#c6",
+  "latyshova.four_method_groups#c7",
+  "latyshova.four_method_groups#c8",
+  "latyshova.four_method_groups#c10",
+  "latyshova.four_method_groups#c12"
+ ]
+}

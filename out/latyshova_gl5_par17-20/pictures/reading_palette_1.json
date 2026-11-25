@@ -1,0 +1,57 @@
+{
+ "node_id": "latyshova.reading_palette",
+ "template": "plot",
+ "data": {
+  "x_label": "Пористость kп, %",
+  "y_label": "Сопротивление ρп, Ом·м",
+  "numeric": true,
+  "log_x": false,
+  "log_y": false,
+  "params": {},
+  "series": [
+   {
+    "name": "ρп = 10 Ом·м",
+    "color": "",
+    "points": [
+     [
+      15,
+      10
+     ],
+     [
+      20,
+      10
+     ],
+     [
+      25,
+      10
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 15,
+    "y": 10,
+    "text": "15 %: неколлектор"
+   },
+   {
+    "x": 20,
+    "y": 10,
+    "text": "20 %: нефть"
+   },
+   {
+    "x": 25,
+    "y": 10,
+    "text": "25 %: нефть с водой"
+   }
+  ]
+ },
+ "caption": "При одном ρп = 10 Ом·м меняется только kп, и вывод по палетке меняется три раза.",
+ "alt": "Горизонтальная линия при сопротивлении 10 Ом·м и три точки по пористости 15, 20 и 25 процентов. Подписи: неколлектор, нефть, нефть с водой.",
+ "claim_ids": [
+  "latyshova.reading_palette#c4",
+  "latyshova.reading_palette#c5",
+  "latyshova.reading_palette#c6",
+  "latyshova.reading_palette#c7"
+ ]
+}

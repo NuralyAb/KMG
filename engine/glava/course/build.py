@@ -98,8 +98,9 @@ def build_course(
     data = course_data(layer, routing, tasks, pictures)
     out.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ASSETS, out / "assets", dirs_exist_ok=True)
+    shutil.rmtree(out / "pictures", ignore_errors=True)
     if picture_files and picture_files.exists():
-        shutil.copytree(picture_files, out / "pictures", dirs_exist_ok=True)
+        shutil.copytree(picture_files, out / "pictures", ignore=shutil.ignore_patterns("*.json"))
     payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     (out / "data.js").write_text(f"window.COURSE={payload};\n", encoding="utf-8")
     title = data["title"].replace("&", "&amp;").replace("<", "&lt;")

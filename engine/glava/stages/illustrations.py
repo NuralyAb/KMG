@@ -97,6 +97,8 @@ def make_illustrations(
 def records(scenes: Sequence[Mapping], nodes: Sequence[Mapping], templates: Templates, style: Mapping[str, Any], folder: Path) -> list[dict[str, Any]]:
     """Рисует SVG и возвращает записи по illustration.schema.json; спецификация сохраняется рядом."""
     folder.mkdir(parents=True, exist_ok=True)
+    for stale in (*folder.glob("*.svg"), *folder.glob("*.json")):
+        stale.unlink()
     by_id = {n["id"]: n for n in nodes}
     found: list[dict[str, Any]] = []
     for scene in scenes:

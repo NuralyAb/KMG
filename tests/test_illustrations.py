@@ -52,6 +52,12 @@ def test_records_match_the_schema_and_files_are_written(tmp_path):
     assert (tmp_path / Path(found[0]["file"]).name).read_text(encoding="utf-8").startswith("<svg")
 
 
+def test_stale_pictures_are_removed(tmp_path):
+    (tmp_path / "old_1.svg").write_text("<svg/>", encoding="utf-8")
+    records([scene()], NODES, TEMPLATES, STYLE, tmp_path)
+    assert not (tmp_path / "old_1.svg").exists()
+
+
 class Fake:
     name, model = "fake", "fake"
 

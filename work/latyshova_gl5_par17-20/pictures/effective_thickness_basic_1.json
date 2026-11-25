@@ -1,0 +1,30 @@
+{
+ "node_id": "latyshova.effective_thickness_basic",
+ "template": "section",
+ "data": {
+  "shape": "anticline",
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "Покрышка"
+   },
+   {
+    "lithology": "sand",
+    "label": "Коллектор",
+    "fluids": [
+     "oil",
+     "water"
+    ]
+   }
+  ],
+  "wells": []
+ },
+ "caption": "Коллектор у водонефтяного контакта: продуктивна только нефтенасыщенная часть выше контакта, ниже неё вода.",
+ "alt": "Разрез: над пластом-коллектором лежит глинистая покрышка. В верхней части коллектора нефть, в нижней вода. Эффективная толщина равна интервалу от кровли до контакта.",
+ "claim_ids": [
+  "latyshova.effective_thickness_basic#c5",
+  "latyshova.effective_thickness_basic#c6",
+  "latyshova.effective_thickness_basic#c7",
+  "latyshova.effective_thickness_basic#c8"
+ ]
+}
