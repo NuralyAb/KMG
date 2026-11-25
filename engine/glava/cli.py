@@ -10,9 +10,12 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from glava.course.build import build_course
 from glava.llm import Ledger, Provider, Reply, cached
 from glava.llm.providers import provider_from_env
 from glava.stages.layer import coverage_rows, drop_unsupported, load_schema, make_node, make_plan, pages_of
+from glava.stages.routing import make_routing
+from glava.stages.tasks import chapter_task_issues, groups, make_tasks, number_tasks
 from glava.units import Unit, parse_units, read_pages
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -112,10 +115,41 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
     return layer
 
 
+def build_routing(chapter: Chapter, provider: Provider) -> None:
+    templates = "
+".join(p.stem for p in sorted((chapter.domain / "templates").glob("*"))) or "шаблонов пока нет"
+    routing, replies = make_routing(provider, prompt_file("routing"), read(chapter.work / "layer.json"), templates)
+    save(chapter.work / "routing.json", routing)
+    write_metrics(chapter, "routing", len(routing["routes"]), replies)
+    log.info("маршруты: %s", len(routing["routes"]))
+
+
+def build_tasks(chapter: Chapter, provider: Provider) -> None:
+    nodes = read(chapter.work / "layer.json")["nodes"]
+    with ThreadPoolExecutor(PARALLEL) as pool:
+        results = list(pool.map(lambda g: make_tasks(provider, prompt_file("tasks"), g), groups(nodes)))
+    tasks = number_tasks(t for found, _ in results for t in found)
+    save(chapter.work / "tasks.json", {"chapter": chapter.chapter_id, "tasks": tasks})
+    write_metrics(chapter, "tasks", len(nodes), [r for _, rs in results for r in rs])
+    log.info("задания: %s; замечания: %s", len(tasks), chapter_task_issues(tasks) or "нет")
+
+
+def read_or(path: Path, default: Any) -> Any:
+    return read(path) if path.exists() else default
+
+
+def build_site(chapter: Chapter) -> Path:
+    work = chapter.work
+    out = build_course(read(work / "layer.json"), read_or(work / "routing.json", {"routes": []}), read_or(work / "tasks.json", {"tasks": []})["tasks"],
+                       read_or(work / "illustrations.json", {"illustrations": []})["illustrations"], ROOT / "out" / chapter.chapter_id, work / "pictures")
+    log.info("курс: %s", out / "index.html")
+    return out
+
+
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
-    parser.add_argument("command", choices=["layer", "units"])
+    parser.add_argument("command", choices=["build", "layer", "routing", "tasks", "course", "units"])
     parser.add_argument("chapter")
     parser.add_argument("--limit", type=int, default=None, help="собрать только первые N узлов")
     args = parser.parse_args()
@@ -125,7 +159,18 @@ def main() -> None:
         for unit in chapter.units:
             log.info("%s %s %s", unit.unit_id, unit.kind, unit.excerpt)
         return
-    build_layer(chapter, cached(provider_from_env(), ROOT / ".cache"), args.limit)
+    if args.command == "course":
+        build_site(chapter)
+        return
+    provider = cached(provider_from_env(), ROOT / ".cache")
+    if args.command in ("build", "layer"):
+        build_layer(chapter, provider, args.limit)
+    if args.command in ("build", "routing"):
+        build_routing(chapter, provider)
+    if args.command in ("build", "tasks"):
+        build_tasks(chapter, provider)
+    if args.command == "build":
+        build_site(chapter)
 
 
 if __name__ == "__main__":
