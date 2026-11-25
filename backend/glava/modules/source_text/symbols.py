@@ -22,6 +22,7 @@ PI_RULES = (
 )
 K_FOR_KAPPA = re.compile(r"\\sqrt\{\s*k\s*t\s*\}")
 WINDOW = 24
+CORE = (6, 3)
 NOTE_PI = "ϰ (пьезопроводность) прочитана как π; правило, сверить по скану"
 NOTE_K = "ϰ (пьезопроводность) прочитана как k; правило, сверить по скану"
 
@@ -39,7 +40,8 @@ def _entry(unit: Unit, start: int, end: int, wrong: str, right: str, note: str) 
     left, right_end = _excerpt(unit.text, start, end)
     md = unit.text[left:right_end].strip()
     fixed = (unit.text[left:start] + unit.text[start:end].replace(wrong, right, 1) + unit.text[end:right_end]).strip()
-    return {"md": md, "scan": fixed, "kind": "recognition", "note": note, "page": unit.page_pdf, "unit_id": unit.unit_id, "by_rule": "kappa"}
+    core = unit.text[max(0, start - CORE[0]):end + CORE[1]]
+    return {"md": md, "scan": fixed, "kind": "recognition", "note": note, "page": unit.page_pdf, "unit_id": unit.unit_id, "by_rule": "kappa", "core": core}
 
 
 def kappa_suspects(units: Iterable[Unit]) -> list[dict]:

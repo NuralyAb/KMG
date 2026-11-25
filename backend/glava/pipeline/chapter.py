@@ -145,8 +145,8 @@ def file_digest(path: Path) -> str:
 
 
 def errata_of(chapter: Chapter) -> list[dict]:
-    """Лист опечаток этапа errata, расхождения рисунков с распознавателем (этап figures) и записи человека из <глава>.manual.json."""
-    files = (chapter.errata_file, chapter.errata_file.with_suffix(".figures.json"), chapter.errata_file.with_suffix(".manual.json"))
+    """Лист опечаток этапа errata, правило ϰ→π (<глава>.symbols.json), расхождения рисунков (этап figures) и записи человека (<глава>.manual.json)."""
+    files = tuple(chapter.errata_file.with_suffix(s) for s in (".json", ".symbols.json", ".figures.json", ".manual.json"))
     return [e for file in files for e in read_or(file, {"entries": []})["entries"]]
 
 
