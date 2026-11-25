@@ -3,7 +3,8 @@ import { useInert } from './bits';
 import { CourseProvider, courseTools } from './context';
 import { parseHash } from './core';
 import { Lesson } from './Lesson';
-import { Plan, Side, TABS, Top, type View } from './shell';
+import { itemFor } from './items';
+import { Crumbs, Outline, TABS, Top, type View } from './shell';
 import { createStore, useStore } from './store';
 import type { Course } from './types';
 
@@ -59,17 +60,18 @@ export function App({ course }: { course: Course }) {
 
   const place = parseHash(visit.hash);
   const step = place.step === null ? null : course.steps.find((s) => s.order === place.step) ?? null;
-  const view: View = { step, tab: step ? null : place.tab ?? '#/' };
+  const item = step ? itemFor(step, place.section) : null;
+  const view: View = { step, tab: step ? null : place.tab ?? '#/', item: item?.id ?? null };
   const tab = TABS.find((t) => t.url === view.tab);
-  const key = step?.id ?? view.tab ?? '#/';
+  const key = step ? `${step.id}/${item?.id}` : view.tab ?? '#/';
   const order = step?.order;
-  const title = step ? `${tools.num(step)} ${step.short_title} — ${course.title}` : view.tab === '#/' ? course.title : `${tab?.label} — ${course.title}`;
+  const title = step ? `${item?.kind}: ${tools.num(step)} ${step.short_title} — ${course.title}` : view.tab === '#/' ? course.title : `${tab?.label} — ${course.title}`;
 
   useLayoutEffect(() => { document.title = title; }, [title]);
   useLayoutEffect(() => setMenu(false), [visit]);
   useEffect(() => { if (order !== undefined) store.set({ last: order }); }, [order, store]);
   // сцену симулятора в узел [data-interactive] ставит assets/simulation.js, один раз на урок
-  useEffect(() => { if (order !== undefined && root.current) window.Simulations?.mount(root.current); }, [order]);
+  useEffect(() => { if (item?.id === 'sim' && root.current) window.Simulations?.mount(root.current); }, [order, item?.id]);
   useEffect(() => {
     const isNew = shown.current !== key;
     const isFirst = shown.current === '';
@@ -90,6 +92,12 @@ export function App({ course }: { course: Course }) {
     return () => media.removeEventListener('change', widened);
   }, [isMenuOpen]);
   useEffect(() => {
+    // источник с цитатами свёрнут; на печать он идёт целиком
+    const unfold = (): void => document.querySelectorAll<HTMLDetailsElement>('details.source').forEach((d) => { d.open = true; });
+    window.addEventListener('beforeprint', unfold);
+    return () => window.removeEventListener('beforeprint', unfold);
+  }, []);
+  useEffect(() => {
     const skip = document.querySelector('.skip');
     // ссылка «К содержанию» не должна менять адрес урока
     const jump = (e: Event): void => { e.preventDefault(); document.getElementById('main')?.focus(); };
@@ -109,7 +117,7 @@ export function App({ course }: { course: Course }) {
     if (!isMenuOpen) return;
     if (e.key === 'Escape') { setMenu(false); menuButton()?.focus(); return; }
     if (e.key !== 'Tab') return;
-    const stops = [menuButton(), ...root.current?.querySelectorAll<HTMLElement>('.plan a, .plan summary') ?? []].filter((x): x is HTMLElement => x !== null && x.offsetParent !== null);
+    const stops = [menuButton(), ...root.current?.querySelectorAll<HTMLElement>('.outline a, .outline summary') ?? []].filter((x): x is HTMLElement => x !== null && x.offsetParent !== null);
     if (document.activeElement !== (e.shiftKey ? stops[0] : stops.at(-1))) return;
     e.preventDefault();
     (e.shiftKey ? stops.at(-1) : stops[0])?.focus();
@@ -118,12 +126,12 @@ export function App({ course }: { course: Course }) {
   return (
     <CourseProvider value={{ ...tools, store, state, catalog }}>
       <div className="shell" ref={root} onClick={onClick} onKeyDown={onKey}>
-        <Side view={view} isInert={isMenuOpen} />
-        <Top view={view} isMenuOpen={isMenuOpen} onMenu={() => setMenu(!isMenuOpen)} />
+        <Top isMenuOpen={isMenuOpen} onMenu={() => setMenu(!isMenuOpen)} />
+        <Outline view={view} isOpen={isMenuOpen} isInert={false} />
         <main className="sheet" id="main" tabIndex={-1} ref={main}>
-          {step ? <Lesson key={step.id} step={step} section={place.section} visit={visit.n} /> : tab && <tab.Page key={tab.url} />}
+          <Crumbs view={view} item={item} />
+          {step ? <Lesson key={`${step.id}/${item?.id}`} step={step} section={place.section} /> : tab && <tab.Page key={tab.url} />}
         </main>
-        <Plan view={view} isOpen={isMenuOpen} />
       </div>
     </CourseProvider>
   );

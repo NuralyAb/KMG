@@ -101,13 +101,13 @@ test('repeat marks saved by an older version are not lost', () => {
 
 // ---------- состояние ----------
 test('broken progress falls back to a clean state', () => {
-  const clean = { done: [], solved: {}, cards: {}, repeat: [], last: null, theme: 'auto', notes: {} };
-  for (const raw of [null, 5, 'x', [], { done: null, solved: [], cards: 'no', repeat: {}, last: {}, theme: 'pink', notes: ['x'] }]) assert.deepEqual(core.cleanState(raw, ['a']), clean);
+  const clean = { done: [], solved: {}, cards: {}, repeat: [], last: null, theme: 'auto', notes: {}, seen: {} };
+  for (const raw of [null, 5, 'x', [], { done: null, solved: [], cards: 'no', repeat: {}, last: {}, theme: 'pink', notes: ['x'], seen: { a: 'read' } }]) assert.deepEqual(core.cleanState(raw, ['a']), clean);
 });
 
 test('progress of unknown steps is dropped, the rest survives', () => {
-  const state = core.cleanState({ done: ['a', 'gone', 'a'], solved: { t: true, z: 'yes' }, cards: { a: 'know', gone: 'again' }, repeat: ['gone'], last: 2, theme: 'dark', notes: { a: 'запомнить', b: '', gone: 'х' } }, ['a', 'b']);
-  assert.deepEqual(state, { done: ['a'], solved: { t: true }, cards: { a: 'know' }, repeat: [], last: 2, theme: 'dark', notes: { a: 'запомнить' } });
+  const state = core.cleanState({ done: ['a', 'gone', 'a'], solved: { t: true, z: 'yes' }, cards: { a: 'know', gone: 'again' }, repeat: ['gone'], last: 2, theme: 'dark', notes: { a: 'запомнить', b: '', gone: 'х' }, seen: { a: ['read'], b: [1], gone: ['read'] } }, ['a', 'b']);
+  assert.deepEqual(state, { done: ['a'], solved: { t: true }, cards: { a: 'know' }, repeat: [], last: 2, theme: 'dark', notes: { a: 'запомнить' }, seen: { a: ['read'] } });
 });
 
 // ---------- содержание курса ----------

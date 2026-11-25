@@ -1,43 +1,60 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Bar, Pages, Rich } from './bits';
 import { isDone, lessonsOf, stepUrl, useCourse } from './context';
-import { arcDepth, edges, nextCard, percent, rateCard, type CardMark } from './core';
+import { arcDepth, edges, nextCard, percent, rateCard, splitBook, type CardMark } from './core';
+import { itemsOf } from './items';
 import { Icons } from './icons';
 import type { Part, Step } from './types';
 
 const sum = (list: number[]): number => list.reduce((a, b) => a + b, 0);
 
 function Module({ part, index }: { part: Part; index: number }) {
-  const { course, state } = useCourse();
+  const { course, state, num } = useCourse();
   const list = lessonsOf(course, part);
   const count = list.filter((s) => isDone(state, s)).length;
-  const go = list.find((s) => !isDone(state, s)) ?? list[0];
-  if (!go) return null;
   return (
-    <li><a className="module" href={stepUrl(go)}>
-      <span className="module-mark num" aria-hidden>{index + 1}</span><strong>{part.title}</strong><span className="muted">Уроков: {list.length} · {sum(list.map((s) => s.minutes))} мин</span>
-      <Bar share={percent(count, list.length)} /><span className="muted">Пройдено {count} из {list.length}</span>
-    </a></li>
+    <li className="mod">
+      <details open={list.some((s) => s.order === state.last) || undefined}>
+        <summary>
+          <span className="mod-no">Модуль {index + 1}</span><span className="mod-title">{part.title}</span>
+          <span className="mod-meta muted">Уроков: {list.length} · {sum(list.map((s) => s.minutes))} мин · пройдено {count}</span><Bar share={percent(count, list.length)} />
+        </summary>
+        <ol className="mod-lessons">{list.map((s) => (
+          <li key={s.id}><a href={stepUrl(s)}><span className={`lesson-mark${isDone(state, s) ? ' done' : ''}`} aria-hidden>{isDone(state, s) && <Icons.check />}</span><span>{num(s)} {s.short_title}</span>
+            <span className="muted mod-kinds">{itemsOf(s).map((x) => x.kind).join(' · ')}</span></a></li>
+        ))}</ol>
+      </details>
+    </li>
   );
 }
 
 export function Home() {
   const { course, state, num } = useCourse();
   const resume = course.steps.find((s) => s.order === state.last) ?? course.steps[0];
-  const facts = [['Уроков', course.steps.length], ['Минут', sum(course.steps.map((s) => s.minutes))], ['Заданий', sum(course.steps.map((s) => s.tasks.length))]] as const;
-  const isFinished = percent(state.done.length, course.steps.length) === 100;
+  const facts = [['Уроков', course.steps.length], ['Минут чтения', sum(course.steps.map((s) => s.minutes))], ['Минут разборов', Math.round(sum(course.steps.map((s) => s.narration?.duration ?? 0)) / 60)],
+    ['Заданий', sum(course.steps.map((s) => s.tasks.length))]] as const;
+  const share = percent(state.done.length, course.steps.length);
+  const book = splitBook(course.book);
   return (
-    <div className="lesson">
-      <header><h1 tabIndex={-1}>{course.title}</h1><p className="muted">{course.book}</p></header>
-      {resume && (
-        <section className="hero">
-          <div><p>{isFinished ? 'Курс пройден' : state.last ? 'Вы остановились здесь' : 'Начните с первого урока'}</p><h2>Урок {num(resume)}: {resume.short_title}</h2></div>
-          <a className="btn" href={stepUrl(resume)}>{state.last ? 'Продолжить' : 'Начать'}<Icons.right /></a>
-          <dl className="hero-facts">{facts.map(([word, value]) => <div key={word}><dt>{word}</dt><dd className="num">{value}</dd></div>)}</dl>
-        </section>
-      )}
-      <section className="block"><h2>Модули</h2><ul className="modules">{course.parts.map((p, i) => <Module key={p.title} part={p} index={i} />)}</ul></section>
-      <p className="muted">Каждый абзац ведёт на страницу книги. Учебный слой собран моделью {course.generated_by}; цитаты и числа проверены кодом по страницам главы.</p>
+    <div className="home">
+      <div className="home-main">
+        <header><h1 tabIndex={-1}>{course.title}</h1><p className="muted">{course.book}</p></header>
+        {resume && (
+          <section className="resume">
+            <div><p className="item-kind">{share === 100 ? 'Курс пройден' : state.last ? 'Продолжить обучение' : 'Начать обучение'}</p><h2>Урок {num(resume)}: {resume.short_title}</h2>
+              <p className="muted">{itemsOf(resume).map((x) => `${x.kind} · ${x.meta}`).join('   ')}</p></div>
+            <a className="btn main" href={stepUrl(resume)}>{state.last ? 'Продолжить' : 'Начать'}<Icons.right /></a>
+          </section>
+        )}
+        <section className="block"><h2>Программа курса</h2><ul className="mods">{course.parts.map((p, i) => <Module key={p.title} part={p} index={i} />)}</ul></section>
+      </div>
+      <aside className="home-side" aria-label="О курсе">
+        <section className="box"><h2>Ваш прогресс</h2><p className="big num">{share}%</p><Bar share={share} /><p className="muted">Пройдено уроков: {state.done.length} из {course.steps.length}</p></section>
+        <section className="box"><h2>О курсе</h2><dl className="facts-list">{facts.map(([word, value]) => <div key={word}><dt>{word}</dt><dd className="num">{value}</dd></div>)}</dl></section>
+        <section className="box"><h2>Источник</h2><p><strong>{book.author || 'Книга'}</strong></p><p className="muted">{book.title}</p>
+          <p className="muted">Каждый абзац ведёт на страницу книги. Учебный слой собран моделью {course.generated_by}; цитаты и числа проверены кодом по страницам главы.</p></section>
+        <section className="box"><h2>Как устроен урок</h2><ul className="how-list"><li><strong>Видео.</strong> Разбор голосом с расшифровкой, иногда ролик</li><li><strong>Чтение.</strong> Объяснение, схема, формулы и цитаты автора</li><li><strong>Практика.</strong> Симулятор, где он есть</li><li><strong>Тренировка.</strong> Задания с проверкой и пояснением</li></ul></section>
+      </aside>
     </div>
   );
 }
