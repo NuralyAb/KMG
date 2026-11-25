@@ -52,6 +52,12 @@ def test_state_moves_smoothly_and_holds():
     assert state_at(total, placed, start) == {"tool": 10.0, "cake": 1.0}
 
 
+def test_focus_jumps_and_does_not_sweep_over_neighbours():
+    beats = [beat("раз", action={"focus": 1}), beat("два", action={"focus": 4})]
+    placed, _ = place(beats, speeches()[:2])
+    assert state_at(placed[1].start + 0.1, placed, {"focus": 0.0})["focus"] == 4
+
+
 def test_subtitles_carry_the_full_text():
     placed, _ = place(SPEC["beats"], speeches())
     text = srt(placed)

@@ -78,11 +78,13 @@ uv run glava tasks <глава>
 ```powershell
 $env:PYTHONPATH = 'backend'; $env:PYTHONUTF8 = '1'
 uv run python -c @'
-from glava.cli import *
-from glava.stages.errata import number_sources
-from glava.verify import verify_layer
+from glava.modules.errata.api import number_sources
+from glava.modules.layer.api import pages_of
+from glava.pipeline.chapter import errata_of, load_chapter
+from glava.shared.evidence import verify_layer
+from glava.shared.json_files import read
 chapter = load_chapter('latyshova_gl5_par17-20')
-errata = read_or(chapter.errata_file, {'entries': []})['entries']
+errata = errata_of(chapter)
 print(*verify_layer(read(chapter.work / 'layer.json'), pages_of(chapter.units), number_sources(errata)) or ['замечаний нет'], sep='\n')
 '@
 ```
@@ -111,10 +113,12 @@ print(*verify_layer(read(chapter.work / 'layer.json'), pages_of(chapter.units), 
 | Шаг | Кто | Время | Минуты человека |
 | --- | --- | --- | --- |
 | 5.1 Выбрать узел по `routing.json` и шаблон из `workspace/domain/<домен>/video` | Р | — | 5 |
-| 5.2 `video … --format short` или `wide` (команда в README) | А | 5–10 мин, оценка | 0 |
-| 5.3 Прочитать `*.passport.json` | Р | — | 5 |
-| 5.4 Посмотреть ролик, прослушать список «проверить на слух» | Р | — | 5 |
-| 5.5 Отдать спецификацию и таблицу источников ментору **до** финального рендера | Р | — | 10 |
+| 5.2 `video … --format short` или `wide --spec-only`: спецификация без озвучки | А | 1–3 мин, оценка | 0 |
+| 5.3 Отдать спецификацию из `video_specs` ментору **до** финального рендера | Р | — | 10 |
+| 5.4 `video --spec <файл>`: озвучка и рендер | А | 5–6 мин на шортс 82 с | 0 |
+| 5.5 Прочитать `*.passport.json` | Р | — | 5 |
+| 5.6 Посмотреть ролик, прослушать список «проверить на слух» | Р | — | 5 |
+| 5.7 `course`: ролик встаёт на свой шаг | А | секунды | 0 |
 
 Смотрите: `audio_check.problems` пуст (ошибок в словах до 10 %, темп 110–150 слов в минуту, громкость от −17 до −15 LUFS); ответы на чек-лист физики осмысленные; кадр не показывает больше, чем говорит голос; преувеличения названы. Минуты ментора запишите в `workspace/metrics.csv`, столбец `mentor_minutes`.
 
@@ -125,9 +129,9 @@ print(*verify_layer(read(chapter.work / 'layer.json'), pages_of(chapter.units), 
 | искажён термин | добавить строку в `workspace/domain/<домен>/pronunciation.md`, повторить; после заморозки пакет не меняется |
 | `ffmpeg: …` | проверить `ffmpeg -version`; журнал рядом с роликом |
 
-Нет подходящего шаблона — в отчёте о покрытии писать «нужен новый».
+Отчёт о покрытии шаблонами — `templates <глава>`; «нужен новый» ставит код. Перед сдачей — `ready`: он перечислит, чего не хватает.
 
-После правки факта узла повторите ту же команду: спецификация запросится заново, неизменённые фразы возьмутся из кэша голоса. Ролики в git не добавляются.
+После правки факта узла — `rebuild <глава> --node <узел>`: слой проверится, страница шага и ролик соберутся заново. Если правка задела фразу ролика, спецификацию пишет модель (платно); если нет — модель не нужна. Поправили фразу в спецификации руками и сверили с утверждением — `video <глава> --spec <файл> --accept`, затем `rebuild`. Неизменённые фразы берутся из кэша голоса. Ролики в git не добавляются.
 
 ## 6. Новый доменный пакет
 
@@ -142,7 +146,7 @@ print(*verify_layer(read(chapter.work / 'layer.json'), pages_of(chapter.units), 
 | 6.5 | `pronunciation.md` — таблицы чтения и ударений | Р | 30 |
 | 6.6 | `templates/*.py` — шаблоны рисунков; сначала проверить общие из `backend/glava/modules/drawing` | Р | 0–120 |
 | 6.7 | `video/*.py` — шаблоны сцен роликов | Р | 60–240 на шаблон |
-| 6.8 | `glossary.md`, `it_bridges.md`, `stress_dictionary.md` — требует шаблон организаторов, код их пока не читает | Р | 60 |
+| 6.8 | `glossary.md`, `it_bridges.md` идут в подсказку слоя, `stress_dictionary.md` — в озвучку | Р | 60 |
 | 6.9 | `"domain": "<домен>"` у главы в `workspace/chapters.json`, проба `uv run glava layer <глава> --limit 3` | А | 5 на просмотр |
 
 Без 6.1–6.4 конвейер остановится с ошибкой о файле, 6.5 и 6.7 нужны только роликам. После пробы запустите полный `build`: `--limit` оставляет слой неполным. Запишите, какие шаблоны подошли без изменений.

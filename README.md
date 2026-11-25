@@ -15,7 +15,7 @@
 | [uv](https://docs.astral.sh/uv/) | Python и пакеты; нужную версию Python (3.12 или новее) uv ставит сам |
 | Claude Code с выполненным входом **или** ключ API Anthropic | модель |
 | Главы в md; PDF книг — для сверки со сканом | их выдают организаторы, в репозитории их нет |
-| ffmpeg в PATH и окружение `.venv-video` | только для роликов |
+| окружение `.venv-video`; ffmpeg — из PATH, `FFMPEG_EXE` или пакета `imageio-ffmpeg` | только для роликов |
 | Node.js 22 | только для `web/` и проверки `course.js` |
 
 Проверялось на Windows 11. Шрифт кадров в роликах (Segoe UI) есть только в Windows.
@@ -62,7 +62,13 @@ uv run glava build latyshova_gl5_par17-20
 | `audit` | сверка утверждений с цитатами кодом и её чутьё; модель и книга не нужны | `workspace/work/<глава>/audit.json` |
 | `verify [--mutants]` | вторая модель сверяет утверждения с цитатами и фразы с утверждениями | `workspace/work/<глава>/trust.json` |
 | `review --package <папка>` | проверка чужого пакета | `workspace/out/review/<package_id>.json` |
-| `video --node … --template …` | ролик по узлу | `workspace/out/<глава>/videos/` |
+| `video --node … --template …` | ролик по узлу: спецификацию пишет модель | `workspace/work/<глава>/video_specs/`, `workspace/out/<глава>/videos/` |
+| `video --spec <файл>` | ролик из готовой спецификации; модель не нужна | то же |
+| `rebuild [--node …]` | после правки факта: проверка слоя, ролики и страница шага | то же и `workspace/out/<глава>/` |
+| `voices` | голоса ElevenLabs и остаток знаков; знаки не тратит | журнал |
+| `templates` | каким шаблоном закрыт каждый видеоёмкий узел; модель не нужна | `workspace/work/<глава>/template_coverage.json` |
+| `ready [глава]` | чего не хватает по ТЗ; без главы — все обучающие и серия роликов | журнал |
+| `process [глава]` | деньги и минуты на узел и на минуту видео | `workspace/out/process.csv` |
 
 `--limit N` у `layer` собирает только первые N узлов — для дешёвой пробы.
 
@@ -72,7 +78,7 @@ uv run glava build latyshova_gl5_par17-20
 
 ```powershell
 uv venv .venv-video --python 3.12
-uv pip install --python .venv-video\Scripts\python.exe jsonschema==4.26.0 pymupdf==2.1 pycairo==1.29.2 edge-tts==7.3.1 faster-whisper==1.2.1
+uv pip install --python .venv-video\Scripts\python.exe jsonschema==4.26.0 pymupdf==2.1 pycairo==1.29.2 edge-tts==7.3.1 faster-whisper==1.2.1 imageio-ffmpeg numpy
 ```
 
 Сборка шортса 9:16 (разбор 16:9 — `--format wide`):
@@ -81,6 +87,16 @@ uv pip install --python .venv-video\Scripts\python.exe jsonschema==4.26.0 pymupd
 $env:PYTHONPATH = 'backend'
 .venv-video\Scripts\python.exe -m glava video latyshova_gl5_par17-20 --node latyshova.<узел> --template well_tool_curve --format short
 ```
+
+**Голос.** Скопируйте `.env.example` в `.env`, впишите `ELEVENLABS_API_KEY`, выберите голос командой `.venv-video\Scripts\python.exe -m glava voices` и впишите `ELEVENLABS_VOICE_ID`. Без ключа ролик озвучит бесплатный голос Microsoft; выбрать голос вручную — `--voice elevenlabs` или `--voice edge`. Готовые фразы повторно не оплачиваются, потолок — `ELEVENLABS_MAX_CHARS`. По ТЗ синтез — голосами Microsoft, другой сервис назван запасным путём: ElevenLabs основным голосом согласуйте с организаторами. Вся серия — одним голосом: после выбора пересоберите все ролики, это проверяет `ready`.
+
+Ролик из готовой спецификации, без модели:
+
+```powershell
+.venv-video\Scripts\python.exe -m glava video latyshova_gl5_par17-20 --spec workspace\work\latyshova_gl5_par17-20\video_specs\latyshova_mud_effects_on_borehole_short.json
+```
+
+`--spec-only` останавливает команду после спецификации: её смотрит ментор до рендера.
 
 При первом запуске скачается модель Whisper `small`. Рядом с роликом лежат паспорт, субтитры и спецификация сцены. Пакеты роликов — группа `video` в `pyproject.toml`.
 
@@ -102,7 +118,7 @@ $env:PYTHONPATH = 'backend'
 | `LLM_CONTEXT` | — | размер контекста локальной модели в токенах, как он настроен на сервере; для `local` обязателен: по нему ловится обрезка запроса |
 | `LLM_PRICE_IN`, `LLM_PRICE_OUT` | — | доллары за миллион токенов; обязательны для `openai` и для `local` на другом компьютере, иначе потолок расхода не сработает |
 
-Внутри сессии Claude Code путь к программе приходит сам (`CLAUDE_CODE_EXECPATH`), в обычном терминале его нет. Файл `.env` код не читает, его передают явно: `uv run --env-file .env glava build <глава>`. Образец — `.env.example`.
+Внутри сессии Claude Code путь к программе приходит сам (`CLAUDE_CODE_EXECPATH`), в обычном терминале его нет. Из файла `.env` код сам читает только голос роликов (`VOICE_*`, `ELEVENLABS_*`), остальное передают явно: `uv run --env-file .env glava build <глава>`. Образец — `.env.example`.
 
 ## Заменить модель
 

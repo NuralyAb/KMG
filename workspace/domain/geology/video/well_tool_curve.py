@@ -11,6 +11,8 @@ from glava.sdk.video import arrow, dot, fill_rect, polygon, polyline, text, wrap
 from glava.sdk.video import LAYOUTS
 
 SUMMARY = """well_tool_curve — вертикальный разрез со скважиной: слои, ствол, корка, проникновение фильтрата, прибор едет снизу вверх и пишет кривые, вычисленные из тех же слоёв. params: {"depth_top":м,"depth_bottom":м,"depth_tick":м,"tool_resolution_m":0.3,"layers":[сверху вниз {"top":м,"bottom":м,"lith":"sand|shale|limestone|dolomite|dense|salt|anhydrite","label":"до 14 знаков","fluid":"oil|gas|water" или null,"permeable":true|false,"wall":диаметр стенки в долях долота (1.0 номинал, больше 1 — каверна),"cake":толщина корки с каждой стороны в долях долота (0, если нет),"props":{"GR":число,…}}],"curves":[{"key":"CALIPER|GR|RES|SP|NEUTRON|DENSITY|SONIC","prop":"d или ключ props","label":"до 12 знаков","unit":"","min":0,"max":1}]}. Для CALIPER prop всегда "d": диаметр считает код как wall − 2·cake. 1–2 кривые. Глубины и числа условные, если их нет в утверждениях: тогда их не произносят. Действия: tool (глубина прибора, едет снизу вверх), cake 0..1, invasion 0..1, flow 0..1 (стрелки фильтрата), nominal 0..1 (линия номинального диаметра), focus (номер слоя с 1, 0 — снять), true_scale 0..1 (врезка в истинном масштабе)."""
+STATE_MODEL = "слои с диаметром стенки, коркой и свойствами; ствол и кривые считаются из них по глубине прибора"
+FITS = ("ствол", "корк", "фильтрат|проникновен", "прибор|зонд", "диаметр", "диаграмм|кривая|кривой")
 ACTIONS = {"tool", "cake", "invasion", "flow", "nominal", "focus", "true_scale"}
 SEALED = {"shale", "salt", "anhydrite", "dense"}
 STEP_M = 0.05

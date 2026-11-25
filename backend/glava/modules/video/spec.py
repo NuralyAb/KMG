@@ -17,7 +17,7 @@ BEAT = {
     "properties": {
         "say": TEXT, "claim_id": {"type": ["string", "null"]}, "on_screen": TEXT, "label": {"enum": ["реальные данные", "симуляция", "схема"]},
         "frame_class": {"enum": ["A", "B", "C", "D"]}, "action": {"type": "object", "additionalProperties": {"type": "number"}}, "is_analogy": {"type": "boolean"},
-        "pause_after": {"type": "number", "minimum": 0, "maximum": 1.5}, "role": {"enum": ["hook", "step", "prediction", "answer", "limits", "decision", "transfer"]},
+        "pause_after": {"type": "number", "minimum": 0, "maximum": 1.5}, "role": {"enum": ["hook", "step", "prediction", "answer", "limits", "decision", "frame", "transfer"]},
     },
 }
 SCHEMA = {

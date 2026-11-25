@@ -15,7 +15,7 @@ PACKAGE = REPOSITORY / "backend" / "glava"
 RULES = tomllib.loads((REPOSITORY / "backend" / "architecture.toml").read_text(encoding="utf-8"))
 MODULES = {p.name for p in (PACKAGE / "modules").iterdir() if (p / "__init__.py").exists()}
 # имя импорта не всегда совпадает с именем пакета
-DISTRIBUTIONS = {"cairo": "pycairo", "pymupdf": "pymupdf", "fitz": "pymupdf", "edge_tts": "edge-tts", "faster_whisper": "faster-whisper"}
+DISTRIBUTIONS = {"cairo": "pycairo", "pymupdf": "pymupdf", "fitz": "pymupdf", "edge_tts": "edge-tts", "faster_whisper": "faster-whisper", "imageio_ffmpeg": "imageio-ffmpeg"}
 
 
 def imports_of(path: Path) -> set[str]:

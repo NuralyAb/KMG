@@ -25,4 +25,5 @@ def build_passport(
         "physics_checklist": [{"item": f"{c['id']}: {c['item']}", "answer": answers.get(c["id"], ("н/п", ""))[0], "note": answers.get(c["id"], ("", ""))[1]}
                               for c in checklist],
         "audio_check": dict(audio), "listen_check": list(spec.get("terms_to_check", [])),
+        "references": list(spec.get("references", [])),
     }

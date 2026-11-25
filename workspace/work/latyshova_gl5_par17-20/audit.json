@@ -1,0 +1,992 @@
+{
+ "chapter": "latyshova_gl5_par17-20",
+ "claims": 604,
+ "flagged": [
+  {
+   "claim_id": "latyshova.goals_of_log_interpretation#c8",
+   "node_id": "latyshova.goals_of_log_interpretation",
+   "text": "По данным эксплуатационных скважин, помимо перечисленных задач, по геофизическим материалам устанавливается характер продвижения ВНК и ГЖК в процессе разработки месторождения.",
+   "quote": "По данным, полученным в эксплуатационных скважинах, кроме указанных задач, по геофизическим материалам устанавливается характер продвижения водонефтяного (ВНК) и газожидкостного (ГЖК) контактов в процессе разработки месторождения.",
+   "page_pdf": 90,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.four_method_groups#c2",
+   "node_id": "latyshova.four_method_groups",
+   "text": "По характеру решаемых задач методы комплекса делят на четыре группы: выделение (межзерновых) коллекторов, определение пористости, определение глинистости, оценка продуктивности.",
+   "quote": "по характеру решаемых задач можно разделить на группы методов: 1) выделения коллекторов (межзерновых); 2) определения пористости; 3) определения глинистости; 4) оценки продуктивности.",
+   "page_pdf": 91,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.productivity_pn#c9",
+   "node_id": "latyshova.productivity_pn",
+   "text": "Всё это должно сочетаться с электрическими методами, которые показывают изменение удельного сопротивления в пласте по радиусу.",
+   "quote": "позволяющими установить изменение удельного сопротивления в пласте по радиусу",
+   "page_pdf": 92,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "latyshova.build_litho_column#c7",
+   "node_id": "latyshova.build_litho_column",
+   "text": "Если неизвестны ни минералогический состав, ни литологическая характеристика пород, следует строить условную колонку расчленения разреза по физическим признакам.",
+   "quote": "следует строить условную колонку расчленения разреза по физическим признакам,",
+   "page_pdf": 92,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.table21_clays_sands_gas#c16",
+   "node_id": "latyshova.table21_clays_sands_gas",
+   "text": "Для низкопористых коллекторов в чистых карбонатных разностях ρп то же (среднее), проникновение глубокое, СП минимальные (ячейка искажена), d_c то же, ГК минимальные, нейтронные методы такие же, как в песчаных коллекторах, но выше.",
+   "quote": "То же | Глубокое проникновение | Минимальные или фильтрата, кажущееся отсутствие проникновения | То же | - | минимальные | То же, но выше, чем в песчаных коллекторах",
+   "page_pdf": 93,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.table21_carbonates_salts#c1",
+   "node_id": "latyshova.table21_carbonates_salts",
+   "text": "Фрагмент строки в начале таблицы — продолжение предыдущей строки: говорится, что положение (пространство) установить трудно из-за глубокого проникновения.",
+   "quote": "странства установить трудно из-за глубокого проникновения. Могут обладать как межзерновой, так и трещиной пористостью",
+   "page_pdf": 94,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.table21_carbonates_salts#c3",
+   "node_id": "latyshova.table21_carbonates_salts",
+   "text": "Глинистые известняки и мергели могут обладать как межзерновой, так и трещинной пористостью.",
+   "quote": "Глинистые известняки, мергели. Могут обладать как межзерновой, так и трещиной пористостью | - | Отсутствие проникновения",
+   "page_pdf": 94,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.table21_carbonates_salts#c5",
+   "node_id": "latyshova.table21_carbonates_salts",
+   "text": "В строке глинистых известняков и мергелей значения: максимальные; максимальные, резко меняющиеся; средние или максимальные; средние, но выше, чем в песчаных коллекторах. Какому методу соответствует каждое значение, в отрывке не указано.",
+   "quote": "максимальные, резко меняющиеся | Средние или максимальные | Средние, но выше, чем в песчаных коллекторах",
+   "page_pdf": 94,
+   "flags": [
+    "negation",
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "latyshova.table21_carbonates_salts#c8",
+   "node_id": "latyshova.table21_carbonates_salts",
+   "text": "Для гипсов и сильно загипсованных пород почти все значения даны как «То же», то есть совпадают со строкой ангидритов, кроме последнего столбца.",
+   "quote": "Гипсы, сильно загипсованные породы | То же | То же | То же | То же | То же | То же",
+   "page_pdf": 94,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "latyshova.table21_carbonates_salts#c10",
+   "node_id": "latyshova.table21_carbonates_salts",
+   "text": "У галита (каменной соли) диаметр скважины равен номинальному (dc = dн) только при предельном насыщении раствора солью.",
+   "quote": "Галит (каменная соль) | - | - | - | d_{c} = d_{a} при предельном насыщении раствора солью",
+   "page_pdf": 94,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "latyshova.table21_carbonates_salts#c18",
+   "node_id": "latyshova.table21_carbonates_salts",
+   "text": "Это верно лишь в некоторых случаях, а не для любого разреза.",
+   "quote": "На основании табл. 21 приходим к выводу, что в некоторых случаях",
+   "page_pdf": 95,
+   "flags": [
+    "negation",
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "latyshova.mixed_section_practice#c1",
+   "node_id": "latyshova.mixed_section_practice",
+   "text": "Смешанным считается разрез, где встречаются и терригенные, и карбонатные породы с различными типами порового пространства.",
+   "quote": "Однако, если в разрезе встречаются как терригенные, так и карбонатные породы с различными типами порового пространства",
+   "page_pdf": 95,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.mixed_section_practice#c8",
+   "node_id": "latyshova.mixed_section_practice",
+   "text": "Микрозонды на диаграмме представлены двумя кривыми, A 0,05М и A 0,025М; в книге шкала микрозондов 0, 8, 16 Ом·м.",
+   "quote": "   - A 0,05М;\n   - A 0,025М;",
+   "page_pdf": 95,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.mixed_section_practice#c10",
+   "node_id": "latyshova.mixed_section_practice",
+   "text": "В интервале 2190–2210 м микрозонды дают частые узкие пики, а ГМ и НГМ широко меняют показания.",
+   "quote": "Микрозонды характеризуются частыми узкими пиками. ГМ и НГМ имеют широкие изменения показаний.",
+   "page_pdf": 95,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.mixed_section_practice#c11",
+   "node_id": "latyshova.mixed_section_practice",
+   "text": "В интервале 2210–2230 м на СП видна зона изменчивых показаний, а у микрозондов несколько интенсивных пачек пиков.",
+   "quote": "Микрозонды имеют несколько интенсивных пачек пиков.",
+   "page_pdf": 95,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.mixed_section_practice#c12",
+   "node_id": "latyshova.mixed_section_practice",
+   "text": "В интервале 2230–2250 м у СП выраженное изменение около 2240–2245 м, у микрозондов интенсивная пачка пиков в нижней части, а НГМ резко отклоняется вправо вблизи 2245–2250 м.",
+   "quote": "НГМ резко отклоняется вправо вблизи 2245–2250 м.",
+   "page_pdf": 95,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.mixed_section_practice#c17",
+   "node_id": "latyshova.mixed_section_practice",
+   "text": "Задача 91: построить литологическую колонку по комплексу диаграмм на рис. 68 и отметить интервалы, где интерпретация неоднозначна.",
+   "quote": "91. Построить литологическую колонку на основании диаграмм комплекса методов, изображенных на рис. 68. Отметить интервалы, в которых интерпретация не является однозначной.",
+   "page_pdf": 95,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.direct_signs_of_collector#c10",
+   "node_id": "latyshova.direct_signs_of_collector",
+   "text": "Толщина корки hгк не более 1 см в хороших условиях и достигает 3-4 см при плохом растворе (в md индекс искажён: hᵣₓ).",
+   "quote": "(hᵣₓ ≤ 1 см в хороших условиях и достигает 3-4 см при плохом растворе)",
+   "page_pdf": 96,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.direct_signs_of_collector#c12",
+   "node_id": "latyshova.direct_signs_of_collector",
+   "text": "При больших значениях толщины корки исследовать промытую зону микрометодами нельзя.",
+   "quote": "При больших значениях толщины глинистой корки исключается возможность исследования промытой зоны микрометодами",
+   "page_pdf": 96,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c7",
+   "node_id": "latyshova.radial_gradient_and_dynamic",
+   "text": "Отсутствие градиента может соответствовать такому сочетанию коэффициентов насыщения в зоне проникновения и неизменной части пласта с отношением ρф/ρв, при котором выполняется формула (12).",
+   "quote": "Этот случай может соответствовать такому сочетанию коэффициентов насыщения в зоне проникновения и неизменной части пласта",
+   "page_pdf": 96,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.radial_gradient_and_dynamic#c9",
+   "node_id": "latyshova.radial_gradient_and_dynamic",
+   "text": "Если выделить коллектор по отдельным измерениям невозможно, используют динамические методы его обнаружения.",
+   "quote": "Когда выделение коллектора на основании отдельных измерений по какой-либо из упомянутых выше причин оказывается невозможным, используются динамические методы их обнаружения.",
+   "page_pdf": 96,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.critical_permeability#c1",
+   "node_id": "latyshova.critical_permeability",
+   "text": "Помимо прямых качественных признаков коллекторов используются также косвенные количественные признаки.",
+   "quote": "Кроме прямых качественных, используются также косвенные количественные признаки коллекторов.",
+   "page_pdf": 96,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.critical_permeability#c5",
+   "node_id": "latyshova.critical_permeability",
+   "text": "Если kпр больше k*пр, породу относят к коллектору; если kпр не больше k*пр — к неколлектору.",
+   "quote": "Если kₚₚ > kₚₚ*, породу относят к классу \"коллектор\", если kₚₚ ≤ kₚₚ* - \"неколлектор\".",
+   "page_pdf": 96,
+   "flags": [
+    "negation",
+    "direction"
+   ]
+  },
+  {
+   "claim_id": "latyshova.permeability_threshold_on_logs#c5",
+   "node_id": "latyshova.permeability_threshold_on_logs",
+   "text": "Шаг 4 использует ранее упоминавшиеся связи: показания метода пористости с пористостью, интервального времени ΔТ с пористостью, αСП с глинистостью ηгл и другие.",
+   "quote": "используя упоминавшиеся ранее связи вида ΔJнт = f (kн), ΔТ = f (kн), αСП = (ηгл) и др.",
+   "page_pdf": 97,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.saturation_from_resistivity#c12",
+   "node_id": "latyshova.saturation_from_resistivity",
+   "text": "Условие упрощения: пористость, а значит и параметр пористости, меняются в нешироких пределах. Пластовые воды одинаковы по всему изучаемому разрезу (ρв = const).",
+   "quote": "если коэффициент пористости, а следовательно, и Pн изменяются в нешироких пределах, а пластовые воды одинаковы для всего изучаемого разреза (ρн = const)",
+   "page_pdf": 97,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.rho_kp_palette#c7",
+   "node_id": "latyshova.rho_kp_palette",
+   "text": "По описанию программы распознавания, подписи правой оси, второй шкалы под Кп и точек А/Б/В/Г прочитать уверенно нельзя.",
+   "quote": "Из-за низкого разрешения и мелкого шрифта часть подписей",
+   "page_pdf": 98,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.rho_kp_palette#c21",
+   "node_id": "latyshova.rho_kp_palette",
+   "text": "Кривые 3 ограничивают область двухфазного течения жидкости в порах коллекторов.",
+   "quote": "Эти графики ограничивают область двухфазного течения жидкости в порах коллекторов (см. рис. 7, б).",
+   "page_pdf": 98,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.rho_kp_palette#c27",
+   "node_id": "latyshova.rho_kp_palette",
+   "text": "Характер насыщения определяется нанесением точки (ρп, kп) на систему графиков рис. 69; область, где окажется точка, определяет характер насыщения пласта.",
+   "quote": "Характер насыщения коллектора может быть определен нанесением точки с координатами ρn и kn на систему графиков, представленных на рис. 69, при этом область, в которой окажется точка, определяет характер насыщения распознаваемого пласта.",
+   "page_pdf": 98,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.reading_palette#c4",
+   "node_id": "latyshova.reading_palette",
+   "text": "При ρп = 10 Ом·м и kп = 15 % порода — неколлектор.",
+   "quote": "Ответ: а) неколлектор;",
+   "page_pdf": 98,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.reading_palette#c5",
+   "node_id": "latyshova.reading_palette",
+   "text": "При ρп = 10 Ом·м и kп = 20 % порода — нефтеносный коллектор.",
+   "quote": "б) коллектор нефтеносный;",
+   "page_pdf": 98,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.reading_palette#c6",
+   "node_id": "latyshova.reading_palette",
+   "text": "При ρп = 10 Ом·м и kп = 25 % порода — коллектор, который при испытании даст нефть с водой.",
+   "quote": "в) коллектор, который при испытании даст нефть с водой.",
+   "page_pdf": 98,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.reading_palette#c7",
+   "node_id": "latyshova.reading_palette",
+   "text": "При одном и том же ρп = 10 Ом·м вывод меняется с ростом kп: неколлектор, затем нефтеносный коллектор, затем нефть с водой. Значит, одно сопротивление не определяет характер насыщения.",
+   "quote": "Ответ: а) неколлектор; б) коллектор нефтеносный; в) коллектор, который при испытании даст нефть с водой.",
+   "page_pdf": 98,
+   "flags": [
+    "number",
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.phase_permeability_zones#c12",
+   "node_id": "latyshova.phase_permeability_zones",
+   "text": "По описанию программы распознавания, верхняя панель – треугольная область под наклонной прямой. Описание не читается чётко и расходится с подписью автора.",
+   "quote": "Фигура представляет собой треугольную (клиновидную) область, ограниченную наклонной прямой линией",
+   "page_pdf": 99,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.phase_permeability_zones#c23",
+   "node_id": "latyshova.phase_permeability_zones",
+   "text": "При отношении 1 значения kв,кр и Pн,кр соответствуют точке пересечения кривых kпр.н = f(kв) и kпр.в = f(kв) (рис. 70).",
+   "quote": "В последнем случае значения  \\( k_{n,кр} \\)  и  \\( P_{n,кр} \\)  соответствуют точке пересечения кривых  \\( k_{op,n} = f(k_{n}) \\)  и  \\( k_{op,n} = f(k_{n}) \\)  (см. рис. 70).",
+   "page_pdf": 99,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.critical_values_examples#c6",
+   "node_id": "latyshova.critical_values_examples",
+   "text": "Значения kв*, kв.кр, kв** и Pн в примерах сняты с графиков рис. 70. Сами кривые в тексте не приведены, их вид нужно проверить по скану.",
+   "quote": "По зависимости  \\( P_{n} = f(k_{n}) \\)  (см. рис. 70, а) находим соответственно установленным",
+   "page_pdf": 99,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.clay_classes_critical#c8",
+   "node_id": "latyshova.clay_classes_critical",
+   "text": "Для оценки характера насыщения чистого коллектора достаточно знать ρп и kп (или ρвп).",
+   "quote": "Если для оценки характера насыщения чистого коллектора достаточно знать величины",
+   "page_pdf": 100,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.clay_classes_critical#c14",
+   "node_id": "latyshova.clay_classes_critical",
+   "text": "По таблице при переходе от αСП = 1,0 к 0,7 значения kв* растут (30→50 %), а Pн* и Pн.кр падают (10→2,1 и 2,9→1,8). Значения kв** также снижаются (80→68 %), а kв.кр остаётся около 58–59 %.",
+   "quote": "|  1,0 | 30 | 10 | 80 | 1,6 | 58 | 2,9  |",
+   "page_pdf": 100,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.saturation_examples_tasks#c2",
+   "node_id": "latyshova.saturation_examples_tasks",
+   "text": "В примере 53 заданы шесть пар значений Pн и αСП (а–е), для каждой нужно найти ответ.",
+   "quote": "Пример 53.",
+   "page_pdf": 100,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "latyshova.saturation_examples_tasks#c3",
+   "node_id": "latyshova.saturation_examples_tasks",
+   "text": "Для каждой пары Pн и αСП на рис. 7, б находят точку; её принадлежность к области I, II или III определяет ответ.",
+   "quote": "По принадлежности получаемой точки к области I, II и III получаем ответы",
+   "page_pdf": 100,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "latyshova.saturation_examples_tasks#c4",
+   "node_id": "latyshova.saturation_examples_tasks",
+   "text": "Случай а (Pн = 10, αСП = 0,9): коллектор нефтеносный.",
+   "quote": "получаем ответы: а) коллектор нефтеносный;",
+   "page_pdf": 100,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.saturation_examples_tasks#c5",
+   "node_id": "latyshova.saturation_examples_tasks",
+   "text": "Случай б (Pн = 5, αСП = 0,8): коллектор нефтеносный.",
+   "quote": "б) коллектор нефтеносный; в) коллектор",
+   "page_pdf": 100,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.saturation_examples_tasks#c6",
+   "node_id": "latyshova.saturation_examples_tasks",
+   "text": "Случай в (Pн = 5, αСП = 0,95): при испытании коллектор даст нефть с небольшим количеством воды.",
+   "quote": "в) коллектор при испытании даст нефть с небольшим количеством воды;",
+   "page_pdf": 100,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.saturation_examples_tasks#c7",
+   "node_id": "latyshova.saturation_examples_tasks",
+   "text": "Случай г (Pн = 3, αСП = 0,7): коллектор предельно нефтенасыщенный.",
+   "quote": "г) коллектор предельно нефтенасыщенный;",
+   "page_pdf": 100,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.saturation_examples_tasks#c8",
+   "node_id": "latyshova.saturation_examples_tasks",
+   "text": "Случай д (Pн = 3, αСП = 0,9): при испытании коллектор даст нефть с водой.",
+   "quote": "д) коллектор при испытании даст нефть с водой;",
+   "page_pdf": 100,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.saturation_examples_tasks#c9",
+   "node_id": "latyshova.saturation_examples_tasks",
+   "text": "Случай е (Pн = 2, αСП = 0,9): коллектор даст воду с признаками нефти.",
+   "quote": "е) коллектор даст воду с признаками нефти.",
+   "page_pdf": 100,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.vnk_transition_zone#c2",
+   "node_id": "latyshova.vnk_transition_zone",
+   "text": "Шаг 1: по диаграммам больших зондов БЭЗ или индукционного зонда определяют нижнюю границу зоны предельного нефтегазонасыщения, то есть кровлю переходной зоны.",
+   "quote": "по диаграммам больших зондов БЭЗ или индукционного зонда определяют нижнюю границу зоны предельного нефтегазонасыщения (кровлю переходной зоны)",
+   "page_pdf": 101,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.vnk_transition_zone#c3",
+   "node_id": "latyshova.vnk_transition_zone",
+   "text": "Шаг 1: по тем же диаграммам определяют положение зеркала воды, которое является подошвой переходной зоны.",
+   "quote": "положение зеркала воды (подошву переходной зоны)",
+   "page_pdf": 101,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.vnk_transition_zone#c4",
+   "node_id": "latyshova.vnk_transition_zone",
+   "text": "Шаг 2: устанавливают удельное сопротивление зоны предельного нефтенасыщения ρншах и водоносной части коллектора ρвп.",
+   "quote": "устанавливают удельные сопротивления зоны предельного нефтенасыщения ρншах и водоносной части коллектора ρвп",
+   "page_pdf": 101,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.vnk_transition_zone#c5",
+   "node_id": "latyshova.vnk_transition_zone",
+   "text": "Шаг 3: закон изменения ρп в переходной зоне полагают линейным.",
+   "quote": "полагая линейным закон изменения ρп в переходной зоне",
+   "page_pdf": 101,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.vnk_transition_zone#c6",
+   "node_id": "latyshova.vnk_transition_zone",
+   "text": "Шаг 3: проводят график ρп = f(Н), соединяющий точку ρп = ρншах, Н = Нк и точку ρп = ρвп, Н = Нп.",
+   "quote": "соединяющий точки с координатами ρп = ρншах, Н = Нк и ρп = ρвп, Н = Нп",
+   "page_pdf": 101,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.vnk_transition_zone#c8",
+   "node_id": "latyshova.vnk_transition_zone",
+   "text": "Шаг 4: на графике в переходной зоне находят точку, где ρп равно критическому значению ρп* или ρп.кр (в книге обозначено ρп,пр — опечатка).",
+   "quote": "на графике ρп = f (Н) в переходной зоне находят точку, в которой ρп = ρп* или ρп = ρп,пр",
+   "page_pdf": 101,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.gnk_by_neutron#c11",
+   "node_id": "latyshova.gnk_by_neutron",
+   "text": "По описанию программы распознавания, на интервале 1458–1466 м показания НГМ-60 растут, а КС снижается.",
+   "quote": "КС — снижение значений, НГМ-60 — рост показаний",
+   "page_pdf": 101,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.gnk_by_neutron#c12",
+   "node_id": "latyshova.gnk_by_neutron",
+   "text": "Программа распознавания оговаривает, что числовые значения глубин и шкал приблизительны, а часть подписей неразборчива.",
+   "quote": "Все численные значения глубин и шкал даны приблизительно по видимым делениям сетки",
+   "page_pdf": 101,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thin_layers_sp#c7",
+   "node_id": "latyshova.thin_layers_sp",
+   "text": "По описанию программы распознавания, параметры семейства кривых подписаны значениями 20, 10, 5, 2, 1, 0,5, 0,2, а их физический смысл на изображении не указан.",
+   "quote": "параметр семейства подписан значениями (сверху вниз по порядку линий-указателей): 20, 10, 5, 2, 1, 0,5, 0,2",
+   "page_pdf": 102,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thin_layers_sp#c8",
+   "node_id": "latyshova.thin_layers_sp",
+   "text": "По описанию программы распознавания, кривые исходят из точки на оси ординат (около 0,8–0,85) и монотонно убывают к нулю при χгл → 1.",
+   "quote": "Все кривые исходят из точки на оси ординат при x=0",
+   "page_pdf": 102,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thin_layers_sp#c9",
+   "node_id": "latyshova.thin_layers_sp",
+   "text": "По описанию программы распознавания, кривые с большими значениями параметра (20, 10) убывают быстрее, чем кривые с малыми (0,5; 0,2).",
+   "quote": "Кривые с большими значениями параметра (20, 10) убывают быстрее",
+   "page_pdf": 102,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thin_layers_sp#c11",
+   "node_id": "latyshova.thin_layers_sp",
+   "text": "Опорные точки кривой «0,2» (ориентировочно): αСП ≈ 0,8 при χгл = 0, ≈ 0,5 при χгл ≈ 0,6, ≈ 0,3 при χгл ≈ 0,8.",
+   "quote": "Кривая \"0,2\": (x_гл=0; α_сп≈0,8)",
+   "page_pdf": 102,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thickness_practice#c1",
+   "node_id": "latyshova.thickness_practice",
+   "text": "Задача, начало которой не вошло в единицы, требует найти эффективную толщину пласта при общей толщине пачки 28 м.",
+   "quote": "если общая толщина пачки 28м.",
+   "page_pdf": 103,
+   "flags": [
+    "negation",
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thickness_practice#c6",
+   "node_id": "latyshova.thickness_practice",
+   "text": "Подписанные отметки глубин на рис. 73 в книге: 760, 770, 810, 820, 850 и 860 м. Программа распознавания назвал другие отметки.",
+   "quote": "видны отметки около 700, 750 (подписано \"750\"), 800, 850",
+   "page_pdf": 104,
+   "flags": [
+    "number",
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thickness_practice#c7",
+   "node_id": "latyshova.thickness_practice",
+   "text": "Заголовок планшета содержит масштаб и зонд записи: в книге «М 1,25 А 0,1В». Программа распознавания исказил их.",
+   "quote": "Заголовок в верхней части: \"М 1:200 А 0/1В\"",
+   "page_pdf": 104,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thickness_practice#c10",
+   "node_id": "latyshova.thickness_practice",
+   "text": "У верхнего фрагмента подписаны значения 30 и 20; в книге они стоят в колонке ρп, Ом·м.",
+   "quote": "подписаны числа \"30\", \"20\" (смысл не указан)",
+   "page_pdf": 104,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thickness_practice#c11",
+   "node_id": "latyshova.thickness_practice",
+   "text": "У среднего фрагмента в книге три значения ρп: 2,4; 2,5; 2,3. Дроби нет.",
+   "quote": "\"2,4\" и дробь \"2,4/2,2\" — у среднего фрагмента",
+   "page_pdf": 104,
+   "flags": [
+    "number",
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thickness_practice#c12",
+   "node_id": "latyshova.thickness_practice",
+   "text": "У нижнего фрагмента в книге значения 1,8 и 1,2. Дроби нет.",
+   "quote": "\"1,6/1,7\" — у нижнего фрагмента",
+   "page_pdf": 104,
+   "flags": [
+    "number",
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thickness_practice#c13",
+   "node_id": "latyshova.thickness_practice",
+   "text": "На изображении не подписаны отбивки пластов, границы, ВНК/ГНК и интервалы перфорации.",
+   "quote": "Отбивки пластов, границы, ВНК/ГНК, интервалы перфорации на изображении не подписаны и не показаны.",
+   "page_pdf": 104,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thickness_practice#c14",
+   "node_id": "latyshova.thickness_practice",
+   "text": "Литологию по описанию программы распознавания определить нельзя: колонка литологии отсутствует или не читается.",
+   "quote": "Литология не определяется без легенды (колонка литологии либо отсутствует, либо не читается).",
+   "page_pdf": 104,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thickness_practice#c19",
+   "node_id": "latyshova.thickness_practice",
+   "text": "В условии без номера среднее удельное сопротивление пачки равно 7,3 Ом·м.",
+   "quote": "Среднее удельное сопротивление пачки 7,3 Ом·м.",
+   "page_pdf": 104,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.thickness_practice#c22",
+   "node_id": "latyshova.thickness_practice",
+   "text": "Ошибка в задаче 101 возникает при расчёте по среднему сопротивлению и при использовании модели слоистого глинистого коллектора, не учитывающей плотные прослои.",
+   "quote": "cpeIHeRo COIIpOTHBJIeHHN II pH IcIOJIb3OBaHHN MoJIeN CIOHCTOrO rJIHHCTOrO KOJIeKTopa",
+   "page_pdf": 104,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.ggm_ak_collectors#c5",
+   "node_id": "latyshova.ggm_ak_collectors",
+   "text": "Задача 101 опирается на результаты предыдущей задачи и просит вычислить ошибку в эффективной толщине пачки, если не учитывать величину среднего сопротивления и плотные прослои в модели слоистого глинистого коллектора. Текст задачи испорчен при распознавании и восстановлен по смыслу.",
+   "quote": "OchoBbAcb Ha pe3yIbTaTax peHHeHH npeIbIyIeH 3aJaH, BbUHcJIHTb, KaKa OIIb6a",
+   "page_pdf": 104,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.ggm_ak_collectors#c14",
+   "node_id": "latyshova.ggm_ak_collectors",
+   "text": "Плотности в подписи рис. 75: δв = 1,1 г/см³ (индекс в распознан как n), δск = 2,65 г/см³ и δфл = 0,9 г/см³.",
+   "quote": "\\( \\delta_{n} = 1,1 \\)  г/см \\( ^{3} \\) ,  \\( \\delta_{ск} = 2,65 \\)",
+   "page_pdf": 105,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.ggm_ak_collectors#c15",
+   "node_id": "latyshova.ggm_ak_collectors",
+   "text": "На диаграмме рис. 74 (по описанию программы распознавания) показаны кривые КС: БМК и БК-3 в шкале 10–100–1000 Ом·м, логарифмической.",
+   "quote": "Кривая БМК (сплошная линия) — шкала ρк, Ом·м: 10 – 100 – 1000 (логарифмическая шкала)",
+   "page_pdf": 104,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.ggm_ak_collectors#c16",
+   "node_id": "latyshova.ggm_ak_collectors",
+   "text": "На диаграмме рис. 74 кривая АК ΔT, мкс/м идёт по шкале 160–180–200. Деления 220 нет, в описании программы распознавания оно ошибочно.",
+   "quote": "Кривая ΔТ, мкс/м — шкала: 160, 180, 200, 220 мкс/м",
+   "page_pdf": 104,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.normalization_overlay#c5",
+   "node_id": "latyshova.normalization_overlay",
+   "text": "Кривые ρк и метода пористости должны совпадать в неколлекторах и водоносных коллекторах, если глубинность электрического метода достаточна, чтобы захватить неизменённую часть водоносного коллектора.",
+   "quote": "совпадают в интервалах не-коллекторов и водоносных коллекторов, если глубинность электрического метода достаточна, чтобы захватить исследованием неизмененную часть водоносного коллектора.",
+   "page_pdf": 107,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.normalization_overlay#c16",
+   "node_id": "latyshova.normalization_overlay",
+   "text": "Под рисунком даны параметры: ρв = 0,05 Ом·м при t = 20 °C, ρр = 1,2÷1,3 Ом·м, δр = 1,2 г/см³. Вероятно, это параметры раствора, но в этой части главы не расшифрованы.",
+   "quote": "\\rho_{\\mathrm{p}} = 1,2 \\div 1,3 \\mathrm{OM} \\cdot \\mathrm{M}; \\delta_{\\mathrm{p}} = 1,2 \\mathrm{t} / \\mathrm{cm}^{3}",
+   "page_pdf": 106,
+   "flags": [
+    "number",
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.normalization_overlay#c18",
+   "node_id": "latyshova.normalization_overlay",
+   "text": "Программа распознавания описывает первый планшет рис. 76: левый трек с несколькими сплошными и штриховыми кривыми и шкалой 0,2–0,8, правый трек с частыми высокоамплитудными зубцами. Заголовки и шкалы плохо читаются.",
+   "quote": "Кривая с высокоамплитудными частыми зубцами (типичное поведение кривой типа ПС или КС с сильной изрезанностью).",
+   "page_pdf": 105,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.normalization_overlay#c19",
+   "node_id": "latyshova.normalization_overlay",
+   "text": "Левый трек первого планшета имеет кривые с отдельными пиками; подпись глубины в книге 1080 (в md «2740»).",
+   "quote": "Отметка \"2740\" подписана у одного из пиков кривой.",
+   "page_pdf": 105,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.normalization_overlay#c20",
+   "node_id": "latyshova.normalization_overlay",
+   "text": "Программа распознавания описывает второй планшет рис. 76: четыре трека — газовый показатель, ГК (γ-НГК), НМ (ННК, БГК) и ЯМ (Δt, мкс/м) — с плавными волнообразными кривыми без пластовых отбивок.",
+   "quote": "Четвёртый трек: подпись \"ЯМ\" (ядерно-магнитный метод), шкала: 20  30  50  100",
+   "page_pdf": 105,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.normalization_overlay#c21",
+   "node_id": "latyshova.normalization_overlay",
+   "text": "На втором планшете границы пластов и интервалы перфорации не нанесены, литологическая колонка без легенды, числовые значения не читаются.",
+   "quote": "без нанесённых цифровых отбивок пластов, границ или интервалов перфорации",
+   "page_pdf": 105,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.example_54#c3",
+   "node_id": "latyshova.example_54",
+   "text": "Применяется способ нормализации: сравниваются кривые ρк зонда БК-3 и НГМ, а также ρкИМ индукционного метода и НГМ.",
+   "quote": "Используем способ нормализации, сравнивая кривые",
+   "page_pdf": 107,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.example_54#c7",
+   "node_id": "latyshova.example_54",
+   "text": "Этой глубине соответствует Pн,кр ≈ 2,5 при допущении, что ρкИМ ≈ ρп (в md формула искажена: ρ_{nHM} ≈ ρ_{n}).",
+   "quote": "если принять  \\( \\rho_{nHM} \\approx \\rho_{n} \\) ",
+   "page_pdf": 107,
+   "flags": [
+    "number",
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "latyshova.example_54#c8",
+   "node_id": "latyshova.example_54",
+   "text": "Значение глубины кровли продуктивных отложений в тексте главы отсутствует: фраза обрывается после слов «на глубине».",
+   "quote": "Кровля продуктивных отложений расположена на глубине.",
+   "page_pdf": 107,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "latyshova.kp_star_graph#c9",
+   "node_id": "latyshova.kp_star_graph",
+   "text": "По описанию, кривые 2, 3 и 4 идут между кривыми 1 и 5. Кривая 2 при Кп 5 даёт Кв.св ~35, кривая 3 — ~50, кривая 4 — ~65.",
+   "quote": "Кривая 3: (2, ~75) → (5, ~50) → (10, ~25) → (15, ~10) → (20, ~5)",
+   "page_pdf": 107,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "latyshova.kp_star_graph#c17",
+   "node_id": "latyshova.kp_star_graph",
+   "text": "Результаты определений kп* оформлены в табл. 23. Самой таблицы в этой части главы нет.",
+   "quote": "Результаты определений оформляем в виде табл. 23.",
+   "page_pdf": 107,
+   "flags": [
+    "negation"
+   ]
+  }
+ ],
+ "by_flag": {
+  "condition": 12,
+  "quantifier": 7,
+  "negation": 32,
+  "number": 40,
+  "direction": 1
+ },
+ "needs_scan": 88,
+ "by_model": 74,
+ "prose_numbers": [
+  {
+   "node_id": "latyshova.debit_to_critical_perm",
+   "where": "layers.mechanism.text",
+   "text": "Шаг 1.",
+   "numbers": [
+    "1"
+   ]
+  },
+  {
+   "node_id": "latyshova.normalization_overlay",
+   "where": "layers.deeper[0].text",
+   "text": "По списку опечаток глубины слева на диаграмме в книге 1080, 1100, 1120, а не «2740».",
+   "numbers": [
+    "1100",
+    "1120"
+   ]
+  }
+ ],
+ "early_terms": [
+  {
+   "term": "двухфазное течение",
+   "explained_in": "latyshova.phase_permeability_zones",
+   "used_in": [
+    "latyshova.rho_kp_palette",
+    "latyshova.reading_palette"
+   ]
+  },
+  {
+   "term": "каверномер",
+   "explained_in": "latyshova.four_method_groups",
+   "used_in": [
+    "latyshova.water_and_nonfiltering_muds"
+   ]
+  },
+  {
+   "term": "класс коллектора",
+   "explained_in": "latyshova.clay_classes_critical",
+   "used_in": [
+    "latyshova.critical_pn_kv"
+   ]
+  },
+  {
+   "term": "межзерновой коллектор",
+   "explained_in": "latyshova.section_and_collector_types",
+   "used_in": [
+    "latyshova.mud_effects_on_borehole"
+   ]
+  },
+  {
+   "term": "микрозонды",
+   "explained_in": "latyshova.four_method_groups",
+   "used_in": [
+    "latyshova.filtrate_salinity",
+    "latyshova.water_and_nonfiltering_muds"
+   ]
+  },
+  {
+   "term": "неактивный цемент",
+   "explained_in": "latyshova.nmr_and_method_choice",
+   "used_in": [
+    "latyshova.section_and_collector_types"
+   ]
+  },
+  {
+   "term": "относительная фазовая проницаемость",
+   "explained_in": "latyshova.phase_permeability_zones",
+   "used_in": [
+    "latyshova.critical_pn_kv"
+   ]
+  },
+  {
+   "term": "параметр насыщения pн",
+   "explained_in": "latyshova.productivity_pn",
+   "used_in": [
+    "latyshova.goals_of_log_interpretation"
+   ]
+  },
+  {
+   "term": "параметр пористости",
+   "explained_in": "latyshova.saturation_from_resistivity",
+   "used_in": [
+    "latyshova.productivity_pn"
+   ]
+  },
+  {
+   "term": "радиальный градиент сопротивления",
+   "explained_in": "latyshova.radial_gradient_and_dynamic",
+   "used_in": [
+    "latyshova.direct_signs_of_collector"
+   ]
+  },
+  {
+   "term": "расформирование зоны проникновения",
+   "explained_in": "latyshova.gnk_by_neutron",
+   "used_in": [
+    "latyshova.radial_gradient_and_dynamic"
+   ]
+  },
+  {
+   "term": "сложный коллектор",
+   "explained_in": "latyshova.complex_collectors",
+   "used_in": [
+    "latyshova.goals_of_log_interpretation",
+    "latyshova.radial_gradient_and_dynamic"
+   ]
+  },
+  {
+   "term": "эффективная пористость",
+   "explained_in": "latyshova.nmr_and_method_choice",
+   "used_in": [
+    "latyshova.four_method_groups"
+   ]
+  }
+ ],
+ "repeated_quotes": 4,
+ "sensitivity": {
+  "seed": 0,
+  "kinds": {
+   "sign_flip": {
+    "made": 59,
+    "caught": 49
+   },
+   "number": {
+    "made": 60,
+    "caught": 57
+   },
+   "unit": {
+    "made": 35,
+    "caught": 15
+   },
+   "negation_removed": {
+    "made": 22,
+    "caught": 21
+   },
+   "lost_condition": {
+    "made": 24,
+    "caught": 20
+   }
+  },
+  "made": 200,
+  "caught": 162,
+  "recall": 0.81,
+  "flagged_originals": 82,
+  "originals": 604
+ },
+ "layer_sha256": "29b5a76b5171a0129c9aebbabb8fb52f1b9350c843a4c083f11f217fc917251a"
+}

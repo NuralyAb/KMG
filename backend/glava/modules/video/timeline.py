@@ -1,6 +1,6 @@
 """Время ролика: фразы встают по длине речи, состояние сцены меняется вместе с фразой."""
 
-from collections.abc import Mapping, Sequence
+from collections.abc import Collection, Mapping, Sequence
 from dataclasses import dataclass
 from typing import Any
 
@@ -34,15 +34,15 @@ def _ease(x: float) -> float:
     return x * x * (3 - 2 * x)
 
 
-def state_at(t: float, placed: Sequence[Placed], initial: Mapping[str, float]) -> dict[str, float]:
-    """Состояние — свёртка действий: каждое число плавно идёт к цели, пока звучит его фраза."""
+def state_at(t: float, placed: Sequence[Placed], initial: Mapping[str, float], discrete: Collection[str] = ("focus",)) -> dict[str, float]:
+    """Состояние — свёртка действий: число плавно идёт к цели, пока звучит его фраза; номера и переключатели (discrete) меняются сразу."""
     state = {k: float(v) for k, v in initial.items()}
     for item in placed:
         if t <= item.start:
             break
         share = _ease((t - item.start) / max(0.1, (item.end - item.start) * MOVE_SHARE))
         goals = {k: float(v) for k, v in item.beat["action"].items()}
-        state = {**state, **{k: state.get(k, 0.0) + (goal - state.get(k, 0.0)) * share for k, goal in goals.items()}}
+        state = {**state, **{k: goal if k in discrete else state.get(k, 0.0) + (goal - state.get(k, 0.0)) * share for k, goal in goals.items()}}
     return state
 
 
