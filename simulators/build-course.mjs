@@ -1,16 +1,16 @@
-// Проигрыватель для курса и сцены глав. Результат кладётся в engine/ и work/, поэтому команде `glava course` Node не нужен.
+// Проигрыватель для курса и сцены глав. Результат кладётся в backend/ и workspace/work/, поэтому команде `glava course` Node не нужен.
 import fs from 'node:fs';
 import path from 'node:path';
 import { build } from 'esbuild';
 import { resolve } from './src/extends.js';
 import { validate } from './src/validate.js';
 
-const ROOT = path.resolve(import.meta.dirname, '..'), PLAYER = path.join(ROOT, 'engine', 'glava', 'course', 'assets', 'sim');
+const ROOT = path.resolve(import.meta.dirname, '..'), PLAYER = path.join(ROOT, 'backend', 'glava', 'modules', 'course', 'assets', 'sim');
 const raw = Object.fromEntries(fs.readdirSync('scenes').filter(f => f.endsWith('.json')).map(f => [f.slice(0, -5), JSON.parse(fs.readFileSync('scenes/' + f, 'utf8'))]));
 const used = JSON.parse(fs.readFileSync('course.json', 'utf8'));
 
 for (const [chapter, steps] of Object.entries(used)) {
-  const work = path.join(ROOT, 'work', chapter), dir = path.join(work, 'simulations');
+  const work = path.join(ROOT, 'workspace', 'work', chapter), dir = path.join(work, 'simulations');
   if (!fs.existsSync(path.join(work, 'layer.json'))) { console.log('пропуск, слоя нет:', chapter); continue; }
   fs.mkdirSync(dir, { recursive: true });
   // сцены агента не трогаем, обновляем только свои

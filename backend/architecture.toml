@@ -1,0 +1,33 @@
+# Договор об архитектуре. Его проверяет backend/tests/architecture: лишняя или забытая зависимость — упавший тест.
+
+# Слой может импортировать себя и то, что перечислено. Стрелки только вниз.
+[layers]
+entrypoints = ["pipeline", "modules", "shared"]  # командная строка и HTTP: разбор запроса и сборка
+pipeline    = ["modules", "shared"]              # порядок этапов: соединяет модули
+sdk         = ["modules"]                        # открытый набор для доменных пакетов
+modules     = ["shared"]                         # предметная логика
+shared      = []                                 # ядро без предметной логики
+
+# Модуль -> модули, чей api.py он импортирует. Циклов быть не должно.
+[modules]
+access         = []  # вход автора
+books          = []  # книги и деление на главы
+catalog        = ["metrics"]  # главы, узлы, поиск
+course         = ["simulations"]  # сборка курса
+drawing        = []  # холст и шаблоны рисунков
+errata         = ["llm"]  # сверка текста со сканом
+format_routing = ["llm"]  # формат для узла
+illustrations  = ["drawing", "errata", "llm"]  # рисунки
+layer          = ["errata", "llm", "source_text"]  # учебный слой
+library        = ["errata", "llm", "publishing", "runs"]  # база знаний
+llm            = []  # модели и их выбор
+metrics        = []  # расход
+publishing     = ["catalog", "runs"]  # публикация курса
+review         = ["catalog", "llm", "runs"]  # проверка чужого пакета
+runs           = ["catalog", "llm"]  # запуски конвейера
+simulations    = []  # публикация симуляторов в курсе
+source_text    = []  # текст главы: страницы, единицы, таблицы
+system         = ["llm"]  # состояние
+tasks          = ["drawing", "llm"]  # задания
+trust          = ["layer", "llm", "source_text"]  # проверка слоя
+video          = ["llm"]  # ролики

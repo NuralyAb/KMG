@@ -1,26 +1,40 @@
 [project]
 name = "glava"
-version = "0.1.0"
+version = "0.2.0"
 description = "Глава книги -> учебный слой -> проверенный демо-курс"
 requires-python = ">=3.12"
 dependencies = [
+    "fastapi>=0.115",
     "jsonschema>=4.23",
+    "pydantic>=2.9",
     "pymupdf>=2.1",
+    "python-multipart>=0.0.18",
+    "starlette>=0.40",
+    "uvicorn[standard]>=0.32",
 ]
 
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.40"]
+
 [dependency-groups]
-dev = ["pytest>=8.3", "pytest-cov>=6"]
-video = ["pycairo>=1.29", "edge-tts>=7.3", "faster-whisper>=1.2"]
+dev = ["httpx>=0.27", "pytest>=8.3", "pytest-cov>=6"]
+video = ["edge-tts>=7.3", "faster-whisper>=1.2", "pycairo>=1.29"]
 
 [project.scripts]
-glava = "glava.cli:main"
+glava = "glava.entrypoints.cli:main"
+glava-server = "glava.entrypoints.http.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["engine/glava"]
+packages = ["backend/glava"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["backend/tests"]
+pythonpath = ["backend", "backend/tests/http"]
+
+[tool.coverage.run]
+source = ["glava"]
+branch = true

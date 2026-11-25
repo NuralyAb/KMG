@@ -6,8 +6,8 @@ __pycache__/
 .env
 # тексты глав и кэш ответов модели не публикуются
 .cache/
-work/sheet.*
-work/*/scans/
+workspace/work/sheet.*
+workspace/work/*/scans/
 .venv-video/
 .env.*
 !.env.example
@@ -17,21 +17,21 @@ key.json
 *.mp3
 *.wav
 *.log
-work/review/
-work/runs/
-work/*/videos/
+workspace/work/review/
+workspace/work/runs/
+workspace/work/*/videos/
 node_modules/
 simulators/dist/
 simulators/jobs/
 simulators/sims/
-/books/
-/chapters.json.tmp
+/workspace/books/
+/workspace/chapters.json.tmp
 web/dist/
-work/review_uploads/
+workspace/work/review_uploads/
 # база знаний: загруженные книги, их слои, курсы и листы опечаток не публикуются
-/library/
-/published/
-/settings.local.json
-/work/lib_*/
-/out/lib_*/
-/domain/*/errata/lib_*
+/workspace/library/
+/workspace/published/
+/workspace/settings.local.json
+/workspace/work/lib_*/
+/workspace/out/lib_*/
+/workspace/domain/*/errata/lib_*
