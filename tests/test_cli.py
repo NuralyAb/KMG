@@ -1,5 +1,7 @@
 """Команды собираются и читают реестр глав."""
 
+from pathlib import Path
+
 from glava import cli
 
 
@@ -32,7 +34,8 @@ def test_manual_errata_survive_and_join_the_recognised_ones(tmp_path, monkeypatc
 
 
 def test_routing_sees_what_templates_show_and_the_difficulty_types():
-    chapter = cli.load_chapter("latyshova_gl5_par17-20")
+    domain = Path(__file__).resolve().parents[1] / "domain" / "geology"
+    chapter = cli.Chapter("demo", "dm", "Глава", "Книга", domain, (), "demo.md")
     text = cli.routing_context(chapter)
     assert "log — планшет ГИС" in text
     assert "well_tool_curve" in text

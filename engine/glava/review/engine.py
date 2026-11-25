@@ -5,7 +5,7 @@ import re
 import shutil
 from collections.abc import Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from typing import Any
 
 import jsonschema
@@ -40,7 +40,8 @@ def load_package(source: Path) -> dict[str, Any]:
     root = source.resolve()
     for frame in package["frames"]:
         path = (root / frame["file"]).resolve()
-        if not path.is_relative_to(root) or path.suffix.lower() not in IMAGES:
+        # адрес с диском не годится и там, где система его диском не считает
+        if PureWindowsPath(frame["file"]).drive or not path.is_relative_to(root) or path.suffix.lower() not in IMAGES:
             raise ValueError(f"кадр {frame['id']}: недопустимый файл {frame['file']}")
     return package
 
