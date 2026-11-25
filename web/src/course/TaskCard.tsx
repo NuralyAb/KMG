@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import { Html, Pages, Rich } from './bits';
-import { useCourse } from './context';
-import { isAnswered, isCorrect, shuffled, showNumber, startOrder } from './core';
+import { stepUrl, useCourse } from './context';
+import { claimAnchor, isAnswered, isCorrect, shuffled, showNumber, startOrder } from './core';
 import { say } from './store';
 import type { Task } from './types';
 
@@ -143,6 +143,7 @@ export function TaskCard({ task }: { task: Task }) {
   const isFirst = useRef(true);
   const promptId = `q-${task.id.replace(/[^\w-]/g, '-')}`;
   const claim = course.steps.flatMap((s) => s.claims).find((c) => c.id === task.claim_ids?.[0]);
+  const owner = claim && course.steps.find((s) => s.claims.includes(claim));
 
   useEffect(() => {
     if (isFirst.current) { isFirst.current = false; return; }
@@ -178,7 +179,7 @@ export function TaskCard({ task }: { task: Task }) {
       {(task.type === 'single' || task.type === 'multiple') && <div className="options" role="group" aria-labelledby={promptId}><Options {...parts} /></div>}
       {isShown ? (
         <>
-          <div className={`verdict ${verdict ? 'good' : 'bad'}`} tabIndex={-1}><strong>{verdict ? 'Верно' : 'Пока нет'}</strong><p>Верный ответ: <Answer task={task} /></p><p><Rich text={task.explanation} /><Pages list={claim && [claim.page_pdf]} /></p></div>
+          <div className={`verdict ${verdict ? 'good' : 'bad'}`} tabIndex={-1}><strong>{verdict ? 'Верно' : 'Пока нет'}</strong><p>Верный ответ: <Answer task={task} /></p><p><Rich text={task.explanation} /><Pages list={claim && [claim.page_pdf]} /></p>{claim && owner && <p><a href={stepUrl(owner, claimAnchor(claim.id))} data-claim>Проверить по утверждению автора</a></p>}</div>
           <button type="button" className="btn" data-again onClick={again}>Ещё раз</button>
         </>
       ) : (

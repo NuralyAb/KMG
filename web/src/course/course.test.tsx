@@ -205,6 +205,20 @@ describe('tasks', () => {
     expect(saved()).toMatchObject({ solved: { t1: true } });
   });
 
+  test('the verdict links to the claim, which opens in the source tab with its quote', async () => {
+    const { container } = open('#/step/1/tasks');
+    const task = within(card(container, 't1'));
+    await userEvent.click(task.getByRole('button', { name: 'Вода' }));
+    await userEvent.click(task.getByRole('button', { name: 'Проверить' }));
+    const link = task.getByRole('link', { name: 'Проверить по утверждению автора' });
+    expect(link).toHaveAttribute('href', '#/step/1/claim-s1-c1');
+    await goTo('#/step/1/claim-s1-c1');
+    expect(screen.getByRole('tab', { name: 'Источник' })).toHaveAttribute('aria-selected', 'true');
+    const claim = container.querySelector('#claim-s1-c1');
+    expect(claim).toHaveFocus();
+    expect(claim?.querySelector('details')).toHaveAttribute('open');
+  });
+
   test('gaps are checked one by one, Enter checks', async () => {
     const { container } = open('#/step/1/tasks');
     const task = within(card(container, 't2'));

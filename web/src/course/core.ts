@@ -98,6 +98,8 @@ export const cleanState = (raw: unknown, ids: string[]): State => {
 // ---------- адреса: #/, #/map, #/help, #/step/3, #/step/3/how ----------
 const TABS = ['#/', '#/cards', '#/summary', '#/map', '#/help'];
 export interface Place { tab: string | null; step: number | null; section: string | null }
+/** Якорь утверждения на странице урока: #/step/3/claim-… открывает его во вкладке «Источник». */
+export const claimAnchor = (id: string): string => `claim-${id.replace(/[^\w-]/g, '-')}`;
 export const parseHash = (hash: string): Place => {
   const m = /^#\/step\/(\d+)(?:\/([\w-]+))?$/.exec(hash);
   if (m) return { tab: null, step: Number(m[1]), section: m[2] ?? null };

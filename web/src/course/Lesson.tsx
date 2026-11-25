@@ -60,7 +60,7 @@ const Why = ({ step }: { step: Step }) => (
 export function Lesson({ step, section, visit }: { step: Step; section: string | null; visit: number }) {
   const { course, num, store } = useCourse();
   const blocks = blocksOf(step);
-  const tabOf = (id: string | null): TabId | undefined => (id === 'notes' ? 'notes' : id === 'essence' ? 'about' : blocks.find((b) => b.id === id)?.tab);
+  const tabOf = (id: string | null): TabId | undefined => (id === 'notes' ? 'notes' : id?.startsWith('claim-') ? 'source' : id === 'essence' ? 'about' : blocks.find((b) => b.id === id)?.tab);
   const [tab, setTab] = useState<TabId>(() => tabOf(section) ?? 'about');
   const [seen, setSeen] = useState(visit);
   if (seen !== visit) {

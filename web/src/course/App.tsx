@@ -23,7 +23,10 @@ function toSection(root: HTMLElement | null, id: string): boolean {
   const el = document.getElementById(id);
   if (!el || !root?.contains(el)) return false;
   el.scrollIntoView();
-  el.querySelector('h2')?.focus({ preventScroll: true });
+  const head = el.querySelector('h2');
+  // ссылка ведёт на утверждение: фокус на нём, цитата раскрыта
+  if (!head) el.querySelector('details')?.setAttribute('open', '');
+  (head ?? el).focus({ preventScroll: true });
   return true;
 }
 
