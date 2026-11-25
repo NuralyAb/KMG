@@ -7,3 +7,4 @@ __pycache__/
 # тексты глав и кэш ответов модели не публикуются
 .cache/
 work/sheet.*
+work/*/scans/

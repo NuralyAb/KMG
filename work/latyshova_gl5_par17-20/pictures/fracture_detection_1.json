@@ -1,59 +1,57 @@
 {
  "node_id": "latyshova.fracture_detection",
- "template": "flow",
+ "template": "log",
  "data": {
-  "nodes": [
+  "layers": [
    {
-    "id": "a",
-    "text": "ГТИ: исследования во время бурения",
-    "kind": "data"
+    "lithology": "limestone",
+    "label": "Вмещающая порода",
+    "thickness": 2
    },
    {
-    "id": "b",
-    "text": "Фильтрационный метод: поглощение жидкости",
-    "kind": "step"
+    "lithology": "dense",
+    "label": "Трещиноватая зона",
+    "thickness": 2
    },
    {
-    "id": "c",
-    "text": "Механический метод: меньше время проходки",
-    "kind": "step"
-   },
-   {
-    "id": "d",
-    "text": "Отмечена зона трещиноватости",
-    "kind": "result"
+    "lithology": "limestone",
+    "label": "Вмещающая порода",
+    "thickness": 2
    }
   ],
-  "edges": [
+  "curves": [
    {
-    "from": "a",
-    "to": "b",
-    "label": ""
+    "name": "SP",
+    "levels": [
+     "mid",
+     "low",
+     "mid"
+    ]
    },
    {
-    "from": "a",
-    "to": "c",
-    "label": ""
+    "name": "RES",
+    "levels": [
+     "mid",
+     "high",
+     "mid"
+    ]
    },
    {
-    "from": "b",
-    "to": "d",
-    "label": "аномалия"
-   },
-   {
-    "from": "c",
-    "to": "d",
-    "label": "снижение"
+    "name": "CALIPER",
+    "levels": [
+     "mid",
+     "mid",
+     "mid"
+    ]
    }
-  ]
+  ],
+  "filtrate": "fresh"
  },
- "caption": "Зону трещиноватости при бурении отмечают два метода ГТИ; стандартный комплекс ГИС её не обнаруживает.",
- "alt": "Схема: геолого-технологические исследования во время бурения включают фильтрационный и механический методы. Поглощение жидкости и снижение времени проходки указывают на зону трещиноватости.",
+ "caption": "В зоне трещиноватости СП низкий, разноглубинные зонды дают высокие показания, диаметр скважины номинальный.",
+ "alt": "Планшет ГИС с тремя слоями. Против трещиноватой зоны кривая СП уходит вниз, кривая сопротивления растёт, кавернограмма остаётся на номинальном уровне.",
  "claim_ids": [
-  "latyshova.fracture_detection#c1",
-  "latyshova.fracture_detection#c2",
-  "latyshova.fracture_detection#c3",
-  "latyshova.fracture_detection#c4",
-  "latyshova.fracture_detection#c5"
+  "latyshova.fracture_detection#c9",
+  "latyshova.fracture_detection#c10",
+  "latyshova.fracture_detection#c11"
  ]
 }

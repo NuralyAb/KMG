@@ -15,6 +15,7 @@ from glava.llm import Ledger, Provider, Reply, cached
 from glava.llm.providers import provider_from_env
 from glava.review.engine import review_package, workspace
 from glava.scenes import load_templates
+from glava.stages.errata import make_errata, render_page
 from glava.stages.illustrations import make_illustrations, records
 from glava.stages.layer import coverage_rows, drop_unsupported, load_schema, make_node, make_plan, pages_of
 from glava.stages.routing import make_routing
@@ -38,10 +39,15 @@ class Chapter:
     domain: Path
     units: tuple[Unit, ...]
     source: str
+    pdf: Path | None = None
 
     @property
     def work(self) -> Path:
         return ROOT / "work" / self.chapter_id
+
+    @property
+    def errata_file(self) -> Path:
+        return self.domain / "errata" / f"{self.chapter_id}.json"
 
 
 def load_chapter(chapter_id: str) -> Chapter:
@@ -49,7 +55,8 @@ def load_chapter(chapter_id: str) -> Chapter:
     info = registry["chapters"][chapter_id]
     md = (Path(registry["root"]) / info["file"]).read_text(encoding="utf-8")
     units = parse_units(read_pages(md, [tuple(r) for r in info["pages"]]))
-    return Chapter(chapter_id, info["prefix"], info["title"], info["book"], ROOT / "domain" / info["domain"], tuple(units), info["file"])
+    return Chapter(chapter_id, info["prefix"], info["title"], info["book"], ROOT / "domain" / info["domain"], tuple(units), info["file"],
+                   Path(registry["pdf_root"]) / info["pdf"] if info.get("pdf") else None)
 
 
 def save(path: Path, data: Any) -> None:
@@ -84,8 +91,24 @@ def write_metrics(chapter: Chapter, stage: str, nodes: int, replies: Sequence[Re
         writer.writerow(row)
 
 
+def build_errata(chapter: Chapter, provider: Provider) -> None:
+    """Сверка md со сканом. Без PDF этап пропускается: лист опечаток остаётся пустым."""
+    if chapter.pdf is None or not chapter.pdf.exists():
+        log.info("PDF главы не указан, лист опечаток пропущен")
+        return
+    pages, prompt = pages_of(chapter.units), prompt_file("errata")
+    images = {n: render_page(chapter.pdf, n, chapter.work / "scans") for n in pages}
+    with ThreadPoolExecutor(PARALLEL) as pool:
+        results = list(pool.map(lambda n: make_errata(provider, prompt, n, pages[n], images[n]), pages))
+    entries = [e for found, _ in results for e in found]
+    save(chapter.errata_file, {"chapter": chapter.chapter_id, "entries": entries})
+    write_metrics(chapter, "errata", len(pages), [r for _, rs in results for r in rs])
+    log.info("лист опечаток: %s записей, из них подозрительных мест издания: %s", len(entries), sum(e["kind"] == "suspect" for e in entries))
+
+
 def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) -> dict[str, Any]:
     context = context_of(chapter)
+    errata = read_or(chapter.errata_file, {"entries": []})["entries"]
     plan, plan_replies = make_plan(provider, prompt_file("plan"), context, chapter.units)
     save(chapter.work / "plan.json", plan)
     Ledger(BUDGET_USD).add("plan", *plan_replies).check()
@@ -93,12 +116,12 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
     log.info("план: узлов %s, собираю %s", len(plan["nodes"]), count)
 
     def one(index: int) -> tuple[dict, list[str], list[Reply]]:
-        return make_node(provider, prompt_file("node"), context, plan, index, chapter.units, chapter.prefix)
+        return make_node(provider, prompt_file("node"), context, plan, index, chapter.units, chapter.prefix, errata)
 
     with ThreadPoolExecutor(PARALLEL) as pool:
         results = list(pool.map(one, range(count)))
     pages = pages_of(chapter.units)
-    cleaned = [drop_unsupported(node, pages) for node, _, _ in results]
+    cleaned = [drop_unsupported(node, pages, errata) for node, _, _ in results]
     layer = {
         "chapter": chapter.chapter_id, "source": chapter.source, "pdf_pages": sorted({str(u.page_pdf) for u in chapter.units}),
         "generated_by": f"{provider.name}/{provider.model}", "title": chapter.title, "book": chapter.book,
@@ -186,7 +209,7 @@ def build_review(chapter: Chapter, source: Path, provider: Provider) -> Path:
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
-    parser.add_argument("command", choices=["build", "layer", "routing", "tasks", "illustrations", "course", "review", "units"])
+    parser.add_argument("command", choices=["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "units"])
     parser.add_argument("chapter")
     parser.add_argument("--limit", type=int, default=None, help="собрать только первые N узлов")
     parser.add_argument("--package", type=Path, default=None, help="папка чужого пакета для review")
@@ -206,6 +229,8 @@ def main() -> None:
             parser.error("укажите --package")
         build_review(chapter, args.package, provider)
         return
+    if args.command in ("build", "errata"):
+        build_errata(chapter, provider)
     if args.command in ("build", "layer"):
         build_layer(chapter, provider, args.limit)
     if args.command in ("build", "routing"):

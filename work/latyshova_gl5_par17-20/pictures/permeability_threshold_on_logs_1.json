@@ -1,61 +1,51 @@
 {
  "node_id": "latyshova.permeability_threshold_on_logs",
- "template": "flow",
+ "template": "plot",
  "data": {
-  "nodes": [
+  "x_label": "пористость kн",
+  "y_label": "показание метода ΔJнт",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "params": {},
+  "series": [
    {
-    "id": "a",
-    "text": "Критическая проницаемость kпр*",
-    "kind": "data"
-   },
-   {
-    "id": "b",
-    "text": "kн* или ηгл* (kгл*) по связи с kпр",
-    "kind": "step"
-   },
-   {
-    "id": "c",
-    "text": "ΔJнт*, ΔТ*, αСП* по связям с kн",
-    "kind": "step"
-   },
-   {
-    "id": "d",
-    "text": "Уровень критических значений на диаграммах",
-    "kind": "step"
-   },
-   {
-    "id": "e",
-    "text": "Классы «коллектор» и «неколлектор»",
-    "kind": "result"
+    "name": "связь ΔJнт = f(kн)",
+    "color": "",
+    "points": [
+     [
+      0.05,
+      0.1
+     ],
+     [
+      0.3,
+      0.3
+     ],
+     [
+      0.6,
+      0.6
+     ],
+     [
+      0.95,
+      0.9
+     ]
+    ]
    }
   ],
-  "edges": [
+  "marks": [
    {
-    "from": "a",
-    "to": "b",
-    "label": "связь с kпр"
-   },
-   {
-    "from": "b",
-    "to": "c",
-    "label": "связи с kн"
-   },
-   {
-    "from": "c",
-    "to": "d",
-    "label": "откладываем"
-   },
-   {
-    "from": "d",
-    "to": "e",
-    "label": "разделяет"
+    "x": 0.45,
+    "y": 0.45,
+    "text": "kн* → ΔJнт*"
    }
   ]
  },
- "caption": "Цепочка пересчёта: от kпр* к критическим показаниям методов, которые делят пласты на два класса.",
- "alt": "Схема из пяти блоков. Критическая проницаемость пересчитывается в критическую пористость или глинистость, затем в критические показания методов. Их откладывают на диаграммах, и уровень делит пласты на коллекторы и неколлекторы.",
+ "caption": "По связи показания метода с пористостью критическая kн* переводится в критическое ΔJнт*; этот уровень делит пласты на коллектор и неколлектор.",
+ "alt": "График возрастающей связи показания нейтронного метода с пористостью. Отмечена точка критической пористости и соответствующего критического показания.",
  "claim_ids": [
+  "latyshova.permeability_threshold_on_logs#c2",
   "latyshova.permeability_threshold_on_logs#c4",
+  "latyshova.permeability_threshold_on_logs#c5",
   "latyshova.permeability_threshold_on_logs#c6",
   "latyshova.permeability_threshold_on_logs#c7",
   "latyshova.permeability_threshold_on_logs#c8"

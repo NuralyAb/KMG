@@ -1,43 +1,51 @@
 {
  "node_id": "latyshova.table21_clays_sands_gas",
- "template": "compare",
+ "template": "log",
  "data": {
-  "left_title": "Глины",
-  "right_title": "Коллектор (вода)",
-  "rows": [
+  "layers": [
    {
-    "aspect": "СП",
-    "left": "максимальные показания",
-    "right": "минимальные показания"
+    "lithology": "shale",
+    "label": "Глина",
+    "thickness": 2
    },
    {
-    "aspect": "Диаметр скважины",
-    "left": "d_c > d_n",
-    "right": "d_c < d_n"
+    "lithology": "sand",
+    "fluid": "gas",
+    "label": "Газ",
+    "thickness": 2
    },
    {
-    "aspect": "Микрозонды",
-    "left": "низкие, совпадают для зондов",
-    "right": "средние, не совпадают для зондов"
+    "lithology": "sand",
+    "fluid": "oil",
+    "label": "Нефть",
+    "thickness": 2
    },
    {
-    "aspect": "Гамма-метод",
-    "left": "максимальный",
-    "right": "средний"
-   },
-   {
-    "aspect": "Нейтронные методы",
-    "left": "минимальные",
-    "right": "средние"
+    "lithology": "sand",
+    "fluid": "water",
+    "label": "Вода, минерал.",
+    "thickness": 2
    }
-  ]
+  ],
+  "curves": [
+   {
+    "name": "NEUTRON",
+    "levels": [
+     "low",
+     "high",
+     "mid",
+     "mid"
+    ]
+   }
+  ],
+  "filtrate": "fresh"
  },
- "caption": "Глины и водоносный коллектор с высокоминерализованной водой различаются по СП, диаметру скважины и микрозондам.",
- "alt": "Сравнение глин и водоносного коллектора с высокоминерализованной водой по СП, диаметру скважины, микрозондам, гамма-методу и нейтронным методам.",
+ "caption": "Нейтронные показания: у глин минимальные, у водо- и нефтеносных коллекторов средние, у газового коллектора максимальные.",
+ "alt": "Планшет с четырьмя слоями: глина, газовый, нефтяной и водоносный песчаники. Нейтронная кривая низкая против глины, максимальная против газа, средняя против нефти и воды.",
  "claim_ids": [
-  "latyshova.table21_clays_sands_gas#c10",
   "latyshova.table21_clays_sands_gas#c11",
-  "latyshova.table21_clays_sands_gas#c12",
-  "latyshova.table21_clays_sands_gas#c13"
+  "latyshova.table21_clays_sands_gas#c13",
+  "latyshova.table21_clays_sands_gas#c15",
+  "latyshova.table21_clays_sands_gas#c16"
  ]
 }

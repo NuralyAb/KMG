@@ -1,66 +1,65 @@
 {
  "node_id": "latyshova.saturation_from_resistivity",
- "template": "flow",
+ "template": "plot",
  "data": {
-  "nodes": [
+  "x_label": "пласты в разрезе скважины",
+  "y_label": "удельное сопротивление",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "params": {},
+  "series": [
    {
-    "id": "a",
-    "text": "Пористость, переведённая в параметр пористости",
-    "kind": "data"
+    "name": "ρвн: водонасыщенные",
+    "color": "",
+    "points": [
+     [
+      0.0,
+      0.2
+     ],
+     [
+      0.5,
+      0.23
+     ],
+     [
+      1.0,
+      0.2
+     ]
+    ]
    },
    {
-    "id": "b",
-    "text": "Сопротивление пластовой воды ρв",
-    "kind": "data"
-   },
-   {
-    "id": "c",
-    "text": "ρвн = Pн·ρв: водонасыщенный пласт",
-    "kind": "step"
-   },
-   {
-    "id": "d",
-    "text": "Pн = ρн/ρвн; ρн даёт метод сопротивления",
-    "kind": "step"
-   },
-   {
-    "id": "e",
-    "text": "Характер насыщения коллектора",
-    "kind": "result"
+    "name": "ρн: нефть или газ",
+    "color": "",
+    "points": [
+     [
+      0.0,
+      0.75
+     ],
+     [
+      0.5,
+      0.85
+     ],
+     [
+      1.0,
+      0.78
+     ]
+    ]
    }
   ],
-  "edges": [
+  "marks": [
    {
-    "from": "a",
-    "to": "c",
-    "label": ""
-   },
-   {
-    "from": "b",
-    "to": "c",
-    "label": ""
-   },
-   {
-    "from": "c",
-    "to": "d",
-    "label": "знаменатель"
-   },
-   {
-    "from": "d",
-    "to": "e",
-    "label": ""
+    "x": 0.5,
+    "y": 0.55,
+    "text": "ρн > ρвн"
    }
   ]
  },
- "caption": "Сопротивление водонасыщенного пласта получают косвенно из пористости и воды, затем сравнивают с ρн.",
- "alt": "Схема: пористость и сопротивление воды дают сопротивление водонасыщенного пласта. Его сравнивают с сопротивлением неизменённой части пласта, и так определяют характер насыщения.",
+ "caption": "Сопротивление водонасыщенных пластов меняется мало, а нефте- и газонасыщенных заметно выше; по этому отличию оценивают характер насыщения.",
+ "alt": "График двух кривых по пластам разреза: низкая почти ровная кривая водонасыщенных пластов и заметно более высокая кривая нефте- или газонасыщенных.",
  "claim_ids": [
-  "latyshova.saturation_from_resistivity#c2",
-  "latyshova.saturation_from_resistivity#c3",
-  "latyshova.saturation_from_resistivity#c4",
-  "latyshova.saturation_from_resistivity#c5",
-  "latyshova.saturation_from_resistivity#c6",
-  "latyshova.saturation_from_resistivity#c7",
-  "latyshova.saturation_from_resistivity#c9"
+  "latyshova.saturation_from_resistivity#c12",
+  "latyshova.saturation_from_resistivity#c13",
+  "latyshova.saturation_from_resistivity#c14",
+  "latyshova.saturation_from_resistivity#c15"
  ]
 }

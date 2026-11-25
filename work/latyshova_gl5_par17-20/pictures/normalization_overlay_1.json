@@ -1,53 +1,51 @@
 {
  "node_id": "latyshova.normalization_overlay",
- "template": "flow",
+ "template": "log",
  "data": {
-  "nodes": [
+  "layers": [
    {
-    "id": "a",
-    "text": "Кривая ρп глубинного фокусированного метода",
-    "kind": "data"
+    "lithology": "dense",
+    "label": "Неколлектор",
+    "thickness": 2
    },
    {
-    "id": "b",
-    "text": "Кривая метода пористости: НМ, акустика или ГГМ",
-    "kind": "data"
+    "lithology": "limestone",
+    "fluid": "oil",
+    "label": "Продуктивный",
+    "thickness": 2
    },
    {
-    "id": "c",
-    "text": "Шкалу одной кривой подбирают до совпадения",
-    "kind": "step"
-   },
-   {
-    "id": "d",
-    "text": "Кривые разошлись: продуктивный коллектор",
-    "kind": "result"
+    "lithology": "limestone",
+    "fluid": "water",
+    "label": "Водоносный",
+    "thickness": 2
    }
   ],
-  "edges": [
+  "curves": [
    {
-    "from": "a",
-    "to": "c",
-    "label": ""
+    "name": "RES",
+    "levels": [
+     "high",
+     "high",
+     "low"
+    ]
    },
    {
-    "from": "b",
-    "to": "c",
-    "label": ""
-   },
-   {
-    "from": "c",
-    "to": "d",
-    "label": "расхождение"
+    "name": "NEUTRON",
+    "levels": [
+     "high",
+     "low",
+     "low"
+    ]
    }
-  ]
+  ],
+  "filtrate": "fresh"
  },
- "caption": "Две кривые совмещают по шкале в опорных интервалах; там, где они расходятся, смотрите на признак продуктивного коллектора.",
- "alt": "Схема: кривые ρп и метода пористости совмещают подбором шкалы в неколлекторах и водоносных коллекторах; расхождение кривых указывает на продуктивный коллектор.",
+ "caption": "После нормализации кривая ρп и кривая метода пористости совпадают в неколлекторе и водоносном пласте и расходятся в продуктивном.",
+ "alt": "Планшет с тремя слоями: неколлектор, продуктивный коллектор и водоносный коллектор. Кривые сопротивления и нейтронного метода совпадают в неколлекторе и водоносном слое и расходятся в продуктивном.",
  "claim_ids": [
   "latyshova.normalization_overlay#c2",
   "latyshova.normalization_overlay#c3",
-  "latyshova.normalization_overlay#c4",
   "latyshova.normalization_overlay#c6"
  ]
 }

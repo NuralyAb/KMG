@@ -15,9 +15,11 @@
   // ---------- текст: экранирование и формулы ----------
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const tex = (code, display) => { try { return katex.renderToString(code, { displayMode: display, throwOnError: false, strict: 'ignore' }); } catch { return esc(code); } };
+  // k_п,эф -> k с нижним индексом
+  const lower = (s) => esc(s).replace(/(\p{L}+)_([\p{L}\d]+(?:,[\p{L}\d]+)*)/gu, '$1<sub>$2</sub>');
   // модель иногда пишет формулу без знаков доллара: берём кусок без кириллицы с командой LaTeX
   const BARE = /([^Ѐ-ӿ\n]*\\[a-zA-Z]+[^Ѐ-ӿ\n]*)/;
-  const bare = (s) => s.split(BARE).map((part) => (/\\[a-zA-Z]/.test(part) ? ` ${tex(part.replace(/\\[()[\]]/g, '').trim(), false)} ` : esc(part))).join('');
+  const bare = (s) => s.split(BARE).map((part) => (/\\[a-zA-Z]/.test(part) ? ` ${tex(part.replace(/\\[()[\]]/g, '').trim(), false)} ` : lower(part))).join('');
   const rich = (s) => String(s ?? '').split(/(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\$[^$\n]+?\$|\\\([\s\S]+?\\\))/).map((part) => {
     if (/^(\$\$|\\\[)/.test(part)) return tex(part.slice(2, -2), true);
     if (/^\\\(/.test(part)) return tex(part.slice(2, -2), false);

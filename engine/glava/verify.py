@@ -90,7 +90,13 @@ def term_order_issues(nodes: Iterable[Mapping]) -> list[Issue]:
     ]
 
 
-def verify_layer(layer: Mapping, pages: Mapping[int, str]) -> list[Issue]:
+def with_extra(pages: Mapping[int, str], extra: Mapping[int, str]) -> dict[int, str]:
+    return {n: f"{text}\n{extra.get(n, '')}" for n, text in pages.items()}
+
+
+def verify_layer(layer: Mapping, pages: Mapping[int, str], extra: Mapping[int, str] | None = None) -> list[Issue]:
+    """extra — исправления по скану: ими подтверждаются числа, но не цитаты."""
     nodes = layer["nodes"]
-    issues = [i for node in nodes for i in (*_quote_issues(node, pages), *_number_issues(node, pages))]
+    numbers = with_extra(pages, extra or {})
+    issues = [i for node in nodes for i in (*_quote_issues(node, pages), *_number_issues(node, numbers))]
     return [*issues, *term_order_issues(nodes)]

@@ -11,9 +11,10 @@ from typing import Any
 import jsonschema
 
 from glava.llm import Provider, Reply, ask_json
+from glava.stages.errata import for_pages, number_sources, prompt_block
 from glava.stages.wording import normal_layers, plain_node
 from glava.units import Unit
-from glava.verify import find_quote_page, unsupported_numbers, verify_layer
+from glava.verify import find_quote_page, unsupported_numbers, verify_layer, with_extra
 
 SCHEMAS = Path(__file__).parent.parent / "schemas"
 SLUG = re.compile(r"^[a-z0-9_]+$")
@@ -80,12 +81,12 @@ def _schema_issues(node: Mapping) -> list[str]:
     return [f"схема: {'/'.join(map(str, e.absolute_path))}: {e.message[:160]}" for e in validator.iter_errors(node)]
 
 
-def node_issues(node: Mapping, units: Sequence[Unit], plan_node: Mapping) -> list[str]:
+def node_issues(node: Mapping, units: Sequence[Unit], plan_node: Mapping, errata: Sequence[Mapping] = ()) -> list[str]:
     schema_problems = _schema_issues(node)
     if schema_problems:
         return schema_problems
     pages = pages_of(units)
-    issues = [f"{i.where}: {i.message}" for i in verify_layer({"nodes": [node]}, pages)]
+    issues = [f"{i.where}: {i.message}" for i in verify_layer({"nodes": [node]}, pages, number_sources(errata))]
     cited = {c.get("unit_id") for c in node["claims"]}
     example_pages = {e["page_pdf"] for e in (*node.get("worked_examples", []), *node.get("book_tasks", []))}
     for unit in units:
@@ -115,7 +116,7 @@ def make_plan(provider: Provider, system: str, context: str, units: Sequence[Uni
 
 
 def make_node(
-    provider: Provider, system: str, context: str, plan: Mapping, index: int, units: Sequence[Unit], prefix: str,
+    provider: Provider, system: str, context: str, plan: Mapping, index: int, units: Sequence[Unit], prefix: str, errata: Sequence[Mapping] = (),
 ) -> tuple[dict, list[str], list[Reply]]:
     plan_node = plan["nodes"][index]
     earlier = plan["nodes"][:index]
@@ -123,15 +124,16 @@ def make_node(
     own = [u for u in units if u.unit_id in set(plan_node["unit_ids"])]
     prompt = (f"{context}\n\n# Узел\n{json.dumps(plan_node, ensure_ascii=False)}\n\n# Узлы до него (slug: название)\n"
               + ("\n".join(f"{n['slug']}: {n['title']}" for n in earlier) or "это первый узел")
-              + f"\n\n# Уже объяснены\n{known}\n\n# Единицы узла\n\n" + "\n\n".join(_unit_text(u) for u in own))
+              + f"\n\n# Уже объяснены\n{known}\n\n# Единицы узла\n\n" + "\n\n".join(_unit_text(u) for u in own)
+              + prompt_block(for_pages(errata, sorted({u.page_pdf for u in own}))))
     pages = pages_of(units)
 
     def check(raw: Mapping) -> list[str]:
-        return node_issues(assemble_node(raw, plan_node, index + 1, prefix, units), units, plan_node)
+        return node_issues(assemble_node(raw, plan_node, index + 1, prefix, units), units, plan_node, errata)
 
     raw, replies = ask_json(provider, system, prompt, check, attempts=3)
     node = repair_pages(assemble_node(raw, plan_node, index + 1, prefix, units), pages)
-    return node, node_issues(node, units, plan_node), replies
+    return node, node_issues(node, units, plan_node, errata), replies
 
 
 def repair_pages(node: Mapping, pages: Mapping[int, str]) -> dict[str, Any]:
@@ -140,9 +142,9 @@ def repair_pages(node: Mapping, pages: Mapping[int, str]) -> dict[str, Any]:
     return {**node, "claims": claims}
 
 
-def drop_unsupported(node: Mapping, pages: Mapping[int, str]) -> tuple[dict[str, Any], list[str]]:
+def drop_unsupported(node: Mapping, pages: Mapping[int, str], errata: Sequence[Mapping] = ()) -> tuple[dict[str, Any], list[str]]:
     """Утверждения без найденной цитаты или с чужими числами не попадают в слой; список отдаётся в отчёт."""
-    source = "\n".join(pages.values())
+    source = "\n".join(with_extra(pages, number_sources(errata)).values())
     good = [c for c in node["claims"] if find_quote_page(c["quote"], pages) and not unsupported_numbers(c["text"], source)]
     dropped = [c["id"] for c in node["claims"] if c not in good]
     return plain_node({**node, "claims": good}), dropped

@@ -1,34 +1,16 @@
 {
  "node_id": "latyshova.water_and_nonfiltering_muds",
- "template": "compare",
+ "template": "borehole",
  "data": {
-  "left_title": "Бурение на воде",
-  "right_title": "Нефильтрующийся",
-  "rows": [
-   {
-    "aspect": "Проникновение",
-    "left": "Глубокие зоны проникновения",
-    "right": "Нет или очень малое"
-   },
-   {
-    "aspect": "Выделение коллекторов",
-    "left": "Микрозонды и каверномер малоэффективны",
-    "right": "Корок нет, обычные методы нельзя"
-   },
-   {
-    "aspect": "Характер насыщения",
-    "left": "Оценка по ГИС, как правило, исключена",
-    "right": "Благоприятно: ядерные и акустические"
-   }
-  ]
+  "collector": true,
+  "lithology": "sand",
+  "fluid": "water",
+  "pressure": "mud_above"
  },
- "caption": "Два типа промывки рядом: в воде фильтрат уходит глубоко и мешает оценке, нефильтрующийся раствор почти не проникает, но корки нет.",
- "alt": "Таблица из двух столбцов: бурение на воде и нефильтрующийся раствор. Сравниваются проникновение, выделение коллекторов и оценка характера насыщения.",
+ "caption": "Бурение на воде при глинах: фильтрат уходит в пласт, зона проникновения глубокая, характер насыщения по ГИС, как правило, не оценить.",
+ "alt": "Разрез скважины с прискважинной зоной: промывочная жидкость идёт в проницаемый пласт и образует зону проникновения вокруг ствола.",
  "claim_ids": [
-  "latyshova.water_and_nonfiltering_muds#c3",
-  "latyshova.water_and_nonfiltering_muds#c4",
-  "latyshova.water_and_nonfiltering_muds#c10",
-  "latyshova.water_and_nonfiltering_muds#c13",
-  "latyshova.water_and_nonfiltering_muds#c14"
+  "latyshova.water_and_nonfiltering_muds#c2",
+  "latyshova.water_and_nonfiltering_muds#c3"
  ]
 }

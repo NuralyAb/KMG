@@ -10,7 +10,7 @@
   "params": {},
   "series": [
    {
-    "name": "Pн* (граница нефти)",
+    "name": "Кривая Pн*",
     "color": "",
     "points": [
      [
@@ -32,7 +32,29 @@
     ]
    },
    {
-    "name": "Pн** (граница воды)",
+    "name": "Кривая Pн,sp",
+    "color": "",
+    "points": [
+     [
+      58,
+      2.9
+     ],
+     [
+      58,
+      2.5
+     ],
+     [
+      59,
+      2.1
+     ],
+     [
+      59,
+      1.8
+     ]
+    ]
+   },
+   {
+    "name": "Кривая Pн**",
     "color": "",
     "points": [
      [
@@ -67,13 +89,14 @@
    }
   ]
  },
- "caption": "Критические точки для разной глинистости (αСП) образуют две разделяющие кривые Pн* и Pн**.",
- "alt": "График с двумя кривыми критических точек. Pн* сильно падает при переходе от αСП 1,0 к 0,7, а Pн** почти не меняется и держится около 1,5–1,6.",
+ "caption": "Критические точки для αСП от 1,0 до 0,7 (табл. 22) образуют три разделяющие кривые: Pн*, Pн,sp и Pн**.",
+ "alt": "График в логарифмическом масштабе по Pн: три линии критических точек для четырёх классов глинистости. Верхняя линия Pн* идёт от 30 до 50 %, нижняя Pн** от 68 до 80 %, между ними Pн,sp.",
  "claim_ids": [
+  "latyshova.clay_classes_critical#c5",
+  "latyshova.clay_classes_critical#c6",
   "latyshova.clay_classes_critical#c14",
   "latyshova.clay_classes_critical#c15",
   "latyshova.clay_classes_critical#c16",
-  "latyshova.clay_classes_critical#c17",
-  "latyshova.clay_classes_critical#c6"
+  "latyshova.clay_classes_critical#c17"
  ]
 }

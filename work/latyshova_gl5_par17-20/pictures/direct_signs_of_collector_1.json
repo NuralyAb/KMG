@@ -1,59 +1,17 @@
 {
  "node_id": "latyshova.direct_signs_of_collector",
- "template": "flow",
+ "template": "borehole",
  "data": {
-  "nodes": [
-   {
-    "id": "a",
-    "text": "Фильтрация в порах: вода, нефть, газ, фильтрат",
-    "kind": "data"
-   },
-   {
-    "id": "b",
-    "text": "Сужение диаметра из-за корки: dᵢ < dₙ",
-    "kind": "step"
-   },
-   {
-    "id": "c",
-    "text": "Приращения микрозондов: ρГМЗ < ρПМЗ",
-    "kind": "step"
-   },
-   {
-    "id": "d",
-    "text": "Зона проникновения по БЭЗ или разноглубинным зондам",
-    "kind": "result"
-   }
-  ],
-  "edges": [
-   {
-    "from": "a",
-    "to": "b",
-    "label": ""
-   },
-   {
-    "from": "a",
-    "to": "c",
-    "label": ""
-   },
-   {
-    "from": "b",
-    "to": "d",
-    "label": ""
-   },
-   {
-    "from": "c",
-    "to": "d",
-    "label": ""
-   }
-  ]
+  "collector": true,
+  "lithology": "sand",
+  "fluid": "water",
+  "pressure": "mud_above"
  },
- "caption": "Прямые признаки коллектора при качественном глинистом растворе: узкий ствол, положительные приращения микрозондов, зона проникновения.",
- "alt": "Схема: возможность фильтрации в порах проявляется прямыми признаками: сужением диаметра скважины, положительными приращениями микрозондов и зоной проникновения.",
+ "caption": "Против коллектора на стенке скважины глинистая корка, за ней зона проникновения фильтрата в пласт.",
+ "alt": "Разрез скважины в проницаемом песчаном пласте: раствор, глинистая корка на стенке, зона проникновения фильтрата и нетронутый пласт.",
  "claim_ids": [
   "latyshova.direct_signs_of_collector#c3",
-  "latyshova.direct_signs_of_collector#c4",
   "latyshova.direct_signs_of_collector#c5",
-  "latyshova.direct_signs_of_collector#c6",
   "latyshova.direct_signs_of_collector#c7"
  ]
 }
