@@ -23,6 +23,10 @@ with sync_playwright() as p:
         pg.on('request', lambda r: bad.append('сеть: ' + r.url[:90]) if r.url.startswith('http') else None)
         pg.goto((course / 'index.html').as_uri() + '#/')
         pg.evaluate('n=>{location.hash="#/step/"+n}', step)
+        pills = pg.locator('.pills button:has-text("Симулятор")')
+        pg.wait_for_selector('.pills, .sim-box')
+        if pills.count():
+            pills.first.click()  # первым слайдом стоит разбор
         pg.wait_for_selector('.sim-box')
         check(tag + ': две сцены на выбор', pg.locator('.sim-tab').count() == 2)
         check(tag + ': сцена не грузится заранее', pg.locator('iframe').count() == 0)

@@ -16,6 +16,7 @@ from glava.pipeline.steps.extract import build_extract
 from glava.pipeline.steps.illustrations import build_illustrations
 from glava.pipeline.steps.layer import build_layer
 from glava.pipeline.steps.reports import build_process, build_ready, build_templates
+from glava.pipeline.steps.narration import build_narration
 from glava.pipeline.steps.review import build_review
 from glava.pipeline.steps.routing import build_routing
 from glava.pipeline.steps.simulation import build_simulation
@@ -33,7 +34,7 @@ from glava.shared.json_schemas import load_schema
 from glava.shared.paths import workspace
 
 log = logging.getLogger("glava")
-COMMANDS = ["build", "errata", "layer", "routing", "tasks", "illustrations", "course", "review", "video", "rebuild", "voices", "templates", "ready", "process",
+COMMANDS = ["build", "errata", "layer", "routing", "tasks", "illustrations", "narrate", "course", "review", "video", "rebuild", "voices", "templates", "ready", "process",
             "simulation", "units", "extract", "audit", "verify"]
 TRAINING = ("latyshova_gl5_par17-20", "basniev_gl23-24_1", "kuznetsov_gl10")
 
@@ -118,6 +119,9 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
         return
     if args.command == "course":
         build_site(chapter)
+        return
+    if args.command == "narrate":
+        build_narration(chapter)
         return
     if args.command == "simulation":
         if not args.node:

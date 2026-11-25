@@ -15,11 +15,14 @@ key.json
 *.pdf
 *.mp4
 *.mp3
+# разборы шагов — часть курса: без них сцена урока молчит
+!workspace/out/*/narration/*.mp3
 *.wav
 *.log
 workspace/work/review/
 workspace/work/runs/
 workspace/work/*/videos/
+workspace/work/*/narration_voice/
 node_modules/
 simulators/dist/
 simulators/jobs/

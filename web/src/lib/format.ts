@@ -88,6 +88,8 @@ export function counted(count: number, forms: Forms): string {
 
 export const FORMS = {
   node: ['шаг', 'шага', 'шагов'],
+  lesson: ['урок', 'урока', 'уроков'],
+  module: ['модуль', 'модуля', 'модулей'],
   claim: ['утверждение', 'утверждения', 'утверждений'],
   task: ['задание', 'задания', 'заданий'],
   picture: ['рисунок', 'рисунка', 'рисунков'],

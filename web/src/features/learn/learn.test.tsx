@@ -46,6 +46,8 @@ describe('logic', () => {
   test('course address', () => {
     expect(courseSrc('a/b', 3)).toBe('/learn/a%2Fb/index.html#/step/3');
     expect(courseSrc('a', null)).toBe('/learn/a/index.html');
+    expect(courseSrc('a', 3, '#/step/7/how')).toBe('/learn/a/index.html#/step/7/how');
+    expect(courseSrc('a', 3, '#x')).toBe('/learn/a/index.html#/step/3');
   });
 
   test.each([

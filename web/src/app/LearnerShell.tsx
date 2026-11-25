@@ -1,3 +1,5 @@
+import '@fontsource-variable/onest';
+import { IconBook2, IconLayoutDashboard, IconLogin2 } from '@tabler/icons-react';
 import { Suspense, useEffect, useRef } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useMe } from '@/api/queries';
@@ -9,7 +11,18 @@ import './shell.css';
 function AuthorLink() {
   const { data } = useMe();
   if (!data) return null;
-  return data.role === 'admin' ? <Link to="/admin" className="app-switch">Экран автора</Link> : <Link to="/login" className="app-switch">Вход для авторов</Link>;
+  return data.role === 'admin'
+    ? <Link to="/admin" className="learn-link"><IconLayoutDashboard size={24} stroke={1.7} aria-hidden />Экран автора</Link>
+    : <Link to="/login" className="learn-link"><IconLogin2 size={24} stroke={1.7} aria-hidden />Вход для авторов</Link>;
+}
+
+/** Тот же знак, что в самом курсе (course/assets/icons.js). */
+function Logo() {
+  return (
+    <svg viewBox="0 0 48 32" width={42} height={28} fill="currentColor" aria-hidden>
+      <path d="M24 1 1 11l23 10 23-10z" /><path d="M10 18v6c0 3 6.3 6 14 6s14-3 14-6v-6l-14 6z" opacity=".72" /><path d="M42.5 13.5H45V24h-2.5z" />
+    </svg>
+  );
 }
 
 /** Экран ученика: каталог и курс. Данные автора сюда не запрашиваются. */
@@ -38,10 +51,12 @@ export function LearnerShell() {
   return (
     <div className="learn">
       <a className="app-skip" href="#main">К содержанию</a>
-      <header className="learn-top">
-        <Link to="/" className="app-brand"><img src="/icon.svg" width={28} height={28} alt="" />Курсы</Link>
-        <div className="app-top-end"><AuthorLink /><ThemeToggle /></div>
+      <header className="learn-side">
+        <Link to="/" className="learn-logo" aria-label="Глава, все курсы"><Logo />ГЛАВА</Link>
+        <nav aria-label="Разделы"><Link to="/" className="learn-link" aria-current={pathname === '/' ? 'page' : undefined}><IconBook2 size={24} stroke={1.7} aria-hidden />Мои курсы</Link></nav>
+        <div className="learn-foot"><AuthorLink /></div>
       </header>
+      <div className="learn-top"><ThemeToggle /></div>
       <main id="main" className="learn-main" ref={main} tabIndex={-1}><div>{page}</div></main>
     </div>
   );

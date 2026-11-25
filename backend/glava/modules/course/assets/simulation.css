@@ -49,8 +49,4 @@
 
 /* окно сцены в дизайне курса рассчитано на ролик 16:9; симулятору нужна своя высота */
 .screen.sims { display: block; aspect-ratio: auto; max-height: none; height: auto; overflow: visible; padding: 0; background: none; border: 0; }
-/* переключатель «ролик, симулятор, схема» стоит над симулятором, а не поверх его кнопок */
-.stage:has(> [data-slide]:not([hidden]) .sim-box) > .pills { position: static; width: fit-content; margin: 0 0 10px; }
 .sim-box .sim-act svg { width: 20px; height: 20px; max-width: none; min-width: 0; }
-/* нажатая кнопка под курсором остаётся белой: иначе тёмная надпись ложится на тёмный фон */
-.pills button[aria-pressed="true"]:hover { background: #fff; }

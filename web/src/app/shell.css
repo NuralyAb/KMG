@@ -56,14 +56,38 @@
 .app-nav-switches { display: none; }
 @media (max-width: 61.99em) { .app-switches { display: none; } .app-nav-switches { display: grid; justify-items: start; border-top: 1px solid var(--app-border); padding-top: 12px; } .app-nav-switches .app-switch { min-height: 48px; } }
 
-/* экран ученика: одна шапка, без боковой панели */
-.learn { display: grid; grid-template-rows: 56px minmax(0, 1fr); min-height: 100dvh; background: var(--app-frame); }
-.learn-top { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 12px; padding: 0 16px; background: var(--app-frame); }
-.learn-top .app-brand { width: auto; }
-.learn-main { margin: 0 var(--sheet-inset) var(--sheet-inset); padding: 32px 32px 56px; min-width: 0; background: var(--app-surface); border: 1px solid var(--app-border); border-radius: var(--sheet-radius); }
+/* экран ученика: разделы слева, шапка сверху, как внутри курса */
+.learn, .player-state {
+  --mantine-font-family: 'Onest Variable', 'IBM Plex Sans Variable', system-ui, sans-serif;
+  --mantine-color-text: var(--app-text);
+  --mantine-color-brand-filled: var(--learn-fill);
+  --mantine-color-brand-filled-hover: var(--learn-fill-hover);
+  --mantine-primary-color-filled: var(--learn-fill);
+  --mantine-color-anchor: var(--app-brand);
+  font-family: var(--mantine-font-family);
+  color: var(--app-text);
+}
+html:has(.learn), html:has(.learn) body { background: var(--app-surface); }
+html:has(.player) { scrollbar-gutter: auto; }
+.learn { display: grid; grid-template: 76px minmax(calc(100dvh - 76px), auto) / 236px minmax(0, 1fr); grid-template-areas: 'side top' 'side main'; max-width: 1760px; min-height: 100dvh; margin: 0 auto; background: var(--app-surface); }
+.learn-side { grid-area: side; position: sticky; top: 0; height: 100dvh; display: flex; flex-direction: column; gap: 22px; padding: 20px 12px 24px; background: var(--app-raised); }
+.learn-logo { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 10px; color: var(--app-brand); font-weight: 700; font-size: 20px; letter-spacing: 0.02em; text-decoration: none; }
+.learn-side .learn-link { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 8px 14px; border-radius: 12px; color: var(--app-muted); text-decoration: none; }
+.learn-side .learn-link:hover { color: var(--app-text); background: color-mix(in srgb, var(--app-active) 45%, transparent); }
+.learn-side .learn-link[aria-current='page'] { background: var(--app-active); color: var(--app-brand); font-weight: 500; }
+.learn-foot { margin-top: auto; }
+.learn-top { grid-area: top; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: flex-end; padding: 0 24px 0 32px; background: var(--app-surface); }
+.learn-top .app-icon { width: 44px; height: 44px; border-radius: 50%; }
+.learn-main { grid-area: main; min-width: 0; padding: 4px 32px 56px; }
 .learn-main:focus { outline: none; }
-.learn-main > div { max-width: 1040px; margin: 0 auto; }
-@media (max-width: 47.99375em) {
-  .learn-top { padding: 0 8px 0 12px; gap: 6px; border-bottom: 1px solid var(--app-border); }
-  .learn-main { margin: 0; border: 0; border-radius: 0; padding: 20px 16px 64px; }
+.learn-main > div { max-width: 1120px; margin: 0 auto; }
+@media (max-width: 61.99em) {
+  .learn { grid-template: 60px minmax(0, 1fr) / minmax(0, 1fr) auto; grid-template-areas: 'side top' 'main main'; }
+  .learn-side, .learn-top { position: static; height: auto; padding: 0 8px; border-bottom: 1px solid var(--app-border); background: var(--app-surface); }
+  .learn-side { flex-direction: row; align-items: center; gap: 4px; }
+  .learn-side nav { display: none; }
+  .learn-foot { margin: 0 0 0 auto; }
+  .learn-foot svg { display: none; }
+  .learn-side .learn-link { padding: 8px 10px; white-space: nowrap; }
+  .learn-main { padding: 20px 16px 64px; }
 }

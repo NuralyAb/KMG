@@ -65,3 +65,39 @@
   --viz-bar: #4FA9C9;
   --viz-track: #14303A;
 }
+
+/* Область ученика: лавандовая рамка и фиолетовый акцент, те же, что в course.css самого курса. */
+:root:has(.learn, .player, .player-state) {
+  --app-frame: #ECEAFA;
+  --app-raised: #F8F7FD;
+  --app-active: #E8E3FD;
+  --app-border: #EBE9F6;
+  --app-control: #CFCBE6;
+  --app-text: #17133F;
+  --app-muted: #5F5C7E;
+  --app-brand: #6741E6;
+  --app-brand-soft: #F0ECFF;
+  --learn-glow: #DCD2FF;
+  --learn-fill: #6741E6;
+  --learn-fill-hover: #5733CC;
+  --viz-bar: #6741E6;
+  --viz-track: #E3DBFB;
+}
+
+[data-mantine-color-scheme='dark']:has(.learn, .player, .player-state) {
+  --app-frame: #0B0A14;
+  --app-surface: #14121F;
+  --app-raised: #1A1828;
+  --app-active: #2C2650;
+  --app-border: #292640;
+  --app-control: #4B4769;
+  --app-text: #F1EFFB;
+  --app-muted: #ACA8C8;
+  --app-brand: #A78FFF;
+  --app-brand-soft: #241F42;
+  --learn-glow: #352A6B;
+  --learn-fill: #7150EE;
+  --learn-fill-hover: #7F61F3;
+  --viz-bar: #8E70F7;
+  --viz-track: #2C2650;
+}
