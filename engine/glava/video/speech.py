@@ -11,7 +11,7 @@ from pathlib import Path
 
 VOICE = "ru-RU-DmitryNeural"
 RATE = "-6%"
-RETRIES = 6
+RETRIES = 14
 TAIL = 0.15
 
 
@@ -100,5 +100,5 @@ def _with_retries(text: str, voice: str, rate: str) -> tuple[bytes, list[Word]]:
             detail = "пустой ответ"
         except Exception as error:  # noqa: BLE001 — сетевые ошибки edge_tts разнородны, причина уходит в сообщение
             detail = repr(error)
-        time.sleep(min(20, 2**attempt))
+        time.sleep(min(30, 2**attempt))
     raise SpeechFailed(f"голос {voice} не ответил {RETRIES} раз: {detail[:200]}; смените голос всей серии или повторите позже")
