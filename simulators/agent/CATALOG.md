@@ -25,13 +25,27 @@
 `"world": {"size": [X, Y, Z], "y": [низ, верх], "ve": 5, "camera": {"yaw": 30, "pitch": 24, "zoom": 1, "target": [0,0,0]}}`. ve — вертикальное преувеличение, его обязательно назвать в exaggerations.
 Мир автоматически помещается в кадр: больше 100 «единиц» в ширину он не бывает. Высота на экране = (верх − низ)·ve / max(X, Z); держите её 0,15–0,5 ширины, иначе плоско или не влезет.
 
+## Блоки (`blocks`)
+Начинайте с блоков: они сами дают тела, разрез, цвета, свет, камеру и честные оговорки. `objects` добавляйте, только если блока не хватает. `world` с блоками не нужен. Размеры в метрах, y вниз отрицательный, разрез при z=0.
+- `{"block":"layers","shape":"dome|flat|tilt|fault","depth":4,"relief":7,"thick":9,"cover":"shale","body":"sand","base":"dense","zones":[{"to":-7,"fill":[{"when":"zone(Pn_top)==0","fluid":"oil","name":"Чистая нефть"},{"when":"zone(Pn_top)==1","fluid":"oil","mix":"water","name":"Нефть с водой"},{"when":"1","fluid":"water","name":"Вода"}]},{"fill":[…]}],"hide":"revealed"}` — пласт под покрышкой. zones сверху вниз, `to` — глубина подошвы зоны (число или формула, y), у последней нет. fill по порядку: первый верный, последний — «иначе». Флюиды скрыты до hide; `"hide":"1"` — видны сразу, для процессов во времени. В when — только величины модели, без x, y, z; смесь — только `mix`. Если доля второго флюида меняется с глубиной, `"share":"(y_k-y)/(y_k-y_p)"` — доля mix от 0 до 1, здесь y можно. Глубины в подписях положительные: `{-y_vnk:m:1} м`. Метки у скважины — формулы, если границы меняются. Пласт занимает y от −depth до −depth−thick в середине, поверхность y=0.
+- `{"block":"stack","shape":"flat|dome|tilt|fault","beds":[{"lith":"shale","thick":4,"vary":"0.05*x","name":"Глина"},…],"hide":"revealed"}` — слоистая толща, сверху вниз, 2–9 пластов. vary меняет толщину по x. Порода зависит от случая: вместо lith `"kinds":[{"when":"l1==0","lith":"sand","name":"Коллектор"},{"when":"1","lith":"dense","name":"Плотная порода"}]`. Свой section поверх блока не добавлять.
+- `{"block":"well","x":0,"to":-15,"tool":"-5.5-3*depth_pick","read":"Pн = {Pn_sel::2}","marks":[["верх","-5.5"],["низ","-11.5"]]}` — вышка на площадке, ствол, прибор, подписи.
+- `{"block":"log","x":0,"value":"формула от y","min":0,"max":100,"color":"GR","name":"Гамма-каротаж"}` — кривая вдоль ствола.
+- `{"block":"invasion","x":0,"radius":"формула, м","from":-4,"to":-13,"show":"…"}` — зона проникновения фильтрата.
+- `{"block":"bore","x":0,"radius":"1.2*d_at(y)/d_n","cake":"0.5*cake_at(y)","from":0,"to":-13}` — ствол крупно на срезе: радиус раствора и толщина корки, формулы от y, в метрах сцены (1–3). Для каверн, корок, диаметра.
+- `{"block":"inflow","x":0,"from":-5,"to":-8,"color":"oil","show":"revealed && …"}` — стрелки притока к стволу.
+- `{"block":"contact","y":"формула","label":"ВНК","color":"text","show":"revealed"}` — линия контакта.
+- `{"block":"front","x":0,"radius":"формула, м","color":"PRESSURE"}` — кольцо фронта.
+- `{"block":"pores","water":"доля 0..1","second":"oil"}` — порода под увеличением: зёрна, капли воды и нефти. Можно одна на сцену или рядом с пластом (`at`).
+- `{"block":"depth","from":-4,"to":-13,"step":3,"base":1500}` — шкала глубин, base прибавляется к подписи.
+
 ## Объекты (`objects`)
 Общие поля: `id`, `show` (формула), `opacity` (формула), `name_ru` (в легенду), `clip: false` (не резать разрезом).
 | type | Обязательное | Прочее |
 |---|---|---|
-| solid | top(x,z), bottom(x,z), lith | fluid (oil/water/gas — точки в порах), pore, res. Тело между поверхностями на всю площадь; где top ≤ bottom — толщина 0 |
+| solid | top(x,z), bottom(x,z), lith | fluid (oil/water/gas — точки в порах), fluid2 (смесь двух), pore, res. Тело между поверхностями на всю площадь; где top ≤ bottom — толщина 0 |
 | surface | y(x,z) | lith или color; value(x,z)+min+max+color — раскраска; contour — шаг изолиний, м; res до 160 |
-| section | axis "x"/"z", at (формула) | classes: [{when(x,y,z), color, name}] по порядку или value(x,y,z)+min+max+color; mask(x,y,z); **разрезает** все тела перед собой (cut:false — не резать). Плоскость отдельно от тел: рисует вычисленное |
+| section | axis "x"/"z", at (формула) | classes: [{when(x,y,z), color, name, mix}] по порядку (флюид рисуется в порах песка, mix — второй флюид смеси) или value(x,y,z)+min+max+color; mask(x,y,z); **разрезает** все тела перед собой (cut:false — не резать). Плоскость отдельно от тел: рисует вычисленное |
 | water | level | bottom |
 | tube | path [[x,y,z],…] (минимум 2 точки), radius | color, smooth |
 | prefab | name: derrick, truck, tool; at | scale, rot |
@@ -48,6 +62,7 @@
 `{"id": "c1", "title": "…", "kind": "xy"|"depth", "x": {"var": "t"|параметр|своё имя, "min", "max", "unit", "label"}, "y": {"min", "max", "label"}, "lines": [{"expr", "color", "unit", "label", "dash"}], "cursor": "формула"}`. Если x.var — своё имя, оно доступно в expr. depth — ось x направлена вниз, как на планшете. По t линия рисуется до текущего момента.
 
 ## Игра (`steps`, по порядку)
+Тип шага всегда в поле `kind`: `{"kind":"predict","q":"…","options":["…","…"],"answer":0,"why":"…"}`, `{"kind":"choose","id":"имя","q":"…","options":[{"text":"…","correct":"a > b","why":"…"}]}`, `{"kind":"reveal","text":"…"}`.
 - `predict`: q, options, answer (номер), why, misconception. **Первый шаг.** Ответ раскрывается в конце.
 - `explore`: text, use, until (формула: когда можно дальше), button, title.
 - `guess`: id, text, min, max, unit, truth (формула), log, label. Прогноз числа. Границы — в unit.

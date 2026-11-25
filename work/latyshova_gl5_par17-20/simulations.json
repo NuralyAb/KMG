@@ -24,6 +24,51 @@
      "latyshova.clay_classes_critical#c9"
     ]
    }
+  ],
+  "latyshova.critical_pn_kv": [
+   {
+    "scene": "latyshova_critical_pn_kv",
+    "claims": [
+     "latyshova.critical_pn_kv#c1",
+     "latyshova.critical_pn_kv#c2",
+     "latyshova.critical_pn_kv#c3",
+     "latyshova.critical_pn_kv#c4",
+     "latyshova.critical_pn_kv#c5",
+     "latyshova.critical_pn_kv#c6",
+     "latyshova.critical_pn_kv#c7",
+     "latyshova.critical_pn_kv#c8",
+     "latyshova.critical_pn_kv#c9",
+     "latyshova.critical_pn_kv#c10",
+     "latyshova.critical_pn_kv#c11",
+     "latyshova.critical_pn_kv#c12",
+     "latyshova.critical_pn_kv#c13",
+     "latyshova.critical_pn_kv#c14",
+     "latyshova.critical_pn_kv#c15",
+     "latyshova.critical_pn_kv#c16"
+    ],
+    "origin": "agent"
+   }
+  ],
+  "latyshova.vnk_transition_zone": [
+   {
+    "scene": "latyshova_vnk_transition_zone",
+    "claims": [
+     "latyshova.vnk_transition_zone#c1",
+     "latyshova.vnk_transition_zone#c2",
+     "latyshova.vnk_transition_zone#c3",
+     "latyshova.vnk_transition_zone#c4",
+     "latyshova.vnk_transition_zone#c5",
+     "latyshova.vnk_transition_zone#c6",
+     "latyshova.vnk_transition_zone#c7",
+     "latyshova.vnk_transition_zone#c8",
+     "latyshova.vnk_transition_zone#c9",
+     "latyshova.vnk_transition_zone#c10",
+     "latyshova.vnk_transition_zone#c11",
+     "latyshova.vnk_transition_zone#c12",
+     "latyshova.vnk_transition_zone#c13"
+    ],
+    "origin": "agent"
+   }
   ]
  }
 }

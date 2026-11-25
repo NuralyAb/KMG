@@ -59,8 +59,9 @@ const Uu = { m: [1, 1, 0, 0], cm: [.01, 1, 0, 0], mm: [.001, 1, 0, 0], um: [1e-6
   Pa: [1, -1, 1, -2], kPa: [1e3, -1, 1, -2], MPa: [1e6, -1, 1, -2], bar: [1e5, -1, 1, -2], atm: [101325, -1, 1, -2], N: [1, 1, 1, -2], mPas: [1e-3, -1, 1, -1], D: [9.869e-13, 2, 0, 0], mD: [9.869e-16, 2, 0, 0], '%': [.01, 0, 0, 0], deg: [Math.PI / 180, 0, 0, 0], rad: [1, 0, 0, 0], C: [1, 0, 0, 0], ohm: [1, 0, 0, 0], ppt: [1, 0, 0, 0] };
 export const UNIT_NAMES = Object.keys(Uu);
 const RU = { m: 'м', cm: 'см', mm: 'мм', um: 'мкм', km: 'км', kg: 'кг', g: 'г', t: 'т', s: 'с', min: 'мин', h: 'ч', d: 'сут', yr: 'лет', kyr: 'тыс. лет', Myr: 'млн лет', Pa: 'Па', kPa: 'кПа', MPa: 'МПа', bar: 'бар', atm: 'атм', N: 'Н', mPas: 'мПа·с', D: 'Д', mD: 'мД', deg: '°', rad: 'рад', C: '°C', ohm: 'Ом', ppt: 'г/л' };
+const RU_UNIT = { м: 'm', см: 'cm', мм: 'mm', км: 'km', кг: 'kg', г: 'g', т: 't', с: 's', мин: 'min', ч: 'h', сут: 'd', год: 'yr', лет: 'yr', Па: 'Pa', кПа: 'kPa', МПа: 'MPa', бар: 'bar', атм: 'atm', Н: 'N', Д: 'D', мД: 'mD', Ом: 'ohm', град: 'deg' };
 export function unit(u) {
-  let k = 1, dim = [0, 0, 0]; if (!u || u === '1') return { k, dim };
+  let k = 1, dim = [0, 0, 0]; if (!u || u === '1') return { k, dim }; u = String(u).replace(/[·⋅]/g, '*').replace(/[А-Яа-яЁё]+/g, w => RU_UNIT[w] || w);
   let sg = 1; for (const part of u.split(/([*/])/)) {
     if (part === '*') { sg = 1; continue; } if (part === '/') { sg = -1; continue; } if (part === '1') continue;
     const m = /^([A-Za-z%]+)\^?(-?\d+)?$/.exec(part.trim()); if (!m || !Object.hasOwn(Uu, m[1])) throw new Error(`неизвестная единица «${part}» (есть: ${UNIT_NAMES.join(' ')})`);

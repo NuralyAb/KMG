@@ -27,6 +27,50 @@ test('правка факта пересчитывает только завис
   const o = run('--to', 'game'); assert.match(o, /= facts/); assert.match(o, /= design/); assert.match(o, /✓ model/); assert.match(o, /✓ scene/);
 });
 test('в запросы попадает каталог', () => { const o = run('--plan'); for (const n of ['model', 'scene', 'game']) assert.ok(+new RegExp(n + '\\s+≈(\\d+)').exec(o)[1] > 900, o); });
+test('после сбоя правится прошлый ответ, тип шага в type принимается', () => {
+  const g = pk('steps', 'charts'); w('game', { ...g, steps: g.steps.slice(0, 1) });
+  const o = run('--from', 'game', '--to', 'game'); assert.match(o, /шаг game не прошёл проверку/); assert.ok(fs.existsSync(D + '/game.failed.json'));
+  w('game', { ...g, steps: g.steps.map(({ kind, ...r }) => ({ type: kind, ...r })) });
+  const q = run('--to', 'game'); assert.match(q, /✓ game/, q); assert.ok(!fs.existsSync(D + '/game.failed.json')); assert.equal(JSON.parse(fs.readFileSync(D + '/game.json', 'utf8')).steps[0].kind, 'predict');
+});
+test('флюиды по постоянным глубинам и до ответа не проходят', () => {
+  const s = pk('world', 'objects', 'exaggerations'), z = when => ({ ...s, assumptions: [], objects: [...s.objects, { type: 'section', axis: 'z', at: '0', classes: [{ when, color: 'oil', name: 'нефть' }] }] });
+  w('scene', z('y < -14 && y > -22')); const o = run('--from', 'scene', '--to', 'scene'); assert.match(o, /по постоянным глубинам/, o);
+  w('scene', z('y > 0')); assert.match(run('--from', 'scene', '--to', 'scene'), /торчит стеной/);
+  const g = z('0'); g.objects[0] = { ...g.objects[0], opacity: '0.4' }; w('scene', g); assert.match(run('--from', 'scene', '--to', 'scene'), /поправлено кодом: прозрачность тела/);
+  w('scene', { ...s, assumptions: [] }); assert.match(run('--from', 'scene', '--to', 'game'), /✓ scene/);
+});
+test('правка человека проверяется без модели', () => {
+  const q = D + '/model.json', m = JSON.parse(fs.readFileSync(q, 'utf8')); m.assumptions.push('правка'); fs.writeFileSync(q, JSON.stringify(m)); const dd = D + '/design.json', dz = JSON.parse(fs.readFileSync(dd, 'utf8')); dz.storyboard = ['другое']; fs.writeFileSync(dd, JSON.stringify(dz)); const p = D + '/scene.json', f = JSON.parse(fs.readFileSync(p, 'utf8')), keep = JSON.stringify(f);
+  const o = run('--to', 'game', '--eyes', 'human'); assert.match(o, /= game: правка человека проверена, без модели/, o); assert.doesNotMatch(o, /> game/);
+  f.objects[0].type = 'нет'; fs.writeFileSync(p, JSON.stringify(f)); const k = JSON.parse(fs.readFileSync(D + '/state.json', 'utf8')); delete k.steps.scene; fs.writeFileSync(D + '/state.json', JSON.stringify(k));
+  assert.match(run('--to', 'game', '--eyes', 'human'), /✗ scene/); fs.writeFileSync(p, keep);
+});
+test('исправление патчем: остальное не меняется', () => {
+  w('scene', { ...pk('world', 'objects', 'exaggerations'), assumptions: [] }); run('--from', 'scene', '--to', 'scene');
+  const g = pk('steps', 'charts'), bad = structuredClone(g); bad.steps[4].options[1].correct = '1'; w('game.1', bad); w('game', { patch: { '/steps/4/options/1/correct': 'h<=14' } });
+  const st = JSON.parse(fs.readFileSync(D + '/state.json', 'utf8')); st.fake = {}; fs.writeFileSync(D + '/state.json', JSON.stringify(st));
+  const o = run('--from', 'game', '--to', 'game'); assert.match(o, /верных ответов/, o); assert.match(o, /✓ game/, o);
+  assert.equal(JSON.parse(fs.readFileSync(D + '/game.json', 'utf8')).steps[4].options[1].correct, 'h<=14'); fs.rmSync(path.join(fake, 'game.1.json')); w('game', g);
+});
+test('сцена и игра идут вместе и сверяются', () => { const o = run('--from', 'scene', '--to', 'game'); assert.ok(o.indexOf('> game') < o.indexOf('✓ scene'), o); assert.match(o, /✓ game/); });
+test('лишние ползунки чинит код', () => {
+  const g = structuredClone(pk('steps', 'charts')); g.steps[4].use = ['param:h', 'chart:нет']; w('game', g); const o = run('--from', 'game', '--to', 'game'); assert.match(o, /поправлено кодом: use/, o); assert.match(o, /✓ game/); w('game', pk('steps', 'charts'));
+});
+test('неподвижная сцена и ответ в вариантах не проходят', () => {
+  const s = { ...pk('world', 'exaggerations'), assumptions: [], objects: [{ type: 'solid', top: '-10', bottom: '-30', lith: 'sand' }] }; w('scene', s);
+  assert.match(run('--from', 'scene', '--to', 'scene'), /до раскрытия ничего не меняется/); w('scene', { ...pk('world', 'objects', 'exaggerations'), assumptions: [] }); run('--from', 'scene', '--to', 'scene');
+  const g = structuredClone(pk('steps', 'charts')); g.steps[4].options[0].text = 'Выше {h:m:0} м'; w('game', g); assert.match(run('--from', 'game', '--to', 'game'), /ответ виден без сцены/); w('game', pk('steps', 'charts')); run('--from', 'game', '--to', 'game');
+});
+test('образец принимается всеми проверками', () => {
+  const e = JSON.parse(fs.readFileSync('agent/example.json', 'utf8')), keep = {}; for (const n of ['model', 'scene', 'game']) { keep[n] = fs.readFileSync(path.join(fake, n + '.json')); w(n, e[n]); } fs.renameSync(path.join(fake, 'model.1.json'), path.join(fake, 'm1'));
+  const o = run('--from', 'model', '--to', 'game'); assert.match(o, /✓ model/, o); assert.match(o, /✓ scene/, o); assert.match(o, /✓ game/, o); assert.doesNotMatch(o, /исправление/);
+  for (const n in keep) fs.writeFileSync(path.join(fake, n + '.json'), keep[n]); fs.renameSync(path.join(fake, 'm1'), path.join(fake, 'model.1.json')); const st = JSON.parse(fs.readFileSync(D + '/state.json', 'utf8')); st.fake = {}; fs.writeFileSync(D + '/state.json', JSON.stringify(st)); run('--from', 'model', '--to', 'game');
+});
+test('вычитка правит только тексты', { skip: !process.env.FULL }, () => {
+  w('proof', { patch: { '/intro': 'Новое вступление.', '/params/h/value': '99', '/steps/0/kind': 'reveal' } }); const o = run('--from', 'look', '--to', 'look'); assert.match(o, /вычитка: исправлено 1/, o);
+  const s = JSON.parse(fs.readFileSync(D + '/sim.json', 'utf8')); assert.equal(s.intro, 'Новое вступление.'); assert.equal(s.steps[0].kind, 'predict'); fs.rmSync(path.join(fake, 'proof.json'));
+});
 test('3D не нужен — конвейер честно останавливается', () => { w('facts', { fit_3d: false, why: 'хватит схемы', claims: cl }); const o = run('--from', 'facts', '--to', 'facts'); assert.match(o, /3D не нужен: хватит схемы/); w('facts', { fit_3d: true, why: 'x', claims: cl }); });
 test('до конца: кадры, прохождение, сдача', { skip: !process.env.FULL }, () => { const o = run('--from', 'facts'); assert.match(o, /Готово/, o); fs.rmSync('sims/' + job + '.json', { force: true }); fs.rmSync('sims/' + job + '.webp', { force: true }); spawnSync('node', ['build.mjs']); });
 

@@ -1,0 +1,491 @@
+{
+ "base": {
+  "template": "compose",
+  "title": "Блоки",
+  "goal": "проверка",
+  "intro": "проверка",
+  "node_id": "t.t",
+  "difficulty": {
+   "primary": "П"
+  },
+  "provenance": "симуляция",
+  "why_3d": "проверка всех блоков в объёме сцены",
+  "seed": 1,
+  "misconception": "м",
+  "data_bridge": "д",
+  "transfer": {
+   "q": "q",
+   "options": [
+    "a",
+    "b"
+   ],
+   "answer": 0,
+   "why": "w"
+  },
+  "analogy": {
+   "text": "a",
+   "breaks_where": "b"
+  },
+  "claims": [
+   {
+    "id": "c1",
+    "text": "т",
+    "quote": "дословная цитата",
+    "page": 1
+   }
+  ],
+  "steps": [
+   {
+    "kind": "predict",
+    "q": "q?",
+    "options": [
+     "а",
+     "б"
+    ],
+    "answer": 0,
+    "why": "w"
+   },
+   {
+    "kind": "explore",
+    "text": "т",
+    "use": [
+     "time",
+     "param:kw"
+    ]
+   },
+   {
+    "kind": "choose",
+    "id": "ch",
+    "q": "q",
+    "options": [
+     {
+      "text": "а",
+      "correct": "kw<0.5",
+      "why": "w"
+     },
+     {
+      "text": "б",
+      "correct": "kw>=0.5",
+      "why": "w"
+     }
+    ]
+   },
+   {
+    "kind": "reveal",
+    "text": "т"
+   }
+  ]
+ },
+ "model": {
+  "params": {
+   "kw": {
+    "value": 0.3,
+    "unit": "1",
+    "range": [
+     0.15,
+     0.9
+    ],
+    "from": "assumption",
+    "control": [
+     0.05,
+     0.95,
+     0.05,
+     "Доля воды"
+    ]
+   },
+   "V": {
+    "value": 4,
+    "unit": "m/d",
+    "from": "assumption"
+   }
+  },
+  "functions": {},
+  "vars": {
+   "R": {
+    "expr": "V*t",
+    "unit": "m",
+    "label": "Радиус"
+   },
+   "ko": {
+    "expr": "1-kw",
+    "unit": "1",
+    "label": "Доля нефти"
+   }
+  },
+  "time": {
+   "min": 0,
+   "max": 5,
+   "unit": "d",
+   "duration": 6,
+   "label": "Время"
+  },
+  "checks": [
+   {
+    "name": "a",
+    "expr": "kw"
+   },
+   {
+    "name": "b",
+    "expr": "1-kw"
+   },
+   {
+    "name": "c",
+    "expr": "2-kw"
+   }
+  ]
+ },
+ "dome": {
+  "blocks": [
+   {
+    "block": "layers",
+    "shape": "dome",
+    "depth": 4,
+    "relief": 7,
+    "thick": 9,
+    "zones": [
+     {
+      "to": -7,
+      "fill": [
+       {
+        "when": "kw<0.4",
+        "fluid": "oil",
+        "name": "Нефть"
+       },
+       {
+        "when": "kw<0.7",
+        "fluid": "oil",
+        "mix": "water",
+        "name": "Нефть с водой"
+       },
+       {
+        "when": "1",
+        "fluid": "water",
+        "name": "Вода"
+       }
+      ]
+     },
+     {
+      "fill": [
+       {
+        "fluid": "water",
+        "name": "Вода"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "block": "well",
+    "to": -15,
+    "tool": "-5.5",
+    "read": "kв = {kw::2}",
+    "marks": [
+     [
+      "верх",
+      "-5.5"
+     ],
+     [
+      "низ",
+      "-11.5"
+     ]
+    ]
+   },
+   {
+    "block": "contact",
+    "y": "-7",
+    "label": "ВНК",
+    "show": "revealed"
+   },
+   {
+    "block": "inflow",
+    "from": -5,
+    "to": -6.5,
+    "color": "oil",
+    "show": "revealed && kw<0.7"
+   }
+  ]
+ },
+ "fault": {
+  "blocks": [
+   {
+    "block": "layers",
+    "shape": "fault",
+    "depth": 4,
+    "relief": 6,
+    "thick": 9,
+    "open": "none",
+    "zones": [
+     {
+      "fill": [
+       {
+        "when": "kw<0.4",
+        "fluid": "oil",
+        "name": "Нефть"
+       },
+       {
+        "when": "kw<0.7",
+        "fluid": "oil",
+        "mix": "water",
+        "name": "Нефть с водой"
+       },
+       {
+        "when": "1",
+        "fluid": "water",
+        "name": "Вода"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "block": "well",
+    "x": -14,
+    "to": -13
+   },
+   {
+    "block": "depth",
+    "from": 0,
+    "to": -18,
+    "step": 6,
+    "base": 1500
+   }
+  ]
+ },
+ "tilt": {
+  "blocks": [
+   {
+    "block": "layers",
+    "shape": "tilt",
+    "depth": 4,
+    "relief": 8,
+    "thick": 9,
+    "zones": [
+     {
+      "to": -9,
+      "fill": [
+       {
+        "when": "kw<0.4",
+        "fluid": "oil",
+        "name": "Нефть"
+       },
+       {
+        "when": "kw<0.7",
+        "fluid": "oil",
+        "mix": "water",
+        "name": "Нефть с водой"
+       },
+       {
+        "when": "1",
+        "fluid": "water",
+        "name": "Вода"
+       }
+      ]
+     },
+     {
+      "fill": [
+       {
+        "fluid": "water"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "block": "front",
+    "radius": "R"
+   },
+   {
+    "block": "well"
+   }
+  ]
+ },
+ "invasion": {
+  "blocks": [
+   {
+    "block": "layers",
+    "shape": "flat",
+    "depth": 4,
+    "relief": 7,
+    "thick": 10,
+    "zones": [
+     {
+      "fill": [
+       {
+        "when": "kw<0.4",
+        "fluid": "oil",
+        "name": "Нефть"
+       },
+       {
+        "when": "kw<0.7",
+        "fluid": "oil",
+        "mix": "water",
+        "name": "Нефть с водой"
+       },
+       {
+        "when": "1",
+        "fluid": "water",
+        "name": "Вода"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "block": "well",
+    "to": -13
+   },
+   {
+    "block": "invasion",
+    "radius": "min(R,18)",
+    "from": -4,
+    "to": -14
+   },
+   {
+    "block": "log",
+    "value": "if(y>-4,80,if(y>-14,20+10*noise(y,1,2,3),70))",
+    "min": 0,
+    "max": 100,
+    "color": "GR",
+    "name": "Гамма-каротаж"
+   }
+  ]
+ },
+ "stack": {
+  "blocks": [
+   {
+    "block": "stack",
+    "shape": "tilt",
+    "relief": 5,
+    "hide": "revealed",
+    "beds": [
+     {
+      "lith": "shale",
+      "thick": 4,
+      "name": "Глина"
+     },
+     {
+      "lith": "sand",
+      "thick": 5,
+      "vary": "0.06*x",
+      "name": "Песчаник"
+     },
+     {
+      "lith": "limestone",
+      "thick": 4,
+      "name": "Известняк"
+     },
+     {
+      "lith": "dense",
+      "thick": 4,
+      "name": "Основание"
+     }
+    ]
+   },
+   {
+    "block": "well",
+    "to": -12
+   }
+  ]
+ },
+ "pores": {
+  "blocks": [
+   {
+    "block": "pores",
+    "water": "kw",
+    "second": "oil"
+   }
+  ]
+ },
+ "moving": {
+  "blocks": [
+   {
+    "block": "layers",
+    "shape": "dome",
+    "depth": 4,
+    "relief": 7,
+    "thick": 9,
+    "zones": [
+     {
+      "to": "-6-3*T",
+      "fill": [
+       {
+        "when": "1",
+        "fluid": "oil",
+        "name": "Нефть"
+       }
+      ]
+     },
+     {
+      "fill": [
+       {
+        "fluid": "water",
+        "name": "Вода"
+       }
+      ]
+     }
+    ],
+    "hide": "1"
+   },
+   {
+    "block": "well",
+    "to": -15
+   },
+   {
+    "block": "contact",
+    "y": "-6-3*T",
+    "label": "ВНК"
+   }
+  ]
+ },
+ "bore": {
+  "blocks": [
+   {
+    "block": "stack",
+    "shape": "flat",
+    "beds": [
+     {
+      "lith": "shale",
+      "thick": 4,
+      "name": "Глина"
+     },
+     {
+      "kinds": [
+       {
+        "when": "kw<0.5",
+        "lith": "sand",
+        "name": "Коллектор"
+       },
+       {
+        "when": "1",
+        "lith": "dense",
+        "name": "Плотная порода"
+       }
+      ],
+      "thick": 5
+     },
+     {
+      "lith": "shale",
+      "thick": 4
+     },
+     {
+      "lith": "dense",
+      "thick": 3,
+      "name": "Основание"
+     }
+    ]
+   },
+   {
+    "block": "well",
+    "to": -12,
+    "tool": "-6"
+   },
+   {
+    "block": "bore",
+    "radius": "if(y>-4.5,1.9+0.5*T,if(y>-9.5,if(kw<0.5,1.1,1.4),1.9))",
+    "cake": "if(y<-4.5 && y>-9.5 && kw<0.5,0.5,0)",
+    "from": 0,
+    "to": -14
+   }
+  ]
+ }
+}

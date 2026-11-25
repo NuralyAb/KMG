@@ -4,9 +4,10 @@
  "steps": {
   "facts": { "retries": 1 },
   "design": { "retries": 1 },
-  "model": { "effort": "medium" },
-  "scene": { "effort": "medium" },
-  "look": { "retries": 1 },
+  "model": { "effort": "low" },
+  "scene": { "effort": "low" },
+  "look": { "retries": 1, "timeout_min": 3, "budget_usd": 0.15 },
+  "proof": { "retries": 0, "timeout_min": 3, "budget_usd": 0.15 },
   "critic": { "retries": 0 }
  }
 }

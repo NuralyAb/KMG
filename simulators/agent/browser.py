@@ -8,7 +8,7 @@ url = (root / 'dist' / 'тренажёры.html').as_uri()
 spec = json.loads((job / 'sim.json').read_text('utf8'))
 issues, res = [], {}
 
-PROBE = """()=>{const v=document.querySelector('#view').getBoundingClientRect(),L=[...document.querySelectorAll('.lbl')].filter(e=>e.style.display!=='none'&&e.textContent).map(e=>[e.textContent,e.getBoundingClientRect()]);
+PROBE = """()=>{const v=document.querySelector('#view').getBoundingClientRect(),L=[...document.querySelectorAll('.lbl')].filter(e=>e.style.display!=='none'&&e.style.visibility!=='hidden'&&e.textContent).map(e=>[e.textContent,e.getBoundingClientRect()]);
 const h=document.querySelector('#hint').getBoundingClientRect(),out=[];
 for(const [t,r] of L){if(r.right<v.left||r.left>v.right||r.bottom<v.top||r.top>v.bottom)continue;if(r.left<v.left-2||r.right>v.right+2)out.push('подпись обрезана: '+t);if(r.top<h.bottom&&r.bottom>h.top&&r.left<h.right&&r.right>h.left)out.push('подпись под подсказкой: '+t);}
 for(let i=0;i<L.length;i++)for(let j=i+1;j<L.length;j++){const a=L[i][1],b=L[j][1],w=Math.min(a.right,b.right)-Math.max(a.left,b.left),q=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);if(w>6&&q>4&&a.width&&b.width)out.push('подписи накладываются: '+L[i][0]+' / '+L[j][0]);}
@@ -20,11 +20,25 @@ def open_page(b, mobile=False):
     pg.on('pageerror', lambda e: issues.append('ошибка JS: ' + str(e)[:200]))
     pg.on('console', lambda m: issues.append('консоль: ' + m.text[:200]) if m.type == 'error' else None)
     pg.on('request', lambda r: issues.append('сеть: ' + r.url[:80]) if r.url.startswith('http') else None)
-    pg.goto(url + '#3_pressure'); pg.wait_for_timeout(900)
+    pg.goto(url + '#3_pressure'); pg.wait_for_function('()=>!!(window.__t&&__t.cur)'); pg.wait_for_timeout(150)
     err = pg.evaluate("s=>{const e=__t.load(s,s.seed);document.querySelector('#home').hidden=true;return e}", spec)
     if err: issues.extend(err)
-    pg.wait_for_timeout(700)
+    pg.wait_for_timeout(250)
     return pg
+
+def frame(pg, q):
+    e = pg.evaluate('s=>__t.load(s,s.seed)', spec)
+    if e: issues.extend(e)
+    pg.wait_for_timeout(120)
+    while pg.evaluate('__t.cur.info().step') < q.get('step', 0):
+        if not act(pg, True): break
+    if q.get('reveal'): pg.evaluate('__t.cur.M.E.revealed=1;__t.cur.refresh()')
+    if q.get('t') is not None: pg.evaluate('k=>__t.cur.setK(k)', q['t'])
+    v = q.get('view')
+    pg.evaluate('([v,c])=>__t.cur.look(v?{yaw:v[0],pitch:v[1],zoom:v[2]||1}:c,0)', [v, (spec['steps'][q.get('step', 0)].get('camera') or spec['world'].get('camera') or {})])
+    pg.wait_for_timeout(650); issues.extend(pg.evaluate(PROBE)); m, sd = pg.evaluate(PIX)
+    if m < 18 or sd < 7: issues.append('кадр почти пустой или чёрный')
+    return pg.screenshot()
 
 # Выполнить текущий шаг так, как это сделал бы ученик
 def act(pg, quick=False):
@@ -55,7 +69,7 @@ def act(pg, quick=False):
                         if not b.is_disabled(): break
             if b.is_disabled(): issues.append(f"шаг {inf['step']}: условие until недостижимо"); return False
         b.click()
-    pg.wait_for_timeout(150 if quick else 500)
+    pg.wait_for_timeout(60 if quick else 160)
     return True
 
 with sync_playwright() as p:
@@ -72,7 +86,17 @@ with sync_playwright() as p:
         if m < 18 or sd < 7: issues.append('кадр почти пустой или чёрный')
         n = len(list((job / 'shots').glob('*.png'))); f = job / 'shots' / f"{n:02d}_s{opt['step']}{'_m' if opt.get('mobile') else ''}.png"; pg.screenshot(path=str(f))
         res = {'shot': str(f), 'state': pg.evaluate('__t.cur.info()'), 'brightness': round(m), 'contrast': round(sd)}
-    else:
+    elif mode == 'inspect' or mode == 'play':
+        if mode == 'inspect':
+            import io
+            from PIL import Image
+            (job / 'shots').mkdir(exist_ok=True); pd = open_page(b); pm = open_page(b, True); ims = []
+            for q in opt['frames']: ims.append(Image.open(io.BytesIO(frame(pm if q.get('mobile') else pd, q))).convert('RGB'))
+            pd.close(); pm.close(); n = len(list((job / 'shots').glob('*.png')))
+            # один лист вместо четырёх файлов: модель смотрит его за один вызов инструмента
+            W, H = 800, 500; sheet = Image.new('RGB', (W * 2, H * ((len(ims) + 1) // 2)), '#c8ced4')
+            for i, im in enumerate(ims): im.thumbnail((W, H)); sheet.paste(im, (i % 2 * W, i // 2 * H))
+            f = job / 'shots' / f'{n:02d}_sheet.png'; sheet.save(f); res['shot'] = str(f); res['frames'] = len(ims); res['look_issues'] = sorted(set(issues))
         for mobile in (False, True):
             pg = open_page(b, mobile); tag = 'телефон' if mobile else 'компьютер'; kinds = []
             for _ in range(30):
@@ -82,14 +106,14 @@ with sync_playwright() as p:
                 m, sd = pg.evaluate(PIX)
                 if m < 18 or sd < 7: issues.append(f'{tag}, шаг {len(kinds)}: кадр пустой')
             if not pg.evaluate('__t.cur.info().done'): issues.append(tag + ': до конца не дошли, остановка на ' + str(kinds[-1:]))
-            fps = pg.evaluate("()=>new Promise(r=>{let n=0,t0=performance.now();(function f(){n++;performance.now()-t0<1200?requestAnimationFrame(f):r(Math.round(n/1.2))})()})")
+            fps = pg.evaluate("()=>new Promise(r=>{let n=0,t0=performance.now();(function f(){n++;performance.now()-t0<500?requestAnimationFrame(f):r(Math.round(n/.5))})()})")
             if fps < 24: issues.append(f'{tag}: {fps} кадров в секунду')
             t0 = time.time()
             for q in (1, 2, 3):  # другие случаи строятся без ошибок
-                e = pg.evaluate('([s,q])=>__t.load(s,q)', [spec, 100 + q]); pg.wait_for_timeout(250)
+                e = pg.evaluate('([s,q])=>__t.load(s,q)', [spec, 100 + q]); pg.wait_for_timeout(90)
                 if e: issues.extend(e)
             if not mobile:
-                pg2 = open_page(b); pg2.evaluate('__t.cur.setK(.5)'); pg2.wait_for_timeout(900); pg2.add_style_tag(content='.lbl,.badge,#hint{visibility:hidden!important}')
+                pg2 = open_page(b); pg2.evaluate('__t.cur.setK(.5)'); pg2.wait_for_timeout(350); pg2.add_style_tag(content='.lbl,.badge,#hint{visibility:hidden!important}')
                 pg2.screenshot(path=str(job / 'thumb.png'), clip={'x': 40, 'y': 90, 'width': 780, 'height': 520}); pg2.close()
                 from PIL import Image
                 Image.open(job / 'thumb.png').convert('RGB').resize((480, 320)).save(job / 'thumb.webp', quality=80); res['thumb'] = str(job / 'thumb.webp')

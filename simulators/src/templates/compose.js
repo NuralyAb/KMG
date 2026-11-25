@@ -11,21 +11,37 @@ const TEXOF = { sand: 'sand', shale: 'shale', limestone: 'limestone', dolomite: 
 const rgb = h => { const c = new THREE.Color(h); return [c.r, c.g, c.b]; };
 function ramp(k, colr) { k = clamp(k, 0, 1); const lo = [.03, .04, .055], hi = [1, .97, .88], m = (a, b, t) => a + (b - a) * t; return k < .65 ? lo.map((v, i) => m(v, colr[i], k / .65)) : colr.map((v, i) => m(v, hi[i], (k - .65) / .35)); }
 
+// Срез породы: зёрна и флюид в порах, а не ровная заливка
+const FLUIDS = ['oil', 'gas', 'water', 'filtrate'], hash = (a, b, k) => { const v = Math.sin(a * 127.1 + b * 311.7 + k * 74.7) * 43758.5453; return v - Math.floor(v); };
+function grain(d, w, h, id, sh) {
+  const G = 6, srgb = n => { const c = new THREE.Color(COL[n]); return [c.r, c.g, c.b].map(v => 255 * (v <= .0031308 ? v * 12.92 : 1.055 * v ** (1 / 2.4) - .055)); }, memo = {}, col = n => (memo[n] = memo[n] || srgb(n)), sand = col('sand');
+  for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) {
+    const c = id[j * w + i]; if (!c) continue; const k = (j * w + i) * 4, fl = FLUIDS.includes(c.color), gi = Math.floor(i / G), gj = Math.floor(j / G); let m = 9, t = 0;
+    for (let a = -1; a <= 1; a++) for (let b = -1; b <= 1; b++) { const q = Math.hypot(gi + a + hash(gi + a, gj + b, 1) - i / G, gj + b + hash(gi + a, gj + b, 2) - j / G); if (q < m) { m = q; t = hash(gi + a, gj + b, 3); } }
+    const pore = fl && m > .27 + .12 * t, f = c.mix && hash(Math.floor(i / 22 + hash(gi, gj, 5)), Math.floor(j / 14 + hash(gi, gj, 6)), 4) < (sh ? sh[j * w + i] : .5) ? c.mix : c.color, base = fl ? (pore ? col(f) : sand) : [d[k], d[k + 1], d[k + 2]], s = (pore ? .96 : fl ? .78 + .2 * t - .18 * m : .84 + .22 * t - .1 * m);
+    for (let q = 0; q < 3; q++) d[k + q] = base[q] * s;
+    const up = j > 0 ? id[(j - 1) * w + i] : c; if (up && up !== c) for (let q = 0; q < 3; q++) d[k + q] *= .45;
+  }
+}
+
 export function build(stage, spec, seed, panel) {
   const M = new Model(spec, seed), S = stage.scene, [X, , Z] = spec.world.size, [y0, y1] = spec.world.y || [0, spec.world.size[1]], ve = spec.world.ve || 1;
   const U = Math.max(X, Z) / 100, sx = v => v / U, sy = y => (y - (y0 + y1) / 2) / U * ve, sv = v => v / U * ve, H = sv(y1 - y0);
+  const labels = []; // подписи: важные видны всегда, остальные прячутся, если налезают
   const ups = [], frames = [], pickables = {}, clipP = new THREE.Plane(new THREE.Vector3(0, 0, -1), 1e6); let useClip = false;
   const f = (s, a = []) => M.fn(String(s), a), f3 = (a, args = []) => a.map(s => f(s, args));
   const dynAny = list => list.some(s => s !== undefined && M.dynamic(String(s)));
   const secO = spec.objects.find(o => o.type === 'section' && o.cut !== false);
   if (secO) { useClip = true; clipP.normal.set(secO.axis === 'x' ? -1 : 0, 0, secO.axis === 'z' ? -1 : 0); const at = f(secO.at); ups.push({ d: dynAny([secO.at]), u: () => { clipP.constant = sx(at()); } }); }
   const clipOpt = o => (useClip && o.clip !== false ? { clippingPlanes: [clipP] } : {});
+  // величины, от которых зависят формулы: не изменились — объект не пересчитывается
+  const watch = list => { const ns = new Set(); list.forEach(s => s !== undefined && M.deps(String(s)).forEach(n => ns.add(n))); const a = [...ns]; return () => a.map(n => M.P[n] ?? M.V[n] ?? M.S[n] ?? M.E[n]).join(); };
   const common = (o, mesh, list, u) => {
-    S.add(mesh); const show = o.show !== undefined ? f(o.show) : null, op = o.opacity !== undefined ? f(o.opacity) : null;
-    ups.push({ d: dynAny(list), u }); if (show || op) ups.push({ d: true, u: () => { if (show) mesh.visible = show() > 0; if (op && mesh.material) { mesh.material.opacity = clamp(op(), 0, 1); mesh.material.transparent = true; mesh.material.depthWrite = mesh.material.opacity > .9; } } });
+    S.add(mesh); const show = o.show !== undefined ? f(o.show) : null, op = o.opacity !== undefined ? f(o.opacity) : null, key = watch(list); let last = null;
+    ups.push({ d: true, u: () => { if (show) { mesh.visible = show() > 0; if (!mesh.visible) return; } const k = key(); if (k !== last) { last = k; u(); } if (mesh.userData.off) mesh.visible = false; if (op && mesh.material) { mesh.material.opacity = clamp(op(), 0, 1); mesh.material.transparent = true; mesh.material.depthWrite = mesh.material.opacity > .9; } } });
     if (o.id) pickables[o.id] = mesh;
   };
-  const mat = (o, extra = {}) => o.lith ? rockMaterial({ lith: TEXOF[o.lith], color: COL[o.lith], fluid: o.fluid && LEG[o.fluid] ? o.fluid : null, pore: o.pore || 1.1, scale: .1, extra: { ...clipOpt(o), ...extra } })
+  const mat = (o, extra = {}) => o.lith ? rockMaterial({ lith: TEXOF[o.lith], color: COL[o.lith], fluid: o.fluid && LEG[o.fluid] ? o.fluid : null, fluid2: o.fluid2 && LEG[o.fluid2] ? o.fluid2 : null, pore: o.pore || 1.1, scale: .1, extra: { ...clipOpt(o), ...extra } })
     : new THREE.MeshStandardMaterial({ color: COL[o.color] || '#9aa6b3', roughness: .6, side: THREE.DoubleSide, ...clipOpt(o), ...extra });
 
   const T = {
@@ -52,22 +68,23 @@ export function build(stage, spec, seed, panel) {
       common(o, m, [o.y, o.value], () => { for (let i = 0; i < p.count; i++) { const x = p.getX(i) * U, z = p.getZ(i) * U; p.setY(i, sy(fy(x, z))); if (c) c.setXYZ(i, ...ramp((fv(x, z) - o.min) / (o.max - o.min), base)); } p.needsUpdate = true; if (c) c.needsUpdate = true; g.computeVertexNormals(); g.computeBoundingSphere(); });
     },
     section(o) {
-      const W = o.axis === 'z' ? X : Z, cw = 200, ch = Math.round(clamp(200 * (y1 - y0) * ve / W, 60, 160)), cv = document.createElement('canvas'); cv.width = cw; cv.height = ch; const cx = cv.getContext('2d'), tx = new THREE.CanvasTexture(cv); tx.colorSpace = THREE.SRGBColorSpace;
+      const W = o.axis === 'z' ? X : Z, flat = !o.value, cw = flat ? 480 : 200, ch = Math.round(clamp(cw * (y1 - y0) * ve / W, 60, flat ? 384 : 160)), cv = document.createElement('canvas'); cv.width = cw; cv.height = ch; const cx = cv.getContext('2d'), tx = new THREE.CanvasTexture(cv); tx.colorSpace = THREE.SRGBColorSpace;
       const m = new THREE.Mesh(new THREE.PlaneGeometry(sx(W), H), new THREE.MeshBasicMaterial({ map: tx, transparent: true, side: THREE.DoubleSide, alphaTest: .3, toneMapped: false })); if (o.axis === 'x') m.rotation.y = Math.PI / 2;
-      const at = f(o.at), fv = o.value ? f(o.value, ['x', 'y', 'z']) : null, cl = (o.classes || []).map(c => [f(c.when, ['x', 'y', 'z']), new THREE.Color(COL[c.color]), c]), ms = o.mask ? f(o.mask, ['x', 'y', 'z']) : null, base = rgb(COL[o.color || 'reef']), tc = new THREE.Color();
+      const at = f(o.at), fv = o.value ? f(o.value, ['x', 'y', 'z']) : null, cl = (o.classes || []).map(c => [f(c.when, ['x', 'y', 'z']), new THREE.Color(COL[c.color]), c, c.share !== undefined ? f(c.share, ['x', 'y', 'z']) : null]), ms = o.mask ? f(o.mask, ['x', 'y', 'z']) : null, base = rgb(COL[o.color || 'reef']), tc = new THREE.Color();
       common(o, m, [o.at, o.value, o.mask, ...(o.classes || []).map(c => c.when)], () => {
-        const a = at(), im = cx.createImageData(cw, ch); m.position.set(o.axis === 'x' ? sx(a) + .03 : 0, 0, o.axis === 'z' ? sx(a) + .03 : 0);
+        const a = at(), im = cx.createImageData(cw, ch), id = flat ? new Array(cw * ch) : null, sh = flat && cl.some(q => q[3]) ? new Float32Array(cw * ch).fill(.5) : null; m.position.set(o.axis === 'x' ? sx(a) + .03 : 0, 0, o.axis === 'z' ? sx(a) + .03 : 0);
         for (let j = 0; j < ch; j++) for (let i = 0; i < cw; i++) {
           const h = ((i + .5) / cw - .5) * W, y = y1 - (j + .5) / ch * (y1 - y0), x = o.axis === 'z' ? h : a, z = o.axis === 'z' ? a : -h, k = (j * cw + i) * 4; let c = null;
           if (ms && !(ms(x, y, z) > 0)) continue;
-          for (const q of cl) if (q[0](x, y, z) > 0) { c = q[1]; break; }
+          for (const q of cl) if (q[0](x, y, z) > 0) { c = q[1]; if (id) id[j * cw + i] = q[2]; if (sh && q[3]) sh[j * cw + i] = q[3](x, y, z); break; }
           if (!c && fv) { const v = fv(x, y, z); if (Number.isFinite(v)) c = tc.setRGB(...ramp((v - o.min) / (o.max - o.min), base)); }
           if (!c) continue; const s = c.clone().convertLinearToSRGB(); im.data[k] = s.r * 255; im.data[k + 1] = s.g * 255; im.data[k + 2] = s.b * 255; im.data[k + 3] = 255;
         }
+        if (flat) grain(im.data, cw, ch, id, sh);
         cx.putImageData(im, 0, 0); tx.needsUpdate = true;
       });
     },
-    water(o) { const lv = f(o.level), m = new THREE.Mesh(new THREE.BoxGeometry(sx(X) * .999, 1, sx(Z) * .999), new THREE.MeshPhysicalMaterial({ color: '#1f7396', transparent: true, opacity: .42, roughness: .1, depthWrite: false, ...clipOpt(o) })); const b = f(o.bottom === undefined ? String(y0) : o.bottom); common({ ...o, opacity: undefined }, m, [o.level, o.bottom], () => { const a = sy(lv()), c = sy(b()); m.scale.y = Math.max(.05, a - c); m.position.y = (a + c) / 2; m.visible = a > c; }); },
+    water(o) { const lv = f(o.level), m = new THREE.Mesh(new THREE.BoxGeometry(sx(X) * .999, 1, sx(Z) * .999), new THREE.MeshPhysicalMaterial({ color: '#1f7396', transparent: true, opacity: .42, roughness: .1, depthWrite: false, ...clipOpt(o) })); const b = f(o.bottom === undefined ? String(y0) : o.bottom); common({ ...o, opacity: undefined }, m, [o.level, o.bottom], () => { const a = sy(lv()), c = sy(b()); m.scale.y = Math.max(.05, a - c); m.position.y = (a + c) / 2; m.userData.off = !(a > c); m.visible = a > c; }); },
     tube(o) { const ps = o.path.map(p => f3(p)), r = f(o.radius), m = new THREE.Mesh(new THREE.BufferGeometry(), o.color && o.color !== 'steel' ? new THREE.MeshStandardMaterial({ color: COL[o.color], roughness: .5 }) : steel('#aab2b9', .35)); m.castShadow = true; common(o, m, [...o.path.flat(), o.radius], () => { const v = ps.map(p => new THREE.Vector3(sx(p[0]()), sy(p[1]()), sx(p[2]()))); m.geometry.dispose(); m.geometry = new THREE.TubeGeometry(v.length > 2 && o.smooth ? new THREE.CatmullRomCurve3(v) : (() => { const c = new THREE.CurvePath(); for (let i = 1; i < v.length; i++) c.add(new THREE.LineCurve3(v[i - 1], v[i])); return c; })(), Math.max(8, v.length * 10), Math.max(.12, sx(r())), 12); }); },
     prefab(o) { const at = f3(o.at), g = o.name === 'derrick' ? derrick(26, 6.5) : o.name === 'truck' ? loggingTruck() : loggingTool(6.5, .36); const base = { derrick: 13 / 26, truck: 7 / 9.6, tool: 7 / 6.5 }[o.name] * (o.scale || 1); g.scale.setScalar(base); g.rotation.y = (o.rot || 0) * Math.PI / 180; common(o, g, o.at, () => g.position.set(sx(at[0]()), sy(at[1]()), sx(at[2]()))); },
     shape(o) {
@@ -91,7 +108,7 @@ export function build(stage, spec, seed, panel) {
       common(o, G, o.vector, () => { let k = 0, mx = 1e-30; const L = []; for (let i = 0; i < n[0]; i++) for (let j = 0; j < n[1]; j++) for (let l = 0; l < n[2]; l++) { const p = [i, j, l].map((q, c) => a[c] + (b[c] - a[c]) * (n[c] > 1 ? q / (n[c] - 1) : .5)), w = v.map(q => q(...p)), len = Math.hypot(...w); mx = Math.max(mx, len || 0); L.push([p, w, len]); }
         for (const [p, w, len] of L) { const s = (o.scale || 3) * Math.sqrt((len || 0) / mx); d.position.set(sx(p[0]), sy(p[1]), sx(p[2])); const dir = new THREE.Vector3(...w); dir.lengthSq() > 0 && d.quaternion.setFromUnitVectors(up, dir.normalize()); d.scale.setScalar(len > 0 ? Math.max(.001, s) : .001); d.updateMatrix(); m1.setMatrixAt(k, d.matrix); m2.setMatrixAt(k++, d.matrix); } m1.instanceMatrix.needsUpdate = m2.instanceMatrix.needsUpdate = true; });
     },
-    label(o) { const at = f3(o.at), l = stage.label('', [0, 0, 0], o.hot ? 'hot' : 'soft'); common(o, l, [...o.at], () => { l.position.set(sx(at[0]()), sy(at[1]()), sx(at[2]())); }); ups.push({ d: true, u: () => { const t = M.text(o.text); if (l.element.textContent !== t) l.element.textContent = t; } }); },
+    label(o) { const at = f3(o.at), l = stage.label('', [0, 0, 0], o.hot ? 'hot' : 'soft'); labels.push([l, o.hot ? 0 : 1]); common(o, l, [...o.at], () => { l.position.set(sx(at[0]()), sy(at[1]()), sx(at[2]())); }); ups.push({ d: true, u: () => { const t = M.text(o.text); if (l.element.textContent !== t) l.element.textContent = t; } }); },
     column(o) { // столбик керна/скважины: в точке или в местах, выбранных учеником
       const fv = f(o.value, ['x', 'y', 'z']), ft = f(o.top, ['x', 'z']), fb = f(o.bottom, ['x', 'z']), gd = o.good ? f(o.good, ['x', 'y', 'z', 'v']) : null, base = rgb(COL[o.color || 'reef']);
       const make = (x, z) => { const G = new THREE.Group(), t = ft(x, z), b = fb(x, z), n = 40, h = (t - b) / n; for (let i = 0; i < n && h > 0; i++) { const y = b + (i + .5) * h, v = fv(x, y, z); const mm = new THREE.MeshStandardMaterial({ roughness: .8 }); mm.color.setRGB(...ramp((v - o.min) / (o.max - o.min), base)); const m = new THREE.Mesh(new THREE.CylinderGeometry(.8, .8, sv(h) * 1.02, 20), mm); m.position.y = sy(y); G.add(m); if (gd && gd(x, y, z, v) > 0) { const r = new THREE.Mesh(new THREE.TorusGeometry(.95, .13, 6, 20).rotateX(Math.PI / 2), new THREE.MeshStandardMaterial({ color: COL[o.good_color || 'oil'], emissive: COL[o.good_color || 'oil'], emissiveIntensity: .4 })); r.position.y = sy(y); G.add(r); } } G.position.set(sx(x), 0, sx(z)); S.add(shadow(G)); return G; };
@@ -104,10 +121,15 @@ export function build(stage, spec, seed, panel) {
   spec.objects.forEach(o => T[o.type](o));
   const apply = all => { M.update(); for (const u of ups) if (all || u.d) u.u(); };
   apply(true);
+  { const fill = new THREE.DirectionalLight('#dbe6f0', 1.5); fill.position.set(-80, 45, -50); S.add(fill); } // подсветка теневых сторон
   stage.setSun(new THREE.Vector3(60, 95, 70), 85); S.fog = new THREE.Fog('#9fb2c2', 260, 700);
   stage.controls.minDistance = 25; stage.controls.maxDistance = 330;
   const look = (c = {}, dur = 1.6) => { const k = stage.low ? 1.55 : 1, R = (c.zoom ? 1 / c.zoom : 1) * 128 * k, a = (c.yaw ?? 30) * Math.PI / 180, b = (c.pitch ?? 24) * Math.PI / 180, t = c.target ? [sx(c.target[0]), sy(c.target[1]), sx(c.target[2])] : [0, 0, 0]; stage.view([t[0] + Math.sin(a) * Math.cos(b) * R, t[1] + Math.sin(b) * R, t[2] + Math.cos(a) * Math.cos(b) * R], t, dur); };
   look(spec.world.camera, 0);
+  let tick = 0; frames.push(() => {
+    if (labels.length < 2 || tick++ % 8) return; const kept = [];
+    for (const [l] of [...labels].sort((a, b) => a[1] - b[1])) { const e = l.element, r = e.getBoundingClientRect(); if (!l.visible || !r.width) continue; const hit = kept.some(q => r.left < q.right - 4 && r.right > q.left + 4 && r.top < q.bottom - 3 && r.bottom > q.top + 3); e.style.visibility = hit ? 'hidden' : ''; if (!hit) kept.push(r); }
+  });
   let dirty = true, redraw = [];
   const tm = spec.time, k2t = k => tm && tm.log ? Math.exp(Math.log(Math.max(M.t0, 1e-12)) + (Math.log(M.t1) - Math.log(Math.max(M.t0, 1e-12))) * k) : M.t0 + (M.t1 - M.t0) * k;
   let tk = 0, tsl = null; const setK = k => { tk = clamp(k, 0, 1); M.E.t = k2t(tk); dirty = true; tsl && tsl.set(tk); };
@@ -126,7 +148,7 @@ export function build(stage, spec, seed, panel) {
     const row = $('<div></div>');
     for (const u of s.use || []) { const [a, b] = u.split(':'); if (a !== 'read' && used.has(u)) continue; used.add(u);
       if (a === 'time') { const w = $('<div></div>'); tsl = slider(tm.label || 'Время', 0, 1, .002, tk, v => { st.play = false; setK(v); }, v => { const q = k2t(v) / M.tu.k; return fmt(q, Math.abs(q) < 10 ? 1 : 0) + ' ' + unitRu(tm.unit); }); const p = $('<button class="main alt">Запустить</button>'); p.onclick = () => { if (tk >= .999) setK(0); st.play = true; }; const cap = $('<p class="q"></p>'); w.append(tsl, p, cap); redraw.push({ draw: () => { const g = (tm.stages || []).find(x => tk <= x.until + 1e-9); cap.textContent = g ? M.text(g.text) : ''; cap.hidden = !g; } }); row.appendChild(w); }
-      if (a === 'param') { const p = spec.params[b], k = M.U[b].k; row.appendChild(slider(p.control[3], p.control[0], p.control[1], p.control[2], clamp(M.P[b] / k, p.control[0], p.control[1]), v => { M.setParam(b, v * k); dirty = true; }, v => fmt(v, p.control[2] < .1 ? 2 : p.control[2] < 1 ? 1 : 0) + ' ' + unitRu(p.unit))); }
+      if (a === 'param') { const p = spec.params[b], k = M.U[b].k; row.appendChild(slider(p.control[3], p.control[0], p.control[1], p.control[2], clamp(M.P[b] / k, p.control[0], p.control[1]), v => { M.setParam(b, v * k); dirty = true; }, v => fmt(p.unit === 'm' && p.control[1] <= 0 ? -v : v, p.control[2] < .1 ? 2 : p.control[2] < 1 ? 1 : 0) + ' ' + unitRu(p.unit))); }
       if (a === 'chart') row.appendChild(chart(spec.charts.find(c => c.id === b)));
       if (a === 'read') { let kv = row.lastElementChild; if (!kv || !kv.classList.contains('kv')) { kv = $('<div class="kv"></div>'); row.appendChild(kv); } const v = spec.vars[b], e = $(`<div><span>${v.label || b}</span><b></b></div>`); kv.appendChild(e); redraw.push({ draw: () => { const q = M.V[b] / unit(v.unit).k; e.querySelector('b').textContent = (Number.isFinite(q) ? fmt(q, v.digits ?? (Math.abs(q) < 10 ? 2 : 0)) : '—') + ' ' + unitRu(v.unit); } }); } }
     sec.appendChild(row); dirty = true;
@@ -171,7 +193,7 @@ export function build(stage, spec, seed, panel) {
     sec && st.i > 0 && sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   function finish() { if (st.done) return; st.done = true; st.preds.forEach(([s, i]) => verdict(body, s, i)); closing(body, spec); body.lastElementChild.previousElementSibling.scrollIntoView({ behavior: 'smooth' }); }
-  const lg = new Map(); spec.objects.forEach(o => { if (o.name_ru && (o.color || o.lith)) lg.set(o.name_ru, COL[o.color || o.lith]); (o.classes || []).forEach(c => c.name && lg.set(c.name, COL[c.color])); });
+  const lg = new Map(); spec.objects.forEach(o => { if (o.name_ru && (o.color || o.lith)) lg.set(o.name_ru, COL[o.color || o.lith]); (o.classes || []).forEach(c => c.name && lg.set(c.name, c.mix ? `linear-gradient(90deg,${COL[c.color]} 50%,${COL[c.mix]} 50%)` : COL[c.color])); });
   if (lg.size) panel.appendChild($(`<p class="leg">${[...lg].map(([n, c]) => `<span><i style="background:${c}"></i>${n}</span>`).join('')}</p>`));
   honesty(panel, { ...spec, sources: spec.claims.map(c => ({ claim: c.text, page: c.page })) });
   run();

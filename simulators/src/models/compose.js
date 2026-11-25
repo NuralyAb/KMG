@@ -92,10 +92,10 @@ export function lint(spec, seeds = [1, 2, 3, 4, 5]) {
     const w = `objects[${i}] ${o.type}${o.id ? ' «' + o.id + '»' : ''}`, d = OBJ[o.type]; if (!d) return err(`${w}: нет такого типа (есть: ${OBJECT_TYPES.join(', ')})`);
     if (o.id) ids.add(o.id); d.req.forEach(k => o[k] === undefined && err(`${w}: нет «${k}»`));
     if (o.lith && !LITH.includes(o.lith)) err(`${w}: lith из ${LITH.join(', ')}`);
-    for (const c of ['color', 'fluid']) if (o[c] && !COLORS.includes(o[c])) err(`${w}: ${c} из единой легенды: ${COLORS.join(', ')}`);
+    for (const c of ['color', 'fluid', 'fluid2']) if (o[c] && !COLORS.includes(o[c])) err(`${w}: ${c} из единой легенды: ${COLORS.join(', ')}`);
     d.ex.forEach(([k, a]) => { const f = tryf(o[k], a.split(''), `${w}.${k}`); if (f) numeric.push([`${w}.${k}`, f, a]); });
     if (o.show !== undefined) tryf(o.show, [], w + '.show'); if (o.opacity !== undefined) tryf(o.opacity, [], w + '.opacity');
-    if (o.type === 'section') { if (!['x', 'z'].includes(o.axis)) err(`${w}: axis — x или z`); tryf(o.at, [], w + '.at'); (o.classes || []).forEach((c, j) => { tryf(c.when, ['x', 'y', 'z'], `${w}.classes[${j}].when`); COLORS.includes(c.color) || err(`${w}.classes[${j}]: цвет из легенды`); }); if (!o.value && !o.classes) err(`${w}: нужно value (min,max,color) или classes`); if (o.value && (o.min === undefined || o.max === undefined)) err(`${w}: к value нужны min и max`); }
+    if (o.type === 'section') { if (!['x', 'z'].includes(o.axis)) err(`${w}: axis — x или z`); tryf(o.at, [], w + '.at'); (o.classes || []).forEach((c, j) => { tryf(c.when, ['x', 'y', 'z'], `${w}.classes[${j}].when`); COLORS.includes(c.color) || err(`${w}.classes[${j}]: color из легенды: ${COLORS.join(', ')}`); if (c.share !== undefined) tryf(c.share, ['x', 'y', 'z'], `${w}.classes[${j}].share`); if (c.mix && !COLORS.includes(c.mix)) err(`${w}.classes[${j}]: mix из легенды`); }); if (!o.value && !o.classes) err(`${w}: нужно value (min,max,color) или classes`); if (o.value && (o.min === undefined || o.max === undefined)) err(`${w}: к value нужны min и max`); }
     if (o.type === 'tube') { (o.path || []).forEach((p, j) => arr3(p, [], `${w}.path[${j}]`)); tryf(o.radius, [], w); }
     if (['prefab', 'shape', 'label'].includes(o.type) && o.at) { if (Array.isArray(o.at)) arr3(o.at, [], w + '.at').forEach(f => f && numeric.push([w + '.at', f, ''])); else err(w + '.at: массив из трёх'); }
     if (o.type === 'prefab' && !PREFABS.includes(o.name)) err(`${w}: name из ${PREFABS.join(', ')}`);
@@ -124,7 +124,7 @@ export function lint(spec, seeds = [1, 2, 3, 4, 5]) {
   // --- игра
   const kinds = spec.steps.map(s => s.kind); const guesses = [];
   spec.steps.forEach((s, i) => {
-    const w = `steps[${i}] ${s.kind}`, d = STEP[s.kind]; if (!d) return err(`${w}: нет такого шага (есть: ${Object.keys(STEP).join(', ')})`); d.forEach(k => s[k] === undefined && err(`${w}: нет «${k}»`));
+    const w = `steps[${i}] ${s.kind}`, d = STEP[s.kind]; if (!d) return err(`${w}: в поле "kind" нужно одно из ${Object.keys(STEP).join(', ')}`); d.forEach(k => s[k] === undefined && err(`${w}: нет «${k}»`));
     if (s.kind === 'guess') { tryf(s.truth, [], w + '.truth'); guesses.push(s.id); try { unit(s.unit); } catch (e) { err(`${w}: ${e.message}`); } }
     if (s.kind === 'pick') { const f = tryf(s.score, ['x', 'z'], w + '.score'); if (!spec.objects.some(o => o.id === s.target && ['surface', 'solid'].includes(o.type))) err(`${w}: target — id объекта surface или solid`); if (f) { let mx = -1e99, mn = 1e99; grid.forEach(([x, z]) => { const v = f(x, z); mx = Math.max(mx, v); mn = Math.min(mn, v); }); if (mx - mn < 1e-12) err(`${w}: score одинаков везде — решать нечего`); if (mn < 0) err(`${w}: score должен быть ≥ 0`); } }
     if (s.kind === 'choose') { s.options.forEach((o, j) => { if (o.correct === undefined || !o.why) err(`${w}.options[${j}]: нужны text, correct (формула) и why`); else tryf(String(o.correct), [], `${w}.options[${j}].correct`); }); }
@@ -137,7 +137,7 @@ export function lint(spec, seeds = [1, 2, 3, 4, 5]) {
   if (!kinds.includes('reveal')) err('нет шага reveal: ученик должен увидеть, чем кончилось');
   if (!spec.transfer || !spec.transfer.options || !spec.transfer.why) err('transfer: q, options, answer, why');
   // --- графики
-  (spec.charts || []).forEach(c => { const w = `график «${c.id}»`; if (!c.x || c.x.var === undefined) return err(`${w}: x = {var,min,max,unit,label}`); (c.lines || []).forEach((l, j) => { COLORS.includes(l.color) || err(`${w}.lines[${j}]: цвет из легенды`); try { const own = !Object.hasOwn(M.P, c.x.var) && c.x.var !== 't'; M.fn(l.expr, own ? [c.x.var] : [], `${w}.lines[${j}]`); unit(l.unit); } catch (e) { err(e.message); } }); try { unit(c.x.unit); } catch (e) { err(`${w}: ${e.message}`); } });
+  (spec.charts || []).forEach(c => { const w = `график «${c.id}»`; if (!c.x || c.x.var === undefined) return err(`${w}: x = {var,min,max,unit,label}`); (c.lines || []).forEach((l, j) => { COLORS.includes(l.color) || err(`${w}.lines[${j}]: color из легенды: ${COLORS.join(', ')}`); try { const own = !Object.hasOwn(M.P, c.x.var) && c.x.var !== 't'; M.fn(l.expr, own ? [c.x.var] : [], `${w}.lines[${j}]`); unit(l.unit); } catch (e) { err(e.message); } }); if (c.cursor !== undefined) tryf(c.cursor, [], `${w}.cursor`); try { unit(c.x.unit); } catch (e) { err(`${w}: ${e.message}`); } });
   // --- проверки физики по случайным случаям
   if (!spec.checks.length) err('checks пуст: запишите хотя бы 3 условия, которые обязаны выполняться'); else if (spec.checks.length < 3) err('checks: нужно не меньше 3');
   for (const sd of seeds) { let m; try { m = new Model(spec, sd); } catch (e) { err(e.message); break; }
