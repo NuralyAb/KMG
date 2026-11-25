@@ -50,3 +50,10 @@
 5. Модуль проверки и самопроверка на контрольном пакете.
 6. Ролики: симуляция → кадры → озвучка → паспорт.
 7. Контрольные главы, заморозка, плейбук.
+
+## Состояние (25.11.2026)
+
+- Готово: `engine/glava/units.py`, `verify.py`, `llm/` (провайдеры claude_code и anthropic, кэш, бюджет), `stages/layer.py`, `cli.py` (`uv run glava layer <глава>`), `prompts/{plan,node}.md`, `domain/geology`, `chapters.json`, 33 теста.
+- Решение пользователя: модель через Claude Code на этом ПК; сначала глава Латышовой до конца, потом остальные.
+- Дальше: stages/routing, stages/tasks, stages/illustrations, course/ (сборщик HTML в дизайне METU: `METU/web/src/app/tokens.css`, IBM Plex Sans), review/, ролики.
+- Хук GateGuard: перед Write в новую папку сделать `ls` этой папки и привести факты, тогда отказа нет.

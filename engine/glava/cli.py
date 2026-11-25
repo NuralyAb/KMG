@@ -82,7 +82,7 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
     context = context_of(chapter)
     plan, plan_replies = make_plan(provider, prompt_file("plan"), context, chapter.units)
     save(chapter.work / "plan.json", plan)
-    ledger = Ledger(BUDGET_USD).add("plan", *plan_replies).check()
+    Ledger(BUDGET_USD).add("plan", *plan_replies).check()
     count = min(limit or len(plan["nodes"]), len(plan["nodes"]))
     log.info("план: узлов %s, собираю %s", len(plan["nodes"]), count)
 
@@ -108,7 +108,7 @@ def build_layer(chapter: Chapter, provider: Provider, limit: int | None = None) 
     replies = [*plan_replies, *(r for _, _, rs in results for r in rs)]
     write_metrics(chapter, "layer", len(layer["nodes"]), replies)
     log.info("слой: узлов %s, утверждений %s, отброшено %s, замечания в узлах: %s, $%.2f", report["nodes"], report["claims"],
-             len(report["dropped_claims"]), len(report["issues"]), ledger.add("layer", *replies).cost_usd)
+             len(report["dropped_claims"]), len(report["issues"]), sum(r.cost_usd for r in replies))
     return layer
 
 

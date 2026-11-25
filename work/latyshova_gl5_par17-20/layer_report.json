@@ -1,0 +1,10 @@
+{
+ "issues": {
+  "latyshova.mud_effects_on_borehole": [
+   "схема: decision_on_data: {'signs': {'text': 'Соотношение d_c и d_a при бурении на глинистом растворе: d_c < d_a, d_c = d_a или d_c > d_a.', 'by_model': True}, 'rule': {'text': 'd_c < d_"
+  ]
+ },
+ "dropped_claims": [],
+ "nodes": 2,
+ "claims": 21
+}
