@@ -1,5 +1,5 @@
 import {
-  IconArrowsMaximize, IconBadgeCc, IconBook, IconCards, IconChevronDown, IconChevronLeft, IconChevronRight, IconFileText, IconHelpCircle, IconHome, IconList, IconLogout2,
+  IconArrowsMaximize, IconBadgeCc, IconBook, IconCards, IconCheck, IconChevronDown, IconChevronLeft, IconChevronRight, IconFileText, IconHelpCircle, IconHome, IconList, IconLogout2,
   IconMoon, IconPlayerPauseFilled, IconPlayerPlayFilled, IconStack2, IconSun, IconTopologyStar3, IconVolume, IconVolumeOff, IconX, type Icon,
 } from '@tabler/icons-react';
 
@@ -8,7 +8,7 @@ const icon = (Shape: Icon) => function CourseIcon() { return <Shape className="i
 export const Icons = {
   home: icon(IconHome), cards: icon(IconCards), summary: icon(IconFileText), map: icon(IconTopologyStar3), help: icon(IconHelpCircle), exit: icon(IconLogout2),
   moon: icon(IconMoon), sun: icon(IconSun), list: icon(IconList), layers: icon(IconStack2), down: icon(IconChevronDown), left: icon(IconChevronLeft), right: icon(IconChevronRight),
-  book: icon(IconBook), play: icon(IconPlayerPlayFilled), pause: icon(IconPlayerPauseFilled), sound: icon(IconVolume), mute: icon(IconVolumeOff),
+  book: icon(IconBook), check: icon(IconCheck), play: icon(IconPlayerPlayFilled), pause: icon(IconPlayerPauseFilled), sound: icon(IconVolume), mute: icon(IconVolumeOff),
   captions: icon(IconBadgeCc), full: icon(IconArrowsMaximize), close: icon(IconX),
 };
 

@@ -1,8 +1,8 @@
-import { useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useCourse } from './context';
 import { markTerms } from './core';
 import { Icons } from './icons';
-import { clock, Controls, useMedia } from './media';
+import { clock, Controls, useMedia, type Media } from './media';
 import type { Beat, Narration, Picture, Step } from './types';
 
 const LINE_GAP = 36;
@@ -39,7 +39,7 @@ function Drawing({ picture, share }: { picture: Picture; share: number }) {
 
 const beatAt = (beats: Beat[], now: number): number => Math.max(0, beats.filter((b) => now >= b.start).length - 1);
 
-/** Фраза крупно: слова зажигаются вслед за голосом, термины подчёркнуты. */
+/** Фраза крупно: слова зажигаются вслед за голосом, термин — отдельной меткой. */
 function Phrase({ beat, now, step }: { beat: Beat; now: number; step: Step }) {
   const words = beat.text.split(/\s+/);
   const said = Math.ceil(Math.min(1, Math.max(0, (now - beat.start) / Math.max(0.1, beat.end - beat.start - 0.6))) * words.length);
@@ -56,8 +56,31 @@ function Phrase({ beat, now, step }: { beat: Beat; now: number; step: Step }) {
   );
 }
 
-/** Озвученный разбор: не ролик, а живая сцена — дорожка, фразы слоя и схема урока. */
-export function Scene({ step, narration, onTasks }: { step: Step; narration: Narration; onTasks: () => void }) {
+/** Расшифровка под видео: фраза, которая звучит, подсвечена; нажатие перематывает к ней. */
+function Transcript({ beats, media, index }: { beats: Beat[]; media: Media; index: number }) {
+  const root = useRef<HTMLOListElement>(null);
+  const [isFollowing, setFollowing] = useState(true);
+  useEffect(() => {
+    const box = root.current;
+    const row = box?.querySelector<HTMLElement>('[aria-current]');
+    if (!box || !row || !isFollowing || !media.isPlaying) return;
+    box.scrollTo?.({ top: row.offsetTop - box.clientHeight / 3, behavior: 'smooth' });
+  }, [index, isFollowing, media.isPlaying]);
+  return (
+    <ol className="transcript" ref={root} onWheel={() => setFollowing(false)} onTouchMove={() => setFollowing(false)}>
+      {beats.map((b, i) => (
+        <li key={b.start} aria-current={i === index && media.now > 0 ? 'true' : undefined}>
+          <button type="button" onClick={() => { media.seek(b.start + 0.01); setFollowing(true); if (!media.isPlaying) media.toggle(); }}>
+            <span className="num time">{clock(b.start)}</span><span>{b.text}</span>{b.page && <span className="page">стр.&nbsp;{b.page}</span>}
+          </button>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/** Озвученный разбор: не ролик, а живая сцена — дорожка, фразы слоя и схема урока. Под ней — расшифровка. */
+export function Scene({ step, narration, onDone }: { step: Step; narration: Narration; onDone: () => void }) {
   const { num, course } = useCourse();
   const box = useRef<HTMLDivElement>(null);
   const ref = useRef<HTMLAudioElement>(null);
@@ -74,20 +97,26 @@ export function Scene({ step, narration, onTasks }: { step: Step; narration: Nar
   const share = isStart || isEnd ? 1 : Math.min(1, FIRST + (1 - FIRST) * ((index + 1) / beats.length));
   if (!beat) return null;
   return (
-    <div className={`screen scene${picture ? '' : ' plain'}${media.isPlaying ? ' playing' : ''}`} data-scene data-state={isStart ? 'start' : isEnd ? 'end' : 'on'} ref={box}>
-      <audio ref={ref} preload="metadata" src={narration.audio} onError={() => setLost(true)} />
-      <div className="scene-frame" onClick={media.toggle}>
-        <div className="scene-text">
-          <p className="scene-head"><span className="scene-num">{num(step)}</span>{part?.title}</p>
-          {isStart && <><p className="scene-title">{step.short_title}</p><p className="scene-play">{isLost ? 'Озвучка не загрузилась: рядом с index.html нужна папка narration' : <><span><Icons.play /></span>Смотреть разбор, {clock(narration.duration)}</>}</p></>}
-          {isEnd && <><p className="scene-title">{step.tasks.length ? 'Проверьте себя' : 'Разбор окончен'}</p>{step.tasks.length > 0 && <button type="button" className="scene-go" onClick={(e) => { e.stopPropagation(); onTasks(); }}>К заданиям: {step.tasks.length}</button>}</>}
-          {!isStart && !isEnd && (beat.kind === 'title' ? <p className="scene-title">{beat.text}</p> : <Phrase beat={beat} now={media.now} step={step} />)}
+    <div className="talk">
+      <div className={`screen scene${picture ? '' : ' plain'}${media.isPlaying ? ' playing' : ''}`} data-scene data-state={isStart ? 'start' : isEnd ? 'end' : 'on'} ref={box}>
+        <audio ref={ref} preload="metadata" src={narration.audio} onError={() => setLost(true)} />
+        <div className="scene-frame" onClick={media.toggle}>
+          <div className="scene-text">
+            <p className="scene-head"><span className="scene-num">{num(step)}</span>{part?.title}</p>
+            {isStart && <><p className="scene-title">{step.short_title}</p><p className="scene-play">{isLost ? 'Озвучка не загрузилась: рядом с index.html нужна папка narration' : <><span><Icons.play /></span>Смотреть разбор, {clock(narration.duration)}</>}</p></>}
+            {isEnd && <><p className="scene-title">Разбор окончен</p><button type="button" className="scene-go" onClick={(e) => { e.stopPropagation(); onDone(); }}>Дальше<Icons.right /></button></>}
+            {!isStart && !isEnd && (beat.kind === 'title' ? <p className="scene-title">{beat.text}</p> : <Phrase beat={beat} now={media.now} step={step} />)}
+          </div>
+          {picture && <div className="scene-side"><Drawing picture={picture} share={share} /></div>}
+          <p className="scene-mark"><span>{picture ? picture.label : 'схема'}</span>{beat.page && !isStart && !isEnd ? <span>стр. {beat.page}</span> : <span>пересказ модели</span>}</p>
         </div>
-        {picture && <div className="scene-side"><Drawing picture={picture} share={share} /></div>}
-        <p className="scene-mark"><span>{picture ? picture.label : 'схема'}</span>{beat.page && !isStart && !isEnd ? <span>стр. {beat.page}</span> : <span>пересказ модели</span>}</p>
+        {hasCaptions && !isStart && !isEnd && <p className="scene-captions">{beat.text}</p>}
+        <Controls media={media} what="разборе" box={box} captions={hasCaptions} onCaptions={() => setCaptions(!hasCaptions)} />
       </div>
-      {hasCaptions && !isStart && !isEnd && <p className="scene-captions">{beat.text}</p>}
-      <Controls media={media} what="разборе" box={box} captions={hasCaptions} onCaptions={() => setCaptions(!hasCaptions)} />
+      <section className="under" aria-label="Расшифровка">
+        <div className="under-head"><h2>Расшифровка</h2><a className="link" href={narration.audio} download>Скачать звук</a></div>
+        <Transcript beats={beats} media={media} index={index} />
+      </section>
     </div>
   );
 }

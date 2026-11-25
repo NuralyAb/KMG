@@ -31,11 +31,13 @@ function CourseCard({ course }: { course: LearnCourse }) {
         {course.book && <p className="muted">{course.book}</p>}
       </div>
       <p className="learn-card-facts">{counted(course.steps, FORMS.lesson)}, {counted(course.tasks, FORMS.task)}, {minutesText(course.minutes)}</p>
-      <div className="learn-progress">
-        <span className="num">{done === 0 ? 'Ещё не начат' : `Пройдено ${done} из ${course.steps}, ${formatPercent(done, course.steps)}`}</span>
-        <Meter share={course.steps > 0 ? done / course.steps : 0} />
+      <div className="learn-card-side">
+        <div className="learn-progress">
+          <span className="num">{done === 0 ? 'Ещё не начат' : `Пройдено ${done} из ${course.steps}, ${formatPercent(done, course.steps)}`}</span>
+          <Meter share={course.steps > 0 ? done / course.steps : 0} />
+        </div>
+        <Button component={Link} to={path} size="md" radius={8} aria-label={`${action}: ${course.title}`}>{action}</Button>
       </div>
-      <Button component={Link} to={path} size="md" radius={12} aria-label={`${action}: ${course.title}`}>{action}</Button>
     </article>
   );
 }
@@ -45,7 +47,7 @@ export default function CatalogPage() {
   const me = useMe().data;
   return (
     <>
-      <PageHeader title="Мои курсы" docTitle="Мои курсы" subtitle="Прогресс сохраняется в этом браузере." />
+      <PageHeader title="Моё обучение" docTitle="Моё обучение" subtitle="Курсы, собранные из глав книг. Прогресс сохраняется в этом браузере." />
       <QueryView query={query} rows={3}>
         {(courses) => (courses.length === 0
           ? <EmptyState icon={<IconSchool size={32} aria-hidden />} title="Курсов пока нет"
