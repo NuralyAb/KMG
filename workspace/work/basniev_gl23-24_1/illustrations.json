@@ -1,0 +1,839 @@
+{
+ "chapter": "basniev_gl23-24_1",
+ "illustrations": [
+  {
+   "id": "basniev.neustanovivshiesya_processy.i1",
+   "step_id": "basniev.neustanovivshiesya_processy",
+   "node_id": "basniev.neustanovivshiesya_processy",
+   "file": "pictures/neustanovivshiesya_processy_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "От изменения в работе скважин к неустановившемуся процессу: давление, скорости и дебиты меняются.",
+   "alt": "Цепочка из трёх блоков: пуск, остановка или смена темпа отбора ведут к перераспределению давления, а оно сопровождается изменением скоростей и дебитов во времени.",
+   "source": "построено кодом по утверждениям главы, стр. 474",
+   "claim_ids": [
+    "basniev.neustanovivshiesya_processy#c2",
+    "basniev.neustanovivshiesya_processy#c3",
+    "basniev.neustanovivshiesya_processy#c4"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.mehanizm_uprugogo_pritoka.i1",
+   "step_id": "basniev.mehanizm_uprugogo_pritoka",
+   "node_id": "basniev.mehanizm_uprugogo_pritoka",
+   "file": "pictures/mehanizm_uprugogo_pritoka_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественно: снижение давления сначала охватывает окрестность забоя, позже — всё более удалённые участки пласта.",
+   "alt": "Две кривые давления в зависимости от расстояния от забоя: у скважины давление понижено, вдали не изменено; на более поздней кривой зона снижения заметно шире.",
+   "source": "построено кодом по утверждениям главы, стр. 474",
+   "claim_ids": [
+    "basniev.mehanizm_uprugogo_pritoka#c3",
+    "basniev.mehanizm_uprugogo_pritoka#c4",
+    "basniev.mehanizm_uprugogo_pritoka#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.vidy_uprugogo_rezhima.i1",
+   "step_id": "basniev.vidy_uprugogo_rezhima",
+   "node_id": "basniev.vidy_uprugogo_rezhima",
+   "file": "pictures/vidy_uprugogo_rezhima_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Главное различие: поступает ли в пласт вода из области питания или залежь замкнута со всех сторон.",
+   "alt": "Таблица двух режимов: упруговодонапорный поддерживается водой из области питания; замкнуто-упругий бывает в закрытой залежи, пока давление не снизилось до давления насыщения.",
+   "source": "построено кодом по утверждениям главы, стр. 474, 475",
+   "claim_ids": [
+    "basniev.vidy_uprugogo_rezhima#c1",
+    "basniev.vidy_uprugogo_rezhima#c2",
+    "basniev.vidy_uprugogo_rezhima#c3",
+    "basniev.vidy_uprugogo_rezhima#c4",
+    "basniev.vidy_uprugogo_rezhima#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.dlitelnost_pereraspredeleniya.i1",
+   "step_id": "basniev.dlitelnost_pereraspredeleniya",
+   "node_id": "basniev.dlitelnost_pereraspredeleniya",
+   "file": "pictures/dlitelnost_pereraspredeleniya_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественно: с ростом k процесс идёт быстрее, с ростом μ, βж и βс — медленнее. Форма и взаимное положение кривых условны.",
+   "alt": "Четыре кривые быстроты перестройки давления: для проницаемости растущая, для вязкости и упругости жидкости и скелета убывающие.",
+   "source": "построено кодом по утверждениям главы, стр. 475",
+   "claim_ids": [
+    "basniev.dlitelnost_pereraspredeleniya#c3",
+    "basniev.dlitelnost_pereraspredeleniya#c4",
+    "basniev.dlitelnost_pereraspredeleniya#c5",
+    "basniev.dlitelnost_pereraspredeleniya#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.izmenenie_obemov_i_znaki.i1",
+   "step_id": "basniev.izmenenie_obemov_i_znaki",
+   "node_id": "basniev.izmenenie_obemov_i_znaki",
+   "file": "pictures/izmenenie_obemov_i_znaki_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Два источника упругого запаса: твёрдый скелет породы и жидкость в порах. Изменения объёмов пор и жидкости складывают.",
+   "alt": "Порода под увеличением: зёрна твёрдого скелета и поры между ними, заполненные жидкостью.",
+   "source": "построено кодом по утверждениям главы, стр. 475, 476",
+   "claim_ids": [
+    "basniev.izmenenie_obemov_i_znaki#c1",
+    "basniev.izmenenie_obemov_i_znaki#c16",
+    "basniev.izmenenie_obemov_i_znaki#c19"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.uprugoemkost_plasta.i1",
+   "step_id": "basniev.uprugoemkost_plasta",
+   "node_id": "basniev.uprugoemkost_plasta",
+   "file": "pictures/uprugoemkost_plasta_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественно, по формуле: зазор между линиями — вклад жидкости m·βж, он растёт с пористостью; βс добавляется к нему.",
+   "alt": "График без чисел: горизонтальная линия βс и над ней прямая β*, растущая с пористостью m; расстояние между ними равно m·βж.",
+   "source": "построено кодом по утверждениям главы, стр. 476",
+   "claim_ids": [
+    "basniev.uprugoemkost_plasta#c5",
+    "basniev.uprugoemkost_plasta#c9",
+    "basniev.uprugoemkost_plasta#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.uravnenie_istoshcheniya.i1",
+   "step_id": "basniev.uravnenie_istoshcheniya",
+   "node_id": "basniev.uravnenie_istoshcheniya",
+   "file": "pictures/uravnenie_istoshcheniya_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Два выражения для одного изменения запаса — через давление и через отбор — приравниваются.",
+   "alt": "Две ветви: дифференциал упругого запаса и отбор нефти за время dt. Обе сходятся в уравнении истощения залежи.",
+   "source": "построено кодом по утверждениям главы, стр. 477",
+   "claim_ids": [
+    "basniev.uravnenie_istoshcheniya#c3",
+    "basniev.uravnenie_istoshcheniya#c7",
+    "basniev.uravnenie_istoshcheniya#c8",
+    "basniev.uravnenie_istoshcheniya#c9",
+    "basniev.uravnenie_istoshcheniya#c10",
+    "basniev.uravnenie_istoshcheniya#c11",
+    "basniev.uravnenie_istoshcheniya#c13"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.zachem_izuchat_uprugii_rezhim.i1",
+   "step_id": "basniev.zachem_izuchat_uprugii_rezhim",
+   "node_id": "basniev.zachem_izuchat_uprugii_rezhim",
+   "file": "pictures/zachem_izuchat_uprugii_rezhim_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Доля, добываемая при упругом режиме: обычно до 2–5% извлекаемых запасов, на Тенгизе по прогнозу — до 20% запасов нефти.",
+   "alt": "Две полосы: обычный случай — диапазон 2–5%, прогноз для месторождения Тенгиз — до 20%, заметно больше.",
+   "source": "построено кодом по утверждениям главы, стр. 477, 478",
+   "claim_ids": [
+    "basniev.zachem_izuchat_uprugii_rezhim#c5",
+    "basniev.zachem_izuchat_uprugii_rezhim#c6",
+    "basniev.zachem_izuchat_uprugii_rezhim#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.ishodnye_zakony_modeli.i1",
+   "step_id": "basniev.ishodnye_zakony_modeli",
+   "node_id": "basniev.ishodnye_zakony_modeli",
+   "file": "pictures/ishodnye_zakony_modeli_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Сохранение массы, закон Дарси и уравнения состояния образуют систему; функция Лейбензона делает запись короче.",
+   "alt": "Схема: уравнение неразрывности и закон Дарси дополняются уравнениями состояния, затем без массовых сил вводится функция Лейбензона и получается краткая система.",
+   "source": "построено кодом по утверждениям главы, стр. 478",
+   "claim_ids": [
+    "basniev.ishodnye_zakony_modeli#c3",
+    "basniev.ishodnye_zakony_modeli#c5",
+    "basniev.ishodnye_zakony_modeli#c6",
+    "basniev.ishodnye_zakony_modeli#c7",
+    "basniev.ishodnye_zakony_modeli#c8",
+    "basniev.ishodnye_zakony_modeli#c9",
+    "basniev.ishodnye_zakony_modeli#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.uravneniya_sostoyaniya.i1",
+   "step_id": "basniev.uravneniya_sostoyaniya",
+   "node_id": "basniev.uravneniya_sostoyaniya",
+   "file": "pictures/uravneniya_sostoyaniya_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Плотность и пористость меняются с давлением по прямой, а проницаемость и вязкость в модели постоянны. Масштаб условный.",
+   "alt": "Качественный график: плотность и пористость линейно растут с давлением, а линия проницаемости и вязкости горизонтальна.",
+   "source": "построено кодом по утверждениям главы, стр. 478",
+   "claim_ids": [
+    "basniev.uravneniya_sostoyaniya#c2",
+    "basniev.uravneniya_sostoyaniya#c3",
+    "basniev.uravneniya_sostoyaniya#c4"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.linearizatsiya_levoi_chasti.i1",
+   "step_id": "basniev.linearizatsiya_levoi_chasti",
+   "node_id": "basniev.linearizatsiya_levoi_chasti",
+   "file": "pictures/linearizatsiya_levoi_chasti_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Отбросив малое квадратичное слагаемое, получают прямую по давлению. Расхождение кривых на рисунке сильно преувеличено.",
+   "alt": "Качественный график: полное произведение mρ слегка изогнуто, приближение без квадратичного слагаемого прямое; при p0 они совпадают.",
+   "source": "построено кодом по утверждениям главы, стр. 479, 480",
+   "claim_ids": [
+    "basniev.linearizatsiya_levoi_chasti#c15",
+    "basniev.linearizatsiya_levoi_chasti#c16",
+    "basniev.linearizatsiya_levoi_chasti#c21"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.vyvod_uravneniya_pezoprovodnosti.i1",
+   "step_id": "basniev.vyvod_uravneniya_pezoprovodnosti",
+   "node_id": "basniev.vyvod_uravneniya_pezoprovodnosti",
+   "file": "pictures/vyvod_uravneniya_pezoprovodnosti_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Путь к уравнению для давления: упростить правую часть для слабосжимаемой жидкости и соединить с левой.",
+   "alt": "Цепочка шагов: в правую часть подставляют плотность, интегрируют, отбрасывают малое слагаемое и получают уравнение для давления.",
+   "source": "построено кодом по утверждениям главы, стр. 480",
+   "claim_ids": [
+    "basniev.vyvod_uravneniya_pezoprovodnosti#c2",
+    "basniev.vyvod_uravneniya_pezoprovodnosti#c3",
+    "basniev.vyvod_uravneniya_pezoprovodnosti#c4",
+    "basniev.vyvod_uravneniya_pezoprovodnosti#c5",
+    "basniev.vyvod_uravneniya_pezoprovodnosti#c6",
+    "basniev.vyvod_uravneniya_pezoprovodnosti#c7",
+    "basniev.vyvod_uravneniya_pezoprovodnosti#c8",
+    "basniev.vyvod_uravneniya_pezoprovodnosti#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.koeffitsient_pezoprovodnosti.i1",
+   "step_id": "basniev.koeffitsient_pezoprovodnosti",
+   "node_id": "basniev.koeffitsient_pezoprovodnosti",
+   "file": "pictures/koeffitsient_pezoprovodnosti_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Ход κ = k/(μβ*): с ростом проницаемости κ растёт, а при большем произведении μβ* идёт ниже. Чем больше κ, тем быстрее перераспределяется давление.",
+   "alt": "Две прямые из начала координат: κ растёт с проницаемостью k. Прямая для большего произведения вязкости на упругоёмкость лежит ниже.",
+   "source": "построено кодом по утверждениям главы, стр. 480",
+   "claim_ids": [
+    "basniev.koeffitsient_pezoprovodnosti#c1",
+    "basniev.koeffitsient_pezoprovodnosti#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.galereya_postoyannoe_davlenie_postanovka.i1",
+   "step_id": "basniev.galereya_postoyannoe_davlenie_postanovka",
+   "node_id": "basniev.galereya_postoyannoe_davlenie_postanovka",
+   "file": "pictures/galereya_postoyannoe_davlenie_postanovka_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Условия задачи: сначала всюду pк, затем на галерее (x = 0) держат pг, а вдали остаётся pк. Ход кривой между ними показан схематично.",
+   "alt": "Горизонтальная линия начального давления pк и кривая для момента после пуска: она начинается на галерее с pг и вдали выходит на pк.",
+   "source": "построено кодом по утверждениям главы, стр. 481, 482",
+   "claim_ids": [
+    "basniev.galereya_postoyannoe_davlenie_postanovka#c4",
+    "basniev.galereya_postoyannoe_davlenie_postanovka#c5",
+    "basniev.galereya_postoyannoe_davlenie_postanovka#c6",
+    "basniev.galereya_postoyannoe_davlenie_postanovka#c7",
+    "basniev.galereya_postoyannoe_davlenie_postanovka#c15"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.avtomodelnost.i1",
+   "step_id": "basniev.avtomodelnost",
+   "node_id": "basniev.avtomodelnost",
+   "file": "pictures/avtomodelnost_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Вдоль каждой кривой u = x/(2√(κt)) не меняется, поэтому и безразмерное давление P = f(u) на ней одно и то же.",
+   "alt": "Три кривые на плоскости время — координата, расходящиеся из начала по закону корня из времени. Каждой соответствует своё значение u и своё постоянное давление P.",
+   "source": "построено кодом по утверждениям главы, стр. 482",
+   "claim_ids": [
+    "basniev.avtomodelnost#c8",
+    "basniev.avtomodelnost#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.perehod_k_obyknovennomu_uravneniyu.i1",
+   "step_id": "basniev.perehod_k_obyknovennomu_uravneniyu",
+   "node_id": "basniev.perehod_k_obyknovennomu_uravneniyu",
+   "file": "pictures/perehod_k_obyknovennomu_uravneniyu_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Замена переменной в уравнении. Запись dp/du в производной по t — как в книге; вероятно, опечатка издания, должно быть dP/du.",
+   "alt": "Схема: от уравнения в частных производных через переменную u к двум производным, их подстановке и обыкновенному уравнению для P(u).",
+   "source": "построено кодом по утверждениям главы, стр. 482, 483",
+   "claim_ids": [
+    "basniev.perehod_k_obyknovennomu_uravneniyu#c1",
+    "basniev.perehod_k_obyknovennomu_uravneniyu#c3",
+    "basniev.perehod_k_obyknovennomu_uravneniyu#c4",
+    "basniev.perehod_k_obyknovennomu_uravneniyu#c6",
+    "basniev.perehod_k_obyknovennomu_uravneniyu#c7",
+    "basniev.perehod_k_obyknovennomu_uravneniyu#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.reshenie_cherez_erf.i1",
+   "step_id": "basniev.reshenie_cherez_erf",
+   "node_id": "basniev.reshenie_cherez_erf",
+   "file": "pictures/reshenie_cherez_erf_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "P = erf(u) растёт от 0 на галерее к 1 вдали. Формула в источнике приведена как в книге; вероятно, опечатка издания.",
+   "alt": "Качественный график безразмерного давления P от переменной u: кривая растёт от нуля, сначала круто, затем всё положе, и приближается к единице.",
+   "source": "построено кодом по утверждениям главы, стр. 483, 484",
+   "claim_ids": [
+    "basniev.reshenie_cherez_erf#c1",
+    "basniev.reshenie_cherez_erf#c21",
+    "basniev.reshenie_cherez_erf#c23",
+    "basniev.reshenie_cherez_erf#c24"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.krivye_davleniya_u_galerei.i1",
+   "step_id": "basniev.krivye_davleniya_u_galerei",
+   "node_id": "basniev.krivye_davleniya_u_galerei",
+   "file": "pictures/krivye_davleniya_u_galerei_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Все кривые выходят из pг и стремятся к pк. Чем позже момент, тем кривая ниже, положе и тянется дальше вглубь пласта.",
+   "alt": "Три кривые давления по расстоянию начинаются в одной точке pг на галерее и растут к горизонтали pк. Самая ранняя идёт выше всех и круче, самая поздняя — ниже и положе.",
+   "source": "построено кодом по утверждениям главы, стр. 484",
+   "claim_ids": [
+    "basniev.krivye_davleniya_u_galerei#c2",
+    "basniev.krivye_davleniya_u_galerei#c8",
+    "basniev.krivye_davleniya_u_galerei#c9",
+    "basniev.krivye_davleniya_u_galerei#c10",
+    "basniev.krivye_davleniya_u_galerei#c11",
+    "basniev.krivye_davleniya_u_galerei#c13",
+    "basniev.krivye_davleniya_u_galerei#c14",
+    "basniev.krivye_davleniya_u_galerei#c18"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.debit_i_dobycha_galerei.i1",
+   "step_id": "basniev.debit_i_dobycha_galerei",
+   "node_id": "basniev.debit_i_dobycha_galerei",
+   "file": "pictures/debit_i_dobycha_galerei_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Дебит Q падает, добыча Vдоб растёт всё медленнее. Интеграл для Vдоб в источнике приведён как в книге; вероятно, опечатка издания.",
+   "alt": "Схематический график без чисел: кривая дебита начинается высоко и убывает, кривая накопленной добычи выходит из нуля, растёт выпуклостью вверх и в начальной части пересекает кривую дебита.",
+   "source": "построено кодом по утверждениям главы, стр. 485",
+   "claim_ids": [
+    "basniev.debit_i_dobycha_galerei#c10",
+    "basniev.debit_i_dobycha_galerei#c16",
+    "basniev.debit_i_dobycha_galerei#c19",
+    "basniev.debit_i_dobycha_galerei#c20",
+    "basniev.debit_i_dobycha_galerei#c21",
+    "basniev.debit_i_dobycha_galerei#c22"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.galereya_postoyannyi_debit_skorost.i1",
+   "step_id": "basniev.galereya_postoyannyi_debit_skorost",
+   "node_id": "basniev.galereya_postoyannyi_debit_skorost",
+   "file": "pictures/galereya_postoyannyi_debit_skorost_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Путь решения при постоянном дебите: от уравнения для давления к такому же уравнению для скорости фильтрации.",
+   "alt": "Цепочка из пяти шагов: условие постоянной скорости на галерее, умножение на k/μ и дифференцирование, замена на w, уравнение для скорости, решение с заменой давления на скорость.",
+   "source": "построено кодом по утверждениям главы, стр. 485, 486",
+   "claim_ids": [
+    "basniev.galereya_postoyannyi_debit_skorost#c6",
+    "basniev.galereya_postoyannyi_debit_skorost#c11",
+    "basniev.galereya_postoyannyi_debit_skorost#c12",
+    "basniev.galereya_postoyannyi_debit_skorost#c14",
+    "basniev.galereya_postoyannyi_debit_skorost#c16",
+    "basniev.galereya_postoyannyi_debit_skorost#c18",
+    "basniev.galereya_postoyannyi_debit_skorost#c19",
+    "basniev.galereya_postoyannyi_debit_skorost#c20"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.reshenie_dlya_skorosti.i1",
+   "step_id": "basniev.reshenie_dlya_skorosti",
+   "node_id": "basniev.reshenie_dlya_skorosti",
+   "file": "pictures/reshenie_dlya_skorosti_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "w = w1·[1 − erf(x/(2√(κt)))]: на галерее w1, при t = 0 в пласте ноль. Как в книге; вероятно, опечатка издания.",
+   "alt": "Качественный график скорости от расстояния. При t = 0 скорость нулевая; позже кривые начинаются с w1 и спадают к нулю, при большем времени медленнее.",
+   "source": "построено кодом по утверждениям главы, стр. 486",
+   "claim_ids": [
+    "basniev.reshenie_dlya_skorosti#c3",
+    "basniev.reshenie_dlya_skorosti#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.davlenie_pri_postoyannom_debite.i1",
+   "step_id": "basniev.davlenie_pri_postoyannom_debite",
+   "node_id": "basniev.davlenie_pri_postoyannom_debite",
+   "file": "pictures/davlenie_pri_postoyannom_debite_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Профиль p при фиксированном t: интегрирование скорости по x даёт прибавку к pг(t). Как в книге; вероятно, опечатка издания.",
+   "alt": "Качественная кривая давления: начинается на галерее со значения pг и растёт с расстоянием, постепенно выполаживаясь.",
+   "source": "построено кодом по утверждениям главы, стр. 487",
+   "claim_ids": [
+    "basniev.davlenie_pri_postoyannom_debite#c1",
+    "basniev.davlenie_pri_postoyannom_debite#c10",
+    "basniev.davlenie_pri_postoyannom_debite#c12"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.davlenie_na_galeree_i_predel_modeli.i1",
+   "step_id": "basniev.davlenie_na_galeree_i_predel_modeli",
+   "node_id": "basniev.davlenie_na_galeree_i_predel_modeli",
+   "file": "pictures/davlenie_na_galeree_i_predel_modeli_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Расчётное pг падает от pк как корень из времени и уходит ниже нуля: здесь решение теряет смысл, реально возникнет кавитация.",
+   "alt": "Качественный график: расчётное давление на галерее убывает со временем от начального pк и пересекает линию нулевого давления.",
+   "source": "построено кодом по утверждениям главы, стр. 488",
+   "claim_ids": [
+    "basniev.davlenie_na_galeree_i_predel_modeli#c7",
+    "basniev.davlenie_na_galeree_i_predel_modeli#c9",
+    "basniev.davlenie_na_galeree_i_predel_modeli#c10",
+    "basniev.davlenie_na_galeree_i_predel_modeli#c13"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.radialnaya_zadacha_postanovka.i1",
+   "step_id": "basniev.radialnaya_zadacha_postanovka",
+   "node_id": "basniev.radialnaya_zadacha_postanovka",
+   "file": "pictures/radialnaya_zadacha_postanovka_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Скважина — точечный сток с постоянным дебитом Q0. До пуска давление всюду pк, вдали остаётся pк, а возмущённая зона растёт.",
+   "alt": "Качественные профили давления по радиусу: до пуска горизонтальная линия pк, после пуска давление у стока понижено и вдали возвращается к pк; позже возмущение шире.",
+   "source": "построено кодом по утверждениям главы, стр. 488",
+   "claim_ids": [
+    "basniev.radialnaya_zadacha_postanovka#c2",
+    "basniev.radialnaya_zadacha_postanovka#c3",
+    "basniev.radialnaya_zadacha_postanovka#c4",
+    "basniev.radialnaya_zadacha_postanovka#c10",
+    "basniev.radialnaya_zadacha_postanovka#c11",
+    "basniev.radialnaya_zadacha_postanovka#c12",
+    "basniev.radialnaya_zadacha_postanovka#c14"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.radialnaya_avtomodelnost.i1",
+   "step_id": "basniev.radialnaya_avtomodelnost",
+   "node_id": "basniev.radialnaya_avtomodelnost",
+   "file": "pictures/radialnaya_avtomodelnost_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Путь к обыкновенному уравнению: r и t входят только через ξ. Замена производных — как в книге; вероятно, опечатка издания.",
+   "alt": "Схема сверху вниз: пять определяющих параметров, три с независимыми размерностями, функция двух безразмерных аргументов, переменная ξ и обыкновенное дифференциальное уравнение.",
+   "source": "построено кодом по утверждениям главы, стр. 489",
+   "claim_ids": [
+    "basniev.radialnaya_avtomodelnost#c2",
+    "basniev.radialnaya_avtomodelnost#c6",
+    "basniev.radialnaya_avtomodelnost#c7",
+    "basniev.radialnaya_avtomodelnost#c8",
+    "basniev.radialnaya_avtomodelnost#c9",
+    "basniev.radialnaya_avtomodelnost#c10",
+    "basniev.radialnaya_avtomodelnost#c12",
+    "basniev.radialnaya_avtomodelnost#c17",
+    "basniev.radialnaya_avtomodelnost#c18"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.integrirovanie_radialnoi_zadachi.i1",
+   "step_id": "basniev.integrirovanie_radialnoi_zadachi",
+   "node_id": "basniev.integrirovanie_radialnoi_zadachi",
+   "file": "pictures/integrirovanie_radialnoi_zadachi_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Два интегрирования, два условия. 4πkh — по выкладке; 2πkh в итоговой формуле — как в книге; вероятно, опечатка издания.",
+   "alt": "Цепочка шагов решения: понижение порядка, первое интегрирование, второе интегрирование до бесконечности, определение постоянной по дебиту, замена переменной и формула давления.",
+   "source": "построено кодом по утверждениям главы, стр. 489, 490",
+   "claim_ids": [
+    "basniev.integrirovanie_radialnoi_zadachi#c2",
+    "basniev.integrirovanie_radialnoi_zadachi#c4",
+    "basniev.integrirovanie_radialnoi_zadachi#c5",
+    "basniev.integrirovanie_radialnoi_zadachi#c9",
+    "basniev.integrirovanie_radialnoi_zadachi#c10",
+    "basniev.integrirovanie_radialnoi_zadachi#c11",
+    "basniev.integrirovanie_radialnoi_zadachi#c13",
+    "basniev.integrirovanie_radialnoi_zadachi#c14",
+    "basniev.integrirovanie_radialnoi_zadachi#c18",
+    "basniev.integrirovanie_radialnoi_zadachi#c19",
+    "basniev.integrirovanie_radialnoi_zadachi#c20"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.osnovnaya_formula_rezhima.i1",
+   "step_id": "basniev.osnovnaya_formula_rezhima",
+   "node_id": "basniev.osnovnaya_formula_rezhima",
+   "file": "pictures/osnovnaya_formula_rezhima_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественно: у скважины и со временем падение давления больше. Формула — как в книге; вероятно, опечатка издания.",
+   "alt": "Две кривые давления в зависимости от расстояния: обе низкие у скважины и приближаются к начальному давлению вдали; кривая для позднего времени лежит ниже.",
+   "source": "построено кодом по утверждениям главы, стр. 490, 491",
+   "claim_ids": [
+    "basniev.osnovnaya_formula_rezhima#c3",
+    "basniev.osnovnaya_formula_rezhima#c4",
+    "basniev.osnovnaya_formula_rezhima#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.logarifmicheskoe_priblizhenie.i1",
+   "step_id": "basniev.logarifmicheskoe_priblizhenie",
+   "node_id": "basniev.logarifmicheskoe_priblizhenie",
+   "file": "pictures/logarifmicheskoe_priblizhenie_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "симуляция",
+   "caption": "С ростом x логарифм расходится с −Ei(−x); точки −Ei приблизительные. Формула давления — как в книге; вероятно, опечатка издания.",
+   "alt": "Две убывающие кривые от x = 0,1 до 0,5: у левого края функция −Ei и логарифмическое приближение почти совпадают, к правому краю приближение уходит заметно ниже.",
+   "source": "построено кодом по утверждениям главы, стр. 491",
+   "claim_ids": [
+    "basniev.logarifmicheskoe_priblizhenie#c5",
+    "basniev.logarifmicheskoe_priblizhenie#c8",
+    "basniev.logarifmicheskoe_priblizhenie#c9",
+    "basniev.logarifmicheskoe_priblizhenie#c12",
+    "basniev.logarifmicheskoe_priblizhenie#c22",
+    "basniev.logarifmicheskoe_priblizhenie#c23"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.rashod_vokrug_skvazhiny.i1",
+   "step_id": "basniev.rashod_vokrug_skvazhiny",
+   "node_id": "basniev.rashod_vokrug_skvazhiny",
+   "file": "pictures/rashod_vokrug_skvazhiny_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Вблизи скважины скорость фильтрации очень быстро подходит к стационарной, на большом радиусе — заметно медленнее. Ход качественный.",
+   "alt": "Две растущие со временем кривые под горизонтальным стационарным уровнем: для малого радиуса почти сразу подходит к нему, для большого растёт медленнее.",
+   "source": "построено кодом по утверждениям главы, стр. 492",
+   "claim_ids": [
+    "basniev.rashod_vokrug_skvazhiny#c4",
+    "basniev.rashod_vokrug_skvazhiny#c5",
+    "basniev.rashod_vokrug_skvazhiny#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.parametry_fure_i_radius_skvazhiny.i1",
+   "step_id": "basniev.parametry_fure_i_radius_skvazhiny",
+   "node_id": "basniev.parametry_fure_i_radius_skvazhiny",
+   "file": "pictures/parametry_fure_i_radius_skvazhiny_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "симуляция",
+   "caption": "Погрешность из-за неучтённого радиуса скважины быстро убывает с ростом безразмерного времени fo.",
+   "alt": "Убывающая кривая: погрешность 9,4% при fo = 5, 5% при fo = 10, 2,3% при fo = 25 и 0,6% при fo = 100.",
+   "source": "построено кодом по утверждениям главы, стр. 492",
+   "claim_ids": [
+    "basniev.parametry_fure_i_radius_skvazhiny#c2",
+    "basniev.parametry_fure_i_radius_skvazhiny#c7",
+    "basniev.parametry_fure_i_radius_skvazhiny#c8",
+    "basniev.parametry_fure_i_radius_skvazhiny#c9",
+    "basniev.parametry_fure_i_radius_skvazhiny#c10",
+    "basniev.parametry_fure_i_radius_skvazhiny#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.primenimost_dlya_konechnogo_plasta.i1",
+   "step_id": "basniev.primenimost_dlya_konechnogo_plasta",
+   "node_id": "basniev.primenimost_dlya_konechnogo_plasta",
+   "file": "pictures/primenimost_dlya_konechnogo_plasta_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Наибольшая погрешность забойного давления в конечном открытом пласте по формуле бесконечного пласта. Чем больше Fo, тем она выше.",
+   "alt": "Три столбца предельной погрешности: 0,08% при Fo не более 0,2, 1% при Fo не более 0,35 и 1,9% при Fo не более 0,5.",
+   "source": "построено кодом по утверждениям главы, стр. 493",
+   "claim_ids": [
+    "basniev.primenimost_dlya_konechnogo_plasta#c3",
+    "basniev.primenimost_dlya_konechnogo_plasta#c4",
+    "basniev.primenimost_dlya_konechnogo_plasta#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.pezometricheskie_krivye_u_skvazhiny.i1",
+   "step_id": "basniev.pezometricheskie_krivye_u_skvazhiny",
+   "node_id": "basniev.pezometricheskie_krivye_u_skvazhiny",
+   "file": "pictures/pezometricheskie_krivye_u_skvazhiny_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Со временем давление у скважины падает, а наклон кривых у забоя остаётся одинаковым. Вдали кривые выполаживаются.",
+   "alt": "Под горизонтальной линией начального давления три кривые, крутые у скважины и пологие вдали; более поздние лежат ниже, а у забоя их наклон одинаков.",
+   "source": "построено кодом по утверждениям главы, стр. 493",
+   "claim_ids": [
+    "basniev.pezometricheskie_krivye_u_skvazhiny#c6",
+    "basniev.pezometricheskie_krivye_u_skvazhiny#c8",
+    "basniev.pezometricheskie_krivye_u_skvazhiny#c9",
+    "basniev.pezometricheskie_krivye_u_skvazhiny#c10",
+    "basniev.pezometricheskie_krivye_u_skvazhiny#c11",
+    "basniev.pezometricheskie_krivye_u_skvazhiny#c17",
+    "basniev.pezometricheskie_krivye_u_skvazhiny#c18"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.ideya_psss.i1",
+   "step_id": "basniev.ideya_psss",
+   "node_id": "basniev.ideya_psss",
+   "file": "pictures/ideya_psss_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественно, случай отбора: до подвижной границы профиль как при установившемся течении, за ней давление начальное. Граница расширяется.",
+   "alt": "Две кривые давления растут от стенки скважины и выходят на общий горизонтальный уровень начального давления; в поздний момент это происходит дальше от скважины.",
+   "source": "построено кодом по утверждениям главы, стр. 494, 495",
+   "claim_ids": [
+    "basniev.ideya_psss#c10",
+    "basniev.ideya_psss#c11",
+    "basniev.ideya_psss#c12",
+    "basniev.ideya_psss#c13",
+    "basniev.ideya_psss#c16"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_galereya_debit_postanovka.i1",
+   "step_id": "basniev.psss_galereya_debit_postanovka",
+   "node_id": "basniev.psss_galereya_debit_postanovka",
+   "file": "pictures/psss_galereya_debit_postanovka_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Давление растёт по прямой от галереи до границы l(t), дальше равно pк. Прямые почти параллельны, меняется длина зоны.",
+   "alt": "Два профиля давления: наклонные, почти параллельные прямые от pг1 и более низкого pг2 поднимаются до уровня pк на расстояниях l(t1) и большем l(t2), дальше идут горизонтально.",
+   "source": "построено кодом по утверждениям главы, стр. 495",
+   "claim_ids": [
+    "basniev.psss_galereya_debit_postanovka#c5",
+    "basniev.psss_galereya_debit_postanovka#c13",
+    "basniev.psss_galereya_debit_postanovka#c14",
+    "basniev.psss_galereya_debit_postanovka#c15",
+    "basniev.psss_galereya_debit_postanovka#c16",
+    "basniev.psss_galereya_debit_postanovka#c17",
+    "basniev.psss_galereya_debit_postanovka#c18"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_galereya_debit_granitsa.i1",
+   "step_id": "basniev.psss_galereya_debit_granitsa",
+   "node_id": "basniev.psss_galereya_debit_granitsa",
+   "file": "pictures/psss_galereya_debit_granitsa_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "При постоянном дебите граница возмущения растёт как корень из времени: со временем она продвигается всё медленнее.",
+   "alt": "Кривая длины возмущённой области от времени выходит из нуля, круто поднимается и постепенно становится более пологой, как корень из времени.",
+   "source": "построено кодом по утверждениям главы, стр. 496",
+   "claim_ids": [
+    "basniev.psss_galereya_debit_granitsa#c6",
+    "basniev.psss_galereya_debit_granitsa#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_galereya_davlenie.i1",
+   "step_id": "basniev.psss_galereya_davlenie",
+   "node_id": "basniev.psss_galereya_davlenie",
+   "file": "pictures/psss_galereya_davlenie_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "pг постоянно, граница l(t) = 2√(κt) уходит дальше, прямая положе. Точная формула дебита — как в книге; вероятно, опечатка издания.",
+   "alt": "Две прямые выходят из одной точки pг у галереи и поднимаются до уровня начального давления pк; поздняя прямая положе и достигает pк дальше от галереи.",
+   "source": "построено кодом по утверждениям главы, стр. 496, 497",
+   "claim_ids": [
+    "basniev.psss_galereya_davlenie#c1",
+    "basniev.psss_galereya_davlenie#c14",
+    "basniev.psss_galereya_davlenie#c16",
+    "basniev.psss_galereya_davlenie#c17"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_skvazhina_profil.i1",
+   "step_id": "basniev.psss_skvazhina_profil",
+   "node_id": "basniev.psss_skvazhina_profil",
+   "file": "pictures/psss_skvazhina_profil_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Давление вокруг скважины при постоянном дебите: со временем круг возмущения растёт, а давление на скважине падает. Профиль крутой у скважины.",
+   "alt": "Схематический график давления по радиусу. Горизонтальная прямая pк при t = 0 и три кривые ниже: каждая более поздняя начинается ниже, круто растёт у скважины и дальше выполаживается.",
+   "source": "построено кодом по утверждениям главы, стр. 497, 498",
+   "claim_ids": [
+    "basniev.psss_skvazhina_profil#c5",
+    "basniev.psss_skvazhina_profil#c14",
+    "basniev.psss_skvazhina_profil#c19",
+    "basniev.psss_skvazhina_profil#c20",
+    "basniev.psss_skvazhina_profil#c21",
+    "basniev.psss_skvazhina_profil#c22",
+    "basniev.psss_skvazhina_profil#c24"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_skvazhina_granitsa.i1",
+   "step_id": "basniev.psss_skvazhina_granitsa",
+   "node_id": "basniev.psss_skvazhina_granitsa",
+   "file": "pictures/psss_skvazhina_granitsa_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Граница возмущения стартует от стенки скважины и растёт по корневому закону: чем дальше по времени, тем медленнее.",
+   "alt": "Качественный график радиуса возмущённой области от времени: кривая начинается на уровне радиуса скважины и растёт, постепенно выполаживаясь.",
+   "source": "построено кодом по утверждениям главы, стр. 498",
+   "claim_ids": [
+    "basniev.psss_skvazhina_granitsa#c2",
+    "basniev.psss_skvazhina_granitsa#c10",
+    "basniev.psss_skvazhina_granitsa#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_skvazhina_tochnost.i1",
+   "step_id": "basniev.psss_skvazhina_tochnost",
+   "node_id": "basniev.psss_skvazhina_tochnost",
+   "file": "pictures/psss_skvazhina_tochnost_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Относительная погрешность депрессии по ПССС против точной формулы убывает с ростом безразмерного времени fo = κt/rс².",
+   "alt": "Три столбца погрешности депрессии: 10,6% при fo = 100, 7,5% при fo = 10³ и 5,7% при fo = 10⁴.",
+   "source": "построено кодом по утверждениям главы, стр. 499",
+   "claim_ids": [
+    "basniev.psss_skvazhina_tochnost#c6",
+    "basniev.psss_skvazhina_tochnost#c7",
+    "basniev.psss_skvazhina_tochnost#c8",
+    "basniev.psss_skvazhina_tochnost#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.psss_skvazhina_davlenie.i1",
+   "step_id": "basniev.psss_skvazhina_davlenie",
+   "node_id": "basniev.psss_skvazhina_davlenie",
+   "file": "pictures/psss_skvazhina_davlenie_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "симуляция",
+   "caption": "При постоянном забойном давлении радиус возмущения растёт всё положе. Точки приблизительно сняты с графика.",
+   "alt": "Кривая R(t)/rс растёт из начала координат: около 4·10³ при 10⁻⁷·fo = 0,5, 5,7·10³ при 1, 7·10³ при 1,5 и 8,5·10³ при 2.",
+   "source": "построено кодом по утверждениям главы, стр. 499",
+   "claim_ids": [
+    "basniev.psss_skvazhina_davlenie#c6",
+    "basniev.psss_skvazhina_davlenie#c9",
+    "basniev.psss_skvazhina_davlenie#c10",
+    "basniev.psss_skvazhina_davlenie#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.granitsy_metoda_psss.i1",
+   "step_id": "basniev.granitsy_metoda_psss",
+   "node_id": "basniev.granitsy_metoda_psss",
+   "file": "pictures/granitsy_metoda_psss_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Схема профиля по ПССС: на границе областей градиент давления меняется скачком. Это одна из причин расхождения с точным решением.",
+   "alt": "Давление растёт с расстоянием в возмущённой области, а на её границе линия резко переламывается и дальше идёт горизонтально.",
+   "source": "построено кодом по утверждениям главы, стр. 499, 500",
+   "claim_ids": [
+    "basniev.granitsy_metoda_psss#c1",
+    "basniev.granitsy_metoda_psss#c2",
+    "basniev.granitsy_metoda_psss#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basniev.metod_pirverdyana.i1",
+   "step_id": "basniev.metod_pirverdyana",
+   "node_id": "basniev.metod_pirverdyana",
+   "file": "pictures/metod_pirverdyana_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Приток к галерее по Пирвердяну: парабола растёт от pг и на границе l(t) касается уровня pк без излома.",
+   "alt": "Кривая давления поднимается от pг выпуклостью вверх, всё более полого, и на расстоянии l(t) плавно переходит в горизонтальную линию pк.",
+   "source": "построено кодом по утверждениям главы, стр. 500",
+   "claim_ids": [
+    "basniev.metod_pirverdyana#c4",
+    "basniev.metod_pirverdyana#c5",
+    "basniev.metod_pirverdyana#c7",
+    "basniev.metod_pirverdyana#c8",
+    "basniev.metod_pirverdyana#c9",
+    "basniev.metod_pirverdyana#c17",
+    "basniev.metod_pirverdyana#c18",
+    "basniev.metod_pirverdyana#c19"
+   ],
+   "prompt": null
+  }
+ ]
+}

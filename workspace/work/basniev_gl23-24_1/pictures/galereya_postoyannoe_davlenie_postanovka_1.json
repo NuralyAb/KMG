@@ -1,0 +1,99 @@
+{
+ "node_id": "basniev.galereya_postoyannoe_davlenie_postanovka",
+ "template": "plot",
+ "data": {
+  "x_label": "Расстояние от галереи x",
+  "y_label": "Давление p",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "t = 0: всюду pк",
+    "color": "",
+    "points": [
+     [
+      0,
+      0.8
+     ],
+     [
+      0.25,
+      0.8
+     ],
+     [
+      0.5,
+      0.8
+     ],
+     [
+      0.75,
+      0.8
+     ],
+     [
+      1,
+      0.8
+     ]
+    ]
+   },
+   {
+    "name": "t > 0: искомое p(x, t), схема",
+    "color": "",
+    "points": [
+     [
+      0,
+      0.2
+     ],
+     [
+      0.1,
+      0.34
+     ],
+     [
+      0.2,
+      0.47
+     ],
+     [
+      0.3,
+      0.58
+     ],
+     [
+      0.45,
+      0.69
+     ],
+     [
+      0.6,
+      0.76
+     ],
+     [
+      0.8,
+      0.79
+     ],
+     [
+      1,
+      0.8
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0,
+    "y": 0.2,
+    "text": "галерея: pг"
+   },
+   {
+    "x": 1,
+    "y": 0.8,
+    "text": "вдали: pк"
+   }
+  ]
+ },
+ "caption": "Условия задачи: сначала всюду pк, затем на галерее (x = 0) держат pг, а вдали остаётся pк. Ход кривой между ними показан схематично.",
+ "alt": "Горизонтальная линия начального давления pк и кривая для момента после пуска: она начинается на галерее с pг и вдали выходит на pк.",
+ "claim_ids": [
+  "basniev.galereya_postoyannoe_davlenie_postanovka#c4",
+  "basniev.galereya_postoyannoe_davlenie_postanovka#c5",
+  "basniev.galereya_postoyannoe_davlenie_postanovka#c6",
+  "basniev.galereya_postoyannoe_davlenie_postanovka#c7",
+  "basniev.galereya_postoyannoe_davlenie_postanovka#c15"
+ ]
+}

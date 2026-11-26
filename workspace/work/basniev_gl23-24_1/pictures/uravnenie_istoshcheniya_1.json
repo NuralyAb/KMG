@@ -1,0 +1,66 @@
+{
+ "node_id": "basniev.uravnenie_istoshcheniya",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Упругий запас: ΔVз = β*·V0·Δp, где Δp = pк − p̃",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Отбор нефти всеми скважинами с дебитом Q(t)",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Дифференцируем: d(ΔVз) = β*·d[V0(t)·Δp]",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "За время dt: d(ΔVз) = Q(t)·dt",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Уравнение истощения: β*·d[V0(t)·Δp] = Q(t)·dt",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Два выражения для одного изменения запаса — через давление и через отбор — приравниваются.",
+ "alt": "Две ветви: дифференциал упругого запаса и отбор нефти за время dt. Обе сходятся в уравнении истощения залежи.",
+ "claim_ids": [
+  "basniev.uravnenie_istoshcheniya#c3",
+  "basniev.uravnenie_istoshcheniya#c7",
+  "basniev.uravnenie_istoshcheniya#c8",
+  "basniev.uravnenie_istoshcheniya#c9",
+  "basniev.uravnenie_istoshcheniya#c10",
+  "basniev.uravnenie_istoshcheniya#c11",
+  "basniev.uravnenie_istoshcheniya#c13"
+ ]
+}

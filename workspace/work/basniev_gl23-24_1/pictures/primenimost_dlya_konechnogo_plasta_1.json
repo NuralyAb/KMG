@@ -1,0 +1,29 @@
+{
+ "node_id": "basniev.primenimost_dlya_konechnogo_plasta",
+ "template": "bars",
+ "data": {
+  "unit": "%",
+  "items": [
+   {
+    "name": "Fo ≤ 0,2",
+    "value": 0.08
+   },
+   {
+    "name": "Fo ≤ 0,35",
+    "value": 1
+   },
+   {
+    "name": "Fo ≤ 0,5",
+    "value": 1.9
+   }
+  ],
+  "log": false
+ },
+ "caption": "Наибольшая погрешность забойного давления в конечном открытом пласте по формуле бесконечного пласта. Чем больше Fo, тем она выше.",
+ "alt": "Три столбца предельной погрешности: 0,08% при Fo не более 0,2, 1% при Fo не более 0,35 и 1,9% при Fo не более 0,5.",
+ "claim_ids": [
+  "basniev.primenimost_dlya_konechnogo_plasta#c3",
+  "basniev.primenimost_dlya_konechnogo_plasta#c4",
+  "basniev.primenimost_dlya_konechnogo_plasta#c5"
+ ]
+}

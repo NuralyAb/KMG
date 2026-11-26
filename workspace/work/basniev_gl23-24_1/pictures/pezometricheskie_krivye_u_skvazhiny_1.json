@@ -1,0 +1,136 @@
+{
+ "node_id": "basniev.pezometricheskie_krivye_u_skvazhiny",
+ "template": "plot",
+ "data": {
+  "x_label": "Расстояние от скважины r",
+  "y_label": "Давление p",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "pк: до пуска, t = 0",
+    "color": "",
+    "points": [
+     [
+      0.05,
+      0.96
+     ],
+     [
+      1,
+      0.96
+     ]
+    ]
+   },
+   {
+    "name": "момент t₁",
+    "color": "",
+    "points": [
+     [
+      0.05,
+      0.44
+     ],
+     [
+      0.1,
+      0.61
+     ],
+     [
+      0.2,
+      0.76
+     ],
+     [
+      0.4,
+      0.89
+     ],
+     [
+      0.7,
+      0.94
+     ],
+     [
+      1,
+      0.95
+     ]
+    ]
+   },
+   {
+    "name": "момент t₂ (позже t₁)",
+    "color": "",
+    "points": [
+     [
+      0.05,
+      0.3
+     ],
+     [
+      0.1,
+      0.47
+     ],
+     [
+      0.2,
+      0.63
+     ],
+     [
+      0.4,
+      0.78
+     ],
+     [
+      0.7,
+      0.88
+     ],
+     [
+      1,
+      0.92
+     ]
+    ]
+   },
+   {
+    "name": "момент t₃ (позже t₂)",
+    "color": "",
+    "points": [
+     [
+      0.05,
+      0.13
+     ],
+     [
+      0.1,
+      0.3
+     ],
+     [
+      0.2,
+      0.47
+     ],
+     [
+      0.4,
+      0.63
+     ],
+     [
+      0.7,
+      0.75
+     ],
+     [
+      1,
+      0.83
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.05,
+    "y": 0.13,
+    "text": "забой: наклон θ"
+   }
+  ]
+ },
+ "caption": "Со временем давление у скважины падает, а наклон кривых у забоя остаётся одинаковым. Вдали кривые выполаживаются.",
+ "alt": "Под горизонтальной линией начального давления три кривые, крутые у скважины и пологие вдали; более поздние лежат ниже, а у забоя их наклон одинаков.",
+ "claim_ids": [
+  "basniev.pezometricheskie_krivye_u_skvazhiny#c6",
+  "basniev.pezometricheskie_krivye_u_skvazhiny#c8",
+  "basniev.pezometricheskie_krivye_u_skvazhiny#c9",
+  "basniev.pezometricheskie_krivye_u_skvazhiny#c10",
+  "basniev.pezometricheskie_krivye_u_skvazhiny#c11",
+  "basniev.pezometricheskie_krivye_u_skvazhiny#c17",
+  "basniev.pezometricheskie_krivye_u_skvazhiny#c18"
+ ]
+}

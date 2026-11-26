@@ -1,0 +1,15 @@
+{
+ "chapter": "basniev_gl23-24_1",
+ "entries": [
+  {
+   "md": "w_1}{k\\sqrt{\\pi}} \\sqrt{kt}$$",
+   "scan": "w_1}{k\\sqrt{\\pi}} \\sqrt{\\varkappa t}$$",
+   "kind": "recognition",
+   "note": "ϰ (пьезопроводность) прочитана как k; правило, сверить по скану",
+   "page": 488,
+   "unit_id": "p488.04",
+   "by_rule": "kappa",
+   "core": "\\sqrt{kt}$"
+  }
+ ]
+}

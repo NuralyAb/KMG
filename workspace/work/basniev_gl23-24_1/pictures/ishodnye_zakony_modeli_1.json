@@ -1,0 +1,66 @@
+{
+ "node_id": "basniev.ishodnye_zakony_modeli",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Сохранение массы: ∂(mρ)/∂t + div(ρw) = 0",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Закон Дарси: w = −(k/μ)(grad p + ρf)",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Уравнения состояния: ρ, m, k, μ зависят от p",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Без массовых сил вводим функцию Лейбензона P",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "∂(mρ)/∂t − ΔP = 0 и ρw = −grad P",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Сохранение массы, закон Дарси и уравнения состояния образуют систему; функция Лейбензона делает запись короче.",
+ "alt": "Схема: уравнение неразрывности и закон Дарси дополняются уравнениями состояния, затем без массовых сил вводится функция Лейбензона и получается краткая система.",
+ "claim_ids": [
+  "basniev.ishodnye_zakony_modeli#c3",
+  "basniev.ishodnye_zakony_modeli#c5",
+  "basniev.ishodnye_zakony_modeli#c6",
+  "basniev.ishodnye_zakony_modeli#c7",
+  "basniev.ishodnye_zakony_modeli#c8",
+  "basniev.ishodnye_zakony_modeli#c9",
+  "basniev.ishodnye_zakony_modeli#c10"
+ ]
+}

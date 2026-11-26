@@ -1,0 +1,67 @@
+{
+ "node_id": "basniev.galereya_postoyannyi_debit_skorost",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "На галерее постоянный дебит: скорость w = w1",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Уравнение для p умножают на k/μ и дифференцируют по x",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Меняют порядок производных; (k/μ)·∂p/∂x = w",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Для скорости: ∂w/∂t = κ·∂²w/∂x², форма та же",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Берут решение того же вида, заменив p на w",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Путь решения при постоянном дебите: от уравнения для давления к такому же уравнению для скорости фильтрации.",
+ "alt": "Цепочка из пяти шагов: условие постоянной скорости на галерее, умножение на k/μ и дифференцирование, замена на w, уравнение для скорости, решение с заменой давления на скорость.",
+ "claim_ids": [
+  "basniev.galereya_postoyannyi_debit_skorost#c6",
+  "basniev.galereya_postoyannyi_debit_skorost#c11",
+  "basniev.galereya_postoyannyi_debit_skorost#c12",
+  "basniev.galereya_postoyannyi_debit_skorost#c14",
+  "basniev.galereya_postoyannyi_debit_skorost#c16",
+  "basniev.galereya_postoyannyi_debit_skorost#c18",
+  "basniev.galereya_postoyannyi_debit_skorost#c19",
+  "basniev.galereya_postoyannyi_debit_skorost#c20"
+ ]
+}

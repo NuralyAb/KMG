@@ -1,0 +1,68 @@
+{
+ "node_id": "basniev.radialnaya_avtomodelnost",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Пять параметров: r, t, κ, pк, Q0μ/(2πkh)",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Независимые размерности у трёх: r, t, pк",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "P = p/pк = f(ξ, Q0μ/(2πkhpк))",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Одна переменная: ξ = r/(2√(κt))",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "d²P/dξ² + (1/ξ + 2ξ)·dP/dξ = 0",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": "подстановка"
+   }
+  ]
+ },
+ "caption": "Путь к обыкновенному уравнению: r и t входят только через ξ. Замена производных — как в книге; вероятно, опечатка издания.",
+ "alt": "Схема сверху вниз: пять определяющих параметров, три с независимыми размерностями, функция двух безразмерных аргументов, переменная ξ и обыкновенное дифференциальное уравнение.",
+ "claim_ids": [
+  "basniev.radialnaya_avtomodelnost#c2",
+  "basniev.radialnaya_avtomodelnost#c6",
+  "basniev.radialnaya_avtomodelnost#c7",
+  "basniev.radialnaya_avtomodelnost#c8",
+  "basniev.radialnaya_avtomodelnost#c9",
+  "basniev.radialnaya_avtomodelnost#c10",
+  "basniev.radialnaya_avtomodelnost#c12",
+  "basniev.radialnaya_avtomodelnost#c17",
+  "basniev.radialnaya_avtomodelnost#c18"
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "node_id": "basniev.uprugoemkost_plasta",
+ "template": "plot",
+ "data": {
+  "x_label": "Пористость m",
+  "y_label": "Коэффициент упругоёмкости",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "β* = m·βж + βс",
+    "color": "",
+    "points": [
+     [
+      0,
+      0.3
+     ],
+     [
+      1,
+      0.85
+     ]
+    ]
+   },
+   {
+    "name": "вклад скелета βс",
+    "color": "",
+    "points": [
+     [
+      0,
+      0.3
+     ],
+     [
+      1,
+      0.3
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.6,
+    "y": 0.63,
+    "text": "сумма двух вкладов"
+   }
+  ]
+ },
+ "caption": "Качественно, по формуле: зазор между линиями — вклад жидкости m·βж, он растёт с пористостью; βс добавляется к нему.",
+ "alt": "График без чисел: горизонтальная линия βс и над ней прямая β*, растущая с пористостью m; расстояние между ними равно m·βж.",
+ "claim_ids": [
+  "basniev.uprugoemkost_plasta#c5",
+  "basniev.uprugoemkost_plasta#c9",
+  "basniev.uprugoemkost_plasta#c10"
+ ]
+}

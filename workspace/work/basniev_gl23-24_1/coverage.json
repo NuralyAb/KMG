@@ -23,7 +23,7 @@
    "page_pdf": 474,
    "excerpt": "### §1. Упругий режим пласта и его характерные особенности",
    "node_ids": [],
-   "reason": "заголовок"
+   "reason": "заголовок параграфа"
   },
   {
    "unit_id": "p474.04",
@@ -41,7 +41,7 @@
    "page_pdf": 474,
    "excerpt": "Математическая модель, которая будет сформулирована далее, учитывает проявление упругих сил в однофазном",
    "node_ids": [
-    "basniev.neustanovivshiesya_processy"
+    "basniev.mehanizm_uprugogo_pritoka"
    ],
    "reason": null
   },
@@ -70,10 +70,8 @@
    "kind": "paragraph",
    "page_pdf": 475,
    "excerpt": "НЕУСТАНОВИВШЕЕСЯ ДВИЖЕНИЕ УПРУГОЙ ЖИДКОСТИ",
-   "node_ids": [
-    "basniev.vidy_uprugogo_rezhima"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p475.02",
@@ -127,7 +125,7 @@
    "page_pdf": 475,
    "excerpt": "Под упругим запасом жидкости в пласте понимают количество жидкости, которое можно извлечь",
    "node_ids": [
-    "basniev.uprugiy_zapas"
+    "basniev.izmenenie_obemov_i_znaki"
    ],
    "reason": null
   },
@@ -137,7 +135,7 @@
    "page_pdf": 475,
    "excerpt": "Упругий запас жидкости в пласте можно подсчитать следующим образом. Выделим мысленно элемент",
    "node_ids": [
-    "basniev.uprugiy_zapas"
+    "basniev.izmenenie_obemov_i_znaki"
    ],
    "reason": null
   },
@@ -163,7 +161,7 @@
    "page_pdf": 476,
    "excerpt": "лами (19.22) и (19.40), заменив дифференциалы давления и объемов пор и жидкости",
    "node_ids": [
-    "basniev.uprugiy_zapas"
+    "basniev.izmenenie_obemov_i_znaki"
    ],
    "reason": null
   },
@@ -173,7 +171,7 @@
    "page_pdf": 476,
    "excerpt": "$$- \\beta_{\\text{ж}} V_{0\\text{ж}} \\Delta p = \\Delta V_{\\text{ж}} \\quad \\text{и} \\quad \\beta_{\\text{с}}",
    "node_ids": [
-    "basniev.uprugiy_zapas"
+    "basniev.izmenenie_obemov_i_znaki"
    ],
    "reason": null
   },
@@ -183,7 +181,7 @@
    "page_pdf": 476,
    "excerpt": "Для дальнейшего использования этих формул необходимо внести некоторые уточнения. При определении формулы",
    "node_ids": [
-    "basniev.uprugiy_zapas"
+    "basniev.izmenenie_obemov_i_znaki"
    ],
    "reason": null
   },
@@ -193,7 +191,7 @@
    "page_pdf": 476,
    "excerpt": "$$\\Delta V_{\\text{з}} = \\beta_{\\text{ж}} V_{0\\text{ж}} \\Delta p + \\beta_{\\text{с}} V_0 \\Delta p.",
    "node_ids": [
-    "basniev.uprugiy_zapas"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -203,7 +201,7 @@
    "page_pdf": 476,
    "excerpt": "Учтем, что начальный объем жидкости, насыщающей элемент объема пласта $V_0$, равен полному",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -213,7 +211,7 @@
    "page_pdf": 476,
    "excerpt": "$$V_{0\\text{ж}} = m V_0, \\quad (23.2)$$",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -223,7 +221,7 @@
    "page_pdf": 476,
    "excerpt": "$m$ – пористость пласта.",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -233,7 +231,7 @@
    "page_pdf": 476,
    "excerpt": "Тогда формулу (23.1) с учетом равенства (23.2) можно переписать в следующем виде:",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -243,7 +241,7 @@
    "page_pdf": 476,
    "excerpt": "$$\\Delta V_{\\text{з}} = (m \\beta_{\\text{ж}} + \\beta_{\\text{с}}) V_0 \\Delta p, \\quad (23.3)$$",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -253,7 +251,7 @@
    "page_pdf": 476,
    "excerpt": "или",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -263,7 +261,7 @@
    "page_pdf": 476,
    "excerpt": "$$\\Delta V_{\\text{з}} = \\beta^* V_0 \\Delta p, \\quad (23.4)$$",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -273,7 +271,7 @@
    "page_pdf": 476,
    "excerpt": "где",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -283,7 +281,7 @@
    "page_pdf": 476,
    "excerpt": "$$\\beta^* = m \\beta_{\\text{ж}} + \\beta_{\\text{с}}. \\quad (23.5)$$",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -293,7 +291,7 @@
    "page_pdf": 476,
    "excerpt": "Коэффициент $\\beta^*$ называется коэффициентом упругоемкости пласта. Из формулы (23.4) следует, что коэффициент",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -303,7 +301,7 @@
    "page_pdf": 476,
    "excerpt": "$$\\beta^* = \\frac{\\Delta V_{\\text{з}}}{V_0 \\Delta p}.$$",
    "node_ids": [
-    "basniev.uprugoemkost"
+    "basniev.uprugoemkost_plasta"
    ],
    "reason": null
   },
@@ -313,7 +311,7 @@
    "page_pdf": 476,
    "excerpt": "Если формулы (23.3) или (23.4) относить к разрабатываемому в условиях замкнуто-упругого режима",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -322,10 +320,8 @@
    "kind": "paragraph",
    "page_pdf": 477,
    "excerpt": "НЕУСТАНОВИВШЕЕСЯ ДВИЖЕНИЕ УПРУГОЙ ЖИДКОСТИ",
-   "node_ids": [
-    "basniev.balans_istoshcheniya"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p477.02",
@@ -341,7 +337,7 @@
    "page_pdf": 477,
    "excerpt": "изошло изменение давления на величину $\\Delta p$, при этом, по определению, полагается",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -351,7 +347,7 @@
    "page_pdf": 477,
    "excerpt": "$$\\Delta p = p_\\kappa - \\bar{p}, \\quad (23.6)$$",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -361,7 +357,7 @@
    "page_pdf": 477,
    "excerpt": "где $p_\\kappa$ – начальное пластовое давление; $\\bar{p}$ – средневзвешенное по объему возмущенной",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -371,7 +367,7 @@
    "page_pdf": 477,
    "excerpt": "Вычислить средневзвешенное пластовое давление $\\bar{p}$ можно, если известна геометрия возмущенной части пласта",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -381,7 +377,7 @@
    "page_pdf": 477,
    "excerpt": "Дифференцируя равенство (23.4), получим",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -391,7 +387,7 @@
    "page_pdf": 477,
    "excerpt": "$$d(\\Delta V_3) = \\beta^* d[V_0(t) \\Delta p].$$",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -401,7 +397,7 @@
    "page_pdf": 477,
    "excerpt": "С другой стороны, изменение упругого запаса жидкости в пласте за время $dt$,",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -411,7 +407,7 @@
    "page_pdf": 477,
    "excerpt": "$$d(\\Delta V_3) = Q(t) dt,$$",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -421,7 +417,7 @@
    "page_pdf": 477,
    "excerpt": "где $Q(t)$ – дебит всех скважин, эксплуатирующих данную нефтяную залежь.",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -431,7 +427,7 @@
    "page_pdf": 477,
    "excerpt": "Приравняв правые части двух последних равенств, получим дифференциальное уравнение истощения нефтяной залежи",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -441,7 +437,7 @@
    "page_pdf": 477,
    "excerpt": "$$\\beta^* d[V_0(t) \\Delta p] = Q(t) dt. \\quad (23.7)$$",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -451,7 +447,7 @@
    "page_pdf": 477,
    "excerpt": "Полученное соотношение далее будет использоваться при построении приближенных решений теории упругого режима.",
    "node_ids": [
-    "basniev.balans_istoshcheniya"
+    "basniev.uravnenie_istoshcheniya"
    ],
    "reason": null
   },
@@ -469,7 +465,7 @@
    "page_pdf": 477,
    "excerpt": "Изучение гидродинамики упругого режима фильтрации имеет важнейшее значение как для теории, так",
    "node_ids": [
-    "basniev.znachenie_teorii"
+    "basniev.zachem_izuchat_uprugii_rezhim"
    ],
    "reason": null
   },
@@ -495,7 +491,7 @@
    "page_pdf": 478,
    "excerpt": "процент от извлекаемых запасов. Так, например, на крупнейшем месторождении Тенгиз при упругом",
    "node_ids": [
-    "basniev.znachenie_teorii"
+    "basniev.zachem_izuchat_uprugii_rezhim"
    ],
    "reason": null
   },
@@ -505,7 +501,7 @@
    "page_pdf": 478,
    "excerpt": "Для вывода основных дифференциальных уравнений фильтрации упругой жидкости в упругой пористой среде",
    "node_ids": [
-    "basniev.ishodnye_uravneniya"
+    "basniev.ishodnye_zakony_modeli"
    ],
    "reason": null
   },
@@ -515,7 +511,7 @@
    "page_pdf": 478,
    "excerpt": "$$\\frac{\\partial m\\rho}{\\partial t} + \\text{div } \\rho\\bar{w} = 0,$$",
    "node_ids": [
-    "basniev.ishodnye_uravneniya"
+    "basniev.ishodnye_zakony_modeli"
    ],
    "reason": null
   },
@@ -525,7 +521,7 @@
    "page_pdf": 478,
    "excerpt": "$$\\bar{w} = -\\frac{k}{\\mu}(\\text{grad } p + \\rho\\bar{f}), \\quad (23.8)$$",
    "node_ids": [
-    "basniev.ishodnye_uravneniya"
+    "basniev.ishodnye_zakony_modeli"
    ],
    "reason": null
   },
@@ -535,7 +531,7 @@
    "page_pdf": 478,
    "excerpt": "$$\\rho = \\rho(p), \\ m = m(p), \\ k = k(p), \\",
    "node_ids": [
-    "basniev.ishodnye_uravneniya"
+    "basniev.ishodnye_zakony_modeli"
    ],
    "reason": null
   },
@@ -545,7 +541,7 @@
    "page_pdf": 478,
    "excerpt": "которая после пренебрежения массовыми силами и введения обобщенной функции Лейбензона, преобразуется к",
    "node_ids": [
-    "basniev.ishodnye_uravneniya"
+    "basniev.ishodnye_zakony_modeli"
    ],
    "reason": null
   },
@@ -555,7 +551,7 @@
    "page_pdf": 478,
    "excerpt": "$$\\frac{\\partial m\\rho}{\\partial t} - \\Delta P = 0,$$",
    "node_ids": [
-    "basniev.ishodnye_uravneniya"
+    "basniev.ishodnye_zakony_modeli"
    ],
    "reason": null
   },
@@ -565,7 +561,7 @@
    "page_pdf": 478,
    "excerpt": "$$\\rho\\bar{w} = -\\text{grad } P,$$",
    "node_ids": [
-    "basniev.ishodnye_uravneniya"
+    "basniev.ishodnye_zakony_modeli"
    ],
    "reason": null
   },
@@ -575,7 +571,7 @@
    "page_pdf": 478,
    "excerpt": "$$\\rho = \\rho(p), \\ m = m(p), \\ k = k(p), \\",
    "node_ids": [
-    "basniev.ishodnye_uravneniya"
+    "basniev.ishodnye_zakony_modeli"
    ],
    "reason": null
   },
@@ -585,7 +581,7 @@
    "page_pdf": 478,
    "excerpt": "$$P = \\int \\frac{k(p)}{\\mu(p)} \\rho(p) \\, dp.$$",
    "node_ids": [
-    "basniev.ishodnye_uravneniya"
+    "basniev.ishodnye_zakony_modeli"
    ],
    "reason": null
   },
@@ -634,10 +630,8 @@
    "kind": "paragraph",
    "page_pdf": 479,
    "excerpt": "НЕУСТАНОВИВШЕЕСЯ ДВИЖЕНИЕ УПРУГОЙ ЖИДКОСТИ",
-   "node_ids": [
-    "basniev.uravneniya_sostoyaniya"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p479.02",
@@ -671,7 +665,7 @@
    "page_pdf": 479,
    "excerpt": "Обратимся теперь к математической модели неустановившегося движения упругого флюида, подчиняющегося закону Дарси,",
    "node_ids": [
-    "basniev.uravneniya_sostoyaniya"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -681,7 +675,7 @@
    "page_pdf": 479,
    "excerpt": "$$\\frac{\\partial m\\rho}{\\partial t} - \\Delta P = 0,$$",
    "node_ids": [
-    "basniev.uravneniya_sostoyaniya"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -691,7 +685,7 @@
    "page_pdf": 479,
    "excerpt": "$$\\rho\\dot{w} = -\\text{grad } P,$$",
    "node_ids": [
-    "basniev.uravneniya_sostoyaniya"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -701,7 +695,7 @@
    "page_pdf": 479,
    "excerpt": "$$\\rho = \\rho_0[1 + \\beta_\\infty(p - p_0)],$$",
    "node_ids": [
-    "basniev.uravneniya_sostoyaniya"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -711,7 +705,7 @@
    "page_pdf": 479,
    "excerpt": "$$m = m_0 + \\beta_c(p - p_0),$$",
    "node_ids": [
-    "basniev.uravneniya_sostoyaniya"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -721,7 +715,7 @@
    "page_pdf": 479,
    "excerpt": "$$k = \\text{const}, \\mu = \\text{const},$$",
    "node_ids": [
-    "basniev.uravneniya_sostoyaniya"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -731,7 +725,7 @@
    "page_pdf": 479,
    "excerpt": "$$P = \\frac{k}{\\mu} \\int \\rho \\, dp.$$",
    "node_ids": [
-    "basniev.uravneniya_sostoyaniya"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -741,7 +735,7 @@
    "page_pdf": 479,
    "excerpt": "Понятно, что все уравнения системы определяют математическую модель, но для постановки и",
    "node_ids": [
-    "basniev.uravneniya_sostoyaniya"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -751,7 +745,7 @@
    "page_pdf": 479,
    "excerpt": "Подставив в него функцию Лейбензона, получим",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -761,7 +755,7 @@
    "page_pdf": 479,
    "excerpt": "$$\\frac{\\partial(m\\rho)}{\\partial t} = \\frac{k}{\\mu} \\Delta \\int \\rho \\, dp. \\quad (23.12)$$",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -771,7 +765,7 @@
    "page_pdf": 479,
    "excerpt": "Теперь преобразуем выражение в левой части уравнения (23.12), для чего используем уравнения",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -781,7 +775,7 @@
    "page_pdf": 479,
    "excerpt": "$$\\rho = \\rho_0[1 + \\beta_\\infty(p - p_0)], \\quad m = m_0 +",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -791,7 +785,7 @@
    "page_pdf": 479,
    "excerpt": "и вычислим произведение $m\\rho$",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -801,7 +795,7 @@
    "page_pdf": 479,
    "excerpt": "$$m\\rho = m_0\\rho_0 + (m_0\\rho_0\\beta_\\infty + \\rho_0\\beta_c)(p - p_0) + \\rho_0\\beta_c\\beta_\\infty(p -",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -811,7 +805,7 @@
    "page_pdf": 479,
    "excerpt": "Последним слагаемым в правой части полученного выражения ввиду его малости по сравнению",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -837,7 +831,7 @@
    "page_pdf": 480,
    "excerpt": "(напомним, что для нефтей $\\beta_\\text{ж}$ изменяется в диапазоне от $7\\cdot10^{-10}$ Па$^{-1}$ до",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -847,7 +841,7 @@
    "page_pdf": 480,
    "excerpt": "$$m\\rho = m_0\\rho_0 \\left[ 1 + \\beta^* (p - p_0)/m_0 \\right],$$",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -857,7 +851,7 @@
    "page_pdf": 480,
    "excerpt": "откуда после дифференцирования выражения по времени $t$ находим",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -867,7 +861,7 @@
    "page_pdf": 480,
    "excerpt": "$$\\frac{\\partial(m\\rho)}{\\partial t} = \\rho_0\\beta^* \\frac{\\partial p}{\\partial t}. \\quad (23.13)$$",
    "node_ids": [
-    "basniev.levaya_chast"
+    "basniev.linearizatsiya_levoi_chasti"
    ],
    "reason": null
   },
@@ -877,7 +871,7 @@
    "page_pdf": 480,
    "excerpt": "Теперь преобразуем правую часть равенства (23.12)",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -887,7 +881,7 @@
    "page_pdf": 480,
    "excerpt": "$$\\frac{k}{\\mu} \\Delta \\left( \\int \\rho dp \\right).$$",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -897,7 +891,7 @@
    "page_pdf": 480,
    "excerpt": "Подставив под знак интеграла уравнение состояния упругой жидкости (23.10), получим",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -907,7 +901,7 @@
    "page_pdf": 480,
    "excerpt": "$$\\frac{k}{\\mu} \\Delta \\left( \\int \\rho dp \\right) = \\frac{k}{\\mu} \\Delta \\left( \\rho_0",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -917,7 +911,7 @@
    "page_pdf": 480,
    "excerpt": "но снова учитывая, что жидкость слабосжимаемая и коэффициент $\\beta_\\text{ж}$ мал, пренебрежем вторым",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -927,7 +921,7 @@
    "page_pdf": 480,
    "excerpt": "$$\\frac{k}{\\mu} \\Delta \\left( \\int \\rho dp \\right) = \\frac{k}{\\mu} \\rho_0 \\Delta p.",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -937,7 +931,7 @@
    "page_pdf": 480,
    "excerpt": "Подставив (23.13) и (23.15) в исходное дифференциальное уравнение (23.12), получим дифференциальное уравнение",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -947,7 +941,7 @@
    "page_pdf": 480,
    "excerpt": "$$\\beta^* \\frac{\\partial p}{\\partial t} = \\frac{k}{\\mu} \\Delta p, \\quad (23.16)$$",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -957,7 +951,7 @@
    "page_pdf": 480,
    "excerpt": "или в декартовой системе координат",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -967,7 +961,7 @@
    "page_pdf": 480,
    "excerpt": "$$\\frac{\\partial p}{\\partial t} = \\kappa \\left( \\frac{\\partial^2 p}{\\partial x^2} + \\frac{\\partial^2 p}{\\partial",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -977,7 +971,7 @@
    "page_pdf": 480,
    "excerpt": "где введено обозначение",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.vyvod_uravneniya_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -987,7 +981,7 @@
    "page_pdf": 480,
    "excerpt": "$$\\kappa = k / (\\mu \\beta^*). \\quad (23.18)$$",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.koeffitsient_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -997,7 +991,7 @@
    "page_pdf": 480,
    "excerpt": "Уравнение (23.16) – основное дифференциальное уравнение теории упругого режима фильтрации. По предложению",
    "node_ids": [
-    "basniev.uravnenie_piezoprovodnosti"
+    "basniev.koeffitsient_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -1007,7 +1001,7 @@
    "page_pdf": 480,
    "excerpt": "Коэффициент $\\kappa$, характеризующий скорость перераспределения пластового давления при неустановившейся фильтрации упругой жидкости",
    "node_ids": [
-    "basniev.koefficient_piezoprovodnosti"
+    "basniev.koeffitsient_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -1016,10 +1010,8 @@
    "kind": "paragraph",
    "page_pdf": 481,
    "excerpt": "НЕУСТАНОВИВШЕЕСЯ ДВИЖЕНИЕ УПРУГОЙ ЖИДКОСТИ",
-   "node_ids": [
-    "basniev.koefficient_piezoprovodnosti"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p481.02",
@@ -1035,7 +1027,7 @@
    "page_pdf": 481,
    "excerpt": "упругой пористой среде, В.Н.Щелкачев назвал коэффициентом пьезопроводности пласта по аналогии с коэффициентом",
    "node_ids": [
-    "basniev.koefficient_piezoprovodnosti"
+    "basniev.koeffitsient_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -1045,7 +1037,7 @@
    "page_pdf": 481,
    "excerpt": "Размерность коэффициента пьезопроводности $\\kappa$ можно установить из (23.18):",
    "node_ids": [
-    "basniev.koefficient_piezoprovodnosti"
+    "basniev.koeffitsient_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -1055,7 +1047,7 @@
    "page_pdf": 481,
    "excerpt": "$$[\\kappa] = \\frac{h}{[\\mu][\\beta^*]} = \\frac{L^2}{L^{-1}MT^{-1}LM^{-1}T^2} = \\frac{L^2}{T},$$",
    "node_ids": [
-    "basniev.koefficient_piezoprovodnosti"
+    "basniev.koeffitsient_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -1065,7 +1057,7 @@
    "page_pdf": 481,
    "excerpt": "где $L$, $M$, $T$ – соответственно, размерности длины, массы и времени. Наиболее",
    "node_ids": [
-    "basniev.koefficient_piezoprovodnosti"
+    "basniev.koeffitsient_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -1075,7 +1067,7 @@
    "page_pdf": 481,
    "excerpt": "Отметим, что уравнение пьезопроводности (23.16) применимо только для слабосжимаемой упругой жидкости, для",
    "node_ids": [
-    "basniev.koefficient_piezoprovodnosti"
+    "basniev.koeffitsient_pezoprovodnosti"
    ],
    "reason": null
   },
@@ -1093,7 +1085,7 @@
    "page_pdf": 481,
    "excerpt": "Рассмотрим наиболее простые точные решения уравнения пьезопроводности (23.16) для одномерных потоков.",
    "node_ids": [
-    "basniev.galereya_postanovka"
+    "basniev.galereya_postoyannoe_davlenie_postanovka"
    ],
    "reason": null
   },
@@ -1111,7 +1103,7 @@
    "page_pdf": 481,
    "excerpt": "Случай 1. Приток к галерее, на которой поддерживается постоянное давление. Пусть в",
    "node_ids": [
-    "basniev.galereya_postanovka"
+    "basniev.galereya_postoyannoe_davlenie_postanovka"
    ],
    "reason": null
   },
@@ -1121,7 +1113,7 @@
    "page_pdf": 481,
    "excerpt": "При этих условиях в упругом (деформируемом) пласте образуется неустановившийся прямолинейно-параллельный поток упругой",
    "node_ids": [
-    "basniev.galereya_postanovka"
+    "basniev.galereya_postoyannoe_davlenie_postanovka"
    ],
    "reason": null
   },
@@ -1131,7 +1123,7 @@
    "page_pdf": 481,
    "excerpt": "$$\\frac{\\partial p}{\\partial t} = \\kappa \\frac{\\partial^2 p}{\\partial x^2}, \\quad 0 < x",
    "node_ids": [
-    "basniev.galereya_postanovka"
+    "basniev.galereya_postoyannoe_davlenie_postanovka"
    ],
    "reason": null
   },
@@ -1157,7 +1149,7 @@
    "page_pdf": 482,
    "excerpt": "Начальные и граничные условия, сформулированные выше и записанные в виде математических соотношений,",
    "node_ids": [
-    "basniev.galereya_postanovka"
+    "basniev.galereya_postoyannoe_davlenie_postanovka"
    ],
    "reason": null
   },
@@ -1167,7 +1159,7 @@
    "page_pdf": 482,
    "excerpt": "$$p(x, t) = p_\\kappa \\quad \\text{при} \\quad t = 0;$$",
    "node_ids": [
-    "basniev.galereya_postanovka"
+    "basniev.galereya_postoyannoe_davlenie_postanovka"
    ],
    "reason": null
   },
@@ -1177,7 +1169,7 @@
    "page_pdf": 482,
    "excerpt": "$$p(x, t) = p_\\tau \\quad \\text{при} \\quad x = 0, \\quad t",
    "node_ids": [
-    "basniev.galereya_postanovka"
+    "basniev.galereya_postoyannoe_davlenie_postanovka"
    ],
    "reason": null
   },
@@ -1187,7 +1179,7 @@
    "page_pdf": 482,
    "excerpt": "$$p(x, t) = p_\\kappa \\quad \\text{при} \\quad x = \\infty, \\quad t",
    "node_ids": [
-    "basniev.galereya_postanovka"
+    "basniev.galereya_postoyannoe_davlenie_postanovka"
    ],
    "reason": null
   },
@@ -1197,7 +1189,7 @@
    "page_pdf": 482,
    "excerpt": "Задача заключается в определении дебита галереи $Q(t)$ и давления в любой точке",
    "node_ids": [
-    "basniev.galereya_postanovka"
+    "basniev.galereya_postoyannoe_davlenie_postanovka"
    ],
    "reason": null
   },
@@ -1287,7 +1279,7 @@
    "page_pdf": 482,
    "excerpt": "Используя правило дифференцирования сложных функций, частные производные по координате и времени можно",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.perehod_k_obyknovennomu_uravneniyu"
    ],
    "reason": null
   },
@@ -1297,7 +1289,7 @@
    "page_pdf": 482,
    "excerpt": "$$\\frac{\\partial P}{\\partial x} = \\frac{dP}{du} \\frac{\\partial u}{\\partial x} = \\frac{dP}{du} \\frac{1}{2\\sqrt{\\kappa t}},$$",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.perehod_k_obyknovennomu_uravneniyu"
    ],
    "reason": null
   },
@@ -1307,7 +1299,7 @@
    "page_pdf": 482,
    "excerpt": "$$\\frac{\\partial P}{\\partial t} = \\frac{dP}{du} \\frac{\\partial u}{\\partial t} = \\frac{dP}{du} \\frac{x}{2\\sqrt{\\kappa}} \\left(",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.perehod_k_obyknovennomu_uravneniyu"
    ],
    "reason": null
   },
@@ -1317,7 +1309,7 @@
    "page_pdf": 482,
    "excerpt": "$$\\frac{\\partial^2 P}{\\partial x^2} = \\frac{\\partial}{\\partial x} \\left( \\frac{\\partial P}{\\partial x} \\right) =",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.perehod_k_obyknovennomu_uravneniyu"
    ],
    "reason": null
   },
@@ -1326,10 +1318,8 @@
    "kind": "paragraph",
    "page_pdf": 483,
    "excerpt": "НЕУСТАНОВИВШЕЕСЯ ДВИЖЕНИЕ УПРУГОЙ ЖИДКОСТИ",
-   "node_ids": [
-    "basniev.svedenie_k_odu"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p483.02",
@@ -1345,7 +1335,7 @@
    "page_pdf": 483,
    "excerpt": "Подставляя найденные значения производных в уравнение (23.22), получим обыкновенное дифференциальное уравнение",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.perehod_k_obyknovennomu_uravneniyu"
    ],
    "reason": null
   },
@@ -1355,7 +1345,7 @@
    "page_pdf": 483,
    "excerpt": "$$\\frac{d^2P}{du^2} + 2u \\frac{dP}{du} = 0, \\quad (23.23)$$",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.perehod_k_obyknovennomu_uravneniyu"
    ],
    "reason": null
   },
@@ -1365,7 +1355,7 @@
    "page_pdf": 483,
    "excerpt": "которое должно быть решено при условиях (23.21). Для решения уравнения (23.23) обозначим",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1375,7 +1365,7 @@
    "page_pdf": 483,
    "excerpt": "$$\\frac{d\\xi}{du} + 2u\\xi = 0. \\quad (23.24)$$",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1385,7 +1375,7 @@
    "page_pdf": 483,
    "excerpt": "Разделив переменные в (23.24), будем иметь",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1395,7 +1385,7 @@
    "page_pdf": 483,
    "excerpt": "$$\\frac{d\\xi}{\\xi} = -2udu$$",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1405,7 +1395,7 @@
    "page_pdf": 483,
    "excerpt": "и далее, проинтегрировав, получим",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1415,7 +1405,7 @@
    "page_pdf": 483,
    "excerpt": "$$\\ln \\xi = -u^2 + \\ln C_1,$$",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1425,7 +1415,7 @@
    "page_pdf": 483,
    "excerpt": "потенцируя которое, найдем",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1435,7 +1425,7 @@
    "page_pdf": 483,
    "excerpt": "$$\\xi = \\frac{dP}{du} = C_1 e^{-u^2}, \\quad (23.25)$$",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1445,7 +1435,7 @@
    "page_pdf": 483,
    "excerpt": "где $C_1$ – постоянная интегрирования.",
    "node_ids": [
-    "basniev.svedenie_k_odu"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1455,7 +1445,7 @@
    "page_pdf": 483,
    "excerpt": "Проинтегрировав (23.25) с учетом первого из условий (23.21), получим:",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1465,7 +1455,7 @@
    "page_pdf": 483,
    "excerpt": "$$P = C_1 \\int_0^u e^{-u^2} du.$$",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1475,7 +1465,7 @@
    "page_pdf": 483,
    "excerpt": "Вторым условием (23.20) воспользуемся для нахождения константы интегрирования $C_1$. Устремим переменный верхний",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1485,7 +1475,7 @@
    "page_pdf": 483,
    "excerpt": "$$1 = C_1 \\int_0^\\infty e^{-u^2} du.$$",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1495,7 +1485,7 @@
    "page_pdf": 483,
    "excerpt": "Из интегрального исчисления известно, что $\\int_0^\\infty e^{-u^2} du = \\sqrt{\\pi}/2$, поэтому предыдущее",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1505,7 +1495,7 @@
    "page_pdf": 483,
    "excerpt": "$$P = \\frac{2}{\\sqrt{\\pi}} \\int_0^{\\frac{x}{2\\sqrt{\\pi}}} e^{-u^2} du. \\quad (23.26)$$",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1515,7 +1505,7 @@
    "page_pdf": 483,
    "excerpt": "Интеграл (23.26) называется интегралом вероятности, является табулированной функцией, изменяющейся в пределах от",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1541,7 +1531,7 @@
    "page_pdf": 484,
    "excerpt": "альное обозначение",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1551,7 +1541,7 @@
    "page_pdf": 484,
    "excerpt": "$$\\frac{2}{\\sqrt{\\pi}} \\int_0^{\\frac{x}{2\\sqrt{\\kappa t}}} e^{-u^2} du = \\operatorname{erf}\\left(\\frac{x}{2\\sqrt{\\kappa t}}\\right).$$",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1561,7 +1551,7 @@
    "page_pdf": 484,
    "excerpt": "Таким образом, $P = \\operatorname{erf}\\left(\\frac{x}{2\\sqrt{\\kappa t}}\\right)$, и закон распределения давления в неустановившемся",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1571,7 +1561,7 @@
    "page_pdf": 484,
    "excerpt": "$$p = p_{\\mathrm{r}} + (p_{\\mathrm{k}} - p_{\\mathrm{r}}) \\operatorname{erf}\\left(\\frac{x}{2\\sqrt{\\kappa t}}\\right). \\quad (23.27)$$",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.reshenie_cherez_erf"
    ],
    "reason": null
   },
@@ -1581,7 +1571,7 @@
    "page_pdf": 484,
    "excerpt": "Типичные кривые распределения давления в различные моменты времени в неустановившемся прямолинейно-параллельном потоке",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.krivye_davleniya_u_galerei"
    ],
    "reason": null
   },
@@ -1591,7 +1581,7 @@
    "page_pdf": 484,
    "excerpt": "━━━ Рисунок 23.1, прочитан моделью по изображению страницы 484; числа сняты глазом,",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.krivye_davleniya_u_galerei"
    ],
    "reason": null
   },
@@ -1601,7 +1591,7 @@
    "page_pdf": 484,
    "excerpt": "Рис. 23.1. Кривые распределения давления в различные моменты времени в неустановившемся прямолинейно-параллельном",
    "node_ids": [
-    "basniev.reshenie_erf"
+    "basniev.krivye_davleniya_u_galerei"
    ],
    "reason": null
   },
@@ -1611,7 +1601,7 @@
    "page_pdf": 484,
    "excerpt": "Найдем дебит галереи $Q$. Будем считать положительным дебит, отбираемый из галереи ($x",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1621,7 +1611,7 @@
    "page_pdf": 484,
    "excerpt": "$$w = \\frac{k}{\\mu} \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}, \\quad Q = \\frac{k}{\\mu} Bh \\left(\\frac{\\partial",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1631,7 +1621,7 @@
    "page_pdf": 484,
    "excerpt": "где $B, h$ – соответственно, ширина и толщина пласта. Продифференцировав выражение (23.27),",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1641,7 +1631,7 @@
    "page_pdf": 484,
    "excerpt": "$$\\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0} = (p_{\\mathrm{k}} - p_{\\mathrm{r}}) \\left(\\frac{2}{\\sqrt{\\pi}} e^{-\\left(\\frac{x}{2\\sqrt{\\kappa t}}\\right)^2} \\frac{1}{2\\sqrt{\\kappa t}}\\right)_{x=0}",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1651,7 +1641,7 @@
    "page_pdf": 484,
    "excerpt": "Дебит галереи в любой момент времени найдем, подставив значение градиента давления $\\partial",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1661,7 +1651,7 @@
    "page_pdf": 484,
    "excerpt": "$$Q = \\frac{k}{\\mu} \\frac{p_{\\mathrm{k}} - p_{\\mathrm{r}}}{\\sqrt{\\pi \\kappa t}} Bh. \\quad (23.30)$$",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1670,10 +1660,8 @@
    "kind": "paragraph",
    "page_pdf": 485,
    "excerpt": "НЕУСТАНОВИВШЕЕСЯ ДВИЖЕНИЕ УПРУГОЙ ЖИДКОСТИ",
-   "node_ids": [
-    "basniev.debit_galerei"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p485.02",
@@ -1689,7 +1677,7 @@
    "page_pdf": 485,
    "excerpt": "Из формулы (23.30) следует, что дебит галереи убывает с течением времени, как",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1699,7 +1687,7 @@
    "page_pdf": 485,
    "excerpt": "Накопленная к моменту $t$ добыча (объем добытой нефти) $V_{доб}$ определяется по формуле",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1709,7 +1697,7 @@
    "page_pdf": 485,
    "excerpt": "$$V_{доб} = \\int_0^t Q(t)dt = \\frac{k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa t}} \\int_0^t \\frac{dt}{\\sqrt{t}} =",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1719,7 +1707,7 @@
    "page_pdf": 485,
    "excerpt": "т.е. сразу после начала отбора из галереи она быстро возрастает, а в",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1729,7 +1717,7 @@
    "page_pdf": 485,
    "excerpt": "Случай 2. Приток к галерее, на которой поддерживается постоянный дебит. Пусть в",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1739,7 +1727,7 @@
    "page_pdf": 485,
    "excerpt": "Математически задача заключается в интегрировании того же уравнения (23.22), но с иными",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1749,7 +1737,7 @@
    "page_pdf": 485,
    "excerpt": "$$\\begin{aligned} p(x, t) &= p_к \\quad \\text{при} \\quad t = 0; \\\\",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1759,7 +1747,7 @@
    "page_pdf": 485,
    "excerpt": "Первое условие, как и в первом случае, задает распределение давления в пласте",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1769,7 +1757,7 @@
    "page_pdf": 485,
    "excerpt": "Для интегрирования уравнения пьезопроводности в данном случае умножим обе части уравнения (23.22)",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1779,7 +1767,7 @@
    "page_pdf": 485,
    "excerpt": "Рис. 23.2. Зависимости дебита и добычи жидкости от времени после пуска галереи",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1789,7 +1777,7 @@
    "page_pdf": 485,
    "excerpt": "━━━ Рисунок 23.2, прочитан моделью по изображению страницы 485; числа сняты глазом,",
    "node_ids": [
-    "basniev.debit_galerei"
+    "basniev.debit_i_dobycha_galerei"
    ],
    "reason": null
   },
@@ -1815,7 +1803,7 @@
    "page_pdf": 486,
    "excerpt": "по $x$. В результате получим",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1825,7 +1813,7 @@
    "page_pdf": 486,
    "excerpt": "$$\\frac{k}{\\mu} \\frac{\\partial^2 p}{\\partial x \\partial t} = \\frac{k}{\\mu} \\kappa \\frac{\\partial^3 p}{\\partial x^3},$$",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1835,7 +1823,7 @@
    "page_pdf": 486,
    "excerpt": "откуда, поменяв порядок вычисления производных, получим:",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1845,7 +1833,7 @@
    "page_pdf": 486,
    "excerpt": "$$\\frac{\\partial}{\\partial t} \\left( \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} \\right) = \\kappa \\frac{\\partial^2}{\\partial x^2}",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1855,7 +1843,7 @@
    "page_pdf": 486,
    "excerpt": "Так как",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1865,7 +1853,7 @@
    "page_pdf": 486,
    "excerpt": "$$\\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} = w(x, t),$$",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1875,7 +1863,7 @@
    "page_pdf": 486,
    "excerpt": "то уравнение (23.32) можно переписать в виде",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1885,7 +1873,7 @@
    "page_pdf": 486,
    "excerpt": "$$\\frac{\\partial w(x, t)}{\\partial t} = \\kappa \\frac{\\partial^2 w(x, t)}{\\partial x^2}. \\quad (23.33)$$",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1895,7 +1883,7 @@
    "page_pdf": 486,
    "excerpt": "Уравнение (23.33) по форме также совпадает с уравнением теплопроводности (23.22). Следовательно, решением",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.galereya_postoyannyi_debit_skorost"
    ],
    "reason": null
   },
@@ -1905,7 +1893,7 @@
    "page_pdf": 486,
    "excerpt": "$$w = C_1 \\operatorname{erf} \\left( \\frac{x}{2\\sqrt{\\kappa t}} \\right) + C_2. \\quad (23.34)$$",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -1915,7 +1903,7 @@
    "page_pdf": 486,
    "excerpt": "При этом следует иметь в виду, что начальное и граничное условия для",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -1925,7 +1913,7 @@
    "page_pdf": 486,
    "excerpt": "$$w(x, 0) = 0, \\quad w(0, t) = w_1.$$",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -1935,7 +1923,7 @@
    "page_pdf": 486,
    "excerpt": "Используя эти условия, найдем константы интегрирования.",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -1945,7 +1933,7 @@
    "page_pdf": 486,
    "excerpt": "При $t = 0$ из (23.34) следует",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -1955,7 +1943,7 @@
    "page_pdf": 486,
    "excerpt": "$$0 = C_1 \\frac{2}{\\sqrt{\\pi}} \\int_0^\\infty e^{-u^2} du + C_2.$$",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -1965,7 +1953,7 @@
    "page_pdf": 486,
    "excerpt": "Так как $\\int_0^\\infty e^{-u^2} du = \\sqrt{\\pi}/2$, получаем",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -1975,7 +1963,7 @@
    "page_pdf": 486,
    "excerpt": "$$0 = C_1 + C_2.$$",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -1985,7 +1973,7 @@
    "page_pdf": 486,
    "excerpt": "Второе условие, при $x = 0$, дает",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -1995,7 +1983,7 @@
    "page_pdf": 486,
    "excerpt": "$$w_1 = C_1 \\frac{2}{\\sqrt{\\pi}} \\int_0^0 e^{-u^2} du + C_2.$$",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -2005,7 +1993,7 @@
    "page_pdf": 486,
    "excerpt": "Из этих двух равенств имеем $C_2 = w_1$, $C_1 = -w_1$ и,",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -2015,7 +2003,7 @@
    "page_pdf": 486,
    "excerpt": "$$w(x, t) = w_1 \\left[ 1 - \\operatorname{erf} \\left( \\frac{x}{2\\sqrt{\\kappa t}} \\right)",
    "node_ids": [
-    "basniev.uravnenie_dlya_skorosti"
+    "basniev.reshenie_dlya_skorosti"
    ],
    "reason": null
   },
@@ -2024,10 +2012,8 @@
    "kind": "paragraph",
    "page_pdf": 487,
    "excerpt": "НЕУСТАНОВИВШЕЕСЯ ДВИЖЕНИЕ УПРУГОЙ ЖИДКОСТИ",
-   "node_ids": [
-    "basniev.davlenie_pri_postoyannom_debite"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p487.02",
@@ -2143,7 +2129,7 @@
    "page_pdf": 487,
    "excerpt": "Чтобы найти закон изменения давления на галерее $p_\\text{r}(t)$, подставим в (23.38) граничное",
    "node_ids": [
-    "basniev.davlenie_na_galeree"
+    "basniev.davlenie_na_galeree_i_predel_modeli"
    ],
    "reason": null
   },
@@ -2169,7 +2155,7 @@
    "page_pdf": 488,
    "excerpt": "это произведение стремится к нулю. Учитывая также, что $e^{-x^2/4kt} \\to 0$ при",
    "node_ids": [
-    "basniev.davlenie_na_galeree"
+    "basniev.davlenie_na_galeree_i_predel_modeli"
    ],
    "reason": null
   },
@@ -2179,7 +2165,7 @@
    "page_pdf": 488,
    "excerpt": "$$p_{\\mathrm{r}}(t) = p_{\\mathrm{k}} - \\frac{2\\mu w_1}{k\\sqrt{\\pi}} \\sqrt{kt}$$",
    "node_ids": [
-    "basniev.davlenie_na_galeree"
+    "basniev.davlenie_na_galeree_i_predel_modeli"
    ],
    "reason": null
   },
@@ -2189,7 +2175,7 @@
    "page_pdf": 488,
    "excerpt": "или",
    "node_ids": [
-    "basniev.davlenie_na_galeree"
+    "basniev.davlenie_na_galeree_i_predel_modeli"
    ],
    "reason": null
   },
@@ -2199,7 +2185,7 @@
    "page_pdf": 488,
    "excerpt": "$$p_{\\mathrm{r}}(t) = p_{\\mathrm{k}} - \\frac{Q\\mu}{Bh} \\frac{2}{k} \\frac{\\sqrt{kt}}{\\sqrt{\\pi}}. \\quad (23.39)$$",
    "node_ids": [
-    "basniev.davlenie_na_galeree"
+    "basniev.davlenie_na_galeree_i_predel_modeli"
    ],
    "reason": null
   },
@@ -2209,7 +2195,7 @@
    "page_pdf": 488,
    "excerpt": "Нетрудно видеть, что решение (23.39) при очень больших значениях времени теряет физический",
    "node_ids": [
-    "basniev.davlenie_na_galeree"
+    "basniev.davlenie_na_galeree_i_predel_modeli"
    ],
    "reason": null
   },
@@ -2227,7 +2213,7 @@
    "page_pdf": 488,
    "excerpt": "Пусть в неограниченном горизонтальном пласте постоянной толщины $h$ имеется добывающая скважина «нулевого»",
    "node_ids": [
-    "basniev.tochechnyy_stok"
+    "basniev.radialnaya_zadacha_postanovka"
    ],
    "reason": null
   },
@@ -2237,7 +2223,7 @@
    "page_pdf": 488,
    "excerpt": "Распределение давления в пласте (в любой его точке в любой момент времени)",
    "node_ids": [
-    "basniev.tochechnyy_stok"
+    "basniev.radialnaya_zadacha_postanovka"
    ],
    "reason": null
   },
@@ -2247,7 +2233,7 @@
    "page_pdf": 488,
    "excerpt": "$$\\frac{\\partial p}{\\partial t} = \\kappa \\left( \\frac{\\partial^2 p}{\\partial r^2} + \\frac{1}{r} \\frac{\\partial",
    "node_ids": [
-    "basniev.tochechnyy_stok"
+    "basniev.radialnaya_zadacha_postanovka"
    ],
    "reason": null
   },
@@ -2257,7 +2243,7 @@
    "page_pdf": 488,
    "excerpt": "Начальные и граничные условия задачи следующие:",
    "node_ids": [
-    "basniev.tochechnyy_stok"
+    "basniev.radialnaya_zadacha_postanovka"
    ],
    "reason": null
   },
@@ -2267,7 +2253,7 @@
    "page_pdf": 488,
    "excerpt": "$$p(r, t) = p_{\\mathrm{k}} \\quad \\text{при } t = 0,$$",
    "node_ids": [
-    "basniev.tochechnyy_stok"
+    "basniev.radialnaya_zadacha_postanovka"
    ],
    "reason": null
   },
@@ -2277,7 +2263,7 @@
    "page_pdf": 488,
    "excerpt": "$$p(r, t) = p_{\\mathrm{k}} \\quad \\text{при } t > 0 \\text{ и",
    "node_ids": [
-    "basniev.tochechnyy_stok"
+    "basniev.radialnaya_zadacha_postanovka"
    ],
    "reason": null
   },
@@ -2287,7 +2273,7 @@
    "page_pdf": 488,
    "excerpt": "$$Q = \\frac{2\\pi kh}{\\mu} \\left( r \\frac{\\partial p}{\\partial r} \\right)_{r=0} = Q_0",
    "node_ids": [
-    "basniev.tochechnyy_stok"
+    "basniev.radialnaya_zadacha_postanovka"
    ],
    "reason": null
   },
@@ -2297,7 +2283,7 @@
    "page_pdf": 488,
    "excerpt": "Первое условие означает, что до момента времени $t = 0$ во всем",
    "node_ids": [
-    "basniev.tochechnyy_stok"
+    "basniev.radialnaya_zadacha_postanovka"
    ],
    "reason": null
   },
@@ -2306,10 +2292,8 @@
    "kind": "paragraph",
    "page_pdf": 489,
    "excerpt": "НЕУСТАНОВИВШЕЕСЯ ДВИЖЕНИЕ УПРУГОЙ ЖИДКОСТИ",
-   "node_ids": [
-    "basniev.tochechnyy_stok"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p489.02",
@@ -2325,7 +2309,7 @@
    "page_pdf": 489,
    "excerpt": "Последнее условие запишем в виде",
    "node_ids": [
-    "basniev.tochechnyy_stok"
+    "basniev.radialnaya_zadacha_postanovka"
    ],
    "reason": null
   },
@@ -2335,7 +2319,7 @@
    "page_pdf": 489,
    "excerpt": "$$\\left( r \\frac{\\partial p}{\\partial r} \\right)_{r=0} = \\frac{Q_0 \\mu}{2\\pi k h}. \\quad",
    "node_ids": [
-    "basniev.tochechnyy_stok"
+    "basniev.radialnaya_zadacha_postanovka"
    ],
    "reason": null
   },
@@ -2455,7 +2439,7 @@
    "page_pdf": 489,
    "excerpt": "Воспользуемся подстановкой",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2465,7 +2449,7 @@
    "page_pdf": 489,
    "excerpt": "$$\\frac{dP}{d\\xi} = v$$",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2475,7 +2459,7 @@
    "page_pdf": 489,
    "excerpt": "и из уравнения (23.44) получим",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2485,7 +2469,7 @@
    "page_pdf": 489,
    "excerpt": "$$\\frac{dv}{d\\xi} + \\left( \\frac{1}{\\xi} + 2\\xi \\right) v = 0,$$",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2511,7 +2495,7 @@
    "page_pdf": 490,
    "excerpt": "или",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2521,7 +2505,7 @@
    "page_pdf": 490,
    "excerpt": "$$\\frac{d\\xi}{\\xi} + \\frac{dv}{v} = -2\\xi d\\xi. \\quad (23.46)$$",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2531,7 +2515,7 @@
    "page_pdf": 490,
    "excerpt": "Проинтегрировав (23.46), получим",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2541,7 +2525,7 @@
    "page_pdf": 490,
    "excerpt": "$$\\ln \\xi + \\ln v = -\\xi^2 + \\ln C_1, \\quad (23.47)$$",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2551,7 +2535,7 @@
    "page_pdf": 490,
    "excerpt": "где $C_1$ – постоянная интегрирования.",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2561,7 +2545,7 @@
    "page_pdf": 490,
    "excerpt": "Потенцируя (23.47), найдем:",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2571,7 +2555,7 @@
    "page_pdf": 490,
    "excerpt": "$$v = \\frac{dP}{d\\xi} = C_1 \\frac{e^{-\\xi^2}}{\\xi}. \\quad (23.48)$$",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2581,7 +2565,7 @@
    "page_pdf": 490,
    "excerpt": "Проинтегрируем (23.48) в пределах от $\\xi$ до бесконечности, учтя первое из условий",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2591,7 +2575,7 @@
    "page_pdf": 490,
    "excerpt": "$$P(\\xi) = -C_1 \\int_{\\xi}^{\\infty} \\frac{e^{-\\xi^2}}{\\xi} d\\xi + 1. \\quad (23.49)$$",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2601,7 +2585,7 @@
    "page_pdf": 490,
    "excerpt": "Умножая равенство (23.49) на $\\xi$, устремляя $\\xi \\to 0$ и используя второе",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2611,7 +2595,7 @@
    "page_pdf": 490,
    "excerpt": "$$C_1 = \\frac{Q_0 \\mu}{2\\pi k h p_\\kappa}.$$",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2621,7 +2605,7 @@
    "page_pdf": 490,
    "excerpt": "Тогда (23.49) преобразуется к виду",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2631,7 +2615,7 @@
    "page_pdf": 490,
    "excerpt": "$$P(\\xi) = 1 - \\frac{Q_0 \\mu}{2\\pi k h p_\\kappa} \\int_{\\xi}^{\\infty} \\frac{e^{-\\xi^2}}{\\xi} d\\xi",
    "node_ids": [
-    "basniev.radialnoe_integrirovanie"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2641,7 +2625,7 @@
    "page_pdf": 490,
    "excerpt": "Интеграл в последней формуле легко свести к табличному подстановкой",
    "node_ids": [
-    "basniev.osnovnaya_formula"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2651,7 +2635,7 @@
    "page_pdf": 490,
    "excerpt": "$$u = \\xi^2 = \\frac{r^2}{4\\kappa t}, \\quad \\frac{d\\xi}{\\xi} = \\frac{du}{2u}.$$",
    "node_ids": [
-    "basniev.osnovnaya_formula"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2661,7 +2645,7 @@
    "page_pdf": 490,
    "excerpt": "Перейдя также от безразмерного давления $P$ к размерному $p = P p_\\kappa$,",
    "node_ids": [
-    "basniev.osnovnaya_formula"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2671,7 +2655,7 @@
    "page_pdf": 490,
    "excerpt": "$$p(r, t) = p_\\kappa - \\frac{Q_0 \\mu}{2\\pi k h} \\int_{r^2/(4\\kappa t)}^{\\infty} \\frac{e^{-u}}{u}",
    "node_ids": [
-    "basniev.osnovnaya_formula"
+    "basniev.integrirovanie_radialnoi_zadachi"
    ],
    "reason": null
   },
@@ -2681,7 +2665,7 @@
    "page_pdf": 490,
    "excerpt": "Интеграл в формуле (23.51) называется интегральной показательной функцией, которая табулирована и имеет",
    "node_ids": [
-    "basniev.osnovnaya_formula"
+    "basniev.osnovnaya_formula_rezhima"
    ],
    "reason": null
   },
@@ -2691,7 +2675,7 @@
    "page_pdf": 490,
    "excerpt": "$$- \\text{Ei} \\left( - \\frac{r^2}{4\\kappa t} \\right) = \\int_{r^2/(4\\kappa t)} \\frac{e^{-u}}{u} du.$$",
    "node_ids": [
-    "basniev.osnovnaya_formula"
+    "basniev.osnovnaya_formula_rezhima"
    ],
    "reason": null
   },
@@ -2700,10 +2684,8 @@
    "kind": "paragraph",
    "page_pdf": 491,
    "excerpt": "НЕУСТАНОВИВШЕЕСЯ ДВИЖЕНИЕ УПРУГОЙ ЖИДКОСТИ",
-   "node_ids": [
-    "basniev.osnovnaya_formula"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p491.02",
@@ -2719,7 +2701,7 @@
    "page_pdf": 491,
    "excerpt": "Таким образом, давление в любой точке плоскорадиального потока в условиях упругого режима",
    "node_ids": [
-    "basniev.osnovnaya_formula"
+    "basniev.osnovnaya_formula_rezhima"
    ],
    "reason": null
   },
@@ -2729,7 +2711,7 @@
    "page_pdf": 491,
    "excerpt": "$$p(r, t) = p_\\kappa - \\frac{Q_0 \\mu}{4 \\pi k h} \\left[ -",
    "node_ids": [
-    "basniev.osnovnaya_formula"
+    "basniev.osnovnaya_formula_rezhima"
    ],
    "reason": null
   },
@@ -2739,7 +2721,7 @@
    "page_pdf": 491,
    "excerpt": "Формула (23.52) получила название основной формулы теории упругого режима фильтрации. Она имеет",
    "node_ids": [
-    "basniev.osnovnaya_formula"
+    "basniev.osnovnaya_formula_rezhima"
    ],
    "reason": null
   },
@@ -2895,7 +2877,7 @@
    "page_pdf": 492,
    "excerpt": "Из (23.52) находим, что расход жидкости через любую цилиндрическую поверхность радиусом $r$",
    "node_ids": [
-    "basniev.pole_u_skvazhiny"
+    "basniev.rashod_vokrug_skvazhiny"
    ],
    "reason": null
   },
@@ -2905,7 +2887,7 @@
    "page_pdf": 492,
    "excerpt": "$$Q(r, t) = \\frac{k}{\\mu} \\frac{\\partial p}{\\partial r} 2\\pi rh = Q_0 e^{-r^2/4\\kappa",
    "node_ids": [
-    "basniev.pole_u_skvazhiny"
+    "basniev.rashod_vokrug_skvazhiny"
    ],
    "reason": null
   },
@@ -2915,7 +2897,7 @@
    "page_pdf": 492,
    "excerpt": "$$w = \\frac{Q_0}{2\\pi rh} e^{-r^2/4\\kappa t}. \\quad (23.55)$$",
    "node_ids": [
-    "basniev.pole_u_skvazhiny"
+    "basniev.rashod_vokrug_skvazhiny"
    ],
    "reason": null
   },
@@ -2925,7 +2907,7 @@
    "page_pdf": 492,
    "excerpt": "Из последней формулы следует, что стационарная скорость $w_{\\text{стац}} = Q_0/(2\\pi rh)$ достигается",
    "node_ids": [
-    "basniev.pole_u_skvazhiny"
+    "basniev.rashod_vokrug_skvazhiny"
    ],
    "reason": null
   },
@@ -2935,7 +2917,7 @@
    "page_pdf": 492,
    "excerpt": "При теоретическом исследовании неустановившихся процессов перераспределения пластового давления удобно пользоваться безразмерными параметрами",
    "node_ids": [
-    "basniev.radius_skvazhiny"
+    "basniev.parametry_fure_i_radius_skvazhiny"
    ],
    "reason": null
   },
@@ -2945,7 +2927,7 @@
    "page_pdf": 492,
    "excerpt": "$$f_0 = \\frac{\\kappa t}{r_c^2}, \\quad F_0 = \\frac{\\kappa t}{R_k^2}. \\quad (23.56)$$",
    "node_ids": [
-    "basniev.radius_skvazhiny"
+    "basniev.parametry_fure_i_radius_skvazhiny"
    ],
    "reason": null
   },
@@ -2955,7 +2937,7 @@
    "page_pdf": 492,
    "excerpt": "В зависимости от специфики решаемой задачи удобно пользоваться тем или другим из",
    "node_ids": [
-    "basniev.radius_skvazhiny"
+    "basniev.parametry_fure_i_radius_skvazhiny"
    ],
    "reason": null
   },
@@ -2965,7 +2947,7 @@
    "page_pdf": 492,
    "excerpt": "Строго говоря, основная формула теории упругого режима (23.52) справедлива лишь для случая",
    "node_ids": [
-    "basniev.radius_skvazhiny"
+    "basniev.parametry_fure_i_radius_skvazhiny"
    ],
    "reason": null
   },
@@ -2975,7 +2957,7 @@
    "page_pdf": 492,
    "excerpt": "Для оценки влияния конечности радиуса возмущающей скважины $r_c$ на результаты расчетов давления",
    "node_ids": [
-    "basniev.radius_skvazhiny"
+    "basniev.parametry_fure_i_radius_skvazhiny"
    ],
    "reason": null
   },
@@ -2985,7 +2967,7 @@
    "page_pdf": 492,
    "excerpt": "Оценим практическое значение этой погрешности. Допустим, что $\\kappa = 1$ м$^2$/с, $r_c",
    "node_ids": [
-    "basniev.radius_skvazhiny"
+    "basniev.parametry_fure_i_radius_skvazhiny"
    ],
    "reason": null
   },
@@ -2995,7 +2977,7 @@
    "page_pdf": 492,
    "excerpt": "$$t = f_0 \\frac{r_c^2}{\\kappa} = 100 \\frac{0,1^2}{1} = 1$ с.",
    "node_ids": [
-    "basniev.radius_skvazhiny"
+    "basniev.parametry_fure_i_radius_skvazhiny"
    ],
    "reason": null
   },
@@ -3005,7 +2987,7 @@
    "page_pdf": 492,
    "excerpt": "Следовательно, уже через 1 с после пуска скважины расчеты забойного давления, выполненные",
    "node_ids": [
-    "basniev.radius_skvazhiny"
+    "basniev.parametry_fure_i_radius_skvazhiny"
    ],
    "reason": null
   },
@@ -3015,7 +2997,7 @@
    "page_pdf": 492,
    "excerpt": "Непосредственными расчетами В.Н.Щелкачевым было установлено, что в громадном большинстве практически интересных случаев",
    "node_ids": [
-    "basniev.konechnyy_plast"
+    "basniev.primenimost_dlya_konechnogo_plasta"
    ],
    "reason": null
   },
@@ -3024,10 +3006,8 @@
    "kind": "paragraph",
    "page_pdf": 493,
    "excerpt": "НЕУСТАНОВИВШЕЕСЯ ДВИЖЕНИЕ УПРУГОЙ ЖИДКОСТИ",
-   "node_ids": [
-    "basniev.konechnyy_plast"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p493.02",
@@ -3043,7 +3023,7 @@
    "page_pdf": 493,
    "excerpt": "ние достаточно длительного времени изучать при помощи простой формулы (23.52) для бесконечного",
    "node_ids": [
-    "basniev.konechnyy_plast"
+    "basniev.primenimost_dlya_konechnogo_plasta"
    ],
    "reason": null
   },
@@ -3053,7 +3033,7 @@
    "page_pdf": 493,
    "excerpt": "Для расчетов пластового давления в любой точке открытого кругового пласта в случае",
    "node_ids": [
-    "basniev.konechnyy_plast"
+    "basniev.primenimost_dlya_konechnogo_plasta"
    ],
    "reason": null
   },
@@ -3063,7 +3043,7 @@
    "page_pdf": 493,
    "excerpt": "В дополнение к указанным оценкам можно еще отметить, что различие в величинах",
    "node_ids": [
-    "basniev.konechnyy_plast"
+    "basniev.primenimost_dlya_konechnogo_plasta"
    ],
    "reason": null
   },
@@ -3073,7 +3053,7 @@
    "page_pdf": 493,
    "excerpt": "Решения дифференциального уравнения Фурье (23.40) для различных случаев фильтрации упругой жидкости в",
    "node_ids": [
-    "basniev.konechnyy_plast"
+    "basniev.primenimost_dlya_konechnogo_plasta"
    ],
    "reason": null
   },
@@ -3083,7 +3063,7 @@
    "page_pdf": 493,
    "excerpt": "В заключение покажем, как ведут себя пьезометрические кривые вблизи скважины, которая эксплуатируется",
    "node_ids": [
-    "basniev.pole_u_skvazhiny"
+    "basniev.pezometricheskie_krivye_u_skvazhiny"
    ],
    "reason": null
   },
@@ -3093,7 +3073,7 @@
    "page_pdf": 493,
    "excerpt": "$$\\partial p / \\partial r = Q_0 \\mu / (2 \\pi k",
    "node_ids": [
-    "basniev.pole_u_skvazhiny"
+    "basniev.pezometricheskie_krivye_u_skvazhiny"
    ],
    "reason": null
   },
@@ -3103,7 +3083,7 @@
    "page_pdf": 493,
    "excerpt": "Рис. 23.4. Пьезометрические кривые при пуске скважины с постоянным дебитом Q₀; rc",
    "node_ids": [
-    "basniev.pole_u_skvazhiny"
+    "basniev.pezometricheskie_krivye_u_skvazhiny"
    ],
    "reason": null
   },
@@ -3113,7 +3093,7 @@
    "page_pdf": 493,
    "excerpt": "━━━ Рисунок 23.4, прочитан моделью по изображению страницы 493; числа сняты глазом,",
    "node_ids": [
-    "basniev.pole_u_skvazhiny"
+    "basniev.pezometricheskie_krivye_u_skvazhiny"
    ],
    "reason": null
   },
@@ -3123,7 +3103,7 @@
    "page_pdf": 493,
    "excerpt": "Из этой формулы следует, что градиент давления для значений r, удовлетворяющих неравенству",
    "node_ids": [
-    "basniev.pole_u_skvazhiny"
+    "basniev.pezometricheskie_krivye_u_skvazhiny"
    ],
    "reason": null
   },
@@ -3159,7 +3139,7 @@
    "page_pdf": 494,
    "excerpt": "### §1. Метод последовательной смены стационарных состояний",
    "node_ids": [],
-   "reason": "заголовок"
+   "reason": "заголовок параграфа"
   },
   {
    "unit_id": "p494.05",
@@ -3186,10 +3166,8 @@
    "kind": "paragraph",
    "page_pdf": 495,
    "excerpt": "МЕТОДЫ РЕШЕНИЯ ЗАДАЧ ТЕОРИИ УПРУГОГО РЕЖИМА",
-   "node_ids": [
-    "basniev.ideya_psss"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p495.02",
@@ -3225,7 +3203,7 @@
    "page_pdf": 495,
    "excerpt": "Прямолинейно-параллельный неустановившийся фильтрационный поток упругой жидкости.",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3235,7 +3213,7 @@
    "page_pdf": 495,
    "excerpt": "Случай 1. Приток к галерее, на которой поддерживается постоянный дебит $Q$. Пусть",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3245,7 +3223,7 @@
    "page_pdf": 495,
    "excerpt": "К моменту времени $t$ после пуска галереи граница возмущенной области распространится на",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3255,7 +3233,7 @@
    "page_pdf": 495,
    "excerpt": "в этой области считается установившимся (см. гл. XX, §2), т.е. описывается линейной",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3265,7 +3243,7 @@
    "page_pdf": 495,
    "excerpt": "$$p(x, t) = p_к - \\frac{Q\\mu}{kBh} (l(t) - x), \\quad 0 \\leq",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3275,7 +3253,7 @@
    "page_pdf": 495,
    "excerpt": "Требуется найти закон перемещения во времени внешней границы возмущенной области $l(t)$.",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3285,7 +3263,7 @@
    "page_pdf": 495,
    "excerpt": "Воспользуемся соотношением (23.7), которое выражает условие того, что количество добытой продукции за",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3295,7 +3273,7 @@
    "page_pdf": 495,
    "excerpt": "$$Qdt = \\beta^* d[V(t)\\Delta p], \\quad (24.2)$$",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3305,7 +3283,7 @@
    "page_pdf": 495,
    "excerpt": "где $V(t)$ – объем возмущенной зоны пласта,",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3315,7 +3293,7 @@
    "page_pdf": 495,
    "excerpt": "$$V(t) = Bh l(t); \\quad (24.3)$$",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3325,7 +3303,7 @@
    "page_pdf": 495,
    "excerpt": "$$\\Delta p = p_к - \\bar{p} = p_к - \\frac{p_к + p_г}{2}",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3335,7 +3313,7 @@
    "page_pdf": 495,
    "excerpt": "━━━ Рисунок 24.1, прочитан моделью по изображению страницы 495; числа сняты глазом,",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3345,7 +3323,7 @@
    "page_pdf": 495,
    "excerpt": "Рис. 24.1. Кривые распределения давления в прямолинейно-параллельном потоке по методу ПССС",
    "node_ids": [
-    "basniev.psss_galereya_balans"
+    "basniev.psss_galereya_debit_postanovka"
    ],
    "reason": null
   },
@@ -3371,7 +3349,7 @@
    "page_pdf": 496,
    "excerpt": "Приняв во внимание, что $p(x, t) = p_{\\mathrm{r}}(t)$ при $x = 0$,",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3381,7 +3359,7 @@
    "page_pdf": 496,
    "excerpt": "$$Q = \\frac{k}{\\mu} \\frac{p_{\\mathrm{k}} - p_{\\mathrm{r}}}{l(t)} Bh,$$",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3391,7 +3369,7 @@
    "page_pdf": 496,
    "excerpt": "откуда",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3401,7 +3379,7 @@
    "page_pdf": 496,
    "excerpt": "$$\\frac{Q \\mu l(t)}{2kBh} = \\frac{p_{\\mathrm{k}} - p_{\\mathrm{r}}}{2}. \\quad (24.5.)$$",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3411,7 +3389,7 @@
    "page_pdf": 496,
    "excerpt": "Подставив равенства (24.3)–(24.5) в соотношение (24.2), получим",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3421,7 +3399,7 @@
    "page_pdf": 496,
    "excerpt": "$$Q = \\beta^* \\frac{d}{dt} \\left( Bhl \\frac{Q \\mu l}{2kBh} \\right),$$",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3431,7 +3409,7 @@
    "page_pdf": 496,
    "excerpt": "или, так как $Q = \\text{const}$,",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3441,7 +3419,7 @@
    "page_pdf": 496,
    "excerpt": "$$2Q = \\frac{\\beta^* \\mu}{k} Q \\frac{d}{dt} (l^2),$$",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3451,7 +3429,7 @@
    "page_pdf": 496,
    "excerpt": "откуда следует",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3461,7 +3439,7 @@
    "page_pdf": 496,
    "excerpt": "$$2\\kappa dt = dl^2 \\quad (\\kappa = k/(\\mu \\beta^*)).$$",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3471,7 +3449,7 @@
    "page_pdf": 496,
    "excerpt": "Проинтегрируем полученное соотношение и найдем",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3481,7 +3459,7 @@
    "page_pdf": 496,
    "excerpt": "$$l(t) = \\sqrt{2\\kappa t}. \\quad (24.6)$$",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3491,7 +3469,7 @@
    "page_pdf": 496,
    "excerpt": "Следовательно, формула для распределения давления в пласте (24.1) будет иметь вид",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3501,7 +3479,7 @@
    "page_pdf": 496,
    "excerpt": "$$p(x, t) = p_{\\mathrm{k}} - \\frac{Q \\mu}{kBh} (\\sqrt{2\\kappa t} - x), \\quad",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3511,7 +3489,7 @@
    "page_pdf": 496,
    "excerpt": "$$p(x, t) = p_{\\mathrm{k}}, \\quad x > \\sqrt{2\\kappa t}.$$",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3521,7 +3499,7 @@
    "page_pdf": 496,
    "excerpt": "Значения депрессии $p_{\\mathrm{k}} - p_{\\mathrm{r}}$ по приближенной формуле (24.7) значительно отличаются от",
    "node_ids": [
-    "basniev.psss_galereya_debit_zakon"
+    "basniev.psss_galereya_debit_granitsa"
    ],
    "reason": null
   },
@@ -3560,10 +3538,8 @@
    "kind": "paragraph",
    "page_pdf": 497,
    "excerpt": "МЕТОДЫ РЕШЕНИЯ ЗАДАЧ ТЕОРИИ УПРУГОГО РЕЖИМА",
-   "node_ids": [
-    "basniev.psss_galereya_davlenie"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p497.02",
@@ -3719,7 +3695,7 @@
    "page_pdf": 497,
    "excerpt": "Плоскорадиальный неустановившийся фильтрационный поток упругой жидкости.",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3729,7 +3705,7 @@
    "page_pdf": 497,
    "excerpt": "Случай 1. Приток к скважине, на которой поддерживается постоянный дебит $Q$. Пусть",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3739,7 +3715,7 @@
    "page_pdf": 497,
    "excerpt": "В соответствии с методом ПССС принимаем, что через время $t$ после пуска",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3765,7 +3741,7 @@
    "page_pdf": 498,
    "excerpt": "в которой давление будет распределено по стационарному закону",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3775,7 +3751,7 @@
    "page_pdf": 498,
    "excerpt": "$$p(r, t) = p_\\kappa - \\frac{Q\\mu}{2\\pi kh} \\ln \\frac{R(t)}{r}. \\quad (24.10)$$",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3785,7 +3761,7 @@
    "page_pdf": 498,
    "excerpt": "━━━ Рисунок 24.2, прочитан моделью по изображению страницы 498; числа сняты глазом,",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3795,7 +3771,7 @@
    "page_pdf": 498,
    "excerpt": "Рис. 24.2. Кривые распределения давления в плоскорадиальном потоке в разные моменты времени",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3805,7 +3781,7 @@
    "page_pdf": 498,
    "excerpt": "В остальной части пласта сохраняется начальное пластовое давление $p_\\kappa$.",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3815,7 +3791,7 @@
    "page_pdf": 498,
    "excerpt": "Требуется найти закон движения границы возмущенной области $R(t)$.",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3825,7 +3801,7 @@
    "page_pdf": 498,
    "excerpt": "Кривые распределения давления в разные моменты времени в таком потоке приведены на",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3835,7 +3811,7 @@
    "page_pdf": 498,
    "excerpt": "$$Q = \\frac{2\\pi kh(p_\\kappa - p_c(t))}{\\mu \\ln(R(t)/r_c)}. \\quad (24.11)$$",
    "node_ids": [
-    "basniev.psss_radialnyy_profil"
+    "basniev.psss_skvazhina_profil"
    ],
    "reason": null
   },
@@ -3845,7 +3821,7 @@
    "page_pdf": 498,
    "excerpt": "Размеры возмущенной области найдем из уравнения материального баланса (24.2) при",
    "node_ids": [
-    "basniev.psss_radialnaya_granica"
+    "basniev.psss_skvazhina_granitsa"
    ],
    "reason": null
   },
@@ -3855,7 +3831,7 @@
    "page_pdf": 498,
    "excerpt": "$$V(t) = \\pi(R^2(t) - r_c^2)h, \\quad \\Delta p = p_\\kappa - \\bar{p}.",
    "node_ids": [
-    "basniev.psss_radialnaya_granica"
+    "basniev.psss_skvazhina_granitsa"
    ],
    "reason": null
   },
@@ -3865,7 +3841,7 @@
    "page_pdf": 498,
    "excerpt": "Средневзвешенное пластовое давление $\\bar{p}$ в установившемся плоскорадиальном потоке (см. гл. XX, §3)",
    "node_ids": [
-    "basniev.psss_radialnaya_granica"
+    "basniev.psss_skvazhina_granitsa"
    ],
    "reason": null
   },
@@ -3875,7 +3851,7 @@
    "page_pdf": 498,
    "excerpt": "$$\\bar{p} = p_\\kappa - \\frac{p_\\kappa - p_c}{2 \\ln(R(t)/r_c)},$$",
    "node_ids": [
-    "basniev.psss_radialnaya_granica"
+    "basniev.psss_skvazhina_granitsa"
    ],
    "reason": null
   },
@@ -3885,7 +3861,7 @@
    "page_pdf": 498,
    "excerpt": "откуда, учитывая (24.11), находим",
    "node_ids": [
-    "basniev.psss_radialnaya_granica"
+    "basniev.psss_skvazhina_granitsa"
    ],
    "reason": null
   },
@@ -3895,7 +3871,7 @@
    "page_pdf": 498,
    "excerpt": "$$\\Delta p = p_\\kappa - \\bar{p} = \\frac{p_\\kappa - p_c}{2 \\ln(R(t)/r_c)} =",
    "node_ids": [
-    "basniev.psss_radialnaya_granica"
+    "basniev.psss_skvazhina_granitsa"
    ],
    "reason": null
   },
@@ -3905,7 +3881,7 @@
    "page_pdf": 498,
    "excerpt": "Закон движения границы возмущенной области $R(t)$ найдем, подставив выражения (24.12) и (24.13)",
    "node_ids": [
-    "basniev.psss_radialnaya_granica"
+    "basniev.psss_skvazhina_granitsa"
    ],
    "reason": null
   },
@@ -3915,7 +3891,7 @@
    "page_pdf": 498,
    "excerpt": "$$4\\kappa dt = d(R^2(t) - r_c^2),$$",
    "node_ids": [
-    "basniev.psss_radialnaya_granica"
+    "basniev.psss_skvazhina_granitsa"
    ],
    "reason": null
   },
@@ -3925,7 +3901,7 @@
    "page_pdf": 498,
    "excerpt": "откуда после интегрирования в пределах от 0 до $t$ и от $r_c$",
    "node_ids": [
-    "basniev.psss_radialnaya_granica"
+    "basniev.psss_skvazhina_granitsa"
    ],
    "reason": null
   },
@@ -3935,7 +3911,7 @@
    "page_pdf": 498,
    "excerpt": "$$R(t) = \\sqrt{r_c^2 + 4\\kappa t}. \\quad (24.14)$$",
    "node_ids": [
-    "basniev.psss_radialnaya_granica"
+    "basniev.psss_skvazhina_granitsa"
    ],
    "reason": null
   },
@@ -3944,10 +3920,8 @@
    "kind": "paragraph",
    "page_pdf": 499,
    "excerpt": "МЕТОДЫ РЕШЕНИЯ ЗАДАЧ ТЕОРИИ УПРУГОГО РЕЖИМА",
-   "node_ids": [
-    "basniev.psss_radialnaya_tochnost"
-   ],
-   "reason": null
+   "node_ids": [],
+   "reason": "колонтитул"
   },
   {
    "unit_id": "p499.02",
@@ -3963,7 +3937,7 @@
    "page_pdf": 499,
    "excerpt": "Тогда из равенства (24.10) можно определить давление в любой точке пласта в",
    "node_ids": [
-    "basniev.psss_radialnaya_tochnost"
+    "basniev.psss_skvazhina_tochnost"
    ],
    "reason": null
   },
@@ -3973,7 +3947,7 @@
    "page_pdf": 499,
    "excerpt": "$$p(r, t) = p_\\kappa - \\frac{Q\\mu}{2\\pi kh} \\ln \\frac{\\sqrt{r_c^2 + 4\\kappa t}}{r},",
    "node_ids": [
-    "basniev.psss_radialnaya_tochnost"
+    "basniev.psss_skvazhina_tochnost"
    ],
    "reason": null
   },
@@ -3983,7 +3957,7 @@
    "page_pdf": 499,
    "excerpt": "$$p(r, t) = p_\\kappa, \\quad r > \\sqrt{r_c^2 + 4\\kappa t}.$$",
    "node_ids": [
-    "basniev.psss_radialnaya_tochnost"
+    "basniev.psss_skvazhina_tochnost"
    ],
    "reason": null
   },
@@ -3993,7 +3967,7 @@
    "page_pdf": 499,
    "excerpt": "Депрессия в момент времени $t$:",
    "node_ids": [
-    "basniev.psss_radialnaya_tochnost"
+    "basniev.psss_skvazhina_tochnost"
    ],
    "reason": null
   },
@@ -4003,7 +3977,7 @@
    "page_pdf": 499,
    "excerpt": "$$\\Delta p_c \\equiv p_\\kappa - p_c(t) = \\frac{Q\\mu}{2\\pi kh} \\ln \\frac{\\sqrt{r_c^2 +",
    "node_ids": [
-    "basniev.psss_radialnaya_tochnost"
+    "basniev.psss_skvazhina_tochnost"
    ],
    "reason": null
   },
@@ -4013,7 +3987,7 @@
    "page_pdf": 499,
    "excerpt": "Сравнивая (24.16) с депрессией, определенной по точной формуле (23.52), можно убедиться, что",
    "node_ids": [
-    "basniev.psss_radialnaya_tochnost"
+    "basniev.psss_skvazhina_tochnost"
    ],
    "reason": null
   },
@@ -4023,7 +3997,7 @@
    "page_pdf": 499,
    "excerpt": "Случай 2. Приток к скважине, на которой поддерживается постоянное давление $p_c =",
    "node_ids": [
-    "basniev.psss_radialnoe_davlenie"
+    "basniev.psss_skvazhina_davlenie"
    ],
    "reason": null
   },
@@ -4033,7 +4007,7 @@
    "page_pdf": 499,
    "excerpt": "Дебит скважины определяется по формуле Дюпюи (24.11) при $p_c = \\text{const}$.",
    "node_ids": [
-    "basniev.psss_radialnoe_davlenie"
+    "basniev.psss_skvazhina_davlenie"
    ],
    "reason": null
   },
@@ -4043,7 +4017,7 @@
    "page_pdf": 499,
    "excerpt": "Сравнение с результатами точных расчетов, выполненных К.А.Царевичем и И.Ф.Курановым, показывает, что погрешность",
    "node_ids": [
-    "basniev.psss_radialnoe_davlenie"
+    "basniev.psss_skvazhina_davlenie"
    ],
    "reason": null
   },
@@ -4053,7 +4027,7 @@
    "page_pdf": 499,
    "excerpt": "Заметим, что как в случае линейной, так и радиальной фильтрации в точке",
    "node_ids": [
-    "basniev.psss_ogranicheniya"
+    "basniev.granitsy_metoda_psss"
    ],
    "reason": null
   },
@@ -4063,7 +4037,7 @@
    "page_pdf": 499,
    "excerpt": "━━━ Рисунок 24.3, прочитан моделью по изображению страницы 499; числа сняты глазом,",
    "node_ids": [
-    "basniev.psss_radialnoe_davlenie"
+    "basniev.psss_skvazhina_davlenie"
    ],
    "reason": null
   },
@@ -4073,7 +4047,7 @@
    "page_pdf": 499,
    "excerpt": "Рис. 24.3. Зависимость безразмерного радиуса возмущенной области $R(t)/r_c$ от безразмерного времени $f_0$",
    "node_ids": [
-    "basniev.psss_radialnoe_davlenie"
+    "basniev.psss_skvazhina_davlenie"
    ],
    "reason": null
   },
@@ -4099,7 +4073,7 @@
    "page_pdf": 500,
    "excerpt": "но и для задач о движении газированной жидкости и о перемещении границы",
    "node_ids": [
-    "basniev.psss_ogranicheniya"
+    "basniev.granitsy_metoda_psss"
    ],
    "reason": null
   },
@@ -4109,7 +4083,7 @@
    "page_pdf": 500,
    "excerpt": "Распределение давления в области фильтрации, получаемое по методу ПССС, является довольно грубым",
    "node_ids": [
-    "basniev.psss_ogranicheniya"
+    "basniev.granitsy_metoda_psss"
    ],
    "reason": null
   },
@@ -4119,7 +4093,7 @@
    "page_pdf": 500,
    "excerpt": "## §2. Метод А.М.Пирвердяна",
    "node_ids": [],
-   "reason": "заголовок"
+   "reason": "заголовок параграфа"
   },
   {
    "unit_id": "p500.06",

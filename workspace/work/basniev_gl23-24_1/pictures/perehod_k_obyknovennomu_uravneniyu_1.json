@@ -1,0 +1,80 @@
+{
+ "node_id": "basniev.perehod_k_obyknovennomu_uravneniyu",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "∂P/∂t = κ ∂²P/∂x²",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "P зависит только от u = x/(2√(κt))",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "∂P/∂t = (dP/du)·(x/(2√κ))·(−1/(2√(t³)))",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "∂²P/∂x² = (1/(4κt))·d²P/du²",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Подстановка обеих производных в уравнение",
+    "kind": "step"
+   },
+   {
+    "id": "f",
+    "text": "d²P/du² + 2u·dP/du = 0",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": "замена"
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": "по t"
+   },
+   {
+    "from": "b",
+    "to": "d",
+    "label": "по x дважды"
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Замена переменной в уравнении. Запись dp/du в производной по t — как в книге; вероятно, опечатка издания, должно быть dP/du.",
+ "alt": "Схема: от уравнения в частных производных через переменную u к двум производным, их подстановке и обыкновенному уравнению для P(u).",
+ "claim_ids": [
+  "basniev.perehod_k_obyknovennomu_uravneniyu#c1",
+  "basniev.perehod_k_obyknovennomu_uravneniyu#c3",
+  "basniev.perehod_k_obyknovennomu_uravneniyu#c4",
+  "basniev.perehod_k_obyknovennomu_uravneniyu#c6",
+  "basniev.perehod_k_obyknovennomu_uravneniyu#c7",
+  "basniev.perehod_k_obyknovennomu_uravneniyu#c8"
+ ]
+}

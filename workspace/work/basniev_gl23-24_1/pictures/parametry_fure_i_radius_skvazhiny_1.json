@@ -1,0 +1,58 @@
+{
+ "node_id": "basniev.parametry_fure_i_radius_skvazhiny",
+ "template": "plot",
+ "data": {
+  "x_label": "Параметр Фурье fo = κt/rс²",
+  "y_label": "Погрешность давления, %",
+  "numeric": true,
+  "log_x": true,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "погрешность формулы точечного стока",
+    "color": "",
+    "points": [
+     [
+      5,
+      9.4
+     ],
+     [
+      10,
+      5
+     ],
+     [
+      25,
+      2.3
+     ],
+     [
+      100,
+      0.6
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 5,
+    "y": 9.4,
+    "text": "9,4%"
+   },
+   {
+    "x": 100,
+    "y": 0.6,
+    "text": "0,6%"
+   }
+  ]
+ },
+ "caption": "Погрешность из-за неучтённого радиуса скважины быстро убывает с ростом безразмерного времени fo.",
+ "alt": "Убывающая кривая: погрешность 9,4% при fo = 5, 5% при fo = 10, 2,3% при fo = 25 и 0,6% при fo = 100.",
+ "claim_ids": [
+  "basniev.parametry_fure_i_radius_skvazhiny#c2",
+  "basniev.parametry_fure_i_radius_skvazhiny#c7",
+  "basniev.parametry_fure_i_radius_skvazhiny#c8",
+  "basniev.parametry_fure_i_radius_skvazhiny#c9",
+  "basniev.parametry_fure_i_radius_skvazhiny#c10",
+  "basniev.parametry_fure_i_radius_skvazhiny#c11"
+ ]
+}

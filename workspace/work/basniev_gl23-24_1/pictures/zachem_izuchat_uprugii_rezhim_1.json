@@ -1,0 +1,26 @@
+{
+ "node_id": "basniev.zachem_izuchat_uprugii_rezhim",
+ "template": "bars",
+ "data": {
+  "unit": "% запасов",
+  "items": [
+   {
+    "name": "Как правило (извлекаемые запасы)",
+    "from": 2,
+    "to": 5
+   },
+   {
+    "name": "Тенгиз, прогноз: до (запасы нефти)",
+    "value": 20
+   }
+  ],
+  "log": false
+ },
+ "caption": "Доля, добываемая при упругом режиме: обычно до 2–5% извлекаемых запасов, на Тенгизе по прогнозу — до 20% запасов нефти.",
+ "alt": "Две полосы: обычный случай — диапазон 2–5%, прогноз для месторождения Тенгиз — до 20%, заметно больше.",
+ "claim_ids": [
+  "basniev.zachem_izuchat_uprugii_rezhim#c5",
+  "basniev.zachem_izuchat_uprugii_rezhim#c6",
+  "basniev.zachem_izuchat_uprugii_rezhim#c7"
+ ]
+}

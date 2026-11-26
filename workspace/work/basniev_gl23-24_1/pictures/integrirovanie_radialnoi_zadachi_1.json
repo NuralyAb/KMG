@@ -1,0 +1,90 @@
+{
+ "node_id": "basniev.integrirovanie_radialnoi_zadachi",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Замена v = dP/dξ: уравнение первого порядка",
+    "kind": "step"
+   },
+   {
+    "id": "b",
+    "text": "Разделить переменные и проинтегрировать",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "v = C1·exp(−ξ²)/ξ",
+    "kind": "result"
+   },
+   {
+    "id": "d",
+    "text": "Интеграл от ξ до ∞, где P = 1",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Условие дебита при ξ → 0: C1 = Q0μ/(2πkhpк)",
+    "kind": "step"
+   },
+   {
+    "id": "f",
+    "text": "Замена u = ξ² и возврат к p = P·pк",
+    "kind": "step"
+   },
+   {
+    "id": "g",
+    "text": "p = pк − Q0μ/(4πkh) · ∫ exp(−u)/u du",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": "потенцируем"
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": ""
+   },
+   {
+    "from": "f",
+    "to": "g",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Два интегрирования, два условия. 4πkh — по выкладке; 2πkh в итоговой формуле — как в книге; вероятно, опечатка издания.",
+ "alt": "Цепочка шагов решения: понижение порядка, первое интегрирование, второе интегрирование до бесконечности, определение постоянной по дебиту, замена переменной и формула давления.",
+ "claim_ids": [
+  "basniev.integrirovanie_radialnoi_zadachi#c2",
+  "basniev.integrirovanie_radialnoi_zadachi#c4",
+  "basniev.integrirovanie_radialnoi_zadachi#c5",
+  "basniev.integrirovanie_radialnoi_zadachi#c9",
+  "basniev.integrirovanie_radialnoi_zadachi#c10",
+  "basniev.integrirovanie_radialnoi_zadachi#c11",
+  "basniev.integrirovanie_radialnoi_zadachi#c13",
+  "basniev.integrirovanie_radialnoi_zadachi#c14",
+  "basniev.integrirovanie_radialnoi_zadachi#c18",
+  "basniev.integrirovanie_radialnoi_zadachi#c19",
+  "basniev.integrirovanie_radialnoi_zadachi#c20"
+ ]
+}

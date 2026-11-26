@@ -1,0 +1,30 @@
+{
+ "node_id": "basniev.psss_skvazhina_tochnost",
+ "template": "bars",
+ "data": {
+  "unit": "%",
+  "items": [
+   {
+    "name": "fo = 100",
+    "value": 10.6
+   },
+   {
+    "name": "fo = 10³",
+    "value": 7.5
+   },
+   {
+    "name": "fo = 10⁴",
+    "value": 5.7
+   }
+  ],
+  "log": false
+ },
+ "caption": "Относительная погрешность депрессии по ПССС против точной формулы убывает с ростом безразмерного времени fo = κt/rс².",
+ "alt": "Три столбца погрешности депрессии: 10,6% при fo = 100, 7,5% при fo = 10³ и 5,7% при fo = 10⁴.",
+ "claim_ids": [
+  "basniev.psss_skvazhina_tochnost#c6",
+  "basniev.psss_skvazhina_tochnost#c7",
+  "basniev.psss_skvazhina_tochnost#c8",
+  "basniev.psss_skvazhina_tochnost#c9"
+ ]
+}

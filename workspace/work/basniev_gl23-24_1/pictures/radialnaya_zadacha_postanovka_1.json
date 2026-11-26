@@ -1,0 +1,121 @@
+{
+ "node_id": "basniev.radialnaya_zadacha_postanovka",
+ "template": "plot",
+ "data": {
+  "x_label": "Расстояние r от скважины-стока",
+  "y_label": "Давление p",
+  "numeric": false,
+  "series": [
+   {
+    "name": "t = 0: всюду pк",
+    "points": [
+     [
+      0,
+      0.85
+     ],
+     [
+      0.5,
+      0.85
+     ],
+     [
+      1,
+      0.85
+     ]
+    ]
+   },
+   {
+    "name": "после пуска, t1",
+    "points": [
+     [
+      0.02,
+      0.35
+     ],
+     [
+      0.05,
+      0.52
+     ],
+     [
+      0.1,
+      0.65
+     ],
+     [
+      0.2,
+      0.77
+     ],
+     [
+      0.35,
+      0.83
+     ],
+     [
+      0.5,
+      0.847
+     ],
+     [
+      1,
+      0.85
+     ]
+    ]
+   },
+   {
+    "name": "позже, t2 > t1",
+    "points": [
+     [
+      0.02,
+      0.22
+     ],
+     [
+      0.05,
+      0.39
+     ],
+     [
+      0.1,
+      0.52
+     ],
+     [
+      0.2,
+      0.65
+     ],
+     [
+      0.35,
+      0.75
+     ],
+     [
+      0.5,
+      0.8
+     ],
+     [
+      0.75,
+      0.84
+     ],
+     [
+      1,
+      0.848
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.02,
+    "y": 0.22,
+    "text": "сток, дебит Q0"
+   },
+   {
+    "x": 1,
+    "y": 0.848,
+    "text": "вдали p = pк"
+   }
+  ]
+ },
+ "caption": "Скважина — точечный сток с постоянным дебитом Q0. До пуска давление всюду pк, вдали остаётся pк, а возмущённая зона растёт.",
+ "alt": "Качественные профили давления по радиусу: до пуска горизонтальная линия pк, после пуска давление у стока понижено и вдали возвращается к pк; позже возмущение шире.",
+ "claim_ids": [
+  "basniev.radialnaya_zadacha_postanovka#c2",
+  "basniev.radialnaya_zadacha_postanovka#c3",
+  "basniev.radialnaya_zadacha_postanovka#c4",
+  "basniev.radialnaya_zadacha_postanovka#c10",
+  "basniev.radialnaya_zadacha_postanovka#c11",
+  "basniev.radialnaya_zadacha_postanovka#c12",
+  "basniev.radialnaya_zadacha_postanovka#c14"
+ ]
+}

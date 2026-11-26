@@ -1,34 +1,768 @@
 {
  "chapter": "basniev_gl23-24_1",
- "claims": 23,
- "flagged": [],
- "by_flag": {},
- "needs_scan": 0,
- "by_model": 1,
- "prose_numbers": [],
- "early_terms": [],
- "repeated_quotes": 0,
+ "claims": 619,
+ "flagged": [
+  {
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c9",
+   "node_id": "basniev.izmenenie_obemov_i_znaki",
+   "text": "Формулы изменения объёмов получают из формул (19.22) и (19.40), заменив дифференциалы давления и объёмов пор и жидкости на конечные разности.",
+   "quote": "лами (19.22) и (19.40), заменив дифференциалы давления и объемов пор и жидкости на конечные разности, имеем",
+   "page_pdf": 476,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.uprugoemkost_plasta#c6",
+   "node_id": "basniev.uprugoemkost_plasta",
+   "text": "Подстановка равенства (23.2) в формулу (23.1) позволяет переписать её в другом виде.",
+   "quote": "Тогда формулу (23.1) с учетом равенства (23.2) можно переписать в следующем виде:",
+   "page_pdf": 476,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.uravnenie_istoshcheniya#c1",
+   "node_id": "basniev.uravnenie_istoshcheniya",
+   "text": "Когда формулы упругого запаса (23.3) или (23.4) относят к месторождению в замкнуто-упругом режиме, под V0 понимают объём пласта, где к данному моменту давление изменилось на Δp.",
+   "quote": "Если формулы (23.3) или (23.4) относить к разрабатываемому в условиях замкнуто-упругого режима нефтяному месторождению, то под $V_0$ следует понимать объем пласта, в котором к данному моменту времени про-",
+   "page_pdf": 476,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.zachem_izuchat_uprugii_rezhim#c4",
+   "node_id": "basniev.zachem_izuchat_uprugii_rezhim",
+   "text": "Знание основ упругого режима позволяет ставить и решать обратные задачи: определять коллекторские свойства пластов по наблюдениям за изменением дебитов или давлений. Перечень применений у авторов не закрыт («и т.д.»).",
+   "quote": "ставить и решать так называемые обратные задачи определения коллекторских свойств пластов по наблюдениям за изменением дебитов или давлений и т.д.",
+   "page_pdf": 477,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.uravneniya_sostoyaniya#c5",
+   "node_id": "basniev.uravneniya_sostoyaniya",
+   "text": "Лабораторные эксперименты и опыт разработки месторождений показывают: в ряде случаев при деформациях меняется не только пористость, но и проницаемость пластов.",
+   "quote": "как показывают результаты лабораторных экспериментов, а также опыт разработки месторождений, в ряде случаев наряду с изменением пористости вследствие возникающих деформаций, происходят и изменения проницаемости пластов.",
+   "page_pdf": 478,
+   "flags": [
+    "negation",
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "basniev.linearizatsiya_levoi_chasti#c1",
+   "node_id": "basniev.linearizatsiya_levoi_chasti",
+   "text": "Рассматривается математическая модель неустановившегося движения упругого флюида по закону Дарси в деформируемой пористой среде: система (23.9) с уравнениями состояния (23.10) и (23.11) при k = const и μ = const.",
+   "quote": "Обратимся теперь к математической модели неустановившегося движения упругого флюида, подчиняющегося закону Дарси, в деформируемой пористой среде (23.9)",
+   "page_pdf": 479,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.linearizatsiya_levoi_chasti#c6",
+   "node_id": "basniev.linearizatsiya_levoi_chasti",
+   "text": "В модели проницаемость k и вязкость μ принимаются постоянными.",
+   "quote": "$$k = \\text{const}, \\mu = \\text{const},$$",
+   "page_pdf": 479,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.linearizatsiya_levoi_chasti#c19",
+   "node_id": "basniev.linearizatsiya_levoi_chasti",
+   "text": "Коэффициент объёмной упругости пласта составляет βс = (0,3–2)·10⁻¹⁰ Па⁻¹; породы и условия, для которых дан диапазон, не названы.",
+   "quote": "и что коэффициент объемной упругости пласта составляет $\\beta_\\text{с} = (0,3 - 2)\\cdot10^{-10}$ Па$^{-1}$",
+   "page_pdf": 480,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.linearizatsiya_levoi_chasti#c21",
+   "node_id": "basniev.linearizatsiya_levoi_chasti",
+   "text": "Без квадратичного слагаемого произведение записывается как mρ = m0ρ0[1 + β*(p − p0)/m0].",
+   "quote": "$$m\\rho = m_0\\rho_0 \\left[ 1 + \\beta^* (p - p_0)/m_0 \\right],$$",
+   "page_pdf": 480,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.linearizatsiya_levoi_chasti#c23",
+   "node_id": "basniev.linearizatsiya_levoi_chasti",
+   "text": "Накопительный член выражается через давление формулой (23.13): ∂(mρ)/∂t = ρ0·β*·∂p/∂t.",
+   "quote": "$$\\frac{\\partial(m\\rho)}{\\partial t} = \\rho_0\\beta^* \\frac{\\partial p}{\\partial t}. \\quad (23.13)$$",
+   "page_pdf": 480,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.koeffitsient_pezoprovodnosti#c12",
+   "node_id": "basniev.koeffitsient_pezoprovodnosti",
+   "text": "Наиболее часто встречающиеся в нефтепромысловой практике значения коэффициента пьезопроводности лежат в пределах от 0,1 до 5 м²/с. Породы, жидкости и районы для этого диапазона автор не уточняет.",
+   "quote": "Наиболее часто встречающиеся в нефтепромысловой практике значения коэффициента пьезопроводности заключены в пределах от 0,1 до 5 м²/с.",
+   "page_pdf": 481,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.koeffitsient_pezoprovodnosti#c14",
+   "node_id": "basniev.koeffitsient_pezoprovodnosti",
+   "text": "Если условие βж(p − p0) ≪ 1 не выполняется, при переходе от (23.14) к (23.15) нельзя пренебрегать слагаемым с βж.",
+   "quote": "Если же это условие не выполняется, то при переходе от (23.14) к (23.15) нельзя пренебрегать слагаемым с $\\beta_*$.",
+   "page_pdf": 481,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.koeffitsient_pezoprovodnosti#c15",
+   "node_id": "basniev.koeffitsient_pezoprovodnosti",
+   "text": "Если слагаемым с βж пренебречь нельзя, дифференциальное уравнение значительно усложняется и становится нелинейным.",
+   "quote": "Данное обстоятельство приведет к тому, что дифференциальное уравнение значительно усложнится и станет нелинейным.",
+   "page_pdf": 481,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.avtomodelnost#c10",
+   "node_id": "basniev.avtomodelnost",
+   "text": "При переходе к переменной u граничные условия (23.20) переписываются в новом виде (23.21).",
+   "quote": "В результате подобного перехода граничные условия (23.20) запишутся в виде",
+   "page_pdf": 482,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.perehod_k_obyknovennomu_uravneniyu#c1",
+   "node_id": "basniev.perehod_k_obyknovennomu_uravneniyu",
+   "text": "Правило дифференцирования сложных функций позволяет выразить частные производные по координате и времени через производные по безразмерной автомодельной переменной u.",
+   "quote": "Используя правило дифференцирования сложных функций, частные производные по координате и времени можно выразить через производные по безразмерной (автомодельной) переменной.",
+   "page_pdf": 482,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.reshenie_cherez_erf#c12",
+   "node_id": "basniev.reshenie_cherez_erf",
+   "text": "С учётом первого условия P равно C₁, умноженной на интеграл от exp(−u²) в пределах от 0 до u.",
+   "quote": "$$P = C_1 \\int_0^u e^{-u^2} du.$$",
+   "page_pdf": 483,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.reshenie_cherez_erf#c15",
+   "node_id": "basniev.reshenie_cherez_erf",
+   "text": "В пределе получается 1 = C₁, умноженная на интеграл от exp(−u²) в пределах от 0 до бесконечности.",
+   "quote": "$$1 = C_1 \\int_0^\\infty e^{-u^2} du.$$",
+   "page_pdf": 483,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.reshenie_cherez_erf#c16",
+   "node_id": "basniev.reshenie_cherez_erf",
+   "text": "Из интегрального исчисления известно, что интеграл от exp(−u²) от 0 до бесконечности равен √π/2.",
+   "quote": "Из интегрального исчисления известно, что $\\int_0^\\infty e^{-u^2} du = \\sqrt{\\pi}/2$",
+   "page_pdf": 483,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.reshenie_cherez_erf#c18",
+   "node_id": "basniev.reshenie_cherez_erf",
+   "text": "Окончательно P равно 2/√π, умноженному на интеграл от exp(−u²) в пределах от 0 до x/(2√(κt)) (23.26).",
+   "quote": "$$P = \\frac{2}{\\sqrt{\\pi}} \\int_0^{\\frac{x}{2\\sqrt{\\pi}}} e^{-u^2} du. \\quad (23.26)$$",
+   "page_pdf": 483,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.reshenie_cherez_erf#c21",
+   "node_id": "basniev.reshenie_cherez_erf",
+   "text": "Интеграл вероятности (23.26) изменяется в пределах от 0 до 1.",
+   "quote": "табулированной функцией, изменяющейся в пределах от 0 до 1 и имеет специ-",
+   "page_pdf": 483,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.reshenie_cherez_erf#c23",
+   "node_id": "basniev.reshenie_cherez_erf",
+   "text": "Интеграл вероятности обозначают erf: 2/√π, умноженное на интеграл от exp(−u²) от 0 до x/(2√(κt)), равно erf(x/(2√(κt))).",
+   "quote": "$$\\frac{2}{\\sqrt{\\pi}} \\int_0^{\\frac{x}{2\\sqrt{\\kappa t}}} e^{-u^2} du = \\operatorname{erf}\\left(\\frac{x}{2\\sqrt{\\kappa t}}\\right).$$",
+   "page_pdf": 484,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.krivye_davleniya_u_galerei#c14",
+   "node_id": "basniev.krivye_davleniya_u_galerei",
+   "text": "Уровень pк — это давление, к которому стремятся все кривые.",
+   "quote": "линия уровня pk: уровень давления pk, к которому стремятся кривые",
+   "page_pdf": 484,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "basniev.debit_i_dobycha_galerei#c15",
+   "node_id": "basniev.debit_i_dobycha_galerei",
+   "text": "Накопленную добычу находят интегрированием дебита Q(t) от 0 до t; под интегралом остаётся dt/√t. В книге перед интегралом под корнем стоит ещё t; вероятно, это опечатка, правдоподобен множитель k(pк − pг)Bh/(μ√(πκ)).",
+   "quote": "$$V_{доб} = \\int_0^t Q(t)dt = \\frac{k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa t}} \\int_0^t \\frac{dt}{\\sqrt{t}}",
+   "page_pdf": 485,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.debit_i_dobycha_galerei#c18",
+   "node_id": "basniev.debit_i_dobycha_galerei",
+   "text": "Рис. 23.2 показывает зависимости дебита и добычи жидкости от времени после пуска галереи при pг = const.",
+   "quote": "Рис. 23.2. Зависимости дебита и добычи жидкости от времени после пуска галереи при условии $p_г = \\text{const}$",
+   "page_pdf": 485,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.debit_i_dobycha_galerei#c19",
+   "node_id": "basniev.debit_i_dobycha_galerei",
+   "text": "График на рис. 23.2 схематический: числовых делений нет, показан только качественный характер зависимостей Q и Vдоб от t при pг = const.",
+   "quote": "Числовых делений нет, график показывает качественный характер зависимостей.",
+   "page_pdf": 485,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "basniev.galereya_postoyannyi_debit_skorost#c20",
+   "node_id": "basniev.galereya_postoyannyi_debit_skorost",
+   "text": "Поэтому решение уравнения (23.33) аналогично решению (23.26), только давление p заменяется на скорость фильтрации w.",
+   "quote": "Следовательно, решением уравнения (23.33) будет решение, аналогичное (23.26), с заменой давления $p$ на скорость фильтрации $w$",
+   "page_pdf": 486,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "basniev.reshenie_dlya_skorosti#c7",
+   "node_id": "basniev.reshenie_dlya_skorosti",
+   "text": "Интеграл от e^(−u²) от 0 до ∞ равен √π/2, поэтому начальное условие сводится к 0 = C1 + C2.",
+   "quote": "Так как $\\int_0^\\infty e^{-u^2} du = \\sqrt{\\pi}/2$, получаем",
+   "page_pdf": 486,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.davlenie_pri_postoyannom_debite#c6",
+   "node_id": "basniev.davlenie_pri_postoyannom_debite",
+   "text": "Интегрирование по частям даёт произведение x на ∫e^(−u²)du (от 0 до x/(2√(κt))), взятое от 0 до x, минус ∫₀ˣ x·e^(−x²/4κt)dx/(2√(κt)). Всё это умножено на (μ/k)(2/√π)w1.",
+   "quote": "\\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\Bigg|_0^x - \\int_0^x x e^{-x^2/4\\kappa t} \\frac{dx}{2\\sqrt{\\kappa t}} \\right]",
+   "page_pdf": 487,
+   "flags": [
+    "number",
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "basniev.davlenie_pri_postoyannom_debite#c7",
+   "node_id": "basniev.davlenie_pri_postoyannom_debite",
+   "text": "Последнее слагаемое (23.36) после вычисления равно (2μw1/(k√π))·[x∫e^(−u²)du − √(κt)(1 − e^(−x²/4κt))], где интеграл берётся от 0 до x/(2√(κt)).",
+   "quote": "\\frac{2\\mu w_1}{k\\sqrt{\\pi}} \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du - \\sqrt{\\kappa t} \\left( 1 - e^{-x^2/4\\kappa t} \\right) \\right].",
+   "page_pdf": 487,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.davlenie_na_galeree_i_predel_modeli#c4",
+   "node_id": "basniev.davlenie_na_galeree_i_predel_modeli",
+   "text": "Эту неопределённость раскрывают по правилу Лопиталя; автор указывает, что так можно показать результат, не расписывая выкладки.",
+   "quote": "Раскрывая ее по правилу Лопиталя, можно показать, что",
+   "page_pdf": 487,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.davlenie_na_galeree_i_predel_modeli#c5",
+   "node_id": "basniev.davlenie_na_galeree_i_predel_modeli",
+   "text": "Произведение x·(1 − erf(x/(2√(κt)))) стремится к нулю при x → ∞.",
+   "quote": "это произведение стремится к нулю. Учитывая также, что",
+   "page_pdf": 488,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.radialnaya_avtomodelnost#c11",
+   "node_id": "basniev.radialnaya_avtomodelnost",
+   "text": "Радиальная задача о пуске точечного стока с постоянным дебитом в неограниченном пласте автомодельна.",
+   "quote": "Таким образом, задача автомодельна, и уравнение (23.40) можно свести к обыкновенному дифференциальному уравнению.",
+   "page_pdf": 489,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.integrirovanie_radialnoi_zadachi#c17",
+   "node_id": "basniev.integrirovanie_radialnoi_zadachi",
+   "text": "Интеграл в (23.50) подстановкой легко свести к табличному.",
+   "quote": "Интеграл в последней формуле легко свести к табличному подстановкой",
+   "page_pdf": 490,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.logarifmicheskoe_priblizhenie#c9",
+   "node_id": "basniev.logarifmicheskoe_priblizhenie",
+   "text": "При малых x, когда суммой ряда пренебрегают, приближённо −Ei(−x) = ln(1/x) − 0,5772.",
+   "quote": "$$- \\text{Ei} (- x) = \\ln \\frac{1}{x} - 0,5772.$$",
+   "page_pdf": 491,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.logarifmicheskoe_priblizhenie#c10",
+   "node_id": "basniev.logarifmicheskoe_priblizhenie",
+   "text": "Для замены −Ei(−x) выражением ln(1/x) − 0,5772 авторы дают верхние границы погрешности в зависимости от наибольшего x.",
+   "quote": "При этом погрешность не превосходит:",
+   "page_pdf": 491,
+   "flags": [
+    "number",
+    "negation",
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.logarifmicheskoe_priblizhenie#c11",
+   "node_id": "basniev.logarifmicheskoe_priblizhenie",
+   "text": "Погрешность логарифмического приближения функции −Ei(−x) не превосходит 0,25 %, если x = r²/(4κt) ≤ 0,01.",
+   "quote": "$$0,25\\%, \\quad \\text{если } x = \\frac{r^2}{4 \\kappa t} \\leq 0,01;$$",
+   "page_pdf": 491,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.logarifmicheskoe_priblizhenie#c12",
+   "node_id": "basniev.logarifmicheskoe_priblizhenie",
+   "text": "Погрешность логарифмического приближения функции −Ei(−x) не превосходит 5,7 %, если x = r²/(4κt) ≤ 0,1.",
+   "quote": "$$5,7\\%, \\quad \\text{если } x \\leq 0,1;$$",
+   "page_pdf": 491,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.logarifmicheskoe_priblizhenie#c13",
+   "node_id": "basniev.logarifmicheskoe_priblizhenie",
+   "text": "Погрешность логарифмического приближения функции −Ei(−x) не превосходит 9,7 %, если x = r²/(4κt) ≤ 0,14.",
+   "quote": "$$9,7\\%, \\quad \\text{если } x \\leq 0,14.$$",
+   "page_pdf": 491,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.logarifmicheskoe_priblizhenie#c14",
+   "node_id": "basniev.logarifmicheskoe_priblizhenie",
+   "text": "Авторы делают вывод: для значений r²/(4κt) ≤ 1 давление можно определять по логарифмической формуле (23.53). Приведённые ими оценки погрешности доходят только до x ≤ 0,14.",
+   "quote": "Следовательно, для значений $r^2/(4 \\kappa t) \\leq 1$ давление можно определять по формуле",
+   "page_pdf": 491,
+   "flags": [
+    "number",
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "basniev.logarifmicheskoe_priblizhenie#c18",
+   "node_id": "basniev.logarifmicheskoe_priblizhenie",
+   "text": "Обе оси графика линейные; на оси аргумента x отмечены деления 0; 0,5; 1; 1,5; 2.",
+   "quote": "- x (на рисунке буквой не подписана; аргумент функции −Ei(−x)) (снизу, вправо; линейная): 0; 0,5; 1; 1,5; 2",
+   "page_pdf": 491,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.logarifmicheskoe_priblizhenie#c22",
+   "node_id": "basniev.logarifmicheskoe_priblizhenie",
+   "text": "Верхний конец кривой прочитан как x ≈ 0,1 и −Ei(−x) ≈ 2,2. Это приблизительное и сомнительное чтение: при x ≈ 0,1 правдоподобнее значение около 1,8.",
+   "quote": "- верхний конец кривой: x: ≈0,1\n- верхний конец кривой: −Ei(−x): ≈2,2",
+   "page_pdf": 491,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c6",
+   "node_id": "basniev.rashod_vokrug_skvazhiny",
+   "text": "Из формулы для скорости фильтрации (23.55) следует, что на небольших расстояниях от скважины стационарная скорость достигается очень быстро.",
+   "quote": "Из последней формулы следует, что стационарная скорость $w_{\\text{стац}} = Q_0/(2\\pi rh)$ достигается очень быстро на небольших расстояниях от скважины",
+   "page_pdf": 492,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.parametry_fure_i_radius_skvazhiny#c14",
+   "node_id": "basniev.parametry_fure_i_radius_skvazhiny",
+   "text": "В примере с κ = 1 м²/с и rс = 0,1 м уже через 1 с после пуска скважины погрешность расчёта забойного давления по формуле (23.52) не превышает 0,6%.",
+   "quote": "уже через 1 с после пуска скважины расчеты забойного давления, выполненные по формуле (23.52), будут иметь погрешность, не превышающую 0,6%.",
+   "page_pdf": 492,
+   "flags": [
+    "unit"
+   ]
+  },
+  {
+   "claim_id": "basniev.primenimost_dlya_konechnogo_plasta#c8",
+   "node_id": "basniev.primenimost_dlya_konechnogo_plasta",
+   "text": "Забойные давления в конечном (открытом и закрытом) и бесконечном пластах различаются не более чем на 1% также при Fo ≤ 0,35 и Rк ≥ 1000 rc.",
+   "quote": "различие в величинах забойных давлений в условиях конечного (открытого и закрытого) и бесконечного пластов не превзойдет 1%, если Fo ≤ 0,33, Rк ≥ 50 rc или если Fo ≤ 0,35, Rк ≥ 1000 rc.",
+   "page_pdf": 493,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.pezometricheskie_krivye_u_skvazhiny#c4",
+   "node_id": "basniev.pezometricheskie_krivye_u_skvazhiny",
+   "text": "Градиент давления вблизи скважины с постоянным дебитом в напечатанном виде: ∂p/∂r = Q₀μ/(2πkr), где μ — вязкость жидкости, k — проницаемость, r — расстояние от скважины.",
+   "quote": "$$\\partial p / \\partial r = Q_0 \\mu / (2 \\pi k r).$$",
+   "page_pdf": 493,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.pezometricheskie_krivye_u_skvazhiny#c15",
+   "node_id": "basniev.pezometricheskie_krivye_u_skvazhiny",
+   "text": "В области r² ≤ 0,03 · 4κt градиент давления определяется по той же формуле, что и при установившейся плоскорадиальной фильтрации несжимаемой жидкости.",
+   "quote": "и определяется по той же формуле, что и для установившейся плоскорадиальной фильтрации несжимаемой жидкости.",
+   "page_pdf": 493,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.pezometricheskie_krivye_u_skvazhiny#c16",
+   "node_id": "basniev.pezometricheskie_krivye_u_skvazhiny",
+   "text": "Для значений r, удовлетворяющих r² ≤ 0,03 · 4κt, пьезометрические кривые при постоянном дебите представляют собой логарифмические линии.",
+   "quote": "Для указанных значений r пьезометрические кривые представляют собой логарифмические линии (рис. 23.4).",
+   "page_pdf": 493,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.ideya_psss#c9",
+   "node_id": "basniev.ideya_psss",
+   "text": "После отбрасывания производной по времени (в первом приближении) для давления получается уравнение Лапласа, описывающее стационарный процесс.",
+   "quote": "в результате чего для давления получается уравнение Лапласа, описывающее стационарный процесс.",
+   "page_pdf": 494,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.psss_galereya_debit_postanovka#c2",
+   "node_id": "basniev.psss_galereya_debit_postanovka",
+   "text": "Случай 1: в момент t = 0 в горизонтальном пласте постоянной толщины h и ширины B пущена прямолинейная галерея с постоянным дебитом Q.",
+   "quote": "Пусть в момент времени $t = 0$ в горизонтальном пласте постоянной толщины $h$ и ширины $B$ пущена в эксплуатацию прямолинейная галерея, на которой поддерживается постоянный дебит $Q$.",
+   "page_pdf": 495,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.psss_galereya_davlenie#c5",
+   "node_id": "basniev.psss_galereya_davlenie",
+   "text": "Дебит галереи выражают так, как при установившемся движении; по словам авторов, это очевидный шаг.",
+   "quote": "Дебит галереи в условиях установившегося движения, очевидно, можно выразить следующим образом:",
+   "page_pdf": 496,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.psss_galereya_davlenie#c20",
+   "node_id": "basniev.psss_galereya_davlenie",
+   "text": "Для галереи с постоянным давлением в прямолинейно-параллельном потоке погрешность приближённого расчёта дебита по сравнению с точным составляет 11%. Авторы ссылаются при этом на формулы (24.8) и (23.27).",
+   "quote": "Погрешность расчета дебита галереи по приближенной формуле (24.8) по сравнению с расчетами по точной формуле (23.27) составляет 11%.",
+   "page_pdf": 497,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.psss_skvazhina_profil#c6",
+   "node_id": "basniev.psss_skvazhina_profil",
+   "text": "По методу ПССС принимают, что через время t после пуска вокруг скважины образуется возмущённая область радиусом R(t).",
+   "quote": "В соответствии с методом ПССС принимаем, что через время $t$ после пуска скважины вокруг нее образуется возмущенная область радиусом $R(t)$,",
+   "page_pdf": 497,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.psss_skvazhina_profil#c14",
+   "node_id": "basniev.psss_skvazhina_profil",
+   "text": "Рис. 24.2 изображает распределения давления в плоскорадиальном потоке в разные моменты времени по методу ПССС при отборе с Q = const.",
+   "quote": "Рис. 24.2. Кривые распределения давления в плоскорадиальном потоке в разные моменты времени по методу ПССС (отбор осуществляется при условии $Q = \\text{const}$)",
+   "page_pdf": 498,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.psss_skvazhina_granitsa#c8",
+   "node_id": "basniev.psss_skvazhina_granitsa",
+   "text": "Закон движения границы возмущённой области R(t) находят подстановкой выражений (24.12) и (24.13) в уравнение материального баланса (24.2).",
+   "quote": "Закон движения границы возмущенной области $R(t)$ найдем, подставив выражения (24.12) и (24.13) в уравнение материального баланса (24.2),",
+   "page_pdf": 498,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "basniev.psss_skvazhina_tochnost#c6",
+   "node_id": "basniev.psss_skvazhina_tochnost",
+   "text": "Сравнение депрессии по (24.16) с депрессией по точной формуле (23.52) показывает, что относительная погрешность ПССС уменьшается с течением времени.",
+   "quote": "Сравнивая (24.16) с депрессией, определенной по точной формуле (23.52), можно убедиться, что относительная погрешность уменьшается с течением времени",
+   "page_pdf": 499,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.psss_skvazhina_tochnost#c7",
+   "node_id": "basniev.psss_skvazhina_tochnost",
+   "text": "По вычислениям, относительная погрешность депрессии по (24.16) против формулы (23.52) составляет 10,6% при fo = κt/rс² = 100 (скважина с постоянным дебитом в неограниченном пласте).",
+   "quote": "составляет, по вычислениям, 10,6%, если $f_0 = \\kappa t / r_c^2 = 100$",
+   "page_pdf": 499,
+   "flags": [
+    "number",
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.psss_skvazhina_tochnost#c8",
+   "node_id": "basniev.psss_skvazhina_tochnost",
+   "text": "По вычислениям, относительная погрешность депрессии по ПССС против формулы (23.52) составляет 7,5% при fo = 10³ (скважина с постоянным дебитом в неограниченном пласте).",
+   "quote": "7,5%, если $f_0 = 10^3$; 5,7%, если $f_0 = 10^4$.",
+   "page_pdf": 499,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.psss_skvazhina_tochnost#c9",
+   "node_id": "basniev.psss_skvazhina_tochnost",
+   "text": "По вычислениям, относительная погрешность депрессии по ПССС против формулы (23.52) составляет 5,7% при fo = 10⁴ (скважина с постоянным дебитом в неограниченном пласте).",
+   "quote": "7,5%, если $f_0 = 10^3$; 5,7%, если $f_0 = 10^4$.",
+   "page_pdf": 499,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "basniev.granitsy_metoda_psss#c5",
+   "node_id": "basniev.granitsy_metoda_psss",
+   "text": "В некоторых случаях метод ПССС применяют к задачам о движении газированной жидкости.",
+   "quote": "но и для задач о движении газированной жидкости и о перемещении границы раздела жидкостей и газов.",
+   "page_pdf": 500,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "basniev.granitsy_metoda_psss#c6",
+   "node_id": "basniev.granitsy_metoda_psss",
+   "text": "В некоторых случаях метод ПССС применяют к задачам о перемещении границы раздела жидкостей и газов.",
+   "quote": "но и для задач о движении газированной жидкости и о перемещении границы раздела жидкостей и газов.",
+   "page_pdf": 500,
+   "flags": [
+    "negation"
+   ]
+  }
+ ],
+ "by_flag": {
+  "number": 26,
+  "condition": 19,
+  "negation": 14,
+  "quantifier": 6,
+  "unit": 1
+ },
+ "needs_scan": 77,
+ "by_model": 70,
+ "prose_numbers": [
+  {
+   "node_id": "basniev.izmenenie_obemov_i_znaki",
+   "where": "layers.deeper[0].text",
+   "text": "Формулы для ΔVж и ΔVп автор берёт из формул (19.22) и (19.40) главы XIX.",
+   "numbers": [
+    "40"
+   ]
+  },
+  {
+   "node_id": "basniev.uravnenie_istoshcheniya",
+   "where": "layers.deeper[0].text",
+   "text": "В записи формул буква «з» в обозначении ΔVз означает упругий запас, это не цифра 3.",
+   "numbers": [
+    "3"
+   ]
+  },
+  {
+   "node_id": "basniev.osnovnaya_formula_rezhima",
+   "where": "layers.nuances.text",
+   "text": "Скважина пущена в момент t = 0, и её дебит дальше постоянен.",
+   "numbers": [
+    "0"
+   ]
+  },
+  {
+   "node_id": "basniev.psss_galereya_davlenie",
+   "where": "layers.nuances.text",
+   "text": "При постоянном дебите галереи погрешность метода по депрессии составляла 25%.",
+   "numbers": [
+    "25"
+   ]
+  },
+  {
+   "node_id": "basniev.psss_galereya_davlenie",
+   "where": "layers.nuances.text",
+   "text": "В тексте о погрешности названы формулы (24.8) и (23.27).",
+   "numbers": [
+    "27"
+   ]
+  },
+  {
+   "node_id": "basniev.psss_skvazhina_tochnost",
+   "where": "layers.nuances.text",
+   "text": "Однако строго она справедлива для точечного стока (rс = 0) в неограниченном пласте.",
+   "numbers": [
+    "0"
+   ]
+  }
+ ],
+ "early_terms": [
+  {
+   "term": "градиент давления",
+   "explained_in": "basniev.debit_i_dobycha_galerei",
+   "used_in": [
+    "basniev.ishodnye_zakony_modeli"
+   ]
+  },
+  {
+   "term": "давление насыщения",
+   "explained_in": "basniev.mehanizm_uprugogo_pritoka",
+   "used_in": [
+    "basniev.neustanovivshiesya_processy"
+   ]
+  },
+  {
+   "term": "круговая непроницаемая граница",
+   "explained_in": "basniev.primenimost_dlya_konechnogo_plasta",
+   "used_in": [
+    "basniev.parametry_fure_i_radius_skvazhiny"
+   ]
+  },
+  {
+   "term": "однофазный поток",
+   "explained_in": "basniev.mehanizm_uprugogo_pritoka",
+   "used_in": [
+    "basniev.neustanovivshiesya_processy"
+   ]
+  },
+  {
+   "term": "основная формула теории упругого режима",
+   "explained_in": "basniev.osnovnaya_formula_rezhima",
+   "used_in": [
+    "basniev.integrirovanie_radialnoi_zadachi"
+   ]
+  },
+  {
+   "term": "расход через цилиндрическую поверхность",
+   "explained_in": "basniev.rashod_vokrug_skvazhiny",
+   "used_in": [
+    "basniev.radialnaya_zadacha_postanovka"
+   ]
+  },
+  {
+   "term": "уравнение истощения залежи",
+   "explained_in": "basniev.uravnenie_istoshcheniya",
+   "used_in": [
+    "basniev.vidy_uprugogo_rezhima"
+   ]
+  },
+  {
+   "term": "уравнение пьезопроводности",
+   "explained_in": "basniev.vyvod_uravneniya_pezoprovodnosti",
+   "used_in": [
+    "basniev.uravneniya_sostoyaniya"
+   ]
+  },
+  {
+   "term": "уравнение состояния",
+   "explained_in": "basniev.uravneniya_sostoyaniya",
+   "used_in": [
+    "basniev.ishodnye_zakony_modeli"
+   ]
+  }
+ ],
+ "repeated_quotes": 12,
  "sensitivity": {
   "seed": 0,
   "kinds": {
    "sign_flip": {
-    "made": 4,
-    "caught": 3
+    "made": 37,
+    "caught": 34
+   },
+   "number": {
+    "made": 60,
+    "caught": 60
+   },
+   "unit": {
+    "made": 15,
+    "caught": 13
    },
    "negation_removed": {
-    "made": 1,
-    "caught": 1
+    "made": 23,
+    "caught": 23
    },
    "lost_condition": {
-    "made": 2,
-    "caught": 2
+    "made": 13,
+    "caught": 10
    }
   },
-  "made": 7,
-  "caught": 6,
-  "recall": 0.857,
-  "flagged_originals": 0,
-  "originals": 23
+  "made": 148,
+  "caught": 140,
+  "recall": 0.946,
+  "flagged_originals": 60,
+  "originals": 619
  },
- "layer_sha256": "82c16cd4bee93780b8dea08f37c6b6446ded7bd604206c75ce97a9b254c518d9"
+ "layer_sha256": "d8e85fdb8285e3fe574550d8705393c7a3e28ac9871b17f8e38b0198387252ec"
 }

@@ -1,0 +1,61 @@
+{
+ "node_id": "basniev.logarifmicheskoe_priblizhenie",
+ "template": "plot",
+ "data": {
+  "x_label": "x = r²/(4κt)",
+  "y_label": "Значение функции",
+  "numeric": true,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "−Ei(−x), по графику",
+    "color": "",
+    "points": [
+     [
+      0.1,
+      1.8
+     ],
+     [
+      0.25,
+      1.1
+     ],
+     [
+      0.5,
+      0.6
+     ]
+    ]
+   },
+   {
+    "name": "ln(1/x) − 0,5772",
+    "color": "",
+    "formula": "log(1 / x) - 0.5772",
+    "from": 0.1,
+    "to": 0.5
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.1,
+    "y": 1.8,
+    "text": "x ≤ 0,1: до 5,7 %"
+   },
+   {
+    "x": 0.5,
+    "y": 0.6,
+    "text": "кривые разошлись"
+   }
+  ]
+ },
+ "caption": "С ростом x логарифм расходится с −Ei(−x); точки −Ei приблизительные. Формула давления — как в книге; вероятно, опечатка издания.",
+ "alt": "Две убывающие кривые от x = 0,1 до 0,5: у левого края функция −Ei и логарифмическое приближение почти совпадают, к правому краю приближение уходит заметно ниже.",
+ "claim_ids": [
+  "basniev.logarifmicheskoe_priblizhenie#c5",
+  "basniev.logarifmicheskoe_priblizhenie#c8",
+  "basniev.logarifmicheskoe_priblizhenie#c9",
+  "basniev.logarifmicheskoe_priblizhenie#c12",
+  "basniev.logarifmicheskoe_priblizhenie#c22",
+  "basniev.logarifmicheskoe_priblizhenie#c23"
+ ]
+}

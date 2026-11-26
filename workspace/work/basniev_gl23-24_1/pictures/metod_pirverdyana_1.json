@@ -1,0 +1,95 @@
+{
+ "node_id": "basniev.metod_pirverdyana",
+ "template": "plot",
+ "data": {
+  "x_label": "Расстояние от галереи x",
+  "y_label": "Давление p",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "Возмущённая область: парабола",
+    "color": "",
+    "points": [
+     [
+      0,
+      0.2
+     ],
+     [
+      0.1,
+      0.383
+     ],
+     [
+      0.2,
+      0.533
+     ],
+     [
+      0.3,
+      0.65
+     ],
+     [
+      0.4,
+      0.733
+     ],
+     [
+      0.5,
+      0.783
+     ],
+     [
+      0.6,
+      0.8
+     ]
+    ]
+   },
+   {
+    "name": "Невозмущённая область: давление pк",
+    "color": "",
+    "points": [
+     [
+      0.6,
+      0.8
+     ],
+     [
+      0.8,
+      0.8
+     ],
+     [
+      1,
+      0.8
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0,
+    "y": 0.2,
+    "text": "pг у галереи"
+   },
+   {
+    "x": 0.6,
+    "y": 0.8,
+    "text": "l(t): градиент нулевой"
+   },
+   {
+    "x": 1,
+    "y": 0.8,
+    "text": "pк"
+   }
+  ]
+ },
+ "caption": "Приток к галерее по Пирвердяну: парабола растёт от pг и на границе l(t) касается уровня pк без излома.",
+ "alt": "Кривая давления поднимается от pг выпуклостью вверх, всё более полого, и на расстоянии l(t) плавно переходит в горизонтальную линию pк.",
+ "claim_ids": [
+  "basniev.metod_pirverdyana#c4",
+  "basniev.metod_pirverdyana#c5",
+  "basniev.metod_pirverdyana#c7",
+  "basniev.metod_pirverdyana#c8",
+  "basniev.metod_pirverdyana#c9",
+  "basniev.metod_pirverdyana#c17",
+  "basniev.metod_pirverdyana#c18",
+  "basniev.metod_pirverdyana#c19"
+ ]
+}

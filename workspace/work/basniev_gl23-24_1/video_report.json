@@ -1,0 +1,61 @@
+{
+ "chapter": "basniev_gl23-24_1",
+ "rows": [
+  {
+   "node_id": "basniev.mehanizm_uprugogo_pritoka",
+   "format": "wide",
+   "template": "pressure_wave",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basniev.dlitelnost_pereraspredeleniya",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basniev.izmenenie_obemov_i_znaki",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "совпало признаков: 2, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basniev.rashod_vokrug_skvazhiny",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "совпало признаков: 4, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basniev.pezometricheskie_krivye_u_skvazhiny",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basniev.neustanovivshiesya_processy",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basniev.krivye_davleniya_u_galerei",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "совпало признаков: 3, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basniev.debit_i_dobycha_galerei",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "совпало признаков: 2, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  }
+ ]
+}

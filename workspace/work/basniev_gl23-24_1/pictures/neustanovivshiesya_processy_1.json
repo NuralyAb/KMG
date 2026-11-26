@@ -1,0 +1,42 @@
+{
+ "node_id": "basniev.neustanovivshiesya_processy",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Пуск, остановка скважин, смена темпа отбора",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Пластовое давление перераспределяется",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Скорости потоков и дебиты меняются во времени",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "От изменения в работе скважин к неустановившемуся процессу: давление, скорости и дебиты меняются.",
+ "alt": "Цепочка из трёх блоков: пуск, остановка или смена темпа отбора ведут к перераспределению давления, а оно сопровождается изменением скоростей и дебитов во времени.",
+ "claim_ids": [
+  "basniev.neustanovivshiesya_processy#c2",
+  "basniev.neustanovivshiesya_processy#c3",
+  "basniev.neustanovivshiesya_processy#c4"
+ ]
+}

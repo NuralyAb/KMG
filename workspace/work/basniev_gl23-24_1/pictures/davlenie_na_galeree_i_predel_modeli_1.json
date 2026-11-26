@@ -1,0 +1,77 @@
+{
+ "node_id": "basniev.davlenie_na_galeree_i_predel_modeli",
+ "template": "plot",
+ "data": {
+  "x_label": "Время t",
+  "y_label": "Давление",
+  "numeric": false,
+  "series": [
+   {
+    "name": "расчётное pг(t) на галерее",
+    "points": [
+     [
+      0,
+      0.9
+     ],
+     [
+      0.04,
+      0.75
+     ],
+     [
+      0.16,
+      0.6
+     ],
+     [
+      0.36,
+      0.45
+     ],
+     [
+      0.64,
+      0.3
+     ],
+     [
+      0.81,
+      0.225
+     ],
+     [
+      1,
+      0.15
+     ]
+    ]
+   },
+   {
+    "name": "нулевое давление",
+    "points": [
+     [
+      0,
+      0.3
+     ],
+     [
+      1,
+      0.3
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0,
+    "y": 0.9,
+    "text": "начальное pк"
+   },
+   {
+    "x": 0.64,
+    "y": 0.3,
+    "text": "дальше pг < 0"
+   }
+  ]
+ },
+ "caption": "Расчётное pг падает от pк как корень из времени и уходит ниже нуля: здесь решение теряет смысл, реально возникнет кавитация.",
+ "alt": "Качественный график: расчётное давление на галерее убывает со временем от начального pк и пересекает линию нулевого давления.",
+ "claim_ids": [
+  "basniev.davlenie_na_galeree_i_predel_modeli#c7",
+  "basniev.davlenie_na_galeree_i_predel_modeli#c9",
+  "basniev.davlenie_na_galeree_i_predel_modeli#c10",
+  "basniev.davlenie_na_galeree_i_predel_modeli#c13"
+ ]
+}

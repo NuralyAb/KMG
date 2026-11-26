@@ -1,0 +1,49 @@
+{
+ "node_id": "basniev.psss_skvazhina_davlenie",
+ "template": "plot",
+ "data": {
+  "x_label": "10⁻⁷·fo (безразмерное время)",
+  "y_label": "R(t)/rс, в тысячах (·10³)",
+  "numeric": true,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "pс = const (значения сняты на глаз)",
+    "color": "",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      0.5,
+      4
+     ],
+     [
+      1,
+      5.7
+     ],
+     [
+      1.5,
+      7
+     ],
+     [
+      2,
+      8.5
+     ]
+    ]
+   }
+  ],
+  "marks": []
+ },
+ "caption": "При постоянном забойном давлении радиус возмущения растёт всё положе. Точки приблизительно сняты с графика.",
+ "alt": "Кривая R(t)/rс растёт из начала координат: около 4·10³ при 10⁻⁷·fo = 0,5, 5,7·10³ при 1, 7·10³ при 1,5 и 8,5·10³ при 2.",
+ "claim_ids": [
+  "basniev.psss_skvazhina_davlenie#c6",
+  "basniev.psss_skvazhina_davlenie#c9",
+  "basniev.psss_skvazhina_davlenie#c10",
+  "basniev.psss_skvazhina_davlenie#c11"
+ ]
+}

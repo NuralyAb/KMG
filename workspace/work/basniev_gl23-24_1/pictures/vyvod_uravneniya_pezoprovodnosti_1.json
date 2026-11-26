@@ -1,0 +1,67 @@
+{
+ "node_id": "basniev.vyvod_uravneniya_pezoprovodnosti",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Правая часть: (k/μ)·Δ(∫ρ dp)",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Подставляем ρ(p) под интеграл и интегрируем",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "βж мал: отбрасываем слагаемое с βж",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Правая часть: (k/μ)·ρ0·Δp",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "С левой частью: β*·∂p/∂t = (k/μ)·Δp",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Путь к уравнению для давления: упростить правую часть для слабосжимаемой жидкости и соединить с левой.",
+ "alt": "Цепочка шагов: в правую часть подставляют плотность, интегрируют, отбрасывают малое слагаемое и получают уравнение для давления.",
+ "claim_ids": [
+  "basniev.vyvod_uravneniya_pezoprovodnosti#c2",
+  "basniev.vyvod_uravneniya_pezoprovodnosti#c3",
+  "basniev.vyvod_uravneniya_pezoprovodnosti#c4",
+  "basniev.vyvod_uravneniya_pezoprovodnosti#c5",
+  "basniev.vyvod_uravneniya_pezoprovodnosti#c6",
+  "basniev.vyvod_uravneniya_pezoprovodnosti#c7",
+  "basniev.vyvod_uravneniya_pezoprovodnosti#c8",
+  "basniev.vyvod_uravneniya_pezoprovodnosti#c9"
+ ]
+}

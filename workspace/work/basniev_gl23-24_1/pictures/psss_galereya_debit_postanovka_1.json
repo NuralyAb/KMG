@@ -1,0 +1,75 @@
+{
+ "node_id": "basniev.psss_galereya_debit_postanovka",
+ "template": "plot",
+ "data": {
+  "x_label": "расстояние x от галереи",
+  "y_label": "давление p",
+  "numeric": false,
+  "series": [
+   {
+    "name": "момент t1: от pг1 у галереи",
+    "color": "",
+    "points": [
+     [
+      0,
+      0.45
+     ],
+     [
+      0.4,
+      0.85
+     ],
+     [
+      1,
+      0.85
+     ]
+    ]
+   },
+   {
+    "name": "момент t2 > t1: от pг2 у галереи",
+    "color": "",
+    "points": [
+     [
+      0,
+      0.2
+     ],
+     [
+      0.65,
+      0.85
+     ],
+     [
+      1,
+      0.85
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.4,
+    "y": 0.85,
+    "text": "l(t1)"
+   },
+   {
+    "x": 0.65,
+    "y": 0.85,
+    "text": "l(t2)"
+   },
+   {
+    "x": 0.9,
+    "y": 0.85,
+    "text": "pк"
+   }
+  ]
+ },
+ "caption": "Давление растёт по прямой от галереи до границы l(t), дальше равно pк. Прямые почти параллельны, меняется длина зоны.",
+ "alt": "Два профиля давления: наклонные, почти параллельные прямые от pг1 и более низкого pг2 поднимаются до уровня pк на расстояниях l(t1) и большем l(t2), дальше идут горизонтально.",
+ "claim_ids": [
+  "basniev.psss_galereya_debit_postanovka#c5",
+  "basniev.psss_galereya_debit_postanovka#c13",
+  "basniev.psss_galereya_debit_postanovka#c14",
+  "basniev.psss_galereya_debit_postanovka#c15",
+  "basniev.psss_galereya_debit_postanovka#c16",
+  "basniev.psss_galereya_debit_postanovka#c17",
+  "basniev.psss_galereya_debit_postanovka#c18"
+ ]
+}

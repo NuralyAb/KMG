@@ -1,0 +1,17 @@
+{
+ "node_id": "basniev.izmenenie_obemov_i_znaki",
+ "template": "grains",
+ "data": {
+  "pores": "intergranular",
+  "clay": "none",
+  "fluid": "oil",
+  "water_film": false
+ },
+ "caption": "Два источника упругого запаса: твёрдый скелет породы и жидкость в порах. Изменения объёмов пор и жидкости складывают.",
+ "alt": "Порода под увеличением: зёрна твёрдого скелета и поры между ними, заполненные жидкостью.",
+ "claim_ids": [
+  "basniev.izmenenie_obemov_i_znaki#c1",
+  "basniev.izmenenie_obemov_i_znaki#c16",
+  "basniev.izmenenie_obemov_i_znaki#c19"
+ ]
+}

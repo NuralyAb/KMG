@@ -1,0 +1,635 @@
+{
+ "chapter": "basniev_gl23-24_1",
+ "routes": [
+  {
+   "node_id": "basniev.neustanovivshiesya_processy",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "pressure_wave",
+   "why": "Тип М, сумма 7: изменение во времени, невидимое давление и связь причины со следствием. Человек видит, как после пуска скважины понижение давления расходится по пласту и меняет профиль. По типу П он двигает наблюдательную точку по пласту."
+  },
+  {
+   "node_id": "basniev.mehanizm_uprugogo_pritoka",
+   "format": "длинное видео",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 2,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "pressure_wave",
+   "why": "Тип М, сумма 9: процесс идёт на нескольких масштабах, от малых деформаций до больших объёмов пласта. Человек видит, как энергия расходуется сначала у забоя, затем всё дальше. По типу П он рассматривает разрез и план с кольцами понижения давления."
+  },
+  {
+   "node_id": "basniev.vidy_uprugogo_rezhima",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "Тип П: важно положение залежи, воды и границ. Человек сравнивает на разрезе открытую к области питания и замкнутую залежь. По типу М (сумма 5, критерий причины и следствия) он по признакам определяет, какой режим работает."
+  },
+  {
+   "node_id": "basniev.dlitelnost_pereraspredeleniya",
+   "format": "шортс",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "pressure_wave",
+   "why": "Тип М, сумма 8: время, невидимое давление и причины его скорости. Человек видит, как проницаемость, вязкость и сжимаемость через пьезопроводность ускоряют или замедляют расхождение возмущения. Тип В здесь про длительность процесса и раскрывается тем же показом во времени."
+  },
+  {
+   "node_id": "basniev.izmenenie_obemov_i_znaki",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 2,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Тип М, сумма 8: невидимые деформации, скачок от поры к объёму пласта, причина и следствие. Человек видит, как при падении давления жидкость расширяется, а поры сжимаются. По типу Ф он меняет перепад давления и следит за знаками и суммой изменений объёмов. Подходящего видеошаблона нет."
+  },
+  {
+   "node_id": "basniev.uprugoemkost_plasta",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает ползунки m, βж и βс и видит, как меняется β* = m·βж + βс. По типу М (сумма 4, критерий невидимого) он на данных пласта оценивает вклад жидкости и скелета."
+  },
+  {
+   "node_id": "basniev.uravnenie_istoshcheniya",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Ф: человек по шагам связывает отбор Q(t)·dt с изменением упругого запаса и видит допущение о замкнутой залежи. По типу М (сумма 5) он по отбору оценивает изменение средневзвешенного давления."
+  },
+  {
+   "node_id": "basniev.zachem_izuchat_uprugii_rezhim",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "bars",
+   "why": "Тип Н: доля добычи за счёт упругости зависит от объекта. Человек сравнивает обычные 2–5% с прогнозом до 20% для Тенгиза и выбирает, что можно ожидать от залежи. По типу М (сумма 5) он связывает упругий запас с задачами разработки."
+  },
+  {
+   "node_id": "basniev.ishodnye_zakony_modeli",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Ф: человек собирает модель из неразрывности, закона Дарси и уравнений состояния. По типу М (сумма 2) он прослеживает, как давление через свойства жидкости и пор входит в систему."
+  },
+  {
+   "node_id": "basniev.uravneniya_sostoyaniya",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек меняет давление и видит линейный отклик плотности и пористости при постоянных k и μ. По типу Н он решает, допустима ли постоянная проницаемость, особенно для глубоких залежей."
+  },
+  {
+   "node_id": "basniev.linearizatsiya_levoi_chasti",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Ф: человек по шагам перемножает уравнения состояния и видит, где отбрасывается малое квадратичное слагаемое. По типу Пр он сам выполняет преобразование и оценивает малость члена на числах."
+  },
+  {
+   "node_id": "basniev.vyvod_uravneniya_pezoprovodnosti",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Ф: человек проходит вывод и отмечает допущение о слабой сжимаемости и отброшенное слагаемое с βж. По типу М (сумма 3) он связывает кривизну распределения давления со скоростью его изменения."
+  },
+  {
+   "node_id": "basniev.koeffitsient_pezoprovodnosti",
+   "format": "интерактив",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает k, μ и β*, видит κ в диапазоне 0,1–5 м²/с и проверяет условие βж(p − p0) ≪ 1. По типу М (сумма 7: время, невидимое, причина и следствие) он видит, как κ задаёт темп перераспределения давления."
+  },
+  {
+   "node_id": "basniev.galereya_postoyannoe_davlenie_postanovka",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек расставляет начальное и граничные условия pк и pг и видит, что требуется найти. По типу П он располагает эти условия вдоль координаты x от галереи."
+  },
+  {
+   "node_id": "basniev.avtomodelnost",
+   "format": "интерактив",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает x и t и видит, что при одном u = x/(2√(κt)) давление одинаково. По типу М (сумма 6: время и контринтуитивность) профили разных моментов на глазах сливаются в одну кривую."
+  },
+  {
+   "node_id": "basniev.perehod_k_obyknovennomu_uravneniyu",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Ф: человек видит, как две переменные сводятся к одной и получается d²P/du² + 2u·dP/du = 0. По типу Пр он по шагам выражает производные через u."
+  },
+  {
+   "node_id": "basniev.reshenie_cherez_erf",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает u и видит ход erf от 0 до 1 и соответствующее давление. По типу Пр он берёт значения erf из таблицы и рассчитывает давление в точке."
+  },
+  {
+   "node_id": "basniev.krivye_davleniya_u_galerei",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Тип М, сумма 7: изменение во времени и невидимое давление. Человек видит, как профиль у галереи выполаживается и уходит вглубь. По типу П он двигает время и сравнивает давление в одной точке. Видеошаблон для галереи с постоянным давлением отсутствует."
+  },
+  {
+   "node_id": "basniev.debit_i_dobycha_galerei",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Тип М, сумма 7: время, причина и следствие, дебит падает при постоянном давлении. Человек видит убывание дебита как 1/√t и замедляющийся рост добычи как √t. По типу Ф он меняет параметры формул. Подходящего видеошаблона нет."
+  },
+  {
+   "node_id": "basniev.galereya_postoyannyi_debit_skorost",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип Ф: человек сопоставляет задачи для давления и для скорости фильтрации с одинаковой формой уравнения. По типу Пр он сам заменяет переменные и условия в готовом решении."
+  },
+  {
+   "node_id": "basniev.reshenie_dlya_skorosti",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает x и t и видит, как меняется w1·[1 − erf(x/(2√(κt)))] и связанный с ней градиент давления. По типу Пр он рассчитывает скорость в заданной точке по таблице erf."
+  },
+  {
+   "node_id": "basniev.davlenie_pri_postoyannom_debite",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Ф: человек видит путь от скорости к давлению и роль pг(t). По типу Пр он по шагам интегрирует по x, включая интегрирование по частям."
+  },
+  {
+   "node_id": "basniev.davlenie_na_galeree_i_predel_modeli",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Н: человек прослеживает падение давления на галерее и решает, с какого участка расчёт теряет физический смысл. По типу Ф он меняет постоянную скорость и видит, как жёсткое граничное условие ведёт к отрицательному давлению вместо реальной кавитации."
+  },
+  {
+   "node_id": "basniev.radialnaya_zadacha_postanovka",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "Тип П: человек видит скважину в горизонтальном пласте и её замену точечным стоком. По типу Ф он расставляет начальное условие, условие на бесконечности и постоянный дебит Q0."
+  },
+  {
+   "node_id": "basniev.radialnaya_avtomodelnost",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает r и t и видит, что решение определяется одной переменной ξ = r/(2√(κt)). По типу Пр он выполняет замену и получает обыкновенное уравнение."
+  },
+  {
+   "node_id": "basniev.integrirovanie_radialnoi_zadachi",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Ф: человек видит, как два интегрирования и два условия дают решение с интегралом от exp(−u)/u. По типу Пр он определяет C1 и проверяет, что в знаменателе должно быть 4πkh, а 2πkh в (23.51), вероятно, опечатка."
+  },
+  {
+   "node_id": "basniev.osnovnaya_formula_rezhima",
+   "format": "интерактив",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает r, t и параметры пласта и видит поправку к начальному давлению для точечного стока в неограниченном пласте. По типу М (сумма 7: время, невидимое, причина и следствие) он видит, как понижение давления расходится от скважины."
+  },
+  {
+   "node_id": "basniev.logarifmicheskoe_priblizhenie",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает x и сравнивает −Ei(−x) с ln(1/x) − 0,5772. По типу Н он решает, годится ли замена: погрешность не выше 0,25% при x ≤ 0,01 и 9,7% при x ≤ 0,14."
+  },
+  {
+   "node_id": "basniev.rashod_vokrug_skvazhiny",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Тип М, сумма 8: время, невидимый поток и неожиданно быстрый выход на стационар у скважины. Человек видит, как расход на разных радиусах приближается к стационарному. По типу Ф он меняет r, t и κ в множителе exp(−r²/(4κt)). Видеошаблона с расходом нет."
+  },
+  {
+   "node_id": "basniev.parametry_fure_i_radius_skvazhiny",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Н: человек по fo решает, можно ли пренебречь радиусом скважины, с ориентиром 0,6% при fo = 100. По типу Ф он меняет время и радиус и видит изменение безразмерного параметра."
+  },
+  {
+   "node_id": "basniev.primenimost_dlya_konechnogo_plasta",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Н: человек по Fo, соотношению размеров и допустимой погрешности выбирает, можно ли считать пласт бесконечным. По типу Ф он меняет размер пласта и время и видит, как меняется Fo."
+  },
+  {
+   "node_id": "basniev.pezometricheskie_krivye_u_skvazhiny",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "pressure_wave",
+   "why": "Тип М, сумма 8: давление на забое падает, а наклон профиля у скважины почти не меняется. Человек видит это во времени. По типу П он сравнивает форму профиля внутри области r² ≤ 0,03·4κt и вне её."
+  },
+  {
+   "node_id": "basniev.ideya_psss",
+   "format": "интерактив",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает границу возмущения и видит допущение о стационарном профиле внутри и начальном давлении снаружи. По типу М (сумма 7: время, невидимое, причина и следствие) он видит, как отбор по балансу продвигает границу."
+  },
+  {
+   "node_id": "basniev.psss_galereya_debit_postanovka",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек меняет длину зоны l(t) и приравнивает отобранный объём изменению упругого запаса. По типу П он видит линейный профиль от галереи до границы возмущения."
+  },
+  {
+   "node_id": "basniev.psss_galereya_debit_granitsa",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает время и видит рост границы как корня из времени и линейный профиль до неё. По типу Н он решает, приемлемо ли расхождение депрессии с точным расчётом в 25%."
+  },
+  {
+   "node_id": "basniev.psss_galereya_davlenie",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Пр: человек рассчитывает границу l(t) = 2√(κt) и приближённый дебит при постоянном давлении. По типу Н он оценивает расхождение дебита с точным расчётом в 11% и решает, подходит ли метод."
+  },
+  {
+   "node_id": "basniev.psss_skvazhina_profil",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип П: человек двигает радиус круговой возмущённой области и видит логарифмический профиль внутри и pк снаружи. По типу Ф он меняет давление на скважине и следит за дебитом по формуле, похожей на формулу Дюпюи."
+  },
+  {
+   "node_id": "basniev.psss_skvazhina_granitsa",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает время и κ и видит рост R(t) = √(rс² + 4κt). По типу Пр он подставляет объём зоны и падение среднего давления в баланс и находит радиус."
+  },
+  {
+   "node_id": "basniev.psss_skvazhina_tochnost",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "bars",
+   "why": "Тип Н: человек сравнивает погрешности депрессии от 10,6% при fo = 100 до 5,7% при fo = 10⁴ и решает, достаточна ли точность. По типу Ф он меняет время в логарифмических формулах."
+  },
+  {
+   "node_id": "basniev.psss_skvazhina_davlenie",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Пр: человек по графику находит границу возмущённой области, затем считает дебит по формуле Дюпюи. По типу Н он учитывает погрешность дебита около 5%."
+  },
+  {
+   "node_id": "basniev.granitsy_metoda_psss",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип Н: человек выбирает, годится ли ПССС для связи дебита с депрессией или для распределения давления по пласту. По типу Ф он видит, как скачок градиента на границе связан с расхождениями и с простотой решения."
+  },
+  {
+   "node_id": "basniev.metod_pirverdyana",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: человек двигает границу возмущения и сравнивает параболический профиль с профилем ПССС. По типу П он видит плавное смыкание с нетронутой частью пласта и нулевой градиент на границе."
+  }
+ ]
+}

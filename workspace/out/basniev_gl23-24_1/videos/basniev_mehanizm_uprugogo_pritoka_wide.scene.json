@@ -1,0 +1,498 @@
+{
+ "title": "Как упругость пласта выталкивает жидкость в скважину",
+ "params": {
+  "p0": 20,
+  "unit": "МПа",
+  "drop": 0.4,
+  "kappa": 1.0,
+  "t_max": 100000,
+  "stop": null,
+  "radius": 1000,
+  "rw": 0.1,
+  "thickness": 10,
+  "observe": 300,
+  "lith": "sand"
+ },
+ "objects": [
+  "добывающая скважина",
+  "однородный песчаный пласт",
+  "профиль давления на разрезе",
+  "кольца понижения давления на плане",
+  "график давления на забое",
+  "наблюдательная точка на расстоянии триста метров",
+  "пунктир ложного ожидания"
+ ],
+ "invariants": [
+  "Дебит скважины постоянен всё время показа",
+  "Разрез, план и график показывают один и тот же момент времени",
+  "Время идёт только вперёд",
+  "Конструкция скважины и толщина пласта не меняются",
+  "Давление в пласте растёт при удалении от скважины, жидкость движется к скважине",
+  "Положение наблюдательной точки не меняется"
+ ],
+ "assumptions": [
+  "Пласт однородный, горизонтальный, постоянной толщины",
+  "Поток однофазный: давление всюду выше давления насыщения",
+  "Свойства жидкости и породы постоянны",
+  "Скважина пущена с постоянным дебитом и не останавливается",
+  "Внешняя граница пласта за время показа не влияет",
+  "В расчётной модели давление вдали меняется с самого пуска, но сначала неощутимо мало",
+  "Все числа параметров условные и не взяты из источника"
+ ],
+ "exaggerations": [
+  "толщина пласта увеличена в 50 раз",
+  "Толщина пласта десять метров на разрезе увеличена относительно радиуса вида тысяча метров; в истинном масштабе отношение один к ста",
+  "Скважина радиусом ноль целых одна десятая метра нарисована намного шире",
+  "Цвет и кольца усиливают малые изменения давления вдали от скважины",
+  "Граница понижения нарисована условно: резкого фронта в пласте нет",
+  "Сжатие пор и расширение жидкости в сцене отдельно не показаны",
+  "Время показа сжато: сто тысяч секунд укладываются в ролик"
+ ],
+ "plaque": [
+  "толщина пласта увеличена в 50 раз",
+  "числа условные",
+  "пласт однородный, дебит постоянный"
+ ],
+ "prediction_question": "Дальняя точка почувствует пуск сразу или позже?",
+ "transfer_question": "Дебит увеличили, давление у забоя упало сильнее. Что проверите первым?",
+ "data_it_bridge": "Условие однофазности проверяют по точкам потока, а не по одному среднему давлению. Для расчётов нужны сжимаемости жидкости и породы, объём пласта и снижение давления, причём важно знать, к какому объёму отнесена сжимаемость.",
+ "terms_to_check": [
+  "забо́й",
+  "забо́я",
+  "пласто́вое",
+  "по́ры",
+  "по́ровое",
+  "дебит",
+  "насыще́ния",
+  "упру́гий"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Один горизонтальный пласт, порядок слоёв не меняется"
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет"
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Несогласий нет"
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Жидкость находится в порах пласта, озёр и полостей нет; голос говорит это прямо"
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Однофазный поток, контактов нет"
+  },
+  "pc.flow_high_to_low": {
+   "answer": "да",
+   "note": "Движение направлено к скважине, где давление ниже; ловушка не рассматривается"
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала пуск, затем падение давления у забоя, потом дальше по пласту"
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Добытый объём обеспечен упругим изменением объёмов жидкости и пор"
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Три вида считаются из одной модели и одного времени"
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Приборов каротажа нет"
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Измерения и интерпретация свойств не показаны"
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Названо условие: давление всюду выше давления насыщения"
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "График строится из той же модели и растёт вместе со временем"
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Начальное давление двадцать мегапаскалей, забойное в конце около тринадцати, пьезопроводность один квадратный метр в секунду"
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Преувеличения перечислены с числами, есть показ истинного масштаба"
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Скважина не меняется между кадрами"
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Скважина вскрывает пласт, наблюдательная точка находится в том же пласте"
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "Разрез ориентирован глубиной вниз, шкалы и единицы подписывает шаблон"
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Сцена считается из параметров и помечена как симуляция; масштаб подписывает шаблон"
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Наземное оборудование не детализируется"
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Бурение и раствор не показаны"
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в стволе нет"
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Приёмных ёмкостей нет"
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Конструкция скважины одинакова на всех видах"
+  }
+ },
+ "beats": [
+  {
+   "say": "Что выталкивает жидкость в скважину?",
+   "claim_id": null,
+   "on_screen": "Что толкает жидкость?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.002,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Скважину пустили, и жидкость в пласте пришла в движение.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c3",
+   "on_screen": "Пуск скважины",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.004
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Жидкость сидит в порах, то есть в пустотах внутри каменного каркаса породы.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c6",
+   "on_screen": "Жидкость живёт в порах",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Движение начинается, потому что в сжатых породе и жидкости запасена энергия.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c3",
+   "on_screen": "Запас упругой энергии",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.008,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Давление в пласте падает, и пласт слабее сопротивляется весу пород сверху.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c5",
+   "on_screen": "Опора пласта слабеет",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.012
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Поэтому объём пор уменьшается.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c6",
+   "on_screen": "Поры становятся меньше",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Жидкость тоже упругая: при падении давления она чуть расширяется, а не убывает.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c9",
+   "on_screen": "Жидкость расширяется, поры сжимаются",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.018,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Всё это помогает вытеснять жидкость из пор в скважину.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c8",
+   "on_screen": "Лишняя жидкость уходит к скважине",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.025
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Это называют упругим режимом: приток идёт за счёт упругости пласта и жидкости.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c3",
+   "on_screen": "Упругий режим",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Отметим вдали от скважины наблюдательную точку.",
+   "claim_id": null,
+   "on_screen": "Точка вдали от скважины",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "observe": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Предскажите: эта точка заметно отреагирует на пуск сразу или позже?",
+   "claim_id": null,
+   "on_screen": "Сразу или позже?",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.035,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 1.3,
+   "role": "prediction"
+  },
+  {
+   "say": "Позже: сначала упругая энергия расходуется рядом с забоем, то есть дном скважины.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c4",
+   "on_screen": "Сначала работает ближняя зона",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.15,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Затем в работу вовлекаются всё более далёкие участки пласта.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c4",
+   "on_screen": "Потом всё более дальние",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.45
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Пунктир показывает ложное ожидание: будто граница идёт с постоянной скоростью.",
+   "claim_id": null,
+   "on_screen": "Пунктир: ложное ожидание",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "naive": 1,
+    "time": 0.65
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Упругие изменения очень малы, но объёмы пласта и жидкости огромны.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c10",
+   "on_screen": "Мало, но на огромном объёме",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.75
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Поэтому за счёт упругости можно получить весьма значительный объём жидкости.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c10",
+   "on_screen": "Добыча может быть большой",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 3,
+    "time": 0.82
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Аналогия: огромный кластер, где каждый узел отдаёт крошечную долю ресурса.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c10",
+   "on_screen": "Аналогия: кластер из узлов",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 2,
+    "time": 0.86
+   },
+   "is_analogy": true,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "В этом разрезе пласт в настоящем масштабе выглядит так.",
+   "claim_id": null,
+   "on_screen": "Настоящий масштаб пласта",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1,
+    "true_scale": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Дальнейшая модель описывает только поток одной фазы, без свободного газа.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c1",
+   "on_screen": "Только однофазный поток",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 0,
+    "time": 0.9
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Давление всюду должно быть выше давления насыщения, иначе из жидкости выделится газ.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c2",
+   "on_screen": "Выше давления насыщения всюду",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 3,
+    "time": 0.94
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Поэтому специалист сравнивает с этим порогом давление у забоя, а не только среднее.",
+   "claim_id": "basniev.mehanizm_uprugogo_pritoka#c2",
+   "on_screen": "Проверить давление у забоя",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 1,
+    "time": 0.97
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Дебит увеличили, и давление у забоя упало сильнее: что проверите первым?",
+   "claim_id": null,
+   "on_screen": "Что проверить первым?",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 0,
+    "time": 1.0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "basniev_mehanizm_uprugogo_pritoka_wide",
+ "chapter": "basniev_gl23-24_1",
+ "node_id": "basniev.mehanizm_uprugogo_pritoka",
+ "format": "wide",
+ "template": "pressure_wave",
+ "claim_marks": {
+  "basniev.mehanizm_uprugogo_pritoka#c1": "de1a5adbee0c",
+  "basniev.mehanizm_uprugogo_pritoka#c2": "a3554c54bb9d",
+  "basniev.mehanizm_uprugogo_pritoka#c3": "a7d9339d8be6",
+  "basniev.mehanizm_uprugogo_pritoka#c4": "a9845552a193",
+  "basniev.mehanizm_uprugogo_pritoka#c5": "ac2ef501641b",
+  "basniev.mehanizm_uprugogo_pritoka#c6": "cc226a583cb3",
+  "basniev.mehanizm_uprugogo_pritoka#c7": "c395acfcbbd9",
+  "basniev.mehanizm_uprugogo_pritoka#c8": "735272648d6f",
+  "basniev.mehanizm_uprugogo_pritoka#c9": "c76458091e5c",
+  "basniev.mehanizm_uprugogo_pritoka#c10": "c706e6e6b1e6"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5",
+ "claim_kinds": {
+  "basniev.mehanizm_uprugogo_pritoka#c1": "assumption",
+  "basniev.mehanizm_uprugogo_pritoka#c2": "assumption",
+  "basniev.mehanizm_uprugogo_pritoka#c3": "inference",
+  "basniev.mehanizm_uprugogo_pritoka#c4": "observation",
+  "basniev.mehanizm_uprugogo_pritoka#c5": "inference",
+  "basniev.mehanizm_uprugogo_pritoka#c6": "inference",
+  "basniev.mehanizm_uprugogo_pritoka#c7": "inference",
+  "basniev.mehanizm_uprugogo_pritoka#c8": "inference",
+  "basniev.mehanizm_uprugogo_pritoka#c9": "observation",
+  "basniev.mehanizm_uprugogo_pritoka#c10": "inference"
+ }
+}
