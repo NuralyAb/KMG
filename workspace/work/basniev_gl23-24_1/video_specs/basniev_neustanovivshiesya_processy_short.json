@@ -1,0 +1,401 @@
+{
+ "title": "Почему давление в пласте меняется",
+ "params": {
+  "p0": 25,
+  "unit": "МПа",
+  "drop": 0.5,
+  "kappa": 0.5,
+  "t_max": 36000,
+  "stop": 21600,
+  "radius": 500,
+  "rw": 0.1,
+  "thickness": 10,
+  "observe": 150,
+  "lith": "sand"
+ },
+ "objects": [
+  "пласт из пористого песчаника",
+  "добывающая скважина",
+  "забой скважины",
+  "наблюдательная точка в пласте",
+  "профиль давления в разрезе",
+  "кольца давления в плане",
+  "график давления во времени на забое и в наблюдательной точке"
+ ],
+ "invariants": [
+  "Разрез, план и график показывают один и тот же момент времени из одной модели",
+  "Время идёт только вперёд",
+  "Скважина, наблюдательная точка и толщина пласта не меняют положения и размеров",
+  "До остановки дебит постоянный, после остановки он равен нулю",
+  "Пока скважина работает, жидкость течёт к ней, от большего давления к меньшему",
+  "Давление всюду остаётся выше давления насыщения"
+ ],
+ "assumptions": [
+  "Пласт однородный, горизонтальный, постоянной толщины и в пределах показа ведёт себя как бесконечный",
+  "Поток однофазный и радиальный, давление всюду выше давления насыщения жидкости газом",
+  "Дебит задан постоянным до остановки; изменение дебита во времени сцена не показывает",
+  "Остановка мгновенная, приток в ствол после неё не учитывается",
+  "Пьезопроводность и проницаемость не зависят от давления",
+  "Давление насыщения принято ниже минимального давления в сцене"
+ ],
+ "exaggerations": [
+  "Десять часов процесса (36000 с) сжаты в ролик длиной меньше минуты",
+  "Толщина пласта 10 м при крае вида 500 м в обычном виде растянута по вертикали; коэффициент подписывает шаблон",
+  "Скважина радиусом 0,1 м нарисована намного шире истинного размера",
+  "Все числа давления, расстояний и свойств пласта условные, не из главы",
+  "Пласт показан идеально однородным и ровным"
+ ],
+ "plaque": [
+  "числа условные"
+ ],
+ "prediction_question": "Скважину останавливают. Давление у неё замрёт или изменится?",
+ "transfer_question": "Отбор из скважины увеличили. Что начнёт меняться в данных?",
+ "data_it_bridge": "Пуск, остановка и смена отбора — это события, после которых ряды давления, скоростей и дебитов меняются во времени. Как гипотеза: такие ряды стоит хранить вместе с отметками времени событий и не сглаживать переходный участок одним средним.",
+ "terms_to_check": [
+  "забо́й",
+  "дебит (деби́т)",
+  "дебиты (деби́ты)",
+  "неустанови́вшийся",
+  "упру́гой",
+  "пла́ста",
+  "насыще́ния",
+  "отбо́р",
+  "карка́са"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Один продуктивный пласт между неизменными кровлей и подошвой во всех кадрах"
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет"
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Несогласий в сцене нет"
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Пласт показан пористой породой, жидкость находится в порах"
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Поток однофазный, контактов флюидов нет"
+  },
+  "pc.flow_high_to_low": {
+   "answer": "да",
+   "note": "При работе скважины давление у неё ниже, жидкость идёт к ней; пласт ограничен кровлей и подошвой"
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала пуск или остановка, затем изменение давления"
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Отбор обеспечивается упругим расширением в модели упругого режима; после остановки отбор равен нулю"
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Три вида считаются из одной модели на один момент времени"
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Механизм измерительного прибора не показан"
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Свойства пласта по сигналу в ролике не определяются"
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Вслух названо условие: давление выше давления насыщения, газ не выделяется"
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "График строится синхронно с профилем и планом из той же модели"
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Начальное давление 25 МПа, к остановке на забое около 17,6 МПа, толщина 10 м"
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Сжатие времени и растяжение разреза названы с числами, истинный масштаб показан в конце"
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Конструкция скважины не меняется"
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Скважина вскрывает пласт, наблюдательная точка находится внутри пласта"
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "В разрезе глубина направлена вниз, оси давления и времени подписаны с единицами"
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Кадры считаются из params и помечены как симуляция, вертикальное преувеличение подписывает шаблон"
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Наземное и скважинное оборудование не детализируется"
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Бурение и раствор не показаны"
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в скважине нет"
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Приёмных ёмкостей и бурения нет"
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Скважина изображена одинаково во всех видах"
+  }
+ },
+ "beats": [
+  {
+   "say": "Что в пласте после пуска скважины?",
+   "claim_id": null,
+   "on_screen": "Скважину пустили",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.08
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Давление в пласте не застывает, а перераспределяется.",
+   "claim_id": "basniev.neustanovivshiesya_processy#c3",
+   "on_screen": "Давление перераспределяется",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.2,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "На графике забой, то есть низ скважины, и дальняя точка.",
+   "claim_id": null,
+   "on_screen": "Две точки наблюдения",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "observe": 1,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Процесс с такими изменениями во времени называют неустановившимся.",
+   "claim_id": "basniev.neustanovivshiesya_processy#c3",
+   "on_screen": "Неустановившийся процесс",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Он бывает, потому что скважину пустили, остановили или изменили отбор.",
+   "claim_id": "basniev.neustanovivshiesya_processy#c2",
+   "on_screen": "Причина: смена режима",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.4,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Со временем меняются и скорости потоков, и дебиты скважин.",
+   "claim_id": "basniev.neustanovivshiesya_processy#c4",
+   "on_screen": "Меняются не только давления",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.45,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Но в этой сцене дебит до остановки задан постоянным.",
+   "claim_id": null,
+   "on_screen": "Здесь отбор постоянный",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.49,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Приток к скважине тут обеспечивает в основном упругая энергия.",
+   "claim_id": "basniev.neustanovivshiesya_processy#c6",
+   "on_screen": "Что гонит жидкость",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.53,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Это энергия упругой деформации жидкости и твёрдого каркаса породы.",
+   "claim_id": "basniev.neustanovivshiesya_processy#c6",
+   "on_screen": "Жидкость и каркас породы",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.57,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Скважину останавливают. Давление у неё замрёт или изменится?",
+   "claim_id": null,
+   "on_screen": "Замрёт или изменится?",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.6,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 1.3,
+   "role": "prediction"
+  },
+  {
+   "say": "Не замрёт: после остановки давление снова перераспределяется.",
+   "claim_id": "basniev.neustanovivshiesya_processy#c3",
+   "on_screen": "Остановка тоже запускает изменения",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.78
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Насколько сильны изменения, зависит от упругих свойств пласта и жидкости.",
+   "claim_id": "basniev.neustanovivshiesya_processy#c5",
+   "on_screen": "Упругость задаёт величину изменений",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.86,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Упрощение: давление всюду выше давления насыщения, газ не выделяется.",
+   "claim_id": "basniev.neustanovivshiesya_processy#c6",
+   "on_screen": "Только без выделения газа",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.91,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Поэтому, оценивая изменения, специалист учитывает упругие свойства.",
+   "claim_id": "basniev.neustanovivshiesya_processy#c5",
+   "on_screen": "В расчёт берут упругость",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.96,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "А так выглядит пласт в истинном масштабе.",
+   "claim_id": null,
+   "on_screen": "Истинный масштаб пласта",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 1,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0.3,
+   "role": "frame"
+  },
+  {
+   "say": "Отбор из скважины увеличили. Что начнёт меняться в данных?",
+   "claim_id": null,
+   "on_screen": "Что изменится в данных?",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 1,
+    "true_scale": 0,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "basniev_neustanovivshiesya_processy_short",
+ "chapter": "basniev_gl23-24_1",
+ "node_id": "basniev.neustanovivshiesya_processy",
+ "format": "short",
+ "template": "pressure_wave",
+ "claim_marks": {
+  "basniev.neustanovivshiesya_processy#c1": "c044ae17822e",
+  "basniev.neustanovivshiesya_processy#c2": "646735e42eaf",
+  "basniev.neustanovivshiesya_processy#c3": "06e4a83df772",
+  "basniev.neustanovivshiesya_processy#c4": "6d223e7d2ad9",
+  "basniev.neustanovivshiesya_processy#c5": "7d4094a4acc5",
+  "basniev.neustanovivshiesya_processy#c6": "ec94e80b47dc"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5"
+}

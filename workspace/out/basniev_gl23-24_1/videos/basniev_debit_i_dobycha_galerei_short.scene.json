@@ -1,0 +1,460 @@
+{
+ "title": "Давление держим, а дебит падает",
+ "params": {
+  "p0": 25,
+  "unit": "МПа",
+  "drop": 0.6,
+  "kappa": 0.5,
+  "t_max": 86400,
+  "stop": null,
+  "radius": 600,
+  "rw": 0.1,
+  "thickness": 10,
+  "observe": 150,
+  "lith": "sand"
+ },
+ "objects": [
+  "горизонтальный песчаный пласт в разрезе",
+  "скважина как наглядная замена галереи",
+  "план с кольцами понижения давления",
+  "график давления на забое и в наблюдательной точке",
+  "наблюдательная точка",
+  "пунктир ложного ожидания с постоянной скоростью фронта"
+ ],
+ "invariants": [
+  "пласт горизонтален, толщина не меняется",
+  "конструкция и положение скважины одни во всех кадрах",
+  "разрез, план и график показывают один момент времени",
+  "время идёт только вперёд",
+  "давление растёт от скважины в глубь пласта",
+  "начальное давление вдали одно и то же"
+ ],
+ "assumptions": [
+  "Формулы ролика относятся к галерее с постоянным давлением в полубесконечном горизонтальном пласте.",
+  "Сцена считает другой случай: радиальный приток к скважине с постоянным дебитом. Она иллюстрирует только расширение зоны понижения давления.",
+  "Дебит галереи и накопленную добычу шаблон не рисует: ответ на предсказание передаётся голосом и надписью.",
+  "Поток однофазный, жидкость слабосжимаемая, проницаемость и вязкость постоянны.",
+  "Все параметры сцены условные и не произносятся."
+ ],
+ "exaggerations": [
+  "толщина пласта увеличена в 19 раз",
+  "Вместо прямой галереи показана одна скважина, поток радиальный, а не прямолинейный.",
+  "В сцене постоянен дебит, а забойное давление падает. В задаче ролика постоянно давление на галерее, а падает дебит.",
+  "Наклон давления у скважины в сцене не слабеет, поэтому он не иллюстрирует убывание градиента у галереи.",
+  "Кривые дебита и накопленной добычи не показаны.",
+  "Радиус скважины 0,1 м нарисован увеличенным; коэффициент подписывает шаблон.",
+  "Пласт толщиной 10 м при крае вида 600 м растянут по вертикали, кроме кадра с истинным масштабом.",
+  "Пласт однородный, начальное давление 25 МПа и пьезопроводность 0,5 м²/с условные.",
+  "Кольца в плане и край понижения условны: резкой границы возмущения нет."
+ ],
+ "plaque": [
+  "толщина пласта увеличена в 19 раз",
+  "Показана скважина, не галерея",
+  "Числа условные"
+ ],
+ "prediction_question": "Общий добытый объём остановится или продолжит расти?",
+ "transfer_question": "Если давление на галерее меняли, о чём говорит падение дебита?",
+ "data_it_bridge": "Для замеров, соответствующих модели, дебит, умноженный на корень из времени, должен оставаться примерно постоянным. Накопленная добыча против корня из времени должна ложиться на прямую из начала координат. Согласие с этим ещё не доказывает, что пласт устроен именно так.",
+ "terms_to_check": [
+  "дебит",
+  "добыча",
+  "галерея",
+  "галерее",
+  "градиент",
+  "Дарси",
+  "пласте",
+  "накопленная"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Один горизонтальный пласт, его положение не меняется."
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет."
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Несогласий в сцене нет."
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Пласт показан пористой породой, полостей и озёр нет."
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Фаза одна, контактов нет."
+  },
+  "pc.flow_high_to_low": {
+   "answer": "да",
+   "note": "Приток идёт из пласта к скважине, где давление ниже. Ловушка не рассматривается."
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала пуск скважины, затем расширяется понижение давления."
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Решение упругого режима: отбор обеспечен расширением жидкости и пор."
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Все три вида строятся из одной модели в один момент времени."
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Приборы с физикой измерения не показаны."
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Интерпретации сигнала прибора нет."
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Названы постоянное давление, неограниченный пласт и скачок в начале; отличие сцены названо голосом и плашкой."
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "График давления вычислен из той же модели скважины, что разрез и план. Кривая дебита не изображается."
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "25 МПа, толщина 10 м, понижение на забое около 10 МПа за сутки правдоподобны."
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Размеры перечислены, масштаб шаблон подписывает числом."
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Скважина и наблюдательная точка не меняют вид."
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Скважина вскрывает пласт, наблюдательная точка стоит отдельно."
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "Разрез ориентирован глубиной вниз, оси и единицы подписывает шаблон."
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Кадры считаются из параметров, метка «симуляция»; замена галереи скважиной указана плашкой."
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Детального оборудования нет."
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Бурение и столб раствора не показаны."
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа нет."
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Приёмных ёмкостей нет."
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Конструкция скважины одинакова во всех видах."
+  }
+ },
+ "beats": [
+  {
+   "say": "Давление постоянно, дебит тоже?",
+   "claim_id": null,
+   "on_screen": "Постоянное давление, постоянный дебит?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.03
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Нет: дебит, то есть отбор за единицу времени, падает.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c10",
+   "on_screen": "Дебит убывает со временем",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.08
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Галерея здесь — прямая линия отбора из пласта.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c1",
+   "on_screen": "Галерея: линия отбора",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "На картинке похожий случай: скважина, а не галерея.",
+   "claim_id": null,
+   "on_screen": "Здесь скважина вместо галереи",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.16
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Отбор тут постоянный: следите лишь за расползанием понижения.",
+   "claim_id": null,
+   "on_screen": "Смотрим только расширение понижения",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.27
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "У галереи дебит падает, потому что давление меняется всё положе.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c7",
+   "on_screen": "У галереи перепад положе",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "observe": 1,
+    "time": 0.33
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Эта крутизна — градиент давления, его изменение на метр.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c2",
+   "on_screen": "Градиент: крутизна давления",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.39
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "По закону Дарси дебит пропорционален градиенту.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c3",
+   "on_screen": "Слабее градиент, меньше дебит",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.44
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "А градиент убывает как единица на корень времени.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c7",
+   "on_screen": "Время ослабляет градиент",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.5
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Предскажите: общий добытый объём остановится или продолжит расти?",
+   "claim_id": null,
+   "on_screen": "Что будет с добычей?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 1.2,
+   "role": "prediction"
+  },
+  {
+   "say": "Продолжит: сначала быстро, а потом очень медленно.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c17",
+   "on_screen": "Растёт, но всё медленнее",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.66
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Накопленная добыча, весь отобранный объём, растёт как корень времени.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c16",
+   "on_screen": "Добыча следует корню времени",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.76
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Пунктир — ложное ожидание: понижение расходится с постоянной скоростью.",
+   "claim_id": null,
+   "on_screen": "Пунктир: ложное ожидание",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "naive": 1,
+    "time": 0.86
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "В самый первый миг формула даёт бесконечный дебит.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c12",
+   "on_screen": "Старт: формула уходит вверх",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Это потому, что давление на галерее снизили скачком.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c13",
+   "on_screen": "Причина: мгновенный скачок давления",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.93
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "И пласт в модели тянется от галереи неограниченно.",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c9",
+   "on_screen": "Модель: пласт без конца",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1,
+    "true_scale": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Аналитик проверяет: дебит на корень времени почти постоянен?",
+   "claim_id": "basniev.debit_i_dobycha_galerei#c10",
+   "on_screen": "Проверка по двум столбцам",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 3,
+    "true_scale": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "А если давление на галерее меняли, что значит падение дебита?",
+   "claim_id": null,
+   "on_screen": "Только ли пласт виноват?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "basniev_debit_i_dobycha_galerei_short",
+ "chapter": "basniev_gl23-24_1",
+ "node_id": "basniev.debit_i_dobycha_galerei",
+ "format": "short",
+ "template": "pressure_wave",
+ "claim_marks": {
+  "basniev.debit_i_dobycha_galerei#c1": "09a2812e5247",
+  "basniev.debit_i_dobycha_galerei#c2": "ef137e412723",
+  "basniev.debit_i_dobycha_galerei#c3": "bc1941f7accf",
+  "basniev.debit_i_dobycha_galerei#c4": "56df5cac0e3e",
+  "basniev.debit_i_dobycha_galerei#c5": "07bbc255525b",
+  "basniev.debit_i_dobycha_galerei#c6": "335bff93025b",
+  "basniev.debit_i_dobycha_galerei#c7": "061dc9671f21",
+  "basniev.debit_i_dobycha_galerei#c8": "d459eafd38a7",
+  "basniev.debit_i_dobycha_galerei#c9": "ffe891a5a004",
+  "basniev.debit_i_dobycha_galerei#c10": "2249ae8caafc",
+  "basniev.debit_i_dobycha_galerei#c11": "1c67622dcbb7",
+  "basniev.debit_i_dobycha_galerei#c12": "e486f133ed6d",
+  "basniev.debit_i_dobycha_galerei#c13": "6912ea6f82fc",
+  "basniev.debit_i_dobycha_galerei#c14": "bc6d645a5f6f",
+  "basniev.debit_i_dobycha_galerei#c15": "d2ed62817644",
+  "basniev.debit_i_dobycha_galerei#c16": "08fffd7a002e",
+  "basniev.debit_i_dobycha_galerei#c17": "754768fe4018",
+  "basniev.debit_i_dobycha_galerei#c18": "f974a68fb9d0",
+  "basniev.debit_i_dobycha_galerei#c19": "4493f833bdd5",
+  "basniev.debit_i_dobycha_galerei#c20": "139d37bcdff6",
+  "basniev.debit_i_dobycha_galerei#c21": "77f0724cefe3",
+  "basniev.debit_i_dobycha_galerei#c22": "e02982687854"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5",
+ "claim_kinds": {
+  "basniev.debit_i_dobycha_galerei#c1": "assumption",
+  "basniev.debit_i_dobycha_galerei#c2": "observation",
+  "basniev.debit_i_dobycha_galerei#c3": "observation",
+  "basniev.debit_i_dobycha_galerei#c4": "observation",
+  "basniev.debit_i_dobycha_galerei#c5": "observation",
+  "basniev.debit_i_dobycha_galerei#c6": "inference",
+  "basniev.debit_i_dobycha_galerei#c7": "inference",
+  "basniev.debit_i_dobycha_galerei#c8": "observation",
+  "basniev.debit_i_dobycha_galerei#c9": "inference",
+  "basniev.debit_i_dobycha_galerei#c10": "inference",
+  "basniev.debit_i_dobycha_galerei#c11": "inference",
+  "basniev.debit_i_dobycha_galerei#c12": "observation",
+  "basniev.debit_i_dobycha_galerei#c13": "inference",
+  "basniev.debit_i_dobycha_galerei#c14": "assumption",
+  "basniev.debit_i_dobycha_galerei#c15": "inference",
+  "basniev.debit_i_dobycha_galerei#c16": "inference",
+  "basniev.debit_i_dobycha_galerei#c17": "inference",
+  "basniev.debit_i_dobycha_galerei#c18": "observation",
+  "basniev.debit_i_dobycha_galerei#c19": "observation",
+  "basniev.debit_i_dobycha_galerei#c20": "observation",
+  "basniev.debit_i_dobycha_galerei#c21": "observation",
+  "basniev.debit_i_dobycha_galerei#c22": "observation"
+ }
+}

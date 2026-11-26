@@ -6,35 +6,35 @@
    "format": "short",
    "template": "reef_growth",
    "why": "совпало признаков: 2, подтвердить человеку",
-   "result": "сверх предела GLAVA_VIDEOS"
+   "result": "снят"
   },
   {
    "node_id": "kuznetsov.reef_definition",
    "format": "short",
    "template": "reef_growth",
    "why": "назначен маршрутизацией",
-   "result": "сверх предела GLAVA_VIDEOS"
+   "result": "снят"
   },
   {
    "node_id": "kuznetsov.structural_overprint",
    "format": "short",
    "template": "reef_growth",
    "why": "совпало признаков: 2, подтвердить человеку",
-   "result": "сверх предела GLAVA_VIDEOS"
+   "result": "снят"
   },
   {
    "node_id": "kuznetsov.shurtan_asymmetry",
    "format": "short",
    "template": "reef_growth",
    "why": "совпало признаков: 3, подтвердить человеку",
-   "result": "сверх предела GLAVA_VIDEOS"
+   "result": "снят"
   },
   {
    "node_id": "kuznetsov.vertical_heterogeneity_causes",
    "format": "short",
    "template": "reef_growth",
    "why": "назначен маршрутизацией",
-   "result": "сверх предела GLAVA_VIDEOS"
+   "result": "снят"
   }
  ]
 }

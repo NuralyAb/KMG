@@ -1,0 +1,452 @@
+{
+ "title": "Откуда слои внутри крупного рифа",
+ "params": {
+  "sea": [
+   [
+    0,
+    0
+   ],
+   [
+    0.15,
+    30
+   ],
+   [
+    0.35,
+    35
+   ],
+   [
+    0.5,
+    38
+   ],
+   [
+    0.65,
+    18
+   ],
+   [
+    0.72,
+    20
+   ],
+   [
+    0.85,
+    75
+   ],
+   [
+    1,
+    78
+   ]
+  ],
+  "max_growth": 130,
+  "photic": 60,
+  "erosion": 20,
+  "base": -20,
+  "half_width": 300,
+  "slope": 0.6,
+  "zones": [
+   {
+    "key": "core",
+    "label": "ядро"
+   },
+   {
+    "key": "flank",
+    "label": "склон"
+   },
+   {
+    "key": "lagoon",
+    "label": "лагуна"
+   }
+  ],
+  "observe": 0.2
+ },
+ "objects": [
+  "рифовая постройка в разрезе",
+  "уровень моря",
+  "кривая уровня моря",
+  "кривая высоты постройки",
+  "подписи зон",
+  "скважина",
+  "поры в ядре"
+ ],
+ "invariants": [
+  "Молодые приросты лежат на более старых",
+  "Постройка не растёт выше уровня моря",
+  "При осушении рост стоит, а кровля только размывается",
+  "Время идёт только вперёд",
+  "Кривые и разрез считаются из одной модели",
+  "Скважина стоит на одном месте"
+ ],
+ "assumptions": [
+  "Ход уровня моря задан условно и не взят из конкретного разреза",
+  "Скорость роста ограничена одним постоянным пределом",
+  "Скорость размыва при осушении постоянна",
+  "Причины изменения уровня моря не рассматриваются",
+  "Прогибание дна отдельно не выделяется: показан относительный уровень моря"
+ ],
+ "exaggerations": [
+  "высота увеличена в 5 раз",
+  "Все высоты, глубины и скорости условные: уровень моря меняется от 0 до 78 м",
+  "Время сжато в безразмерную шкалу от 0 до 1",
+  "Начальная глубина дна принята 20 м, полуширина основания 300 м",
+  "Размыв задан как 20 м за единицу модельного времени",
+  "Выщелачивание и карст моделью не рассчитываются и называются голосом; сцена показывает только осушение и размыв",
+  "Смена сообществ и фаций по вертикали моделью не рассчитывается",
+  "Поры в ядре показаны условно и крупнее настоящих, их размер и доля не измерены",
+  "Эоловые и оолитовые осадки отдельно не изображаются"
+ ],
+ "plaque": [
+  "высота увеличена в 5 раз",
+  "Числа условные",
+  "Выщелачивание не рассчитывается"
+ ],
+ "prediction_question": "Что станет с породой, когда риф окажется островом?",
+ "transfer_question": "Будет ли небольшой, недолго росший риф таким же слоистым?",
+ "data_it_bridge": "В разрезе мощного, долго росшего рифа стоит ожидать чередования пород с разными коллекторскими свойствами, поэтому одно среднее значение на весь риф может скрыть различия. Это похоже по аналогии на хранилище, пережившее несколько режимов работы, но выщелачивание не добавляет новый слой, а меняет уже накопленный.",
+ "terms_to_check": [
+  "ри́фа",
+  "о́тмели",
+  "выщела́чивание",
+  "ка́рст",
+  "доломитиза́ция",
+  "кальци́та",
+  "доломи́том",
+  "по́ристость",
+  "пласта́ми"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Постройка наращивается снизу вверх, молодые приросты сверху; размыв только срезает кровлю"
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет"
+  },
+  "pc.unconformity_event": {
+   "answer": "да",
+   "note": "Осушение идёт как событие: остановка роста, размыв, затем новое затопление и рост"
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Показаны только поры в породе, полостей с нефтью или озёр нет"
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Газа, нефти и контактов нет"
+  },
+  "pc.flow_high_to_low": {
+   "answer": "н/п",
+   "note": "Движение пластового флюида и ловушка не показаны"
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала падает уровень моря, затем риф осушается и идут изменения на воздухе"
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Прирост ограничен скоростью роста, убыль задана размывом; перенос размытого материала не моделируется"
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Разрез и график считаются из одной модели и одного момента времени"
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Приборов нет"
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Измеряемых сигналов нет"
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Голосом и вопросом на перенос оговорено, что речь о крупных, долго растущих рифах"
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "Кривые уровня моря и высоты постройки идут синхронно с разрезом"
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Десятки метров по высоте и сотни метров по ширине правдоподобны для учебной постройки"
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Условные значения перечислены числами, масштаб подписывает шаблон"
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Скважина не меняет конструкцию и положение"
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Скважина служит линией наблюдения через постройку и не участвует в древних процессах"
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "Глубина растёт вниз, шкалы и единицы подписывает шаблон"
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Сцена считается из параметров и помечена как симуляция; показан истинный масштаб"
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Оборудование не изображается"
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Давление в скважине не рассматривается"
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в скважине нет"
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Бурового раствора и ёмкостей нет"
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Скважина показана одной неизменной линией без колонн и пакеров"
+  }
+ },
+ "beats": [
+  {
+   "say": "Риф одинаков сверху донизу?",
+   "claim_id": null,
+   "on_screen": "Один риф, одни свойства?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "В мощном, долго растущем рифе картина по вертикали гораздо сложнее.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c1",
+   "on_screen": "Крупный риф устроен сложнее",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.17
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Потому что менялись условия: порой риф был относительно глубоководным плато.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c4",
+   "on_screen": "Этап первый: глубже под водой",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.23
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Волны там слабее, и копились морские осадки со своими пустотами.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c6",
+   "on_screen": "Спокойная вода, свои пустоты",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.32
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "На отмели у поверхности бурная вода копила обломочные осадки.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c8",
+   "on_screen": "Отмель: другие осадки",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.49
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Море отступает. Угадайте: что станет с породой на острове?",
+   "claim_id": null,
+   "on_screen": "Что будет на воздухе?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.55
+   },
+   "is_analogy": false,
+   "pause_after": 1.3,
+   "role": "prediction"
+  },
+  {
+   "say": "Порода выветривается на воздухе, а вода растворяет и уносит часть вещества.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c10",
+   "on_screen": "Остров: порода растворяется",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.66
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Это выщелачивание. Развивается и карст, то есть формы растворения породы.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c10",
+   "on_screen": "Выщелачивание и карст",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "well": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Зона выщелачивания ограничена по толщине, поэтому такие зоны залегают пластами.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c12",
+   "on_screen": "Растворение оставляет пласты",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Под водой тоже перемены: сменяются строители рифа и типы отложений.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c13",
+   "on_screen": "Меняются организмы и осадки",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0,
+    "time": 0.9
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Так чередуются породы, по-разному вмещающие и пропускающие жидкость.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c14",
+   "on_screen": "Слои с разными свойствами",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 1,
+    "pores": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Доломитизация, замена кальцита доломитом, как правило, эти различия не уничтожает.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c15",
+   "on_screen": "Поздние изменения: слои обычно остаются",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "zones": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Это истинный масштаб постройки.",
+   "claim_id": null,
+   "on_screen": "Без вертикального растяжения",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Поэтому по скважине мощного, долго росшего рифа ждут слои.",
+   "claim_id": "kuznetsov.vertical_heterogeneity_causes#c14",
+   "on_screen": "Не считать разрез однородным",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "true_scale": 0,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "А небольшой, недолго росший риф будет таким же слоистым?",
+   "claim_id": null,
+   "on_screen": "А маленький риф?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "kuznetsov_vertical_heterogeneity_causes_short",
+ "chapter": "kuznetsov_gl10",
+ "node_id": "kuznetsov.vertical_heterogeneity_causes",
+ "format": "short",
+ "template": "reef_growth",
+ "claim_marks": {
+  "kuznetsov.vertical_heterogeneity_causes#c1": "f2a1bc3808d2",
+  "kuznetsov.vertical_heterogeneity_causes#c2": "5de804e5a974",
+  "kuznetsov.vertical_heterogeneity_causes#c3": "d7cfcad34d4d",
+  "kuznetsov.vertical_heterogeneity_causes#c4": "1ca68bb4f65e",
+  "kuznetsov.vertical_heterogeneity_causes#c5": "504fd263b266",
+  "kuznetsov.vertical_heterogeneity_causes#c6": "96d6036ab0de",
+  "kuznetsov.vertical_heterogeneity_causes#c7": "6b5a02de065a",
+  "kuznetsov.vertical_heterogeneity_causes#c8": "cdc12458fa97",
+  "kuznetsov.vertical_heterogeneity_causes#c9": "b5e934859b68",
+  "kuznetsov.vertical_heterogeneity_causes#c10": "62e2c171e61f",
+  "kuznetsov.vertical_heterogeneity_causes#c11": "4b71f7d74d39",
+  "kuznetsov.vertical_heterogeneity_causes#c12": "aa8ad687962a",
+  "kuznetsov.vertical_heterogeneity_causes#c13": "efcdd8c8bfdc",
+  "kuznetsov.vertical_heterogeneity_causes#c14": "5f88560b6a6f",
+  "kuznetsov.vertical_heterogeneity_causes#c15": "0fb9dbb5c7da"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5",
+ "claim_kinds": {
+  "kuznetsov.vertical_heterogeneity_causes#c1": "inference",
+  "kuznetsov.vertical_heterogeneity_causes#c2": "inference",
+  "kuznetsov.vertical_heterogeneity_causes#c3": "inference",
+  "kuznetsov.vertical_heterogeneity_causes#c4": "observation",
+  "kuznetsov.vertical_heterogeneity_causes#c5": "observation",
+  "kuznetsov.vertical_heterogeneity_causes#c6": "observation",
+  "kuznetsov.vertical_heterogeneity_causes#c7": "observation",
+  "kuznetsov.vertical_heterogeneity_causes#c8": "observation",
+  "kuznetsov.vertical_heterogeneity_causes#c9": "observation",
+  "kuznetsov.vertical_heterogeneity_causes#c10": "inference",
+  "kuznetsov.vertical_heterogeneity_causes#c11": "observation",
+  "kuznetsov.vertical_heterogeneity_causes#c12": "inference",
+  "kuznetsov.vertical_heterogeneity_causes#c13": "inference",
+  "kuznetsov.vertical_heterogeneity_causes#c14": "inference",
+  "kuznetsov.vertical_heterogeneity_causes#c15": "inference"
+ }
+}

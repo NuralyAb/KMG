@@ -1,0 +1,422 @@
+{
+ "title": "Как падение давления уходит вглубь пласта",
+ "params": {
+  "p0": 25,
+  "unit": "МПа",
+  "drop": 0.5,
+  "kappa": 0.5,
+  "t_max": 36000,
+  "stop": null,
+  "radius": 500,
+  "rw": 0.1,
+  "thickness": 10,
+  "observe": 150,
+  "lith": "sand"
+ },
+ "objects": [
+  "пласт в разрезе с профилем давления",
+  "план с кольцами понижения давления",
+  "скважина с постоянным дебитом как похожий пример вместо галереи",
+  "наблюдательная точка",
+  "график давления во времени на забое и в наблюдательной точке"
+ ],
+ "invariants": [
+  "Начальное давление до пуска всюду одинаково",
+  "Дебит скважины на сцене постоянен, остановки нет",
+  "Свойства и толщина пласта не меняются",
+  "Время идёт только вперёд",
+  "После пуска давление в фиксированной точке не растёт",
+  "Разрез, план и график показывают один момент времени"
+ ],
+ "assumptions": [
+  "ВАЖНО ДЛЯ ПРОВЕРКИ: шаблон не соответствует узлу. Узел описывает прямолинейный поток к галерее с постоянным давлением, а шаблон считает радиальный поток к скважине с постоянным дебитом",
+  "На сцене давление в скважине со временем падает, а у галереи из узла оно постоянно",
+  "Свойство «поздняя кривая положе у края» относится к галерее и этой симуляцией не показывается",
+  "Общее для обоих случаев на сцене: поздний профиль ниже, и заметное понижение доходит дальше",
+  "Для точного показа нужен шаблон с прямолинейным потоком и постоянным давлением на краю",
+  "Пласт однородный, горизонтальный, постоянной толщины, жидкость однофазная и слабосжимаемая"
+ ],
+ "exaggerations": [
+  "толщина пласта увеличена в 15 раз",
+  "Скважина с постоянным дебитом показана вместо галереи с постоянным давлением: это другая постановка и другая формула",
+  "Все числа условные: начальное давление 25 МПа, пьезопроводность 0,5 м²/с, показ 36000 с, край вида 500 м",
+  "В разрезе толщина 10 м при крае вида 500 м растянута по вертикали, кроме кадра с истинным масштабом; кратность подписывает шаблон",
+  "Радиус скважины 0,1 м на рисунке сильно увеличен",
+  "Время показа сжато: 36000 с укладываются в длительность ролика",
+  "Кольца на плане условно отмечают уровни понижения, резкой границы возмущения нет"
+ ],
+ "plaque": [
+  "толщина пласта увеличена в 15 раз",
+  "Скважина, а не галерея"
+ ],
+ "prediction_question": "Позже в отмеченной точке давление будет выше или ниже?",
+ "transfer_question": "Если профили из разных пластов, можно ли расставить их по времени?",
+ "data_it_bridge": "Один профиль давления — это срез по расстоянию в выбранный момент, а запись в точке — срез по времени. Порядок профилей по времени можно восстанавливать только при одном пласте и одинаковом режиме на границе.",
+ "terms_to_check": [
+  "галерея",
+  "галерее",
+  "пласта",
+  "пласте",
+  "скважина",
+  "скважине",
+  "отбором",
+  "сток"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Пласт и вмещающие границы не меняют порядок между кадрами."
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов нет."
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Несогласий нет."
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Пласт показан как пористая порода, полостей с жидкостью нет."
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Газа и контактов флюидов нет."
+  },
+  "pc.flow_high_to_low": {
+   "answer": "да",
+   "note": "Давление ниже у скважины, приток направлен к ней. Покрышка ограничивает пласт сверху."
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала однородное давление и пуск, затем распространение понижения."
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Постоянный отбор обеспечивается упругим запасом, профиль считается из решения уравнения пьезопроводности."
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Три вида строятся из одной модели и одного времени."
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Механизм прибора не показывается."
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Интерпретации сигнала прибора нет."
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Правило о порядке профилей оговорено одним пластом и постоянным давлением на галерее. Отличие сцены названо вслух и плашкой."
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "Кривые синхронны и вычислены из модели скважины с постоянным дебитом. Это не модель галереи из узла."
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Давление 25 МПа, толщина 10 м, понижение у скважины порядка нескольких МПа правдоподобны."
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Размеры и сжатие времени указаны числами, вертикальную кратность подписывает шаблон."
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Скважина и наблюдательная точка не меняют конструкцию и положение."
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Наблюдательная точка в 150 м от скважины, объекты не накладываются."
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "В разрезе глубина вниз, на графиках давление и время с единицами."
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Сцена считается из params и помечена как симуляция. Что это пример со скважиной, сказано отдельно."
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Детального оборудования нет."
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Бурения и раствора нет."
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в скважине нет."
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Приёмных ёмкостей нет."
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Скважина показана одинаково во всех видах."
+  }
+ },
+ "beats": [
+  {
+   "say": "Куда уходит падение давления?",
+   "claim_id": null,
+   "on_screen": "Давление падает: что дальше",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.06,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "На картинке скважина с постоянным отбором, это лишь похожий пример.",
+   "claim_id": null,
+   "on_screen": "Пример со скважиной",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.1,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "А книга рассматривает галерею: сток на краю пласта, куда течёт жидкость.",
+   "claim_id": "basniev.krivye_davleniya_u_galerei#c17",
+   "on_screen": "Галерея: сток на краю",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.15,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "До пуска в том пласте давление всюду одно и то же.",
+   "claim_id": "basniev.krivye_davleniya_u_galerei#c2",
+   "on_screen": "Старт: давление везде одинаково",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.2,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Одной кривой мало, потому что в разные моменты давление распределено по-разному.",
+   "claim_id": "basniev.krivye_davleniya_u_galerei#c1",
+   "on_screen": "Каждый момент — своя кривая",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.28,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Предскажите: позже в отмеченной точке давление будет выше или ниже?",
+   "claim_id": null,
+   "on_screen": "Выше или ниже позже?",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "observe": 1,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 1.2,
+   "role": "prediction"
+  },
+  {
+   "say": "Ниже: поздняя кривая идёт под ранней.",
+   "claim_id": "basniev.krivye_davleniya_u_galerei#c10",
+   "on_screen": "Позже — давление ниже",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.5,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "И к начальному уровню она подходит дальше от края.",
+   "claim_id": "basniev.krivye_davleniya_u_galerei#c11",
+   "on_screen": "Изменение заметно всё дальше",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.68,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "У самой галереи давление после пуска держат постоянным.",
+   "claim_id": "basniev.krivye_davleniya_u_galerei#c2",
+   "on_screen": "У галереи давление постоянно",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.74,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Там кривые выходят из одной точки, и поздняя растёт положе.",
+   "claim_id": "basniev.krivye_davleniya_u_galerei#c10",
+   "on_screen": "Общее начало, разный наклон",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.8,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "На нашей картинке иначе: давление в самой скважине тоже снижается.",
+   "claim_id": null,
+   "on_screen": "Здесь забой тоже проседает",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.9,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "На книжном графике нет числовой шкалы давления, только два уровня.",
+   "claim_id": "basniev.krivye_davleniya_u_galerei#c6",
+   "on_screen": "Форма есть, чисел нет",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.93,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "А так выглядит пласт нашего примера в истинном масштабе.",
+   "claim_id": null,
+   "on_screen": "Истинный масштаб пласта",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 1,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Пласт один, давление на галерее постоянное? Тогда нижний профиль считают поздним.",
+   "claim_id": "basniev.krivye_davleniya_u_galerei#c12",
+   "on_screen": "Ниже — значит позже",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "true_scale": 0,
+    "time": 0.97,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "А если профили из разных пластов, можно ли расставить их по времени?",
+   "claim_id": null,
+   "on_screen": "Разные пласты: кто позже?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 1,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "basniev_krivye_davleniya_u_galerei_short",
+ "chapter": "basniev_gl23-24_1",
+ "node_id": "basniev.krivye_davleniya_u_galerei",
+ "format": "short",
+ "template": "pressure_wave",
+ "claim_marks": {
+  "basniev.krivye_davleniya_u_galerei#c1": "11b43cf2d339",
+  "basniev.krivye_davleniya_u_galerei#c2": "f4f017710e11",
+  "basniev.krivye_davleniya_u_galerei#c3": "31903ee25dbc",
+  "basniev.krivye_davleniya_u_galerei#c4": "3a36fd49cbf3",
+  "basniev.krivye_davleniya_u_galerei#c5": "195cb8b7edd7",
+  "basniev.krivye_davleniya_u_galerei#c6": "af667a2c9b3b",
+  "basniev.krivye_davleniya_u_galerei#c7": "71e9b23a107a",
+  "basniev.krivye_davleniya_u_galerei#c8": "ab821fd3bc3d",
+  "basniev.krivye_davleniya_u_galerei#c9": "f4ef465e397c",
+  "basniev.krivye_davleniya_u_galerei#c10": "039e8abf0068",
+  "basniev.krivye_davleniya_u_galerei#c11": "96e46082bbdb",
+  "basniev.krivye_davleniya_u_galerei#c12": "854d17027617",
+  "basniev.krivye_davleniya_u_galerei#c13": "30f11208454a",
+  "basniev.krivye_davleniya_u_galerei#c14": "a9012b1b8206",
+  "basniev.krivye_davleniya_u_galerei#c15": "27eeed912334",
+  "basniev.krivye_davleniya_u_galerei#c16": "2ce2a6bd4dc6",
+  "basniev.krivye_davleniya_u_galerei#c17": "25c2de8e12f5",
+  "basniev.krivye_davleniya_u_galerei#c18": "302694712604"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5",
+ "claim_kinds": {
+  "basniev.krivye_davleniya_u_galerei#c1": "observation",
+  "basniev.krivye_davleniya_u_galerei#c2": "assumption",
+  "basniev.krivye_davleniya_u_galerei#c3": "observation",
+  "basniev.krivye_davleniya_u_galerei#c4": "observation",
+  "basniev.krivye_davleniya_u_galerei#c5": "observation",
+  "basniev.krivye_davleniya_u_galerei#c6": "observation",
+  "basniev.krivye_davleniya_u_galerei#c7": "observation",
+  "basniev.krivye_davleniya_u_galerei#c8": "observation",
+  "basniev.krivye_davleniya_u_galerei#c9": "observation",
+  "basniev.krivye_davleniya_u_galerei#c10": "observation",
+  "basniev.krivye_davleniya_u_galerei#c11": "observation",
+  "basniev.krivye_davleniya_u_galerei#c12": "inference",
+  "basniev.krivye_davleniya_u_galerei#c13": "observation",
+  "basniev.krivye_davleniya_u_galerei#c14": "observation",
+  "basniev.krivye_davleniya_u_galerei#c15": "observation",
+  "basniev.krivye_davleniya_u_galerei#c16": "observation",
+  "basniev.krivye_davleniya_u_galerei#c17": "observation",
+  "basniev.krivye_davleniya_u_galerei#c18": "inference"
+ }
+}

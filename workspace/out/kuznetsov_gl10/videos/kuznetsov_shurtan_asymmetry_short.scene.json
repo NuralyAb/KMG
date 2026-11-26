@@ -1,0 +1,469 @@
+{
+ "title": "Лучшие породы рифа и смещение гребня",
+ "params": {
+  "sea": [
+   [
+    0,
+    0
+   ],
+   [
+    0.35,
+    18
+   ],
+   [
+    0.7,
+    38
+   ],
+   [
+    1,
+    55
+   ]
+  ],
+  "max_growth": 90,
+  "photic": 40,
+  "erosion": 5,
+  "base": -15,
+  "half_width": 600,
+  "slope": 0.5,
+  "zones": [
+   {
+    "key": "core",
+    "label": "ядро рифа"
+   },
+   {
+    "key": "flank",
+    "label": "склон"
+   },
+   {
+    "key": "lagoon",
+    "label": "лагуна"
+   }
+  ],
+  "observe": 0.55
+ },
+ "objects": [
+  "условный разрез рифа",
+  "кривая уровня моря",
+  "кривая высоты постройки",
+  "подписи зон",
+  "скважина",
+  "поры в ядре"
+ ],
+ "invariants": [
+  "Молодые слои лежат на старых",
+  "Время идёт только вперёд",
+  "Разрез и график показывают один момент модели",
+  "Риф не растёт выше уровня моря",
+  "Положение и конструкция скважины не меняются",
+  "Поры находятся внутри породы"
+ ],
+ "assumptions": [
+  "Уровень моря, скорость роста и размеры заданы условно и не описывают Шуртан",
+  "Рост ограничен уровнем моря и глубиной, где организмы ещё строят",
+  "Зоны ядра, склона и лагуны упрощённо заменяют набор фаций",
+  "Скважина условная и не соответствует скважинам на разрезах Шуртана"
+ ],
+ "exaggerations": [
+  "высота увеличена в 13 раз",
+  "Боковое смещение гребня и лучших зон в сцене не нарисовано: о нём говорит только голос",
+  "Асимметрия фаций Шуртана не воспроизведена: сцена не копирует его разрез",
+  "Поры в ядре сильно увеличены и показаны условно; глава в этом узле не называет ядро лучшим коллектором",
+  "Три зоны заменяют более разнообразные типы отложений на разрезе Шуртана",
+  "Полуширина шестьсот метров, подъём моря пятьдесят пять метров и другие параметры выбраны условно",
+  "Вертикальный масштаб растянут относительно горизонтального; истинный масштаб показывается отдельным действием"
+ ],
+ "plaque": [
+  "высота увеличена в 13 раз",
+  "Сдвиг гребня не показан",
+  "Числа модели условные"
+ ],
+ "prediction_question": "Гребень переезжает: что будет с лучшими зонами?",
+ "transfer_question": "Что скроет одна карта, усреднённая по всей толще?",
+ "data_it_bridge": "Для каждого интервала полезно хранить скважину, горизонт, фацию, пористость, проницаемость и класс породы. Зоны стоит сравнивать по горизонтам отдельно, а не усреднять всю толщу сразу.",
+ "terms_to_check": [
+  "Шуртан",
+  "коллектором",
+  "фацией",
+  "уступа",
+  "пористостью",
+  "проницаемостью",
+  "десятитысячной",
+  "микрометра"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Постройка нарастает снизу вверх, время идёт только вперёд"
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет"
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Уровень моря только растёт, осушения и несогласия нет"
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Пустоты показаны порами в породе, а не полостями с озёрами"
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Газ, нефть, вода и контакты не изображаются"
+  },
+  "pc.flow_high_to_low": {
+   "answer": "н/п",
+   "note": "Движение флюида и ловушка не изображаются"
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Подъём моря даёт место, затем растёт постройка"
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Прирост ограничен максимальной скоростью и уровнем моря; перенос материала не моделируется"
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Разрез и график считаются из одной модели"
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Измерительных приборов нет, скважина только отмечает место"
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Сигналы приборов не показываются"
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Пороги и смещение отнесены только к рифу Шуртан"
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "Кривые уровня моря и высоты рифа синхронны с разрезом"
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Метры подъёма и сотни метров ширины правдоподобны как условные; пороги взяты из утверждения"
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Упрощения перечислены, размеры модели названы, вертикальный масштаб подписывает шаблон"
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Скважина не меняет конструкцию и положение"
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Скважина пересекает разрез сверху, поры лежат внутри ядра"
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "Глубина растёт вниз, шкалы и единицы подписывает шаблон"
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Сцена считается из параметров и помечена как симуляция; отличие от Шуртана оговорено"
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Оборудование не детализируется"
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Давление и раствор не показываются"
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в скважине нет"
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Приёмной ёмкости нет"
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Скважина показана одинаковой отметкой во всех видах"
+  }
+ },
+ "beats": [
+  {
+   "say": "Лучшие породы рифа друг над другом?",
+   "claim_id": null,
+   "on_screen": "Всегда ли друг над другом",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.15
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Нам нужны породы, где флюид помещается и может двигаться.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c7",
+   "on_screen": "Ищем место для флюида",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "pores": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Такую породу называют коллектором.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c7",
+   "on_screen": "Коллектор: порода для флюида",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "well": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Риф стоит у уступа дна, поэтому его стороны различаются.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c2",
+   "on_screen": "Уступ делает стороны разными",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.35
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Отложения одной обстановки с общими признаками называют фацией.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c1",
+   "on_screen": "Фация: отложения одной обстановки",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "zones": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Коллекторы здесь несимметричны, потому что связаны с расположением фаций.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c2",
+   "on_screen": "Коллекторы следуют за фациями",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Гребень — это возвышенная часть рифа, построенная прикреплёнными организмами.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c4",
+   "on_screen": "Гребень строят организмы",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.55
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Это условный риф, сдвиг гребня здесь не нарисован.",
+   "claim_id": null,
+   "on_screen": "Условный риф без сдвига",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Предскажите: гребень переезжает. Что будет с лучшими зонами?",
+   "claim_id": null,
+   "on_screen": "Куда денутся лучшие зоны",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.7
+   },
+   "is_analogy": false,
+   "pause_after": 1.3,
+   "role": "prediction"
+  },
+  {
+   "say": "На месторождении Шуртан в Западном Узбекистане лучшие зоны смещаются.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c3",
+   "on_screen": "Шуртан: лучшие зоны смещаются",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Связано это с последовательным смещением гребня во времени.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c4",
+   "on_screen": "Вслед за гребнем",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.9
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Это пример одного рифа, а не доказательство для всех.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c3",
+   "on_screen": "Пример, не общий закон",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Коллектор там имеет пористость, долю пустот, больше шести процентов.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c7",
+   "on_screen": "Первый порог: доля пустот",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "И проницаемость, способность пропускать, выше одной десятитысячной квадратного микрометра.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c7",
+   "on_screen": "Второй порог: пропускать флюид",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Поэтому лучшую зону нельзя без проверки переносить на другой интервал.",
+   "claim_id": "kuznetsov.shurtan_asymmetry#c4",
+   "on_screen": "Каждый интервал проверяем отдельно",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Что скроет одна карта, усреднённая по всей толще?",
+   "claim_id": null,
+   "on_screen": "Что прячет усреднение",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "kuznetsov_shurtan_asymmetry_short",
+ "chapter": "kuznetsov_gl10",
+ "node_id": "kuznetsov.shurtan_asymmetry",
+ "format": "short",
+ "template": "reef_growth",
+ "claim_marks": {
+  "kuznetsov.shurtan_asymmetry#c1": "54f8f521e883",
+  "kuznetsov.shurtan_asymmetry#c2": "1bdab88077f2",
+  "kuznetsov.shurtan_asymmetry#c3": "65b3fc4ebdf3",
+  "kuznetsov.shurtan_asymmetry#c4": "9f02c96c86e6",
+  "kuznetsov.shurtan_asymmetry#c5": "99f34c926abb",
+  "kuznetsov.shurtan_asymmetry#c6": "0bee23407bd1",
+  "kuznetsov.shurtan_asymmetry#c7": "6f198bc033e7",
+  "kuznetsov.shurtan_asymmetry#c8": "a5de050b7586",
+  "kuznetsov.shurtan_asymmetry#c9": "55bc5ded8d9a",
+  "kuznetsov.shurtan_asymmetry#c10": "219d1988771f",
+  "kuznetsov.shurtan_asymmetry#c11": "4701d9c47f10",
+  "kuznetsov.shurtan_asymmetry#c12": "58d0840e8905",
+  "kuznetsov.shurtan_asymmetry#c13": "523b8c857a02",
+  "kuznetsov.shurtan_asymmetry#c14": "54df597be846",
+  "kuznetsov.shurtan_asymmetry#c15": "25ed169cdad7",
+  "kuznetsov.shurtan_asymmetry#c16": "a721851957d0",
+  "kuznetsov.shurtan_asymmetry#c17": "4bf0db471c33",
+  "kuznetsov.shurtan_asymmetry#c18": "a5e922814f9f",
+  "kuznetsov.shurtan_asymmetry#c19": "b7c248fa6cf3",
+  "kuznetsov.shurtan_asymmetry#c20": "8795f87782e3",
+  "kuznetsov.shurtan_asymmetry#c21": "dc1c96abec72",
+  "kuznetsov.shurtan_asymmetry#c22": "940cf39c3458",
+  "kuznetsov.shurtan_asymmetry#c23": "3eb4dc8b3f89",
+  "kuznetsov.shurtan_asymmetry#c24": "69606e05c19d",
+  "kuznetsov.shurtan_asymmetry#c25": "26a0c0d52d17",
+  "kuznetsov.shurtan_asymmetry#c26": "068869732257",
+  "kuznetsov.shurtan_asymmetry#c27": "7f48d94ed303",
+  "kuznetsov.shurtan_asymmetry#c28": "aefb539d5109",
+  "kuznetsov.shurtan_asymmetry#c29": "e8b68ecc7ccd"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5",
+ "claim_kinds": {
+  "kuznetsov.shurtan_asymmetry#c1": "inference",
+  "kuznetsov.shurtan_asymmetry#c2": "inference",
+  "kuznetsov.shurtan_asymmetry#c3": "observation",
+  "kuznetsov.shurtan_asymmetry#c4": "inference",
+  "kuznetsov.shurtan_asymmetry#c5": "observation",
+  "kuznetsov.shurtan_asymmetry#c6": "observation",
+  "kuznetsov.shurtan_asymmetry#c7": "assumption",
+  "kuznetsov.shurtan_asymmetry#c8": "observation",
+  "kuznetsov.shurtan_asymmetry#c9": "observation",
+  "kuznetsov.shurtan_asymmetry#c10": "observation",
+  "kuznetsov.shurtan_asymmetry#c11": "observation",
+  "kuznetsov.shurtan_asymmetry#c12": "observation",
+  "kuznetsov.shurtan_asymmetry#c13": "observation",
+  "kuznetsov.shurtan_asymmetry#c14": "observation",
+  "kuznetsov.shurtan_asymmetry#c15": "observation",
+  "kuznetsov.shurtan_asymmetry#c16": "inference",
+  "kuznetsov.shurtan_asymmetry#c17": "inference",
+  "kuznetsov.shurtan_asymmetry#c18": "observation",
+  "kuznetsov.shurtan_asymmetry#c19": "observation",
+  "kuznetsov.shurtan_asymmetry#c20": "observation",
+  "kuznetsov.shurtan_asymmetry#c21": "observation",
+  "kuznetsov.shurtan_asymmetry#c22": "observation",
+  "kuznetsov.shurtan_asymmetry#c23": "observation",
+  "kuznetsov.shurtan_asymmetry#c24": "observation",
+  "kuznetsov.shurtan_asymmetry#c25": "observation",
+  "kuznetsov.shurtan_asymmetry#c26": "observation",
+  "kuznetsov.shurtan_asymmetry#c27": "observation",
+  "kuznetsov.shurtan_asymmetry#c28": "observation",
+  "kuznetsov.shurtan_asymmetry#c29": "observation"
+ }
+}
