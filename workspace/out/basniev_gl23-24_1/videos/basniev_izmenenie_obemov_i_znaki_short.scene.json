@@ -1,0 +1,438 @@
+{
+ "title": "Откуда берётся упругий запас пласта",
+ "params": {
+  "p0": 20,
+  "unit": "МПа",
+  "drop": 0.5,
+  "kappa": 0.5,
+  "t_max": 86400,
+  "stop": 60480,
+  "radius": 600,
+  "rw": 0.1,
+  "thickness": 20,
+  "observe": 150,
+  "lith": "sand"
+ },
+ "objects": [
+  "пласт в разрезе",
+  "скважина",
+  "профиль давления",
+  "план с кольцами понижения давления",
+  "график давления на забое во времени",
+  "наблюдательная точка в ста пятидесяти метрах",
+  "график давления в наблюдательной точке"
+ ],
+ "invariants": [
+  "Разрез, план и график показывают один и тот же момент времени",
+  "Время идёт только вперёд",
+  "До остановки дебит постоянный, после остановки равен нулю",
+  "Конструкция скважины и толщина пласта не меняются",
+  "Давление всюду остаётся выше давления насыщения",
+  "Начальное давление вдали от возмущения равно двадцати мегапаскалям"
+ ],
+ "assumptions": [
+  "Поток однофазный: давление насыщения ниже минимального давления в сцене",
+  "Пласт однородный, горизонтальный, постоянной толщины и без границ в пределах расчёта",
+  "Свойства жидкости и породы не зависят от давления",
+  "Скважина вскрывает всю толщину пласта",
+  "Остановка мгновенно прекращает приток из пласта в скважину",
+  "Все числовые параметры условные и не взяты из главы"
+ ],
+ "exaggerations": [
+  "толщина пласта увеличена в 9 раз",
+  "Вертикальный масштаб разреза увеличен относительно горизонтального: толщина двадцать метров при радиусе вида шестьсот метров; коэффициент подписывает шаблон",
+  "Скважина радиусом десять сантиметров нарисована намного шире истинной",
+  "Расширение жидкости и уменьшение пор не нарисованы, сцена показывает только давление",
+  "Пласт показан однородным, без слоистости и неоднородностей",
+  "Числа давления, времени и расстояний условные"
+ ],
+ "plaque": [
+  "толщина пласта увеличена в 9 раз",
+  "числа условные"
+ ],
+ "prediction_question": "Скважину сейчас остановят: что станет с давлением рядом?",
+ "transfer_question": "Закачаем воду и поднимем давление: что станет с порами?",
+ "data_it_bridge": "Для расчёта запаса нужны объём элемента пласта, объём жидкости в нём, две сжимаемости и изменение давления. В данных надо зафиксировать знак изменения давления и то, что объём отнесён к начальному давлению. Сжимаемость скелета здесь отнесена ко всему объёму элемента, а не к объёму пор.",
+ "terms_to_check": [
+  "по́рах",
+  "по́ры",
+  "скважи́не",
+  "пласта́",
+  "забо́е",
+  "запа́с",
+  "упру́гим",
+  "насыще́ния",
+  "карка́с"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Покрышка, пласт и подошва сохраняют порядок во всех кадрах"
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет"
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Несогласий в сцене нет"
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Жидкость находится в порах песчаника, полостей и озёр нет"
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Флюидных контактов нет, поток однофазный"
+  },
+  "pc.flow_high_to_low": {
+   "answer": "да",
+   "note": "Жидкость движется к пониженному давлению у скважины"
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала пуск и падение давления, после остановки восстановление"
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Отобранный объём обеспечен расширением жидкости и уменьшением пор; после остановки жидкость притекает к скважине издалека"
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Все три вида считаются из одной модели в один момент"
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Принцип работы приборов не показан"
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Интерпретации сигнала прибора нет"
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Вслух названо условие: газ не выделяется, давление выше давления насыщения"
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "График давления вычислен из той же модели и растёт вместе со временем сцены"
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Начальное давление двадцать мегапаскалей, понижение на забое около восьми, толщина двадцать метров"
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Масштаб подписывает шаблон числом, есть показ истинного масштаба"
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Скважина и наблюдательная точка не меняют вид и место"
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Скважина пересекает пласт, точка наблюдения находится внутри него"
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "Кровля сверху, подошва снизу, оси давления и времени подписаны с единицами"
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Кадры считаются из параметров и помечены как симуляция"
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Наземное оборудование не детализируется"
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Бурения и бурового раствора нет"
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в скважине нет"
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Приёмных ёмкостей нет"
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Конструкция скважины одинакова на всех видах и до и после остановки"
+  }
+ },
+ "beats": [
+  {
+   "say": "Что гонит жидкость к скважине?",
+   "claim_id": null,
+   "on_screen": "Что толкает жидкость?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.04,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Давление падает, и запас жидкости в пласте убывает.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c4",
+   "on_screen": "Давление падает, запас убывает",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.12,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Но жидкость и каркас породы поддаются давлению очень слабо.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c2",
+   "on_screen": "Изменения объёма очень малы",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.18,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Но отдача может быть большой, потому что пласт огромен.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c3",
+   "on_screen": "Огромный пласт — заметный запас",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.25,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Жидкость, которую отдаёт эта упругость, называют упругим запасом.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c1",
+   "on_screen": "Это упругий запас",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.31,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Давление снижается, и жидкость в порах расширяется.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c13",
+   "on_screen": "Жидкость расширяется",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.37,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "А сами поры при этом уменьшаются.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c16",
+   "on_screen": "Поры уменьшаются",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.43,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Поэтому изменение запаса складывают из двух вкладов: жидкости и пор.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c19",
+   "on_screen": "Два вклада складываются",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.5,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Следим за давлением на дне скважины и поодаль.",
+   "claim_id": null,
+   "on_screen": "Две точки наблюдения",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.6,
+    "observe": 1,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Скважину сейчас остановят: что станет с давлением рядом?",
+   "claim_id": null,
+   "on_screen": "Остановка: что с давлением?",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.69
+   },
+   "is_analogy": false,
+   "pause_after": 1.2,
+   "role": "prediction"
+  },
+  {
+   "say": "Давление рядом растёт, и упругий запас там снова накапливается.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c5",
+   "on_screen": "Давление растёт, запас копится",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.85
+   },
+   "is_analogy": false,
+   "pause_after": 0.3,
+   "role": "answer"
+  },
+  {
+   "say": "Эта схема рассчитана на давление, при котором газ не выделяется.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c1",
+   "on_screen": "Только без выделения газа",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.9,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Вот тот же пласт в истинном масштабе.",
+   "claim_id": null,
+   "on_screen": "Истинный масштаб пласта",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1,
+    "true_scale": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Для расчёта берут кусок пласта и изменение давления в нём.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c8",
+   "on_screen": "Кусок пласта и перепад",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.95,
+    "true_scale": 0,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "А отданный объём жидкости измеряют при начальном пластовом давлении.",
+   "claim_id": "basniev.izmenenie_obemov_i_znaki#c7",
+   "on_screen": "Объём при начальном давлении",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 1,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Закачаем воду и поднимем давление: что станет с порами?",
+   "claim_id": null,
+   "on_screen": "А если давление поднять?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "basniev_izmenenie_obemov_i_znaki_short",
+ "chapter": "basniev_gl23-24_1",
+ "node_id": "basniev.izmenenie_obemov_i_znaki",
+ "format": "short",
+ "template": "pressure_wave",
+ "claim_marks": {
+  "basniev.izmenenie_obemov_i_znaki#c1": "38cdb2de9a5a",
+  "basniev.izmenenie_obemov_i_znaki#c2": "26c5b820ba51",
+  "basniev.izmenenie_obemov_i_znaki#c3": "41850220030a",
+  "basniev.izmenenie_obemov_i_znaki#c4": "2fc1d05f1375",
+  "basniev.izmenenie_obemov_i_znaki#c5": "2b104ecabdc7",
+  "basniev.izmenenie_obemov_i_znaki#c6": "2786c147efdd",
+  "basniev.izmenenie_obemov_i_znaki#c7": "f3c65fddb64f",
+  "basniev.izmenenie_obemov_i_znaki#c8": "bb391e05a7c5",
+  "basniev.izmenenie_obemov_i_znaki#c9": "acc474e24eb6",
+  "basniev.izmenenie_obemov_i_znaki#c10": "683e0b392c84",
+  "basniev.izmenenie_obemov_i_znaki#c11": "a4d1e5e2a18f",
+  "basniev.izmenenie_obemov_i_znaki#c12": "a7ea0c30810c",
+  "basniev.izmenenie_obemov_i_znaki#c13": "c381a2cd9389",
+  "basniev.izmenenie_obemov_i_znaki#c14": "863b4ba691c0",
+  "basniev.izmenenie_obemov_i_znaki#c15": "3e7a8bf63b23",
+  "basniev.izmenenie_obemov_i_znaki#c16": "5a2859aced30",
+  "basniev.izmenenie_obemov_i_znaki#c17": "32414d18038d",
+  "basniev.izmenenie_obemov_i_znaki#c18": "8cb2d8e10526",
+  "basniev.izmenenie_obemov_i_znaki#c19": "48ee27a3080c"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5",
+ "claim_kinds": {
+  "basniev.izmenenie_obemov_i_znaki#c1": "assumption",
+  "basniev.izmenenie_obemov_i_znaki#c2": "observation",
+  "basniev.izmenenie_obemov_i_znaki#c3": "inference",
+  "basniev.izmenenie_obemov_i_znaki#c4": "observation",
+  "basniev.izmenenie_obemov_i_znaki#c5": "observation",
+  "basniev.izmenenie_obemov_i_znaki#c6": "assumption",
+  "basniev.izmenenie_obemov_i_znaki#c7": "assumption",
+  "basniev.izmenenie_obemov_i_znaki#c8": "assumption",
+  "basniev.izmenenie_obemov_i_znaki#c9": "assumption",
+  "basniev.izmenenie_obemov_i_znaki#c10": "inference",
+  "basniev.izmenenie_obemov_i_znaki#c11": "inference",
+  "basniev.izmenenie_obemov_i_znaki#c12": "assumption",
+  "basniev.izmenenie_obemov_i_znaki#c13": "inference",
+  "basniev.izmenenie_obemov_i_znaki#c14": "inference",
+  "basniev.izmenenie_obemov_i_znaki#c15": "inference",
+  "basniev.izmenenie_obemov_i_znaki#c16": "inference",
+  "basniev.izmenenie_obemov_i_znaki#c17": "inference",
+  "basniev.izmenenie_obemov_i_znaki#c18": "assumption",
+  "basniev.izmenenie_obemov_i_znaki#c19": "assumption"
+ }
+}

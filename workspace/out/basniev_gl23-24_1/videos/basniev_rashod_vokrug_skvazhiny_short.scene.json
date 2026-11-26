@@ -1,0 +1,428 @@
+{
+ "title": "Где поток у скважины устанавливается первым",
+ "params": {
+  "p0": 20,
+  "unit": "МПа",
+  "drop": 0.5,
+  "kappa": 1,
+  "t_max": 200000,
+  "stop": null,
+  "radius": 1000,
+  "rw": 0.1,
+  "thickness": 10,
+  "observe": 300,
+  "lith": "sand"
+ },
+ "objects": [
+  "добывающая скважина",
+  "горизонтальный песчаный пласт постоянной толщины",
+  "профиль давления в разрезе",
+  "кольца на плане",
+  "наблюдательная точка вдали от скважины",
+  "графики давления на забое и в наблюдательной точке",
+  "пунктир ложного фронта"
+ ],
+ "invariants": [
+  "Дебит скважины постоянен всё время показа, остановки нет",
+  "Время идёт только вперёд",
+  "Разрез, план и график показывают один и тот же момент",
+  "Давление растёт от скважины вглубь пласта, жидкость движется к скважине",
+  "Толщина пласта и конструкция скважины не меняются",
+  "Наблюдательная точка остаётся на одном расстоянии"
+ ],
+ "assumptions": [
+  "Пласт неограниченный, горизонтальный, однородный, постоянной толщины",
+  "Скважина в расчёте считается точечным стоком",
+  "Дебит после пуска постоянен",
+  "Режим упругий, фильтрация подчиняется закону Дарси",
+  "Все численные параметры условные и не взяты из источника"
+ ],
+ "exaggerations": [
+  "толщина пласта увеличена в 31 раз",
+  "Ширина скважины на рисунке увеличена: в параметрах её радиус 0,1 м при крае вида 1000 м",
+  "Толщина пласта 10 м при радиусе вида 1000 м: вне режима истинного масштаба разрез растянут по вертикали",
+  "Сцена показывает давление; расход и скорость фильтрации отдельно не нарисованы, они связаны с наклоном профиля давления",
+  "Кольца на плане условно выделяют уровни, резких границ в пласте нет",
+  "Пунктирный фронт с постоянной скоростью показывает ошибочное ожидание, а не расчёт",
+  "Давление, понижение, пьезопроводность 1 м²/с и время показа условные"
+ ],
+ "plaque": [
+  "толщина пласта увеличена в 31 раз",
+  "Числа условные",
+  "Показано давление"
+ ],
+ "prediction_question": "Вдали поток установится так же быстро?",
+ "transfer_question": "Если дебит потом меняли, хватит ли одной формулы?",
+ "data_it_bridge": "По дебиту, толщине пласта, пьезопроводности, расстоянию и времени можно рассчитать, какая доля стационарной скорости достигнута. Если дебит в промысловых данных заметно менялся, расчёт с одним значением дебита, вероятно, не подойдёт.",
+ "terms_to_check": [
+  "дебит",
+  "пьезопроводность",
+  "стационарный",
+  "цилиндр",
+  "скважины-точки"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Один горизонтальный пласт, положение слоёв не меняется"
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет"
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Несогласий в сцене нет"
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Пласт показан пористым песчаником, полостей с жидкостью нет"
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Одна жидкость, контактов нет"
+  },
+  "pc.flow_high_to_low": {
+   "answer": "да",
+   "note": "Давление ниже у скважины, поток направлен к ней; ловушка не рассматривается"
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала пуск скважины, затем понижение давления и рост потока"
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "В модели разница между дебитом и расходом на радиусе покрывается упругим запасом пласта"
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Три вида считаются из одной модели в один момент"
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Измерительных приборов в сцене нет"
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Измерений и интерпретации нет, значения расчётные"
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Названы точечная скважина, бесконечный ровный пласт, постоянный дебит и близость к скважине"
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "Графики строятся по той же модели и тому же времени"
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Давление 20 МПа, толщина 10 м, пьезопроводность 1 м²/с правдоподобны; понижение на забое остаётся меньше начального давления"
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Приведены радиус скважины, толщина пласта и край вида"
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Скважина одна и та же во всех кадрах"
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Скважина вскрывает пласт, наблюдательная точка находится в пласте"
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "В разрезе глубина вниз, оси графиков и единицы подписывает шаблон"
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Кадры считаются из параметров и помечены как симуляция"
+  },
+  "pc.modern_or_historic": {
+   "answer": "да",
+   "note": "Скважина показана условно, без устаревшего оборудования"
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Бурение и столб раствора не показаны"
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в стволе нет"
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Приёмных ёмкостей нет"
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Конструкция скважины одинакова на всех видах"
+  }
+ },
+ "beats": [
+  {
+   "say": "Где поток у скважины устанавливается первым?",
+   "claim_id": null,
+   "on_screen": "Где поток установится первым?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.001,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Скважину пустили и отбирают постоянный дебит: объём за единицу времени.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c3",
+   "on_screen": "Дебит после пуска постоянен",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.003,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "На картинке давление, а поток зависит от его наклона.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c2",
+   "on_screen": "Наклон давления задаёт поток",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.006,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Рядом со скважиной поток очень быстро становится почти стационарным.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c6",
+   "on_screen": "Вблизи поток устанавливается быстро",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.012,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Стационарный значит: через цилиндр вокруг скважины проходит весь дебит.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c5",
+   "on_screen": "Стационарно: проходит весь дебит",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.018,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Быстро, потому что пьезопроводность обычно велика.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c7",
+   "on_screen": "Причина: большая пьезопроводность",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.025,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Это коэффициент, от которого зависит быстрота отклика пласта.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c7",
+   "on_screen": "Пьезопроводность: быстрота отклика пласта",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.032,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Предскажите: вдали поток установится так же быстро?",
+   "claim_id": null,
+   "on_screen": "А что вдали?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "observe": 1,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 1.2,
+   "role": "prediction"
+  },
+  {
+   "say": "Нет, там он нарастает позже и плавно.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c3",
+   "on_screen": "Вдали позже и плавно",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.35,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0.4,
+   "role": "answer"
+  },
+  {
+   "say": "Пунктиром отмечено ложное ожидание: фронт с постоянной скоростью.",
+   "claim_id": null,
+   "on_screen": "Пунктир: ложное ожидание",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "naive": 1,
+    "time": 0.45,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Резкой границы нет: расстояние и время действуют вместе.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c3",
+   "on_screen": "Резкого фронта нет",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.65,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Это расчёт для скважины-точки в бесконечном ровном пласте.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c3",
+   "on_screen": "Идеальный пласт и скважина-точка",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.75,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Быстроту вблизи нельзя переносить на весь пласт.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c6",
+   "on_screen": "Вблизи не значит везде",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.83,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Аналитик берёт дебит, толщину, пьезопроводность, расстояние и время.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c4",
+   "on_screen": "Пять входов для расчёта",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.92,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "И оценивает, насколько скорость там близка к стационарной.",
+   "claim_id": "basniev.rashod_vokrug_skvazhiny#c4",
+   "on_screen": "Насколько поток уже установился",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 1,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Теперь тот же пласт в истинном масштабе.",
+   "claim_id": null,
+   "on_screen": "Истинный масштаб пласта",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 1,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0.4,
+   "role": "frame"
+  },
+  {
+   "say": "Если дебит потом меняли, хватит ли одной формулы?",
+   "claim_id": null,
+   "on_screen": "А если дебит менялся?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "naive": 0,
+    "true_scale": 0,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "basniev_rashod_vokrug_skvazhiny_short",
+ "chapter": "basniev_gl23-24_1",
+ "node_id": "basniev.rashod_vokrug_skvazhiny",
+ "format": "short",
+ "template": "pressure_wave",
+ "claim_marks": {
+  "basniev.rashod_vokrug_skvazhiny#c1": "fa29805aba6a",
+  "basniev.rashod_vokrug_skvazhiny#c2": "447af777df74",
+  "basniev.rashod_vokrug_skvazhiny#c3": "779d22545705",
+  "basniev.rashod_vokrug_skvazhiny#c4": "6d68896b97a2",
+  "basniev.rashod_vokrug_skvazhiny#c5": "30a58cda7eb8",
+  "basniev.rashod_vokrug_skvazhiny#c6": "b387ac9ef2d6",
+  "basniev.rashod_vokrug_skvazhiny#c7": "a1023f7d04a1"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5",
+ "claim_kinds": {
+  "basniev.rashod_vokrug_skvazhiny#c1": "inference",
+  "basniev.rashod_vokrug_skvazhiny#c2": "inference",
+  "basniev.rashod_vokrug_skvazhiny#c3": "inference",
+  "basniev.rashod_vokrug_skvazhiny#c4": "inference",
+  "basniev.rashod_vokrug_skvazhiny#c5": "inference",
+  "basniev.rashod_vokrug_skvazhiny#c6": "inference",
+  "basniev.rashod_vokrug_skvazhiny#c7": "inference"
+ }
+}

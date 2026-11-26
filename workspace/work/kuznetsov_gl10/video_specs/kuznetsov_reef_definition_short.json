@@ -1,0 +1,426 @@
+{
+ "title": "Что называют рифом",
+ "params": {
+  "sea": [
+   [
+    0,
+    0
+   ],
+   [
+    0.5,
+    25
+   ],
+   [
+    1,
+    45
+   ]
+  ],
+  "max_growth": 80,
+  "photic": 40,
+  "erosion": 5,
+  "base": -15,
+  "half_width": 250,
+  "slope": 0.5,
+  "zones": [
+   {
+    "key": "core",
+    "label": "ядро"
+   },
+   {
+    "key": "flank",
+    "label": "обломки склона"
+   },
+   {
+    "key": "lagoon",
+    "label": "за рифом"
+   }
+  ],
+  "observe": 0.1
+ },
+ "objects": [
+  "разрез органогенной постройки",
+  "окружающие отложения",
+  "линия уровня моря",
+  "кривая уровня моря",
+  "кривая высоты постройки",
+  "подписи зон",
+  "скважина в ядре"
+ ],
+ "invariants": [
+  "Постройка нигде не растёт выше уровня моря",
+  "Молодые слои лежат на старых",
+  "Время идёт только вперёд",
+  "Разрез и график показывают один и тот же момент",
+  "Скважина стоит на одном месте и не меняет конструкцию"
+ ],
+ "assumptions": [
+  "Уровень моря только повышается: за всё время на сорок пять метров",
+  "Скорость роста постройки ограничена и выше скорости подъёма моря",
+  "Дно в начале лежит на пятнадцать метров ниже уровня моря",
+  "Действие волн и перенос обломков отдельно не рассчитываются",
+  "Время дано в условных единицах"
+ ],
+ "exaggerations": [
+  "Все числа модели условные и не взяты из источника",
+  "Высота постройки к концу около 60 м при полуширине основания 250 м; вертикальное растяжение шаблон подписывает числом",
+  "Постройка симметрична и имеет гладкую форму; настоящие границы фаций зигзагообразные",
+  "Скорость роста постоянна и не зависит от организмов и среды, кроме глубины",
+  "Окружающие отложения показаны условно, их состав и скорость накопления упрощены",
+  "Биогерм отдельно не моделируется, о нём говорится на фоне растущего рифа",
+  "Зона за рифом относится на исходной схеме к асимметричной системе, здесь подписана условно"
+ ],
+ "plaque": [
+  "числа условные",
+  "форма рифа упрощена"
+ ],
+ "prediction_question": "Риф растёт быстрее соседних осадков: каким он станет?",
+ "transfer_question": "Холм толще соседей, но до уровня моря не дорос: как его назвать?",
+ "data_it_bridge": "Один признак «есть остатки организмов» не годится как метка рифа. Нужны состав тела и сравнение его мощности с отложениями того же возраста вокруг. Чтобы отделить риф от биогерма, полезен ещё признак положения вершины относительно уровня моря.",
+ "terms_to_check": [
+  "биогерм",
+  "мощность",
+  "мощности",
+  "карбонатный",
+  "обломки",
+  "организмов"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Постройка и осадки наращиваются снизу вверх, надвигов нет."
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет."
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Уровень моря только растёт, размыва и перерыва нет."
+  },
+  "pc.fluids_in_pores": {
+   "answer": "н/п",
+   "note": "Флюиды и поры не показываются."
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Газа и нефти в сцене нет."
+  },
+  "pc.flow_high_to_low": {
+   "answer": "н/п",
+   "note": "Движения флюидов нет."
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала идёт рост, затем появляется превышение мощности и высоты."
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Прирост за шаг ограничен максимальной скоростью и уровнем моря; перенос обломков не рассчитывается, это оговорено."
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Разрез и график считаются из одной модели."
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Измерительных приборов нет, скважина только отмечает место наблюдения."
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Сигналы приборов не показываются."
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Сказано, что превышения над соседями мало для отличия от биогерма."
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "Кривые уровня моря и высоты постройки идут по тому же времени, что и разрез."
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Высота в десятки метров согласуется с порядком мощности рифов из источника."
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Размеры названы в списке преувеличений, растяжение шаблон подписывает числом, показан истинный масштаб."
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Скважина не меняет конструкцию."
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Скважина проходит через постройку от поверхности, совмещений объектов нет."
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "Глубина растёт вниз, уровни даны в метрах."
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Сцена считается из параметров и помечена как симуляция."
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Бурового оборудования не показано, только линия скважины."
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Давление в скважине не рассматривается."
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в скважине нет."
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Бурового раствора нет."
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Скважина стоит на одном месте во всех кадрах, колонны не показаны."
+  }
+ },
+ "beats": [
+  {
+   "say": "Любой известняк с ракушками — риф?",
+   "claim_id": null,
+   "on_screen": "Ракушки есть — значит риф?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.08,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Проблема в том, что одних остатков организмов для рифа мало.",
+   "claim_id": "kuznetsov.reef_definition#c3",
+   "on_screen": "Одних остатков мало",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.12
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Потому что риф ещё и растёт быстрее, чем копятся осадки вокруг.",
+   "claim_id": "kuznetsov.reef_definition#c3",
+   "on_screen": "Важна скорость роста",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.18
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Это карбонатный массив, то есть крупное тело из пород вроде известняка.",
+   "claim_id": "kuznetsov.reef_definition#c2",
+   "on_screen": "Риф — карбонатный массив",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "zones": 0.4
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Хотя бы частично он сложен остатками организмов и продуктами их разрушения.",
+   "claim_id": "kuznetsov.reef_definition#c2",
+   "on_screen": "Остатки организмов и обломки",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "zones": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Создают его организмы, живущие колониями или нарастающие друг на друге.",
+   "claim_id": "kuznetsov.reef_definition#c1",
+   "on_screen": "Строители — живые организмы",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.22
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Предскажите: риф растёт быстрее соседних осадков. Каким он станет?",
+   "claim_id": null,
+   "on_screen": "Ваш прогноз?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 1.3,
+   "role": "prediction"
+  },
+  {
+   "say": "За то же время он получается толще соседних отложений.",
+   "claim_id": "kuznetsov.reef_definition#c3",
+   "on_screen": "Риф толще соседей",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.6,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "И поднимается над ними, как холм над дном.",
+   "claim_id": "kuznetsov.reef_definition#c4",
+   "on_screen": "Риф возвышается над дном",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.82
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Толщину такого тела геологи называют мощностью.",
+   "claim_id": "kuznetsov.reef_definition#c3",
+   "on_screen": "Мощность — это толщина",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "well": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "А вот та же картина без растяжения по высоте.",
+   "claim_id": null,
+   "on_screen": "Истинные пропорции",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0.3,
+   "role": "frame"
+  },
+  {
+   "say": "Но есть биогерм: это тоже холм над боковыми отложениями.",
+   "claim_id": "kuznetsov.reef_definition#c19",
+   "on_screen": "Биогерм тоже возвышается",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 0,
+    "time": 0.9
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Только на схеме он не достаёт до уровня моря, а риф достаёт.",
+   "claim_id": "kuznetsov.reef_definition#c16",
+   "on_screen": "Смотрим на вершину",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 2,
+    "time": 0.95
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Поэтому геолог проверяет состав и сравнивает мощность с отложениями того же возраста.",
+   "claim_id": "kuznetsov.reef_definition#c3",
+   "on_screen": "Состав плюс сравнение мощностей",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1,
+    "zones": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Холм толще соседей, но до уровня моря не дорос: как его назвать?",
+   "claim_id": null,
+   "on_screen": "А это что?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 1,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "kuznetsov_reef_definition_short",
+ "chapter": "kuznetsov_gl10",
+ "node_id": "kuznetsov.reef_definition",
+ "format": "short",
+ "template": "reef_growth",
+ "claim_marks": {
+  "kuznetsov.reef_definition#c1": "b040fd785848",
+  "kuznetsov.reef_definition#c2": "b6f4d4ee2700",
+  "kuznetsov.reef_definition#c3": "db47c169fa11",
+  "kuznetsov.reef_definition#c4": "fff7ccfa130c",
+  "kuznetsov.reef_definition#c5": "4dc91c54862f",
+  "kuznetsov.reef_definition#c6": "81e973a91436",
+  "kuznetsov.reef_definition#c7": "77fee8554ff7",
+  "kuznetsov.reef_definition#c8": "949ab664884c",
+  "kuznetsov.reef_definition#c9": "37b62201e17f",
+  "kuznetsov.reef_definition#c10": "3df6b6cfc619",
+  "kuznetsov.reef_definition#c11": "2712ae860e43",
+  "kuznetsov.reef_definition#c12": "f123ea89ccae",
+  "kuznetsov.reef_definition#c13": "cb51f70488c2",
+  "kuznetsov.reef_definition#c14": "dd1cff5b920f",
+  "kuznetsov.reef_definition#c15": "8e7b1e09bb6b",
+  "kuznetsov.reef_definition#c16": "fc85432522a3",
+  "kuznetsov.reef_definition#c17": "7f3eb28bcde6",
+  "kuznetsov.reef_definition#c18": "10043f37398f",
+  "kuznetsov.reef_definition#c19": "f5a7654cde89",
+  "kuznetsov.reef_definition#c20": "65316505d6be",
+  "kuznetsov.reef_definition#c21": "01034009988c",
+  "kuznetsov.reef_definition#c22": "e0d369c208bf",
+  "kuznetsov.reef_definition#c23": "5edf075d7d00",
+  "kuznetsov.reef_definition#c24": "ca16cb3ddc03",
+  "kuznetsov.reef_definition#c25": "42ee63fe2077",
+  "kuznetsov.reef_definition#c26": "94dd79537551",
+  "kuznetsov.reef_definition#c27": "05ed488c812a",
+  "kuznetsov.reef_definition#c28": "54d5bfa4e878",
+  "kuznetsov.reef_definition#c29": "e947d0d75310",
+  "kuznetsov.reef_definition#c30": "473dbcd9006a"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5"
+}

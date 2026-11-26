@@ -1,0 +1,430 @@
+{
+ "title": "Откуда в рифе новые пустоты",
+ "params": {
+  "sea": [
+   [
+    0,
+    0
+   ],
+   [
+    0.6,
+    30
+   ],
+   [
+    0.74,
+    30
+   ],
+   [
+    1,
+    18
+   ]
+  ],
+  "max_growth": 80,
+  "photic": 30,
+  "erosion": 12,
+  "base": -10,
+  "half_width": 300,
+  "slope": 0.6,
+  "zones": [
+   {
+    "key": "core",
+    "label": "Ядро"
+   },
+   {
+    "key": "flank",
+    "label": "Склон"
+   },
+   {
+    "key": "lagoon",
+    "label": "Лагуна"
+   }
+  ],
+  "observe": 0.2
+ },
+ "objects": [
+  "риф в разрезе",
+  "уровень моря",
+  "кривая уровня моря",
+  "кривая высоты рифа",
+  "зоны рифа",
+  "пустоты в ядре",
+  "скважина"
+ ],
+ "invariants": [
+  "Молодые слои рифа лежат на старых",
+  "Риф не растёт выше уровня моря",
+  "Над водой рост стоит, а кровля размывается",
+  "Пустоты находятся внутри породы ядра",
+  "Пустоты показаны только после выхода кровли из воды",
+  "Разрез и график показывают один и тот же момент"
+ ],
+ "assumptions": [
+  "Уровень моря сначала растёт, затем стоит и немного падает",
+  "Скорость роста и размыва постоянна и задана условно",
+  "Выход из воды выбран для примера: он бывает нередко, но не всегда",
+  "Скважина пробурена намного позже формирования рифа",
+  "Растворение не рассчитывается моделью: пустоты показаны условно"
+ ],
+ "exaggerations": [
+  "высота увеличена в 11 раз",
+  "Все высоты, ширина и скорости рифа условные, не взяты из источника",
+  "Пустоты в ядре сильно увеличены, их размер и число условные",
+  "Каверны и межкристаллические пустоты на рисунке не различаются",
+  "Крупная карстовая пещера отдельно не нарисована",
+  "Скважина условная и не воспроизводит скважину четыре Серро-Асуль",
+  "Растворённый и размытый материал дальше не отслеживается",
+  "Геологическое время сжато до длительности ролика"
+ ],
+ "plaque": [
+  "высота увеличена в 11 раз",
+  "Числа условные",
+  "Пустоты показаны условно"
+ ],
+ "prediction_question": "Что начнётся, если верх рифа окажется над водой?",
+ "transfer_question": "Могут ли появиться пустоты в рифе, не выходившем из воды?",
+ "data_it_bridge": "Размер пустот в рифе меняется от долей миллиметра до пещер, поэтому одно значение размера плохо описывает породу. Дебит скважины, вскрывшей пещеру, в данных следует помечать как уникальный случай и не переносить на другие рифы.",
+ "terms_to_check": [
+  "каве́рны",
+  "выщела́чивание",
+  "ка́рст",
+  "деби́т",
+  "доломитиза́ция",
+  "перекристаллиза́ция",
+  "сталакти́тов",
+  "Се́рро-Асу́ль"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Риф наращивается снизу вверх, при осушении только срезается кровля"
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет"
+  },
+  "pc.unconformity_event": {
+   "answer": "да",
+   "note": "Осушение и размыв показаны как событие после роста; нового накопления поверх не показано"
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Нефтяных озёр не рисуется; пустоты находятся внутри породы"
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Газа и контактов флюидов в сцене нет"
+  },
+  "pc.flow_high_to_low": {
+   "answer": "н/п",
+   "note": "Движение флюида и ловушка не изображаются"
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала рост, затем выход из воды, затем пустоты, и лишь потом скважина"
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Рост ограничен моделью; вынос растворённого и размытого вещества назван упрощением"
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Разрез и график считаются из одной модели"
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Измерительных приборов нет"
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Сигналы приборов не показываются"
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Сказано, что выход из воды бывает нередко, но не обязательно"
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "Кривые уровня моря и высоты рифа идут синхронно с разрезом"
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Десятки метров по высоте и сотни по ширине правдоподобны; дебит взят из источника"
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Масштаб шаблон подписывает числом; увеличение пустот названо условным, точного числа нет"
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Скважина после появления не меняется"
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Скважина появляется после завершения роста рифа"
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "Глубина растёт вниз, шкалы в метрах подписывает шаблон"
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Расчётные кадры помечены как симуляция, пустоты и скважина как схема"
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Буровое оборудование не детализируется"
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Давление в скважине не показывается"
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в скважине нет"
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Приёмных ёмкостей нет"
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Скважина условная, её конструкция не меняется"
+  }
+ },
+ "beats": [
+  {
+   "say": "Откуда в рифе берутся новые пустоты?",
+   "claim_id": null,
+   "on_screen": "Новые пустоты в рифе",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Важны не только первые поры, но и появившиеся позже.",
+   "claim_id": "kuznetsov.secondary_porosity#c1",
+   "on_screen": "Поздние поры тоже важны",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.35
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Главными из них автор считает каверны, полости растворения.",
+   "claim_id": "kuznetsov.secondary_porosity#c2",
+   "on_screen": "Главное — каверны",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "zones": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Риф растворяется легко во многом потому, что хорошо пропускает воду.",
+   "claim_id": "kuznetsov.secondary_porosity#c4",
+   "on_screen": "Вода легко проходит",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.5
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Глинистых преград для воды в нём почти нет.",
+   "claim_id": "kuznetsov.secondary_porosity#c5",
+   "on_screen": "Почти нет преград",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.62
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "И риф всегда выше отложений, накопившихся одновременно с ним.",
+   "claim_id": "kuznetsov.secondary_porosity#c8",
+   "on_screen": "Риф стоит выше соседей",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.73
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Предскажите: что начнётся, если верх рифа окажется над водой?",
+   "claim_id": null,
+   "on_screen": "Что будет над водой?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 1.2,
+   "role": "prediction"
+  },
+  {
+   "say": "Начнётся карст, особый вид растворения, ещё при росте рифа.",
+   "claim_id": "kuznetsov.secondary_porosity#c9",
+   "on_screen": "Над водой начинается карст",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Каверны бывают от долей миллиметра до крупных пещер.",
+   "claim_id": "kuznetsov.secondary_porosity#c11",
+   "on_screen": "От крошечных до пещер",
+   "label": "схема",
+   "frame_class": "B",
+   "action": {
+    "pores": 0.7
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Есть и поры между кристаллами: после перекристаллизации и доломитизации.",
+   "claim_id": "kuznetsov.secondary_porosity#c14",
+   "on_screen": "Пустоты между кристаллами",
+   "label": "схема",
+   "frame_class": "B",
+   "action": {
+    "pores": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Но выход рифа из воды случается нередко, а не обязательно.",
+   "claim_id": "kuznetsov.secondary_porosity#c9",
+   "on_screen": "Осушение не обязательно",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "В Мексике одна скважина вскрыла в рифе карстовую пещеру.",
+   "claim_id": "kuznetsov.secondary_porosity#c12",
+   "on_screen": "Скважина попала в пещеру",
+   "label": "схема",
+   "frame_class": "B",
+   "action": {
+    "focus": 1,
+    "well": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Её дебит, добыча за сутки, составил сорок две тысячи кубометров.",
+   "claim_id": "kuznetsov.secondary_porosity#c12",
+   "on_screen": "Необычно большой дебит",
+   "label": "схема",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Это уникальный случай, поэтому типичным для рифов такой дебит не считают.",
+   "claim_id": "kuznetsov.secondary_porosity#c12",
+   "on_screen": "Рекорд не равен норме",
+   "label": "схема",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "А могут ли появиться пустоты в рифе, не выходившем из воды?",
+   "claim_id": null,
+   "on_screen": "А без осушения?",
+   "label": "схема",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "kuznetsov_secondary_porosity_short",
+ "chapter": "kuznetsov_gl10",
+ "node_id": "kuznetsov.secondary_porosity",
+ "format": "short",
+ "template": "reef_growth",
+ "claim_marks": {
+  "kuznetsov.secondary_porosity#c1": "9e6a496e53f5",
+  "kuznetsov.secondary_porosity#c2": "3ba32bfc5f63",
+  "kuznetsov.secondary_porosity#c3": "e105304077fa",
+  "kuznetsov.secondary_porosity#c4": "8fa0fef13a05",
+  "kuznetsov.secondary_porosity#c5": "b5fd8e187720",
+  "kuznetsov.secondary_porosity#c6": "a55262c53790",
+  "kuznetsov.secondary_porosity#c7": "ef7801b6f4e5",
+  "kuznetsov.secondary_porosity#c8": "c2500d7fc432",
+  "kuznetsov.secondary_porosity#c9": "694eea8a3d16",
+  "kuznetsov.secondary_porosity#c10": "ae10279e5b73",
+  "kuznetsov.secondary_porosity#c11": "22b4d46ab47b",
+  "kuznetsov.secondary_porosity#c12": "7b8e96a0414f",
+  "kuznetsov.secondary_porosity#c13": "76da9a83486d",
+  "kuznetsov.secondary_porosity#c14": "811c719eec6f"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5",
+ "claim_kinds": {
+  "kuznetsov.secondary_porosity#c1": "inference",
+  "kuznetsov.secondary_porosity#c2": "inference",
+  "kuznetsov.secondary_porosity#c3": "observation",
+  "kuznetsov.secondary_porosity#c4": "inference",
+  "kuznetsov.secondary_porosity#c5": "inference",
+  "kuznetsov.secondary_porosity#c6": "inference",
+  "kuznetsov.secondary_porosity#c7": "inference",
+  "kuznetsov.secondary_porosity#c8": "inference",
+  "kuznetsov.secondary_porosity#c9": "observation",
+  "kuznetsov.secondary_porosity#c10": "observation",
+  "kuznetsov.secondary_porosity#c11": "observation",
+  "kuznetsov.secondary_porosity#c12": "inference",
+  "kuznetsov.secondary_porosity#c13": "observation",
+  "kuznetsov.secondary_porosity#c14": "observation"
+ }
+}
