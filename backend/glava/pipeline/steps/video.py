@@ -3,7 +3,7 @@
 import hashlib
 import json
 import logging
-from collections.abc import Callable, Mapping
+from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
@@ -15,6 +15,7 @@ from glava.pipeline.chapter import Chapter, errata_of, write_metrics
 from glava.pipeline.prompts import prompt_file
 from glava.pipeline.steps.audit import build_audit
 from glava.pipeline.steps.course import build_site
+from glava.pipeline.steps.narration import build_narration
 from glava.shared.evidence import verify_layer
 from glava.shared.json_files import read, save
 from glava.shared.paths import REPOSITORY, workspace
@@ -152,10 +153,13 @@ def accept_spec(chapter: Chapter, file: Path) -> None:
     save(file, {**spec, "claim_marks": claim_marks(node)})
 
 
-def rebuild(chapter: Chapter, open_provider: OpenProvider, node_id: str | None, voice: str | None = None) -> None:
-    """После правки факта в слое: проверка слоя, ролики узла и страница шага — одной командой. Модель нужна, только если правка задела фразу ролика."""
+def rebuild(chapter: Chapter, open_provider: OpenProvider, node_id: str | None, voice: str | None = None, steps: Sequence[str] = (), accept: bool = False) -> None:
+    """После правки факта в слое: проверка слоя, ролики, озвученный разбор и страница шага — одной командой.
+    Модель нужна, только если правка задела фразу ролика. steps — шаги, которые задела правка: их разбор озвучивается заново."""
     layer = read(chapter.work / "layer.json")
     issues = [i for i in verify_layer(layer, pages_of(chapter.units), number_sources(errata_of(chapter))) if node_id is None or i.where.startswith(node_id)]
+    # число вне цитаты человек подтвердил ключом --accept, как в fact --apply
+    issues = [i for i in issues if not (accept and i.code == "number_not_in_source")]
     if issues:
         raise SystemExit("слой не прошёл проверку: " + "; ".join(f"{i.where}: {i.message}" for i in issues[:8]))
     files = sorted(specs_folder(chapter).glob("*.json"))
@@ -165,6 +169,9 @@ def rebuild(chapter: Chapter, open_provider: OpenProvider, node_id: str | None, 
             continue
         node = _node(chapter, spec["node_id"])
         stale, replies = stale_beats(spec, node), []
+        # без --node пересобираются ролики задетых шагов, устаревшие и те, которых ещё нет на диске
+        if node_id is None and not stale and spec["node_id"] not in steps and (videos_folder(chapter) / f"{spec['video_id']}.mp4").exists():
+            continue
         if stale:
             log.info("%s: %s; спецификацию пишет модель заново", file.name, "; ".join(stale[:3]))
             spec, replies = _write_spec(chapter, open_provider(), node, spec["format"], spec["template"])
@@ -172,5 +179,8 @@ def rebuild(chapter: Chapter, open_provider: OpenProvider, node_id: str | None, 
             spec, node = checked_spec(chapter, file)
         passport = _film(chapter, spec, node, voice)
         write_metrics(chapter, "video", 1, replies, passport["audio_check"]["duration_s"])
+    spoken = [s for s in steps if node_id is None or s == node_id]
+    if spoken and (chapter.work / "narration.json").exists():
+        build_narration(chapter, only=spoken, site=False)
     build_audit(chapter.chapter_id)
     build_site(chapter)

@@ -96,6 +96,18 @@ def test_an_old_track_is_removed_and_ready_phrases_are_not_asked_again(tmp_path)
     assert len(list(out.glob("*.mp3"))) == 1 and len(asked) == 4
 
 
+def test_one_step_is_narrated_again_and_the_others_stay(tmp_path):
+    from glava.pipeline.steps.narration import merged
+
+    out, cache = tmp_path / "narration", tmp_path / "cache"
+    other = {**node("Другой шаг тут. И вторая мысль."), "id": "lat.b"}
+    first = narrate([node("Суть шага такая. Вторая мысль здесь."), other], READ, out, cache, Voice(), quiet)
+    again = narrate([node("Суть шага такая. Другая мысль здесь вот.")], READ, out, cache, Voice(), quiet, prune=False)
+    both = merged(first, again, {"lat.a"})
+    assert sorted(both["steps"]) == ["lat.a", "lat.b"] and both["steps"]["lat.b"] == first["steps"]["lat.b"]
+    assert sorted(p.name for p in out.glob("*.mp3")) == sorted(s["audio"].removeprefix("narration/") for s in both["steps"].values())
+
+
 def test_a_silent_service_is_an_error_not_a_hole(tmp_path, monkeypatch):
     async def nothing(*_: object) -> bytes:
         return b""

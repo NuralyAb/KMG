@@ -19,8 +19,9 @@ def _track(beats: Sequence[Beat], sounds: Sequence[bytes]) -> tuple[bytes, list[
     return b"".join(sounds), placed
 
 
-def narrate(nodes: Sequence[Mapping], read: Reader, out: Path, cache: Path, voice: Voice, speak: Speak = edge) -> dict[str, Any]:
-    """Дорожки кладутся в out; файл назван по содержимому, поэтому старая дорожка не останется под новым текстом."""
+def narrate(nodes: Sequence[Mapping], read: Reader, out: Path, cache: Path, voice: Voice, speak: Speak = edge, prune: bool = True) -> dict[str, Any]:
+    """Дорожки кладутся в out; файл назван по содержимому, поэтому старая дорожка не останется под новым текстом.
+    prune=False — озвучены не все шаги: чужие дорожки не трогать, свои старые убрать."""
     scripts = {n["id"]: write_script(n, read) for n in nodes}
     phrases = list(dict.fromkeys(b.say for beats, _ in scripts.values() for b in beats))
     ready = dict(zip(phrases, speak_all(phrases, voice, cache, speak), strict=True))
@@ -34,8 +35,9 @@ def narrate(nodes: Sequence[Mapping], read: Reader, out: Path, cache: Path, voic
         (out / name).write_bytes(audio)
         steps = {**steps, step: {"audio": f"narration/{name}", "duration": placed[-1]["end"], "beats": placed}}
     kept = {Path(s["audio"]).name for s in steps.values()}
+    mine = {f"{step.replace('.', '_')}." for step in scripts}
     for old in out.glob("*.mp3"):
-        if old.name not in kept:
+        if old.name not in kept and (prune or any(old.name.startswith(m) for m in mine)):
             old.unlink()
     return {"voice": {"provider": "microsoft", "voice": voice.name, "rate": voice.rate, "data_out": "текст фраз → Microsoft"}, "steps": steps,
             "skipped": {step: skipped for step, (_, skipped) in scripts.items() if skipped}, "silent": [s for s, (beats, _) in scripts.items() if not beats]}

@@ -90,7 +90,8 @@ def cut_units(chapter_id: str, units: Sequence[Unit], starts_at: str | None, end
     return found
 
 
-def load_chapter(chapter_id: str) -> Chapter:
+def load_chapter(chapter_id: str, need_text: bool = True) -> Chapter:
+    """need_text=False — для команд, которым книга не нужна (course, narrate, passport, fact без --apply): без md глава грузится без единиц."""
     registry = read(workspace() / "chapters.json")
     info = registry["chapters"].get(chapter_id)
     if info is None:
@@ -101,7 +102,12 @@ def load_chapter(chapter_id: str) -> Chapter:
         return load_library_chapter(chapter_id, own)
     # загруженные книги лежат в своей папке, файлы организаторов — в общей
     texts, scans = (info["root"], info["root"]) if info.get("root") else (os.environ.get("GLAVA_BOOKS", registry["root"]), os.environ.get("GLAVA_PDFS", registry["pdf_root"]))
-    md = (workspace() / texts / info["file"]).read_text(encoding="utf-8-sig")
+    file = workspace() / texts / info["file"]
+    if not file.exists():
+        if need_text:
+            raise LibraryError(f"нет текста главы {file}: укажите папку с md в GLAVA_BOOKS или в root файла workspace/chapters.json")
+        return _read_figures(Chapter(chapter_id, info["prefix"], info["title"], info["book"], workspace() / "domain" / info["domain"], (), info["file"], None))
+    md = file.read_text(encoding="utf-8-sig")
     units = cut_units(chapter_id, parse_units(_pages(chapter_id, md, info["pages"])), info.get("starts_at"), info.get("ends_before"))
     return _read_figures(Chapter(chapter_id, info["prefix"], info["title"], info["book"], workspace() / "domain" / info["domain"], tuple(units), info["file"],
                                  workspace() / scans / info["pdf"] if info.get("pdf") else None))

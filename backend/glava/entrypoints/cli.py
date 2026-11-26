@@ -16,6 +16,7 @@ from glava.pipeline.steps.extract import build_extract
 from glava.pipeline.steps.figures import build_figures
 from glava.pipeline.steps.fact import apply_fact, show_fact
 from glava.pipeline.steps.illustrations import build_illustrations
+from glava.pipeline.steps.journal import build_journal_check
 from glava.pipeline.steps.layer import build_layer
 from glava.pipeline.steps.passport import build_passport
 from glava.pipeline.steps.reports import build_process, build_ready, build_templates
@@ -35,11 +36,12 @@ from glava.pipeline.steps.video import (
 from glava.pipeline.steps.videos import build_videos
 from glava.shared.json_files import read
 from glava.shared.json_schemas import load_schema
-from glava.shared.paths import workspace
+from glava.shared.paths import REPOSITORY, workspace
 
 log = logging.getLogger("glava")
 COMMANDS = ["build", "errata", "figures", "layer", "routing", "tasks", "illustrations", "narrate", "course", "review", "video", "videos", "rebuild", "voices", "templates", "ready", "process",
-            "simulation", "units", "extract", "audit", "verify", "fact", "passport"]
+            "simulation", "units", "extract", "audit", "verify", "fact", "passport", "journal"]
+BOOKLESS = ("course", "narrate", "passport", "fact")
 TRAINING = ("latyshova_gl5_par17-20", "basniev_gl23-24_1", "kuznetsov_gl10")
 
 
@@ -57,9 +59,10 @@ def main() -> None:
     parser.add_argument("--template", help="шаблон сцены ролика из доменного пакета")
     parser.add_argument("--spec", type=Path, help="video: собрать ролик из готовой спецификации, модель не нужна")
     parser.add_argument("--spec-only", action="store_true", help="video: только спецификация, без озвучки и рендера — для проверки ментором")
-    parser.add_argument("--accept", action="store_true", help="video --spec: фразы сверены с утверждениями, снять пометку «факт изменился»; fact --apply: число вне цитаты подтвердил человек")
+    parser.add_argument("--accept", action="store_true", help="video --spec: фразы сверены с утверждениями, снять пометку «факт изменился»; fact --apply и rebuild: число вне цитаты подтвердил человек")
     parser.add_argument("--voice", choices=["elevenlabs", "edge"], help="голос ролика; по умолчанию VOICE_PROVIDER")
     parser.add_argument("--until", choices=["design"], help="simulation: остановиться после замысла")
+    parser.add_argument("--base", help="journal: коммит или тег, с которого сверять журнал; по умолчанию последний тег (заморозка)")
     parser.add_argument("--apply", action="store_true", help="fact: разнести правку факта и пересобрать курс; без ключа только показать, что она задела")
     args = parser.parse_args()
     try:
@@ -78,6 +81,9 @@ def run_reports(args: argparse.Namespace) -> bool:
             raise SystemExit(1)
     elif args.command == "process":
         build_process([args.chapter] if args.chapter else list(read(workspace() / "chapters.json")["chapters"]))
+    elif args.command == "journal":
+        if not build_journal_check(REPOSITORY, args.base, args.chapter):
+            raise SystemExit(1)
     elif args.command == "templates" and args.chapter:
         build_templates(args.chapter)
     else:
@@ -92,8 +98,8 @@ def run_video(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None
         build_site(chapter)
     elif args.command == "rebuild":
         # число из исправленного утверждения сперва доходит до текста шага и заданий, потом до роликов
-        apply_fact(chapter, build=False, accept=True)
-        rebuild(chapter, open_provider, args.node, args.voice)
+        report = apply_fact(chapter, build=False, accept=args.accept)
+        rebuild(chapter, open_provider, args.node, args.voice, steps=[s["id"] for s in report.get("steps", [])], accept=args.accept)
     elif args.spec and args.accept:
         accept_spec(chapter, args.spec)
     elif args.spec:
@@ -121,7 +127,8 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
     if args.command == "verify":
         build_verify(args.chapter, open_provider(verifier_env(os.environ)), args.mutants)
         return
-    chapter = load_chapter(args.chapter)
+    # курсу, разбору, паспорту и показу правки книга не нужна: жюри собирает их и без md
+    chapter = load_chapter(args.chapter, need_text=args.command not in BOOKLESS and not (args.command == "fact" and args.apply))
     load_schema("node")
     if args.command == "units":
         for unit in chapter.units:
@@ -132,6 +139,7 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
         return
     if args.command == "narrate":
         build_narration(chapter)
+        return
     if args.command == "fact":
         apply_fact(chapter, accept=args.accept) if args.apply else show_fact(chapter)
         return
@@ -166,6 +174,8 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
         build_illustrations(chapter, provider)
     if args.command == "build":
         build_videos(chapter, open_provider, None, args.voice)
+        # озвученный разбор шагов: голос Microsoft, бесплатно
+        build_narration(chapter, site=False)
         build_templates(chapter.chapter_id)
         build_site(chapter)
 

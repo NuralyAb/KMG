@@ -162,3 +162,56 @@ def test_rebuild_asks_the_model_only_when_the_fact_changed(root, monkeypatch):
         monkeypatch.setattr(video, name, lambda *a: None)
     video.rebuild(chapter, lambda: "модель", None)
     assert asked == ["модель"]
+
+
+def _quiet_rebuild(video, monkeypatch, calls):
+    monkeypatch.setattr(video, "checked_spec", lambda c, f: (json.loads(f.read_text(encoding="utf-8")), NODE))
+    monkeypatch.setattr(video, "_film", lambda c, s, n, v: calls.append(s["video_id"]) or {"audio_check": {"duration_s": 1}})
+    monkeypatch.setattr(video, "build_narration", lambda c, only, site: calls.append(("narrate", tuple(only), site)))
+    monkeypatch.setattr(video, "write_metrics", lambda *a: None)
+    monkeypatch.setattr(video, "build_audit", lambda c: calls.append("audit"))
+    monkeypatch.setattr(video, "build_site", lambda c: calls.append("course"))
+
+
+def test_rebuild_narrates_touched_steps_and_skips_untouched_films(root, monkeypatch):
+    from glava.pipeline.steps import video
+
+    chapter = Chapter("demo", "dm", "Глава", "Книга", root, (), "demo.md")
+    save(chapter.work / "layer.json", {"nodes": [NODE]})
+    save(chapter.work / "narration.json", {"steps": {}})
+    save(chapter.work / "video_specs" / "one.json", {"video_id": "one", "node_id": "dm.a", "format": "short", "template": "t", "claim_marks": claim_marks(NODE), "beats": []})
+    film(root, "demo")
+    calls = []
+    monkeypatch.setattr(video, "verify_layer", lambda *a: [])
+    _quiet_rebuild(video, monkeypatch, calls)
+    video.rebuild(chapter, lambda: pytest.fail("модель не нужна"), None)
+    assert calls == ["audit", "course"]
+    calls.clear()
+    video.rebuild(chapter, lambda: pytest.fail("модель не нужна"), None, steps=["dm.a"])
+    assert calls == ["one", ("narrate", ("dm.a",), False), "audit", "course"]
+
+
+def test_rebuild_lets_a_number_outside_the_quote_only_with_accept(root, monkeypatch):
+    from glava.pipeline.steps import video
+    from glava.shared.evidence import Issue
+
+    chapter = Chapter("demo", "dm", "Глава", "Книга", root, (), "demo.md")
+    save(chapter.work / "layer.json", {"nodes": [NODE]})
+    monkeypatch.setattr(video, "verify_layer", lambda *a: [Issue("number_not_in_source", "dm.a:c1", "чисел нет")])
+    calls = []
+    _quiet_rebuild(video, monkeypatch, calls)
+    with pytest.raises(SystemExit):
+        video.rebuild(chapter, lambda: pytest.fail("модель не нужна"), None)
+    video.rebuild(chapter, lambda: pytest.fail("модель не нужна"), None, accept=True)
+    assert calls == ["audit", "course"]
+
+
+def test_course_and_narration_load_without_the_book(root):
+    from glava.modules.library.api import LibraryError
+    from glava.pipeline.chapter import load_chapter
+
+    save(root / "chapters.json", {"root": "нет_такой_папки", "pdf_root": "нет", "chapters": {"demo": {"file": "demo.md", "pages": [[1, 2]], "prefix": "dm", "domain": "geology",
+                                                                                                    "title": "Т", "book": "К"}}})
+    assert load_chapter("demo", need_text=False).units == ()
+    with pytest.raises(LibraryError, match="GLAVA_BOOKS"):
+        load_chapter("demo")
