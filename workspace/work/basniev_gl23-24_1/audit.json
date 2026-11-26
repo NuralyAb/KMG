@@ -227,7 +227,7 @@
    "claim_id": "basniev.debit_i_dobycha_galerei#c15",
    "node_id": "basniev.debit_i_dobycha_galerei",
    "text": "Накопленную добычу находят интегрированием дебита Q(t) от 0 до t; под интегралом остаётся dt/√t. В книге перед интегралом под корнем стоит ещё t; вероятно, это опечатка, правдоподобен множитель k(pк − pг)Bh/(μ√(πκ)).",
-   "quote": "$$V_{доб} = \\int_0^t Q(t)dt = \\frac{k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa t}} \\int_0^t \\frac{dt}{\\sqrt{t}}",
+   "quote": "$$V_{доб} = \\int_0^t Q(t)dt = \\frac{k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa t}} \\int_0^t \\frac{dt}{\\sqrt{t}} = \\frac{2k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa}} \\sqrt{t},$$",
    "page_pdf": 485,
    "flags": [
     "number"
@@ -277,7 +277,7 @@
    "claim_id": "basniev.davlenie_pri_postoyannom_debite#c6",
    "node_id": "basniev.davlenie_pri_postoyannom_debite",
    "text": "Интегрирование по частям даёт произведение x на ∫e^(−u²)du (от 0 до x/(2√(κt))), взятое от 0 до x, минус ∫₀ˣ x·e^(−x²/4κt)dx/(2√(κt)). Всё это умножено на (μ/k)(2/√π)w1.",
-   "quote": "\\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\Bigg|_0^x - \\int_0^x x e^{-x^2/4\\kappa t} \\frac{dx}{2\\sqrt{\\kappa t}} \\right]",
+   "quote": "$$\\begin{aligned} \\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\int_0^x \\left( \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\right) dx &= \\\\ &= \\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\Bigg|_0^x - \\int_0^x x e^{-x^2/4\\kappa t} \\frac{dx}{2\\sqrt{\\kappa t}} \\right] = \\\\ &= \\frac{2\\mu w_1}{k\\sqrt{\\pi}} \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du - \\sqrt{\\kappa t} \\left( 1 - e^{-x^2/4\\kappa t} \\right) \\right]. \\end{aligned}$$",
    "page_pdf": 487,
    "flags": [
     "number",
@@ -288,7 +288,7 @@
    "claim_id": "basniev.davlenie_pri_postoyannom_debite#c7",
    "node_id": "basniev.davlenie_pri_postoyannom_debite",
    "text": "Последнее слагаемое (23.36) после вычисления равно (2μw1/(k√π))·[x∫e^(−u²)du − √(κt)(1 − e^(−x²/4κt))], где интеграл берётся от 0 до x/(2√(κt)).",
-   "quote": "\\frac{2\\mu w_1}{k\\sqrt{\\pi}} \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du - \\sqrt{\\kappa t} \\left( 1 - e^{-x^2/4\\kappa t} \\right) \\right].",
+   "quote": "$$\\begin{aligned} \\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\int_0^x \\left( \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\right) dx &= \\\\ &= \\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\Bigg|_0^x - \\int_0^x x e^{-x^2/4\\kappa t} \\frac{dx}{2\\sqrt{\\kappa t}} \\right] = \\\\ &= \\frac{2\\mu w_1}{k\\sqrt{\\pi}} \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du - \\sqrt{\\kappa t} \\left( 1 - e^{-x^2/4\\kappa t} \\right) \\right]. \\end{aligned}$$",
    "page_pdf": 487,
    "flags": [
     "number"
@@ -733,7 +733,7 @@
    ]
   }
  ],
- "repeated_quotes": 12,
+ "repeated_quotes": 26,
  "sensitivity": {
   "seed": 0,
   "kinds": {
@@ -764,5 +764,5 @@
   "flagged_originals": 60,
   "originals": 619
  },
- "layer_sha256": "d8e85fdb8285e3fe574550d8705393c7a3e28ac9871b17f8e38b0198387252ec"
+ "layer_sha256": "e168b37e0791918abbdc14f622fddac419349f95cd3f13b18bf6443aa3fd9482"
 }

@@ -1793,7 +1793,7 @@
      "kind": "observation",
      "page_pdf": 476,
      "unit_id": "p476.06",
-     "quote": "\\beta_{\\text{ж}} V_{0\\text{ж}} \\Delta p + \\beta_{\\text{с}} V_0 \\Delta p",
+     "quote": "$$\\Delta V_{\\text{з}} = \\beta_{\\text{ж}} V_{0\\text{ж}} \\Delta p + \\beta_{\\text{с}} V_0 \\Delta p. \\quad (23.1)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -5154,7 +5154,7 @@
      "kind": "inference",
      "page_pdf": 480,
      "unit_id": "p480.10",
-     "quote": "$$\\frac{k}{\\mu} \\Delta \\left( \\int \\rho dp \\right) = \\frac{k}{\\mu} \\Delta \\left( \\rho_0 p + \\rho_0 \\beta_\\text{ж} \\left( \\frac{p^2}{2} - p_0 p \\right) + C \\right), \\quad (23.14)",
+     "quote": "$$\\frac{k}{\\mu} \\Delta \\left( \\int \\rho dp \\right) = \\frac{k}{\\mu} \\Delta \\left( \\rho_0 p + \\rho_0 \\beta_\\text{ж} \\left( \\frac{p^2}{2} - p_0 p \\right) + C \\right), \\quad (23.14)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -7428,7 +7428,7 @@
      "kind": "inference",
      "page_pdf": 482,
      "unit_id": "p482.17",
-     "quote": "\\frac{\\partial P}{\\partial x} = \\frac{dP}{du} \\frac{\\partial u}{\\partial x} = \\frac{dP}{du} \\frac{1}{2\\sqrt{\\kappa t}},",
+     "quote": "$$\\frac{\\partial P}{\\partial x} = \\frac{dP}{du} \\frac{\\partial u}{\\partial x} = \\frac{dP}{du} \\frac{1}{2\\sqrt{\\kappa t}},$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -7446,7 +7446,7 @@
      "kind": "inference",
      "page_pdf": 482,
      "unit_id": "p482.18",
-     "quote": "\\frac{\\partial P}{\\partial t} = \\frac{dP}{du} \\frac{\\partial u}{\\partial t} = \\frac{dP}{du} \\frac{x}{2\\sqrt{\\kappa}} \\left( -\\frac{1}{2\\sqrt{t^3}} \\right)",
+     "quote": "$$\\frac{\\partial P}{\\partial t} = \\frac{dP}{du} \\frac{\\partial u}{\\partial t} = \\frac{dP}{du} \\frac{x}{2\\sqrt{\\kappa}} \\left( -\\frac{1}{2\\sqrt{t^3}} \\right) = \\frac{dp}{du} \\left( -\\frac{u}{2t} \\right),$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -7464,7 +7464,7 @@
      "kind": "inference",
      "page_pdf": 482,
      "unit_id": "p482.18",
-     "quote": "\\left( -\\frac{1}{2\\sqrt{t^3}} \\right) = \\frac{dp}{du} \\left( -\\frac{u}{2t} \\right),",
+     "quote": "$$\\frac{\\partial P}{\\partial t} = \\frac{dP}{du} \\frac{\\partial u}{\\partial t} = \\frac{dP}{du} \\frac{x}{2\\sqrt{\\kappa}} \\left( -\\frac{1}{2\\sqrt{t^3}} \\right) = \\frac{dp}{du} \\left( -\\frac{u}{2t} \\right),$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -7482,7 +7482,7 @@
      "kind": "inference",
      "page_pdf": 482,
      "unit_id": "p482.19",
-     "quote": "\\frac{\\partial^2 P}{\\partial x^2} = \\frac{\\partial}{\\partial x} \\left( \\frac{\\partial P}{\\partial x} \\right) = \\frac{\\partial}{\\partial x} \\left( \\frac{dP}{du} \\frac{1}{2\\sqrt{\\kappa t}} \\right)",
+     "quote": "$$\\frac{\\partial^2 P}{\\partial x^2} = \\frac{\\partial}{\\partial x} \\left( \\frac{\\partial P}{\\partial x} \\right) = \\frac{\\partial}{\\partial x} \\left( \\frac{dP}{du} \\frac{1}{2\\sqrt{\\kappa t}} \\right) = \\frac{1}{2\\sqrt{\\kappa t}} \\frac{d^2 P}{du^2} \\frac{\\partial u}{\\partial x} = \\frac{1}{4\\kappa t} \\frac{d^2 P}{du^2}.$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -7495,7 +7495,7 @@
      "kind": "inference",
      "page_pdf": 482,
      "unit_id": "p482.19",
-     "quote": "\\frac{1}{2\\sqrt{\\kappa t}} \\frac{d^2 P}{du^2} \\frac{\\partial u}{\\partial x} = \\frac{1}{4\\kappa t} \\frac{d^2 P}{du^2}.",
+     "quote": "$$\\frac{\\partial^2 P}{\\partial x^2} = \\frac{\\partial}{\\partial x} \\left( \\frac{\\partial P}{\\partial x} \\right) = \\frac{\\partial}{\\partial x} \\left( \\frac{dP}{du} \\frac{1}{2\\sqrt{\\kappa t}} \\right) = \\frac{1}{2\\sqrt{\\kappa t}} \\frac{d^2 P}{du^2} \\frac{\\partial u}{\\partial x} = \\frac{1}{4\\kappa t} \\frac{d^2 P}{du^2}.$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -9201,7 +9201,7 @@
      "kind": "observation",
      "page_pdf": 484,
      "unit_id": "p484.11",
-     "quote": "$$w = \\frac{k}{\\mu} \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}, \\quad Q = \\frac{k}{\\mu} Bh",
+     "quote": "$$w = \\frac{k}{\\mu} \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}, \\quad Q = \\frac{k}{\\mu} Bh \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}, \\quad (23.28)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -9214,7 +9214,7 @@
      "kind": "observation",
      "page_pdf": 484,
      "unit_id": "p484.11",
-     "quote": "Q = \\frac{k}{\\mu} Bh \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}, \\quad (23.28)$$",
+     "quote": "$$w = \\frac{k}{\\mu} \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}, \\quad Q = \\frac{k}{\\mu} Bh \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}, \\quad (23.28)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -9258,7 +9258,7 @@
      "kind": "inference",
      "page_pdf": 484,
      "unit_id": "p484.13",
-     "quote": "(p_{\\mathrm{k}} - p_{\\mathrm{r}}) \\left(\\frac{2}{\\sqrt{\\pi}} e^{-\\left(\\frac{x}{2\\sqrt{\\kappa t}}\\right)^2} \\frac{1}{2\\sqrt{\\kappa t}}\\right)_{x=0}",
+     "quote": "$$\\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0} = (p_{\\mathrm{k}} - p_{\\mathrm{r}}) \\left(\\frac{2}{\\sqrt{\\pi}} e^{-\\left(\\frac{x}{2\\sqrt{\\kappa t}}\\right)^2} \\frac{1}{2\\sqrt{\\kappa t}}\\right)_{x=0} = \\frac{p_{\\mathrm{k}} - p_{\\mathrm{r}}}{\\sqrt{\\pi \\kappa t}}. \\quad (23.29)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -9271,7 +9271,7 @@
      "kind": "inference",
      "page_pdf": 484,
      "unit_id": "p484.13",
-     "quote": "= \\frac{p_{\\mathrm{k}} - p_{\\mathrm{r}}}{\\sqrt{\\pi \\kappa t}}. \\quad (23.29)$$",
+     "quote": "$$\\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0} = (p_{\\mathrm{k}} - p_{\\mathrm{r}}) \\left(\\frac{2}{\\sqrt{\\pi}} e^{-\\left(\\frac{x}{2\\sqrt{\\kappa t}}\\right)^2} \\frac{1}{2\\sqrt{\\kappa t}}\\right)_{x=0} = \\frac{p_{\\mathrm{k}} - p_{\\mathrm{r}}}{\\sqrt{\\pi \\kappa t}}. \\quad (23.29)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -9402,7 +9402,7 @@
      "kind": "inference",
      "page_pdf": 485,
      "unit_id": "p485.05",
-     "quote": "$$V_{доб} = \\int_0^t Q(t)dt = \\frac{k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa t}} \\int_0^t \\frac{dt}{\\sqrt{t}}",
+     "quote": "$$V_{доб} = \\int_0^t Q(t)dt = \\frac{k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa t}} \\int_0^t \\frac{dt}{\\sqrt{t}} = \\frac{2k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa}} \\sqrt{t},$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": true,
@@ -9415,7 +9415,7 @@
      "kind": "inference",
      "page_pdf": 485,
      "unit_id": "p485.05",
-     "quote": "= \\frac{2k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa}} \\sqrt{t},$$",
+     "quote": "$$V_{доб} = \\int_0^t Q(t)dt = \\frac{k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa t}} \\int_0^t \\frac{dt}{\\sqrt{t}} = \\frac{2k(p_к - p_г)Bh}{\\mu\\sqrt{\\pi\\kappa}} \\sqrt{t},$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -10026,7 +10026,7 @@
      "kind": "assumption",
      "page_pdf": 485,
      "unit_id": "p485.09",
-     "quote": "p(x, t) &= p_к \\quad \\text{при} \\quad t = 0;",
+     "quote": "$$\\begin{aligned} p(x, t) &= p_к \\quad \\text{при} \\quad t = 0; \\\\ w(x, t) &= \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} = w_1 = \\text{const} \\quad \\text{при} \\quad x = 0, \\ t > 0; \\\\ p(x, t) &= p_к \\quad \\text{при} \\quad t > 0, \\ x \\to \\infty. \\end{aligned} \\quad (23.31)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -10039,7 +10039,7 @@
      "kind": "assumption",
      "page_pdf": 485,
      "unit_id": "p485.09",
-     "quote": "w(x, t) &= \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} = w_1 = \\text{const} \\quad \\text{при} \\quad x = 0, \\ t > 0;",
+     "quote": "$$\\begin{aligned} p(x, t) &= p_к \\quad \\text{при} \\quad t = 0; \\\\ w(x, t) &= \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} = w_1 = \\text{const} \\quad \\text{при} \\quad x = 0, \\ t > 0; \\\\ p(x, t) &= p_к \\quad \\text{при} \\quad t > 0, \\ x \\to \\infty. \\end{aligned} \\quad (23.31)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -10057,7 +10057,7 @@
      "kind": "assumption",
      "page_pdf": 485,
      "unit_id": "p485.09",
-     "quote": "p(x, t) &= p_к \\quad \\text{при} \\quad t > 0, \\ x \\to \\infty.",
+     "quote": "$$\\begin{aligned} p(x, t) &= p_к \\quad \\text{при} \\quad t = 0; \\\\ w(x, t) &= \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} = w_1 = \\text{const} \\quad \\text{при} \\quad x = 0, \\ t > 0; \\\\ p(x, t) &= p_к \\quad \\text{при} \\quad t > 0, \\ x \\to \\infty. \\end{aligned} \\quad (23.31)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -10090,7 +10090,7 @@
      "conditions": [
       {
        "text": "Дебит связан со скоростью на галерее через площадь сечения пласта: ширину B и толщину h.",
-       "quote": "w = \\frac{k}{\\mu} \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}, \\quad Q = \\frac{k}{\\mu} Bh \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}"
+       "quote": "$$w = \\frac{k}{\\mu} \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}, \\quad Q = \\frac{k}{\\mu} Bh \\left(\\frac{\\partial p}{\\partial x}\\right)_{x=0}, \\quad (23.28)$$"
       }
      ],
      "id": "basniev.galereya_postoyannyi_debit_skorost#c9"
@@ -10176,7 +10176,7 @@
      "kind": "inference",
      "page_pdf": 486,
      "unit_id": "p486.06",
-     "quote": "\\frac{\\partial}{\\partial t} \\left( \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} \\right) = \\kappa \\frac{\\partial^2}{\\partial x^2} \\left( \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} \\right). \\quad (23.32)",
+     "quote": "$$\\frac{\\partial}{\\partial t} \\left( \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} \\right) = \\kappa \\frac{\\partial^2}{\\partial x^2} \\left( \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} \\right). \\quad (23.32)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -10189,7 +10189,7 @@
      "kind": "assumption",
      "page_pdf": 486,
      "unit_id": "p486.08",
-     "quote": "\\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} = w(x, t),",
+     "quote": "$$\\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} = w(x, t),$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -10220,7 +10220,7 @@
      "kind": "inference",
      "page_pdf": 486,
      "unit_id": "p486.10",
-     "quote": "\\frac{\\partial w(x, t)}{\\partial t} = \\kappa \\frac{\\partial^2 w(x, t)}{\\partial x^2}. \\quad (23.33)",
+     "quote": "$$\\frac{\\partial w(x, t)}{\\partial t} = \\kappa \\frac{\\partial^2 w(x, t)}{\\partial x^2}. \\quad (23.33)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -10802,14 +10802,14 @@
      "kind": "inference",
      "page_pdf": 486,
      "unit_id": "p486.23",
-     "quote": "\\right) \\right] = \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x}. \\quad (23.35)$$",
+     "quote": "$$w(x, t) = w_1 \\left[ 1 - \\operatorname{erf} \\left( \\frac{x}{2\\sqrt{\\kappa t}} \\right) \\right] = \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x}. \\quad (23.35)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
      "conditions": [
       {
        "text": "Скорость записана со знаком, при котором w = (k/μ)·∂p/∂x без минуса.",
-       "quote": "w(x, t) &= \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} = w_1 = \\text{const} \\quad \\text{при} \\quad x = 0, \\ t > 0;"
+       "quote": "$$\\begin{aligned} p(x, t) &= p_к \\quad \\text{при} \\quad t = 0; \\\\ w(x, t) &= \\frac{k}{\\mu} \\frac{\\partial p}{\\partial x} = w_1 = \\text{const} \\quad \\text{при} \\quad x = 0, \\ t > 0; \\\\ p(x, t) &= p_к \\quad \\text{при} \\quad t > 0, \\ x \\to \\infty. \\end{aligned} \\quad (23.31)$$"
       }
      ],
      "id": "basniev.reshenie_dlya_skorosti#c12"
@@ -11247,7 +11247,7 @@
      "kind": "inference",
      "page_pdf": 487,
      "unit_id": "p487.08",
-     "quote": "\\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\Bigg|_0^x - \\int_0^x x e^{-x^2/4\\kappa t} \\frac{dx}{2\\sqrt{\\kappa t}} \\right]",
+     "quote": "$$\\begin{aligned} \\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\int_0^x \\left( \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\right) dx &= \\\\ &= \\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\Bigg|_0^x - \\int_0^x x e^{-x^2/4\\kappa t} \\frac{dx}{2\\sqrt{\\kappa t}} \\right] = \\\\ &= \\frac{2\\mu w_1}{k\\sqrt{\\pi}} \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du - \\sqrt{\\kappa t} \\left( 1 - e^{-x^2/4\\kappa t} \\right) \\right]. \\end{aligned}$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -11260,7 +11260,7 @@
      "kind": "inference",
      "page_pdf": 487,
      "unit_id": "p487.08",
-     "quote": "\\frac{2\\mu w_1}{k\\sqrt{\\pi}} \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du - \\sqrt{\\kappa t} \\left( 1 - e^{-x^2/4\\kappa t} \\right) \\right].",
+     "quote": "$$\\begin{aligned} \\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\int_0^x \\left( \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\right) dx &= \\\\ &= \\frac{\\mu}{k} \\frac{2}{\\sqrt{\\pi}} w_1 \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du \\Bigg|_0^x - \\int_0^x x e^{-x^2/4\\kappa t} \\frac{dx}{2\\sqrt{\\kappa t}} \\right] = \\\\ &= \\frac{2\\mu w_1}{k\\sqrt{\\pi}} \\left[ x \\times \\int_0^{x/2\\sqrt{\\kappa t}} e^{-u^2} du - \\sqrt{\\kappa t} \\left( 1 - e^{-x^2/4\\kappa t} \\right) \\right]. \\end{aligned}$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -12976,7 +12976,7 @@
      "kind": "observation",
      "page_pdf": 489,
      "unit_id": "p489.06",
-     "quote": "[r] = L, [t] = T, [\\kappa] = L^2 T^{-1}, [p_\\kappa] = [p]",
+     "quote": "$$[r] = L, [t] = T, [\\kappa] = L^2 T^{-1}, [p_\\kappa] = [p], \\\\ \\left[ \\frac{Q_0 \\mu}{2\\pi k h} \\right] = [p],$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -12989,7 +12989,7 @@
      "kind": "observation",
      "page_pdf": 489,
      "unit_id": "p489.06",
-     "quote": "[p_\\kappa] = [p], \\\\ \\left[ \\frac{Q_0 \\mu}{2\\pi k h} \\right] = [p]",
+     "quote": "$$[r] = L, [t] = T, [\\kappa] = L^2 T^{-1}, [p_\\kappa] = [p], \\\\ \\left[ \\frac{Q_0 \\mu}{2\\pi k h} \\right] = [p],$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -13054,7 +13054,7 @@
      "kind": "inference",
      "page_pdf": 489,
      "unit_id": "p489.08",
-     "quote": "$$P = f \\left( \\xi, \\frac{Q_0 \\mu}{2\\pi k h p_\\kappa} \\right)",
+     "quote": "$$P = f \\left( \\xi, \\frac{Q_0 \\mu}{2\\pi k h p_\\kappa} \\right), \\quad \\xi = \\frac{r}{2\\sqrt{\\kappa t}}. \\quad (23.43)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -13067,7 +13067,7 @@
      "kind": "assumption",
      "page_pdf": 489,
      "unit_id": "p489.08",
-     "quote": "\\quad \\xi = \\frac{r}{2\\sqrt{\\kappa t}}. \\quad (23.43)$$",
+     "quote": "$$P = f \\left( \\xi, \\frac{Q_0 \\mu}{2\\pi k h p_\\kappa} \\right), \\quad \\xi = \\frac{r}{2\\sqrt{\\kappa t}}. \\quad (23.43)$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -13129,7 +13129,7 @@
      "kind": "inference",
      "page_pdf": 489,
      "unit_id": "p489.10",
-     "quote": "$$\\frac{\\partial P}{\\partial t} = - \\frac{dP}{d\\xi} \\frac{\\xi}{2t}",
+     "quote": "$$\\frac{\\partial P}{\\partial t} = - \\frac{dP}{d\\xi} \\frac{\\xi}{2t}, \\quad \\frac{\\partial P}{\\partial r} = \\frac{dP}{d\\xi} \\frac{1}{2\\sqrt{\\kappa t}}, \\quad \\frac{\\partial^2 P}{\\partial r^2} = \\frac{1}{4\\kappa t} \\frac{d^2 P}{d\\xi^2}.$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -13142,7 +13142,7 @@
      "kind": "inference",
      "page_pdf": 489,
      "unit_id": "p489.10",
-     "quote": "\\frac{\\partial P}{\\partial r} = \\frac{dP}{d\\xi} \\frac{1}{2\\sqrt{\\kappa t}}",
+     "quote": "$$\\frac{\\partial P}{\\partial t} = - \\frac{dP}{d\\xi} \\frac{\\xi}{2t}, \\quad \\frac{\\partial P}{\\partial r} = \\frac{dP}{d\\xi} \\frac{1}{2\\sqrt{\\kappa t}}, \\quad \\frac{\\partial^2 P}{\\partial r^2} = \\frac{1}{4\\kappa t} \\frac{d^2 P}{d\\xi^2}.$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -13155,7 +13155,7 @@
      "kind": "inference",
      "page_pdf": 489,
      "unit_id": "p489.10",
-     "quote": "\\frac{\\partial^2 P}{\\partial r^2} = \\frac{1}{4\\kappa t} \\frac{d^2 P}{d\\xi^2}.",
+     "quote": "$$\\frac{\\partial P}{\\partial t} = - \\frac{dP}{d\\xi} \\frac{\\xi}{2t}, \\quad \\frac{\\partial P}{\\partial r} = \\frac{dP}{d\\xi} \\frac{1}{2\\sqrt{\\kappa t}}, \\quad \\frac{\\partial^2 P}{\\partial r^2} = \\frac{1}{4\\kappa t} \\frac{d^2 P}{d\\xi^2}.$$",
      "source_kind": "formula",
      "by_model": false,
      "needs_scan": false,
@@ -13742,7 +13742,7 @@
       },
       {
        "text": "ξ = r/(2√(κt))",
-       "quote": "\\quad \\xi = \\frac{r}{2\\sqrt{\\kappa t}}. \\quad (23.43)"
+       "quote": "$$P = f \\left( \\xi, \\frac{Q_0 \\mu}{2\\pi k h p_\\kappa} \\right), \\quad \\xi = \\frac{r}{2\\sqrt{\\kappa t}}. \\quad (23.43)$$"
       }
      ],
      "id": "basniev.integrirovanie_radialnoi_zadachi#c2"
@@ -14631,7 +14631,7 @@
      "conditions": [
       {
        "text": "Верхний предел интеграла — бесконечность, как в формуле (23.51).",
-       "quote": "\\int_{r^2/(4\\kappa t)}^{\\infty} \\frac{e^{-u}}{u} du. \\quad (23.51)"
+       "quote": "$$p(r, t) = p_\\kappa - \\frac{Q_0 \\mu}{2\\pi k h} \\int_{r^2/(4\\kappa t)}^{\\infty} \\frac{e^{-u}}{u} du. \\quad (23.51)$$"
       }
      ],
      "id": "basniev.osnovnaya_formula_rezhima#c3"
@@ -15206,7 +15206,7 @@
      "conditions": [
       {
        "text": "x обозначает r²/(4κt).",
-       "quote": "если } x = \\frac{r^2}{4 \\kappa t} \\leq 0,01;"
+       "quote": "$$0,25\\%, \\quad \\text{если } x = \\frac{r^2}{4 \\kappa t} \\leq 0,01;$$"
       }
      ],
      "id": "basniev.logarifmicheskoe_priblizhenie#c12"
@@ -15224,7 +15224,7 @@
      "conditions": [
       {
        "text": "x обозначает r²/(4κt).",
-       "quote": "если } x = \\frac{r^2}{4 \\kappa t} \\leq 0,01;"
+       "quote": "$$0,25\\%, \\quad \\text{если } x = \\frac{r^2}{4 \\kappa t} \\leq 0,01;$$"
       }
      ],
      "id": "basniev.logarifmicheskoe_priblizhenie#c13"
