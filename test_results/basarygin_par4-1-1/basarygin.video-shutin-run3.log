@@ -1,0 +1,7 @@
+попытка 1: замечаний 3
+попытка 2: замечаний 1
+HTTP Request: GET https://huggingface.co/api/models/Systran/faster-whisper-medium/revision/main "HTTP/1.1 200 OK"
+[2026-11-26 12:56:13.778] [ctranslate2] [thread 9496960] [warning] Tip: experimental MPS backend is available and often 2x+ faster than CPU on Apple Silicon (varies by workload and hardware). Try device="mps".
+Processing audio with duration 01:08.962
+ролик /Users/nuridinnurman/Desktop/KMG-freeze/workspace/out/basarygin_par4-1-1/videos/basarygin_shut_in_effect_short.mp4, 69 с, замечания к дорожке: ['крючок дозвучал на 3.8 с, нужно до 3 с']
+спецификация: /Users/nuridinnurman/Desktop/KMG-freeze/workspace/work/basarygin_par4-1-1/video_specs/basarygin_shut_in_effect_short.json
