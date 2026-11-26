@@ -1,7 +1,7 @@
 # Манифест конвейера
 
 Команда: OpenToWork.
-Тег заморозки: ещё не поставлен.
+Тег заморозки: `freeze-2026-11-26`.
 
 Версии сняты с рабочего ПК 25.11.2026 (`importlib.metadata`, `--version`, `uv.lock`). Перед тегом их снимают заново.
 
@@ -18,7 +18,7 @@
 | Спецификация ролика | Claude Sonnet по умолчанию; первые пробы 25.11 — Claude Opus | `sonnet`; в пробах `claude-opus-5-5` | облако Anthropic через Claude Code | узел слоя, описание шаблона сцены, чек-лист физики | `LLM_MODEL` |
 | Агент симуляторов | Claude Sonnet | алиас `sonnet`; замысел проверен, до конца не прогонялся | облако Anthropic через Claude Code | утверждения и цитаты узла слоя, кадры симулятора | `LLM_MODEL` или `simulators/agent/steps.json` |
 | Разработка кода, шаблонов сцен и текстов документации | Claude Code с Claude Opus 5.5 | `claude-opus-5-5` | облако Anthropic | код репозитория, слой, утверждения узлов; тексты правок — в `manual_edits.csv` | другой помощник или человек |
-| Озвучка, запасной путь | ElevenLabs `eleven_multilingual_v2`, голос Sarah `EXAVITQu4vr4xnSDxMaL`, speed 0.95 | API v1; проба 26.11.2026: шортс 82 с, ошибок в словах 2,7 %, 1073 знака, тариф free | облако ElevenLabs | только текст закадровых фраз | `VOICE_PROVIDER`, `ELEVENLABS_*` |
+| Озвучка, запасной путь | ElevenLabs `eleven_multilingual_v2`, голос Artsiom `cQBwjaYSTY9mh3fUvHS3` (русский), speed 0.95 | API v1; проба 26.11.2026: три шортса Латышовой и разбор Басниева, ошибок в словах 2,3–6,8 % (Whisper medium), около 3000 знаков, тариф payg | облако ElevenLabs | только текст закадровых фраз | `VOICE_PROVIDER`, `ELEVENLABS_*` |
 | Озвучка, основной голос | онлайн-голос Microsoft | `ru-RU-DmitryNeural`, обычный темп (+0%); `edge-tts` 7.3.1 | облако Microsoft | только текст закадровых фраз | `VOICE_EDGE_NAME`, `VOICE_EDGE_RATE` |
 | Проверка дорожки | Whisper | `medium`, int8, CPU (около 40 с на ролик; `small` на синтезе путал орфографию: 10,9 % против 6,5 % на одном ролике); `faster-whisper` 1.2.1, `ctranslate2` 4.9.1 | локально | ничего; веса один раз скачиваются с Hugging Face | переменная `WHISPER_MODEL` (`small`, `medium`, `large-v3`) |
 
