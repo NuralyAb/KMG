@@ -154,3 +154,21 @@ def test_shipped_specs_pass_their_own_checks():
         domain = DOMAIN / json.loads((paths.workspace() / "chapters.json").read_text(encoding="utf-8"))["chapters"][spec["chapter"]]["domain"]
         checklist = json.loads((domain / "physics_checklist.json").read_text(encoding="utf-8"))
         assert spec_issues(spec, node, load_module(domain / "video" / f"{spec['template']}.py"), checklist, spec["format"]) == []
+
+
+@pytest.mark.parametrize(("domain", "name", "params", "actions"), SCENES, ids=[s[1] for s in SCENES])
+@pytest.mark.parametrize("kind", list(LAYOUTS))
+def test_plaque_names_the_exaggeration_with_a_number(domain, name, params, actions, kind):
+    """ТЗ: преувеличение на кадре подписано числом, а не общей оговоркой «не в масштабе»."""
+    from glava.shared.plaque import plaque_errors
+
+    plaque = template(domain, name).plaque(params, kind)
+    assert any(ch.isdigit() for ch in plaque) and plaque_errors([plaque]) == []
+
+
+def test_invasion_plaque_follows_the_shown_interval():
+    scene = template("geology", "invasion_zone")
+    taller, shorter = scene.plaque({**INVASION, "interval_m": 40}, "short"), scene.plaque({**INVASION, "interval_m": 5}, "short")
+    number = lambda text: int("".join(ch for ch in text if ch.isdigit()))
+    assert number(taller) > number(shorter)
+    assert scene.check({**INVASION, "interval_m": 500}, [beat({})])

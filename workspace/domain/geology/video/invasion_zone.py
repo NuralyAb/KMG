@@ -7,14 +7,16 @@ from typing import Any
 
 import cairo
 
-from glava.sdk.video import arrow, dot, fill_rect, polyline, text
+from glava.sdk.video import LAYOUTS, arrow, dot, fill_rect, polyline, text
 
-SUMMARY = """invasion_zone — зона проникновения фильтрата растёт, а затем расформировывается; показания приборов считаются из неё. Разрез у скважины, показания по слоям и их история во времени. params: {"mode":"resistivity|neutron","layers":[сверху вниз 2–4 {"label":"до 14 знаков","lith":"sand|limestone|dense|shale","fluid":"gas|oil|water" или null,"perm":0..1 проницаемость (0 — фильтрат не входит),"native":показание или сопротивление неизменной части,"invaded":то же в зоне проникновения}],"probes":[1–2 {"label":"до 8 знаков","depth":0.05..1 глубинность в долях вида,"curve":"RES|RES_SHALLOW|NEUTRON"}],"depth_max":0.2..0.8 наибольшая глубина проникновения в долях вида,"cased":true|false,"contact":номер слоя, под которым показан контакт, или 0}. Для neutron native и invaded — условные показания нейтронного метода: против газа native больше. Числа условные, вслух не произносятся. Действия: invade 0..1 (фильтрат входит), dissipate 0..1 (зона расформировывается; быстрее там, где проницаемость больше и зона меньше), casing 0..1 (спущена колонна, после неё invade не растёт), tracks 0..1 (показания), history 0..1 (история во времени), contact 0..1 (линия контакта), focus 0 или номер слоя, true_scale 0..1 (подпись о масштабе)."""
+SUMMARY = """invasion_zone — зона проникновения фильтрата растёт, а затем расформировывается; показания приборов считаются из неё. Разрез у скважины, показания по слоям и их история во времени. params: {"mode":"resistivity|neutron","layers":[сверху вниз 2–4 {"label":"до 14 знаков","lith":"sand|limestone|dense|shale","fluid":"gas|oil|water" или null,"perm":0..1 проницаемость (0 — фильтрат не входит),"native":показание или сопротивление неизменной части,"invaded":то же в зоне проникновения}],"probes":[1–2 {"label":"до 8 знаков","depth":0.05..1 глубинность в долях вида,"curve":"RES|RES_SHALLOW|NEUTRON"}],"depth_max":0.2..0.8 наибольшая глубина проникновения в долях вида,"cased":true|false,"contact":номер слоя, под которым показан контакт, или 0,"interval_m":высота показанного интервала в метрах, 2–200 (по умолчанию 10; если в главе нет — типичная мощность, в assumptions)}. Для neutron native и invaded — условные показания нейтронного метода: против газа native больше. Числа условные, вслух не произносятся. Действия: invade 0..1 (фильтрат входит), dissipate 0..1 (зона расформировывается; быстрее там, где проницаемость больше и зона меньше), casing 0..1 (спущена колонна, после неё invade не растёт), tracks 0..1 (показания), history 0..1 (история во времени), contact 0..1 (линия контакта), focus 0 или номер слоя, true_scale 0..1 (подпись о масштабе)."""
 STATE_MODEL = "радиус зоны проникновения в каждом слое: рост по проницаемости, расформирование со своей скоростью; показание — среднее по глубинности зонда"
 FITS = ("проникновен", "расформирован", "повторн", "фильтрат", "градиент", "разноглубинн|мбк|бк-3|микро", "нейтрон")
 ACTIONS = {"invade", "dissipate", "casing", "tracks", "history", "contact", "focus", "true_scale"}
 ORDER = ("gas", "oil", "water")
 HISTORY = 60
+REAL_BIT_M = 0.2  # типичный диаметр долота: им меряется горизонтальный масштаб рисунка
+DEFAULT_INTERVAL_M = 10.0
 
 
 def grown(layer: Mapping[str, Any], params: Mapping[str, Any], invade: float) -> float:
@@ -57,6 +59,8 @@ def check(params: Mapping[str, Any], beats: Sequence[Mapping[str, Any]]) -> list
             issues.append("neutron: против газа показание больше, чем против нефти и воды")
     if any(p["curve"] not in ("RES", "RES_SHALLOW", "NEUTRON") or not 0.05 <= p["depth"] <= 1 for p in probes):
         issues.append("зонд: curve RES, RES_SHALLOW или NEUTRON; depth от 0.05 до 1")
+    if "interval_m" in params and not 2 <= params["interval_m"] <= 200:
+        issues.append("interval_m от 2 до 200 м")
     if not 0 <= params.get("contact", 0) < len(layers):
         issues.append("contact: номер слоя, под которым контакт, или 0")
     issues += [f"действия {k} у шаблона нет" for b in beats for k in b["action"] if k not in ACTIONS]
@@ -80,7 +84,15 @@ def initial(params: Mapping[str, Any]) -> dict[str, float]:
 
 
 def plaque(params: Mapping[str, Any], kind: str) -> str:
-    return "скважина и слои не в масштабе"
+    """Во сколько раз рисунок растянут по горизонтали: полоса ствола на рисунке против диаметра долота,
+    высота вида против показанного интервала. Считается из тех же размеров, что и рисунок."""
+    layout = LAYOUTS[kind]
+    _, _, w, h = _boxes(layout.scene, layout)[0]
+    across = w * 0.16 / REAL_BIT_M
+    down = (h - layout.small * 2.6) / float(params.get("interval_m") or DEFAULT_INTERVAL_M)
+    factor = max(1, round(across / down))
+    word = "раза" if factor % 10 in (2, 3, 4) and factor % 100 not in (12, 13, 14) else "раз"
+    return f"по горизонтали растянуто в {factor} {word}"
 
 
 def _boxes(area: tuple[float, float, float, float], layout: Any) -> list[tuple[float, float, float, float]]:

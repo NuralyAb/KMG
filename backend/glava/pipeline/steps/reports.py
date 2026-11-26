@@ -17,6 +17,7 @@ from glava.pipeline.steps.course import course_videos
 from glava.shared.evidence import term_order_issues
 from glava.shared.json_files import read, read_or, save
 from glava.shared.json_schemas import load_schema
+from glava.shared.plaque import plaque_errors
 from glava.shared.paths import REPOSITORY, workspace
 
 log = logging.getLogger("glava")
@@ -147,6 +148,17 @@ def _route_checks(work: Path, layer: Mapping[str, Any], filmed: set[str]) -> lis
     ]
 
 
+def _late_hook(passport: Mapping[str, Any]) -> list[str]:
+    """Крючок по паспорту: ролики, снятые до проверки времени крючка, тоже проверяются. Время — по доле слов первой фразы."""
+    script = passport.get("script") or []
+    if not script:
+        return []
+    first = script[0]
+    opening = re.split(r"(?<=[.!?])\s+", first["text"].strip())[0]
+    end = first["t_start"] + (first["t_end"] - first["t_start"]) * len(opening.split()) / max(1, len(first["text"].split()))
+    return [f"крючок дозвучал на {end:.1f} с, нужно до 3 с"] if end > 3.0 else []
+
+
 def _passport_checks(out: Path) -> list[Check]:
     checks: list[Check] = []
     for file in sorted((out / "videos").glob("*.passport.json")):
@@ -155,6 +167,9 @@ def _passport_checks(out: Path) -> list[Check]:
         wrong = [e.message[:100] for e in jsonschema.Draft202012Validator(load_schema("passport")).iter_errors(passport)]
         missing = [s for s in (".mp4", ".srt", ".scene.json") if not (file.parent / f"{name}{s}").exists()]
         problems = passport["audio_check"].get("problems", [])
+        problems = [*problems, *(h for h in _late_hook(passport) if h not in problems)]
+        scene = read_or(file.parent / f"{name}.scene.json", {})
+        problems = [*problems, *plaque_errors(scene.get("plaque") or [])]
         bad_physics = [p["item"] for p in passport["physics_checklist"] if p["answer"] == "нет"]
         faults = [*wrong, *(f"нет файла {m}" for m in missing), *problems, *bad_physics]
         checks = [*checks, Check(f"ролик {name}", not faults, "; ".join(faults) or f"{passport['format']}, {passport['audio_check']['duration_s']} с, голос {passport['audio_check'].get('voice')}")]

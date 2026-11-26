@@ -9,6 +9,7 @@ from types import ModuleType
 from typing import Any
 
 from glava.modules.video.check import (
+    hook_problems,
     pace_problems,
     recognise,
     speech_rate,
@@ -76,7 +77,7 @@ def produce(
         "lufs": lufs, "true_peak": peak, "duration_s": round(total, 1), "sync_s": sync_error(placed, heard.words), "paid_chars": voiced.paid_chars,
         "sync": "95 % слов дорожки звучат не дальше sync_s от времени, к которому привязана сцена; слова нашла локальная модель Whisper",
     }
-    audio = {**audio, "problems": [*audio_problems(audio), *length_problems(total, spec["format"]), *pace_problems(placed, total)]}
+    audio = {**audio, "problems": [*audio_problems(audio), *length_problems(total, spec["format"]), *hook_problems(placed), *pace_problems(placed, total)]}
     video = render_video(spec, placed, total, template, style, track, out / f"{spec['video_id']}.mp4")
     answers = {k: (v["answer"], v["note"]) for k, v in spec["physics"].items()}
     passport = build_passport(spec, node, placed, scene.name, checklist, answers, audio)

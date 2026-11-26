@@ -11,6 +11,7 @@ from glava.modules.video.ffmpeg import measured, samples_16k
 from glava.modules.video.timeline import Placed
 from glava.modules.video.voices import Word
 from glava.shared.evidence import unsupported_numbers
+from glava.shared.plaque import plaque_errors
 
 MAX_SAY_WORDS = 18
 MAX_SCREEN_WORDS = 8
@@ -23,6 +24,7 @@ FIRST, LAST = "hook", "transfer"
 NOT_FACTS = {"hook", "prediction", "transfer", "frame"}
 GREEK_OR_FORMULA = re.compile(r"[\u0370-\u03FF=<>≤≥≈∝^_]")
 REQUIRED_LISTS = ("objects", "invariants", "assumptions", "exaggerations", "plaque")
+HOOK_BY_S = 3.0
 
 
 def _beat_errors(beat: Mapping[str, Any], number: int, claims: Mapping[str, Mapping], source: str) -> list[str]:
@@ -56,7 +58,8 @@ def script_errors(spec: Mapping[str, Any], node: Mapping[str, Any]) -> list[str]
     if len(guesses) != 1 or not MIN_PAUSE <= float(guesses[0].get("pause_after") or 0) <= MAX_PAUSE:
         errors.append(f"нужна одна фраза prediction с паузой {MIN_PAUSE}–{MAX_PAUSE} с")
     errors += [f"поле {k} пустое" for k in REQUIRED_LISTS if not spec.get(k)]
-    return errors
+    return errors + plaque_errors(spec.get("plaque") or [])
+
 
 
 def motion_errors(beats: Sequence[Mapping[str, Any]], initial: Mapping[str, float]) -> list[str]:
@@ -119,6 +122,23 @@ def sync_error(placed: Sequence[Placed], heard: Sequence[Word]) -> float | None:
     blocks = SequenceMatcher(None, [t for t, _ in planned], [t for t, _ in actual], autojunk=False).get_matching_blocks()
     gaps = sorted(abs(planned[b.a + k][1] - actual[b.b + k][1]) for b in blocks for k in range(b.size))
     return round(gaps[int(len(gaps) * 0.95)], 2) if len(gaps) * 2 >= len(planned) and gaps else None
+
+
+def hook_end(placed: Sequence[Placed]) -> float | None:
+    """Когда дозвучит первое предложение крючка: по времени слов голоса, без них — по доле слов во фразе."""
+    if not placed:
+        return None
+    first = placed[0]
+    opening = re.split(r"(?<=[.!?])\s+", first.beat["say"].strip())[0]
+    count, total = len(opening.split()), max(1, len(first.beat["say"].split()))
+    words = first.speech.words
+    spoken_by = words[count - 1].end if len(words) >= count else first.speech.duration * count / total
+    return first.start + spoken_by
+
+
+def hook_problems(placed: Sequence[Placed]) -> list[str]:
+    end = hook_end(placed)
+    return [f"крючок дозвучал на {end:.1f} с, нужно до {HOOK_BY_S:.0f} с"] if end is not None and end > HOOK_BY_S else []
 
 
 def pace_problems(placed: Sequence[Placed], total: float) -> list[str]:

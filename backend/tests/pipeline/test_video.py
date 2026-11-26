@@ -5,7 +5,8 @@ from pathlib import Path
 
 import jsonschema
 import pytest
-from glava.modules.video.check import motion_errors, script_errors, speech_rate, word_error_rate
+from glava.modules.video.check import hook_problems, motion_errors, script_errors, speech_rate, word_error_rate
+from glava.shared.plaque import plaque_errors
 from glava.modules.video.passport import build_passport
 from glava.modules.video.speech import Speech, Word, dictionaries, spoken
 from glava.modules.video.timeline import place, srt, state_at
@@ -22,7 +23,7 @@ def beat(say, **over):
 
 SPEC = {
     "video_id": "lat_v1", "chapter": "latyshova", "node_id": "lat.mud", "format": "short", "template": "well_tool_curve", "params": {}, "objects": ["ствол"],
-    "invariants": ["глубина вниз"], "assumptions": ["без масштаба"], "exaggerations": ["ствол шире в 20 раз"], "plaque": ["не в масштабе"],
+    "invariants": ["глубина вниз"], "assumptions": ["без масштаба"], "exaggerations": ["ствол шире в 20 раз"], "plaque": ["числа условные"],
     "prediction_question": "Где ствол уже?", "transfer_question": "А если бурить на воде?", "data_it_bridge": "Кавернограмма — столбец данных.", "terms_to_check": ["корка"],
     "beats": [beat("Почему скважина местами уже долота?", role="hook", on_screen="Уже долота?"),
               beat("Угадайте, где ствол сузится.", role="prediction", pause_after=1.2, action={"tool": 2.0}),
@@ -126,3 +127,17 @@ def test_passport_matches_the_schema():
     jsonschema.validate(passport, load_schema("passport"))
     assert passport["sources"][0]["page_or_dataset"] == "стр. 96"
     assert json.dumps(passport, ensure_ascii=False)
+
+
+def test_scale_plaque_needs_a_number():
+    assert plaque_errors(["ствол шире в 20 раз", "числа условные", "толщины увеличены в 3 раза"]) == []
+    assert len(plaque_errors(["не в масштабе", "Зона увеличена, числа условные", "Ширина ствола сильно увеличена"])) == 3
+    assert any("плашка" in e for e in script_errors({**SPEC, "plaque": ["не в масштабе"]}, NODE))
+
+
+def test_hook_must_be_heard_within_three_seconds():
+    placed, _ = place(SPEC["beats"], speeches())
+    assert hook_problems(placed) == []  # у голоса два слова из пяти: время по доле слов, 0,2 + 2,0 с
+    slow = [Speech(Path("x.mp3"), 5.0, ()) for _ in SPEC["beats"]]  # без времени слов — по доле слов во фразе
+    placed, _ = place(SPEC["beats"], slow)
+    assert hook_problems(placed) == ["крючок дозвучал на 5.2 с, нужно до 3 с"]
