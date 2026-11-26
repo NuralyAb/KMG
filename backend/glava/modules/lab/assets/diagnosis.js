@@ -62,6 +62,7 @@
     .diagnosis-links a { min-height: 32px; display: inline-flex; align-items: center; }
     .lab-link { position: fixed; right: 16px; bottom: 16px; z-index: 5; padding: 10px 16px; border-radius: 99px; background: var(--fill, var(--brand, #0b6e8f)); color: var(--brand-ink, #fff); font-size: 16px; font-weight: 500; text-decoration: none; box-shadow: 0 4px 16px rgb(0 0 0 / 22%); }
     body.locked .lab-link { display: none; }
+    @media (max-width: 720px) { .lab-link { position: static; display: block; margin: 24px 16px; text-align: center; box-shadow: none; } }
     @media print { .lab-link { display: none; } }`;
   document.head.append(style);
   const entry = document.createElement('a');

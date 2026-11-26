@@ -101,13 +101,13 @@ test('repeat marks saved by an older version are not lost', () => {
 
 // ---------- состояние ----------
 test('broken progress falls back to a clean state', () => {
-  const clean = { done: [], solved: {}, first: {}, cards: {}, repeat: [], last: null, theme: 'auto', notes: {}, seen: {} };
-  for (const raw of [null, 5, 'x', [], { done: null, solved: [], cards: 'no', repeat: {}, last: {}, theme: 'pink', notes: ['x'], seen: { a: 'read' } }]) assert.deepEqual(core.cleanState(raw, ['a']), clean);
+  const clean = { done: [], solved: {}, first: {}, cards: {}, repeat: [], last: null, theme: 'auto', notes: {}, seen: {}, full: false };
+  for (const raw of [null, 5, 'x', [], { done: null, solved: [], cards: 'no', repeat: {}, last: {}, theme: 'pink', notes: ['x'], seen: { a: 'read' }, full: 'yes' }]) assert.deepEqual(core.cleanState(raw, ['a']), clean);
 });
 
 test('progress of unknown steps is dropped, the rest survives', () => {
   const state = core.cleanState({ done: ['a', 'gone', 'a'], solved: { t: true, z: 'yes' }, cards: { a: 'know', gone: 'again' }, repeat: ['gone'], last: 2, theme: 'dark', notes: { a: 'запомнить', b: '', gone: 'х' }, seen: { a: ['read'], b: [1], gone: ['read'] } }, ['a', 'b']);
-  assert.deepEqual(state, { done: ['a'], solved: { t: true }, first: {}, cards: { a: 'know' }, repeat: [], last: 2, theme: 'dark', notes: { a: 'запомнить' }, seen: { a: ['read'] } });
+  assert.deepEqual(state, { done: ['a'], solved: { t: true }, first: {}, cards: { a: 'know' }, repeat: [], last: 2, theme: 'dark', notes: { a: 'запомнить' }, seen: { a: ['read'] }, full: false });
 });
 
 // ---------- содержание курса ----------
@@ -229,4 +229,18 @@ test('results count first attempts and solved tasks from saved progress only', (
   assert.match(text, /Решено всего: 2 из 3 начатых \(67 %\)/);
   assert.match(text, /1\.1 Первый: решено 2 из 2, с первой попытки 1/);
   assert.match(core.resultsText(course, core.cleanState(null, ['a', 'b']), String, ''), /заданий пока не решали/);
+});
+
+// ---------- короткий вид ----------
+test('a closed block shows the first thought cut at a word', () => {
+  assert.equal(core.teaser('Первая мысль. Вторая.'), 'Первая мысль');
+  assert.equal(core.teaser('Порог $x^2$ равен двум.'), 'Порог равен двум');
+  assert.equal(core.teaser(null), '');
+  const long = core.teaser('слово '.repeat(40));
+  assert.ok(long.length <= 85 && long.endsWith('слово…'));
+});
+
+test('Russian plural forms', () => {
+  const forms = ['мысль', 'мысли', 'мыслей'] as const;
+  assert.deepEqual([1, 2, 5, 11, 14, 21, 22, 111].map((n) => core.plural(n, forms)), ['1 мысль', '2 мысли', '5 мыслей', '11 мыслей', '14 мыслей', '21 мысль', '22 мысли', '111 мыслей']);
 });

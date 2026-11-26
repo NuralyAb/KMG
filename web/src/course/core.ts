@@ -76,7 +76,7 @@ type Raw = Record<string, unknown>;
 export type CardMark = 'know' | 'again';
 export type Theme = 'auto' | 'light' | 'dark';
 export interface State {
-  done: string[]; solved: Record<string, boolean>; first: Record<string, boolean>; cards: Record<string, CardMark>; repeat: string[]; last: number | null; theme: Theme; notes: Record<string, string>; seen: Record<string, string[]>;
+  done: string[]; solved: Record<string, boolean>; first: Record<string, boolean>; cards: Record<string, CardMark>; repeat: string[]; last: number | null; theme: Theme; notes: Record<string, string>; seen: Record<string, string[]>; full: boolean;
 }
 const THEMES: readonly unknown[] = ['auto', 'light', 'dark'];
 const isObject = (v: unknown): v is Raw => v !== null && typeof v === 'object' && !Array.isArray(v);
@@ -94,6 +94,7 @@ export const cleanState = (raw: unknown, ids: string[]): State => {
     theme: THEMES.includes(r.theme) ? r.theme as Theme : 'auto',
     notes: pick<string>(r.notes, (k, v) => ids.includes(k) && typeof v === 'string' && v !== ''),
     seen: pick<string[]>(r.seen, (k, v) => ids.includes(k) && Array.isArray(v) && v.every((x) => typeof x === 'string')),
+    full: r.full === true,
   };
 };
 
@@ -174,6 +175,20 @@ export const symbol = (code: string, rich: Rich): string => rich(/\\[a-zA-Z]/.te
 
 const SHORT = /(?:^|[\s(])(?:рис|табл|стр|гл|см|ср|др|пр|т|е|п|д|ф|им|напр|[A-ZА-ЯЁ])\.$/i;
 /** Первая мысль отдельно: точка после «рис.» или «табл.» предложение не заканчивает. */
+/** Русское число со словом: 1 мысль, 2 мысли, 5 мыслей. */
+export const plural = (n: number, [one, few, many]: readonly [string, string, string]): string => {
+  const [tens, units] = [Math.abs(n) % 100, Math.abs(n) % 10];
+  const word = tens > 10 && tens < 20 ? many : units === 1 ? one : units > 1 && units < 5 ? few : many;
+  return `${n} ${word}`;
+};
+
+/** Подсказка у закрытого блока: первая мысль, по слову, без формул. */
+export const teaser = (text: unknown, max = 84): string => {
+  const plain = splitLead(String(text ?? '').replace(/\$[^$]*\$/g, ' ').replace(/\s+/g, ' ').trim())[0];
+  if (plain.length <= max) return plain.replace(/[.:;,]$/, '');
+  return `${plain.slice(0, plain.lastIndexOf(' ', max)).replace(/[\s.,:;—–-]+$/, '')}…`;
+};
+
 export const splitLead = (text: unknown): [string, string] => {
   const source = String(text ?? '').trim();
   for (const m of source.matchAll(/[.!?](?=\s+[А-ЯЁA-Z«\d$(])/g)) {

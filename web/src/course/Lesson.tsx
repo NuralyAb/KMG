@@ -35,9 +35,13 @@ const Why = ({ step }: { step: Step }) => (
 /** Чтение: суть, схема, объяснение, формулы и данные, источник с цитатами — одной статьёй. */
 function Reading({ step, hasNotes }: { step: Step; hasNotes: boolean }) {
   const blocks = blocksOf(step);
+  const { store, state } = useCourse();
   const of = (...tabs: string[]): ReactNode => blocks.filter((b) => tabs.includes(b.tab)).map((b) => <BlockSection key={b.id} block={b} />);
   return (
     <div className="column reading">
+      <div className="view-toggle">
+        <button type="button" className="link-button" aria-pressed={state.full} onClick={() => store.set({ full: !state.full })}>{state.full ? 'Короткий вид' : 'Показать всё'}</button>
+      </div>
       <Essence step={step} />
       {step.pictures.map((p) => <PictureFigure key={p.id} picture={p} />)}
       <Advice step={step} blocks={blocks} />
