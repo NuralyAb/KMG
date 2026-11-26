@@ -175,6 +175,18 @@ def chapter_block(units: Sequence[Unit], env: Mapping[str, str] = os.environ) ->
     return "\n\n# Вся глава, только для понимания\n\n" + "\n\n".join(_unit_text(u) for u in units)
 
 
+def shared_units(plan: Mapping, index: int) -> str:
+    """Единицы узла, которые план отдал и другим узлам. Длинный английский абзац план делит между узлами,
+    а узел пересказывал его целиком: в курсе выходили два шага с одними и теми же утверждениями. Русский запрос не меняется."""
+    own = plan["nodes"][index]
+    others = [(uid, n) for uid in own["unit_ids"] for i, n in enumerate(plan["nodes"]) if i != index and uid in n["unit_ids"]]
+    if not others:
+        return ""
+    rows = "\n".join(f"{uid}: также в узле «{n['title']}» ({n['slug']})" for uid, n in others)
+    return ("\n\n# Единицы, общие с другими узлами\n" + rows
+            + "\nИз такой единицы бери только то, что относится к теме этого узла; остальное утвердит другой узел. Не пересказывай её целиком.")
+
+
 def make_node(
     provider: Provider, system: str, context: str, plan: Mapping, index: int, units: Sequence[Unit], prefix: str, errata: Sequence[Mapping] = (),
 ) -> tuple[dict, list[str], list[Reply]]:
@@ -185,7 +197,8 @@ def make_node(
     prompt = (f"{context}{chapter_block(units)}{CACHE_BREAK}# Узел\n{json.dumps(plan_node, ensure_ascii=False)}\n\n# Узлы до него (slug: название)\n"
               + ("\n".join(f"{n['slug']}: {n['title']}" for n in earlier) or "это первый узел")
               + f"\n\n# Уже объяснены\n{known}\n\n# Единицы узла\n\n" + "\n\n".join(_unit_text(u) for u in own)
-              + prompt_block(for_pages(errata, sorted({u.page_pdf for u in own}))))
+              + prompt_block(for_pages(errata, sorted({u.page_pdf for u in own})))
+              + (shared_units(plan, index) if is_english_source(units) else ""))
     pages = pages_of(units)
 
     def check(raw: Mapping) -> list[str]:

@@ -1,0 +1,588 @@
+{
+ "title": "Литологические параметры и параметры флюидов в геофизических исследованиях скважин",
+ "parts": [
+  {
+   "title": "Что даёт каротаж и почему его трудно читать",
+   "slugs": [
+    "log_and_rock",
+    "ambiguous_response",
+    "empirical_and_borehole"
+   ]
+  },
+  {
+   "title": "Пористость и электрическое сопротивление: основы",
+   "slugs": [
+    "porosity_basics",
+    "resistivity_unit",
+    "rock_resistivity"
+   ]
+  },
+  {
+   "title": "Виды пористости и водоотдача",
+   "slugs": [
+    "total_effective_porosity",
+    "porosity_measurement_pitfalls",
+    "primary_secondary_porosity",
+    "specific_yield"
+   ]
+  },
+  {
+   "title": "Сопротивление воды и формационный фактор",
+   "slugs": [
+    "saturated_true_resistivity",
+    "formation_factor",
+    "fluid_conductivity_chart",
+    "nacl_equivalent",
+    "aquifer_salinity_chart"
+   ]
+  },
+  {
+   "title": "Проницаемость и размер зёрен",
+   "slugs": [
+    "permeability_definition",
+    "permeability_from_logs",
+    "permeability_limits",
+    "grain_size"
+   ]
+  },
+  {
+   "title": "Вода в стволе скважины и в пласте",
+   "slugs": [
+    "borehole_vs_formation_water",
+    "salinity_log_corrections"
+   ]
+  },
+  {
+   "title": "Каротаж на практике",
+   "slugs": [
+    "log_selection_rock",
+    "log_selection_water_well",
+    "logging_program_steps",
+    "cost_and_training"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "slug": "log_and_rock",
+   "title": "Каротаж измеряет отклик, по которому выводят свойства пород и воды",
+   "short_title": "Что узнают по каротажу",
+   "why_here": "Отправная точка: вводит предмет главы и базовые слова. На неё опираются все следующие узлы о свойствах пород и флюидов.",
+   "difficulty": {
+    "primary": "И",
+    "secondary": "П"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p012.07",
+    "p012.08",
+    "p013.01"
+   ],
+   "terms_introduced": [
+    "геофизический каротаж (geophysical logging)",
+    "литология (lithology)",
+    "водоносный пласт (aquifer)",
+    "матрица породы (rock matrix)",
+    "флюид (fluid)"
+   ]
+  },
+  {
+   "slug": "ambiguous_response",
+   "title": "Отклик каротажа неоднозначен, поэтому интерпретация требует знания теории и местной геологии",
+   "short_title": "Один сигнал, разные причины",
+   "why_here": "Опирается на идею косвенного измерения из первого узла. Объясняет, почему дальше все зависимости даются как приближённые.",
+   "difficulty": {
+    "primary": "Н",
+    "secondary": "И"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p012.03"
+   ],
+   "terms_introduced": [
+    "каротажная диаграмма (log)",
+    "интерпретация каротажа (log interpretation)",
+    "керн (core)",
+    "эмпирический метод (empirical method)"
+   ]
+  },
+  {
+   "slug": "empirical_and_borehole",
+   "title": "Однозначных правил нет: влияние скважины приходится распознавать и исправлять",
+   "short_title": "Помехи скважины и исключения",
+   "why_here": "Продолжает разговор о неоднозначности примером с глиной и влиянием ствола. Готовит к поправкам за свойства жидкости в скважине.",
+   "difficulty": {
+    "primary": "Н",
+    "secondary": "И"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p012.04"
+   ],
+   "terms_introduced": [
+    "естественный гамма-каротаж (natural-gamma log)",
+    "параметры скважины (borehole parameters)"
+   ]
+  },
+  {
+   "slug": "porosity_basics",
+   "title": "Пористость — доля объёма пустот в общем объёме породы",
+   "short_title": "Что такое пористость",
+   "why_here": "Первый литологический параметр: без него не объяснить сопротивление породы. Дальше разбираются виды пористости и связь с проницаемостью.",
+   "difficulty": {
+    "primary": "И",
+    "secondary": "Н"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p015.02",
+    "p015.03"
+   ],
+   "terms_introduced": [
+    "пористость (porosity)",
+    "φ",
+    "гамма-гамма-каротаж (gamma-gamma log)",
+    "нейтронный каротаж (neutron log)",
+    "акустический каротаж (acoustic-velocity log)",
+    "электрический каротаж (electric log)"
+   ]
+  },
+  {
+   "slug": "resistivity_unit",
+   "title": "Удельное электрическое сопротивление — свойство вещества, измеряемое в ом-метрах",
+   "short_title": "Что такое удельное сопротивление",
+   "why_here": "Вводит основную величину электрического каротажа. Нужна для разговора о сопротивлении породы, воды и формационном факторе.",
+   "difficulty": {
+    "primary": "Ф",
+    "secondary": "И"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p013.02",
+    "p013.03"
+   ],
+   "terms_introduced": [
+    "удельное электрическое сопротивление (electrical resistivity)",
+    "ом-метр (ohm-meter)"
+   ]
+  },
+  {
+   "slug": "rock_resistivity",
+   "title": "Сопротивление породы определяют объём воды в порах, её солёность и связность пор",
+   "short_title": "От чего зависит сопротивление породы",
+   "why_here": "Соединяет пористость и сопротивление: ток идёт в основном по воде в порах. Открывает путь к эффективной пористости и формационному фактору.",
+   "difficulty": {
+    "primary": "М",
+    "secondary": "И"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p013.03"
+   ],
+   "terms_introduced": [
+    "насыщенная порода (saturated rock)",
+    "солёность (salinity)",
+    "извилистость (tortuosity)"
+   ]
+  },
+  {
+   "slug": "total_effective_porosity",
+   "title": "Общая пористость учитывает все поры, эффективная — только сообщающиеся",
+   "short_title": "Общая и эффективная пористость",
+   "why_here": "Уточняет определение пористости с учётом того, что ток идёт по связанным порам. Эффективная пористость понадобится для водоотдачи и формационного фактора.",
+   "difficulty": {
+    "primary": "П",
+    "secondary": "И"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p015.04"
+   ],
+   "terms_introduced": [
+    "общая пористость (total porosity)",
+    "эффективная пористость (effective porosity)",
+    "обломочные породы (detrital rocks)",
+    "карбонатные породы (carbonate rocks)"
+   ]
+  },
+  {
+   "slug": "porosity_measurement_pitfalls",
+   "title": "Связанная вода и разные лабораторные методы искажают сравнение значений пористости",
+   "short_title": "Почему пористости не сходятся",
+   "why_here": "Опирается на различие общей и эффективной пористости. Предупреждает, что перед калибровкой каротажа по керну надо знать, что именно измерено.",
+   "difficulty": {
+    "primary": "Н",
+    "secondary": "И"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p015.04"
+   ],
+   "terms_introduced": [
+    "глинистые минералы (clay minerals)",
+    "химически связанная вода (chemically bound water)",
+    "поправка на глинистость (shaliness factor)",
+    "калибровка каротажа (calibrating log response)"
+   ]
+  },
+  {
+   "slug": "primary_secondary_porosity",
+   "title": "Первичная пористость возникает при осадконакоплении, вторичная — позже и распределена неравномерно",
+   "short_title": "Первичные и вторичные пустоты",
+   "why_here": "Добавляет к видам пористости их происхождение. Объясняет, почему некоторые методы ошибаются в неоднородных породах.",
+   "difficulty": {
+    "primary": "В",
+    "secondary": "П"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p015.05"
+   ],
+   "terms_introduced": [
+    "первичная пористость (primary porosity)",
+    "вторичная пористость (secondary porosity)",
+    "уплотнение (compaction)",
+    "цементация (cementation)",
+    "доломитизация (dolomitization)"
+   ]
+  },
+  {
+   "slug": "specific_yield",
+   "title": "Водоотдача показывает, сколько воды порода отдаст под действием силы тяжести",
+   "short_title": "Сколько воды отдаст порода",
+   "why_here": "Опирается на эффективную пористость: часть воды стекает, часть удерживается. Позже связывается с размером зёрен.",
+   "difficulty": {
+    "primary": "М",
+    "secondary": "И"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p015.06",
+    "p015.07",
+    "p016.01"
+   ],
+   "terms_introduced": [
+    "водоотдача (specific yield)",
+    "водоудерживающая способность (specific retention)",
+    "гравитационное дренирование (gravity drainage)",
+    "безнапорный водоносный пласт (unconfined aquifer)",
+    "коэффициент упругоёмкости (storage coefficient)"
+   ]
+  },
+  {
+   "slug": "saturated_true_resistivity",
+   "title": "Сопротивление водонасыщенной породы, пластовой воды и истинное сопротивление — разные величины",
+   "short_title": "Три разных сопротивления",
+   "why_here": "Вводит обозначения на основе понятия сопротивления породы. Без них нельзя записать формационный фактор.",
+   "difficulty": {
+    "primary": "Ф",
+    "secondary": "Н"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p013.04"
+   ],
+   "terms_introduced": [
+    "пластовая вода (formation water)",
+    "Ro",
+    "Rw",
+    "Rt",
+    "частичное насыщение углеводородами (partial saturation by hydrocarbons)",
+    "уровень грунтовых вод (water table)"
+   ]
+  },
+  {
+   "slug": "formation_factor",
+   "title": "Формационный фактор связывает сопротивление породы и воды и позволяет найти Rw",
+   "short_title": "Формационный фактор и расчёт Rw",
+   "why_here": "Опирается на Ro, Rw и эффективную пористость. Нужен для оценки солёности, проницаемости и влияния размера зёрен.",
+   "difficulty": {
+    "primary": "Ф",
+    "secondary": "Н"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p014.01",
+    "p014.02",
+    "p014.03",
+    "p014.04"
+   ],
+   "terms_introduced": [
+    "формационный фактор (formation resistivity factor)",
+    "F",
+    "слабосцементированные породы (poorly consolidated rocks)"
+   ]
+  },
+  {
+   "slug": "fluid_conductivity_chart",
+   "title": "Сопротивление раствора зависит от концентрации соли и температуры",
+   "short_title": "Соль, температура и сопротивление воды",
+   "why_here": "После расчёта Rw показывает, как по нему и температуре оценить минерализацию. Готовит пересчёт других ионов и палетку для водоносных пластов.",
+   "difficulty": {
+    "primary": "И",
+    "secondary": "Пр"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p016.06",
+    "p016.07",
+    "p017.01",
+    "p017.02"
+   ],
+   "terms_introduced": [
+    "удельная электропроводность (conductivity)",
+    "мкмо/см (μmhos/cm)",
+    "мг/л (mg/l)",
+    "миллионные доли (ppm)",
+    "хлорид натрия (NaCl)"
+   ]
+  },
+  {
+   "slug": "nacl_equivalent",
+   "title": "Другие ионы пересчитывают в электрически эквивалентную концентрацию NaCl",
+   "short_title": "Пересчёт ионов в эквивалент NaCl",
+   "why_here": "Расширяет график для NaCl на воду смешанного состава. Показывает пример расчёта и границы точности коэффициентов.",
+   "difficulty": {
+    "primary": "Пр",
+    "secondary": "Н"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p016.07",
+    "p017.01",
+    "p017.02"
+   ],
+   "terms_introduced": [
+    "электрически эквивалентная концентрация NaCl (electrically equivalent sodium chloride concentration)",
+    "переводной коэффициент (multiplying factor)"
+   ]
+  },
+  {
+   "slug": "aquifer_salinity_chart",
+   "title": "По пористости и сопротивлению пласта приближённо оценивают солёность поровой воды",
+   "short_title": "Палетка: пористость, сопротивление, солёность",
+   "why_here": "Объединяет пористость, сопротивление, формационный фактор и солёность в одном графике. Завершает линию о качестве воды и напоминает о приближённости.",
+   "difficulty": {
+    "primary": "И",
+    "secondary": "Н"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p014.04",
+    "p014.08",
+    "p014.09"
+   ],
+   "terms_introduced": [
+    "палетка (chart)",
+    "поровая вода (interstitial water)",
+    "неглинистый зернистый водоносный пласт (clay-free granular aquifer)"
+   ]
+  },
+  {
+   "slug": "permeability_definition",
+   "title": "Проницаемость описывает способность породы пропускать жидкость, и каротаж не измеряет её напрямую",
+   "short_title": "Что такое проницаемость",
+   "why_here": "Опирается на связанность пор из понятия эффективной пористости. Открывает косвенные способы оценки по каротажу.",
+   "difficulty": {
+    "primary": "М",
+    "secondary": "И"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p014.05",
+    "p014.06"
+   ],
+   "terms_introduced": [
+    "проницаемость (permeability)",
+    "собственная проницаемость (intrinsic permeability)",
+    "коэффициент фильтрации (hydraulic conductivity)",
+    "гидравлический градиент (hydraulic gradient)"
+   ]
+  },
+  {
+   "slug": "permeability_from_logs",
+   "title": "Проницаемость оценивают по эмпирическим связям с откликами каротажа, пористостью и формационным фактором",
+   "short_title": "Как оценить проницаемость косвенно",
+   "why_here": "Использует определение проницаемости, пористость и формационный фактор. Дальше разбираются ограничения таких связей.",
+   "difficulty": {
+    "primary": "И",
+    "secondary": "Пр"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p014.06"
+   ],
+   "terms_introduced": [
+    "эмпирическая зависимость (empirical relationship)",
+    "анализ керна (core analysis)"
+   ]
+  },
+  {
+   "slug": "permeability_limits",
+   "title": "Связи каротажа с проницаемостью пригодны лишь в однородной обстановке и после проверки",
+   "short_title": "Где оценка проницаемости ломается",
+   "why_here": "Ограничивает применение зависимостей из предыдущего узла. Подводит к роли размера зёрен.",
+   "difficulty": {
+    "primary": "Н",
+    "secondary": "И"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p014.07",
+    "p015.01"
+   ],
+   "terms_introduced": [
+    "гранулометрический состав (grain size distribution)",
+    "измерения проницаемости на месте залегания (in situ permeability measurements)"
+   ]
+  },
+  {
+   "slug": "grain_size",
+   "title": "Размер зёрен влияет на проницаемость, пористость и водоотдачу, но напрямую каротажем не измеряется",
+   "short_title": "Роль размера зёрен",
+   "why_here": "Сводит вместе проницаемость, водоотдачу и формационный фактор. Завершает разбор свойств породы.",
+   "difficulty": {
+    "primary": "И",
+    "secondary": "Н"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p016.02",
+    "p016.03"
+   ],
+   "terms_introduced": [
+    "размер зёрен (grain size)"
+   ]
+  },
+  {
+   "slug": "borehole_vs_formation_water",
+   "title": "Воду в стволе измеряют напрямую, а пластовую — выводят, и они могут различаться",
+   "short_title": "Вода в скважине и в пласте",
+   "why_here": "Опирается на сопротивление воды и проницаемость. Объясняет, при каких условиях замеры в стволе говорят о пласте.",
+   "difficulty": {
+    "primary": "И",
+    "secondary": "М"
+   },
+   "threshold": true,
+   "unit_ids": [
+    "p016.04",
+    "p016.05",
+    "p017.04"
+   ],
+   "terms_introduced": [
+    "ствол скважины (borehole)",
+    "химическое и тепловое равновесие (chemical and thermal equilibrium)",
+    "гидравлическая связь (hydraulic connection)",
+    "внутрискважинное перетекание (inhole flow)"
+   ]
+  },
+  {
+   "slug": "salinity_log_corrections",
+   "title": "Высокая минерализация искажает не только сопротивление, но и нейтронный и гамма-гамма-каротаж",
+   "short_title": "Поправки за солёную воду",
+   "why_here": "Опирается на методы определения пористости и электропроводность растворов. Показывает, что свойства воды нужны для чтения других методов.",
+   "difficulty": {
+    "primary": "М",
+    "secondary": "И"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p017.03"
+   ],
+   "terms_introduced": [
+    "поправочный коэффициент (correction factor)",
+    "общее содержание растворённых веществ (total dissolved solids)",
+    "плотность флюида (fluid density)"
+   ]
+  },
+  {
+   "slug": "log_selection_rock",
+   "title": "Для каждого свойства породы и пласта есть свои подходящие методы каротажа",
+   "short_title": "Какой метод для свойств породы",
+   "why_here": "Все свойства породы уже объяснены, поэтому первую часть сводной таблицы можно читать осмысленно. Нужна для планирования работ.",
+   "difficulty": {
+    "primary": "Пр",
+    "secondary": "И"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p013.05",
+    "p013.06"
+   ],
+   "terms_introduced": [
+    "открытый ствол (open hole)",
+    "обсаженная скважина (cased hole)",
+    "кавернометрия (caliper log)",
+    "стратиграфическая корреляция (stratigraphic correlation)",
+    "объёмная плотность (bulk density)"
+   ]
+  },
+  {
+   "slug": "log_selection_water_well",
+   "title": "Каротаж помогает изучать движение воды и техническое состояние скважины",
+   "short_title": "Методы для потока и скважины",
+   "why_here": "Вторая часть той же таблицы: после свойств пород идут задачи о воде и конструкции скважины. Дополняет выбор методов.",
+   "difficulty": {
+    "primary": "Пр",
+    "secondary": "Р"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p013.06"
+   ],
+   "terms_introduced": [
+    "трассерные исследования (tracer techniques)",
+    "расходометрия (flowmeter logging)",
+    "обсадная колонна (casing)",
+    "интервалы перфорации (perforations)",
+    "фильтр скважины (screen)",
+    "цементирование (cementing)"
+   ]
+  },
+  {
+   "slug": "logging_program_steps",
+   "title": "Польза от каротажа требует плана, аккуратного бурения, проб, качественной записи и совместной интерпретации",
+   "short_title": "Пять шагов программы каротажа",
+   "why_here": "Собирает неоднозначность, поправки и выбор методов в порядок действий. Опирается на сводную таблицу.",
+   "difficulty": {
+    "primary": "Пр",
+    "secondary": "Н"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p012.05",
+    "p012.06"
+   ],
+   "terms_introduced": [
+    "программа каротажных работ (well-logging program)",
+    "эталонированная аппаратура (calibrated and standardized equipment)",
+    "комплексная интерпретация (collective interpretation)"
+   ]
+  },
+  {
+   "slug": "cost_and_training",
+   "title": "Окупаемость каротажа зависит от его стоимости, интерпретации и подготовки персонала",
+   "short_title": "Стоимость каротажа и обучение людей",
+   "why_here": "Завершает практическую часть: после порядка работ показывает, что ограничивает их применение. Цифры стоимости относятся ко времени издания книги.",
+   "difficulty": {
+    "primary": "Пр",
+    "secondary": "Н"
+   },
+   "threshold": false,
+   "unit_ids": [
+    "p012.01",
+    "p012.02"
+   ],
+   "terms_introduced": [
+    "соотношение затрат и выгод (cost-benefit ratio)",
+    "оператор каротажной станции (logger operator)"
+   ]
+  }
+ ],
+ "skipped": [
+  {
+   "unit_id": "p015.08",
+   "reason": "колонтитул: типографская сигнатура листа"
+  }
+ ]
+}
