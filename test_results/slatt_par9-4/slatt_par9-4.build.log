@@ -1,0 +1,29 @@
+попытка 1: замечаний 4
+попытка 1: замечаний 1
+лист опечаток: 94 записей, из них подозрительных мест издания: 0
+рисунки: страниц 14, спрошено 14, прочтений 18, расхождений с распознавателем 111, не прочитаны страницы: нет, $0.84
+попытка 1: замечаний 6
+план: узлов 22, собираю 22
+попытка 1: замечаний 1
+попытка 1: замечаний 1
+слой: узлов 22, утверждений 549, отброшено 0, замечания в узлах: 0, $8.95
+утверждений 549, с расхождениями 56 {'negation': 15, 'condition': 8, 'number': 31, 'quantifier': 3, 'unit': 1}; терминов раньше объяснения 4; порчи поймано 174 из 206
+маршруты: 22
+попытка 1: замечаний 1
+попытка 1: замечаний 3
+попытка 1: замечаний 1
+попытка 1: замечаний 1
+попытка 1: замечаний 2
+попытка 1: замечаний 2
+задания: 43; замечания: нет
+попытка 1: замечаний 1
+иллюстрации: 22; шаги без рисунка: нет
+ролик slatt.progradation_accommodation [short, delta_progradation]: сверх предела GLAVA_VIDEOS
+ролик slatt.lobe_switching [short, delta_progradation]: сверх предела GLAVA_VIDEOS
+ролик slatt.clinoforms_time_lines [short, delta_progradation]: сверх предела GLAVA_VIDEOS
+ролик slatt.mekong_litho_section [short, delta_progradation]: сверх предела GLAVA_VIDEOS
+ролик slatt.mouth_bar_lithofacies [short, delta_progradation]: сверх предела GLAVA_VIDEOS
+ролик slatt.lowstand_deltas [short, None]: нужен новый шаблон
+ролик slatt.prudhoe_setting [short, delta_progradation]: сверх предела GLAVA_VIDEOS
+ролик slatt.perforation_isolation [short, delta_progradation]: сверх предела GLAVA_VIDEOS
+голос ru-RU-DmitryNeural не ответил 30 раз: ModuleNotFoundError("No module named 'edge_tts'")

@@ -1,0 +1,19 @@
+{
+ "chapter": "asquith_ch7",
+ "rows": [
+  {
+   "node_id": "asquith.flushed_zone_sxo",
+   "format": "wide",
+   "template": "invasion_zone",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "asquith.bvw_irreducible",
+   "format": "wide",
+   "template": null,
+   "why": "нужен новый",
+   "result": "нужен новый шаблон"
+  }
+ ]
+}

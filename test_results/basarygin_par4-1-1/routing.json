@@ -1,0 +1,530 @@
+{
+ "chapter": "basarygin_par4-1-1",
+ "routes": [
+  {
+   "node_id": "basarygin.kick_pressure_balance",
+   "format": "шортс",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "И, затем М; сумма 6: невидимое и причина-следствие. Человек видит, как приток на забое меняет циркуляцию и раствор на выходе. Видит и то, что поступление при забойном давлении выше пластового практически не ведёт к предвыбросовой ситуации."
+  },
+  {
+   "node_id": "basarygin.signs_overview",
+   "format": "практикум на данных",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Р, затем Н; критерии выражены умеренно. Человек ищет признаки в наборе наблюдений и разделяет те, что прямо указывают на приток, и те, что могут иметь косвенные причины: скорость бурения, свойства раствора, давление на насосах."
+  },
+  {
+   "node_id": "basarygin.pit_level_gain",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Р, затем И; время, невидимое и причина-следствие по 1. Человек находит на кривой уровня в ёмкостях прирост от притока и отличает его от изменений из-за добавок, осадков и потерь, поправляя исходный уровень."
+  },
+  {
+   "node_id": "basarygin.min_detectable_volume",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Ф, затем И; главное здесь причина-следствие. Человек двигает ползунок площади поверхности раствора и видит, как при той же погрешности уровнемера меняется наименьший замечаемый объём притока."
+  },
+  {
+   "node_id": "basarygin.pit_monitoring_rules",
+   "format": "практикум на данных",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Пр, затем Н; видеоёмкость низкая. Человек по порядку отделяет рабочую ёмкость, задаёт исходный уровень и решает, вызвано ли изменение объёма переключением, согласованным с бурильщиком, или возможным притоком."
+  },
+  {
+   "node_id": "basarygin.flow_out_increase",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "М, затем Р; сумма 4, ролик не нужен. Человек проходит цепочку: расход на выходе вырос, менялась ли подача насосов, что с уровнем в ёмкостях. По второму типу он находит признак притока в данных."
+  },
+  {
+   "node_id": "basarygin.flowmeter_sensitivity",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Ф, затем И; причина-следствие, умеренно время и контринтуитивность. Человек меняет подачу насосов и погрешность расходомера и смотрит, как меняются порог чувствительности и быстрота обнаружения газа."
+  },
+  {
+   "node_id": "basarygin.trip_pressure_drop",
+   "format": "шортс",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "М, затем В; сумма 7: изменение во времени, невидимое, причина-следствие. Человек видит, как при подъёме труб падает уровень раствора, колонна вызывает колебания давления, давление на забое снижается и флюид входит в скважину."
+  },
+  {
+   "node_id": "basarygin.trip_fill_control",
+   "format": "практикум на данных",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "И, затем Пр; сумма 4. Человек сравнивает фактический долив с расчётным (металл поднятых труб и плёнка раствора), находит недолив и решает, превышен ли предел 1 м³."
+  },
+  {
+   "node_id": "basarygin.run_in_displacement",
+   "format": "практикум на данных",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "И, затем Пр; сумма 4. Человек сравнивает вытесненный объём с контрольным, замечает прибавку 1 м³ и проверяет, прекращается ли перелив, чтобы сделать вывод о притоке."
+  },
+  {
+   "node_id": "basarygin.pump_pressure_drop",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "М, затем Ф; сумма 7. Человек видит, как лёгкий флюид растёт столбом в кольцевом пространстве, газ расширяется и давление на насосах снижается. Во втором формате он меняет высоту столба и разность плотностей."
+  },
+  {
+   "node_id": "basarygin.pump_pressure_ambiguity",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Н, затем И; невидимое и контринтуитивность. Человек сравнивает случаи с падением и ростом давления в трубах и выбирает решение, не считая малое снижение доказательством слабого проявления."
+  },
+  {
+   "node_id": "basarygin.rop_overpressure_zone",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Н, затем М; невидимое и причина-следствие. Человек по росту механической скорости и поведению раствора выбирает между входом в зону аномального давления и провалом в трещину или каверну, где чаще раствор уходит в породу."
+  },
+  {
+   "node_id": "basarygin.drilling_break",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Р, затем В; главный критерий — изменение во времени. Человек находит на кривой проходки скачок как ранний возможный признак притока и проверяет другое объяснение: провал в трещину или каверну."
+  },
+  {
+   "node_id": "basarygin.gas_cut_background",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Н, затем В; изменение во времени. Человек смотрит газопоказания при промывке без бурения и после остановок циркуляции и решает, поступает ли газ из пласта из-за нехватки давления."
+  },
+  {
+   "node_id": "basarygin.gas_transition_zone",
+   "format": "практикум на данных",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Н, затем Пр; критерии умеренные. Человек по тренду газа в переходной зоне выбирает: утяжелять ступенями или, при хорошо изученной геологии, продолжать с перестроенной технологией, учитывая риск выброса."
+  },
+  {
+   "node_id": "basarygin.gas_cuttings_and_trips",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Н, затем М; невидимое. Человек определяет обстоятельства появления газа (из выбуренной породы или в забойной пачке после спуска) и выбирает действие, проверяя его остановкой бурения или промывкой."
+  },
+  {
+   "node_id": "basarygin.gas_rate_estimate",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Ф, затем И; невидимое становится видимым. Человек задаёт подачу насосов и две плотности раствора и проходит путь расчёта: дебит газа, затем содержание газа в единице объёма раствора."
+  },
+  {
+   "node_id": "basarygin.gas_cut_not_cause",
+   "format": "шортс",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "gas_kick",
+   "why": "М, затем Н; сумма 8, прежде всего контринтуитивность. Человек видит, как газ расширяется у устья, а забойное давление при малом объёме газа меняется мало. Объём пачки нужно взять малым, чтобы не противоречить утверждению."
+  },
+  {
+   "node_id": "basarygin.mud_properties_change",
+   "format": "практикум на данных",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "В, затем Н; сумма 4, главное — задержка во времени. Человек сопоставляет несколько свойств раствора на выходе, учитывает время подхода забойной порции и решает, достаточно ли признаков притока."
+  },
+  {
+   "node_id": "basarygin.wellhead_reinforcement",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "well",
+   "why": "П, затем М; невидимое и причина-следствие. Человек рассматривает разрез с обсадными колоннами, включает дополнительную колонну у устья и связывает негерметичность резьб с межколонными проявлениями и грифонами."
+  },
+  {
+   "node_id": "basarygin.bop_stack_layout",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "П, затем Пр; видеоёмкость низкая. Человек разбирает расположение превенторов, манифольдов и линий, перекрывает скважину и прослеживает путь потока. Подходящего шаблона устьевой обвязки в списке нет."
+  },
+  {
+   "node_id": "basarygin.shut_in_effect",
+   "format": "шортс",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "М, затем В; сумма 7. Человек видит, как после закрытия сжимаемая жидкость позволяет притоку идти дальше, давление на устье растёт и приток затухает, когда оно вместе с гидростатическим равно пластовому."
+  },
+  {
+   "node_id": "basarygin.shut_in_pressures",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "И, затем Ф; сумма 5, главное — невидимое. Человек по давлениям в трубах и кольцевом пространстве проходит к пластовому давлению, характеру флюида и плотности раствора глушения."
+  },
+  {
+   "node_id": "basarygin.shut_in_first_steps",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Пр, затем П; порядок действий. Человек по сигналу о проявлении выбирает шаги: прекратить работу, поднять трубу, отключить насосы, проверить самоприток и при переливе перекрыть скважину. Порядок дан для конкретной компоновки."
+  },
+  {
+   "node_id": "basarygin.hard_shut_in",
+   "format": "практикум на данных",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Пр, затем М; сумма 7. Человек проходит порядок быстрого перекрытия и взвешивает последствия. В ролике по второму типу видно, как прекращение потока вызывает колебания давления, мешающие определить параметры."
+  },
+  {
+   "node_id": "basarygin.soft_shut_in",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Пр, затем П; время и причина-следствие. Человек выстраивает порядок: поток через штуцер, затем медленное закрытие. Он видит, что долгий процесс даёт больший приток и затрудняет контроль."
+  },
+  {
+   "node_id": "basarygin.shut_in_choice",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Н, затем Ф; видеоёмкость низкая. Человек выбирает способ перекрытия по условиям: опыт месторождения, плотность выходящего раствора, прочность пласта у башмака, допустимое давление и скорость оборудования. Перечень условий не закрыт."
+  },
+  {
+   "node_id": "basarygin.backup_and_trip_shut_in",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Пр, затем П; порядок действий. Человек при проявлении во время СПО подвешивает колонну, ставит и закрывает клапан и превентор, а при отказе штуцера 5 или клапана 4 направляет поток через резервный штуцер."
+  },
+  {
+   "node_id": "basarygin.kill_overview",
+   "format": "практикум на данных",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Пр, затем М; сумма 6. Человек проходит этапы глушения и проверяет допустимость давления в кольцевом пространстве. В ролике по второму типу видно, как приток удаляется, а раствор сменяется более тяжёлым."
+  },
+  {
+   "node_id": "basarygin.driller_first_circulation",
+   "format": "практикум на данных",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Пр, затем И; сумма 6. Человек регулирует штуцер, держа давление постоянным, после выхода пачки останавливает циркуляцию и сравнивает давления. Ролик по второму типу связывает показания на поверхности с движением пачки."
+  },
+  {
+   "node_id": "basarygin.driller_second_circulation",
+   "format": "шортс",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "М, затем Пр; сумма 7. Человек видит, как тяжёлый раствор идёт к долоту и давление в трубах снижается, а потом держится постоянным. В практикуме он сам ведёт это давление."
+  },
+  {
+   "node_id": "basarygin.wait_weight_to_bit",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Пр, затем В; время и невидимое. Человек ведёт давление в трубах по графику, пока тяжёлый раствор идёт к долоту, и решает, когда остановить циркуляцию для проверки."
+  },
+  {
+   "node_id": "basarygin.wait_weight_completion",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "И, затем В; сумма 4. Человек проверяет избыточное давление в трубах у долота, ведёт циркуляцию до выхода раствора глушения и по давлениям в трубах и кольце решает, заглушена ли скважина."
+  },
+  {
+   "node_id": "basarygin.kill_special_cases",
+   "format": "практикум на данных",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Пр, затем Н; критерии умеренные. Человек выбирает действие по ситуации: глушение через циркуляционный клапан испытателя или реже применяемый сопутствующий метод с утяжелением до перекрытия."
+  }
+ ]
+}

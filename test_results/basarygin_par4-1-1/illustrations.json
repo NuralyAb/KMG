@@ -1,0 +1,704 @@
+{
+ "chapter": "basarygin_par4-1-1",
+ "illustrations": [
+  {
+   "id": "basarygin.kick_pressure_balance.i1",
+   "step_id": "basarygin.kick_pressure_balance",
+   "node_id": "basarygin.kick_pressure_balance",
+   "file": "pictures/kick_pressure_balance_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Флюид из пласта попадает в скважину и в поток раствора, идущий к выходу (как в книге; вероятно, опечатка издания).",
+   "alt": "Разрез бурящейся скважины с циркуляцией раствора. У забоя пласт, из которого возможен приток флюида в ствол.",
+   "source": "построено кодом по утверждениям главы, стр. 231, 239",
+   "claim_ids": [
+    "basarygin.kick_pressure_balance#c1",
+    "basarygin.kick_pressure_balance#c2",
+    "basarygin.kick_pressure_balance#c4"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.signs_overview.i1",
+   "step_id": "basarygin.signs_overview",
+   "node_id": "basarygin.signs_overview",
+   "file": "pictures/signs_overview_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Справа признаки, возможные и по косвенным причинам. Всё как в книге; вероятно, опечатка издания есть в обозначении глубины.",
+   "alt": "Две группы признаков проявления. Рост скорости бурения, изменение свойств раствора и давления на насосах могут иметь и другие причины.",
+   "source": "построено кодом по утверждениям главы, стр. 231, 232",
+   "claim_ids": [
+    "basarygin.signs_overview#c2",
+    "basarygin.signs_overview#c3",
+    "basarygin.signs_overview#c4",
+    "basarygin.signs_overview#c5",
+    "basarygin.signs_overview#c6",
+    "basarygin.signs_overview#c7",
+    "basarygin.signs_overview#c8",
+    "basarygin.signs_overview#c9",
+    "basarygin.signs_overview#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.pit_level_gain.i1",
+   "step_id": "basarygin.pit_level_gain",
+   "node_id": "basarygin.pit_level_gain",
+   "file": "pictures/pit_level_gain_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Смотрите на расхождение: уровень поднимается над исходным, скорректированным на добавки, осадки и потери.",
+   "alt": "Качественный график. Уровень раствора в ёмкостях сначала совпадает с исходным, а после начала притока поднимается выше него.",
+   "source": "построено кодом по утверждениям главы, стр. 232",
+   "claim_ids": [
+    "basarygin.pit_level_gain#c1"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.min_detectable_volume.i1",
+   "step_id": "basarygin.min_detectable_volume",
+   "node_id": "basarygin.min_detectable_volume",
+   "file": "pictures/min_detectable_volume_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "ΔVmin = εS: чем больше площадь поверхности раствора, тем круче прямая и тем крупнее приток, который можно заметить.",
+   "alt": "Три растущие прямые зависимости минимального объёма от погрешности уровнемера. Самая пологая для площади 20 м², самая крутая для 60 м².",
+   "source": "построено кодом по утверждениям главы, стр. 233",
+   "claim_ids": [
+    "basarygin.min_detectable_volume#c2",
+    "basarygin.min_detectable_volume#c8",
+    "basarygin.min_detectable_volume#c9",
+    "basarygin.min_detectable_volume#c11",
+    "basarygin.min_detectable_volume#c12",
+    "basarygin.min_detectable_volume#c13"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.pit_monitoring_rules.i1",
+   "step_id": "basarygin.pit_monitoring_rules",
+   "node_id": "basarygin.pit_monitoring_rules",
+   "file": "pictures/pit_monitoring_rules_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Подготовка ёмкости и поправки исходного уровня. Переключения и перераспределение раствора — только с ведома бурильщика.",
+   "alt": "Схема: рабочую ёмкость изолируют и ставят перегородку, задают исходный уровень, корректируют его на добавки, осадки и потери, чтобы вовремя заметить приток.",
+   "source": "построено кодом по утверждениям главы, стр. 234",
+   "claim_ids": [
+    "basarygin.pit_monitoring_rules#c1",
+    "basarygin.pit_monitoring_rules#c2",
+    "basarygin.pit_monitoring_rules#c3",
+    "basarygin.pit_monitoring_rules#c4",
+    "basarygin.pit_monitoring_rules#c5",
+    "basarygin.pit_monitoring_rules#c6",
+    "basarygin.pit_monitoring_rules#c7",
+    "basarygin.pit_monitoring_rules#c8",
+    "basarygin.pit_monitoring_rules#c9",
+    "basarygin.pit_monitoring_rules#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.flow_out_increase.i1",
+   "step_id": "basarygin.flow_out_increase",
+   "node_id": "basarygin.flow_out_increase",
+   "file": "pictures/flow_out_increase_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Подача насосов не меняется, а расход на выходе и уровень в ёмкостях растут. Дано как в книге; вероятно, опечатка издания.",
+   "alt": "Качественный график во времени: подача насосов постоянна, после начала проявления расход на выходе и уровень в приёмных ёмкостях растут.",
+   "source": "построено кодом по утверждениям главы, стр. 234",
+   "claim_ids": [
+    "basarygin.flow_out_increase#c1",
+    "basarygin.flow_out_increase#c7",
+    "basarygin.flow_out_increase#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.flowmeter_sensitivity.i1",
+   "step_id": "basarygin.flowmeter_sensitivity",
+   "node_id": "basarygin.flowmeter_sensitivity",
+   "file": "pictures/flowmeter_sensitivity_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Приток газа один и тот же. При большей подаче приращение расхода раньше достигает порога прибора ΔQmin.",
+   "alt": "Качественный график: приращение расхода при большей подаче растёт круче и пересекает порог расходомера раньше, чем при меньшей.",
+   "source": "построено кодом по утверждениям главы, стр. 234, 235",
+   "claim_ids": [
+    "basarygin.flowmeter_sensitivity#c2",
+    "basarygin.flowmeter_sensitivity#c5",
+    "basarygin.flowmeter_sensitivity#c6",
+    "basarygin.flowmeter_sensitivity#c7",
+    "basarygin.flowmeter_sensitivity#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.trip_pressure_drop.i1",
+   "step_id": "basarygin.trip_pressure_drop",
+   "node_id": "basarygin.trip_pressure_drop",
+   "file": "pictures/trip_pressure_drop_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Две из причин падения давления на забой при подъёме труб ведут к одному риску — притоку из пласта.",
+   "alt": "Схема причин и следствий: подъём колонны снижает уровень раствора и вызывает колебания давления, давление на забой падает, возможен приток.",
+   "source": "построено кодом по утверждениям главы, стр. 238",
+   "claim_ids": [
+    "basarygin.trip_pressure_drop#c3",
+    "basarygin.trip_pressure_drop#c4",
+    "basarygin.trip_pressure_drop#c5",
+    "basarygin.trip_pressure_drop#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.trip_fill_control.i1",
+   "step_id": "basarygin.trip_fill_control",
+   "node_id": "basarygin.trip_fill_control",
+   "file": "pictures/trip_fill_control_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Долив отстаёт от контрольного объёма — признак проявления. Недолив более 1 м³ не допускается (как в книге; вероятно, опечатка издания).",
+   "alt": "Качественный график долива при подъёме труб: сначала фактический объём совпадает с контрольным, затем растёт медленнее и отстаёт от него.",
+   "source": "построено кодом по утверждениям главы, стр. 238",
+   "claim_ids": [
+    "basarygin.trip_fill_control#c3",
+    "basarygin.trip_fill_control#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.run_in_displacement.i1",
+   "step_id": "basarygin.run_in_displacement",
+   "node_id": "basarygin.run_in_displacement",
+   "file": "pictures/run_in_displacement_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Раствора вытеснено больше расчётного — признак проявления. Прибавка 1 м³ сверх контрольного объёма указывает на его начало.",
+   "alt": "Качественный график спуска труб: сначала прибавка объёма в приёмной ёмкости идёт по расчёту, затем растёт быстрее и превышает расчётную.",
+   "source": "построено кодом по утверждениям главы, стр. 239",
+   "claim_ids": [
+    "basarygin.run_in_displacement#c2",
+    "basarygin.run_in_displacement#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.pump_pressure_drop.i1",
+   "step_id": "basarygin.pump_pressure_drop",
+   "node_id": "basarygin.pump_pressure_drop",
+   "file": "pictures/pump_pressure_drop_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Чем выше столб лёгкого флюида в кольцевом пространстве и больше разность плотностей, тем сильнее падает давление.",
+   "alt": "Две убывающие прямые: давление на насосах снижается с ростом высоты столба флюида, при большей разности плотностей — круче.",
+   "source": "построено кодом по утверждениям главы, стр. 237",
+   "claim_ids": [
+    "basarygin.pump_pressure_drop#c7",
+    "basarygin.pump_pressure_drop#c8",
+    "basarygin.pump_pressure_drop#c9",
+    "basarygin.pump_pressure_drop#c10",
+    "basarygin.pump_pressure_drop#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.pump_pressure_ambiguity.i1",
+   "step_id": "basarygin.pump_pressure_ambiguity",
+   "node_id": "basarygin.pump_pressure_ambiguity",
+   "file": "pictures/pump_pressure_ambiguity_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "При проявлении давление может и расти, и падать; одно лишь падение не говорит о слабой интенсивности.",
+   "alt": "Сравнение двух случаев: рост давления в бурильных трубах при высоких пластовом давлении и продуктивности и снижение давления на насосах, например из-за газовой пачки.",
+   "source": "построено кодом по утверждениям главы, стр. 237, 238",
+   "claim_ids": [
+    "basarygin.pump_pressure_ambiguity#c1",
+    "basarygin.pump_pressure_ambiguity#c3",
+    "basarygin.pump_pressure_ambiguity#c4",
+    "basarygin.pump_pressure_ambiguity#c5",
+    "basarygin.pump_pressure_ambiguity#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.rop_overpressure_zone.i1",
+   "step_id": "basarygin.rop_overpressure_zone",
+   "node_id": "basarygin.rop_overpressure_zone",
+   "file": "pictures/rop_overpressure_zone_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Тонкая переходная зона: поровое давление быстро растёт и в коллекторе превышает давление раствора. Уровни условные.",
+   "alt": "Поровое давление растёт с глубиной через тонкую переходную зону. В коллекторе с АВПД оно становится выше давления раствора, возникает риск проявления.",
+   "source": "построено кодом по утверждениям главы, стр. 232",
+   "claim_ids": [
+    "basarygin.rop_overpressure_zone#c1",
+    "basarygin.rop_overpressure_zone#c2",
+    "basarygin.rop_overpressure_zone#c3",
+    "basarygin.rop_overpressure_zone#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.drilling_break.i1",
+   "step_id": "basarygin.drilling_break",
+   "node_id": "basarygin.drilling_break",
+   "file": "pictures/drilling_break_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "симуляция",
+   "caption": "Скорость бурения перед выбросом на скважине Кубани: обратите внимание на резкий рост около 4269–4271 м. Точки приблизительные.",
+   "alt": "График скорости бурения по глубине: до 4269 м она растёт медленно, от 0,9 до 2,2 м/ч, затем резко до 6,5–8,8 м/ч. После увеличения скорости при забое 4274 м произошёл выброс.",
+   "source": "построено кодом по утверждениям главы, стр. 232, 233",
+   "claim_ids": [
+    "basarygin.drilling_break#c10",
+    "basarygin.drilling_break#c11",
+    "basarygin.drilling_break#c17",
+    "basarygin.drilling_break#c19",
+    "basarygin.drilling_break#c20",
+    "basarygin.drilling_break#c21"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_cut_background.i1",
+   "step_id": "basarygin.gas_cut_background",
+   "node_id": "basarygin.gas_cut_background",
+   "file": "pictures/gas_cut_background_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Газ выше фона требует поиска причины; на нехватку давления указывает газирование, не прекращающееся без бурения.",
+   "alt": "Схема: при газе выше фонового раствор дегазируют и ищут причину. Если газирование продолжается при промывке без бурения, это признак проявления; тогда газа в забойных пачках больше и после остановок циркуляции.",
+   "source": "построено кодом по утверждениям главы, стр. 235",
+   "claim_ids": [
+    "basarygin.gas_cut_background#c2",
+    "basarygin.gas_cut_background#c3",
+    "basarygin.gas_cut_background#c7",
+    "basarygin.gas_cut_background#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_transition_zone.i1",
+   "step_id": "basarygin.gas_transition_zone",
+   "node_id": "basarygin.gas_transition_zone",
+   "file": "pictures/gas_transition_zone_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "С углублением в переходную зону газа в растворе всё больше, а плотность раствора повышают ступенями. Ход качественный.",
+   "alt": "Качественный график по глубине: газосодержание раствора устойчиво растёт вниз, а плотность раствора увеличивается несколькими ступенями.",
+   "source": "построено кодом по утверждениям главы, стр. 235, 236",
+   "claim_ids": [
+    "basarygin.gas_transition_zone#c1",
+    "basarygin.gas_transition_zone#c3",
+    "basarygin.gas_transition_zone#c4"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_cuttings_and_trips.i1",
+   "step_id": "basarygin.gas_cuttings_and_trips",
+   "node_id": "basarygin.gas_cuttings_and_trips",
+   "file": "pictures/gas_cuttings_and_trips_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Два случая появления газа и действия в них. Смотрите, когда газовую пачку вымывают при закрытом устье.",
+   "alt": "Газ из выбуренной породы прекращает поступать после остановки бурения. Газ в забойной пачке обычно не даёт выброса, но при падении давления и плескании её вымывают через дроссель.",
+   "source": "построено кодом по утверждениям главы, стр. 236",
+   "claim_ids": [
+    "basarygin.gas_cuttings_and_trips#c1",
+    "basarygin.gas_cuttings_and_trips#c2",
+    "basarygin.gas_cuttings_and_trips#c6",
+    "basarygin.gas_cuttings_and_trips#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_rate_estimate.i1",
+   "step_id": "basarygin.gas_rate_estimate",
+   "node_id": "basarygin.gas_rate_estimate",
+   "file": "pictures/gas_rate_estimate_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественный ход формулы при одной подаче насосов Q: чем сильнее ρгр ниже плотности ρ0 без газа, тем больше расчётный дебит газа.",
+   "alt": "Кривая дебита газа убывает с ростом плотности газированного раствора и доходит до нуля, когда она равна плотности раствора без газа.",
+   "source": "построено кодом по утверждениям главы, стр. 236",
+   "claim_ids": [
+    "basarygin.gas_rate_estimate#c4",
+    "basarygin.gas_rate_estimate#c5",
+    "basarygin.gas_rate_estimate#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.gas_cut_not_cause.i1",
+   "step_id": "basarygin.gas_cut_not_cause",
+   "node_id": "basarygin.gas_cut_not_cause",
+   "file": "pictures/gas_cut_not_cause_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Слева — почему газ в растворе признак, а не причина выброса; справа — когда действовать (как в книге; вероятно, опечатка издания).",
+   "alt": "Газ снижает плотность у устья, но забойное давление обычно не падает, поэтому это признак, а не причина. При росте уровня в ёмкостях повышают плотность и ликвидируют проявление.",
+   "source": "построено кодом по утверждениям главы, стр. 237",
+   "claim_ids": [
+    "basarygin.gas_cut_not_cause#c1",
+    "basarygin.gas_cut_not_cause#c2",
+    "basarygin.gas_cut_not_cause#c3",
+    "basarygin.gas_cut_not_cause#c4",
+    "basarygin.gas_cut_not_cause#c5",
+    "basarygin.gas_cut_not_cause#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.mud_properties_change.i1",
+   "step_id": "basarygin.mud_properties_change",
+   "node_id": "basarygin.mud_properties_change",
+   "file": "pictures/mud_properties_change_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Приток меняет свойства раствора у забоя, а на поверхности это видно лишь после подъёма забойной пачки к устью. Смотрите на путь раствора вверх.",
+   "alt": "Бурящаяся скважина с притоком из нижнего пласта. Стрелки показывают, что раствор идёт вниз по бурильной колонне и поднимается от забоя к устью.",
+   "source": "построено кодом по утверждениям главы, стр. 239",
+   "claim_ids": [
+    "basarygin.mud_properties_change#c1",
+    "basarygin.mud_properties_change#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.wellhead_reinforcement.i1",
+   "step_id": "basarygin.wellhead_reinforcement",
+   "node_id": "basarygin.wellhead_reinforcement",
+   "file": "pictures/wellhead_reinforcement_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Устье газовой скважины усилено дополнительной колонной: она снаружи эксплуатационной и спущена до неё. Глубины показаны условно.",
+   "alt": "Разрез газовой скважины: в верхней части эксплуатационную колонну окружает дополнительная, более короткая. Эксплуатационная доходит до газового пласта.",
+   "source": "построено кодом по утверждениям главы, стр. 312",
+   "claim_ids": [
+    "basarygin.wellhead_reinforcement#c2",
+    "basarygin.wellhead_reinforcement#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.bop_stack_layout.i1",
+   "step_id": "basarygin.bop_stack_layout",
+   "node_id": "basarygin.bop_stack_layout",
+   "file": "pictures/bop_stack_layout_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Сборка на устье сверху вниз: превенторы друг над другом, внизу устьевая головка; сбоку — места отхода штуцерных линий и линий глушения.",
+   "alt": "Схема сверху вниз: кольцевой превентор, трубный, с глухими плашками, ещё один трубный и устьевая головка. Ниже глухого и ниже нижнего трубного отходят по штуцерной линии и линии глушения.",
+   "source": "построено кодом по утверждениям главы, стр. 312, 313",
+   "claim_ids": [
+    "basarygin.bop_stack_layout#c7",
+    "basarygin.bop_stack_layout#c8",
+    "basarygin.bop_stack_layout#c9",
+    "basarygin.bop_stack_layout#c11",
+    "basarygin.bop_stack_layout#c12",
+    "basarygin.bop_stack_layout#c13",
+    "basarygin.bop_stack_layout#c14",
+    "basarygin.bop_stack_layout#c15",
+    "basarygin.bop_stack_layout#c19",
+    "basarygin.bop_stack_layout#c20",
+    "basarygin.bop_stack_layout#c21",
+    "basarygin.bop_stack_layout#c23",
+    "basarygin.bop_stack_layout#c28",
+    "basarygin.bop_stack_layout#c31",
+    "basarygin.bop_stack_layout#c33",
+    "basarygin.bop_stack_layout#c36",
+    "basarygin.bop_stack_layout#c37"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.shut_in_effect.i1",
+   "step_id": "basarygin.shut_in_effect",
+   "node_id": "basarygin.shut_in_effect",
+   "file": "pictures/shut_in_effect_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Приток затухает постепенно, пока растёт давление в стволе, и прекращается при балансе с пластовым давлением. Ход кривых качественный.",
+   "alt": "Две кривые во времени: приток постепенно падает до нуля, давление в стволе растёт и выходит на постоянный уровень, где устьевое плюс гидростатическое равно пластовому.",
+   "source": "построено кодом по утверждениям главы, стр. 314",
+   "claim_ids": [
+    "basarygin.shut_in_effect#c4",
+    "basarygin.shut_in_effect#c5",
+    "basarygin.shut_in_effect#c7",
+    "basarygin.shut_in_effect#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.shut_in_pressures.i1",
+   "step_id": "basarygin.shut_in_pressures",
+   "node_id": "basarygin.shut_in_pressures",
+   "file": "pictures/shut_in_pressures_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Из двух измерений закрытой скважины получают параметры, по которым ведут глушение.",
+   "alt": "Схема: по давлениям в трубах и кольцевом пространстве определяют пластовое давление, характер флюида, противодавление и плотность раствора; при глушении забойное давление должно превышать пластовое.",
+   "source": "построено кодом по утверждениям главы, стр. 314",
+   "claim_ids": [
+    "basarygin.shut_in_pressures#c1",
+    "basarygin.shut_in_pressures#c2",
+    "basarygin.shut_in_pressures#c3",
+    "basarygin.shut_in_pressures#c4",
+    "basarygin.shut_in_pressures#c5",
+    "basarygin.shut_in_pressures#c6",
+    "basarygin.shut_in_pressures#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.shut_in_first_steps.i1",
+   "step_id": "basarygin.shut_in_first_steps",
+   "node_id": "basarygin.shut_in_first_steps",
+   "file": "pictures/shut_in_first_steps_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Первые действия для данной компоновки устья: при переливе скважину перекрывают. Как в книге; вероятно, опечатка издания.",
+   "alt": "Схема сверху вниз: сигнал о проявлении, остановка работ, подъём трубы, проверка положения муфты, отключение насосов и проверка самопритока, при переливе срочное перекрытие.",
+   "source": "построено кодом по утверждениям главы, стр. 314, 315",
+   "claim_ids": [
+    "basarygin.shut_in_first_steps#c4",
+    "basarygin.shut_in_first_steps#c5",
+    "basarygin.shut_in_first_steps#c6",
+    "basarygin.shut_in_first_steps#c7",
+    "basarygin.shut_in_first_steps#c8",
+    "basarygin.shut_in_first_steps#c9",
+    "basarygin.shut_in_first_steps#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.hard_shut_in.i1",
+   "step_id": "basarygin.hard_shut_in",
+   "node_id": "basarygin.hard_shut_in",
+   "file": "pictures/hard_shut_in_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественно, без чисел: при быстром перекрытии приток прекращается скоро, но давление в скважине значительно колеблется.",
+   "alt": "Две условные кривые во времени: приток из пласта быстро падает почти до нуля, а давление в скважине после перекрытия резко колеблется.",
+   "source": "построено кодом по утверждениям главы, стр. 315",
+   "claim_ids": [
+    "basarygin.hard_shut_in#c4",
+    "basarygin.hard_shut_in#c5",
+    "basarygin.hard_shut_in#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.soft_shut_in.i1",
+   "step_id": "basarygin.soft_shut_in",
+   "node_id": "basarygin.soft_shut_in",
+   "file": "pictures/soft_shut_in_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественно, без чисел: от направления потока через штуцер до перекрытия проходит много времени, и жидкость из пласта всё поступает.",
+   "alt": "Условная кривая: объём поступившей из пласта жидкости растёт от направления потока через штуцер до окончательного перекрытия скважины.",
+   "source": "построено кодом по утверждениям главы, стр. 315",
+   "claim_ids": [
+    "basarygin.soft_shut_in#c3",
+    "basarygin.soft_shut_in#c4",
+    "basarygin.soft_shut_in#c5",
+    "basarygin.soft_shut_in#c6",
+    "basarygin.soft_shut_in#c7",
+    "basarygin.soft_shut_in#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.shut_in_choice.i1",
+   "step_id": "basarygin.shut_in_choice",
+   "node_id": "basarygin.shut_in_choice",
+   "file": "pictures/shut_in_choice_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Что учитывают при выборе способа перекрытия; перечень не закрыт. Как в книге; вероятно, опечатка издания.",
+   "alt": "Схема: опыт и конкретные условия включают плотность раствора и прочность пласта у башмака, давление на устье и скорость закрытия оборудования; всё это ведёт к выбору способа.",
+   "source": "построено кодом по утверждениям главы, стр. 315",
+   "claim_ids": [
+    "basarygin.shut_in_choice#c1",
+    "basarygin.shut_in_choice#c2",
+    "basarygin.shut_in_choice#c3",
+    "basarygin.shut_in_choice#c4",
+    "basarygin.shut_in_choice#c5",
+    "basarygin.shut_in_choice#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.backup_and_trip_shut_in.i1",
+   "step_id": "basarygin.backup_and_trip_shut_in",
+   "node_id": "basarygin.backup_and_trip_shut_in",
+   "file": "pictures/backup_and_trip_shut_in_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Порядок закрытия при СПО: клапан ставят открытым и только потом закрывают вместе с превентором.",
+   "alt": "Цепочка действий: остановить СПО, подвесить колонну, поставить открытый клапан, закрыть клапан и превентор, поднять квадрат и открыть клапан, записать давления.",
+   "source": "построено кодом по утверждениям главы, стр. 316",
+   "claim_ids": [
+    "basarygin.backup_and_trip_shut_in#c5",
+    "basarygin.backup_and_trip_shut_in#c6",
+    "basarygin.backup_and_trip_shut_in#c7",
+    "basarygin.backup_and_trip_shut_in#c8",
+    "basarygin.backup_and_trip_shut_in#c9",
+    "basarygin.backup_and_trip_shut_in#c10",
+    "basarygin.backup_and_trip_shut_in#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.kill_overview.i1",
+   "step_id": "basarygin.kill_overview",
+   "node_id": "basarygin.kill_overview",
+   "file": "pictures/kill_overview_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Флюид удаляют циркуляцией, раствор заменяют более тяжёлым; стрелки — прямая. Как в книге; вероятно, опечатка издания.",
+   "alt": "Скважина с обсадной колонной и трубами внутри; открытый ствол вошёл в пласт, из которого возможен приток. Стрелки показывают прямую циркуляцию раствора.",
+   "source": "построено кодом по утверждениям главы, стр. 316",
+   "claim_ids": [
+    "basarygin.kill_overview#c1",
+    "basarygin.kill_overview#c2",
+    "basarygin.kill_overview#c4",
+    "basarygin.kill_overview#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.driller_first_circulation.i1",
+   "step_id": "basarygin.driller_first_circulation",
+   "node_id": "basarygin.driller_first_circulation",
+   "file": "pictures/driller_first_circulation_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Приток вымывают прежним раствором, проверяют давления, затем закачивают утяжелённый. Как в книге; вероятно, опечатка издания.",
+   "alt": "Цепочка: пуск насоса, постоянное давление в трубах, выход разгазированной пачки и остановка, проверка равенства давлений, затем второй этап с утяжелённым раствором.",
+   "source": "построено кодом по утверждениям главы, стр. 316, 317",
+   "claim_ids": [
+    "basarygin.driller_first_circulation#c4",
+    "basarygin.driller_first_circulation#c6",
+    "basarygin.driller_first_circulation#c7",
+    "basarygin.driller_first_circulation#c8",
+    "basarygin.driller_first_circulation#c9",
+    "basarygin.driller_first_circulation#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.driller_second_circulation.i1",
+   "step_id": "basarygin.driller_second_circulation",
+   "node_id": "basarygin.driller_second_circulation",
+   "file": "pictures/driller_second_circulation_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Пока тяжёлый раствор идёт к долоту, давление в трубах снижают, затем держат постоянным. Ход показан качественно.",
+   "alt": "Кривая давления в бурильных трубах снижается, пока раствор для глушения не дойдёт до долота, а дальше идёт горизонтально.",
+   "source": "построено кодом по утверждениям главы, стр. 317",
+   "claim_ids": [
+    "basarygin.driller_second_circulation#c7",
+    "basarygin.driller_second_circulation#c10",
+    "basarygin.driller_second_circulation#c11",
+    "basarygin.driller_second_circulation#c12"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.wait_weight_to_bit.i1",
+   "step_id": "basarygin.wait_weight_to_bit",
+   "node_id": "basarygin.wait_weight_to_bit",
+   "file": "pictures/wait_weight_to_bit_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественный ход: давление в трубах снижают по графику до долота, после проверки держат постоянным. При остановке избыточное давление — ноль.",
+   "alt": "Линия давления в бурильных трубах снижается, пока тяжёлый раствор идёт к долоту, где циркуляцию останавливают для проверки, а дальше идёт горизонтально.",
+   "source": "построено кодом по утверждениям главы, стр. 318",
+   "claim_ids": [
+    "basarygin.wait_weight_to_bit#c8",
+    "basarygin.wait_weight_to_bit#c9",
+    "basarygin.wait_weight_to_bit#c10",
+    "basarygin.wait_weight_to_bit#c13"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.wait_weight_completion.i1",
+   "step_id": "basarygin.wait_weight_completion",
+   "node_id": "basarygin.wait_weight_completion",
+   "file": "pictures/wait_weight_completion_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Порядок завершения глушения: проверка у долота, докачка до выхода раствора глушения и итоговая проверка давления.",
+   "alt": "Схема: остановка у долота и проверка, циркуляция до выхода раствора глушения, затем развилка: без давления в трубах и кольцевом пространстве скважина заглушена, при давлении в трубах глушение повторяют.",
+   "source": "построено кодом по утверждениям главы, стр. 318",
+   "claim_ids": [
+    "basarygin.wait_weight_completion#c4",
+    "basarygin.wait_weight_completion#c5",
+    "basarygin.wait_weight_completion#c7",
+    "basarygin.wait_weight_completion#c8",
+    "basarygin.wait_weight_completion#c10",
+    "basarygin.wait_weight_completion#c11",
+    "basarygin.wait_weight_completion#c12",
+    "basarygin.wait_weight_completion#c13"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "basarygin.kill_special_cases.i1",
+   "step_id": "basarygin.kill_special_cases",
+   "node_id": "basarygin.kill_special_cases",
+   "file": "pictures/kill_special_cases_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Сопутствующий метод: плотность раствора повышают уже во время циркуляции, когда скважина ещё не перекрыта. Ход показан качественно.",
+   "alt": "Линия плотности бурового раствора растёт во времени при циркуляции и доходит до отметки, где скважину перекрывают.",
+   "source": "построено кодом по утверждениям главы, стр. 318",
+   "claim_ids": [
+    "basarygin.kill_special_cases#c5",
+    "basarygin.kill_special_cases#c6"
+   ],
+   "prompt": null
+  }
+ ]
+}

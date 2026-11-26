@@ -1,0 +1,500 @@
+{
+ "chapter": "asquith_ch7",
+ "routes": [
+  {
+   "node_id": "asquith.interpretation_goal",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип И, сумма 2: invisible и cause_effect по 1, ролик не нужен. Человек проходит схему от показаний приборов к объёмам флюидов и к решению. По второму типу Н выбирает решение с учётом дополнительных данных."
+  },
+  {
+   "node_id": "asquith.log_scanning",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "log",
+   "why": "Тип Пр, сумма 2. Человек просматривает планшет, отделяет коллекторы и водоносные зоны и выбирает первую кривую для терригенного или карбонатного разреза. По типу Р карточки с планшетом без разметки и с разметкой."
+  },
+  {
+   "node_id": "asquith.archie_sw",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф, invisible и cause_effect по 2. Человек двигает Rt, пористость, Rw, a, m, n и видит, как меняется Sw. По типу И выводит насыщенность из измеренных величин."
+  },
+  {
+   "node_id": "asquith.flushed_zone_sxo",
+   "format": "длинное видео",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "invasion_zone",
+   "why": "Тип М, сумма 8: time, invisible и cause_effect по 2, и нужно решение на данных. Человек видит, как фильтрат вытесняет подвижные углеводороды у ствола и меняет сопротивление. По типу И затем сравнивает Sxo и Sw."
+  },
+  {
+   "node_id": "asquith.interpretation_flow",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Пр, сумма 2. Человек для выделенного интервала прослеживает по схеме, из какого источника берётся каждый входной параметр и что от него зависит. По типу И разбирает связи измерения и итоговой величины."
+  },
+  {
+   "node_id": "asquith.ratio_moveable_index",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: counterintuitive 1, потому что пористость выпадает из расчёта. Человек меняет сопротивления и видит положение Sw/Sxo относительно порогов. По типу Н решает, смещались ли углеводороды."
+  },
+  {
+   "node_id": "asquith.ratio_water_saturation",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: invisible 2, насыщенность получают без пористости. Человек двигает отношения сопротивлений и видит Swr и связь Sxo = Sw^(1/5). По типу Н проверяет, выполняются ли условия этой связи."
+  },
+  {
+   "node_id": "asquith.archie_vs_ratio",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Н, сумма 4. Человек сравнивает Swa и Swr, выбирает ветвь «равны, больше, меньше» и называет профиль проникновения или возможную ошибку. По типу Пр проходит эту схему по шагам."
+  },
+  {
+   "node_id": "asquith.rxo_rt_quicklook",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "log",
+   "why": "Тип Р: практикум «найди признак», сумма 2. Человек отмечает интервалы, где кривая отношения уходит от ПС, и решает, что проверить дальше. Карточки дают тот же рисунок без разметки и с разметкой."
+  },
+  {
+   "node_id": "asquith.rxo_rt_sp_basis",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф, invisible и cause_effect по 2. Человек меняет контраст Rmf и Rw и сопротивление Rt и видит, когда Rxo/Rt следует за ПС, а когда расходится с ней. По типу М объясняет причину расхождения на примере."
+  },
+  {
+   "node_id": "asquith.rwa_idea",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф, сумма 5. Человек двигает Rt и пористость и видит, как Rwa поднимается выше Rw при углеводородах. По типу И выбирает по интервалам минимальное Rwa как оценку Rw."
+  },
+  {
+   "node_id": "asquith.rwa_practice",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Пр, сумма 3. Человек выбирает опорный интервал, переводит отношение в Sw и проверяет ловушки: разное Rw и низкую пористость. По типу Н двигает условия и видит, когда вывод ненадёжен."
+  },
+  {
+   "node_id": "asquith.conductivity_porosity",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип И, сумма 5, меньше порога ролика. Человек меняет насыщенность и видит, как пористость по сопротивлению отстаёт от истинной. По типу Ф сравнивает две пористости на данных и проверяет допущение Sw = 1."
+  },
+  {
+   "node_id": "asquith.wet_resistivity_overlay",
+   "format": "практикум на данных",
+   "secondary_format": "карточки",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Р: практикум «найди признак». Человек по глубине сравнивает Ro и глубинное сопротивление, отмечает расхождения и проверяет совпадение в водоносной зоне. Карточки показывают пару кривых без разметки и с разметкой."
+  },
+  {
+   "node_id": "asquith.bvw_irreducible",
+   "format": "длинное видео",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 2,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Тип М, сумма 7: invisible, scale и cause_effect по 2. Человек видит переход от капиллярной воды в порах к постоянному BVW по глубинам и безводному притоку. По типу И проверяет постоянство BVW на данных. Подходящего видеошаблона нет."
+  },
+  {
+   "node_id": "asquith.buckles_plot",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Р, сумма 2. Человек на графике пористость–Sw отличает точки вдоль гиперболы от разброса и сопоставляет три скважины. По типу Н меняет BVW и видит, где вывод о подвижной воде неоднозначен."
+  },
+  {
+   "node_id": "asquith.bvw_grain_size",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "bars",
+   "why": "Тип М, сумма 5, меньше порога ролика. Человек сопоставляет диапазоны BVW для разной крупности зерна и видит рост удержанной воды в мелкозернистых породах. По типу Н оценивает, насколько табличный ориентир применим к образцу."
+  },
+  {
+   "node_id": "asquith.pickett_log_archie",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф, сумма 4. Человек двигает Sw, m и Rw на логарифмическом графике и видит, при каких условиях водоносные точки образуют одну прямую. По типу Пр повторяет шаги построения."
+  },
+  {
+   "node_id": "asquith.pickett_axes",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф: scale 1 из-за логарифмических осей. Человек меняет m ползунком и видит наклон −1/m при сопротивлении по горизонтали. По типу Пр сам размещает точки на осях и читает наклон."
+  },
+  {
+   "node_id": "asquith.pickett_reading",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Р: человек находит водоносную прямую и точки правее неё, затем читает m, Rw и Sw. По типу Ф двигает a и n и видит, какие результаты от них зависят."
+  },
+  {
+   "node_id": "asquith.pickett_matrix",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф, сумма 5. Человек двигает матричное значение и видит, как водоносная линия искривляется или выпрямляется. По типу Пр подбирает ρma или Δtma по набору точек."
+  },
+  {
+   "node_id": "asquith.pickett_saturation_lines",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Пр, сумма 2. Человек умножает Ro на множители, проводит параллельные линии и находит Sw точки по Ro/Rt. По типу Ф видит, что табличные множители ограничены n = 2,0."
+  },
+  {
+   "node_id": "asquith.pickett_example",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Пр, сумма 3. Человек по примеру Morrow проводит водоносную прямую, получает Rw и Sw аномальной точки. По типу Н меняет m в диапазоне 1,8–2,15 и видит разброс результата."
+  },
+  {
+   "node_id": "asquith.hingle_grid",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф, сумма 4. Человек меняет a и m и видит, как особая шкала сопротивления выпрямляет зависимость от пористости. По типу Пр выбирает сетку под заданные параметры."
+  },
+  {
+   "node_id": "asquith.hingle_reading",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Р: человек находит водоносную прямую из точки нулевой пористости и отмечает углеводородные точки ниже неё. По типу Ф меняет Sw и видит веер линий."
+  },
+  {
+   "node_id": "asquith.hingle_parameters",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Пр, сумма 3. Человек проводит водоносную линию, снимает матричное значение и Rw и строит веер насыщенности. По типу Ф видит, как принятые a и m влияют на результат."
+  },
+  {
+   "node_id": "asquith.hingle_example",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Пр, сумма 3. Человек по примеру Morrow получает плотность матрицы, Rw и Sw и сравнивает с результатом Пикетта. По типу Н оценивает, как принятые a и m объясняют расхождение."
+  },
+  {
+   "node_id": "asquith.pickett_vs_hingle",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип Н, сумма 2. Человек получает набор известных и неизвестных параметров, выбирает кроссплот и называет, что придётся принять допущением. По типу Пр сверяется со сравнением двух методов."
+  },
+  {
+   "node_id": "asquith.permeability_conditions",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Н: практикум с выбором решения. Человек проверяет постоянство BVW, решает, применима ли формула, и сравнивает с соседними скважинами. По типу И прослеживает, из чего выводится проницаемость."
+  },
+  {
+   "node_id": "asquith.permeability_wyllie_timur",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Ф, сумма 4. Человек двигает пористость и неснижаемую водонасыщенность и сравнивает оценки по формулам для нефти и сухого газа. По типу Н видит расхождение методов и выбирает применимый."
+  },
+  {
+   "node_id": "asquith.permeability_coates",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Ф, сумма 2. Человек меняет плотность углеводородов и прослеживает по цепочке C и W её влияние на K. По типу Пр считает по шагам, взяв Rt irr из нужного интервала."
+  },
+  {
+   "node_id": "asquith.shaly_sand_models",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип Ф, сумма 3. Человек сопоставляет поправки на объём глинистой породы с моделями Ваксмана–Смитса и двух вод по тому, что они учитывают. По типу В располагает подходы по ходу развития и подбирает модель к случаю."
+  },
+  {
+   "node_id": "asquith.shale_effect",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Тип Н, сумма 5. Человек меняет содержание глины, видит снижение расчётной Sw и решает, не выглядит ли водоносная зона продуктивной из-за завышенной поправки. По типу И разбирает, как глина искажает отклик сопротивления."
+  }
+ ]
+}

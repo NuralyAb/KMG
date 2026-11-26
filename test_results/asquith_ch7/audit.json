@@ -1,0 +1,870 @@
+{
+ "chapter": "asquith_ch7",
+ "claims": 625,
+ "flagged": [
+  {
+   "claim_id": "asquith.log_scanning#c24",
+   "node_id": "asquith.log_scanning",
+   "text": "В карбонатных породах сопротивление пласта обычно широко меняется вместе с типом породы, и часто есть лишь немного глинистых пород для отсчёта изменений.",
+   "quote": "Formation resistivities tend to vary widely with changing rock types, and commonly there are few shales against which to measure changes.",
+   "page_pdf": 140,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "asquith.archie_sw#c1",
+   "node_id": "asquith.archie_sw",
+   "text": "Водонасыщенность Sw незатронутой зоны (uninvaded zone) коллектора рассчитывают по формуле Арчи (Archie, 1942).",
+   "quote": "Water saturation ($S_w$) of a reservoir's uninvaded zone is calculated by the Archie (1942) formula:",
+   "page_pdf": 126,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.flushed_zone_sxo#c3",
+   "node_id": "asquith.flushed_zone_sxo",
+   "text": "Помимо Sw геолог должен определить, достаточно ли низка водонасыщенность для заканчивания скважины без притока воды.",
+   "quote": "- the water saturation is low enough for a water-free completion",
+   "page_pdf": 127,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.ratio_moveable_index#c12",
+   "node_id": "asquith.ratio_moveable_index",
+   "text": "Поэтому геолог всё же может получить полезные каротажные параметры оценки пласта, даже когда каротажа пористости нет.",
+   "quote": "Therefore, a geologist can still derive useful formation evaluation log parameters even though porosity logs are unavailable.",
+   "page_pdf": 127,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "asquith.ratio_moveable_index#c13",
+   "node_id": "asquith.ratio_moveable_index",
+   "text": "Индекс подвижности углеводородов по методу отношений задаётся отдельной формулой — (7.4).",
+   "quote": "The moveable hydrocarbon index by the ratio method is:",
+   "page_pdf": 127,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.ratio_moveable_index#c22",
+   "node_id": "asquith.ratio_moveable_index",
+   "text": "Вывод о том, что при Sw/Sxo, равном 1,0 или большем, углеводороды не смещались, верен независимо от того, содержит ли пласт углеводороды.",
+   "quote": "This is true regardless of whether or not a formation contains hydrocarbons.",
+   "page_pdf": 127,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.ratio_water_saturation#c1",
+   "node_id": "asquith.ratio_water_saturation",
+   "text": "Метод отношений позволяет определить водонасыщенность.",
+   "quote": "To determine water saturation by the ratio method",
+   "page_pdf": 127,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.ratio_water_saturation#c4",
+   "node_id": "asquith.ratio_water_saturation",
+   "text": "Формула (7.5): Sxo = (Sw)^(1/5). Она обычно хорошо работает в промытой зоне пластов с умеренным проникновением и средней остаточной насыщенностью углеводородами.",
+   "quote": "$$S_{xo} = (S_w)^{\\frac{1}{2}} \\tag{7.5}$$",
+   "page_pdf": 128,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.ratio_water_saturation#c8",
+   "node_id": "asquith.ratio_water_saturation",
+   "text": "Формула (7.6): Swr = ((Rxo/Rt)/(Rmf/Rw))^(5/8). Она опирается на связь Sxo = (Sw)^(1/5) и на показатель n, принятый равным 2,0.",
+   "quote": "$$S_{wr} = \\left( \\frac{R_{xo} / R_t}{R_{mf} / R_w} \\right)^{\\frac{5}{8}} \\tag{7.6}$$",
+   "page_pdf": 128,
+   "flags": [
+    "number",
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.ratio_water_saturation#c9",
+   "node_id": "asquith.ratio_water_saturation",
+   "text": "Формула (7.7) — другая запись той же зависимости: Swr = ((Rxo/Rt)/(Rmf/Rw))^(0,625).",
+   "quote": "$$S_{wr} = \\left( \\frac{R_{xo} / R_t}{R_{mf} / R_w} \\right)^{0.625} \\tag{7.7}$$",
+   "page_pdf": 128,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.ratio_water_saturation#c10",
+   "node_id": "asquith.ratio_water_saturation",
+   "text": "В расшифровке формул (7.6) и (7.7) Swr назван индексом подвижности углеводородов. Вероятно, это ошибка книги: по тексту Swr — водонасыщенность по методу отношений.",
+   "quote": "$S_{wr}$ = moveable hydrocarbon index",
+   "page_pdf": 128,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.archie_vs_ratio#c1",
+   "node_id": "asquith.archie_vs_ratio",
+   "text": "Чтобы использовать метод отношений в интерпретации, водонасыщенность незатронутой зоны следует рассчитать обоими способами: по уравнению Арчи (Swa) и по методу отношений (Swr).",
+   "quote": "To use the ratio method in an interpretation process, the water saturation of the uninvaded zone should be calculated by both the Archie equation ($S_{wa}$) and the ratio method ($S_{wr}$).",
+   "page_pdf": 128,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.archie_vs_ratio#c10",
+   "node_id": "asquith.archie_vs_ratio",
+   "text": "В случае Swa меньше Swr можно оценить более точное значение водонасыщенности.",
+   "quote": "In this case, a more accurate value for water saturation",
+   "page_pdf": 128,
+   "flags": [
+    "direction"
+   ]
+  },
+  {
+   "claim_id": "asquith.archie_vs_ratio#c11",
+   "node_id": "asquith.archie_vs_ratio",
+   "text": "Более точную водонасыщенность в этом случае (Swa меньше Swr) оценивают по уравнению, взятому из Schlumberger, 1977.",
+   "quote": "can be estimated using the following equation (from Schlumberger, 1977):",
+   "page_pdf": 128,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.archie_vs_ratio#c12",
+   "node_id": "asquith.archie_vs_ratio",
+   "text": "Формула (7.8): (Sw)COR = Swa × (Swa/Swr)^0,25.",
+   "quote": "$$(S_w)_{COR} = S_{wa} \\times \\left( \\frac{S_{wa}}{S_{wr}} \\right)^{0.25} \\tag{7.8}$$",
+   "page_pdf": 128,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.rxo_rt_sp_basis#c3",
+   "node_id": "asquith.rxo_rt_sp_basis",
+   "text": "Соотношения (7.10) и (7.11) для сопротивлений промытой и незатронутой зон автор записывает для водоносных зон.",
+   "quote": "In water-bearing zones:",
+   "page_pdf": 129,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.rxo_rt_sp_basis#c6",
+   "node_id": "asquith.rxo_rt_sp_basis",
+   "text": "Для вывода автор решает два уравнения относительно Rmf и Rw соответственно и подставляет результаты в третье. В тексте они названы уравнениями 7.2, 7.3 и 7.1.",
+   "quote": "Solving Equations 7.2 and 7.3 for $R_{mf}$ and $R_w$ respectively, and substituting the results in Equation 7.1 yields:",
+   "page_pdf": 129,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.rxo_rt_sp_basis#c7",
+   "node_id": "asquith.rxo_rt_sp_basis",
+   "text": "Номера уравнений в тексте вывода не соответствуют нумерации главы. По смыслу нужно решить формулы (7.10) и (7.11) относительно Rmf и Rw и подставить результаты в формулу (7.9).",
+   "quote": "Solving Equations 7.2 and 7.3 for $R_{mf}$ and $R_w$ respectively, and substituting the results in Equation 7.1 yields:",
+   "page_pdf": 129,
+   "flags": [
+    "number",
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.rwa_idea#c9",
+   "node_id": "asquith.rwa_idea",
+   "text": "Объединив два соотношения и решив их относительно Rw, получают выражение для сопротивления воды. В книге названы формулы (7.5) и (7.6), по смыслу это (7.13) и (7.14).",
+   "quote": "Combining Equations 7.5 and 7.6, and solving for $R_w$ yields:",
+   "page_pdf": 129,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.rwa_idea#c11",
+   "node_id": "asquith.rwa_idea",
+   "text": "На основе полученного выражения для Rw вводят определение кажущегося сопротивления воды Rwa. В книге названа формула (7.7), по смыслу это (7.15).",
+   "quote": "From Equation 7.7 above, define apparent water resistivity ($R_{wa}$) as:",
+   "page_pdf": 129,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.rwa_practice#c6",
+   "node_id": "asquith.rwa_practice",
+   "text": "Ловушка интерпретации: метод предполагает, что значения Rw во всех сравниваемых зонах одинаковы.",
+   "quote": "The $R_w$ values in the zones that are compared are assumed to be the same.",
+   "page_pdf": 129,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "asquith.rwa_practice#c7",
+   "node_id": "asquith.rwa_practice",
+   "text": "В низкопористых зонах (пористость меньше около 10 %) значение Rwa ниже настоящего значения Rw; породы и район для этого порога автор не называет.",
+   "quote": "In low-porosity zones (less than about 10% porosity), the $R_{wa}$ value is lower than the actual $R_w$ value.",
+   "page_pdf": 129,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.conductivity_porosity#c5",
+   "node_id": "asquith.conductivity_porosity",
+   "text": "Шаг 2: сравнить значения кривой и её относительное положение в пористых и проницаемых зонах.",
+   "quote": "Compare the curve values and the relative position of the curve in porous and permeable zones.",
+   "page_pdf": 130,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.conductivity_porosity#c6",
+   "node_id": "asquith.conductivity_porosity",
+   "text": "Шаг 3: при желании можно вычислить водонасыщенность по Арчи, сравнивая пористость по проводимости с пористостью по другому измерению.",
+   "quote": "If desired, an Archie water saturation can be calculated by comparing the conductivity-derived porosity",
+   "page_pdf": 130,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.conductivity_porosity#c14",
+   "node_id": "asquith.conductivity_porosity",
+   "text": "Для водоносного случая, где Sw = 1, уравнение для пористости упрощается.",
+   "quote": "If the water-bearing case is considered, where $S_w = 1$, the equation reduces to:",
+   "page_pdf": 130,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.conductivity_porosity#c23",
+   "node_id": "asquith.conductivity_porosity",
+   "text": "Оценка водонасыщенности по формуле (7.20): Sw = φconductivity / φactual, то есть пористость по проводимости, делённая на фактическую пористость.",
+   "quote": "$$S_w = \\frac{\\phi_{conductivity}}{\\phi_{actual}} \\tag{7.20}$$",
+   "page_pdf": 130,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.bvw_irreducible#c6",
+   "node_id": "asquith.bvw_irreducible",
+   "text": "Признак основан на значениях BVW, вычисленных на нескольких глубинах в пласте: они должны быть постоянными или очень близкими к постоянным.",
+   "quote": "If values for bulk volume water, calculated at several depths in a formation, are constant or very close to",
+   "page_pdf": 131,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.buckles_plot#c12",
+   "node_id": "asquith.buckles_plot",
+   "text": "По описанию рисунка, в скважине a (начальный дебит 292 барреля нефти и 13 баррелей воды в сутки, 96% нефти) точки идут узкой полосой вдоль гиперболы около 0,04 или чуть выше.",
+   "quote": "точки, a: замеры по скважине: IPF = 292 BO + 13 BWPD, 96% OIL (нефть); идут вниз вправо узкой полосой вдоль гиперболы около .04 или чуть выше",
+   "page_pdf": 141,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.buckles_plot#c13",
+   "node_id": "asquith.buckles_plot",
+   "text": "По описанию рисунка, в скважине b (212 баррелей нефти и 100 баррелей воды в сутки, 68% нефти) есть плотная группа около гиперболы 0,04 при φ около 0,11–0,12. Остальные точки лежат выше и правее, с большими BVW.",
+   "quote": "точки, b: замеры по скважине: IPF = 212 BO + 100 BWPD, 68% OIL (нефть); плотная группа около гиперболы .04 при φ около 0,11–0,12; остальные выше и правее, с большими BVW",
+   "page_pdf": 141,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.buckles_plot#c29",
+   "node_id": "asquith.buckles_plot",
+   "text": "На рис. 7.3c показана скважина, не дающая нефти (только воду).",
+   "quote": "Figure 7.3c shows a well producing no oil (all water).",
+   "page_pdf": 141,
+   "flags": [
+    "negation",
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "asquith.bvw_grain_size#c5",
+   "node_id": "asquith.bvw_grain_size",
+   "text": "По табл. 7.1, у крупнозернистых терригенных пород (зерно от 1,0 до 0,5 мм) BVW составляет от 0,02 до 0,025; район и условия автор не называет.",
+   "quote": "|  Coarse | 1.0 to 0.5 | 0.02 to 0.025  |",
+   "page_pdf": 131,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.bvw_grain_size#c6",
+   "node_id": "asquith.bvw_grain_size",
+   "text": "По табл. 7.1, у среднезернистых терригенных пород (зерно от 0,5 до 0,25 мм) BVW составляет от 0,025 до 0,035; район и условия автор не называет.",
+   "quote": "|  Medium | 0.5 to 0.25 | 0.025 to 0.035  |",
+   "page_pdf": 131,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.bvw_grain_size#c7",
+   "node_id": "asquith.bvw_grain_size",
+   "text": "По табл. 7.1, у мелкозернистых терригенных пород (зерно от 0,25 до 0,125 мм) BVW составляет от 0,035 до 0,05; район и условия автор не называет.",
+   "quote": "|  Fine | 0.25 to 0.125 | 0.035 to 0.05  |",
+   "page_pdf": 131,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.bvw_grain_size#c8",
+   "node_id": "asquith.bvw_grain_size",
+   "text": "По табл. 7.1, у очень мелкозернистых терригенных пород (зерно от 0,125 до 0,062 мм) BVW составляет от 0,05 до 0,07; район и условия автор не называет.",
+   "quote": "|  Very Fine | 0.125 to 0.062 | 0.05 to 0.07  |",
+   "page_pdf": 131,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.bvw_grain_size#c9",
+   "node_id": "asquith.bvw_grain_size",
+   "text": "По табл. 7.1, у алеврита (silt) с зерном мельче 0,062 мм BVW составляет от 0,07 до 0,09; район и условия автор не называет.",
+   "quote": "|  Silt | < 0.062 | 0.07 to 0.09  |",
+   "page_pdf": 131,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_log_archie#c6",
+   "node_id": "asquith.pickett_log_archie",
+   "text": "С появлением первых (большей частью неграфических) программ интерпретации каротажа кроссплоты насыщенности стали использовать реже.",
+   "quote": "With the advent of early (mostly nongraphic) log-interpretation software, their use declined",
+   "page_pdf": 132,
+   "flags": [
+    "direction",
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_log_archie#c13",
+   "node_id": "asquith.pickett_log_archie",
+   "text": "Метод Пикетта может помогать определить параметры матрицы (matrix parameters) для акустического и плотностного каротажа, Δtma и ρma; для этого нужен разброс хороших данных в водоносной зоне.",
+   "quote": "- matrix parameters for sonic and density logs ($\\Delta t_{ma}$ and $\\rho_{ma}$)",
+   "page_pdf": 132,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_log_archie#c21",
+   "node_id": "asquith.pickett_log_archie",
+   "text": "Для водоносной зоны (Sw = 1) действует формула (7.25): log(Rt) = log(a × Rw) − m log(φ). В сравниваемых интервалах параметры матрицы, a, m, n и Rw считаются неизменными.",
+   "quote": "$$\\log(R_t) = \\log(a \\times R_w) - m \\log(\\phi) \\tag{7.25}$$",
+   "page_pdf": 132,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_reading#c3",
+   "node_id": "asquith.pickett_reading",
+   "text": "Наклон водоносной прямой равен −1/m, когда сопротивление отложено по горизонтали, а пористость по вертикали.",
+   "quote": "Water-bearing points of different porosities plot along a straight line with a slope of ($-1/m$)",
+   "page_pdf": 132,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_reading#c8",
+   "node_id": "asquith.pickett_reading",
+   "text": "Точки с углеводородами лежат в стороне от водоносной прямой: повышенное сопротивление смещает их от неё горизонтально вправо.",
+   "quote": "Hydrocarbon-bearing points lie away from the line, moved horizontally to the right from the water-bearing line by their increased resistivity.",
+   "page_pdf": 132,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_reading#c19",
+   "node_id": "asquith.pickett_reading",
+   "text": "Линия 70 % на рис. 7.4 параллельна линии 100 %, проходит выше и правее неё и начинается у левого верхнего угла (DPHI около 1,0).",
+   "quote": "Параллельна линии 100, выше и правее неё. Начинается у левого верхнего угла (DPHI около 1.0).",
+   "page_pdf": 142,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_reading#c20",
+   "node_id": "asquith.pickett_reading",
+   "text": "Линия 50 % на рис. 7.4 параллельна остальным, проходит выше и правее линии 70 % и начинается на верхней границе поля.",
+   "quote": "Параллельна остальным, выше и правее линии 70. Начинается на верхней границе поля.",
+   "page_pdf": 142,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_reading#c21",
+   "node_id": "asquith.pickett_reading",
+   "text": "Линия 30 % на рис. 7.4 — самая верхняя и правая; она параллельна остальным и начинается на верхней границе поля левее Rt = 1,00.",
+   "quote": "Параллельна остальным, самая верхняя и правая. Начинается на верхней границе поля, левее Rt = 1.00.",
+   "page_pdf": 142,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_reading#c26",
+   "node_id": "asquith.pickett_reading",
+   "text": "Приблизительный диапазон Rt точек левого скопления на рис. 7.4 (песчаник Morrow) — около 0,9–1,9; единицы на рисунке не указаны.",
+   "quote": "диапазон Rt точек левого скопления: ≈0.9–1.9",
+   "page_pdf": 142,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_reading#c27",
+   "node_id": "asquith.pickett_reading",
+   "text": "Rt двух правых точек на рис. 7.4 (песчаник Morrow) — приблизительно 40 и 46; единицы на рисунке не указаны.",
+   "quote": "Rt двух правых точек: ≈40 и ≈46",
+   "page_pdf": 142,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_reading#c29",
+   "node_id": "asquith.pickett_reading",
+   "text": "На линии 100 % рис. 7.4 при DPHI = 0,10 сопротивление Rt составляет приблизительно 4,5 (данные по песчанику Morrow, единицы не указаны).",
+   "quote": "Rt на линии 100 при DPHI = 0.10: ≈4.5",
+   "page_pdf": 142,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_saturation_lines#c1",
+   "node_id": "asquith.pickett_saturation_lines",
+   "text": "Водонасыщенность точки, лежащей в стороне от водоносной линии, можно определить по уравнению (формула (7.27)).",
+   "quote": "The water saturation of a point plotting away from the water-bearing line can be determined by the equation:",
+   "page_pdf": 133,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_example#c2",
+   "node_id": "asquith.pickett_example",
+   "text": "Для каждой зоны в таблице даны номер, глубина в футах, объёмная плотность ρb в г/см³, плотностная пористость φD в долях единицы и Rt в Ом·м.",
+   "quote": "|  Zone number | Depth (ft) | $\\rho_b$ (g/cm³) | $\\phi_D$ (decimal) | $R_t$ (ohm-m)  |",
+   "page_pdf": 135,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_example#c5",
+   "node_id": "asquith.pickett_example",
+   "text": "На рис. 7.4 семь точек лежат вблизи линии Sw = 100 % (на ней, чуть выше и ниже) при Rt около 1–2; это водоносная зона.",
+   "quote": "скопление точек у линии 100 (без подписи): водоносная зона: семь точек вблизи линии Sw = 100 %, на ней, чуть выше и ниже, при Rt около 1–2",
+   "page_pdf": 142,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_example#c6",
+   "node_id": "asquith.pickett_example",
+   "text": "На рис. 7.4 две обособленные аномальные точки лежат правее и выше линии 30, то есть их Sw меньше 30 %; это углеводородонасыщенная зона.",
+   "quote": "две обособленные точки справа вверху (без подписи): аномальные точки, углеводородонасыщенная зона: правее и выше линии 30, то есть Sw меньше 30 %",
+   "page_pdf": 142,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_example#c9",
+   "node_id": "asquith.pickett_example",
+   "text": "Водоносную линию (Sw = 100 %) для данных песчаника Morrow провели через скопление точек с наклоном −1/2 (m = 2).",
+   "quote": "The water-bearing line ($S_w = 100\\%$) was drawn through the cluster of points with a slope of $-1/2$ ($m = 2$).",
+   "page_pdf": 142,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_example#c22",
+   "node_id": "asquith.pickett_example",
+   "text": "Подстановка для песчаника Morrow: Rw = (4,6 × 0,10^2,0)/1,0.",
+   "quote": "$$\nR _ {w} = \\frac {4 . 6 \\times 0 . 1 0 ^ {3 . 0}}{1 . 0}\n$$",
+   "page_pdf": 142,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_example#c29",
+   "node_id": "asquith.pickett_example",
+   "text": "Водонасыщенность точки вычисляют по формуле Sw = (Ro/Rt)^(1/n).",
+   "quote": "$$\nS _ {w} = \\left(\\frac {R _ {a}}{R _ {r}}\\right) ^ {\\frac {1}{n}}\n$$",
+   "page_pdf": 142,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_example#c33",
+   "node_id": "asquith.pickett_example",
+   "text": "Для точки с сопротивлением 40 Ом·м подстановка имеет вид Sw = (0,8/40)^(1/2,0).",
+   "quote": "$$\nS _ {w} = \\left(\\frac {0 . 8}{4 0}\\right) ^ {\\frac {1}{2 . 0}}\n$$",
+   "page_pdf": 142,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.hingle_reading#c14",
+   "node_id": "asquith.hingle_reading",
+   "text": "На рис. 7.7 по горизонтали отложена объёмная плотность по линейной шкале, значения которой убывают слева направо.",
+   "quote": "Bulk density (объёмная плотность); единицы на оси не подписаны, в тексте у рисунка — g/cm³ (снизу, значения убывают слева направо; линейная)",
+   "page_pdf": 145,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.hingle_reading#c16",
+   "node_id": "asquith.hingle_reading",
+   "text": "На рис. 7.7 для песчаника Morrow линия Sw 100 выходит из точки 2,65 г/см³ при нулевой проводимости, растёт вправо вверх и является самой крутой и верхней в веере.",
+   "quote": "Прямая из точки 2.65 г/см³ при Cₐ = 0, растёт вправо вверх; самая крутая и верхняя в веере.",
+   "page_pdf": 145,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.hingle_reading#c17",
+   "node_id": "asquith.hingle_reading",
+   "text": "На рис. 7.7 линия Sw 30 выходит из той же точки, что и остальные; она самая пологая и нижняя, а под ней лежат две нижние точки данных.",
+   "quote": "Прямая из той же точки, самая пологая и нижняя; две нижние точки данных лежат под ней.",
+   "page_pdf": 145,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.hingle_parameters#c8",
+   "node_id": "asquith.hingle_parameters",
+   "text": "На рис. 7.5 и 7.6 положение точки нулевой пористости произвольно.",
+   "quote": "On Figure 7.5 or Figure 7.6, the placement of the zero porosity point is arbitrary.",
+   "page_pdf": 134,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.hingle_example#c2",
+   "node_id": "asquith.hingle_example",
+   "text": "Для каждой зоны табл. 7.4 даёт глубину в футах, объёмную плотность ρb в г/см³, плотностную пористость φD в долях единицы и Rt в Ом·м.",
+   "quote": "|  Zone number | Depth (ft) | $\\rho_b$ (g/cm³) | $\\phi_D$ (decimal) | $R_t$ (ohm-m)  |",
+   "page_pdf": 135,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "asquith.pickett_vs_hingle#c3",
+   "node_id": "asquith.pickett_vs_hingle",
+   "text": "Преимущества и ограничения обоих кроссплотов сведены в табл. 3 главы 7.",
+   "quote": "Table 7.3 lists advantages and limitations of both plots.",
+   "page_pdf": 134,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "asquith.permeability_conditions#c6",
+   "node_id": "asquith.permeability_conditions",
+   "text": "Прежде чем применять формулы проницаемости, геолог должен сначала определить, находится ли пласт при неснижаемой водонасыщенности.",
+   "quote": "Before these formulas can be applied, a geologist must first determine whether or not a formation is at irreducible water saturation.",
+   "page_pdf": 134,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.permeability_conditions#c7",
+   "node_id": "asquith.permeability_conditions",
+   "text": "Находится ли пласт при неснижаемой водонасыщенности, определяют по значениям объёмного водосодержания BVW = Sw × φ, где Sw — водонасыщенность незатронутой зоны.",
+   "quote": "Whether or not a formation is at irreducible water saturation depends upon bulk volume water values ($BVW = S_w \\times \\phi$).",
+   "page_pdf": 134,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.shaly_sand_models#c1",
+   "node_id": "asquith.shaly_sand_models",
+   "text": "Вскоре после работ Арчи и других по количественному определению водонасыщенности по каротажу стало ясно, что у этого метода есть ограничения.",
+   "quote": "Not long after the work of Archie and others in devising a method to quantify water saturation from logs, it became clear that there were limitations to the method",
+   "page_pdf": 136,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "asquith.shale_effect#c2",
+   "node_id": "asquith.shale_effect",
+   "text": "Такие ошибочные значения встречаются не только в песчаниках, но также в известняках и доломитах.",
+   "quote": "These erroneous values are not limited to sandstones but also occur in limestones and dolomites.",
+   "page_pdf": 136,
+   "flags": [
+    "negation",
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "asquith.shale_effect#c3",
+   "node_id": "asquith.shale_effect",
+   "text": "Присутствие глин и (или) глинистых пород так или иначе влияет по существу на все измерения.",
+   "quote": "Essentially all measurements, then, are affected in some way by the presence of clays and/or shales.",
+   "page_pdf": 136,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "asquith.shale_effect#c6",
+   "node_id": "asquith.shale_effect",
+   "text": "По предположению Хилчи (1978), чтобы глинистая порода заметно влияла на водонасыщенность по каротажу, её содержание должно быть больше 10–15 %. Породы, район и приборы для этого порога в главе не названы.",
+   "quote": "Hilchie (1978) suggests that for shale to significantly affect log-derived water saturations, shale content must be greater than 10 to \\(15\\%\\).",
+   "page_pdf": 136,
+   "flags": [
+    "negation"
+   ]
+  }
+ ],
+ "by_flag": {
+  "quantifier": 7,
+  "condition": 14,
+  "negation": 25,
+  "number": 23,
+  "direction": 2
+ },
+ "needs_scan": 103,
+ "by_model": 104,
+ "prose_numbers": [
+  {
+   "node_id": "asquith.ratio_water_saturation",
+   "where": "layers.mechanism.text",
+   "text": "Слева получится Sw, делённая на Sw в степени 1/5, то есть Sw в степени 4/5.",
+   "numbers": [
+    "4"
+   ]
+  },
+  {
+   "node_id": "asquith.ratio_water_saturation",
+   "where": "layers.nuances.text",
+   "text": "В расшифровке формул (7.6) и (7.7) книга называет Swr индексом подвижности углеводородов.",
+   "numbers": [
+    "7"
+   ]
+  },
+  {
+   "node_id": "asquith.ratio_water_saturation",
+   "where": "layers.deeper[0].text",
+   "text": "Формулы (7.6) и (7.7) — одна и та же зависимость: показатель записан дробью 5/8 и числом 0,625.",
+   "numbers": [
+    "7"
+   ]
+  },
+  {
+   "node_id": "asquith.rxo_rt_sp_basis",
+   "where": "layers.nuances.text",
+   "text": "Формулы (7.10) и (7.11) автор записывает для водоносных зон.",
+   "numbers": [
+    "11"
+   ]
+  },
+  {
+   "node_id": "asquith.rxo_rt_sp_basis",
+   "where": "layers.nuances.text",
+   "text": "В тексте вывода названы уравнения 7.2, 7.3 и 7.1.",
+   "numbers": [
+    "3"
+   ]
+  },
+  {
+   "node_id": "asquith.rwa_idea",
+   "where": "layers.nuances.text",
+   "text": "В выводе формул авторы ссылаются на формулы (7.5), (7.6) и (7.7).",
+   "numbers": [
+    "6"
+   ]
+  },
+  {
+   "node_id": "asquith.rwa_idea",
+   "where": "layers.nuances.text",
+   "text": "По смыслу это формулы (7.13), (7.14) и (7.15); вероятно, это опечатка в нумерации.",
+   "numbers": [
+    "14"
+   ]
+  },
+  {
+   "node_id": "asquith.hingle_grid",
+   "where": "layers.deeper[0].text",
+   "text": "Подписи к рис. 7.5 и 7.6 ссылаются на палетки Western Atlas 1995 года: Chart 7-79 и Chart 7-80.",
+   "numbers": [
+    "6"
+   ]
+  },
+  {
+   "node_id": "asquith.hingle_parameters",
+   "where": "layers.practice.text",
+   "text": "Оцените n и вычислите Sw по формуле (7.27): Sw = (Ro/Rt)^(1/n).",
+   "numbers": [
+    "1"
+   ]
+  },
+  {
+   "node_id": "asquith.hingle_parameters",
+   "where": "layers.nuances.text",
+   "text": "На рис. 7.5 и 7.6 положение точки нулевой пористости произвольно.",
+   "numbers": [
+    "6"
+   ]
+  },
+  {
+   "node_id": "asquith.hingle_parameters",
+   "where": "layers.deeper[0].text",
+   "text": "По главе, сетку с a = 1,0 и m = 2,0 обычно используют для песчаников, а с a = 0,62 и m = 2,15 — для карбонатов.",
+   "numbers": [
+    "0.62",
+    "1",
+    "2.15"
+   ]
+  }
+ ],
+ "early_terms": [
+  {
+   "term": "глинистые песчаники",
+   "explained_in": "asquith.shaly_sand_models",
+   "used_in": [
+    "asquith.interpretation_goal"
+   ]
+  },
+  {
+   "term": "контраст сопротивлений",
+   "explained_in": "asquith.shale_effect",
+   "used_in": [
+    "asquith.rxo_rt_sp_basis"
+   ]
+  },
+  {
+   "term": "кроссплот хингла",
+   "explained_in": "asquith.hingle_grid",
+   "used_in": [
+    "asquith.pickett_example"
+   ]
+  },
+  {
+   "term": "литология",
+   "explained_in": "asquith.bvw_grain_size",
+   "used_in": [
+    "asquith.log_scanning"
+   ]
+  },
+  {
+   "term": "метод отношений",
+   "explained_in": "asquith.ratio_moveable_index",
+   "used_in": [
+    "asquith.interpretation_goal"
+   ]
+  },
+  {
+   "term": "отношение rxo/rt",
+   "explained_in": "asquith.rxo_rt_quicklook",
+   "used_in": [
+    "asquith.archie_vs_ratio"
+   ]
+  },
+  {
+   "term": "пористость",
+   "explained_in": "asquith.log_scanning",
+   "used_in": [
+    "asquith.interpretation_goal"
+   ]
+  },
+  {
+   "term": "проводимость",
+   "explained_in": "asquith.conductivity_porosity",
+   "used_in": [
+    "asquith.rxo_rt_quicklook",
+    "asquith.rwa_practice"
+   ]
+  },
+  {
+   "term": "удельное электрическое сопротивление",
+   "explained_in": "asquith.log_scanning",
+   "used_in": [
+    "asquith.interpretation_goal"
+   ]
+  }
+ ],
+ "repeated_quotes": 26,
+ "sensitivity": {
+  "seed": 0,
+  "kinds": {
+   "sign_flip": {
+    "made": 55,
+    "caught": 43
+   },
+   "number": {
+    "made": 60,
+    "caught": 57
+   },
+   "unit": {
+    "made": 20,
+    "caught": 12
+   },
+   "negation_removed": {
+    "made": 38,
+    "caught": 24
+   },
+   "lost_condition": {
+    "made": 43,
+    "caught": 28
+   }
+  },
+  "made": 216,
+  "caught": 164,
+  "recall": 0.759,
+  "flagged_originals": 66,
+  "originals": 625
+ },
+ "layer_sha256": "5f2a2d92174e052708cddf6aec7495bca6bef7fc59b16827928af94069c71d58"
+}

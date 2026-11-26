@@ -1,0 +1,429 @@
+{
+ "chapter": "slatt_par9-4",
+ "illustrations": [
+  {
+   "id": "slatt.river_delta_type.i1",
+   "step_id": "slatt.river_delta_type",
+   "node_id": "slatt.river_delta_type",
+   "file": "pictures/river_delta_type_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Дельта Миссисипи, эталон речного типа: без сильных волн и течений осадок у берега не перемещается заново.",
+   "alt": "Схема из трёх блоков: берег дельты Миссисипи защищён, сильные волны и течения не действуют, поэтому осадок не перерабатывается и не разносится в стороны.",
+   "source": "построено кодом по утверждениям главы, стр. 411",
+   "claim_ids": [
+    "slatt.river_delta_type#c1",
+    "slatt.river_delta_type#c2",
+    "slatt.river_delta_type#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.delta_facies_map.i1",
+   "step_id": "slatt.delta_facies_map",
+   "node_id": "slatt.delta_facies_map",
+   "file": "pictures/delta_facies_map_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Речная дельта: где песчаные коллекторы и что их разделяет.",
+   "alt": "Сравнение: рукава и устьевые бары дают песчаные коллекторы; заливы, марши и лагуны разделяют пески, создают глинистые барьеры и иногда служат нефтематеринскими породами.",
+   "source": "построено кодом по утверждениям главы, стр. 411",
+   "claim_ids": [
+    "slatt.delta_facies_map#c2",
+    "slatt.delta_facies_map#c3",
+    "slatt.delta_facies_map#c4",
+    "slatt.delta_facies_map#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.progradation_accommodation.i1",
+   "step_id": "slatt.progradation_accommodation",
+   "node_id": "slatt.progradation_accommodation",
+   "file": "pictures/progradation_accommodation_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественный ход: со временем вода мелеет, пока питающая река не сместится к более низким участкам дна.",
+   "alt": "Кривая без чисел: глубина воды со временем постепенно уменьшается; в конце отмечено смещение реки к более глубокой воде.",
+   "source": "построено кодом по утверждениям главы, стр. 411",
+   "claim_ids": [
+    "slatt.progradation_accommodation#c1",
+    "slatt.progradation_accommodation#c4",
+    "slatt.progradation_accommodation#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.mouth_bar_recognition.i1",
+   "step_id": "slatt.mouth_bar_recognition",
+   "node_id": "slatt.mouth_bar_recognition",
+   "file": "pictures/mouth_bar_recognition_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Боковой признак по каротажу: в стороны от оси русла толщина и зернистость уменьшаются. Ход качественный.",
+   "alt": "Две убывающие кривые без чисел: толщина и зернистость уменьшаются по мере удаления от оси русла.",
+   "source": "построено кодом по утверждениям главы, стр. 413",
+   "claim_ids": [
+    "slatt.mouth_bar_recognition#c3",
+    "slatt.mouth_bar_recognition#c4"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.lobe_switching.i1",
+   "step_id": "slatt.lobe_switching",
+   "node_id": "slatt.lobe_switching",
+   "file": "pictures/lobe_switching_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Цепочка причин: дельта сама мелеет, река уходит туда, где глубже, и рукава переключаются.",
+   "alt": "Схема из четырёх шагов сверху вниз: рост дельты, обмеление, смещение главной реки к более глубокой воде, переключение рукавов.",
+   "source": "построено кодом по утверждениям главы, стр. 411",
+   "claim_ids": [
+    "slatt.lobe_switching#c3",
+    "slatt.lobe_switching#c4",
+    "slatt.lobe_switching#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.lowstand_deltas.i1",
+   "step_id": "slatt.lowstand_deltas",
+   "node_id": "slatt.lowstand_deltas",
+   "file": "pictures/lowstand_deltas_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "На раннем падении уровня моря врезаются долины, берег смещается к морю и вниз, формируются дельты низкого стояния.",
+   "alt": "Качественная кривая относительного уровня моря, понижающаяся со временем; в начале понижения отмечено раннее падение.",
+   "source": "построено кодом по утверждениям главы, стр. 410",
+   "claim_ids": [
+    "slatt.lowstand_deltas#c1",
+    "slatt.lowstand_deltas#c2",
+    "slatt.lowstand_deltas#c3",
+    "slatt.lowstand_deltas#c4",
+    "slatt.lowstand_deltas#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.clinoforms_time_lines.i1",
+   "step_id": "slatt.clinoforms_time_lines",
+   "node_id": "slatt.clinoforms_time_lines",
+   "file": "pictures/clinoforms_time_lines_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Условный разрез: каждая клиноформа — линия одного момента времени, и она пересекает границу между фациями.",
+   "alt": "Три наклонные кривые клиноформ, смещённые друг за другом в сторону моря, пересекаются одной пологой линией границы фаций.",
+   "source": "построено кодом по утверждениям главы, стр. 410, 411",
+   "claim_ids": [
+    "slatt.clinoforms_time_lines#c1",
+    "slatt.clinoforms_time_lines#c2",
+    "slatt.clinoforms_time_lines#c6",
+    "slatt.clinoforms_time_lines#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.litho_vs_chrono.i1",
+   "step_id": "slatt.litho_vs_chrono",
+   "node_id": "slatt.litho_vs_chrono",
+   "file": "pictures/litho_vs_chrono_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Гипотетический пример с двумя скважинами: от способа корреляции зависит, сплошные ли песчаники между ними.",
+   "alt": "Таблица из двух столбцов: по литофациям песчаники субгоризонтальны и кажутся непрерывными, по времени они наклонны и разобщены.",
+   "source": "построено кодом по утверждениям главы, стр. 410",
+   "claim_ids": [
+    "slatt.litho_vs_chrono#c2",
+    "slatt.litho_vs_chrono#c3",
+    "slatt.litho_vs_chrono#c4",
+    "slatt.litho_vs_chrono#c6",
+    "slatt.litho_vs_chrono#c9",
+    "slatt.litho_vs_chrono#c17",
+    "slatt.litho_vs_chrono#c19"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.sand_connectivity.i1",
+   "step_id": "slatt.sand_connectivity",
+   "node_id": "slatt.sand_connectivity",
+   "file": "pictures/sand_connectivity_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Гипотетический пример: две корреляции одних и тех же двух скважин. Смотрите, как «единый» песчаник распадается на разобщённые тела.",
+   "alt": "Сравнение двух корреляций: по сходству пород песчаники выглядят непрерывными, по времени они наклонны и разделены гетеролитами и глинами.",
+   "source": "построено кодом по утверждениям главы, стр. 410",
+   "claim_ids": [
+    "slatt.sand_connectivity#c1",
+    "slatt.sand_connectivity#c2",
+    "slatt.sand_connectivity#c6",
+    "slatt.sand_connectivity#c7",
+    "slatt.sand_connectivity#c8",
+    "slatt.sand_connectivity#c10",
+    "slatt.sand_connectivity#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.mekong_litho_section.i1",
+   "step_id": "slatt.mekong_litho_section",
+   "node_id": "slatt.mekong_litho_section",
+   "file": "pictures/mekong_litho_section_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Схема без масштаба: линии времени уходят вниз к морю и пересекают границу пород. Значит, эта граница не отмечает один момент.",
+   "alt": "Качественный разрез: почти пологую границу фронта дельты и продельты пересекают три линии времени, круто опускающиеся в сторону моря.",
+   "source": "построено кодом по утверждениям главы, стр. 412",
+   "claim_ids": [
+    "slatt.mekong_litho_section#c19",
+    "slatt.mekong_litho_section#c25",
+    "slatt.mekong_litho_section#c26",
+    "slatt.mekong_litho_section#c27",
+    "slatt.mekong_litho_section#c39",
+    "slatt.mekong_litho_section#c40"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.mekong_time_section.i1",
+   "step_id": "slatt.mekong_time_section",
+   "node_id": "slatt.mekong_time_section",
+   "file": "pictures/mekong_time_section_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Схема без масштаба: границы по времени слева почти горизонтальны, к морю опускаются и выполаживаются. Это клиноформы.",
+   "alt": "Три границы по времени идут слева почти горизонтально, затем наклоняются вниз в сторону моря и снова выполаживаются в нижней части.",
+   "source": "построено кодом по утверждениям главы, стр. 412",
+   "claim_ids": [
+    "slatt.mekong_time_section#c3",
+    "slatt.mekong_time_section#c5",
+    "slatt.mekong_time_section#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.prudhoe_setting.i1",
+   "step_id": "slatt.prudhoe_setting",
+   "node_id": "slatt.prudhoe_setting",
+   "file": "pictures/prudhoe_setting_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Путь осадка в древней дельте к зоне Ромео. Самые продуктивные породы месторождения другие: их отложила разветвлённо-русловая река.",
+   "alt": "Цепочка от области сноса через речные русла и их разветвление к дельтовой равнине, устьевым барам, фронту дельты и продельте, слагающим зону Ромео.",
+   "source": "построено кодом по утверждениям главы, стр. 416, 417",
+   "claim_ids": [
+    "slatt.prudhoe_setting#c2",
+    "slatt.prudhoe_setting#c3",
+    "slatt.prudhoe_setting#c6",
+    "slatt.prudhoe_setting#c7",
+    "slatt.prudhoe_setting#c8",
+    "slatt.prudhoe_setting#c17",
+    "slatt.prudhoe_setting#c18"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.romeo_column.i1",
+   "step_id": "slatt.romeo_column",
+   "node_id": "slatt.romeo_column",
+   "file": "pictures/romeo_column_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Гамма-каротаж по зонам скважины 07-06, схематично: высокий в 2B, резкий спад в 2A, низкий и умеренный в 1B, рост к низу 1A. Литология упрощена.",
+   "alt": "Планшет из зон 2B, 2A, 1B и 1A сверху вниз. Кривая GR высокая в пойменной зоне 2B, низкая в 2A, умеренная в 1B и верху 1A, высокая в низу 1A.",
+   "source": "построено кодом по утверждениям главы, стр. 419",
+   "claim_ids": [
+    "slatt.romeo_column#c11",
+    "slatt.romeo_column#c16",
+    "slatt.romeo_column#c17",
+    "slatt.romeo_column#c18",
+    "slatt.romeo_column#c19",
+    "slatt.romeo_column#c22",
+    "slatt.romeo_column#c24",
+    "slatt.romeo_column#c25"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.romeo_correlation.i1",
+   "step_id": "slatt.romeo_correlation",
+   "node_id": "slatt.romeo_correlation",
+   "file": "pictures/romeo_correlation_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Схема: границы дельтовых клиньев полого погружаются к югу и упираются в низ интервала. Это не плоский «слоёный пирог».",
+   "alt": "Качественный разрез с севера на юг: три границы клиньев наклонно опускаются к югу и по очереди подходят к горизонтальному основанию интервала.",
+   "source": "построено кодом по утверждениям главы, стр. 418",
+   "claim_ids": [
+    "slatt.romeo_correlation#c8",
+    "slatt.romeo_correlation#c9",
+    "slatt.romeo_correlation#c23",
+    "slatt.romeo_correlation#c24"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.mouth_bar_lithofacies.i1",
+   "step_id": "slatt.mouth_bar_lithofacies",
+   "node_id": "slatt.mouth_bar_lithofacies",
+   "file": "pictures/mouth_bar_lithofacies_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Средняя проницаемость в керне бара. Самый отсортированный песок, как считают, паводки отложили на вершине и проксимальных краях бара.",
+   "alt": "Две полосы проницаемости: самая отсортированная литофация — 129 мД, средние значения остальных шести — от 12 до 40 мД.",
+   "source": "построено кодом по утверждениям главы, стр. 415",
+   "claim_ids": [
+    "slatt.mouth_bar_lithofacies#c4",
+    "slatt.mouth_bar_lithofacies#c5",
+    "slatt.mouth_bar_lithofacies#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.mouth_bar_sheet.i1",
+   "step_id": "slatt.mouth_bar_sheet",
+   "node_id": "slatt.mouth_bar_sheet",
+   "file": "pictures/mouth_bar_sheet_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Как из многих баров сложился широкий песчаный покров на Прадхо-Бей и почему он всё же не сплошной по свойствам внутри бара.",
+   "alt": "Схема: многократное раздвоение рукавов и наращивание дельты ведут к широкому покрову из многих баров; при этом внутри одного бара есть разрывы фаций и проницаемости.",
+   "source": "построено кодом по утверждениям главы, стр. 416",
+   "claim_ids": [
+    "slatt.mouth_bar_sheet#c1",
+    "slatt.mouth_bar_sheet#c2",
+    "slatt.mouth_bar_sheet#c3"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.sinusoidal_well.i1",
+   "step_id": "slatt.sinusoidal_well",
+   "node_id": "slatt.sinusoidal_well",
+   "file": "pictures/sinusoidal_well_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Средняя горизонтальная проницаемость литофаций устьевого бара: седьмая намного выше. Таких пород волнистый ствол вскрыл бы больше.",
+   "alt": "Столбцы проницаемости: у шести литофаций средние значения от 12 до 40 мД, у седьмой, лучше всего отсортированной, в среднем 129 мД.",
+   "source": "построено кодом по утверждениям главы, стр. 415, 417",
+   "claim_ids": [
+    "slatt.sinusoidal_well#c4",
+    "slatt.sinusoidal_well#c5",
+    "slatt.sinusoidal_well#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.shale_barriers.i1",
+   "step_id": "slatt.shale_barriers",
+   "node_id": "slatt.shale_barriers",
+   "file": "pictures/shale_barriers_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Глины разделяют коллекторы не везде: сравните выдержанные и прерванные.",
+   "alt": "Сравнение: выдержанные глины служат вертикальными барьерами и направляют заводнение; другие менее непрерывны из-за эрозии или выклинивания. На востоке местами все три пласта разделяют слои, местами отсутствуют.",
+   "source": "построено кодом по утверждениям главы, стр. 418, 420",
+   "claim_ids": [
+    "slatt.shale_barriers#c2",
+    "slatt.shale_barriers#c3",
+    "slatt.shale_barriers#c4",
+    "slatt.shale_barriers#c21"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.perforation_isolation.i1",
+   "step_id": "slatt.perforation_isolation",
+   "node_id": "slatt.perforation_isolation",
+   "file": "pictures/perforation_isolation_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Перфорируют только нижний, менее проницаемый дельтовый песчаник, чтобы он не конкурировал за воду с речным выше.",
+   "alt": "Разрез сверху вниз: более проницаемый речной песчаник, глина и нефтяной дельтовый песчаник, который и вскрывают перфорацией.",
+   "source": "построено кодом по утверждениям главы, стр. 418, 421",
+   "claim_ids": [
+    "slatt.perforation_isolation#c1",
+    "slatt.perforation_isolation#c2",
+    "slatt.perforation_isolation#c3",
+    "slatt.perforation_isolation#c5",
+    "slatt.perforation_isolation#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.sidetrack_water.i1",
+   "step_id": "slatt.sidetrack_water",
+   "node_id": "slatt.sidetrack_water",
+   "file": "pictures/sidetrack_water_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Диапазоны, снятые с графика на глаз: нефти у бокового ствола под глиной несколько больше, а воды резко меньше.",
+   "alt": "Диапазоны добычи в баррелях в сутки: нефть 200–360 у 09-35 и 300–390 у 09-35A; вода 1100–1800 у 09-35 и 0–100 у 09-35A после начального периода.",
+   "source": "построено кодом по утверждениям главы, стр. 421",
+   "claim_ids": [
+    "slatt.sidetrack_water#c9",
+    "slatt.sidetrack_water#c18",
+    "slatt.sidetrack_water#c19",
+    "slatt.sidetrack_water#c22"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.gas_cap_shield.i1",
+   "step_id": "slatt.gas_cap_shield",
+   "node_id": "slatt.gas_cap_shield",
+   "file": "pictures/gas_cap_shield_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема: глина залива отделяет газовую шапку от песчаника, внутри которого идёт горизонтальный участок скв. 11-30 (сам ствол не показан).",
+   "alt": "Схематический разрез: сверху вниз газовая шапка, глина залива и нефтеносный целевой песчаник скважины 11-30. Глина лежит между газом и нефтью.",
+   "source": "построено кодом по утверждениям главы, стр. 419, 422",
+   "claim_ids": [
+    "slatt.gas_cap_shield#c2",
+    "slatt.gas_cap_shield#c3",
+    "slatt.gas_cap_shield#c4",
+    "slatt.gas_cap_shield#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "slatt.kuparuk_compartments.i1",
+   "step_id": "slatt.kuparuk_compartments",
+   "node_id": "slatt.kuparuk_compartments",
+   "file": "pictures/kuparuk_compartments_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Упрощённо: три из шести песчаных тел пласта A. Тела разделены морской глиной; смещение по площади и разломы не показаны.",
+   "alt": "Схематический разрез: песчаные тела чередуются с прослоями морской глины. Показаны три тела из шести, выделенных в пласте A.",
+   "source": "построено кодом по утверждениям главы, стр. 422",
+   "claim_ids": [
+    "slatt.kuparuk_compartments#c7",
+    "slatt.kuparuk_compartments#c9"
+   ],
+   "prompt": null
+  }
+ ]
+}

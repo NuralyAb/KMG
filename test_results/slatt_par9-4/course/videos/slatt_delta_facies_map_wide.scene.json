@@ -1,0 +1,551 @@
+{
+ "title": "Где в дельте песок и где глина",
+ "params": {
+  "sea": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    8
+   ]
+  ],
+  "supply": 750000,
+  "depth": 60,
+  "front": 3000,
+  "width": 20000,
+  "start": 3000,
+  "bar_depth": 10,
+  "prodelta_depth": 40,
+  "well": 0.5,
+  "curve": "GR",
+  "filtrate": "fresh"
+ },
+ "objects": [
+  "разрез дельты вдоль одного распределительного рукава",
+  "дельтовая равнина с песком рукава",
+  "склон дельты с песком устьевого бара",
+  "переслаивание авандельты",
+  "глины продельты",
+  "уровень моря",
+  "подписи фаций"
+ ],
+ "invariants": [
+  "Порядок слоёв не меняется, молодые отложения лежат на старых",
+  "Отложенный осадок не исчезает и не меняет фацию",
+  "За каждый шаг добавляется одна и та же площадь осадка",
+  "Время идёт только вперёд",
+  "Глубина растёт вниз"
+ ],
+ "assumptions": [
+  "Разрез двумерный и идёт вдоль одного рукава",
+  "Подача осадка постоянна",
+  "Размыв и уплотнение не считаются",
+  "Уровень моря медленно растёт",
+  "Фация задаётся только глубиной воды в момент отложения",
+  "Заливы, марши и лагуны лежат вне плоскости разреза и не показаны"
+ ],
+ "exaggerations": [
+  "толщины увеличены в 97 раз",
+  "Вертикаль растянута: разрез длиной двадцать километров при глубине около шестидесяти метров; коэффициент подписывает шаблон",
+  "Глубина бассейна шестьдесят метров, длина склона три километра: числа условные",
+  "Подъём уровня моря на восемь метров за показ условный",
+  "Граница песка устьевого бара на глубине десяти метров и граница продельты на сорока метрах условные",
+  "Границы фаций нарисованы резкими, в природе переходы постепенные",
+  "Расчётный разрез не повторяет конкретный разрез дельты Миссисипи",
+  "Размыв и боковое переключение рукавов не показаны"
+ ],
+ "plaque": [
+  "толщины увеличены в 97 раз",
+  "Числа условные",
+  "Размыв не считается"
+ ],
+ "prediction_question": "Что окажется над этой глиной, когда берег подойдёт ближе?",
+ "transfer_question": "Две скважины нашли песок, а между ними глина залива: что вы проверите?",
+ "data_it_bridge": "Для каждого участка полезно хранить фацию и отдельно признаки коллектора и возможного барьера. Признак нефтематеринской породы нельзя выводить из одной только фации. Метка песчаной фации сама по себе не доказывает, что песок двух скважин связан.",
+ "terms_to_check": [
+  "фация",
+  "фациями",
+  "коллектор",
+  "рукавов",
+  "устьевых",
+  "баров",
+  "продельты",
+  "марши",
+  "лагуны",
+  "нефтематеринской",
+  "Миссисипи"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Каждая новая порция осадка ложится поверх прежнего профиля, порядок сохраняется."
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет."
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Несогласий и размыва в сцене нет."
+  },
+  "pc.fluids_in_pores": {
+   "answer": "н/п",
+   "note": "Флюиды не рисуются; коллектор определён как порода, вмещающая флюид."
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Залежей и контактов нет."
+  },
+  "pc.flow_high_to_low": {
+   "answer": "н/п",
+   "note": "Движение флюидов не показано."
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Осадок сначала поступает, затем берег сдвигается в море."
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Модель добавляет заданную площадь осадка на каждом шаге."
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Показан только разрез; обычный и истинный масштаб отражают одно состояние."
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Скважина и прибор не показываются."
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Измеренных сигналов в сцене нет."
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Названо, что глины между рукавами бывают нефтематеринскими лишь иногда, а схема описывает одну дельту."
+  },
+  "pc.curve_sync": {
+   "answer": "н/п",
+   "note": "Кривая не показывается."
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Глубина в десятки метров и длина в километры правдоподобны для дельты; числа названы условными."
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Размеры разреза указаны числами, коэффициент растяжения подписывает шаблон, есть показ в истинном масштабе."
+  },
+  "pc.objects_stable": {
+   "answer": "н/п",
+   "note": "Оборудования в сцене нет."
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Песок равнины и бара, авандельта и продельта расположены по глубине воды."
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "Глубина направлена вниз, шкалы в метрах подписывает шаблон."
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Кадры считаются из параметров и помечены как симуляция."
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Оборудования нет."
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Бурение не показано."
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в скважине нет."
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Бурового раствора нет."
+  },
+  "pc.well_construction": {
+   "answer": "н/п",
+   "note": "Конструкция скважины не показана."
+  }
+ },
+ "beats": [
+  {
+   "say": "Дельта реки — это сплошной песок?",
+   "claim_id": null,
+   "on_screen": "Сплошной песок?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Если так думать, можно не заметить глинистые преграды между подземными песками.",
+   "claim_id": "slatt.delta_facies_map#c4",
+   "on_screen": "Пески бывают разделены",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.18
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Перед вами расчётный разрез вдоль одного рукава, растущего в сторону моря.",
+   "claim_id": null,
+   "on_screen": "Разрез вдоль одного рукава",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.28,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Нефтянику нужна порода, способная вмещать и отдавать нефть, газ или воду.",
+   "claim_id": "slatt.delta_facies_map#c2",
+   "on_screen": "Коллектор вмещает и отдаёт",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.34
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Такую породу называют коллектором, и в этой дельте коллекторы песчаные.",
+   "claim_id": "slatt.delta_facies_map#c2",
+   "on_screen": "Коллекторы здесь песчаные",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "facies": 0.35
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Это отложения распределительных рукавов, то есть русел, на которые делится река.",
+   "claim_id": "slatt.delta_facies_map#c2",
+   "on_screen": "Песок распределительных рукавов",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.42,
+    "facies": 0.55
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "И отложения устьевых баров, песчаных валов в устьях этих рукавов.",
+   "claim_id": "slatt.delta_facies_map#c2",
+   "on_screen": "Песок устьевых баров",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "facies": 0.75,
+    "time": 0.48
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Отложения одной обстановки с общими признаками называют фацией.",
+   "claim_id": "slatt.delta_facies_map#c1",
+   "on_screen": "Фация — след одной обстановки",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "facies": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Фации важно различать, потому что пески разделены другими отложениями.",
+   "claim_id": "slatt.delta_facies_map#c3",
+   "on_screen": "Между песками другие фации",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.52
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Их разделяют заливы между рукавами, марши, то есть травяные болота, и лагуны.",
+   "claim_id": "slatt.delta_facies_map#c3",
+   "on_screen": "Заливы, марши, лагуны",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "На нашем разрезе вдоль рукава этих боковых участков не видно.",
+   "claim_id": null,
+   "on_screen": "Сбоку от разреза",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Под землёй такие отложения создают в коллекторах глинистые барьеры.",
+   "claim_id": "slatt.delta_facies_map#c4",
+   "on_screen": "Глина мешает связи песков",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.56
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Теперь глубокая часть: здесь копится морская глина продельты, дальней зоны дельты.",
+   "claim_id": "slatt.delta_facies_map#c25",
+   "on_screen": "Продельта — морская глина",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.6
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Предскажите: что окажется над этой глиной, когда берег подойдёт ближе?",
+   "claim_id": null,
+   "on_screen": "Что ляжет сверху?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 1.3,
+   "role": "prediction"
+  },
+  {
+   "say": "Песок: на схеме дельты продельтовая глина занимает нижнее положение, под песками.",
+   "claim_id": "slatt.delta_facies_map#c25",
+   "on_screen": "Песок сверху, глина ниже",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.85,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0.4,
+   "role": "answer"
+  },
+  {
+   "say": "На блок-диаграмме дельты Миссисипи песчаные тела заключены в глинистый клин.",
+   "claim_id": "slatt.delta_facies_map#c23",
+   "on_screen": "Песок внутри глинистого клина",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.93
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Это схема одной современной дельты, в плане похожей на птичью лапу.",
+   "claim_id": "slatt.delta_facies_map#c6",
+   "on_screen": "Одна дельта, упрощённая схема",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "И не весь песок там дельтовый: в основании лежит более ранний морской.",
+   "claim_id": "slatt.delta_facies_map#c27",
+   "on_screen": "Не всякий песок дельтовый",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Глинистые отложения заливов, маршей и лагун лишь иногда порождают углеводороды.",
+   "claim_id": "slatt.delta_facies_map#c5",
+   "on_screen": "Нефтематеринские только иногда",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "А вот тот же разрез без растяжения по высоте.",
+   "claim_id": null,
+   "on_screen": "Истинный масштаб",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0.7,
+   "role": "frame"
+  },
+  {
+   "say": "Разбирая разрез, специалист относит рукава и устьевые бары к песчаным коллекторам.",
+   "claim_id": "slatt.delta_facies_map#c2",
+   "on_screen": "Коллектор: рукава и бары",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "А заливы, марши и лагуны отмечает как разделители с глинистыми барьерами.",
+   "claim_id": "slatt.delta_facies_map#c4",
+   "on_screen": "Отметить возможные барьеры",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0.3,
+   "role": "decision"
+  },
+  {
+   "say": "Две скважины нашли песок, а между ними глина залива: что вы проверите?",
+   "claim_id": null,
+   "on_screen": "Связаны ли эти пески?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "slatt_delta_facies_map_wide",
+ "chapter": "slatt_par9-4",
+ "node_id": "slatt.delta_facies_map",
+ "format": "wide",
+ "template": "delta_progradation",
+ "claim_marks": {
+  "slatt.delta_facies_map#c1": "d29720d18229",
+  "slatt.delta_facies_map#c2": "a226191978d3",
+  "slatt.delta_facies_map#c3": "6a87e7da5419",
+  "slatt.delta_facies_map#c4": "08e33f7e2432",
+  "slatt.delta_facies_map#c5": "5c73ad798d4a",
+  "slatt.delta_facies_map#c6": "d7f1146eed5f",
+  "slatt.delta_facies_map#c7": "4547f80b6871",
+  "slatt.delta_facies_map#c8": "40aac6809f54",
+  "slatt.delta_facies_map#c9": "4303347a2e17",
+  "slatt.delta_facies_map#c10": "cef1dfade569",
+  "slatt.delta_facies_map#c11": "e9910d7a42b7",
+  "slatt.delta_facies_map#c12": "204cbaefa34e",
+  "slatt.delta_facies_map#c13": "d4e2fd0c21ea",
+  "slatt.delta_facies_map#c14": "c267f2533107",
+  "slatt.delta_facies_map#c15": "ebf0613f60d7",
+  "slatt.delta_facies_map#c16": "d59738e767d4",
+  "slatt.delta_facies_map#c17": "61ebca9df5d9",
+  "slatt.delta_facies_map#c18": "f559ec27bc3e",
+  "slatt.delta_facies_map#c19": "8a1c95cbc0f2",
+  "slatt.delta_facies_map#c20": "db6ad6ea07f1",
+  "slatt.delta_facies_map#c21": "701af695a8af",
+  "slatt.delta_facies_map#c22": "e5c2dcc28bff",
+  "slatt.delta_facies_map#c23": "111dcd22e4c0",
+  "slatt.delta_facies_map#c24": "480a35084a2d",
+  "slatt.delta_facies_map#c25": "b8855ab8eeac",
+  "slatt.delta_facies_map#c26": "5361d5a1a2b6",
+  "slatt.delta_facies_map#c27": "dec104d5a954",
+  "slatt.delta_facies_map#c28": "3ec791166e68",
+  "slatt.delta_facies_map#c29": "dd397baa1dd6"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5",
+ "claim_kinds": {
+  "slatt.delta_facies_map#c1": "observation",
+  "slatt.delta_facies_map#c2": "observation",
+  "slatt.delta_facies_map#c3": "observation",
+  "slatt.delta_facies_map#c4": "observation",
+  "slatt.delta_facies_map#c5": "observation",
+  "slatt.delta_facies_map#c6": "observation",
+  "slatt.delta_facies_map#c7": "observation",
+  "slatt.delta_facies_map#c8": "observation",
+  "slatt.delta_facies_map#c9": "observation",
+  "slatt.delta_facies_map#c10": "observation",
+  "slatt.delta_facies_map#c11": "observation",
+  "slatt.delta_facies_map#c12": "observation",
+  "slatt.delta_facies_map#c13": "observation",
+  "slatt.delta_facies_map#c14": "observation",
+  "slatt.delta_facies_map#c15": "observation",
+  "slatt.delta_facies_map#c16": "observation",
+  "slatt.delta_facies_map#c17": "observation",
+  "slatt.delta_facies_map#c18": "observation",
+  "slatt.delta_facies_map#c19": "observation",
+  "slatt.delta_facies_map#c20": "observation",
+  "slatt.delta_facies_map#c21": "observation",
+  "slatt.delta_facies_map#c22": "observation",
+  "slatt.delta_facies_map#c23": "observation",
+  "slatt.delta_facies_map#c24": "observation",
+  "slatt.delta_facies_map#c25": "observation",
+  "slatt.delta_facies_map#c26": "observation",
+  "slatt.delta_facies_map#c27": "observation",
+  "slatt.delta_facies_map#c28": "observation",
+  "slatt.delta_facies_map#c29": "observation"
+ }
+}

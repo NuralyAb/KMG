@@ -1,0 +1,61 @@
+{
+ "chapter": "slatt_par9-4",
+ "rows": [
+  {
+   "node_id": "slatt.progradation_accommodation",
+   "format": "short",
+   "template": "delta_progradation",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "slatt.lobe_switching",
+   "format": "short",
+   "template": "delta_progradation",
+   "why": "совпало признаков: 3, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "slatt.clinoforms_time_lines",
+   "format": "short",
+   "template": "delta_progradation",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "slatt.mekong_litho_section",
+   "format": "short",
+   "template": "delta_progradation",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "slatt.mouth_bar_lithofacies",
+   "format": "short",
+   "template": "delta_progradation",
+   "why": "совпало признаков: 3, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "slatt.lowstand_deltas",
+   "format": "short",
+   "template": null,
+   "why": "нужен новый",
+   "result": "нужен новый шаблон"
+  },
+  {
+   "node_id": "slatt.prudhoe_setting",
+   "format": "short",
+   "template": "delta_progradation",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "slatt.perforation_isolation",
+   "format": "short",
+   "template": "delta_progradation",
+   "why": "совпало признаков: 3, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  }
+ ]
+}

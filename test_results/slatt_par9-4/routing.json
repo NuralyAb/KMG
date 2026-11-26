@@ -1,0 +1,335 @@
+{
+ "chapter": "slatt_par9-4",
+ "routes": [
+  {
+   "node_id": "slatt.river_delta_type",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип М, сумма 3: заметны только причина и следствие (cause_effect 2). Человек проходит схему «слабые волны и течения → осадок не переработан → дельта речного типа». По типу Р затем опознаёт такую дельту по признакам."
+  },
+  {
+   "node_id": "slatt.delta_facies_map",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип П, сумма 3. Человек сопоставляет рукава и устьевые бары с заливами, маршами и лагунами: где коллектор, где барьер и возможная нефтематеринская порода. По типу Р опознаёт фацию по положению и свойствам."
+  },
+  {
+   "node_id": "slatt.progradation_accommodation",
+   "format": "шортс",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "delta_progradation",
+   "why": "Типы М и В, сумма 8: изменение во времени, скрытое накопление осадка, причина и следствие. Видно, как берег и фациальные зоны смещаются к морю, пока есть место для осадка. Переключение рек в этой модели не показывается."
+  },
+  {
+   "node_id": "slatt.mouth_bar_recognition",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "log",
+   "why": "Тип Р: человек ищет на каротаже укрупнение зерна вверх и уменьшение толщины и зернистости в стороны от оси русла. По типу И (сумма 2) связывает форму кривой с зернистостью и проверяет вывод по керну."
+  },
+  {
+   "node_id": "slatt.lobe_switching",
+   "format": "шортс",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Типы М и В, сумма 8. Нужно увидеть в плане: лопасть мелеет, река прорывается к более глубокому дну, начинается новая лопасть. Видеошаблона с переключением лопастей в списке нет."
+  },
+  {
+   "node_id": "slatt.lowstand_deltas",
+   "format": "шортс",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Типы В и М, сумма 6: важны изменение уровня моря во времени и положение дельты у края шельфа. Человек видит, как при относительном падении уровня образуется дельта низкого стояния. Подходящего шаблона нет: в delta_progradation предусмотрены только рост или стояние уровня моря."
+  },
+  {
+   "node_id": "slatt.clinoforms_time_lines",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "delta_progradation",
+   "why": "Тип В, сумма 8: линии времени невидимы в породе и противоречат ожиданию горизонтальных слоёв. Видно, как бывшие поверхности склона пересекают границы фаций. По типу П человек рассматривает форму клиноформ в разрезе."
+  },
+  {
+   "node_id": "slatt.litho_vs_chrono",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип П, сумма 5. Человек переключается между корреляцией по породе и по времени и сравнивает непрерывность песчаников между двумя скважинами. По типу Н выбирает вариант сопоставления и отмечает, что остаётся неоднозначным; пример гипотетический."
+  },
+  {
+   "node_id": "slatt.sand_connectivity",
+   "format": "интерактив",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип П: человек сравнивает кажущийся единым песчаник с разобщённым наклонными прослоями. По типу М (сумма 8: скрытые барьеры, контринтуитивность, причина и следствие) ролик показывает, почему вода при заводнении не проходит между скважинами."
+  },
+  {
+   "node_id": "slatt.mekong_litho_section",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "delta_progradation",
+   "why": "Тип В, сумма 8: проградация идёт во времени, а линии времени пересекают границы пород вопреки ожиданию. Видно это на общей модели дельты, а не на измеренном разрезе Меконга. По типу П человек прослеживает положение границ и линий в разрезе."
+  },
+  {
+   "node_id": "slatt.mekong_time_section",
+   "format": "интерактив",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип П: человек сравнивает горизонтальные тела по породе с наклонными клиноформами и находит возможные боковые разрывы. По типу В (сумма 7: время и скрытые поверхности) короткий ролик показывает, как клиноформы накапливаются в сторону моря."
+  },
+  {
+   "node_id": "slatt.prudhoe_setting",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 2,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "delta_progradation",
+   "why": "Тип В, сумма 6: история древней дельты и переход от месторождения к обстановке осадконакопления. Видно накопление фронта дельты и продельты на условной модели, без речного коллектора и ветвления в плане. По типу П человек рассматривает положение зоны Ромео под ним."
+  },
+  {
+   "node_id": "slatt.romeo_column",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "log",
+   "why": "Тип Р: человек опознаёт фации в последовательности сверху вниз и находит продуктивные песчаники рукавов и устьевых баров. По типу И (сумма 2) сопоставляет их с формой гамма-каротажа, не выдумывая откликов, которых нет в утверждениях."
+  },
+  {
+   "node_id": "slatt.romeo_correlation",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип П, сумма 5. Человек сравнивает плоский «слоёный пирог» с полого наклонёнными песчанистыми клиньями и глинами. По типу Н выбирает корреляцию, проверяя её согласие с историей добычи."
+  },
+  {
+   "node_id": "slatt.mouth_bar_lithofacies",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Тип М, сумма 7: паводковое осаждение скрыто от наблюдения и определяет качество песка. Видно, как лучший песок ложится на вершине и проксимальных краях бара, а дальше осадок ухудшается. По типу П человек исследует расположение литофаций в плане; подходящего видеошаблона нет."
+  },
+  {
+   "node_id": "slatt.mouth_bar_sheet",
+   "format": "интерактив",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 2,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип П: человек сравнивает широкий покров с прерывистостью фаций и проницаемости внутри отдельного бара. По типу В (сумма 7: время и скачок масштаба) ролик показывает, как многократное ветвление складывает покров из баров."
+  },
+  {
+   "node_id": "slatt.sinusoidal_well",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Пр: человек идёт от данных горизонтального керна о распределении проницаемости к выбору траектории ствола. По типу П сравнивает, какие высокопроницаемые участки вскроют волнистый и обычный стволы."
+  },
+  {
+   "node_id": "slatt.shale_barriers",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип П, сумма 4. Человек сравнивает участки с выдержанными и отсутствующими глинами и видит, где есть преграда вертикальному потоку. По типу Н решает, можно ли считать глину барьером на конкретном участке."
+  },
+  {
+   "node_id": "slatt.perforation_isolation",
+   "format": "шортс",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Тип М, сумма 6: потоки воды невидимы, а выбор интервала перфорации меняет их распределение. Видно, как дельтовые песчаники перестают конкурировать за воду с речными, а глины защищают от газа. По типу Пр человек выбирает интервалы перфорации; подходящего видеошаблона нет."
+  },
+  {
+   "node_id": "slatt.sidetrack_water",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Тип Пр: человек по росту воды в скважине 09-35 и положению глины выбирает боковой ствол и проверяет результат по добыче. По типу И (сумма 6, но для второго действия нужна проверка вывода) разбирает, что указывает на удержанную под глиной нефть."
+  },
+  {
+   "node_id": "slatt.gas_cap_shield",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "Тип П, сумма 5. Человек видит в разрезе взаимное положение газовой шапки, глины залива и нефтяного устьевого бара; горизонтальный ствол шаблон отдельно не изображает. По типу Пр решает, где вести ствол, учитывая выдержанность глины."
+  },
+  {
+   "node_id": "slatt.kuparuk_compartments",
+   "format": "интерактив",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Тип П: человек сравнивает «сплошной» пласт A с шестью телами, разделёнными морскими глинами и нарушенными разломами. По типу В (сумма 8: время, скрытое строение, контринтуитивность) ролик показывает последовательное наращивание тел в сторону моря."
+  }
+ ]
+}
