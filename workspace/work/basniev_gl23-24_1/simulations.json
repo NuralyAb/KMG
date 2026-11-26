@@ -1,0 +1,27 @@
+{
+ "chapter": "basniev_gl23-24_1",
+ "steps": {
+  "basniev.rashod_vokrug_skvazhiny": [
+   {
+    "scene": "pressure_flow",
+    "claims": [
+     "basniev.rashod_vokrug_skvazhiny#c3",
+     "basniev.rashod_vokrug_skvazhiny#c4",
+     "basniev.osnovnaya_formula_rezhima#c4",
+     "basniev.osnovnaya_formula_rezhima#c5"
+    ]
+   }
+  ],
+  "basniev.pezometricheskie_krivye_u_skvazhiny": [
+   {
+    "scene": "pressure_profile",
+    "claims": [
+     "basniev.pezometricheskie_krivye_u_skvazhiny#c1",
+     "basniev.pezometricheskie_krivye_u_skvazhiny#c6",
+     "basniev.pezometricheskie_krivye_u_skvazhiny#c17",
+     "basniev.osnovnaya_formula_rezhima#c5"
+    ]
+   }
+  ]
+ }
+}

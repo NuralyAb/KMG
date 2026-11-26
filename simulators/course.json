@@ -5,15 +5,77 @@
         "scene": "1_log_fresh",
         "as": "log_fresh",
         "claims": [
-          "latyshova.phase_permeability_zones#c17", "latyshova.phase_permeability_zones#c18", "latyshova.phase_permeability_zones#c19",
-          "latyshova.clay_classes_critical#c9", "latyshova.clay_classes_critical#c10", "latyshova.clay_classes_critical#c11",
-          "latyshova.clay_classes_critical#c12", "latyshova.clay_classes_critical#c13"
+          "latyshova.phase_permeability_zones#c17",
+          "latyshova.phase_permeability_zones#c18",
+          "latyshova.phase_permeability_zones#c19",
+          "latyshova.clay_classes_critical#c9",
+          "latyshova.clay_classes_critical#c10",
+          "latyshova.clay_classes_critical#c11",
+          "latyshova.clay_classes_critical#c12",
+          "latyshova.clay_classes_critical#c13"
         ]
       },
       {
         "scene": "2_log_salty",
         "as": "log_salty",
-        "claims": ["latyshova.filtrate_salinity#c3", "latyshova.filtrate_salinity#c4", "latyshova.filtrate_salinity#c6", "latyshova.clay_classes_critical#c9"]
+        "claims": [
+          "latyshova.filtrate_salinity#c3",
+          "latyshova.filtrate_salinity#c4",
+          "latyshova.filtrate_salinity#c6",
+          "latyshova.clay_classes_critical#c9"
+        ]
+      }
+    ]
+  },
+  "basniev_gl23-24_1": {
+    "basniev.rashod_vokrug_skvazhiny": [
+      {
+        "scene": "3_pressure",
+        "as": "pressure_flow",
+        "claims": [
+          "basniev.rashod_vokrug_skvazhiny#c3",
+          "basniev.rashod_vokrug_skvazhiny#c4",
+          "basniev.osnovnaya_formula_rezhima#c4",
+          "basniev.osnovnaya_formula_rezhima#c5"
+        ]
+      }
+    ],
+    "basniev.pezometricheskie_krivye_u_skvazhiny": [
+      {
+        "scene": "3_pressure",
+        "as": "pressure_profile",
+        "claims": [
+          "basniev.pezometricheskie_krivye_u_skvazhiny#c1",
+          "basniev.pezometricheskie_krivye_u_skvazhiny#c6",
+          "basniev.pezometricheskie_krivye_u_skvazhiny#c17",
+          "basniev.osnovnaya_formula_rezhima#c5"
+        ]
+      }
+    ]
+  },
+  "kuznetsov_gl10": {
+    "kuznetsov.explore_dome_reefs": [
+      {
+        "scene": "4_reef_dome",
+        "as": "reef_dome",
+        "claims": [
+          "kuznetsov.explore_dome_reefs#c8",
+          "kuznetsov.explore_dome_reefs#c9",
+          "kuznetsov.explore_dome_reefs#c11",
+          "kuznetsov.dome_core_examples#c1"
+        ]
+      }
+    ],
+    "kuznetsov.tengiz_atoll": [
+      {
+        "scene": "5_reef_atoll",
+        "as": "reef_atoll",
+        "claims": [
+          "kuznetsov.tengiz_atoll#c2",
+          "kuznetsov.tengiz_atoll#c3",
+          "kuznetsov.tengiz_atoll#c4",
+          "kuznetsov.explore_dome_reefs#c12"
+        ]
       }
     ]
   }

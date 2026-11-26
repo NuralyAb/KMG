@@ -1,0 +1,27 @@
+{
+ "chapter": "kuznetsov_gl10",
+ "steps": {
+  "kuznetsov.explore_dome_reefs": [
+   {
+    "scene": "reef_dome",
+    "claims": [
+     "kuznetsov.explore_dome_reefs#c8",
+     "kuznetsov.explore_dome_reefs#c9",
+     "kuznetsov.explore_dome_reefs#c11",
+     "kuznetsov.dome_core_examples#c1"
+    ]
+   }
+  ],
+  "kuznetsov.tengiz_atoll": [
+   {
+    "scene": "reef_atoll",
+    "claims": [
+     "kuznetsov.tengiz_atoll#c2",
+     "kuznetsov.tengiz_atoll#c3",
+     "kuznetsov.tengiz_atoll#c4",
+     "kuznetsov.explore_dome_reefs#c12"
+    ]
+   }
+  ]
+ }
+}
