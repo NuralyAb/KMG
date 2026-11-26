@@ -1,5 +1,6 @@
 """Проверки ролика: сценарий до озвучки, дорожка после неё."""
 
+import os
 import re
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
@@ -102,15 +103,20 @@ class Heard:
     words: tuple[Word, ...]
 
 
-def recognise(audio: Path, model_name: str = "small") -> Heard:
-    """Локальное распознавание; модель Whisper работает на этом компьютере."""
+# small путал на синтезе Artsiom орфографию, а не слова («пещанных», «фильтрад»): 10,9 % против 6,5 % у medium
+# на одном и том же ролике. Проверка мерит голос, поэтому распознаватель должен ошибаться реже, чем голос.
+WHISPER_MODEL = "medium"
+
+
+def recognise(audio: Path, model_name: str | None = None) -> Heard:
+    """Локальное распознавание; модель Whisper работает на этом компьютере. Замена — переменная WHISPER_MODEL."""
     import numpy
     from faster_whisper import WhisperModel
 
     # звук декодирует ffmpeg: так распознавание не зависит от версии PyAV
     sound = numpy.frombuffer(samples_16k(audio), numpy.int16).astype(numpy.float32) / 32768
 
-    segments, _ = WhisperModel(model_name, device="cpu", compute_type="int8").transcribe(sound, language="ru", beam_size=5, word_timestamps=True)
+    segments, _ = WhisperModel(model_name or os.environ.get("WHISPER_MODEL") or WHISPER_MODEL, device="cpu", compute_type="int8").transcribe(sound, language="ru", beam_size=5, word_timestamps=True)
     found = list(segments)
     return Heard(" ".join(s.text.strip() for s in found), tuple(Word(w.start, w.end, w.word) for s in found for w in s.words or []))
 

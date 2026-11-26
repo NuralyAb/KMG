@@ -20,7 +20,7 @@
 | Разработка кода, шаблонов сцен и текстов документации | Claude Code с Claude Opus 5.5 | `claude-opus-5-5` | облако Anthropic | код репозитория, слой, утверждения узлов; тексты правок — в `manual_edits.csv` | другой помощник или человек |
 | Озвучка, запасной путь | ElevenLabs `eleven_multilingual_v2`, голос Sarah `EXAVITQu4vr4xnSDxMaL`, speed 0.95 | API v1; проба 26.11.2026: шортс 82 с, ошибок в словах 2,7 %, 1073 знака, тариф free | облако ElevenLabs | только текст закадровых фраз | `VOICE_PROVIDER`, `ELEVENLABS_*` |
 | Озвучка, основной голос | онлайн-голос Microsoft | `ru-RU-DmitryNeural`, обычный темп (+0%); `edge-tts` 7.3.1 | облако Microsoft | только текст закадровых фраз | `VOICE_EDGE_NAME`, `VOICE_EDGE_RATE` |
-| Проверка дорожки | Whisper | `small`, int8, CPU; `faster-whisper` 1.2.1, `ctranslate2` 4.9.1 | локально | ничего; веса один раз скачиваются с Hugging Face | параметр `model_name` функции `recognise` в `backend/glava/modules/video/check.py` |
+| Проверка дорожки | Whisper | `medium`, int8, CPU (около 40 с на ролик; `small` на синтезе путал орфографию: 10,9 % против 6,5 % на одном ролике); `faster-whisper` 1.2.1, `ctranslate2` 4.9.1 | локально | ничего; веса один раз скачиваются с Hugging Face | переменная `WHISPER_MODEL` (`small`, `medium`, `large-v3`) |
 
 Провайдер — Claude Code 2.1.329 (`--version` исполняемого файла). Он запускается без настроек пользователя и MCP, в пустой временной папке; инструменты выключены, а для вызовов с картинками разрешён только `Read`. Журналы вызовов Claude Code остаются на ПК, в `~/.claude/projects`: в них есть текст главы.
 
