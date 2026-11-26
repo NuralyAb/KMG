@@ -6,7 +6,17 @@
 
 ## Посмотреть без запуска
 
-Откройте в браузере `workspace/out/latyshova_gl5_par17-20/index.html`. Ничего ставить не нужно.
+Откройте в браузере `workspace/out/latyshova_gl5_par17-20/index.html` (так же `basniev_gl23-24_1`, `kuznetsov_gl10`). Ничего ставить не нужно. Ролики mp4 в git хранятся не все: те, которых нет, передаются файлами в `workspace/out/<глава>/videos/`; без них шаг показывает текст и озвученный разбор.
+
+### Что совпадёт у вас, а что нет
+
+| Что делаете | Результат |
+| --- | --- |
+| Открываете готовый курс из git | тот же, что у команды |
+| `course`, `audit`, `ready`, `transfer`, `journal` по готовому слою | тот же: модель не участвует |
+| `build` или `layer` заново | другой в формулировках: ответы модели лежат в `.cache/`, а кэш в git не попадает. Структура и проверки те же, сборка платная (см. ниже) |
+
+Чтобы ответы совпадали с замороженной версией и попадали в общий кэш, задавайте модель полным именем: `LLM_MODEL=claude-sonnet-5-5`. С именем по умолчанию `sonnet` получится другой ключ кэша, другие ответы и другие метрики.
 
 ## Что нужно
 
@@ -18,15 +28,23 @@
 | окружение `.venv-video`; ffmpeg — из PATH, `FFMPEG_EXE` или пакета `imageio-ffmpeg` | только для роликов |
 | Node.js 22 | только для `web/` и проверки `course.js` |
 
-Проверялось на Windows 11. Шрифт кадров в роликах (Segoe UI) есть только в Windows.
+Проверялось на Windows 11 и macOS. Шрифт кадров в роликах — Segoe UI на Windows, Arial на macOS и Linux (`FONT` в `backend/glava/modules/video/draw.py`).
 
 ## Запуск
 
-Все команды — из корня репозитория, в PowerShell.
+Все команды — из корня репозитория. Ниже они для PowerShell; на macOS и Linux то же самое в bash:
+
+| PowerShell | bash (macOS, Linux) |
+| --- | --- |
+| `$env:LLM_MODEL = 'claude-sonnet-5-5'` | `export LLM_MODEL=claude-sonnet-5-5` |
+| `$env:PYTHONUTF8 = '1'` | `export PYTHONUTF8=1` |
+| `$env:PYTHONPATH = 'backend'` | `export PYTHONPATH=backend` |
+| `.venv-video\Scripts\python.exe` | `.venv-video/bin/python` |
+| `workspace\work\…` | `workspace/work/…` |
 
 1. Поставьте зависимости: `uv sync --locked`.
-2. Откройте `workspace/chapters.json` и укажите в `root` папку с md, в `pdf_root` — папку с PDF. Относительный путь считается от `workspace/`, например `../../хакатон/books md`.
-3. Включите UTF-8: `$env:PYTHONUTF8 = '1'`.
+2. Откройте `workspace/chapters.json` и укажите в `root` папку с md, в `pdf_root` — папку с PDF. Относительный путь считается от `workspace/`, например `../../хакатон/books md`. Вместо правки файла можно задать пути переменными `GLAVA_BOOKS` и `GLAVA_PDFS`.
+3. Включите UTF-8 и задайте модель полным именем: `$env:PYTHONUTF8 = '1'`, `$env:LLM_MODEL = 'claude-sonnet-5-5'`.
 4. Проверьте, что глава читается (бесплатно, без модели): `uv run glava units latyshova_gl5_par17-20`.
 5. Соберите главу одной командой:
 
@@ -109,13 +127,15 @@ $env:PYTHONPATH = 'backend'
 | Переменная | По умолчанию | Что задаёт |
 | --- | --- | --- |
 | `LLM_PROVIDER` | `claude_code` | `claude_code`, `anthropic`, `openai` или `local` |
-| `LLM_MODEL` | `sonnet` | имя модели; для `anthropic` нужно полное, например `claude-sonnet-5-5`; для `openai` и `local` обязательно |
+| `LLM_MODEL` | `sonnet` | имя модели; задавайте полное `claude-sonnet-5-5`, как в замороженной версии: имя входит в ключ кэша. Для `anthropic`, `openai` и `local` обязательно |
 | `CLAUDE_EXE` | — | путь к `claude.exe`; нужен, если команды `claude` нет в PATH |
 | `LLM_VERIFY_MODEL` | как `LLM_MODEL` | модель для `verify`; лучше другая: свою ошибку модель замечает хуже |
 | `GLAVA_CONTEXT` | `chapter` | `node` — не давать узлу всю главу (для моделей с коротким контекстом) |
 | `GLAVA_FREE_NUMBERS` | — | `1` — разрешить в расчётных заданиях числа, которых нет в книге |
 | `GLAVA_VIDEOS` | `2` | сколько роликов снимает `build`; `0` — ни одного |
 | `GLAVA_BUDGET_USD` | `25` | потолок расхода одного запуска, доллары по прайсу |
+| `GLAVA_BOOKS`, `GLAVA_PDFS` | из `workspace/chapters.json` | папки с md глав и с PDF книг |
+| `WHISPER_MODEL` | `medium` | модель распознавания для проверки озвучки; при первом запуске скачивается (около 1,5 ГБ) |
 | `ANTHROPIC_API_KEY` | — | ключ для `LLM_PROVIDER=anthropic` |
 | `OPENAI_API_KEY` | — | ключ для `LLM_PROVIDER=openai`; на другие адреса не отправляется |
 | `LLM_BASE_URL` | `http://127.0.0.1:11434/v1` | адрес сервера для `local` (по умолчанию Ollama) |
