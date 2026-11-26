@@ -1,0 +1,409 @@
+{
+ "title": "Почему давление в пласте выравнивается так долго",
+ "params": {
+  "p0": 20,
+  "unit": "МПа",
+  "drop": 0.5,
+  "kappa": 0.5,
+  "t_max": 86400,
+  "stop": null,
+  "radius": 600,
+  "rw": 0.1,
+  "thickness": 10,
+  "observe": 200,
+  "lith": "sand"
+ },
+ "objects": [
+  "добывающая скважина",
+  "однородный пласт песчаника",
+  "профиль давления в разрезе",
+  "кольца давления в плане",
+  "график давления на забое и в наблюдательной точке",
+  "наблюдательная точка",
+  "пунктир ложного фронта с постоянной скоростью"
+ ],
+ "invariants": [
+  "Дебит скважины постоянен, остановки нет",
+  "Разрез, план и график показывают один и тот же момент времени",
+  "Время идёт только вперёд",
+  "Понижение давления наибольшее у скважины",
+  "Свойства пласта и жидкости не меняются во времени и по площади",
+  "Наблюдательная точка остаётся на одном расстоянии от скважины",
+  "Пунктир ложного ожидания не является расчётным давлением"
+ ],
+ "assumptions": [
+  "Однофазный поток, давление всюду выше давления насыщения",
+  "Пласт однородный, горизонтальный, постоянной толщины и неограниченный",
+  "Скважина вскрывает всю толщину пласта, течение радиальное",
+  "Проницаемость, вязкость и сжимаемость постоянны",
+  "Дебит на забое включается мгновенно и остаётся постоянным"
+ ],
+ "exaggerations": [
+  "Радиус скважины 0,1 м нарисован сильно увеличенным по сравнению с видом радиусом 600 м",
+  "Толщина пласта 10 м в разрезе растянута по вертикали, кроме кадра с истинным масштабом",
+  "Сутки работы скважины (86400 с) сжаты до длительности ролика, темп показа неравномерный",
+  "Начальное давление 20 МПа, множитель понижения 0,5 МПа и пьезопроводность 0,5 м²/с условные",
+  "Влияние проницаемости, вязкости и сжимаемости названо голосом: сцена считает один пласт и не сравнивает варианты",
+  "Пунктир с постоянной скоростью показывает ошибочное ожидание, а не расчёт",
+  "Цвет и кольца давления условны, в пласте таких границ нет"
+ ],
+ "plaque": [
+  "Числа условные",
+  "Свойства пласта постоянны"
+ ],
+ "prediction_question": "Если скважина поработает дольше, замрёт ли давление в дальней точке?",
+ "transfer_question": "В другом пласте нефть вязче, остальное то же. Где перестройка дольше?",
+ "data_it_bridge": "Замер давления после смены дебита может относиться к ещё идущему переходному процессу, а не к установившемуся состоянию. В данных такие точки стоит хранить вместе со временем от смены режима и историей дебита.",
+ "terms_to_check": [
+  "скважину",
+  "пласта",
+  "пластовое",
+  "проницаемость",
+  "вязкость",
+  "вязче",
+  "сжимаемость",
+  "скелета",
+  "замрёт"
+ ],
+ "physics": {
+  "pc.layers_order": {
+   "answer": "да",
+   "note": "Один горизонтальный пласт, положение слоёв не меняется"
+  },
+  "pc.fault_consistent": {
+   "answer": "н/п",
+   "note": "Разломов в сцене нет"
+  },
+  "pc.unconformity_event": {
+   "answer": "н/п",
+   "note": "Несогласий в сцене нет"
+  },
+  "pc.fluids_in_pores": {
+   "answer": "да",
+   "note": "Пласт показан пористой породой, полостей с нефтью нет"
+  },
+  "pc.gas_oil_water": {
+   "answer": "н/п",
+   "note": "Поток однофазный, контактов нет"
+  },
+  "pc.flow_high_to_low": {
+   "answer": "да",
+   "note": "Жидкость движется к скважине, где давление ниже. Ловушка не изображается"
+  },
+  "pc.causality": {
+   "answer": "да",
+   "note": "Сначала пуск скважины, затем распространение понижения давления"
+  },
+  "pc.balance": {
+   "answer": "да",
+   "note": "Решение для упругого режима: отбор обеспечен расширением жидкости и изменением объёма пор"
+  },
+  "pc.views_consistent": {
+   "answer": "да",
+   "note": "Три вида считаются из одной модели и одного времени"
+  },
+  "pc.tool_mechanism": {
+   "answer": "н/п",
+   "note": "Механизм приборов не показывается"
+  },
+  "pc.signal_vs_property": {
+   "answer": "н/п",
+   "note": "Показано расчётное давление, свойства по нему не определяются"
+  },
+  "pc.applicability": {
+   "answer": "да",
+   "note": "Названо условие: газ из жидкости не выделяется. Сравнение дано при прочих равных"
+  },
+  "pc.curve_sync": {
+   "answer": "да",
+   "note": "График строится из той же модели синхронно с разрезом и планом"
+  },
+  "pc.plausible_numbers": {
+   "answer": "да",
+   "note": "Давление у забоя падает примерно с 20 до 12 МПа за сутки, размеры пласта обычные"
+  },
+  "pc.exaggeration_named": {
+   "answer": "да",
+   "note": "Размеры и сжатие времени названы числами, масштаб подписывает шаблон"
+  },
+  "pc.objects_stable": {
+   "answer": "да",
+   "note": "Конструкция скважины не меняется"
+  },
+  "pc.objects_plausible": {
+   "answer": "да",
+   "note": "Скважина проходит пласт, наблюдательная точка находится внутри пласта"
+  },
+  "pc.depth_down": {
+   "answer": "да",
+   "note": "Разрез ориентирован глубиной вниз, шкалы и единицы подписывает шаблон"
+  },
+  "pc.label_matches": {
+   "answer": "да",
+   "note": "Сцена считается из параметров и помечена как симуляция, вертикальный масштаб подписан числом"
+  },
+  "pc.modern_or_historic": {
+   "answer": "н/п",
+   "note": "Детального оборудования в сцене нет"
+  },
+  "pc.hydrostatic": {
+   "answer": "н/п",
+   "note": "Бурение и столб раствора не показываются"
+  },
+  "pc.gas_closed_well": {
+   "answer": "н/п",
+   "note": "Газа в скважине нет"
+  },
+  "pc.pit_gain": {
+   "answer": "н/п",
+   "note": "Приёмных ёмкостей нет"
+  },
+  "pc.well_construction": {
+   "answer": "да",
+   "note": "Скважина одинакова во всех видах и кадрах"
+  }
+ },
+ "beats": [
+  {
+   "say": "Скважину пустили: давление сразу перестроится везде?",
+   "claim_id": null,
+   "on_screen": "Пуск скважины: что дальше?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.02,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "hook"
+  },
+  {
+   "say": "Пунктир показывает ложное ожидание: фронт с постоянной скоростью.",
+   "claim_id": null,
+   "on_screen": "Пунктир — ложное ожидание",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "naive": 1,
+    "time": 0.06,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "На деле пластовое давление после пуска перестраивается долго.",
+   "claim_id": "basniev.dlitelnost_pereraspredeleniya#c1",
+   "on_screen": "Перестройка растянута во времени",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.11
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Потому что вязкая жидкость, протекая в пласте, встречает огромное сопротивление.",
+   "claim_id": "basniev.dlitelnost_pereraspredeleniya#c2",
+   "on_screen": "Течению сильно сопротивляется пласт",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.16,
+    "naive": 0,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Отметим точку вдали от скважины.",
+   "claim_id": null,
+   "on_screen": "Следим за дальней точкой",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "observe": 1,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "Чем выше проницаемость, то есть способность породы пропускать жидкость, тем быстрее перестройка.",
+   "claim_id": "basniev.dlitelnost_pereraspredeleniya#c3",
+   "on_screen": "Проницаемость выше — быстрее",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.2,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Чем больше вязкость, то есть внутреннее трение жидкости, тем медленнее.",
+   "claim_id": "basniev.dlitelnost_pereraspredeleniya#c4",
+   "on_screen": "Вязкость больше — медленнее",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.23,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Тормозит и сжимаемость жидкости: насколько она поддаётся сжатию.",
+   "claim_id": "basniev.dlitelnost_pereraspredeleniya#c5",
+   "on_screen": "Сжимаемая жидкость замедляет процесс",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.26
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "И сжимаемость скелета, то есть твёрдого каркаса породы.",
+   "claim_id": "basniev.dlitelnost_pereraspredeleniya#c6",
+   "on_screen": "Каркас породы тоже важен",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.3,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "step"
+  },
+  {
+   "say": "Предскажите: если скважина поработает дольше, замрёт ли давление в точке?",
+   "claim_id": null,
+   "on_screen": "Замрёт или продолжит меняться?",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 1.3,
+   "role": "prediction"
+  },
+  {
+   "say": "Нет, оно всё ещё снижается: перестройка продолжается.",
+   "claim_id": "basniev.dlitelnost_pereraspredeleniya#c1",
+   "on_screen": "Давление всё ещё меняется",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.72,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "answer"
+  },
+  {
+   "say": "Эти правила здесь даны для потока, где газ из жидкости не выделяется.",
+   "claim_id": "basniev.dlitelnost_pereraspredeleniya#c3",
+   "on_screen": "Условие: свободного газа нет",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.8,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Если выше и проницаемость, и вязкость, без расчёта пласты не сравнить.",
+   "claim_id": "basniev.dlitelnost_pereraspredeleniya#c4",
+   "on_screen": "Два влияния спорят: считаем",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 0.87,
+    "focus": 2
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "limits"
+  },
+  {
+   "say": "Поэтому специалист сначала сравнивает пласты по одному свойству при прочих равных.",
+   "claim_id": "basniev.dlitelnost_pereraspredeleniya#c3",
+   "on_screen": "Меняем одно свойство за раз",
+   "label": "симуляция",
+   "frame_class": "A",
+   "action": {
+    "time": 0.94,
+    "focus": 3
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "decision"
+  },
+  {
+   "say": "Вот этот пласт в истинном масштабе.",
+   "claim_id": null,
+   "on_screen": "Истинные пропорции пласта",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "true_scale": 1,
+    "focus": 1
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "frame"
+  },
+  {
+   "say": "В другом пласте нефть вязче, остальное то же. Где перестройка дольше?",
+   "claim_id": null,
+   "on_screen": "А если нефть вязче?",
+   "label": "симуляция",
+   "frame_class": "B",
+   "action": {
+    "time": 1,
+    "true_scale": 0,
+    "focus": 0
+   },
+   "is_analogy": false,
+   "pause_after": 0,
+   "role": "transfer"
+  }
+ ],
+ "video_id": "basniev_dlitelnost_pereraspredeleniya_short",
+ "chapter": "basniev_gl23-24_1",
+ "node_id": "basniev.dlitelnost_pereraspredeleniya",
+ "format": "short",
+ "template": "pressure_wave",
+ "claim_marks": {
+  "basniev.dlitelnost_pereraspredeleniya#c1": "4bd3141efe0f",
+  "basniev.dlitelnost_pereraspredeleniya#c2": "f3ba604a8a93",
+  "basniev.dlitelnost_pereraspredeleniya#c3": "1182303461f2",
+  "basniev.dlitelnost_pereraspredeleniya#c4": "8b8c9dbfba0a",
+  "basniev.dlitelnost_pereraspredeleniya#c5": "66cdad5a3249",
+  "basniev.dlitelnost_pereraspredeleniya#c6": "2ed4405fb902",
+  "basniev.dlitelnost_pereraspredeleniya#c7": "453b937cd176",
+  "basniev.dlitelnost_pereraspredeleniya#c8": "b62ba68928fe",
+  "basniev.dlitelnost_pereraspredeleniya#c9": "60bf36f2ad97"
+ },
+ "written_by": "claude_code/claude-sonnet-5-5"
+}
