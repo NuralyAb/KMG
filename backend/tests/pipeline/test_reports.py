@@ -11,6 +11,8 @@ from glava.pipeline.steps.reports import (
     VideoTemplate,
     chapter_checks,
     process_rows,
+    quality_rows,
+    transfer_drop,
     series_checks,
     template_coverage,
     video_templates,
@@ -215,3 +217,25 @@ def test_course_and_narration_load_without_the_book(root):
     assert load_chapter("demo", need_text=False).units == ()
     with pytest.raises(LibraryError, match="GLAVA_BOOKS"):
         load_chapter("demo")
+
+
+def test_transfer_compares_control_with_the_training_mean(root, monkeypatch):
+    monkeypatch.setattr(reports, "_edits", lambda: [])
+    def chapter(name, claims, flagged):
+        work = root / "work" / name
+        save(work / "layer.json", {"nodes": [{**NODE, "claims": [CLAIM] * claims}]})
+        save(work / "coverage.json", {"rows": [{"node_ids": ["dm.a"]}, {"node_ids": [], "reason": "оглавление"}, {"node_ids": []}]})
+        save(work / "audit.json", {"flagged": [{}] * flagged, "early_terms": []})
+    chapter("latyshova_gl5_par17-20", 20, 2)
+    chapter("vendelshtein_gl1", 10, 2)
+    rows = quality_rows({"latyshova_gl5_par17-20": {"pages": [[1, 10]]}, "vendelshtein_gl1": {"pages": [[1, 10]]}, "kuznetsov_gl10": {"pages": [[1, 5]]}})
+    assert [r["chapter"] for r in rows] == ["latyshova_gl5_par17-20", "vendelshtein_gl1"]  # глава без слоя не считается
+    first = rows[0]
+    assert (first["split"], first["claims_per_page"], first["covered_share"], first["skipped_with_reason"], first["units_lost"], first["flagged_share"]) == ("обучение", 2.0, 0.333, 1, 1, 0.1)
+    assert first["verify_follows"] is None
+    drop = transfer_drop(rows)
+    assert drop == [{"chapter": "vendelshtein_gl1", "complete": True, "claims_per_page": -0.5, "covered_share": 0.0, "flagged_share": -1.0}]
+    # обучающая глава, собранная не на все узлы плана, эталоном не служит
+    save(root / "work" / "latyshova_gl5_par17-20" / "plan.json", {"nodes": [{}, {}]})
+    rows = quality_rows({"latyshova_gl5_par17-20": {"pages": [[1, 10]]}, "vendelshtein_gl1": {"pages": [[1, 10]]}})
+    assert rows[0]["complete"] is False and transfer_drop(rows) == [{"chapter": "vendelshtein_gl1", "complete": True}]

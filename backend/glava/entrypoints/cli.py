@@ -19,7 +19,7 @@ from glava.pipeline.steps.illustrations import build_illustrations
 from glava.pipeline.steps.journal import build_journal_check
 from glava.pipeline.steps.layer import build_layer
 from glava.pipeline.steps.passport import build_passport
-from glava.pipeline.steps.reports import build_process, build_ready, build_templates
+from glava.pipeline.steps.reports import TRAINING, build_process, build_ready, build_templates, build_transfer
 from glava.pipeline.steps.narration import build_narration
 from glava.pipeline.steps.review import build_review
 from glava.pipeline.steps.routing import build_routing
@@ -39,19 +39,19 @@ from glava.shared.json_schemas import load_schema
 from glava.shared.paths import REPOSITORY, workspace
 
 log = logging.getLogger("glava")
-COMMANDS = ["build", "errata", "figures", "layer", "routing", "tasks", "illustrations", "narrate", "course", "review", "video", "videos", "rebuild", "voices", "templates", "ready", "process",
+COMMANDS = ["build", "errata", "figures", "layer", "routing", "tasks", "illustrations", "narrate", "course", "review", "video", "videos", "rebuild", "voices", "templates", "ready", "process", "transfer",
             "simulation", "units", "extract", "audit", "verify", "fact", "passport", "journal"]
 BOOKLESS = ("course", "narrate", "passport", "fact")
-TRAINING = ("latyshova_gl5_par17-20", "basniev_gl23-24_1", "kuznetsov_gl10")
 
 
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(prog="glava", description="Глава книги -> учебный слой -> демо-курс")
     parser.add_argument("command", choices=COMMANDS)
-    parser.add_argument("chapter", nargs="?", help="глава; для ready и process можно не указывать — тогда обучающие главы")
+    parser.add_argument("chapter", nargs="?", help="глава; для ready, process и transfer можно не указывать — тогда обучающие главы")
     parser.add_argument("--limit", type=int, default=None, help="layer: собрать только первые N узлов; videos: снять не больше N роликов")
     parser.add_argument("--package", type=Path, default=None, help="папка чужого пакета для review")
+    parser.add_argument("--baseline", action="store_true", help="review: тот же пакет у обычной модели одним запросом «найди ошибки» — опора для сравнения с модулем")
     parser.add_argument("--vision", action="store_true", help="ненадёжные страницы в extract прочитать моделью по изображению (платно)")
     parser.add_argument("--mutants", action="store_true", help="verify: ещё и замерить, сколько внесённой порчи замечает проверяющая модель (платно)")
     parser.add_argument("--node", help="узел для video и simulation")
@@ -79,6 +79,8 @@ def run_reports(args: argparse.Namespace) -> bool:
     elif args.command == "ready":
         if not build_ready(chapters):
             raise SystemExit(1)
+    elif args.command == "transfer":
+        build_transfer([args.chapter] if args.chapter else list(read(workspace() / "chapters.json")["chapters"]))
     elif args.command == "process":
         build_process([args.chapter] if args.chapter else list(read(workspace() / "chapters.json")["chapters"]))
     elif args.command == "journal":
@@ -155,7 +157,7 @@ def run(args: argparse.Namespace, parser: argparse.ArgumentParser) -> None:
     if args.command == "review":
         if args.package is None:
             parser.error("укажите --package")
-        build_review(chapter, args.package, provider)
+        build_review(chapter, args.package, provider, args.baseline)
         return
     if args.command in ("build", "errata"):
         build_errata(chapter, provider)

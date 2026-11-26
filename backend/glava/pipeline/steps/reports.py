@@ -252,3 +252,103 @@ def build_process(chapter_ids: Sequence[str]) -> Path:
     log.info("процесс: %s", out)
     return out
 
+
+# ---------- перенос: держит ли конвейер качество на незнакомой главе
+
+TRAINING = ("latyshova_gl5_par17-20", "basniev_gl23-24_1", "kuznetsov_gl10")
+CONTROL = ("vendelshtein_gl1", "barenblatt_par4", "baraboshkin_par1-2")
+# по этим столбцам меряется падение от обучения; у остальных выше — лучше, у flagged_share и early_terms — хуже
+COMPARED = ("claims_per_page", "covered_share", "flagged_share", "verify_follows", "tasks")
+LOWER_IS_BETTER = frozenset({"flagged_share"})
+
+
+def _split(chapter: str) -> str:
+    return "обучение" if chapter in TRAINING else "контроль" if chapter in CONTROL else "тест или репетиция"
+
+
+def _pages(meta: Mapping[str, Any]) -> int:
+    return sum(int(b) - int(a) + 1 for a, b in meta.get("pages") or [])
+
+
+def _share(part: float, whole: float) -> float | None:
+    return round(part / whole, 3) if whole else None
+
+
+def quality_rows(chapters: Mapping[str, Mapping[str, Any]]) -> list[dict[str, Any]]:
+    """Качество слоя и курса по главам из файлов главы, без модели. Глава без слоя пропускается."""
+    money = {r["chapter"]: r for r in process_rows([c for c in chapters if (workspace() / "work" / c / "layer.json").exists()])}
+    rows: list[dict[str, Any]] = []
+    for chapter, meta in chapters.items():
+        work = workspace() / "work" / chapter
+        if chapter not in money:
+            continue
+        nodes = read(work / "layer.json")["nodes"]
+        claims = sum(len(n["claims"]) for n in nodes)
+        units = read_or(work / "coverage.json", {"rows": []})["rows"]
+        audit = read_or(work / "audit.json", {})
+        trust = read_or(work / "trust.json", {})
+        tasks = read_or(work / "tasks.json", {"tasks": []})
+        tasks = tasks.get("tasks", []) if isinstance(tasks, dict) else tasks
+        pages = _pages(meta)
+        verified = trust.get("claims") or {}
+        planned = len(read_or(work / "plan.json", {"nodes": nodes})["nodes"])
+        rows = [*rows, {
+            "chapter": chapter, "split": _split(chapter), "complete": len(nodes) >= planned, "pages": pages, "nodes": len(nodes), "planned_nodes": planned, "claims": claims,
+            "claims_per_page": round(claims / pages, 1) if pages else None,
+            "units": len(units), "covered_share": _share(sum(bool(u.get("node_ids")) for u in units), len(units)),
+            "skipped_with_reason": sum(not u.get("node_ids") and bool(u.get("reason")) for u in units),
+            "units_lost": sum(not u.get("node_ids") and not u.get("reason") for u in units),
+            "flagged_share": _share(len(audit.get("flagged") or []), claims) if audit else None,
+            "early_terms": len(audit.get("early_terms") or []) if audit else None,
+            "verify_follows": _share(verified.get("follows", 0), verified.get("total", 0)) if verified else None,
+            "tasks": len(tasks), "task_types": len({t.get("type") for t in tasks}),
+            "usd_per_node": money[chapter]["usd_per_node"], "person_minutes": money[chapter]["person_minutes"],
+        }]
+    return rows
+
+
+def transfer_drop(rows: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    """Изменение каждой не обучающей главы против среднего по обучающим, в долях: −0.3 — на 30 % хуже.
+    Эталон — только обучающие главы с полным слоем: собранная на три узла глава сравнение исказила бы."""
+    base = {k: [r[k] for r in rows if r["split"] == "обучение" and r["complete"] and r[k] is not None] for k in COMPARED}
+    mean = {k: sum(v) / len(v) for k, v in base.items() if v}
+    drops: list[dict[str, Any]] = []
+    for row in (r for r in rows if r["split"] != "обучение"):
+        change = {}
+        for k, m in mean.items():
+            if row[k] is None or not m:
+                continue
+            delta = (row[k] - m) / m
+            change = {**change, k: round(-delta if k in LOWER_IS_BETTER else delta, 3)}
+        drops = [*drops, {"chapter": row["chapter"], "complete": row["complete"], **change}]
+    return drops
+
+
+def _table(rows: Sequence[Mapping[str, Any]]) -> str:
+    if not rows:
+        return "нет глав со слоем\n"
+    head = list(rows[0])
+    line = lambda r: "| " + " | ".join("—" if r.get(k) is None else str(r.get(k)) for k in head) + " |"
+    return "\n".join([line({k: k for k in head}), "|" + "---|" * len(head), *(line(r) for r in rows)]) + "\n"
+
+
+def build_transfer(chapter_ids: Sequence[str]) -> Path:
+    """out/transfer.csv и transfer.md: качество по главам и падение от обучения к контролю и тесту."""
+    meta = read(workspace() / "chapters.json")["chapters"]
+    rows = quality_rows({c: meta.get(c, {}) for c in chapter_ids})
+    drops = transfer_drop(rows)
+    out = workspace() / "out" / "transfer.csv"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=list(rows[0]) if rows else ["chapter"], lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+    note = ("Считается из файлов главы, без модели. claims_per_page — подробность слоя: меньше, чем на обучении, значит глава сжата. "
+            "flagged_share — доля утверждений с расхождением при сверке кодом. verify_follows — доля, которую вторая модель признала следующей из цитаты (если запускали verify).\n\n"
+            "Падение — изменение против среднего по обучающим главам с полным слоем: −0.3 значит на 30 % хуже, для flagged_share знак перевёрнут. "
+            "complete=False — слой собран не на все узлы плана, сравнение по такой главе предварительное.\n")
+    (out.with_suffix(".md")).write_text(f"# Перенос конвейера\n\n{note}\n## Главы\n\n{_table(rows)}\n## Падение от обучения\n\n{_table(drops)}", encoding="utf-8")
+    for row in drops:
+        log.info("%s", "; ".join(f"{k}={v}" for k, v in row.items()))
+    log.info("перенос: %s", out.with_suffix(".md"))
+    return out

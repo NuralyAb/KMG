@@ -211,3 +211,22 @@ def review_package(
             final = {**final, verdict["target"]: {**{k: verdict.get(k) for k in FIELDS}, "page_pdf": page, "quote": quote}}
     remarks = sorted(final.values(), key=lambda r: (ORDER[r["severity"]], r["target"]))
     return {"package_id": package["package_id"], "remarks": remarks}, [r for _, rs in (*found, *verdicts) for r in rs]
+
+
+def baseline_package(
+    package: Mapping[str, Any], pages: Pages, provider: Provider, prompt: str, folder: Path | None = None,
+) -> tuple[dict[str, Any], list[Reply]]:
+    """Опора «обычная модель с запросом „найди ошибки“» из критериев жюри: один вызов, вся глава и весь пакет,
+    без двух проходов, судьи, заметок кода и выбора страницы кодом. Нужна, чтобы мерить модуль, а не верить ему."""
+    items = [*package["items"], *({**f, "type": "frame"} for f in package["frames"])]
+    chapter = "\n\n".join(f"=== стр. {n} ===\n{pages[n]}" for n in sorted(pages))
+    listed = json.dumps([{k: v for k, v in i.items() if v} for i in items], ensure_ascii=False, indent=0)
+    scenes = json.dumps(package["scenes"], ensure_ascii=False)
+    remarks, replies = _ask(provider, prompt, f"# Глава\n{chapter}\n\n# Спецификации сцен\n{scenes}\n\n# Элементы\n{listed}", items, folder, "remarks")
+    final: dict[str, dict] = {}
+    for remark in remarks:
+        if _valid(remark) and remark["target"] not in final:
+            page = remark.get("page_pdf")
+            final = {**final, remark["target"]: {**{k: remark.get(k) for k in FIELDS}, "page_pdf": page if isinstance(page, int) and page in pages else None}}
+    ordered = sorted(final.values(), key=lambda r: (ORDER[r["severity"]], r["target"]))
+    return {"package_id": package["package_id"], "remarks": ordered}, replies

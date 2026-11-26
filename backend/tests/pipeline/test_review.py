@@ -7,6 +7,7 @@ import pytest
 from glava.modules.llm.client import Reply, cached
 from glava.modules.review.checks import quick_notes
 from glava.modules.review.engine import (
+    baseline_package,
     evidence_pages,
     review_package,
     settle_page,
@@ -158,3 +159,31 @@ def test_claim_with_broken_citation_follows_the_quote():
     remark = {**REMARK, "target": "C002", "quote": "если нет калиевых полевых шпатов"}
     answer, _ = review_package(package, PAGES, Scripted([remark], {"C002"}), PROMPTS, "")
     assert [(r["target"], r["page_pdf"]) for r in answer["remarks"]] == [("C002", 9)]
+
+
+# ---------- опора жюри: обычная модель одним запросом ----------
+class Plain:
+    name, model = "fake", "fake"
+
+    def __init__(self, remarks):
+        self.remarks, self.calls = remarks, []
+
+    def ask(self, system, prompt, files=()):
+        self.calls.append((system, prompt))
+        return Reply(json.dumps({"remarks": self.remarks}, ensure_ascii=False), "fake", 1, 1, 0.0)
+
+
+def test_baseline_is_one_plain_call_without_code_notes_or_judge():
+    model = Plain([{**REMARK, "page_pdf": 9}])
+    answer, replies = baseline_package(PACKAGE, PAGES, model, "найди ошибки")
+    assert len(model.calls) == 1 and len(replies) == 1
+    system, prompt = model.calls[0]
+    assert system == "найди ошибки" and "заметки_кода" not in prompt
+    assert all(f"=== стр. {n} ===" in prompt for n in PAGES)
+    jsonschema.validate(answer, load_schema("review_output"))
+    assert [(r["target"], r["page_pdf"]) for r in answer["remarks"]] == [("C001", 9)]
+
+
+def test_baseline_keeps_the_models_page_but_not_an_invented_one():
+    answer, _ = baseline_package(PACKAGE, PAGES, Plain([{**REMARK, "page_pdf": 99}, {**REMARK, "target": "X9"}, {**REMARK, "target": "C002", "fix": ""}]), "найди ошибки")
+    assert [(r["target"], r["page_pdf"]) for r in answer["remarks"]] == [("C001", None)]
