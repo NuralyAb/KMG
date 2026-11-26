@@ -20,6 +20,7 @@ from glava.shared.evidence import (
     node_texts,
     quote_on_page,
     restored_quote,
+    whole_formula,
     unsupported_numbers,
     verify_layer,
     with_extra,
@@ -77,6 +78,18 @@ def _with_exact_quotes(claim: Mapping[str, Any], own: Sequence[Unit], units: Seq
     return {**claim, "quote": exact(claim["quote"], own), **({"conditions": conditions} if "conditions" in claim else {})}
 
 
+def whole_formulas(claim: Mapping[str, Any], units: Sequence[Unit]) -> dict[str, Any]:
+    """Цитата, оборванная внутри $$…$$, получает целую формулу из той единицы, где стоит; так же условия утверждения."""
+    def whole(quote: Any) -> Any:
+        if not isinstance(quote, str):
+            return quote
+        return next((w for u in units if quote_on_page(quote, u.text) and (w := whole_formula(quote, u.text)) != quote), quote)
+
+    given = claim.get("conditions")
+    conditions = [{**x, "quote": whole(x["quote"])} if isinstance(x, Mapping) and "quote" in x else x for x in given] if isinstance(given, list) else given
+    return {**claim, "quote": whole(claim.get("quote")), **({"conditions": conditions} if "conditions" in claim else {})}
+
+
 def _grounded(claim: Mapping[str, Any], units: Sequence[Unit]) -> dict[str, Any]:
     """Единицу и вид источника определяет место цитаты, а не модель."""
     home = [u for u in units if quote_on_page(claim["quote"], u.text)]
@@ -99,6 +112,7 @@ def assemble_node(raw: Mapping, plan_node: Mapping, order: int, prefix: str, uni
     used = {u.unit_id: u for u in units if u.unit_id in set(plan_node["unit_ids"])}
     own = list(used.values())
     said = [_with_exact_quotes(c, own, units) for c in raw["claims"]] if is_english_source(units) else raw["claims"]
+    said = [whole_formulas(c, units) for c in said]
     claims = [{"page_print": None, **_grounded(c, own), "id": f"{node_id}#c{i}"} for i, c in enumerate(said, start=1)]
     links = [{"type": "prerequisite", "target": f"{prefix}.{slug}"} for slug in raw.get("prerequisites", [])]
     ref = (raw.get("misconception") or {}).get("ref")

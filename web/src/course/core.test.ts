@@ -244,3 +244,9 @@ test('Russian plural forms', () => {
   const forms = ['мысль', 'мысли', 'мыслей'] as const;
   assert.deepEqual([1, 2, 5, 11, 14, 21, 22, 111].map((n) => core.plural(n, forms)), ['1 мысль', '2 мысли', '5 мыслей', '11 мыслей', '14 мыслей', '21 мысль', '22 мысли', '111 мыслей']);
 });
+
+test('a formula KaTeX cannot parse is shown as its text, not as an error', () => {
+  const strict = core.makeRich({ renderToString: (code: string) => { if (code.includes('\\right')) throw new Error('parse'); return `[${code}]`; } });
+  assert.equal(strict('$$a \\right$$'), '<code class="tex">a \\right</code>');
+  assert.equal(strict('$a$'), '[a]');
+});

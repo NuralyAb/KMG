@@ -32,6 +32,26 @@ def quote_on_page(quote: str, page: str) -> bool:
     return len(needle) >= MIN_QUOTE_CHARS and needle in squeeze(page)
 
 
+DISPLAY = re.compile(r"\$\$[\s\S]+?\$\$")
+
+
+def whole_formula(quote: str, text: str) -> str:
+    """Цитата, оборванная внутри выключной формулы $$…$$, дополняется до целой формулы из того же текста.
+    Курс не может нарисовать половину формулы, а цитата остаётся дословной: добавляется только недостающий кусок страницы."""
+    if quote.count("$$") % 2 == 0 and not ("$" not in quote and "\\" in quote):
+        return quote
+    for block in DISPLAY.findall(text):
+        inner = squeeze(block[2:-2])
+        parts = quote.split("$$")
+        if len(parts) == 2 and parts[1].strip() and squeeze(parts[1]) and inner.startswith(squeeze(parts[1])):
+            return f"{parts[0]}{block}"  # оборван конец формулы
+        if len(parts) == 2 and parts[0].strip() and squeeze(parts[0]) and inner.endswith(squeeze(parts[0])):
+            return f"{block}{parts[1]}"  # оборвано начало формулы
+        if len(parts) == 1 and squeeze(quote) in inner:
+            return block  # кусок из середины формулы без знаков доллара
+    return quote
+
+
 def find_quote_page(quote: str, pages: Mapping[int, str]) -> int | None:
     return next((n for n in sorted(pages) if quote_on_page(quote, pages[n])), None)
 

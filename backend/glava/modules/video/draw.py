@@ -1,10 +1,13 @@
 """Кисти на cairo, общие для всех сцен."""
 
+import sys
 from collections.abc import Sequence
 
 import cairo
 
-FONT = "Segoe UI"
+# Segoe UI есть только на Windows; на Mac и Linux cairo подставлял шрифт без стрелок, и на осях стояли квадраты.
+# Arial есть на Windows и Mac, в нём кириллица, греческие буквы и стрелки.
+FONT = "Segoe UI" if sys.platform == "win32" else "Arial"
 Color = str
 
 

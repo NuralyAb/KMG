@@ -158,7 +158,8 @@ export const makeRich = (katex: Window['katex']): Rich => {
   const inline = (code: string): string => code.replace(/\\tag\s*\{\s*([^}]*?)\s*\}/g, '\\quad ($1)');
   const tex = (code: string, display: boolean): string => {
     if (!katex) return esc(code);
-    try { return katex.renderToString(display ? code : inline(code), { displayMode: display, throwOnError: false, strict: 'ignore' }); } catch { return esc(code); }
+    // формула, которую не разобрать, показывается своим текстом, а не красной ошибкой KaTeX
+    try { return katex.renderToString(display ? code : inline(code), { displayMode: display, throwOnError: true, strict: 'ignore' }); } catch { return `<code class="tex">${esc(code)}</code>`; }
   };
   const bare = (s: string): string => s.split(BARE).map((part) => (/\\[a-zA-Z]/.test(part) ? ` ${tex(part.replace(/\\[()[\]]/g, '').trim(), false)} ` : lower(part))).join('');
   return (s) => String(s ?? '').split(FORMULA).map((part) => {

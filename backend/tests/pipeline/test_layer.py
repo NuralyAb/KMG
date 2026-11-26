@@ -1,3 +1,4 @@
+import pytest
 from glava.modules.layer.builder import (
     assemble_node,
     coverage_rows,
@@ -77,3 +78,31 @@ def test_coverage_lists_every_unit_with_node_or_reason():
     rows = coverage_rows(plan(), UNITS, "lat")
     assert [r["unit_id"] for r in rows] == [u.unit_id for u in UNITS]
     assert rows[0]["reason"] == "заголовок" and rows[1]["node_ids"] == ["lat.mud"]
+
+
+# ---------- цитата не обрывается внутри формулы ----------
+FORMULA_PAGE = "Перепишем:\n$$P = f \\left( \\xi, \\frac{Q_0 \\mu}{2\\pi k h} \\right)\n\\quad \\xi = \\frac{r}{2\\sqrt{\\kappa t}}. \\quad (23.43)$$\nПродифференцируем (23.43)."
+
+
+@pytest.mark.parametrize("cut", [
+    "$$P = f \\left( \\xi, \\frac{Q_0 \\mu}{2\\pi k h} \\right)",           # оборван конец
+    "\\quad \\xi = \\frac{r}{2\\sqrt{\\kappa t}}. \\quad (23.43)$$",       # оборвано начало
+    "\\frac{Q_0 \\mu}{2\\pi k h}",                                          # середина без долларов
+])
+def test_quote_cut_inside_a_formula_gets_the_whole_formula(cut):
+    from glava.modules.layer.builder import whole_formulas
+    from glava.shared.evidence import quote_on_page
+
+    unit = Unit("p480.01", "paragraph", 480, FORMULA_PAGE)
+    fixed = whole_formulas({"quote": cut, "conditions": [{"text": "у", "quote": cut}]}, [unit])
+    for quote in (fixed["quote"], fixed["conditions"][0]["quote"]):
+        assert quote.count("$$") == 2 and "(23.43)$$" in quote and quote.startswith("$$P")
+        assert quote_on_page(quote, FORMULA_PAGE)
+
+
+def test_whole_quotes_and_text_quotes_are_left_alone():
+    from glava.modules.layer.builder import whole_formulas
+
+    unit = Unit("p480.01", "paragraph", 480, FORMULA_PAGE)
+    for quote in ("Продифференцируем (23.43).", FORMULA_PAGE):
+        assert whole_formulas({"quote": quote}, [unit])["quote"] == quote
