@@ -23,6 +23,18 @@ export const WhoChip = ({ who }: { who: Who }) => <span className={`chip who ${w
 
 export const Bar = ({ share }: { share: number }) => <span className="progress" aria-hidden><i style={{ width: `${share}%` } as CSSProperties} /></span>;
 
+/** Кольцо прогресса, как в шапке больших площадок: доля пройденного по окружности. */
+export function Ring({ share, size = 36 }: { share: number; size?: number }) {
+  const r = 15.5;
+  const length = 2 * Math.PI * r;
+  return (
+    <svg className="ring" viewBox="0 0 36 36" width={size} height={size} aria-hidden>
+      <circle className="ring-track" cx="18" cy="18" r={r} />
+      {share > 0 && <circle className="ring-fill" cx="18" cy="18" r={r} strokeDasharray={`${(length * share) / 100} ${length}`} transform="rotate(-90 18 18)" />}
+    </svg>
+  );
+}
+
 export function Items<T>({ list, children, as: Tag = 'ul', className }: { list?: T[] | null; children: (x: T, i: number) => ReactNode; as?: 'ul' | 'ol'; className?: string }) {
   if (!list?.length) return null;
   return <Tag className={className}>{list.map((x, i) => <Fragment key={i}>{children(x, i)}</Fragment>)}</Tag>;

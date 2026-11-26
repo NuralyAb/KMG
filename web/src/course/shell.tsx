@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ComponentType } from 'react';
-import { Bar, useInert } from './bits';
+import { Bar, Ring, useInert } from './bits';
 import { isDone, lessonsOf, stepUrl, useCourse } from './context';
 import { percent } from './core';
 import { Icons, Logo } from './icons';
@@ -31,14 +31,19 @@ function ThemeToggle() {
 
 /** Шапка: знак, курс и книга, тема, путь в каталог. */
 export function Top({ isMenuOpen, onMenu }: { isMenuOpen: boolean; onMenu: () => void }) {
-  const { course, catalog } = useCourse();
+  const { course, catalog, state } = useCourse();
+  const share = percent(state.done.length, course.steps.length);
   return (
     <header className="top">
       <button type="button" className="round menu" data-menu aria-expanded={isMenuOpen} aria-controls="outline" aria-label="Содержание курса" onClick={onMenu}><Icons.list /></button>
       <a className="logo" href={catalog || '#/'} target={catalog ? '_top' : undefined} aria-label={catalog ? 'Глава, все курсы' : 'Глава, обзор курса'}><Logo /><span>Глава</span></a>
       <span className="top-rule" aria-hidden />
-      <a className="top-course" href="#/"><strong>{course.title}</strong><span>{course.book}</span></a>
-      <div className="top-end"><ThemeToggle />{catalog && <a className="btn ghost" href={catalog} target="_top">Мои курсы</a>}</div>
+      <a className="top-course" href="#/"><strong>{course.title}</strong></a>
+      <div className="top-end">
+        <a className="top-progress" href="#/" aria-label={`Прогресс курса: ${share}%, пройдено уроков ${state.done.length} из ${course.steps.length}`}>
+          <Ring share={share} /><span className="num">{share}%</span><span className="top-progress-text">{state.done.length} из {course.steps.length} уроков</span>
+        </a>
+        <ThemeToggle />{catalog && <a className="btn ghost" href={catalog} target="_top">Мои курсы</a>}</div>
     </header>
   );
 }
@@ -109,11 +114,9 @@ export function Outline({ view, isOpen, isInert }: { view: View; isOpen: boolean
     if (path.current && row && box && (row.top < box.top || row.bottom > box.bottom)) path.current.scrollTop += row.top - box.top - box.height / 4;
   }, [view.step, isOpen]);
   useEffect(() => { if (isOpen) path.current?.querySelector<HTMLElement>('[aria-current], summary')?.focus({ preventScroll: true }); }, [isOpen]);
-  const share = percent(state.done.length, course.steps.length);
   return (
     <aside className={`outline${isOpen ? ' open' : ''}`} id="outline" aria-label="Содержание курса" ref={ref}>
       <div className="outline-scroll" ref={path}>
-        <div className="outline-progress"><p><strong>Прогресс курса</strong><span className="num">{share}%</span></p><Bar share={share} /><p className="muted">Пройдено уроков: {state.done.length} из {course.steps.length}</p></div>
         <nav className="tabs" aria-label="Разделы">{TABS.map(({ url, label, Icon }) => <a key={url} href={url} aria-current={!view.step && view.tab === url ? 'page' : undefined}><Icon /><span>{label}</span></a>)}
           {catalog && <a href={catalog} target="_top"><Icons.exit /><span>Все курсы</span></a>}</nav>
         <nav className="modules-nav" aria-label="Модули и уроки">
@@ -122,7 +125,7 @@ export function Outline({ view, isOpen, isInert }: { view: View; isOpen: boolean
             const count = list.filter((s) => isDone(state, s)).length;
             return (
               <details key={p.title} className="module-block" data-part={i} open={open.has(i)} onToggle={(e) => toggle(i, e.currentTarget.open)}>
-                <summary><span className="module-name"><span className="module-no">Модуль {i + 1}</span>{p.title}</span><span className="module-count num">{count}/{list.length}</span><Icons.down /></summary>
+                <summary><span className="module-name"><span className="module-no">Модуль {i + 1}</span>{p.title}<Bar share={percent(count, list.length)} /></span><span className="module-count num">{count}/{list.length}</span><Icons.down /></summary>
                 <ul>{list.map((s) => <Lesson key={s.id} step={s} view={view} />)}</ul>
               </details>
             );

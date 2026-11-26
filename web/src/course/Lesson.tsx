@@ -1,5 +1,5 @@
 import { useEffect, type ReactNode } from 'react';
-import { Pages, Rich } from './bits';
+import { Pages, Rich, Bar } from './bits';
 import { stepUrl, useCourse } from './context';
 import { Icons } from './icons';
 import { itemFor, itemsOf, itemUrl, type Item } from './items';
@@ -58,7 +58,7 @@ function Quiz({ step }: { step: Step }) {
   const solved = step.tasks.filter((t) => state.solved[t.id] === true).length;
   return (
     <div className="column">
-      {step.tasks.length > 0 && <p className="quiz-head"><span>Решено {solved} из {step.tasks.length}</span><span className="muted">Ответ проверяется сразу, после проверки видно пояснение и страницу книги</span></p>}
+      {step.tasks.length > 0 && <div className="quiz-head"><p><strong>Решено {solved} из {step.tasks.length}</strong><span className="muted">Ответ проверяется сразу, после проверки видно пояснение и страницу книги</span></p><Bar share={Math.round((solved / step.tasks.length) * 100)} /></div>}
       {blocksOf(step).filter((b) => b.tab === 'tasks').map((b) => <BlockSection key={b.id} block={b} />)}
     </div>
   );
@@ -71,6 +71,28 @@ function Body({ step, item, onDone }: { step: Step; item: Item; onDone: () => vo
   if (item.id === 'sim' && step.interactive) return <div className="stage"><div className="screen sims" data-interactive={step.interactive.kind} data-params={JSON.stringify(step.interactive.params ?? {})} /></div>;
   if (item.id === 'quiz') return <Quiz step={step} />;
   return <Reading step={step} hasNotes={!itemsOf(step).some((x) => x.id === 'talk' || x.id === 'video')} />;
+}
+
+/** Шаги урока над содержанием: видно, где вы и что впереди. */
+function Stepper({ step, items, at }: { step: Step; items: Item[]; at: number }) {
+  const { state } = useCourse();
+  const seen = state.seen[step.id] ?? [];
+  if (items.length < 2) return null;
+  return (
+    <nav className="stepper noprint" aria-label="Элементы урока"><ol>
+      {items.map((x, i) => {
+        const isSeen = seen.includes(x.id) && i !== at;
+        return (
+          <li key={x.id} className={i === at ? 'now' : isSeen ? 'seen' : undefined}>
+            <a href={itemUrl(step, x.id)} aria-current={i === at ? 'step' : undefined}>
+              <span className="stepper-dot" aria-hidden>{isSeen ? <Icons.check /> : i + 1}</span>
+              <span className="stepper-text"><span>{x.kind}</span><span className="stepper-meta">{x.meta}{isSeen && <span className="sr">, просмотрено</span>}</span></span>
+            </a>
+          </li>
+        );
+      })}
+    </ol></nav>
+  );
 }
 
 /** Страница элемента урока: что это, сколько займёт, само содержание и переход к следующему элементу. */
@@ -99,10 +121,11 @@ export function Lesson({ step, section }: { step: Step; section: string | null }
   return (
     <article className="lesson" data-item={item.id}>
       <header className="item-head">
-        <p className="item-kind">{item.kind}<span aria-hidden> · </span>{item.meta}</p>
+        <p className="item-kind"><span className="kicker">Урок {num(step)}</span>{item.kind}<span aria-hidden> · </span>{item.meta}{step.threshold && <span className="kicker key">пороговая идея</span>}</p>
         <h1 tabIndex={-1}>{item.id === 'read' ? item.title : `${item.title}: ${step.short_title}`}</h1>
-        <p className="muted">Урок {num(step)} · {step.title}<Pages list={step.pages} />{step.threshold && ' · пороговая идея'}</p>
+        <p className="muted">{step.title}<Pages list={step.pages} /></p>
       </header>
+      <Stepper step={step} items={items} at={at} />
       <Body step={step} item={item} onDone={forward} />
       <footer className="item-foot noprint">
         {back ? <a className="btn" href={back}><Icons.left />Назад</a> : <span />}
