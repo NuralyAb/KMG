@@ -1,0 +1,75 @@
+{
+ "node_id": "basarygin.driller_first_circulation",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Пуск насоса на прежнем растворе, давления постоянны",
+    "kind": "step"
+   },
+   {
+    "id": "b",
+    "text": "Скорость глушения: штуцером держат давление в трубах",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Разгазированная пачка вышла: стоп и выдержка",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Давления в трубах и кольце равны?",
+    "kind": "choice"
+   },
+   {
+    "id": "e",
+    "text": "Проявление считают ликвидированным",
+    "kind": "result"
+   },
+   {
+    "id": "f",
+    "text": "Второй этап: закачать утяжелённый раствор",
+    "kind": "step"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": "да"
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Приток вымывают прежним раствором, проверяют давления, затем закачивают утяжелённый. Как в книге; вероятно, опечатка издания.",
+ "alt": "Цепочка: пуск насоса, постоянное давление в трубах, выход разгазированной пачки и остановка, проверка равенства давлений, затем второй этап с утяжелённым раствором.",
+ "claim_ids": [
+  "basarygin.driller_first_circulation#c4",
+  "basarygin.driller_first_circulation#c6",
+  "basarygin.driller_first_circulation#c7",
+  "basarygin.driller_first_circulation#c8",
+  "basarygin.driller_first_circulation#c9",
+  "basarygin.driller_first_circulation#c10"
+ ]
+}

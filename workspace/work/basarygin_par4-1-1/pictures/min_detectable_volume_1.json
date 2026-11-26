@@ -1,0 +1,67 @@
+{
+ "node_id": "basarygin.min_detectable_volume",
+ "template": "plot",
+ "data": {
+  "x_label": "Погрешность уровнемера ε",
+  "y_label": "Минимальный замечаемый объём ΔV",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "S = 20 м²",
+    "color": "",
+    "points": [
+     [
+      0.15,
+      0.05
+     ],
+     [
+      0.95,
+      0.317
+     ]
+    ]
+   },
+   {
+    "name": "S = 40 м²",
+    "color": "",
+    "points": [
+     [
+      0.15,
+      0.1
+     ],
+     [
+      0.95,
+      0.633
+     ]
+    ]
+   },
+   {
+    "name": "S = 60 м²",
+    "color": "",
+    "points": [
+     [
+      0.15,
+      0.15
+     ],
+     [
+      0.95,
+      0.95
+     ]
+    ]
+   }
+  ],
+  "marks": []
+ },
+ "caption": "ΔVmin = εS: чем больше площадь поверхности раствора, тем круче прямая и тем крупнее приток, который можно заметить.",
+ "alt": "Три растущие прямые зависимости минимального объёма от погрешности уровнемера. Самая пологая для площади 20 м², самая крутая для 60 м².",
+ "claim_ids": [
+  "basarygin.min_detectable_volume#c2",
+  "basarygin.min_detectable_volume#c8",
+  "basarygin.min_detectable_volume#c9",
+  "basarygin.min_detectable_volume#c11",
+  "basarygin.min_detectable_volume#c12",
+  "basarygin.min_detectable_volume#c13"
+ ]
+}

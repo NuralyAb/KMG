@@ -1,0 +1,60 @@
+{
+ "node_id": "basarygin.shut_in_choice",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Опыт на месторождении и конкретные условия работ",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Плотность выходящего раствора и прочность у башмака",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Допустимое давление на устье, скорость закрытия и т.д.",
+    "kind": "data"
+   },
+   {
+    "id": "d",
+    "text": "Выбор способа перекрытия скважины",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Что учитывают при выборе способа перекрытия; перечень не закрыт. Как в книге; вероятно, опечатка издания.",
+ "alt": "Схема: опыт и конкретные условия включают плотность раствора и прочность пласта у башмака, давление на устье и скорость закрытия оборудования; всё это ведёт к выбору способа.",
+ "claim_ids": [
+  "basarygin.shut_in_choice#c1",
+  "basarygin.shut_in_choice#c2",
+  "basarygin.shut_in_choice#c3",
+  "basarygin.shut_in_choice#c4",
+  "basarygin.shut_in_choice#c5",
+  "basarygin.shut_in_choice#c6"
+ ]
+}

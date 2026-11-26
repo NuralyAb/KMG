@@ -1,0 +1,76 @@
+{
+ "node_id": "basarygin.backup_and_trip_shut_in",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Проявление при СПО: прекратить подъём или спуск",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Замок трубы над ротором, колонну подвесить на клиньях",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Установить открытый безопасный клапан",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Закрыть клапан и превентор с трубными плашками",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Приподнять квадрат над ротором, открыть клапан",
+    "kind": "step"
+   },
+   {
+    "id": "f",
+    "text": "Регистрация давлений и притока раствора в амбар",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Порядок закрытия при СПО: клапан ставят открытым и только потом закрывают вместе с превентором.",
+ "alt": "Цепочка действий: остановить СПО, подвесить колонну, поставить открытый клапан, закрыть клапан и превентор, поднять квадрат и открыть клапан, записать давления.",
+ "claim_ids": [
+  "basarygin.backup_and_trip_shut_in#c5",
+  "basarygin.backup_and_trip_shut_in#c6",
+  "basarygin.backup_and_trip_shut_in#c7",
+  "basarygin.backup_and_trip_shut_in#c8",
+  "basarygin.backup_and_trip_shut_in#c9",
+  "basarygin.backup_and_trip_shut_in#c10",
+  "basarygin.backup_and_trip_shut_in#c11"
+ ]
+}

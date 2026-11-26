@@ -1,0 +1,48 @@
+{
+ "node_id": "basarygin.signs_overview",
+ "template": "compare",
+ "data": {
+  "left_title": "Прочие признаки",
+  "right_title": "Бывают и без него",
+  "rows": [
+   {
+    "aspect": "Объём и скорость",
+    "left": "Растёт объём раствора в ёмкостях",
+    "right": "Растёт механическая скорость бурения"
+   },
+   {
+    "aspect": "Поток и свойства",
+    "left": "Растёт расход на выходе при той же подаче",
+    "right": "Меняются свойства бурового раствора"
+   },
+   {
+    "aspect": "Газ и давление",
+    "left": "Растёт газосодержание раствора",
+    "right": "Меняется давление на буровых насосах"
+   },
+   {
+    "aspect": "Подъём колонны",
+    "left": "Долив меньше расчётного",
+    "right": "—"
+   },
+   {
+    "aspect": "Спуск колонны",
+    "left": "Объём в приёмной ёмкости выше расчётного",
+    "right": "—"
+   }
+  ]
+ },
+ "caption": "Справа признаки, возможные и по косвенным причинам. Всё как в книге; вероятно, опечатка издания есть в обозначении глубины.",
+ "alt": "Две группы признаков проявления. Рост скорости бурения, изменение свойств раствора и давления на насосах могут иметь и другие причины.",
+ "claim_ids": [
+  "basarygin.signs_overview#c2",
+  "basarygin.signs_overview#c3",
+  "basarygin.signs_overview#c4",
+  "basarygin.signs_overview#c5",
+  "basarygin.signs_overview#c6",
+  "basarygin.signs_overview#c7",
+  "basarygin.signs_overview#c8",
+  "basarygin.signs_overview#c9",
+  "basarygin.signs_overview#c10"
+ ]
+}

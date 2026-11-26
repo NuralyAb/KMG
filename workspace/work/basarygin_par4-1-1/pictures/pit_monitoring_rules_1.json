@@ -1,0 +1,84 @@
+{
+ "node_id": "basarygin.pit_monitoring_rules",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Изолировать рабочую ёмкость от других",
+    "kind": "step"
+   },
+   {
+    "id": "b",
+    "text": "Уменьшить поверхность раствора перегородкой",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Задать исходный уровень после возобновления циркуляции",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Учесть добавки при обработке и утяжелении раствора",
+    "kind": "data"
+   },
+   {
+    "id": "e",
+    "text": "Учесть сильные осадки, потери при очистке и испарении",
+    "kind": "data"
+   },
+   {
+    "id": "f",
+    "text": "Своевременно заметить приток",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "f",
+    "label": ""
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Подготовка ёмкости и поправки исходного уровня. Переключения и перераспределение раствора — только с ведома бурильщика.",
+ "alt": "Схема: рабочую ёмкость изолируют и ставят перегородку, задают исходный уровень, корректируют его на добавки, осадки и потери, чтобы вовремя заметить приток.",
+ "claim_ids": [
+  "basarygin.pit_monitoring_rules#c1",
+  "basarygin.pit_monitoring_rules#c2",
+  "basarygin.pit_monitoring_rules#c3",
+  "basarygin.pit_monitoring_rules#c4",
+  "basarygin.pit_monitoring_rules#c5",
+  "basarygin.pit_monitoring_rules#c6",
+  "basarygin.pit_monitoring_rules#c7",
+  "basarygin.pit_monitoring_rules#c8",
+  "basarygin.pit_monitoring_rules#c9",
+  "basarygin.pit_monitoring_rules#c10"
+ ]
+}

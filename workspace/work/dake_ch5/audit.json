@@ -1,0 +1,656 @@
+{
+ "chapter": "dake_ch5",
+ "claims": 353,
+ "flagged": [
+  {
+   "claim_id": "dake.transient_condition#c7",
+   "node_id": "dake.transient_condition",
+   "text": "В таких исследованиях дебит скважины намеренно меняют, а возникший отклик давления в стволе измеряют и анализируют в течение короткого периода — нескольких часов после смены дебита.",
+   "quote": "The condition is mainly applied to the analysis of well tests in which the well's production rate is deliberately changed and the resulting pressure response in the wellbore is measured and analysed during a brief period of a few hours after the rate change has occurred.",
+   "page_pdf": 77,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.semi_steady_boundary#c14",
+   "node_id": "dake.semi_steady_boundary",
+   "text": "Над профилем давления на схеме идёт горизонтальная линия без подписи; её смысл не указан ни на рисунке, ни в подписи к нему.",
+   "quote": "Горизонтальная линия над профилем давления; её смысл на рисунке и в подписи не указан",
+   "page_pdf": 77,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.semi_steady_decline_rate#c7",
+   "node_id": "dake.semi_steady_decline_rate",
+   "text": "Для радиальной ячейки dp/dt = −q/(c π r_e² h φ) (формула (5.10)).",
+   "quote": "$$\\frac{dp}{dt} = - \\frac{q}{c \\pi r_e^2 h \\phi} \\tag{5.10}$$",
+   "page_pdf": 77,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.drainage_volumes#c3",
+   "node_id": "dake.drainage_volumes",
+   "text": "Для такого состояния темп изменения давления dp/dt должен быть примерно постоянным во всём пласте.",
+   "quote": "For this condition dp/dt must be approximately constant throughout the entire reservoir",
+   "page_pdf": 77,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.drainage_volumes#c6",
+   "node_id": "dake.drainage_volumes",
+   "text": "Формула (5.11): среднее пластовое давление равно сумме произведений p̄_i на V_i, делённой на сумму V_i.",
+   "quote": "$$\\bar{p}_{res} = \\frac{\\sum \\bar{p}_i V_i}{\\sum V_i} \\tag{5.11}$$",
+   "page_pdf": 77,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.steady_state_condition#c9",
+   "node_id": "dake.steady_state_condition",
+   "text": "Над профилем давления на схеме идёт горизонтальная линия, всюду выше кривой; она не подписана и на рисунке не названа.",
+   "quote": "горизонтальный уровень давления над профилем; на рисунке не назван; Идёт горизонтально от оси давления вправо примерно до r_e, всюду выше кривой давления.",
+   "page_pdf": 78,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.regimes_in_practice#c2",
+   "node_id": "dake.regimes_in_practice",
+   "text": "Например, уравнения притока для квазиустановившегося режима часто применяют, когда дебит является медленно меняющейся функцией времени. То же тогда относится к положению непроницаемой границы вокруг скважины.",
+   "quote": "For instance, semi steady state flow equations are frequently applied when the rate, and consequently the position of the no-flow boundary surrounding a well, are slowly varying functions of time.",
+   "page_pdf": 78,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.regimes_in_practice#c3",
+   "node_id": "dake.regimes_in_practice",
+   "text": "Положение непроницаемой границы вокруг скважины связано с дебитом: если дебит медленно меняется во времени, то вследствие этого медленно меняется и положение границы.",
+   "quote": "when the rate, and consequently the position of the no-flow boundary surrounding a well, are slowly varying functions of time.",
+   "page_pdf": 78,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.regimes_in_practice#c5",
+   "node_id": "dake.regimes_in_practice",
+   "text": "Приближённое выполнение условий (5.7) и (5.15) на промысле объясняется тем, что эксплуатационные и нагнетательные установки обычно проектируют для работы с постоянными расходами.",
+   "quote": "since both production and injection facilities are usually designed to operate at constant rates",
+   "page_pdf": 78,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.regimes_in_practice#c10",
+   "node_id": "dake.regimes_in_practice",
+   "text": "После краткого неустановившегося периода, вызванного изменением дебита скважины, следует стабилизированный приток (stabilized flow), отвечающий новому распределению дебитов отдельных скважин.",
+   "quote": "there will be a brief period when transient flow conditions prevail followed by stabilized flow for the new distribution of individual well rates.",
+   "page_pdf": 78,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.expand_equation#c8",
+   "node_id": "dake.expand_equation",
+   "text": "Подстановка (5.17) в уравнение (5.16) превращает его в уравнение (5.18).",
+   "quote": "which when substituted into equ. (5.16) changes the latter to",
+   "page_pdf": 78,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.drop_small_terms#c12",
+   "node_id": "dake.drop_small_terms",
+   "text": "При постоянной сжимаемости коэффициент φμc/k тоже постоянен (вязкость уже принята постоянной, пласт — однородным).",
+   "quote": "that the compressibility is constant, means that the coefficient $\\phi \\mu c/k$ is also constant",
+   "page_pdf": 79,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.drop_small_terms#c13",
+   "node_id": "dake.drop_small_terms",
+   "text": "Благодаря постоянству коэффициента φμc/k основное уравнение фактически линеаризовано; эта простая линеаризация применима только при cp ≪ 1.",
+   "quote": "the coefficient $\\phi \\mu c/k$ is also constant and therefore, the basic equation has been effectively linearized.",
+   "page_pdf": 79,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.total_compressibility#c1",
+   "node_id": "dake.total_compressibility",
+   "text": "Из-за условия cp ≪ 1 последнее допущение приходится изменить: сжимаемость должна быть не просто постоянной, а одновременно малой и постоянной.",
+   "quote": "This condition makes it necessary to modify the final assumption so that the compressibility is not just constant but both small and constant.",
+   "page_pdf": 79,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.total_compressibility#c5",
+   "node_id": "dake.total_compressibility",
+   "text": "В формуле (5.22) c_o умножается на S_o, c_w — на S_wc, а c_f прибавляется без множителя насыщенности.",
+   "quote": "$$c_t = c_o S_o + c_w S_{wc} + c_f \\tag{5.22}$$",
+   "page_pdf": 79,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.linearization_validity#c1",
+   "node_id": "dake.linearization_validity",
+   "text": "По мнению автора, для течения жидкостей принятые при простой линеаризации допущения вполне разумны.",
+   "quote": "For the flow of liquids the above assumptions are quite reasonable and have been frequently applied in the past.",
+   "page_pdf": 79,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.linearization_validity#c4",
+   "node_id": "dake.linearization_validity",
+   "text": "Согласно Дранчуку и Куону, простую линеаризацию отбрасыванием членов можно применять, только если произведение cp много меньше единицы (cp ≪ 1).",
+   "quote": "this simple linearization by deletion must be treated with caution and can only be applied when the product",
+   "page_pdf": 79,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.linearization_validity#c6",
+   "node_id": "dake.linearization_validity",
+   "text": "В примере автора типичная сжимаемость нефти c_o равна 10·10⁻⁶ на psi; для каких пород и флюидов, не указано.",
+   "quote": "$$\\begin{array}{ll} c_o = 10 \\times 10^{-6} / \\text{psi} & S_{wc} = 0.2 \\\\ c_w = 3 \\times 10^{-6} / \\text{psi} & p = 3000 \\text{ psi} \\\\ c_f = 6 \\times 10^{-6} / \\text{psi} & \\end{array}$$",
+   "page_pdf": 79,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.linearization_validity#c7",
+   "node_id": "dake.linearization_validity",
+   "text": "В примере автора типичная сжимаемость воды c_w равна 3·10⁻⁶ на psi; область применимости значения не названа.",
+   "quote": "$$\\begin{array}{ll} c_o = 10 \\times 10^{-6} / \\text{psi} & S_{wc} = 0.2 \\\\ c_w = 3 \\times 10^{-6} / \\text{psi} & p = 3000 \\text{ psi} \\\\ c_f = 6 \\times 10^{-6} / \\text{psi} & \\end{array}$$",
+   "page_pdf": 79,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.linearization_validity#c8",
+   "node_id": "dake.linearization_validity",
+   "text": "В примере автора типичная сжимаемость порового пространства c_f равна 6·10⁻⁶ на psi; для каких пород, не указано.",
+   "quote": "$$\\begin{array}{ll} c_o = 10 \\times 10^{-6} / \\text{psi} & S_{wc} = 0.2 \\\\ c_w = 3 \\times 10^{-6} / \\text{psi} & p = 3000 \\text{ psi} \\\\ c_f = 6 \\times 10^{-6} / \\text{psi} & \\end{array}$$",
+   "page_pdf": 79,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.linearization_validity#c9",
+   "node_id": "dake.linearization_validity",
+   "text": "В примере автора насыщенность связанной водой S_wc принята равной 0,2 как типичная; область применимости не названа.",
+   "quote": "$$\\begin{array}{ll} c_o = 10 \\times 10^{-6} / \\text{psi} & S_{wc} = 0.2 \\\\ c_w = 3 \\times 10^{-6} / \\text{psi} & p = 3000 \\text{ psi} \\\\ c_f = 6 \\times 10^{-6} / \\text{psi} & \\end{array}$$",
+   "page_pdf": 79,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.linearization_validity#c10",
+   "node_id": "dake.linearization_validity",
+   "text": "В примере автора давление p принято равным 3000 psi как типичное; для каких условий, не уточнено.",
+   "quote": "$$\\begin{array}{ll} c_o = 10 \\times 10^{-6} / \\text{psi} & S_{wc} = 0.2 \\\\ c_w = 3 \\times 10^{-6} / \\text{psi} & p = 3000 \\text{ psi} \\\\ c_f = 6 \\times 10^{-6} / \\text{psi} & \\end{array}$$",
+   "page_pdf": 79,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.linearization_validity#c16",
+   "node_id": "dake.linearization_validity",
+   "text": "Для реального газа сжимаемость одного только газа может в первом приближении выражаться как величина, обратная давлению.",
+   "quote": "the compressibility of the gas alone may, to a first approximation, be expressed as the reciprocal of the pressure",
+   "page_pdf": 79,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "dake.linearization_validity#c17",
+   "node_id": "dake.linearization_validity",
+   "text": "Для реального газа при сжимаемости, в первом приближении обратной давлению, произведение cp из формулы (5.21) само равно единице.",
+   "quote": "may, to a first approximation, be expressed as the reciprocal of the pressure and the cp product, equ. (5.21), will itself be unity.",
+   "page_pdf": 79,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.porosity_compressibility_product#c8",
+   "node_id": "dake.porosity_compressibility_product",
+   "text": "В любом из двух вариантов произведения из формул (5.23) и (5.24) имеют одно и то же значение.",
+   "quote": "In either event, the products expressed in equ. (5.23) and (5.24) have the same value",
+   "page_pdf": 79,
+   "flags": [
+    "number",
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "dake.porosity_compressibility_product#c9",
+   "node_id": "dake.porosity_compressibility_product",
+   "text": "Нужно лишь следить, чтобы не смешивать отдельные сомножители из двух разных формул, (5.23) и (5.24).",
+   "quote": "the reader must only be careful not to mix the individual terms appearing in the separate equations.",
+   "page_pdf": 79,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.diffusivity_equation#c1",
+   "node_id": "dake.diffusivity_equation",
+   "text": "Формула (5.20) — это радиальное уравнение пьезопроводности (radial diffusivity equation). Она получена при практически постоянной вязкости, малом градиенте давления и малой постоянной сжимаемости.",
+   "quote": "Equation (5.20) is the radial diffusivity equation in which the coefficient $k/\\phi \\mu c$ is called the diffusivity constant.",
+   "page_pdf": 79,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.diffusivity_equation#c7",
+   "node_id": "dake.diffusivity_equation",
+   "text": "По мнению автора, из-за общего характера уравнения (5.20) неудивительны частые ссылки на книгу Карслоу и Егера «Conduction of Heat in Solids». Их делают многие статьи о разработке пластов, где рассматриваются сложные решения уравнения пьезопроводности.",
+   "quote": "Because of the general nature of equ. (5.20) it is not surprising that many reservoir engineering papers, when dealing with complex solutions of the diffusivity equation, make reference to a text book entitled \"Conduction of Heat in Solids\"",
+   "page_pdf": 79,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.pressure_decline_periods#c6",
+   "node_id": "dake.pressure_decline_periods",
+   "text": "Для скважины, работающей внутри непроницаемой границы, выбор подходящего позднего неустановившегося решения при постоянном дебите во многом определяется двумя вещами. Это форма дренируемой площади и положение скважины относительно границы: обе имеют большое значение.",
+   "quote": "For a well producing from within a no-flow boundary both the shape of the area drained and position of the well with respect to the boundary are of major importance in determining the appropriate late transient constant terminal rate solution.",
+   "page_pdf": 87,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.pressure_decline_periods#c7",
+   "node_id": "dake.pressure_decline_periods",
+   "text": "В конце концов устанавливаются условия стабилизированного притока. В случае непроницаемой границы это означает, что темп изменения забойного давления во времени постоянен.",
+   "quote": "Eventually, stabilised flow conditions will prevail which means that for the no-flow boundary case the rate of change of wellbore pressure with respect to time is constant.",
+   "page_pdf": 87,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.pressure_decline_periods#c8",
+   "node_id": "dake.pressure_decline_periods",
+   "text": "Стабилизированный приток при непроницаемой границе соответствует квазиустановившемуся режиму (semi steady state), описанному в главе 5, разд. 3(b).",
+   "quote": "This corresponds to the semi steady state condition described in Chapter 5, sec 3(b).",
+   "page_pdf": 87,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.line_source_conditions#c2",
+   "node_id": "dake.line_source_conditions",
+   "text": "Решение линейного стока предполагает, что по сравнению с кажущимся бесконечным пластом радиус скважины пренебрежимо мал.",
+   "quote": "which assumes that in comparison to the apparently infinite reservoir the wellbore radius is negligible",
+   "page_pdf": 87,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.boltzmann_transform#c3",
+   "node_id": "dake.boltzmann_transform",
+   "text": "Уравнение пьезопроводности (5.20) можно решить с помощью преобразования Больцмана (Boltzmann's transformation).",
+   "quote": "can be solved by making use of Boltzmann's transformation",
+   "page_pdf": 87,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.boltzmann_transform#c9",
+   "node_id": "dake.boltzmann_transform",
+   "text": "Следующий вид уравнения получают, используя формулы (7.2) и (7.3) для производных s.",
+   "quote": "and using equs. (7.2) and (7.3), this becomes",
+   "page_pdf": 88,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.boltzmann_transform#c10",
+   "node_id": "dake.boltzmann_transform",
+   "text": "После подстановки формул (7.2) и (7.3): (1/r)·(φμcr/2kt)·d/ds((φμcr²/2kt)·dp/ds) = −(φμcr/2kt)²·dp/ds.",
+   "quote": "$$\\frac{1}{r} \\frac{\\phi \\mu c r}{2kt} \\frac{d}{ds} \\left( \\frac{\\phi \\mu c r^2}{2kt} \\frac{dp}{ds} \\right) = - \\left( \\frac{\\phi \\mu c r}{2kt} \\right)^2 \\frac{dp}{ds}$$",
+   "page_pdf": 88,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.line_source_solution#c6",
+   "node_id": "dake.line_source_solution",
+   "text": "Значение постоянной получают, устремляя r, а значит и s, к нулю.",
+   "quote": "which yields, as r (and therefore s) tends to zero",
+   "page_pdf": 88,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.line_source_solution#c7",
+   "node_id": "dake.line_source_solution",
+   "text": "Постоянная интегрирования равна C_2 = qμ/4πkh.",
+   "quote": "$$C_2 = \\frac{q\\mu}{4\\pi kh}$$",
+   "page_pdf": 88,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.line_source_solution#c11",
+   "node_id": "dake.line_source_solution",
+   "text": "Выполнение этого интегрирования даёт выражение для давления (7.6).",
+   "quote": "which gives",
+   "page_pdf": 88,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.exponential_integral#c11",
+   "node_id": "dake.exponential_integral",
+   "text": "На панели (d) по вертикали отложена ei(x), равная интегралу от x до бесконечности от e^(−s)/s по s.",
+   "quote": "ei(x) = ∫ₓ^∞ (e^(−s)/s) ds (панель (d), слева, вертикальная; не указана)",
+   "page_pdf": 89,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.log_approximation#c7",
+   "node_id": "dake.log_approximation",
+   "text": "Приближение в компактной записи: ei(x) ≈ −ln(γx), где γ = 1,781; оно применимо при x < 0,01.",
+   "quote": "$$ei(x) \\approx - \\ln (\\gamma x)$$",
+   "page_pdf": 89,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.log_approximation#c12",
+   "node_id": "dake.log_approximation",
+   "text": "Тогда, при x < 0,01 для замеров в скважине, решение линейного стока, формулу (7.6), можно приближённо записать с логарифмом вместо ei(x).",
+   "quote": "Equation (7.6) can then be approximated as",
+   "page_pdf": 89,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "dake.wellbore_pressure_skin#c6",
+   "node_id": "dake.wellbore_pressure_skin",
+   "text": "С учётом скин-фактора забойное давление в неустановившемся режиме: p_wf = p_i − (qμ/4πkh)·(ln(4kt/γφμc r_w²) + 2S) — формула (7.10).",
+   "quote": "$$p_{wf} = p_i - \\frac{q\\mu}{4\\pi kh} \\left( \\ln \\frac{4kt}{\\gamma \\phi \\mu c r_w^2} + 2S \\right) \\tag{7.10}$$",
+   "page_pdf": 89,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "dake.distant_well_pressure#c4",
+   "node_id": "dake.distant_well_pressure",
+   "text": "В этом случае формулу (7.6) следует применять в полном виде, без логарифмического приближения.",
+   "quote": "Equation (7.6) must then be used in its full form, i.e.",
+   "page_pdf": 89,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.distant_well_pressure#c5",
+   "node_id": "dake.distant_well_pressure",
+   "text": "Полный вид решения, формула (7.11): p_r,t = p_i − (qμ/4πkh)·ei(φμcr²/4kt), где ei — интегральная показательная функция. Формула получена для решения линейного стока и его допущений.",
+   "quote": "$$p_{r,t} = p_i - \\frac{q\\mu}{4\\pi kh} e^i \\left( \\frac{\\phi \\mu c r^2}{4kt} \\right) \\tag{7.11}$$",
+   "page_pdf": 89,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "dake.distant_well_pressure#c10",
+   "node_id": "dake.distant_well_pressure",
+   "text": "На рис. 7.3 две логарифмические шкалы x. Основная, нижняя, имеет отметки 10⁻³, 2, 5, 10⁻², 2, 5, 10⁻¹, 2, 5, 1. Верхняя, для крутой ветви ei(x), имеет отметки 1, 2, 5, 10.",
+   "quote": "- x (основная шкала) (снизу, вправо; логарифмическая): 10⁻³, 2, 5, 10⁻², 2, 5, 10⁻¹, 2, 5, 1\n- x (вторая шкала, для крутой ветви ei(x); название не подписано) (сверху, вправо; логарифмическая): 1, 2, 5, 10",
+   "page_pdf": 89,
+   "flags": [
+    "negation"
+   ]
+  }
+ ],
+ "by_flag": {
+  "condition": 12,
+  "negation": 19,
+  "number": 13,
+  "quantifier": 2
+ },
+ "needs_scan": 55,
+ "by_model": 64,
+ "prose_numbers": [
+  {
+   "node_id": "dake.semi_steady_decline_rate",
+   "where": "layers.mechanism.text",
+   "text": "Связующим звеном служит определение изотермической сжимаемости c = −(1/V) ∂V/∂p.",
+   "numbers": [
+    "1"
+   ]
+  },
+  {
+   "node_id": "dake.linearization_validity",
+   "where": "layers.deeper[0].text",
+   "text": "Выводы Дранчука и Куона опубликованы в 1967 году в работе об анализе уравнения неразрывности с законом Дарси.",
+   "numbers": [
+    "1967"
+   ]
+  },
+  {
+   "node_id": "dake.boltzmann_transform",
+   "where": "layers.mechanism.text",
+   "text": "После подстановки формул (7.2) и (7.3) в обеих частях остаются r, t, свойства системы и производные по s.",
+   "numbers": [
+    "3"
+   ]
+  },
+  {
+   "node_id": "dake.solve_ordinary_equation",
+   "where": "layers.deeper[0].text",
+   "text": "Запись ln p' предполагает p' > 0 и s > 0.",
+   "numbers": [
+    "0"
+   ]
+  },
+  {
+   "node_id": "dake.log_approximation",
+   "where": "layers.deeper[0].text",
+   "text": "Формулы (7.8) и (7.9) выражают одно и то же.",
+   "numbers": [
+    "9"
+   ]
+  },
+  {
+   "node_id": "dake.wellbore_pressure_skin",
+   "where": "layers.mechanism.text",
+   "text": "При таких x функцию ei(x) можно заменить на −ln(γx), где γ = 1,781.",
+   "numbers": [
+    "1.781"
+   ]
+  },
+  {
+   "node_id": "dake.wellbore_pressure_skin",
+   "where": "layers.deeper[0].text",
+   "text": "Постоянная γ получена из постоянной Эйлера: γ = e^0,5772 = 1,781.",
+   "numbers": [
+    "0.5772",
+    "1.781"
+   ]
+  },
+  {
+   "node_id": "dake.wellbore_pressure_skin",
+   "where": "layers.deeper[0].text",
+   "text": "Поэтому она стоит внутри логарифма и отдельного слагаемого 0,5772 в формуле нет.",
+   "numbers": [
+    "0.5772"
+   ]
+  },
+  {
+   "node_id": "dake.distant_well_pressure",
+   "where": "layers.mechanism.text",
+   "text": "Здесь γ = 1,781 связана с постоянной Эйлера и берётся из этого приближения.",
+   "numbers": [
+    "1.781"
+   ]
+  }
+ ],
+ "early_terms": [
+  {
+   "term": "взвешивание по дебитам",
+   "explained_in": "dake.average_reservoir_pressure",
+   "used_in": [
+    "dake.drainage_volumes"
+   ]
+  },
+  {
+   "term": "двойной логарифмический масштаб",
+   "explained_in": "dake.log_approximation",
+   "used_in": [
+    "dake.exponential_integral"
+   ]
+  },
+  {
+   "term": "забойное давление",
+   "explained_in": "dake.semi_steady_boundary",
+   "used_in": [
+    "dake.constant_rate_problem"
+   ]
+  },
+  {
+   "term": "закон дарси",
+   "explained_in": "dake.darcy_substitution",
+   "used_in": [
+    "dake.mass_balance_element"
+   ]
+  },
+  {
+   "term": "интегральное преобразование",
+   "explained_in": "dake.linearization_validity",
+   "used_in": [
+    "dake.nonlinear_equation",
+    "dake.drop_small_terms"
+   ]
+  },
+  {
+   "term": "начальное условие",
+   "explained_in": "dake.constant_rate_problem",
+   "used_in": [
+    "dake.radial_cell_model"
+   ]
+  },
+  {
+   "term": "обыкновенное дифференциальное уравнение",
+   "explained_in": "dake.solve_ordinary_equation",
+   "used_in": [
+    "dake.boltzmann_transform"
+   ]
+  },
+  {
+   "term": "поровый объём",
+   "explained_in": "dake.drainage_volumes",
+   "used_in": [
+    "dake.semi_steady_decline_rate"
+   ]
+  },
+  {
+   "term": "правило дифференцирования сложной функции",
+   "explained_in": "dake.expand_equation",
+   "used_in": [
+    "dake.compressibility_density"
+   ]
+  },
+  {
+   "term": "радиальное уравнение пьезопроводности",
+   "explained_in": "dake.diffusivity_equation",
+   "used_in": [
+    "dake.nonlinear_equation",
+    "dake.drop_small_terms"
+   ]
+  },
+  {
+   "term": "уравнение притока к скважине",
+   "explained_in": "dake.semi_steady_decline_rate",
+   "used_in": [
+    "dake.radial_cell_model"
+   ]
+  },
+  {
+   "term": "установившийся режим",
+   "explained_in": "dake.steady_state_condition",
+   "used_in": [
+    "dake.constant_rate_problem"
+   ]
+  }
+ ],
+ "repeated_quotes": 29,
+ "sensitivity": {
+  "seed": 0,
+  "kinds": {
+   "sign_flip": {
+    "made": 15,
+    "caught": 13
+   },
+   "number": {
+    "made": 60,
+    "caught": 60
+   },
+   "negation_removed": {
+    "made": 18,
+    "caught": 9
+   },
+   "lost_condition": {
+    "made": 18,
+    "caught": 14
+   }
+  },
+  "made": 111,
+  "caught": 96,
+  "recall": 0.865,
+  "flagged_originals": 45,
+  "originals": 353
+ },
+ "layer_sha256": "189fe58bf94e2b754f7b087e7c968d915120b1c250ea46fd33ccf61762a66772"
+}

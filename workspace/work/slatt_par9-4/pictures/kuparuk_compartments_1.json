@@ -1,0 +1,36 @@
+{
+ "node_id": "slatt.kuparuk_compartments",
+ "template": "section",
+ "data": {
+  "shape": "flat",
+  "layers": [
+   {
+    "lithology": "sand",
+    "label": "Песчаное тело"
+   },
+   {
+    "lithology": "shale",
+    "label": "Морская глина"
+   },
+   {
+    "lithology": "sand",
+    "label": "Песчаное тело"
+   },
+   {
+    "lithology": "shale",
+    "label": "Морская глина"
+   },
+   {
+    "lithology": "sand",
+    "label": "Песчаное тело"
+   }
+  ],
+  "wells": []
+ },
+ "caption": "Упрощённо: три из шести песчаных тел пласта A. Тела разделены морской глиной; смещение по площади и разломы не показаны.",
+ "alt": "Схематический разрез: песчаные тела чередуются с прослоями морской глины. Показаны три тела из шести, выделенных в пласте A.",
+ "claim_ids": [
+  "slatt.kuparuk_compartments#c7",
+  "slatt.kuparuk_compartments#c9"
+ ]
+}

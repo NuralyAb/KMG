@@ -1,0 +1,2198 @@
+{
+ "chapter": "dake_ch5",
+ "tasks": [
+  {
+   "id": "dake.radial_cell_model.t1",
+   "type": "multiple",
+   "step_id": "dake.radial_cell_model",
+   "claim_ids": [
+    "dake.radial_cell_model#c8",
+    "dake.radial_cell_model#c9",
+    "dake.radial_cell_model#c10",
+    "dake.radial_cell_model#c13"
+   ],
+   "prompt": "Какие упрощающие допущения сначала принимают для радиальной модели притока к добывающей скважине?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Пласт однороден по всем свойствам породы",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Скважина вскрывает только часть толщины пласта",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Пласт изотропен по проницаемости",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Пласт насыщен несколькими флюидами",
+     "misconception": null
+    },
+    {
+     "id": "e",
+     "text": "Скважина вскрывает всю толщину пласта",
+     "misconception": null
+    },
+    {
+     "id": "f",
+     "text": "Пласт полностью насыщен одним флюидом",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e",
+    "f"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Начальная модель предполагает однородный и изотропный по проницаемости пласт, вскрытие на всю толщину и насыщение одним флюидом.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.radial_cell_model.t2",
+   "type": "single",
+   "step_id": "dake.radial_cell_model",
+   "claim_ids": [
+    "dake.radial_cell_model#c5",
+    "dake.radial_cell_model#c6"
+   ],
+   "prompt": "В численной модели залежи использована декартова (прямоугольная) геометрия. Какими уравнениями в ней определяется приток в скважину?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Уравнениями в радиальной форме",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Теми же декартовыми, что и для всей сетки",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Одним балансом массы без связи с давлением",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Декартовыми аналитическими решениями",
+     "misconception": null
+    }
+   ],
+   "answer": "a",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Даже при декартовой геометрии модели приток в скважину и отток из неё задаются уравнениями в радиальной форме.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.mass_balance_element.t1",
+   "type": "order",
+   "step_id": "dake.mass_balance_element",
+   "claim_ids": [
+    "dake.mass_balance_element#c1",
+    "dake.mass_balance_element#c3",
+    "dake.mass_balance_element#c4",
+    "dake.mass_balance_element#c7",
+    "dake.mass_balance_element#c9"
+   ],
+   "prompt": "Расположите по порядку шаги вывода уравнения, связывающего изменение массового расхода по радиусу с изменением плотности во времени.",
+   "options": [
+    {
+     "id": "a",
+     "text": "Раскрыть расход на радиусе r+dr через расход на r и его приращение",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Выделить кольцевой элемент толщиной dr на расстоянии r",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Сократить расходы на r, разделить на dr и получить итоговое уравнение",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Приравнять разность расходов на входе и выходе скорости изменения массы",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "b",
+    "d",
+    "a",
+    "c"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Сначала выбирают элемент и записывают для него баланс массы, затем раскрывают левую часть и упрощают.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.mass_balance_element.t2",
+   "type": "single",
+   "step_id": "dake.mass_balance_element",
+   "claim_ids": [
+    "dake.mass_balance_element#c3",
+    "dake.mass_balance_element#c4"
+   ],
+   "prompt": "Флюид течёт к скважине через тонкое кольцо пласта, и плотность флюида в кольце со временем падает (пористость в записи баланса не меняется). Что можно сказать о массовых расходах?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Через внутреннюю границу уходит больше массы, чем входит через внешнюю",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Через внешнюю границу входит больше массы, чем уходит через внутреннюю",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Через внутреннюю границу уходит ровно столько, сколько входит через внешнюю",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Через обе границы масса перестаёт проходить, пока плотность не выровняется",
+     "misconception": null
+    }
+   ],
+   "answer": "a",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Разность притока и оттока равна скорости изменения массы в элементе, поэтому при убывании массы отток больше притока.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.darcy_substitution.t1",
+   "type": "single",
+   "step_id": "dake.darcy_substitution",
+   "claim_ids": [
+    "dake.darcy_substitution#c2"
+   ],
+   "prompt": "По закону Дарси для радиального горизонтального течения q = (2πkhr/μ)·∂p/∂r. Как изменится дебит q, если вязкость μ флюида больше, а все остальные величины, включая градиент давления, те же?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Уменьшится",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Увеличится",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Не изменится",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Сменит знак",
+     "misconception": null
+    }
+   ],
+   "answer": "a",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Вязкость стоит в знаменателе, поэтому с её ростом дебит уменьшается.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.darcy_substitution.t2",
+   "type": "multiple",
+   "step_id": "dake.darcy_substitution",
+   "claim_ids": [
+    "dake.darcy_substitution#c4"
+   ],
+   "prompt": "В уравнении (1/r)·∂/∂r[(kρ/μ)·r·∂p/∂r] = φ·∂ρ/∂t, полученном подстановкой закона Дарси в баланс массы, какие из перечисленных величин стоят под внешней производной по радиусу?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Проницаемость k",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Пористость φ",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Плотность ρ",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Вязкость μ",
+     "misconception": null
+    },
+    {
+     "id": "e",
+     "text": "Толщина пласта h",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "k, ρ и μ остаются под производной, постоянная h сокращается, а φ стоит в правой части.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.compressibility_density.t1",
+   "type": "single",
+   "step_id": "dake.compressibility_density",
+   "claim_ids": [
+    "dake.compressibility_density#c2",
+    "dake.compressibility_density#c6"
+   ],
+   "prompt": "Давление в пласте падает при постоянной температуре, сжимаемость жидкости положительна. Что происходит с данной массой жидкости в порах?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Объём растёт, плотность уменьшается",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Объём уменьшается, плотность растёт",
+     "misconception": "misc.pore_fluid_shrinks"
+    },
+    {
+     "id": "c",
+     "text": "Объём растёт, плотность тоже растёт",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Объём и плотность остаются прежними",
+     "misconception": null
+    }
+   ],
+   "answer": "a",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "По определению c = −(1/V) ∂V/∂p при положительной сжимаемости снижение давления увеличивает объём, а плотность той же массы падает.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.compressibility_density.t2",
+   "type": "gap",
+   "step_id": "dake.compressibility_density",
+   "claim_ids": [
+    "dake.compressibility_density#c8",
+    "dake.compressibility_density#c10"
+   ],
+   "prompt": "Изотермическая сжимаемость позволяет заменить производную по времени: ∂ρ/∂t = cρ·∂{{1}}/∂t, где c — сжимаемость, ρ — плотность. После этой замены в основном уравнении радиального притока производные по радиусу и по времени берутся от {{2}} (впишите слово в родительном падеже).",
+   "options": [],
+   "answer": [
+    "p",
+    "давления"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Плотность зависит от времени через давление, поэтому в итоговом уравнении дифференцируется давление p.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.nonlinear_equation.t1",
+   "type": "single",
+   "step_id": "dake.nonlinear_equation",
+   "claim_ids": [
+    "dake.nonlinear_equation#c3",
+    "dake.nonlinear_equation#c10"
+   ],
+   "prompt": "Почему основное дифференциальное уравнение радиального притока однофазного флюида в пористой среде называют нелинейным?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Давление в нём зависит сразу от радиуса и от времени",
+     "misconception": "misc.partial_equals_nonlinear"
+    },
+    {
+     "id": "b",
+     "text": "Его коэффициенты зависят от искомого давления",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Приток в нём радиальный, а не прямолинейный",
+     "misconception": "misc.radial_geometry_equals_nonlinear"
+    },
+    {
+     "id": "d",
+     "text": "Пласт в нём принят неоднородным и анизотропным",
+     "misconception": "misc.heterogeneous_assumption"
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Плотность, сжимаемость и вязкость в коэффициентах неявно зависят от давления, то есть от самой искомой величины.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.nonlinear_equation.t2",
+   "type": "gap",
+   "step_id": "dake.nonlinear_equation",
+   "claim_ids": [
+    "dake.nonlinear_equation#c8",
+    "dake.nonlinear_equation#c12",
+    "dake.nonlinear_equation#c13"
+   ],
+   "prompt": "Перед аналитическим решением уравнение притока линеаризуют. Для жидкости малой и постоянной {{1}} подходит простой приближённый способ, а для реального {{2}} нужно интегральное преобразование Кирхгофа.",
+   "options": [],
+   "answer": [
+    "сжимаемости",
+    "газа"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Способ линеаризации выбирают по свойствам флюида: простой для малосжимаемой жидкости, более строгий для реального газа.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.constant_rate_problem.t1",
+   "type": "multiple",
+   "step_id": "dake.constant_rate_problem",
+   "claim_ids": [
+    "dake.constant_rate_problem#c3",
+    "dake.constant_rate_problem#c8"
+   ],
+   "prompt": "Ставится задача о притоке к скважине при постоянном дебите. Что в ней считается заданным до начала решения?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Равновесное давление пласта p_i в начальный момент",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Постоянный дебит q на стенке ствола при r = r_w",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Забойное давление p_wf как функция времени",
+     "misconception": "misc.unknown_taken_as_given"
+    },
+    {
+     "id": "d",
+     "text": "Постоянное забойное давление в течение всей добычи",
+     "misconception": "misc.constant_rate_equals_constant_pressure"
+    }
+   ],
+   "answer": [
+    "a",
+    "b"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Заданы p_i и постоянный дебит q, а зависимость p_wf от времени как раз ищут.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.constant_rate_problem.t2",
+   "type": "single",
+   "step_id": "dake.constant_rate_problem",
+   "claim_ids": [
+    "dake.constant_rate_problem#c1"
+   ],
+   "prompt": "Инженер записал дифференциальное уравнение радиального притока, но не задал ни начальных, ни граничных условий. Что можно сказать о его решении?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Оно единственно, так как уравнение описывает однофазный флюид",
+     "misconception": "misc.equation_defines_solution"
+    },
+    {
+     "id": "b",
+     "text": "Решений в принципе бесконечно много",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Решений ровно три: по одному на каждый распространённый режим",
+     "misconception": "misc.only_three_solutions"
+    },
+    {
+     "id": "d",
+     "text": "Решения нет вовсе, пока не измерено забойное давление",
+     "misconception": "misc.solution_needs_measurement"
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Конкретное решение определяется наложенными начальными и граничными условиями.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.transient_condition.t1",
+   "type": "single",
+   "step_id": "dake.transient_condition",
+   "claim_ids": [
+    "dake.transient_condition#c5",
+    "dake.transient_condition#c8"
+   ],
+   "prompt": "Что означает утверждение, что при неустановившемся режиме пласт является бесконечным?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Залежь настолько велика, что у неё нет реальных границ",
+     "misconception": "misc.infinite_means_physically_unbounded"
+    },
+    {
+     "id": "b",
+     "text": "Внешняя граница пока не влияет на отклик давления",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Давление в пласте не меняется ни по расстоянию, ни во времени",
+     "misconception": "misc.transient_equals_no_change"
+    },
+    {
+     "id": "d",
+     "text": "Через внешнюю границу поступает неограниченный объём флюида",
+     "misconception": "misc.infinite_means_unlimited_influx"
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Бесконечность здесь математическая: она действует, пока влияние границы не ощущается.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.transient_condition.t2",
+   "type": "order",
+   "step_id": "dake.transient_condition",
+   "claim_ids": [
+    "dake.transient_condition#c7"
+   ],
+   "prompt": "Расположите по порядку действия при гидродинамическом исследовании скважины на неустановившемся режиме.",
+   "options": [
+    {
+     "id": "a",
+     "text": "Проанализировать измеренный отклик давления",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Намеренно изменить дебит скважины",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Измерить отклик давления в стволе в течение нескольких часов",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "a"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Сначала изменением дебита создают возмущение, затем измеряют отклик давления и анализируют его.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.semi_steady_boundary.t1",
+   "type": "multiple",
+   "step_id": "dake.semi_steady_boundary",
+   "claim_ids": [
+    "dake.semi_steady_boundary#c4",
+    "dake.semi_steady_boundary#c6",
+    "dake.semi_steady_boundary#c8"
+   ],
+   "prompt": "Скважина долго работает с постоянным дебитом в ячейке с непроницаемой внешней границей, и влияние границы уже ощущается. Какие утверждения верны?",
+   "options": [
+    {
+     "id": "a",
+     "text": "На внешней границе градиент давления равен нулю",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Темп изменения давления во времени примерно постоянен",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Давление в каждой точке ячейки не меняется со временем",
+     "misconception": "misc.semi_steady_equals_steady"
+    },
+    {
+     "id": "d",
+     "text": "Давление одинаково во всех точках ячейки",
+     "misconception": "misc.zero_gradient_everywhere"
+    }
+   ],
+   "answer": [
+    "a",
+    "b"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Через границу ничего не течёт, поэтому ∂p/∂r = 0 при r = r_e, а давление падает с примерно постоянным темпом ∂p/∂t.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.semi_steady_boundary.t2",
+   "type": "single",
+   "step_id": "dake.semi_steady_boundary",
+   "claim_ids": [
+    "dake.semi_steady_boundary#c7",
+    "dake.semi_steady_boundary#c8"
+   ],
+   "prompt": "Во время наблюдения за давлением дебит скважины несколько раз меняли. Можно ли ожидать на этом участке почти постоянный темп падения давления, характерный для квазиустановившегося режима?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Да, достаточно, что внешняя граница непроницаема",
+     "misconception": "misc.boundary_alone_sufficient"
+    },
+    {
+     "id": "b",
+     "text": "Нет, нарушено условие постоянного дебита",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Да, достаточно, что скважина добывает уже долго",
+     "misconception": "misc.duration_alone_sufficient"
+    },
+    {
+     "id": "d",
+     "text": "Нет, при этом режиме давление вообще не падает",
+     "misconception": "misc.semi_steady_equals_steady"
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Приближённое постоянство ∂p/∂t записано именно для добычи с постоянным дебитом.",
+   "kind": "data"
+  },
+  {
+   "id": "dake.semi_steady_decline_rate.t1",
+   "type": "order",
+   "step_id": "dake.semi_steady_decline_rate",
+   "claim_ids": [
+    "dake.semi_steady_decline_rate#c2",
+    "dake.semi_steady_decline_rate#c3",
+    "dake.semi_steady_decline_rate#c4",
+    "dake.semi_steady_decline_rate#c7",
+    "dake.semi_steady_decline_rate#c8"
+   ],
+   "prompt": "Расположите шаги вывода темпа падения давления в замкнутой радиальной ячейке в правильном порядке.",
+   "options": [
+    {
+     "id": "a",
+     "text": "Выразить темп: dp/dt = −q/(cV)",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Подставить поровый объём ячейки π r_e² h φ вместо V",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Записать связь из определения сжимаемости: cV dp/dt = −dV/dt",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Приравнять dV/dt к дебиту: cV dp/dt = −q",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "c",
+    "d",
+    "a",
+    "b"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Из определения сжимаемости получают связь, вводят дебит, делят на cV и затем подставляют поровый объём радиальной ячейки.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.semi_steady_decline_rate.t2",
+   "type": "single",
+   "step_id": "dake.semi_steady_decline_rate",
+   "claim_ids": [
+    "dake.semi_steady_decline_rate#c5",
+    "dake.semi_steady_decline_rate#c7",
+    "dake.semi_steady_decline_rate#c8"
+   ],
+   "prompt": "Две замкнутые радиальные ячейки в квазиустановившемся режиме имеют одинаковые дебит, сжимаемость, внешний радиус и толщину, но у второй пористость больше. Как различается темп падения давления?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Во второй давление падает быстрее",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Во второй давление падает медленнее",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Темпы равны, так как дебиты равны",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Темпы равны, так как радиусы равны",
+     "misconception": null
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Большая пористость даёт больший поровый объём π r_e² h φ, а он стоит в знаменателе формулы темпа падения давления.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.drainage_volumes.t1",
+   "type": "multiple",
+   "step_id": "dake.drainage_volumes",
+   "claim_ids": [
+    "dake.drainage_volumes#c2",
+    "dake.drainage_volumes#c3",
+    "dake.drainage_volumes#c4"
+   ],
+   "prompt": "Пласт на режиме истощения с несколькими скважинами работает в квазиустановившемся режиме. Какие утверждения о зонах дренирования верны?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Каждая скважина дренирует свою зону независимо от других",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Границы зон обязательно являются физическими стенками в породе",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Темп dp/dt должен быть примерно одинаков во всём пласте",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "При разных темпах dp/dt возникнет поток через границы, и они сместятся",
+     "misconception": null
+    },
+    {
+     "id": "e",
+     "text": "Размеры зон заданы раз и навсегда и от темпа dp/dt не зависят",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Непроницаемые границы зон держатся на равновесии: при неодинаковом dp/dt идёт переток, и границы смещаются до устойчивого положения.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.drainage_volumes.t2",
+   "type": "single",
+   "step_id": "dake.drainage_volumes",
+   "claim_ids": [
+    "dake.drainage_volumes#c6",
+    "dake.drainage_volumes#c7",
+    "dake.drainage_volumes#c8"
+   ],
+   "prompt": "Пласт разделён на зоны дренирования с разными поровыми объёмами V_i и средними давлениями p̄_i. Как найти среднее по объёму пластовое давление?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Сложить все p̄_i и разделить на число зон",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Взять p̄_i зоны с самым большим V_i",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Разделить Σp̄_i V_i на сумму ΣV_i",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Разделить Σp̄_i V_i на число всех зон",
+     "misconception": null
+    }
+   ],
+   "answer": "c",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Средние давления зон взвешивают по их поровым объёмам и делят на суммарный поровый объём.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.average_reservoir_pressure.t1",
+   "type": "gap",
+   "step_id": "dake.average_reservoir_pressure",
+   "claim_ids": [
+    "dake.average_reservoir_pressure#c2",
+    "dake.average_reservoir_pressure#c3",
+    "dake.average_reservoir_pressure#c4"
+   ],
+   "prompt": "Если темп dp/dt постоянен по пласту, а изменение сжимаемости мало, то дебит зоны дренирования пропорционален её {{1}}. Поэтому при расчёте среднего пластового давления веса V_i можно заменить на {{2}} скважин q_i.",
+   "options": [],
+   "answer": [
+    "объёму",
+    "дебиты"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Из q_i ∝ V_i следует, что коэффициент пропорциональности сокращается и взвешивать можно по дебитам.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.average_reservoir_pressure.t2",
+   "type": "single",
+   "step_id": "dake.average_reservoir_pressure",
+   "claim_ids": [
+    "dake.average_reservoir_pressure#c5",
+    "dake.average_reservoir_pressure#c6",
+    "dake.average_reservoir_pressure#c7"
+   ],
+   "prompt": "Почему на практике удобно взвешивать средние давления зон по дебитам, а не по объёмам (при выполненных условиях такой замены)?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Объёмы трудно определить, а дебиты измеряют регулярно",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Тогда средние давления зон p̄_i определять уже не требуется",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Тогда замена верна при любом режиме течения в пласте",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Тогда сжимаемость может меняться по пласту как угодно",
+     "misconception": null
+    }
+   ],
+   "answer": "a",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Дебиты регулярно измеряют всю жизнь месторождения, тогда как объёмы зон определить трудно.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.steady_state_condition.t1",
+   "type": "single",
+   "step_id": "dake.steady_state_condition",
+   "claim_ids": [
+    "dake.steady_state_condition#c4",
+    "dake.steady_state_condition#c11",
+    "dake.steady_state_condition#c13"
+   ],
+   "prompt": "Скважина с постоянным дебитом работает в установившемся режиме в радиальной ячейке с открытой внешней границей. Что верно для давления?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Оно одинаково на всех радиусах и не меняется во времени",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Оно растёт к внешней границе и в каждой точке постоянно во времени",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Оно растёт к внешней границе и всюду падает с постоянным темпом",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Оно падает к внешней границе и в каждой точке постоянно во времени",
+     "misconception": null
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "∂p/∂t = 0 означает неизменность во времени, а по радиусу давление растёт от p_wf до p_e.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.steady_state_condition.t2",
+   "type": "multiple",
+   "step_id": "dake.steady_state_condition",
+   "claim_ids": [
+    "dake.steady_state_condition#c10",
+    "dake.steady_state_condition#c14"
+   ],
+   "prompt": "В каких ситуациях уместно применять условие установившегося режима к скважине с постоянным дебитом после неустановившегося периода?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Давление поддерживается естественным притоком воды через открытую границу",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Ячейка замкнута непроницаемой границей, и давление в ней падает",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Давление поддерживается закачкой вытесняющего флюида",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Скважину только что пустили, и влияние границы ещё не проявилось",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Режим требует восполнения отбора притоком воды или закачкой и применяется после неустановившегося периода.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.regimes_in_practice.t1",
+   "type": "single",
+   "step_id": "dake.regimes_in_practice",
+   "claim_ids": [
+    "dake.regimes_in_practice#c9",
+    "dake.regimes_in_practice#c10"
+   ],
+   "prompt": "Скважина долго работала с постоянным дебитом, затем дебит увеличили и дальше держат на новом уровне. Какого поведения притока следует ожидать после изменения?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Сразу стабилизированный приток, отвечающий новому дебиту",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Кратко неустановившийся приток, затем стабилизированный",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Неустановившийся приток всё время работы с новым дебитом",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Кратко стабилизированный приток, затем неустановившийся",
+     "misconception": null
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Смена дебита ненадолго вызывает неустановившийся приток, после которого следует стабилизированный приток, отвечающий новому распределению дебитов.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.regimes_in_practice.t2",
+   "type": "multiple",
+   "step_id": "dake.regimes_in_practice",
+   "claim_ids": [
+    "dake.regimes_in_practice#c1",
+    "dake.regimes_in_practice#c4",
+    "dake.regimes_in_practice#c5",
+    "dake.regimes_in_practice#c2"
+   ],
+   "prompt": "Какие утверждения о квазиустановившемся и установившемся режимах притока в реальном пласте верны?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Они могут никогда не реализоваться в пласте полностью",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Их условия на промысле часто выполняются приближённо",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Их уравнения непригодны при любом изменении дебита во времени",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Приближённому их выполнению способствует проектирование установок на постоянные расходы",
+     "misconception": null
+    },
+    {
+     "id": "e",
+     "text": "В реальном пласте они всегда выполняются строго",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Идеальные режимы реализуются лишь приближённо, чему способствуют постоянные расходы, а при медленно меняющемся дебите уравнения квазиустановившегося режима всё равно часто применяют.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.expand_equation.t1",
+   "type": "order",
+   "step_id": "dake.expand_equation",
+   "claim_ids": [
+    "dake.expand_equation#c3",
+    "dake.expand_equation#c6",
+    "dake.expand_equation#c7",
+    "dake.expand_equation#c8"
+   ],
+   "prompt": "Расположите по порядку шаги преобразования нелинейного уравнения радиального притока (1/r)·∂/∂r((kρ/μ)·r·∂p/∂r) = φcρ·∂p/∂t.",
+   "options": [
+    {
+     "id": "a",
+     "text": "Продифференцировать по r определение сжимаемости c = (1/ρ)·∂ρ/∂p",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Подставить выражение для ∂ρ/∂r в раскрытое уравнение",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Раскрыть производную произведения в левой части на отдельные слагаемые",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Получить связь cρ·∂p/∂r = ∂ρ/∂r",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "c",
+    "a",
+    "d",
+    "b"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Сначала раскрывают левую часть, затем из определения сжимаемости получают выражение для ∂ρ/∂r и подставляют его.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.expand_equation.t2",
+   "type": "single",
+   "step_id": "dake.expand_equation",
+   "claim_ids": [
+    "dake.expand_equation#c1",
+    "dake.expand_equation#c8",
+    "dake.expand_equation#c9",
+    "dake.expand_equation#c10"
+   ],
+   "prompt": "Левую часть уравнения радиального притока раскрыли на слагаемые и выразили ∂ρ/∂r через сжимаемость, получив член с (∂p/∂r)². Что можно сказать о полученном уравнении?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Оно уже линейно, так как производная произведения раскрыта",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Оно уже линейно, так как плотность выражена через сжимаемость",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Это другая запись исходного; слагаемые ещё не отброшены",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Из него уже исключено слагаемое с изменением k/μ по радиусу",
+     "misconception": null
+    }
+   ],
+   "answer": "c",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Раскрытие и подстановка лишь переписывают уравнение, а линеаризация требует затем отбросить слагаемые на основе допущений о флюиде.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.drop_small_terms.t1",
+   "type": "single",
+   "step_id": "dake.drop_small_terms",
+   "claim_ids": [
+    "dake.drop_small_terms#c5",
+    "dake.drop_small_terms#c6",
+    "dake.drop_small_terms#c8"
+   ],
+   "prompt": "При выводе линейного уравнения радиального притока жидкости градиент давления ∂p/∂r считают малым. Что из-за этого отбрасывают?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Все слагаемые, содержащие ∂p/∂r",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Члены порядка (∂p/∂r)²",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Слагаемое (1/r)·∂p/∂r",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Производную давления по времени ∂p/∂t",
+     "misconception": null
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Пренебрегают только величинами порядка квадрата градиента, а слагаемое (1/r)·∂p/∂r остаётся в уравнении.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.drop_small_terms.t2",
+   "type": "gap",
+   "step_id": "dake.drop_small_terms",
+   "claim_ids": [
+    "dake.drop_small_terms#c4",
+    "dake.drop_small_terms#c11",
+    "dake.drop_small_terms#c12",
+    "dake.drop_small_terms#c13"
+   ],
+   "prompt": "Заполните пропуски. При линеаризации уравнения притока жидкости в однородном пласте {{1}} μ считают постоянной. Если постоянна и {{2}} c, то постоянен весь коэффициент φμc/k. Такая простая линеаризация применима только при условии, что произведение cp много меньше {{3}}.",
+   "options": [],
+   "answer": [
+    "вязкость",
+    "сжимаемость",
+    "единицы"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Постоянные вязкость и сжимаемость при однородном пласте делают коэффициент постоянным, а годится приём лишь при cp ≪ 1.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.total_compressibility.t1",
+   "type": "single",
+   "step_id": "dake.total_compressibility",
+   "claim_ids": [
+    "dake.total_compressibility#c4",
+    "dake.total_compressibility#c5",
+    "dake.total_compressibility#c6"
+   ],
+   "prompt": "Какое выражение даёт общую сжимаемость системы «пласт — жидкости» для недонасыщенной нефти со связанной водой? Здесь c_o, c_w, c_f — сжимаемости нефти, воды и порового пространства, S_o и S_wc — насыщенности нефтью и связанной водой.",
+   "options": [
+    {
+     "id": "a",
+     "text": "c_t = c_o + c_w + c_f",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "c_t = c_o S_o + c_w S_wc + c_f S_o",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "c_t = c_o S_o + c_w S_wc + c_f",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "c_t = c_o S_wc + c_w S_o + c_f",
+     "misconception": null
+    }
+   ],
+   "answer": "c",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Сжимаемость каждого флюида взвешивают по его насыщенности, а сжимаемость пор прибавляют без множителя.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.total_compressibility.t2",
+   "type": "multiple",
+   "step_id": "dake.total_compressibility",
+   "claim_ids": [
+    "dake.total_compressibility#c1",
+    "dake.total_compressibility#c2",
+    "dake.total_compressibility#c5",
+    "dake.total_compressibility#c7"
+   ],
+   "prompt": "Инженер готовит значение сжимаемости c для линейного уравнения притока нефти (1/r)·∂/∂r(r·∂p/∂r) = (φμc/k)·∂p/∂t. Какие его действия и проверки верны?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Взять в качестве c только сжимаемость нефти",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Учесть вклады нефти, связанной воды и порового пространства",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Подставить насыщенности в долях порового объёма",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Проверить, что сжимаемость не только постоянна, но и мала",
+     "misconception": null
+    },
+    {
+     "id": "e",
+     "text": "Умножить сжимаемость порового пространства на насыщенность связанной водой",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "В уравнении стоит общая сжимаемость системы с насыщенностями в долях, и она должна быть малой и постоянной.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.linearization_validity.t1",
+   "type": "calc",
+   "step_id": "dake.linearization_validity",
+   "claim_ids": [
+    "dake.linearization_validity#c10",
+    "dake.linearization_validity#c11",
+    "dake.linearization_validity#c12",
+    "dake.linearization_validity#c5"
+   ],
+   "prompt": "Проверяют, можно ли упростить уравнение притока жидкости простым отбрасыванием членов. Общая сжимаемость системы c = 14,6·10⁻⁶ 1/psi, давление p = 3000 psi. Вычислите произведение cp.",
+   "options": [],
+   "answer": 0.0438,
+   "tolerance": 0.002,
+   "unit": "безразмерная величина",
+   "formula": "c * p",
+   "inputs": {
+    "c": 1.46e-05,
+    "p": 3000
+   },
+   "explanation": "cp = 14,6·10⁻⁶ · 3000 ≈ 0,04, что много меньше единицы, поэтому необходимое условие простой линеаризации выполнено.",
+   "kind": "data"
+  },
+  {
+   "id": "dake.linearization_validity.t2",
+   "type": "single",
+   "step_id": "dake.linearization_validity",
+   "claim_ids": [
+    "dake.linearization_validity#c14",
+    "dake.linearization_validity#c15",
+    "dake.linearization_validity#c16",
+    "dake.linearization_validity#c17"
+   ],
+   "prompt": "Нужно линеаризовать уравнение притока для реального газа. Сжимаемость газа в первом приближении обратна давлению. Какой вывод верен?",
+   "options": [
+    {
+     "id": "a",
+     "text": "cp ≪ 1, поэтому достаточно отбросить малые члены",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "cp равно единице, нужно интегральное преобразование",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "cp равно единице, поэтому уравнение уже линейно",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "cp растёт с давлением, но отбрасывать члены можно",
+     "misconception": null
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "При c ≈ 1/p произведение cp равно единице, условие cp ≪ 1 не выполняется, и требуется интегральное преобразование.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.porosity_compressibility_product.t1",
+   "type": "single",
+   "step_id": "dake.porosity_compressibility_product",
+   "claim_ids": [
+    "dake.porosity_compressibility_product#c5",
+    "dake.porosity_compressibility_product#c6",
+    "dake.porosity_compressibility_product#c8",
+    "dake.porosity_compressibility_product#c9"
+   ],
+   "prompt": "В произведении φc взята эффективная углеводородная пористость φ_абс(1 − S_wc). На какую сжимаемость её нужно умножить? Здесь S_o и S_wc — насыщенности нефтью и связанной водой, c_o, c_w, c_f — сжимаемости нефти, воды и порового пространства.",
+   "options": [
+    {
+     "id": "a",
+     "text": "c_o S_o + c_w S_wc + c_f",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "(c_o S_o + c_w S_wc + c_f)·(1 − S_wc)",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "(c_o S_o + c_w S_wc + c_f)/(1 − S_wc)",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "(c_o S_o + c_f)/(1 − S_wc)",
+     "misconception": null
+    }
+   ],
+   "answer": "c",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Пористость умножили на (1 − S_wc), значит сумму сжимаемостей нужно разделить на тот же множитель, чтобы φc не изменилось.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.diffusivity_equation.t1",
+   "type": "gap",
+   "step_id": "dake.diffusivity_equation",
+   "claim_ids": [
+    "dake.diffusivity_equation#c1",
+    "dake.diffusivity_equation#c2",
+    "dake.diffusivity_equation#c4",
+    "dake.diffusivity_equation#c5"
+   ],
+   "prompt": "Линеаризованное радиальное уравнение притока называют уравнением {{1}}. По виду оно совпадает с уравнением {{2}}, в котором вместо давления стоит температура.",
+   "options": [],
+   "answer": [
+    "пьезопроводности",
+    "теплопроводности"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Уравнение для давления называется уравнением пьезопроводности и имеет тот же вид, что уравнение радиальной теплопроводности.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.diffusivity_equation.t2",
+   "type": "single",
+   "step_id": "dake.diffusivity_equation",
+   "claim_ids": [
+    "dake.diffusivity_equation#c2",
+    "dake.diffusivity_equation#c5",
+    "dake.diffusivity_equation#c6"
+   ],
+   "prompt": "В уравнении притока (1/r)·∂/∂r(r·∂p/∂r) = (φμc/k)·∂p/∂t используются проницаемость k, пористость φ, вязкость μ и сжимаемость c. Что представляет собой комплекс k/φμc?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Скорость движения фронта давления по пласту",
+     "misconception": "misc.diffusivity_is_front_speed"
+    },
+    {
+     "id": "b",
+     "text": "Аналог температуры в задаче теплопроводности",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Аналог коэффициента температуропроводности",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Темп изменения давления в скважине со временем",
+     "misconception": null
+    }
+   ],
+   "answer": "c",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "k/φμc — коэффициент пьезопроводности, стоящий в уравнении там же, где температуропроводность K в тепловом уравнении.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.pressure_decline_periods.t1",
+   "type": "order",
+   "step_id": "dake.pressure_decline_periods",
+   "claim_ids": [
+    "dake.pressure_decline_periods#c1",
+    "dake.pressure_decline_periods#c5",
+    "dake.pressure_decline_periods#c7"
+   ],
+   "prompt": "Скважина работает с постоянным дебитом внутри непроницаемой границы. Расположите периоды падения забойного давления по порядку.",
+   "options": [
+    {
+     "id": "a",
+     "text": "Стабилизированный приток",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Неустановившийся период",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Поздний неустановившийся период",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "a"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Сначала граница не влияет, затем её влияние начинает ощущаться, и в конце устанавливается стабилизированный приток.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.pressure_decline_periods.t2",
+   "type": "multiple",
+   "step_id": "dake.pressure_decline_periods",
+   "claim_ids": [
+    "dake.pressure_decline_periods#c2",
+    "dake.pressure_decline_periods#c4",
+    "dake.pressure_decline_periods#c6",
+    "dake.pressure_decline_periods#c7"
+   ],
+   "prompt": "Скважина работает с постоянным дебитом внутри непроницаемой границы. Какие утверждения верны?",
+   "options": [
+    {
+     "id": "a",
+     "text": "В начальный период пласт выглядит бесконечным",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "В поздний неустановившийся период важна форма площади дренирования",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "При стабилизированном притоке забойное давление не меняется",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Положение скважины относительно границы не влияет на выбор решения",
+     "misconception": null
+    },
+    {
+     "id": "e",
+     "text": "При стабилизированном притоке темп изменения давления постоянен",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Вначале граница не сказывается, затем важны форма площади и положение скважины, а в конце постоянен темп изменения давления, но не само давление.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.full_solution_superposition.t1",
+   "type": "single",
+   "step_id": "dake.full_solution_superposition",
+   "claim_ids": [
+    "dake.full_solution_superposition#c9",
+    "dake.full_solution_superposition#c10"
+   ],
+   "prompt": "Дебит нефтяной скважины несколько раз менялся, и каждое значение действовало своё время. Как, опираясь на решение радиального уравнения пьезопроводности при постоянном дебите, теоретически описать отклик забойного давления?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Взять одно решение при постоянном дебите для последнего значения дебита",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Сложить решения при постоянном дебите по принципу суперпозиции",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Перейти к решению при постоянном давлении для расчёта притока воды",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Взять одно решение при постоянном дебите для среднего значения дебита",
+     "misconception": null
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Суперпозиция решений при постоянном дебите позволяет теоретически описать отклик давления на любую последовательность дебитов.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.full_solution_superposition.t2",
+   "type": "single",
+   "step_id": "dake.full_solution_superposition",
+   "claim_ids": [
+    "dake.full_solution_superposition#c6"
+   ],
+   "prompt": "С чем автор связывает большую сложность полного решения Херста и ван Эвердингена для постоянного дебита?",
+   "options": [
+    {
+     "id": "a",
+     "text": "С откликом забойного давления в начальный неустановившийся период",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "С откликом забойного давления при квазиустановившемся притоке",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "С откликом забойного давления в поздний неустановившийся период",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "С расчётом притока воды в залежь при заданном постоянном давлении",
+     "misconception": null
+    }
+   ],
+   "answer": "c",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Для неустановившегося и квазиустановившегося притока есть сравнительно простые решения, а сложность вызвана поздним неустановившимся периодом.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.line_source_conditions.t1",
+   "type": "multiple",
+   "step_id": "dake.line_source_conditions",
+   "claim_ids": [
+    "dake.line_source_conditions#c1",
+    "dake.line_source_conditions#c13",
+    "dake.line_source_conditions#c15",
+    "dake.line_source_conditions#c16"
+   ],
+   "prompt": "Решение при постоянном дебите хотят приблизить решением линейного стока (скважину считают линией). Какие из перечисленных обстоятельств нарушают допущения этой простой постановки?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Скважина вскрывает пласт лишь частично",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Идёт начальный неустановившийся период",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "По пласту течёт сильно сжимаемый флюид",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Приток к стволу скважины является радиальным",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Постановка требует полного вскрытия пласта и малой постоянной сжимаемости, а начальный период и радиальный приток ей соответствуют.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.line_source_conditions.t2",
+   "type": "gap",
+   "step_id": "dake.line_source_conditions",
+   "claim_ids": [
+    "dake.line_source_conditions#c5",
+    "dake.line_source_conditions#c6",
+    "dake.line_source_conditions#c10"
+   ],
+   "prompt": "Постановка линейного стока для радиального притока к скважине. Начальное условие: до начала добычи давление всюду равно {{1}} пластовому давлению p_i. Условие p = p_i при r, равном {{2}}, выполняется для всех t. Условие на предел r·∂p/∂r при r → 0 называют {{3}} граничным условием. Варианты слов: начальному, забойному, бесконечности, нулю, внутренним, внешним.",
+   "options": [],
+   "answer": [
+    "начальному",
+    "бесконечности",
+    "внутренним"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Три условия задают давление до добычи, на бесконечно удалённой границе и поведение у самой линии.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.boltzmann_transform.t1",
+   "type": "single",
+   "step_id": "dake.boltzmann_transform",
+   "claim_ids": [
+    "dake.boltzmann_transform#c4",
+    "dake.boltzmann_transform#c6"
+   ],
+   "prompt": "В преобразовании Больцмана s = φμcr²/4kt (r — радиус, t — время). Почему после замены переменной в правой части уравнения пьезопроводности появляется знак минус?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Потому что при росте радиуса переменная s убывает",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Потому что при росте времени переменная s убывает",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Потому что при росте времени переменная s возрастает",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Потому что сжимаемость флюида считается отрицательной",
+     "misconception": null
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Время стоит в знаменателе s, поэтому ∂s/∂t = −φμcr²/4kt² отрицательна.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.boltzmann_transform.t2",
+   "type": "gap",
+   "step_id": "dake.boltzmann_transform",
+   "claim_ids": [
+    "dake.boltzmann_transform#c4",
+    "dake.boltzmann_transform#c5"
+   ],
+   "prompt": "Преобразование Больцмана объединяет радиус r и время t в переменную s = φμcr²/({{1}}). Её производная по радиусу равна ∂s/∂r = φμcr/({{2}}). Здесь φ — пористость, μ — вязкость, c — сжимаемость, k — проницаемость. Варианты: 4kt, 2kt, 4kt², kt.",
+   "options": [],
+   "answer": [
+    "4kt",
+    "2kt"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "При дифференцировании r² по r появляется множитель 2r, и знаменатель 4kt сокращается до 2kt.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.solve_ordinary_equation.t1",
+   "type": "order",
+   "step_id": "dake.solve_ordinary_equation",
+   "claim_ids": [
+    "dake.solve_ordinary_equation#c2",
+    "dake.solve_ordinary_equation#c3",
+    "dake.solve_ordinary_equation#c6",
+    "dake.solve_ordinary_equation#c7",
+    "dake.solve_ordinary_equation#c9",
+    "dake.solve_ordinary_equation#c10"
+   ],
+   "prompt": "Расположите по порядку шаги решения уравнения d/ds(s·dp/ds) = −s·dp/ds, где p — давление, s — переменная Больцмана.",
+   "options": [
+    {
+     "id": "a",
+     "text": "Разделить переменные p' и s",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Выразить p' через экспоненту и постоянную C_2",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Раскрыть производную произведения s и dp/ds",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Проинтегрировать обе части и получить ln p'",
+     "misconception": null
+    },
+    {
+     "id": "e",
+     "text": "Обозначить dp/ds через p'",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "c",
+    "e",
+    "a",
+    "d",
+    "b"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "После раскрытия производной замена понижает порядок, затем переменные разделяют, интегрируют и переходят от логарифма к p'.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.solve_ordinary_equation.t2",
+   "type": "single",
+   "step_id": "dake.solve_ordinary_equation",
+   "claim_ids": [
+    "dake.solve_ordinary_equation#c5",
+    "dake.solve_ordinary_equation#c10"
+   ],
+   "prompt": "При выводе решения для давления в пласте получено p' = C_2·e^(−s)/s, где s — переменная Больцмана. Что даёт это выражение на данном шаге?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Давление как функцию s с уже найденной постоянной",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Производную давления по времени с известной постоянной",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Производную давления по радиусу с известной постоянной",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Производную давления по s с неизвестной постоянной",
+     "misconception": null
+    }
+   ],
+   "answer": "d",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "p' означает dp/ds, а C_2 ещё нужно определить из граничного условия и затем проинтегрировать p'.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.line_source_solution.t1",
+   "type": "order",
+   "step_id": "dake.line_source_solution",
+   "claim_ids": [
+    "dake.line_source_solution#c2",
+    "dake.line_source_solution#c5",
+    "dake.line_source_solution#c6",
+    "dake.line_source_solution#c7",
+    "dake.line_source_solution#c10",
+    "dake.line_source_solution#c12"
+   ],
+   "prompt": "Есть выражение dp/ds = C₂·e^(−s)/s, где s — переменная Больцмана. Расположите по порядку шаги, которые ведут от него к давлению в пласте для линейного стока.",
+   "options": [
+    {
+     "id": "a",
+     "text": "Устремить r, а значит и s, к нулю и получить C₂ = qμ/4πkh",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Получить p = p_i − (qμ/4πkh)·∫ от x до ∞ (e^(−s)/s) ds",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Применить условие у скважины и получить qμ/4πkh = C₂·e^(−s)",
+     "misconception": null
+    },
+    {
+     "id": "d",
+     "text": "Проинтегрировать от p_i до p по давлению и от ∞ до x по s",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "c",
+    "a",
+    "d",
+    "b"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Сначала из внутреннего граничного условия находят C₂, затем интегрируют по согласованным пределам и, переставив пределы по s, получают минус перед интегралом.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.line_source_solution.t2",
+   "type": "single",
+   "step_id": "dake.line_source_solution",
+   "claim_ids": [
+    "dake.line_source_solution#c5",
+    "dake.line_source_solution#c6",
+    "dake.line_source_solution#c7"
+   ],
+   "prompt": "Граничное условие линейного стока даёт qμ/4πkh = C₂·e^(−s). Почему отсюда следует C₂ = qμ/4πkh?",
+   "options": [
+    {
+     "id": "a",
+     "text": "При r → 0 переменная s → 0, и e^(−s) стремится к единице",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "При r → 0 переменная s → ∞, и e^(−s) стремится к единице",
+     "misconception": "misc.s_infinite_at_well"
+    },
+    {
+     "id": "c",
+     "text": "При t = 0 переменная s → 0, и e^(−s) стремится к нулю",
+     "misconception": "misc.initial_vs_boundary_condition"
+    },
+    {
+     "id": "d",
+     "text": "При r → ∞ переменная s → ∞, и e^(−s) стремится к единице",
+     "misconception": "misc.outer_boundary_used"
+    }
+   ],
+   "answer": "a",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Условие задано у скважины, при r → 0, где s тоже стремится к нулю и экспонента стремится к единице.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.exponential_integral.t1",
+   "type": "single",
+   "step_id": "dake.exponential_integral",
+   "claim_ids": [
+    "dake.exponential_integral#c6",
+    "dake.exponential_integral#c7"
+   ],
+   "prompt": "Функция ei(x) — это интеграл от x до ∞ от e^(−s)/s по s. Как изменится ei(x), если нижний предел x увеличить, и почему?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Уменьшится: справа от границы остаётся меньшая площадь",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Увеличится: растёт площадь, накопленная левее границы",
+     "misconception": "misc.ei_area_left_of_x"
+    },
+    {
+     "id": "c",
+     "text": "Увеличится: с ростом x растёт подынтегральная функция",
+     "misconception": "misc.ei_grows_with_x"
+    },
+    {
+     "id": "d",
+     "text": "Не изменится: интеграл по s не зависит от нижнего предела",
+     "misconception": "misc.integration_variable_vs_limit"
+    }
+   ],
+   "answer": "a",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "ei(x) равна площади под убывающей кривой правее s = x, и при сдвиге границы вправо остаётся только низкий хвост.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.exponential_integral.t2",
+   "type": "gap",
+   "step_id": "dake.exponential_integral",
+   "claim_ids": [
+    "dake.exponential_integral#c3",
+    "dake.exponential_integral#c6",
+    "dake.exponential_integral#c8"
+   ],
+   "prompt": "Интеграл от x до ∞ от e^(−s)/s по s называется интегральной {{1}} функцией. Он равен {{2}} под графиком подынтегральной функции правее s = x. Эту функцию обычно строят в двойном {{3}} масштабе.",
+   "options": [],
+   "answer": [
+    "показательной",
+    "площади",
+    "логарифмическом"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Это интегральная показательная функция ei(x): площадь под кривой, которую обычно изображают в координатах log-log.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.log_approximation.t1",
+   "type": "single",
+   "step_id": "dake.log_approximation",
+   "claim_ids": [
+    "dake.log_approximation#c7",
+    "dake.log_approximation#c8",
+    "dake.log_approximation#c11"
+   ],
+   "prompt": "Нужно рассчитать давление по решению линейного стока. Аргумент x = φμcr²/4kt. В каком случае ei(x) можно заменить на −ln(γx), где γ = 1,781?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Когда вычисленное значение x меньше 0,01",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Когда вычисленное значение x больше 0,01",
+     "misconception": "misc.log_valid_for_large_x"
+    },
+    {
+     "id": "c",
+     "text": "Когда время t от начала отбора меньше 0,01",
+     "misconception": "misc.limit_applies_to_time"
+    },
+    {
+     "id": "d",
+     "text": "Всегда, при любых значениях аргумента x",
+     "misconception": "misc.log_always_valid"
+    }
+   ],
+   "answer": "a",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Граница x < 0,01 относится к аргументу функции ei, а не к времени или радиусу по отдельности.",
+   "kind": "data"
+  },
+  {
+   "id": "dake.log_approximation.t2",
+   "type": "gap",
+   "step_id": "dake.log_approximation",
+   "claim_ids": [
+    "dake.log_approximation#c3",
+    "dake.log_approximation#c4",
+    "dake.log_approximation#c5",
+    "dake.log_approximation#c7"
+   ],
+   "prompt": "При x < 0,01 справедливо ei(x) ≈ −ln x − 0,5772. Число 0,5772 — постоянная {{1}}. Обозначив γ = e^0,5772 = {{2}}, формулу записывают как ei(x) ≈ −ln({{3}}).",
+   "options": [],
+   "answer": [
+    "Эйлера",
+    "1,781",
+    "γx"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Постоянную Эйлера представляют как ln γ и объединяют два слагаемых в один логарифм.",
+   "kind": "recall"
+  },
+  {
+   "id": "dake.wellbore_pressure_skin.t1",
+   "type": "multiple",
+   "step_id": "dake.wellbore_pressure_skin",
+   "claim_ids": [
+    "dake.wellbore_pressure_skin#c6",
+    "dake.wellbore_pressure_skin#c7",
+    "dake.wellbore_pressure_skin#c8"
+   ],
+   "prompt": "Забойное давление в неустановившемся режиме: p_wf = p_i − (qμ/4πkh)·(ln(4kt/γφμc r_w²) + 2S). Дебит положителен и постоянен. Какие утверждения верны?",
+   "options": [
+    {
+     "id": "a",
+     "text": "При большем S забойное давление ниже при прочих равных",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "Площадь дренирования для расчёта p_wf знать не нужно",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "Вклад скин-фактора S в скобках растёт со временем",
+     "misconception": "misc.skin_time_dependent"
+    },
+    {
+     "id": "d",
+     "text": "Положение скважины относительно границы меняет p_wf",
+     "misconception": "misc.transient_depends_on_boundary"
+    },
+    {
+     "id": "e",
+     "text": "С ростом времени t забойное давление p_wf снижается",
+     "misconception": null
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "S — не зависящая от времени добавка, ln t растёт со временем, а пока пласт кажется бесконечным, граница на p_wf не влияет.",
+   "kind": "understanding"
+  },
+  {
+   "id": "dake.wellbore_pressure_skin.t2",
+   "type": "single",
+   "step_id": "dake.wellbore_pressure_skin",
+   "claim_ids": [
+    "dake.wellbore_pressure_skin#c1",
+    "dake.wellbore_pressure_skin#c2",
+    "dake.wellbore_pressure_skin#c3"
+   ],
+   "prompt": "Идёт гидропрослушивание: одна скважина работает, а давление записывают в удалённой скважине, и расстояние r велико. Пласт и жидкость удовлетворяют допущениям линейного стока. Как рассчитывать давление в точке замера?",
+   "options": [
+    {
+     "id": "a",
+     "text": "По решению с полной функцией ei(x), взяв это расстояние r",
+     "misconception": null
+    },
+    {
+     "id": "b",
+     "text": "По логарифмической формуле, подставив радиус скважины r_w",
+     "misconception": "misc.observation_point_as_wellbore"
+    },
+    {
+     "id": "c",
+     "text": "По логарифмической формуле, подставив это расстояние r",
+     "misconception": "misc.log_always_valid"
+    },
+    {
+     "id": "d",
+     "text": "По логарифмической формуле, добавив в неё слагаемое 2S",
+     "misconception": "misc.skin_fixes_distance"
+    }
+   ],
+   "answer": "a",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "При большом r аргумент x уже не мал, поэтому логарифмическое приближение не годится и нужна функция ei(x) целиком.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.distant_well_pressure.t1",
+   "type": "single",
+   "step_id": "dake.distant_well_pressure",
+   "claim_ids": [
+    "dake.distant_well_pressure#c3",
+    "dake.distant_well_pressure#c4",
+    "dake.distant_well_pressure#c5"
+   ],
+   "prompt": "В одной скважине вызвали изменение давления, а записывают его в удалённой скважине. Расстояние r велико, и аргумент x = φμcr²/4kt не удовлетворяет условию x < 0,01. Как следует рассчитать давление p_r,t по решению линейного стока?",
+   "options": [
+    {
+     "id": "a",
+     "text": "По логарифмическому приближению −ln γx, подставив большое r",
+     "misconception": "misc.log_valid_at_any_distance"
+    },
+    {
+     "id": "b",
+     "text": "По полному решению с функцией ei(x)",
+     "misconception": null
+    },
+    {
+     "id": "c",
+     "text": "По логарифмическому приближению, заменив r на радиус скважины r_w",
+     "misconception": "misc.distant_pressure_equals_wellbore"
+    },
+    {
+     "id": "d",
+     "text": "По полному решению с ei(x), где вместо r берут радиус r_w",
+     "misconception": "misc.r_is_always_wellbore_radius"
+    }
+   ],
+   "answer": "b",
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "При большом r приближение, введённое для x < 0,01, не действует, поэтому берут полную функцию ei с расстоянием r до точки наблюдения.",
+   "kind": "transfer"
+  },
+  {
+   "id": "dake.distant_well_pressure.t2",
+   "type": "gap",
+   "step_id": "dake.distant_well_pressure",
+   "claim_ids": [
+    "dake.distant_well_pressure#c3",
+    "dake.distant_well_pressure#c5"
+   ],
+   "prompt": "Заполните пропуски. Аргумент функции ei равен φμcr²/4kt, поэтому расстояние r входит в него в степени {{1}} (укажите число), и с удалением от скважины аргумент {{2}} (растёт или убывает) при том же времени t.",
+   "options": [],
+   "answer": [
+    "2",
+    "растёт"
+   ],
+   "tolerance": null,
+   "unit": null,
+   "formula": null,
+   "inputs": null,
+   "explanation": "Аргумент пропорционален r², поэтому в удалённой скважине он может выйти за пределы применимости логарифмического приближения.",
+   "kind": "understanding"
+  }
+ ]
+}

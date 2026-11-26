@@ -1,0 +1,70 @@
+{
+ "node_id": "asquith.permeability_coates",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "rho",
+    "text": "Плотность углеводородов ρh, г/см³",
+    "kind": "data"
+   },
+   {
+    "id": "inp",
+    "text": "Пористость φ, Rw и Rt irr",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "C = 23 + 465·ρh − 188·ρh²",
+    "kind": "step"
+   },
+   {
+    "id": "w",
+    "text": "W из φ и log(Rw/Rt irr)",
+    "kind": "step"
+   },
+   {
+    "id": "k",
+    "text": "K, мД: из C, W, φ и Rw/Rt irr",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "rho",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "inp",
+    "to": "w",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "k",
+    "label": ""
+   },
+   {
+    "from": "w",
+    "to": "k",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Плотность углеводородов входит в расчёт через C; по C и W считают K. Формулы как в книге; вероятно, опечатка издания.",
+ "alt": "Схема расчёта: из плотности углеводородов получают C, из пористости и сопротивлений получают W, затем по ним вычисляют проницаемость K.",
+ "claim_ids": [
+  "asquith.permeability_coates#c2",
+  "asquith.permeability_coates#c4",
+  "asquith.permeability_coates#c5",
+  "asquith.permeability_coates#c6",
+  "asquith.permeability_coates#c7",
+  "asquith.permeability_coates#c8",
+  "asquith.permeability_coates#c9",
+  "asquith.permeability_coates#c12",
+  "asquith.permeability_coates#c17",
+  "asquith.permeability_coates#c18",
+  "asquith.permeability_coates#c19"
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "node_id": "asquith.bvw_grain_size",
+ "template": "bars",
+ "data": {
+  "unit": "BVW, доли единицы",
+  "items": [
+   {
+    "name": "Крупное зерно, 1,0–0,5 мм",
+    "from": 0.02,
+    "to": 0.025
+   },
+   {
+    "name": "Среднее, 0,5–0,25 мм",
+    "from": 0.025,
+    "to": 0.035
+   },
+   {
+    "name": "Мелкое, 0,25–0,125 мм",
+    "from": 0.035,
+    "to": 0.05
+   },
+   {
+    "name": "Очень мелкое, 0,125–0,062 мм",
+    "from": 0.05,
+    "to": 0.07
+   },
+   {
+    "name": "Алеврит, мельче 0,062 мм",
+    "from": 0.07,
+    "to": 0.09
+   }
+  ],
+  "log": false
+ },
+ "caption": "BVW терригенных пород по табл. 7.1: чем мельче зерно, тем больше объёмное водосодержание.",
+ "alt": "Диапазоны BVW растут от 0,02–0,025 у крупнозернистых терригенных пород до 0,07–0,09 у алеврита.",
+ "claim_ids": [
+  "asquith.bvw_grain_size#c2",
+  "asquith.bvw_grain_size#c5",
+  "asquith.bvw_grain_size#c6",
+  "asquith.bvw_grain_size#c7",
+  "asquith.bvw_grain_size#c8",
+  "asquith.bvw_grain_size#c9"
+ ]
+}

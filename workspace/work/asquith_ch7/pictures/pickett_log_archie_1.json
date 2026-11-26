@@ -1,0 +1,61 @@
+{
+ "node_id": "asquith.pickett_log_archie",
+ "template": "plot",
+ "data": {
+  "x_label": "log(φ), пористость",
+  "y_label": "log(Rt), сопротивление",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "Водоносная зона, Sw = 1",
+    "color": "",
+    "points": [
+     [
+      0.1,
+      0.7
+     ],
+     [
+      0.9,
+      0.2
+     ]
+    ]
+   },
+   {
+    "name": "Sw меньше 1",
+    "color": "",
+    "points": [
+     [
+      0.1,
+      0.9
+     ],
+     [
+      0.9,
+      0.4
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.5,
+    "y": 0.45,
+    "text": "наклон −m"
+   },
+   {
+    "x": 0.5,
+    "y": 0.65,
+    "text": "добавка −n·log(Sw)"
+   }
+  ]
+ },
+ "caption": "При Sw = 1 член с Sw исчезает: прямая с наклоном −m. При Sw меньше 1 Rt выше. Формулы как в книге; вероятно, опечатка издания.",
+ "alt": "Качественный график log(Rt) от log(φ): две параллельные убывающие прямые, линия с Sw меньше 1 лежит выше водоносной.",
+ "claim_ids": [
+  "asquith.pickett_log_archie#c19",
+  "asquith.pickett_log_archie#c20",
+  "asquith.pickett_log_archie#c21"
+ ]
+}

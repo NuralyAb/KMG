@@ -1,0 +1,63 @@
+{
+ "node_id": "dake.transient_condition",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Смена дебита скважины при r = rw",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "В пласте возникает возмущение давления",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Короткое время: внешняя граница не влияет",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Пласт кажется бесконечным",
+    "kind": "result"
+   },
+   {
+    "id": "e",
+    "text": "p и ∂p/∂t зависят и от r, и от t",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Цепочка неустановившегося режима: пока граница не ощущается, пласт ведёт себя как бесконечный.",
+ "alt": "Схема: смена дебита создаёт возмущение давления; пока внешняя граница не влияет, пласт кажется бесконечным, а давление и темп его изменения зависят от расстояния и времени.",
+ "claim_ids": [
+  "dake.transient_condition#c3",
+  "dake.transient_condition#c4",
+  "dake.transient_condition#c5",
+  "dake.transient_condition#c9"
+ ]
+}

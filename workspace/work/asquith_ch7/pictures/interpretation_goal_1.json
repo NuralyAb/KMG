@@ -1,0 +1,63 @@
+{
+ "node_id": "asquith.interpretation_goal",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Сырые каротажные данные",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Пористость и истинное сопротивление",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Оценки количества нефти, газа и воды",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Учёт других данных: испытания, шлам, газовый каротаж, добыча",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Оправдано ли заканчивание скважины",
+    "kind": "choice"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Путь от показаний приборов к решению: каротажные оценки перед решением дополняют другими данными.",
+ "alt": "Цепочка: сырые данные, пористость и сопротивление, оценки нефти, газа и воды, учёт других данных, решение о заканчивании скважины.",
+ "claim_ids": [
+  "asquith.interpretation_goal#c2",
+  "asquith.interpretation_goal#c3",
+  "asquith.interpretation_goal#c7",
+  "asquith.interpretation_goal#c9"
+ ]
+}

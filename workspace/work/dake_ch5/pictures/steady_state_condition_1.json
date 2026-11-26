@@ -1,0 +1,69 @@
+{
+ "node_id": "dake.steady_state_condition",
+ "template": "plot",
+ "data": {
+  "x_label": "Расстояние от оси скважины r",
+  "y_label": "Давление p",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "профиль давления, не меняется во времени",
+    "color": "",
+    "points": [
+     [
+      0.05,
+      0.15
+     ],
+     [
+      0.1,
+      0.35
+     ],
+     [
+      0.2,
+      0.53
+     ],
+     [
+      0.35,
+      0.67
+     ],
+     [
+      0.55,
+      0.77
+     ],
+     [
+      0.8,
+      0.84
+     ],
+     [
+      1,
+      0.87
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.05,
+    "y": 0.15,
+    "text": "pwf у стенки rw"
+   },
+   {
+    "x": 1,
+    "y": 0.87,
+    "text": "pₑ = const на rₑ"
+   }
+  ]
+ },
+ "caption": "Давление растёт от стенки скважины к открытой границе: круто вблизи, полого вдали. Отбор равен притоку, и кривая не смещается.",
+ "alt": "Выпуклая вверх кривая давления по радиусу: от забойного давления на стенке скважины круто растёт, затем выполаживается к постоянному давлению на внешней границе.",
+ "claim_ids": [
+  "dake.steady_state_condition#c4",
+  "dake.steady_state_condition#c5",
+  "dake.steady_state_condition#c6",
+  "dake.steady_state_condition#c11",
+  "dake.steady_state_condition#c12"
+ ]
+}

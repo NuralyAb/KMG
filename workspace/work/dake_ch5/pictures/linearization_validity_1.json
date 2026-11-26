@@ -1,0 +1,27 @@
+{
+ "node_id": "dake.linearization_validity",
+ "template": "bars",
+ "data": {
+  "unit": "cp, безразмерно",
+  "items": [
+   {
+    "name": "Пример для жидкостей, p = 3000 psi",
+    "value": 0.04
+   },
+   {
+    "name": "Реальный газ, сжимаемость газа ≈ 1/p",
+    "value": 1
+   }
+  ],
+  "log": true
+ },
+ "caption": "Простая линеаризация требует cp ≪ 1: в примере 0,04 условие выполнено, а для реального газа cp равно единице.",
+ "alt": "Две полосы в логарифмическом масштабе: cp равно 0,04 в примере для жидкостей и 1 для реального газа, где условие cp ≪ 1 не выполняется.",
+ "claim_ids": [
+  "dake.linearization_validity#c4",
+  "dake.linearization_validity#c12",
+  "dake.linearization_validity#c13",
+  "dake.linearization_validity#c16",
+  "dake.linearization_validity#c17"
+ ]
+}

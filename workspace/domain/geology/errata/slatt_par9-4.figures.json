@@ -1,0 +1,782 @@
+{
+ "chapter": "slatt_par9-4",
+ "entries": [
+  {
+   "page": 410,
+   "md": "Yellow bodies: Mouth-bar Sandstone; several laterally discontinuous, lens-shaped units.",
+   "scan": "На верхней панели жёлтые песчаные тела непрерывны между Well 1 и Well 2 и выклиниваются лишь за скважинами.",
+   "kind": "recognition",
+   "note": "рис. 9.10; Песчаники показаны непрерывными, а не разрозненными линзами.; прочитано моделью по скану"
+  },
+  {
+   "page": 410,
+   "md": "sandstone bodies are not continuously correlated where they pinch out or are separated by heterolithics/shale.",
+   "scan": "В литостратиграфической корреляции песчаные пласты соединены непрерывно от скважины 1 до скважины 2; подпись отмечает их непрерывность.",
+   "kind": "recognition",
+   "note": "рис. 9.10; Смысл верхней панели искажён: песчаники скоррелированы непрерывно.; прочитано моделью по скану"
+  },
+  {
+   "page": 410,
+   "md": "Individual sandstone bodies thin, thicken, split, and terminate laterally between wells.",
+   "scan": "Между скважинами песчаные тела идут непрерывно, не расщепляясь и не обрываясь; окончания находятся за скважинами.",
+   "kind": "recognition",
+   "note": "рис. 9.10; Выклинивания между скважинами на верхней панели нет.; прочитано моделью по скану"
+  },
+  {
+   "page": 410,
+   "md": "Vertical scale: [illegible] m; vertical direction is downward.",
+   "scan": "Справа на верхней панели читается подпись 15 m у вертикальной двусторонней стрелки.",
+   "kind": "recognition",
+   "note": "рис. 9.10; Вертикальный масштаб читается: 15 м.; прочитано моделью по скану"
+  },
+  {
+   "page": 410,
+   "md": "Pale orange interbeds: Heterolithics.",
+   "scan": "На верхней панели гетеролиты — один тонкий пласт под нижним песчаником, а не переслаивание между песчаниками.",
+   "kind": "recognition",
+   "note": "рис. 9.10; Положение гетеролитов на верхней панели указано неточно.; прочитано моделью по скану"
+  },
+  {
+   "page": 411,
+   "md": "Labelled points/wells: VL1; TC1; BM.",
+   "scan": "Подписаны скважины VL1, TC1 и TV1; метки BM нет.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Неверно прочитано название третьей скважины.; прочитано моделью по скану"
+  },
+  {
+   "page": 411,
+   "md": "Black linear symbols: numerous faults or structural lineaments, predominantly NW–SE to WNW–ESE",
+   "scan": "Это береговые валы; они вытянуты в основном СВ–ЮЗ, местами почти С–Ю.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Неверны природа линий и их ориентировка.; прочитано моделью по скану"
+  },
+  {
+   "page": 411,
+   "md": "No contour lines, contour interval, structural-depth values, fault throws, or symbol legend are shown.",
+   "scan": "В море проведены линии с подписями 2 m, 6 m, 16 m, 28 m.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Пропущены изобаты с подписанными глубинами.; прочитано моделью по скану"
+  },
+  {
+   "page": 411,
+   "md": "Scale bar: 0–[illegible] km.",
+   "scan": "Масштабная линейка подписана 20 km.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Пропущено значение масштаба.; прочитано моделью по скану"
+  },
+  {
+   "page": 411,
+   "md": "Lithology/stratigraphy is not determined without a legend.",
+   "scan": "По подписи рисунка зелёное — верхняя дельтовая равнина, оранжевое — нижняя.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Значение цветов задано подписью.; прочитано моделью по скану"
+  },
+  {
+   "page": 411,
+   "md": "Geological/structural map of an area bordering the South China Sea.",
+   "scan": "Это карта дельты реки Меконг с дельтовыми равнинами и береговыми валами.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Карта не структурная.; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "- −1325\n- −2876\n- −1336",
+   "scan": "У VL1 стоят −3425 и −3536; −2876 стоит у TC1.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Неверно прочитаны числа; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "- −[illegible]\n- −[illegible]\n- −[illegible]\n- −[illegible]",
+   "scan": "Числа читаются: у TC1 −3505, −3969, −4368, −4814 и др., у TV1 −721, −1001, −1403 и др.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Пропущено большинство чисел; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "- 5000\n- 6000\n- 6113",
+   "scan": "Есть линии времени 1000, 2000, 3000, 4000, 5000, 6000; число у VL1 — 6111.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Пропущены линии времени; 6113 вместо 6111; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "A broad wedge-shaped unit labelled “Prodelta” extends from the inland side toward the central part of the profile.",
+   "scan": "Слой продельты протягивается через весь разрез до моря справа.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Неверно указана протяжённость продельты; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "from inland alluvial plain to the South China Sea.",
+   "scan": "Слева подписано «Inland delta plain».",
+   "kind": "recognition",
+   "note": "рис. 9.11; Delta plain, а не alluvial plain; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "| Inland alluvial plain | Flood plain/Marsh; V1 |",
+   "scan": "Скважина подписана VL1, зона — Inland delta plain.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Неверные название скважины и зоны; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "| Beach ridge delta plain | Beach ridge, Marsh/Foreshore; Y1 |",
+   "scan": "Скважина подписана TV1.",
+   "kind": "recognition",
+   "note": "рис. 9.11; TV1 прочитана как Y1; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "| Seaward area | Subtidal delta plain |",
+   "scan": "Подпись гласит «Subaerial delta plain».",
+   "kind": "recognition",
+   "note": "рис. 9.11; Subaerial, а не Subtidal; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "- McFS [label partly unclear].",
+   "scan": "Подписано «MxFS» со стрелкой к подошве толщи.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Неверно прочитана подпись; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "A solid black curved line is shown near the McFS label; its meaning is not defined in the figure.",
+   "scan": "Это стрелка-выноска от подписи MxFS к поверхности.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Выноска принята за отдельную линию; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "- orange stippled pattern — Delta plain.",
+   "scan": "В легенде Delta plain — сплошная коричнево-оранжевая заливка.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Крапа не видно; прочитано моделью по скану"
+  },
+  {
+   "page": 412,
+   "md": "- black inclined line symbol — Coarsening-upward bedset cycles.",
+   "scan": "Значок циклов — изогнутая стрелка, а не прямая наклонная линия.",
+   "kind": "recognition",
+   "note": "рис. 9.11; Неверно описан значок; прочитано моделью по скану"
+  },
+  {
+   "page": 413,
+   "md": "dashed lines extend from the apex toward the present and new river-mouth positions",
+   "scan": "К устьям идут сплошные тонкие прямые линии. Пунктирная линия одна, вертикальная, от APEX к верху контура дельты.",
+   "kind": "recognition",
+   "note": "рис. 9.12; Перепутан тип линий, пропущена вертикальная пунктирная ось.; прочитано моделью по скану"
+  },
+  {
+   "page": 413,
+   "md": "“Present channel location R1” is indicated near the apex",
+   "scan": "Подпись R1 стоит слева от извилистого канала, в его верхней-средней части, заметно выше APEX.",
+   "kind": "recognition",
+   "note": "рис. 9.12; Неверное положение подписи R1.; прочитано моделью по скану"
+  },
+  {
+   "page": 413,
+   "md": "The angular displacement between the two apex-to-mouth directions is labelled $\\Delta\\theta$.",
+   "scan": "Кроме Δθ слева есть угол A между лучом к современному устью и вертикальным пунктиром.",
+   "kind": "recognition",
+   "note": "рис. 9.12; Пропущен подписанный угол A.; прочитано моделью по скану"
+  },
+  {
+   "page": 413,
+   "md": "bright green — COCODRIE — 4600–3500 yrs B.P.",
+   "scan": "COCODRIE показан жёлтым цветом, в легенде и на карте.",
+   "kind": "recognition",
+   "note": "рис. 9.13; Неверный цвет Cocodrie.; прочитано моделью по скану"
+  },
+  {
+   "page": 413,
+   "md": "tan — BALIZE — 500 yrs B.P.",
+   "scan": "В легенде у BALIZE написано только «500 yrs.», без «B.P.».",
+   "kind": "recognition",
+   "note": "рис. 9.13; Добавлено отсутствующее «B.P.».; прочитано моделью по скану"
+  },
+  {
+   "page": 414,
+   "md": "Water bodies and bays labelled **Empire Bay** and **Garden Island Bay**.",
+   "scan": "Подписаны East Bay и Garden Island Bay; Empire Bay нет.",
+   "kind": "recognition",
+   "note": "рис. 9.14; Неверное название залива.; прочитано моделью по скану"
+  },
+  {
+   "page": 414,
+   "md": "Vertical depth scale increases downward from 0 to −100 m, −200 m, −400 m, and −600 m.",
+   "scan": "Есть 0 и −100 m, а также −200′ и −400′ (футы); отметки −600 нет.",
+   "kind": "recognition",
+   "note": "рис. 9.14; Футы приняты за метры, придумана отметка −600.; прочитано моделью по скану"
+  },
+  {
+   "page": 414,
+   "md": "**Unconsolidated delta-front deposits**; **Clay wedge**",
+   "scan": "Подпись: «Undist pre-birdfoot delta deposits» — толща на левой грани, не верхний уровень разреза.",
+   "kind": "recognition",
+   "note": "рис. 9.14; Неверно прочитана подпись и положение толщи.; прочитано моделью по скану"
+  },
+  {
+   "page": 414,
+   "md": "**Pre-delta marine clay**; **Pre-delta marine sand**.",
+   "scan": "Глины подписаны «Pro-delta marine clay» слева и «Pre-birdfoot delta marine clay» справа.",
+   "kind": "recognition",
+   "note": "рис. 9.14; Неверные названия глинистого слоя.; прочитано моделью по скану"
+  },
+  {
+   "page": 414,
+   "md": "North arrow points toward the upper part of the image",
+   "scan": "Стрелка N направлена вверх и вправо, наискось.",
+   "kind": "recognition",
+   "note": "рис. 9.14; Не указан наклон стрелки севера вправо.; прочитано моделью по скану"
+  },
+  {
+   "page": 415,
+   "md": "A scale bar is shown at upper right: 50 km; 50 mi.",
+   "scan": "Масштаб плана: 0–15 Km и 0–10 Mi.",
+   "kind": "recognition",
+   "note": "рис. 9.15; Неверные числа масштаба плана; прочитано моделью по скану"
+  },
+  {
+   "page": 415,
+   "md": "horizontal scale labelled 1000 m; vertical scale labelled 200 m.",
+   "scan": "Вертикальный масштаб 200 Ft (около 60 M), горизонтальный 1000 M / 4000 Ft; общий для разрезов.",
+   "kind": "recognition",
+   "note": "рис. 9.15; Вертикальный масштаб в футах, не метрах; прочитано моделью по скану"
+  },
+  {
+   "page": 415,
+   "md": "1. Deep plain — dark, nearly structureless interval.",
+   "scan": "Верхний интервал подписан «Delta plan» (дельтовая равнина).",
+   "kind": "recognition",
+   "note": "рис. 9.15; Неверно прочитана подпись интервала; прочитано моделью по скану"
+  },
+  {
+   "page": 415,
+   "md": "A vertical arrow labelled PRESERVED indicates the preserved succession upward.",
+   "scan": "Это черта без наконечника с поперечной засечкой сверху; охватывает только часть колонки ниже гребня бара.",
+   "kind": "recognition",
+   "note": "рис. 9.15; Не стрелка; охват лишь нижней части; прочитано моделью по скану"
+  },
+  {
+   "page": 415,
+   "md": "black arrows indicate lateral directions.",
+   "scan": "Чёрные фигуры на разрезах — вертикальные каротажные профили, а не стрелки направлений.",
+   "kind": "recognition",
+   "note": "рис. 9.15; Каротажные профили приняты за стрелки; прочитано моделью по скану"
+  },
+  {
+   "page": 415,
+   "md": "yellow central body bounded by darker vertical to inclined elements",
+   "scan": "Тёмные вертикальные элементы на разрезе B–B' — каротажные профили в скважинах, а не границы тела.",
+   "kind": "recognition",
+   "note": "рис. 9.15; Каротажные профили приняты за границы; прочитано моделью по скану"
+  },
+  {
+   "page": 415,
+   "md": "Proximal mouth bar — trough/cross bedding and deformed bedding.",
+   "scan": "«Proximal mouth bar-troughs deformed bedding»; косая слоистость в подписи не названа.",
+   "kind": "recognition",
+   "note": "рис. 9.15; Подпись передана неточно; прочитано моделью по скану"
+  },
+  {
+   "page": 416,
+   "md": "Two inset maps show alternative plan-view distributions",
+   "scan": "Врезок три: вверху слева, вверху справа и внизу справа; это три стратиграфических слоя.",
+   "kind": "recognition",
+   "note": "рис. 9.16; Неверно число врезок и их смысл.; прочитано моделью по скану"
+  },
+  {
+   "page": 416,
+   "md": "a scale labelled “2000” [unit not legible]",
+   "scan": "На врезках подписано «0 2000 ft.», единица — футы, читается.",
+   "kind": "recognition",
+   "note": "рис. 9.16; Единица масштаба пропущена.; прочитано моделью по скану"
+  },
+  {
+   "page": 416,
+   "md": "Delta-mouth bars are shown at distributary mouths, seaward of the delta front",
+   "scan": "Dist. Mouth Bars лежат со стороны суши от полосы Delta Front; фронт дельты мористее баров.",
+   "kind": "recognition",
+   "note": "рис. 9.16; Перепутано взаимное положение баров и фронта дельты.; прочитано моделью по скану"
+  },
+  {
+   "page": 416,
+   "md": "coarse alluvial deposits in the upper-left area",
+   "scan": "Подпись Coarse Alluvial стоит вверху по центру; верхний левый угол занят врезкой.",
+   "kind": "recognition",
+   "note": "рис. 9.16; Неверное положение области.; прочитано моделью по скану"
+  },
+  {
+   "page": 416,
+   "md": "“Delta Mouth Bars”; “Delta Front”; “Prodelta”",
+   "scan": "На основной карте подписано «Dist. Mouth Bars».",
+   "kind": "recognition",
+   "note": "рис. 9.16; Искажена подпись.; прочитано моделью по скану"
+  },
+  {
+   "page": 416,
+   "md": "Insets include a well-location symbol",
+   "scan": "На врезках есть текст «Well Location» под масштабной линейкой; отдельного значка скважины не различить.",
+   "kind": "recognition",
+   "note": "рис. 9.16; Значок скважины не виден.; прочитано моделью по скану"
+  },
+  {
+   "page": 417,
+   "md": "The best-sorted sand occupies the channel-mouth and proximal central part of the bar; silty sand surrounds it",
+   "scan": "Жёлтый песок лежит в вершине бара у раздвоения и вдоль его краёв; оранжевый занимает центр ниже по течению и не окружает жёлтый.",
+   "kind": "recognition",
+   "note": "рис. 9.17; Перепутано взаимное положение жёлтой и оранжевой зон.; прочитано моделью по скану"
+  },
+  {
+   "page": 417,
+   "md": "**Subaerial Levee** occurs along the upper-left channel margin.",
+   "scan": "Серые надводные валы есть слева по обе стороны канала: сверху и снизу.",
+   "kind": "recognition",
+   "note": "рис. 9.17; Пропущен нижний надводный вал.; прочитано моделью по скану"
+  },
+  {
+   "page": 417,
+   "md": "**Subaqueous Levee** occurs along the upper channel margins.",
+   "scan": "Оранжевые подводные валы есть и выше, и ниже канала, внизу ещё отдельное пятно.",
+   "kind": "recognition",
+   "note": "рис. 9.17; Пропущены нижние подводные валы.; прочитано моделью по скану"
+  },
+  {
+   "page": 417,
+   "md": "Cross section:\n- Horizontal reference at the top: **Sea Level**.",
+   "scan": "В разрезе есть также подпись «Bar Apex» над наивысшей точкой жёлтого бара.",
+   "kind": "recognition",
+   "note": "рис. 9.17; Пропущена подпись вершины бара.; прочитано моделью по скану"
+  },
+  {
+   "page": 417,
+   "md": "The mouth bar progrades basinward as successive inclined **Time Lines**.",
+   "scan": "Линии времени сначала поднимаются к вершине бара и лишь за ней полого падают к бассейну.",
+   "kind": "recognition",
+   "note": "рис. 9.17; Не отмечен перегиб линий времени у вершины бара.; прочитано моделью по скану"
+  },
+  {
+   "page": 417,
+   "md": "Yellow well-sorted sand is concentrated in the proximal, shallow part of the bar; orange silty sand extends farther basinward",
+   "scan": "В разрезе оранжевый участок есть и у левого края, проксимальнее жёлтого песка, а не только дальше к бассейну.",
+   "kind": "recognition",
+   "note": "рис. 9.17; Пропущен оранжевый участок слева в разрезе.; прочитано моделью по скану"
+  },
+  {
+   "page": 418,
+   "md": "Подписанные стратиграфические интервалы слева: Ranga; Romeo 2A; Kavi.",
+   "scan": "Слева подписаны Tango, Romeo (с подразделениями 2A, 1B, 1A) и Kavik.",
+   "kind": "recognition",
+   "note": "рис. 9.18; Неверные названия, пропущены 1B и 1A; прочитано моделью по скану"
+  },
+  {
+   "page": 418,
+   "md": "Вертикальная шкала/единицы не указаны; направление вертикальной оси не подписано. Имеется",
+   "scan": "На верхнем разрезе есть вертикальный масштабный отрезок 50' со стрелками.",
+   "kind": "recognition",
+   "note": "рис. 9.18; Пропущен вертикальный масштаб; прочитано моделью по скану"
+  },
+  {
+   "page": 418,
+   "md": "жёлтый интервал развит преимущественно в северной части и выклинивается к югу",
+   "scan": "Жёлтый 2A прослеживается во всех семи скважинах до 17-04; на юге лишь тоньше.",
+   "kind": "recognition",
+   "note": "рис. 9.18; Выклинивания 2A нет; прочитано моделью по скану"
+  },
+  {
+   "page": 418,
+   "md": "светло-бежевые прослои присутствуют локально",
+   "scan": "Это нижний интервал 1A под 1B: прерывистое тело, выклинивающееся у 09-05 и на юге.",
+   "kind": "recognition",
+   "note": "рис. 9.18; Не указано положение 1A в подошве; прочитано моделью по скану"
+  },
+  {
+   "page": 418,
+   "md": "оранжевая зона занимает нижнюю и южную части разреза",
+   "scan": "Оранжевые дельтовые отложения идут по всему разрезу между жёлтыми сверху и серо-коричневыми снизу.",
+   "kind": "recognition",
+   "note": "рис. 9.18; Неверное положение дельтовой зоны; прочитано моделью по скану"
+  },
+  {
+   "page": 418,
+   "md": "светло-бежевые тела представлены прослоями и клиньями",
+   "scan": "Светло-бежевые пойменные тела лежат тонкими пятнами по кровле; клинья внизу — оранжевые и серо-коричневые.",
+   "kind": "recognition",
+   "note": "рис. 9.18; Floodplain находится сверху, не в клиньях; прочитано моделью по скану"
+  },
+  {
+   "page": 419,
+   "md": "голубой — Shale",
+   "scan": "В легенде Shale показан светлым персиковым цветом; голубого в легенде нет, хотя голубые прослои в колонке есть.",
+   "kind": "recognition",
+   "note": "рис. 9.19; Неверный цвет сланца в легенде; прочитано моделью по скану"
+  },
+  {
+   "page": 419,
+   "md": "Zone 1, верхняя часть | Песчаник с тонкими прослоями алевролита и сланца",
+   "scan": "В левом треке этот интервал обозначен 1B; «ZONE 1» — лишь подпись границы у фациальной колонки.",
+   "kind": "recognition",
+   "note": "рис. 9.19; Потеряна зона 1B в таблице; прочитано моделью по скану"
+  },
+  {
+   "page": 419,
+   "md": "Zone 1, нижняя часть | Песчаник с частыми тонкими прослоями сланца, алевролита и алевритистого сланца",
+   "scan": "Интервал Dist. Mouth Bar под Dist. Channel лежит на уровне верхней части зоны 1A (граница 1B/1A проходит около его кровли).",
+   "kind": "recognition",
+   "note": "рис. 9.19; Dist. Mouth Bar отнесён не к той зоне; прочитано моделью по скану"
+  },
+  {
+   "page": 419,
+   "md": "Песчаник, алевролит, сланец; тонкий красный прослой конгломерата",
+   "scan": "Красный прослой конгломерата находится ниже, у подписи Cong. Fluvial, а не в интервале Ab. Channel.",
+   "kind": "recognition",
+   "note": "рис. 9.19; Конгломерат помещён не в тот интервал; прочитано моделью по скану"
+  },
+  {
+   "page": 419,
+   "md": "Алевритистый сланец, сланец, алевролит и тонкие песчаные прослои",
+   "scan": "Prodelta в колонке — сплошной однородный светло-персиковый блок без жёлтых песчаных прослоев.",
+   "kind": "recognition",
+   "note": "рис. 9.19; Приписаны отсутствующие прослои в продельте; прочитано моделью по скану"
+  },
+  {
+   "page": 419,
+   "md": "Сланец и алевритистый сланец с тонкими песчано-алевритовыми прослоями",
+   "scan": "У кровли Shelf видны оранжевый и красный (цвет конгломерата по легенде) тонкие прослои; жёлтых песчаных прослоев нет.",
+   "kind": "recognition",
+   "note": "рис. 9.19; Пропущен красный прослой, приписан песчаник; прочитано моделью по скану"
+  },
+  {
+   "page": 419,
+   "md": "Глубина: ft; глубина увеличивается вниз. Подписанные отметки глубины: 9450, 9500, 9550, 9600 ft.",
+   "scan": "Шкал глубины две — Log и Core, каждая с отметками 9450–9600; они смещены друг относительно друга по вертикали.",
+   "kind": "recognition",
+   "note": "рис. 9.19; Пропущена вторая шкала глубин (Core); прочитано моделью по скану"
+  },
+  {
+   "page": 420,
+   "md": "Printed curve mnemonics, scales, units, and lithology legend are absent.",
+   "scan": "Есть масштабный отрезок 0–100 ft., а значения цветов даны в подписи рисунка.",
+   "kind": "recognition",
+   "note": "рис. 9.20; Единицы (ft.) и расшифровка цветов имеются.; прочитано моделью по скану"
+  },
+  {
+   "page": 420,
+   "md": "Lithology cannot be determined without a legend.",
+   "scan": "Подпись: бежевый — пойма, жёлтый — русловые фации, белый — устьевой бар, фронт дельты, продельта, шельф.",
+   "kind": "recognition",
+   "note": "рис. 9.20; Фации определены подписью.; прочитано моделью по скану"
+  },
+  {
+   "page": 420,
+   "md": "upper yellow-dominated interval; thin pale-pink and grey/white laminated beds occur near its lower part.",
+   "scan": "В (e) бежевые прослои лежат в верхней и средней части; низ жёлтый с волнистыми линиями.",
+   "kind": "recognition",
+   "note": "рис. 9.20; Перепутано положение прослоев по высоте.; прочитано моделью по скану"
+  },
+  {
+   "page": 420,
+   "md": "lower interval dominated by thin white and grey horizontally laminated beds, with yellow beds and a pale-pink bed near the base.",
+   "scan": "Бежевый прослой в (a) находится у верха (справа); у основания жёлтые и белые слои.",
+   "kind": "recognition",
+   "note": "рис. 9.20; Перепутаны верх и низ.; прочитано моделью по скану"
+  },
+  {
+   "page": 420,
+   "md": "white intervals with thin horizontal black linework, grey horizontal linework, and locally greenish-grey fill.",
+   "scan": "Заливки только жёлтая, бежевая и белая; серо-зелёной заливки не видно.",
+   "kind": "recognition",
+   "note": "рис. 9.20; Несуществующая заливка.; прочитано моделью по скану"
+  },
+  {
+   "page": 420,
+   "md": "Map showing the distribution of three stratigraphic units in the outlined area.",
+   "scan": "По подписи это три стратиграфически различных глинистых пласта в восточной части месторождения.",
+   "kind": "recognition",
+   "note": "рис. 9.21; Не указано, что это глинистые пласты.; прочитано моделью по скану"
+  },
+  {
+   "page": 420,
+   "md": "Lithology is not determined without a legend; the fills represent stratigraphic units #1–#3.",
+   "scan": "Подпись прямо называет все три единицы глинами (shales).",
+   "kind": "recognition",
+   "note": "рис. 9.21; Литология известна: глины.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "CH_OGR_MWD_S_0",
+   "scan": "OH_0GR_MWD_S_0",
+   "kind": "recognition",
+   "note": "рис. 9.22; Неверно прочитано имя кривой.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "Final 18–20-ft. well 15–45 PBI",
+   "scan": "Две подписи: «Final 1820-ft. well» и отдельно «15–45 PBI»",
+   "kind": "recognition",
+   "note": "рис. 9.22; Длина 1820 ft искажена, подписи слиты.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "**BASE SADEROCHIT STRUCTURE MAP 15–45**",
+   "scan": "BASE SADLEROCHIT STRUCTURE MAP 15–45",
+   "kind": "recognition",
+   "note": "рис. 9.22; Ошибка в названии свиты.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "Вертикальная шкала: ft, значения 8600, 8620, 8640, 8660, 8680, 8700, 8720",
+   "scan": "Подписано также деление 8740",
+   "kind": "recognition",
+   "note": "рис. 9.22; Потеряно деление.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "от приблизительно 9500 ft по measured depth в верхней части до приблизительно 10,200 ft в нижней части",
+   "scan": "Ствол начинается около MD 9660, достигает низа около MD 9950 и идёт почти горизонтально до MD около 11,060",
+   "kind": "recognition",
+   "note": "рис. 9.22; Неверно описана траектория.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "| около 8727–8732 | орнамент из кружков | не указано | PERFORATED INTERVAL |",
+   "scan": "Кружки показывают интервал по MD около 9900–10,900 ft внизу графика; это не слой на глубине",
+   "kind": "recognition",
+   "note": "рис. 9.22; Перфорация принята за литологический интервал.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "серая диагональная штриховка — SHALE (NONPAY)",
+   "scan": "SHALE (NONPAY) показана сплошной коричневой заливкой; серая штриховка есть только в треке GR",
+   "kind": "recognition",
+   "note": "рис. 9.22; Неверное условное обозначение глины.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "Нефть: для 09-35 — примерно 300–450 B/D; для 09-35A — около 0–150 B/D.",
+   "scan": "09-35: около 200–360; 09-35A: около 300–390 Bbls/Day",
+   "kind": "recognition",
+   "note": "рис. 9.23; Неверные уровни нефти, особенно для 09-35A.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "дебит воды существенно снижается; дебит нефти также снижается",
+   "scan": "Вода резко падает, а нефть у 09-35A чуть выше, чем в конце 09-35",
+   "kind": "recognition",
+   "note": "рис. 9.23; Направление изменения нефти перепутано.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "Вода: для 09-35 — изменяется примерно от 500 до 1800 B/D",
+   "scan": "Вода 09-35 – примерно 1070–1800",
+   "kind": "recognition",
+   "note": "рис. 9.23; Неверный нижний предел.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "Ось Y: B/D, линейная шкала, 0–2000.",
+   "scan": "Ось подписана Bbls/Day",
+   "kind": "recognition",
+   "note": "рис. 9.23; Неверная подпись оси.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "Ось X: даты; подписи частично неразборчивы.",
+   "scan": "Подписаны даты 5/31/92, 1/31/93, 1/31/94, 5/31/94",
+   "kind": "recognition",
+   "note": "рис. 9.23; Потеряны деления дат.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "**SONIC**, шкала не указана; серая кривая.",
+   "scan": "SONIC имеет шкалу 150–50",
+   "kind": "recognition",
+   "note": "рис. 9.23; Пропущена шкала.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "**RILD**, шкала 0–2000",
+   "scan": "Шкала RILD 20–2000",
+   "kind": "recognition",
+   "note": "рис. 9.23; Неверный левый предел.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "“09-35A 100% Production Conventional Completion”.",
+   "scan": "«09-35 Conventional Completion»; отдельно справа «09-35 100% Production»",
+   "kind": "recognition",
+   "note": "рис. 9.23; Слиты разные подписи, перепутана скважина.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "“Stofed water” [нрзб; возможно, “Stoffed water”].",
+   "scan": "Такой подписи нет; наклонная надпись на полосе – «700' slotted liner»",
+   "kind": "recognition",
+   "note": "рис. 9.23; Выдуманная подпись, пропущен щелевой хвостовик.; прочитано моделью по скану"
+  },
+  {
+   "page": 421,
+   "md": "“09-35 100% Production No. Prod”.",
+   "scan": "Две подписи: «09-35 100% Production» (выше линии) и «No. Prod. In 09-35» (ниже)",
+   "kind": "recognition",
+   "note": "рис. 9.23; Слиты противоположные по смыслу интервалы.; прочитано моделью по скану"
+  },
+  {
+   "page": 422,
+   "md": "yellow-orange — Fluvial/Crevasse Splay;\n- bright yellow — Floodplain;\n- yellow — Distributary Channel;",
+   "scan": "Floodplain в легенде чёрный; Distributary Channel ярко-жёлтый; Fluvial/Crevasse Splay золотисто-жёлтый.",
+   "kind": "recognition",
+   "note": "рис. 9.24; Перепутаны цвета фаций: пойма чёрная.; прочитано моделью по скану"
+  },
+  {
+   "page": 422,
+   "md": "light yellow — Shelf, Prodelta, & Delta Front.",
+   "scan": "Shelf, Prodelta, & Delta Front — коричневато-песочный, самый нижний слой.",
+   "kind": "recognition",
+   "note": "рис. 9.24; Неверный цвет шельфовых отложений.; прочитано моделью по скану"
+  },
+  {
+   "page": 422,
+   "md": "Fluid legend:\n- black — Gas;\n- white — Oil.",
+   "scan": "Gas обозначен серым, Oil — белым.",
+   "kind": "recognition",
+   "note": "рис. 9.24; Газ серый, а не чёрный.; прочитано моделью по скану"
+  },
+  {
+   "page": 422,
+   "md": "The section contains several laterally continuous black gas intervals, with white oil intervals and coloured depositional bodies between them.",
+   "scan": "Чёрные прослои — пойменные отложения; газ и нефть показаны только серо-белыми колонками у скважин.",
+   "kind": "recognition",
+   "note": "рис. 9.24; Пойма принята за газ.; прочитано моделью по скану"
+  },
+  {
+   "page": 422,
+   "md": "A vertical black well trajectory is shown at well 11-30, curving toward the southwest at approximately depth 8650–8680.",
+   "scan": "Ствол изгибается вправо, к Northeast, внизу, примерно на 8730–8755 по левой шкале.",
+   "kind": "recognition",
+   "note": "рис. 9.24; Неверны направление изгиба и глубина.; прочитано моделью по скану"
+  },
+  {
+   "page": 422,
+   "md": "At well 11-23, a vertical log-like curve is displayed beside the well.",
+   "scan": "Каротажные кривые есть и у 11-23, и у 11-28.",
+   "kind": "recognition",
+   "note": "рис. 9.24; Пропущена кривая у скв. 11-28.; прочитано моделью по скану"
+  },
+  {
+   "page": 422,
+   "md": "A liner labelled 894' of slotted liner extends from left to right. The liner is inclined at 25° relative to horizontal.",
+   "scan": "25' — вертикальный размер в футах у левого края; угол не указан. 894' — горизонтальная размерная стрелка.",
+   "kind": "recognition",
+   "note": "рис. 9.24; 25 футов принято за угол 25°.; прочитано моделью по скану"
+  },
+  {
+   "page": 422,
+   "md": "Multiple narrow diagonal slots are shown along the liner.",
+   "scan": "Щели не нарисованы; диагональные клинья — наклонные прослои в породе.",
+   "kind": "recognition",
+   "note": "рис. 9.24; Прослои приняты за щели хвостовика.; прочитано моделью по скану"
+  },
+  {
+   "page": 422,
+   "md": "An arrow above the liner points to the left.",
+   "scan": "Над блоком двусторонняя размерная стрелка длиной 894'.",
+   "kind": "recognition",
+   "note": "рис. 9.24; Стрелка двусторонняя, это размер.; прочитано моделью по скану"
+  },
+  {
+   "page": 422,
+   "md": "several white elongated lenses occur within the orange body. An arrow above",
+   "scan": "Белые клинья лежат у нижнего края блока; в верхней части есть бежевые наклонные прослои, описанием не названные.",
+   "kind": "recognition",
+   "note": "рис. 9.24; Пропущены бежевые прослои залива.; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "A1: strongest shaded area in the upper-left part of the outline; posted value: −0.31 [unit illegible].",
+   "scan": "Подписано «0-31 ft.»: это диапазон от 0 до 31 фута.",
+   "kind": "recognition",
+   "note": "рис. 9.25; Диапазон принят за отрицательное число, единицы пропущены; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "A5: weak yellow shaded anomaly in the lower-left/central part; posted value: −0.16 [unit illegible].",
+   "scan": "Подписи карт: 0-31, 0-31, 0-32, 0-33, 0-16 ft.; у A5 «0-16 ft.».",
+   "kind": "recognition",
+   "note": "рис. 9.25; Диапазоны всех карт прочитаны как отрицательные значения; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "Depth axis is vertical; numerical depth labels are [illegible]. Depth increases downward.",
+   "scan": "Читаются две колонки глубин: 6330–6440 и 8840–9000.",
+   "kind": "recognition",
+   "note": "рис. 9.25; Подписи глубин пропущены; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "yellow, orange, green and blue fills are present.",
+   "scan": "В левом треке только жёлтая и коричнево-оранжевая заливки.",
+   "kind": "recognition",
+   "note": "рис. 9.25; Зелёной и синей заливки на каротаже нет; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "Right narrow track: vertical column with a pink-filled interval; labels are [illegible].",
+   "scan": "В правой колонке подписаны A6, A5, A4, A3; розовая штриховка в соседней колонке левее.",
+   "kind": "recognition",
+   "note": "рис. 9.25; Пропущены подразделения, перепутано положение розовой заливки; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "A3: shaded area occupies the central part; a black diagonal line crosses",
+   "scan": "Окраска A3 вытянута полосой от нижней левой части к верхне-центральной.",
+   "kind": "recognition",
+   "note": "рис. 9.25; Не отмечена вытянутая диагональная форма зоны; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "A4: shaded anomaly is centred; posted value: −0.33",
+   "scan": "Зона A4 смещена в нижнюю половину контура; подпись «0-33 ft.».",
+   "kind": "recognition",
+   "note": "рис. 9.25; Неверны положение зоны и значение; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "A prominent black diagonal boundary/fault-like line descends toward the right in the left-central part of the section",
+   "scan": "На разрезе по скважинам такой линии нет; чёрная диагональ есть на карте A3. Заметны толстая синяя и красные линии.",
+   "kind": "recognition",
+   "note": "рис. 9.25; Линия приписана разрезу, синяя линия пропущена; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "“USGNU #1”; “Y-2”; “1A-15”; “1A-6”; “1B-1”; “1E-8”; “1E-8”; “1E-3”.",
+   "scan": "UGNU #1, 1Y-2, 1A-15, 1A-8, 1B-1, 1E-8, 1E-5, 1E-3.",
+   "kind": "recognition",
+   "note": "рис. 9.25; Неверно прочитаны названия скважин; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "Internal labels include “A-2”, “A-3”, and “A-4”; other labels are [illegible].",
+   "scan": "Есть также A-5, A-6 и частично закрытая подпись A-1 слева.",
+   "kind": "recognition",
+   "note": "рис. 9.25; Пропущены подписи подразделений; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "A scale symbol at lower left is labelled “SCALE” and “Ver. 50” [remaining text illegible].",
+   "scan": "«SCALE, V.E. = 30x», вертикальный отрезок 100', горизонтальный 5000'.",
+   "kind": "recognition",
+   "note": "рис. 9.25; Неверно прочитано вертикальное преувеличение, пропущены масштабы; прочитано моделью по скану"
+  },
+  {
+   "page": 423,
+   "md": "Profile endpoints: A at the NW end and A′ at the SE end.",
+   "scan": "На нижнем разрезе видна только A' справа; буквы A у северо-западного конца нет.",
+   "kind": "recognition",
+   "note": "рис. 9.25; Приписана невидимая подпись; прочитано моделью по скану"
+  }
+ ]
+}

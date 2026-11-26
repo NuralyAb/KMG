@@ -1,0 +1,80 @@
+{
+ "node_id": "asquith.pickett_example",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Зоны 1–7: Rt от 0,9 до 2,1 Ом·м",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Водоносная линия: наклон −1/2, m = 2,0",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "При φ = 0,10: Ro = 4,6 Ом·м; принято a = 1,0",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Аномальная точка: Rt = 40, Ro = 0,80 Ом·м при той же φ",
+    "kind": "data"
+   },
+   {
+    "id": "d",
+    "text": "Rw = 4,6 × 0,10^2,0 / 1,0 = 0,046 Ом·м",
+    "kind": "result"
+   },
+   {
+    "id": "f",
+    "text": "Sw = (0,8/40)^(1/2,0) = 0,14",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": "n = 2,0"
+   }
+  ]
+ },
+ "caption": "Две ветви: к Rw и к Sw аномальной точки; m допускает 1,8–2,15. n = 2,0 — как в книге; вероятно, опечатка издания.",
+ "alt": "Схема расчёта: по зонам 1–7 проводят водоносную линию, по ней находят Rw = 0,046 Ом·м, а для точки с 40 Ом·м получают Sw = 0,14.",
+ "claim_ids": [
+  "asquith.pickett_example#c3",
+  "asquith.pickett_example#c9",
+  "asquith.pickett_example#c10",
+  "asquith.pickett_example#c18",
+  "asquith.pickett_example#c19",
+  "asquith.pickett_example#c20",
+  "asquith.pickett_example#c22",
+  "asquith.pickett_example#c23",
+  "asquith.pickett_example#c31",
+  "asquith.pickett_example#c32",
+  "asquith.pickett_example#c33"
+ ]
+}

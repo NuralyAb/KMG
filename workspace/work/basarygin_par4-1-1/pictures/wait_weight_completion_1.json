@@ -1,0 +1,87 @@
+{
+ "node_id": "basarygin.wait_weight_completion",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Раствор у долота: насос стоп, штуцер закрыт",
+    "kind": "step"
+   },
+   {
+    "id": "b",
+    "text": "Избыточное давление в трубах должно быть нулевым",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Циркуляция при постоянном запланированном давлении",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Пошёл раствор глушения: насос стоп, линию закрыть",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Есть ли давление в трубах и кольцевом пространстве?",
+    "kind": "choice"
+   },
+   {
+    "id": "f",
+    "text": "Скважина заглушена, работы можно возобновлять",
+    "kind": "result"
+   },
+   {
+    "id": "g",
+    "text": "В трубах давление: второй выброс, глушить снова",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": "нет"
+   },
+   {
+    "from": "e",
+    "to": "g",
+    "label": "есть"
+   }
+  ]
+ },
+ "caption": "Порядок завершения глушения: проверка у долота, докачка до выхода раствора глушения и итоговая проверка давления.",
+ "alt": "Схема: остановка у долота и проверка, циркуляция до выхода раствора глушения, затем развилка: без давления в трубах и кольцевом пространстве скважина заглушена, при давлении в трубах глушение повторяют.",
+ "claim_ids": [
+  "basarygin.wait_weight_completion#c4",
+  "basarygin.wait_weight_completion#c5",
+  "basarygin.wait_weight_completion#c7",
+  "basarygin.wait_weight_completion#c8",
+  "basarygin.wait_weight_completion#c10",
+  "basarygin.wait_weight_completion#c11",
+  "basarygin.wait_weight_completion#c12",
+  "basarygin.wait_weight_completion#c13"
+ ]
+}

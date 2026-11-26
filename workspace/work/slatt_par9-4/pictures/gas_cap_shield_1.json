@@ -1,0 +1,40 @@
+{
+ "node_id": "slatt.gas_cap_shield",
+ "template": "section",
+ "data": {
+  "shape": "flat",
+  "layers": [
+   {
+    "lithology": "dense",
+    "label": "Породы выше"
+   },
+   {
+    "lithology": "sand",
+    "label": "Газовая шапка",
+    "fluids": [
+     "gas"
+    ]
+   },
+   {
+    "lithology": "shale",
+    "label": "Глина залива"
+   },
+   {
+    "lithology": "sand",
+    "label": "Песчаник, 11-30",
+    "fluids": [
+     "oil"
+    ]
+   }
+  ],
+  "wells": []
+ },
+ "caption": "Схема: глина залива отделяет газовую шапку от песчаника, внутри которого идёт горизонтальный участок скв. 11-30 (сам ствол не показан).",
+ "alt": "Схематический разрез: сверху вниз газовая шапка, глина залива и нефтеносный целевой песчаник скважины 11-30. Глина лежит между газом и нефтью.",
+ "claim_ids": [
+  "slatt.gas_cap_shield#c2",
+  "slatt.gas_cap_shield#c3",
+  "slatt.gas_cap_shield#c4",
+  "slatt.gas_cap_shield#c9"
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "node_id": "asquith.pickett_saturation_lines",
+ "template": "plot",
+ "data": {
+  "x_label": "Пористость",
+  "y_label": "Сопротивление",
+  "numeric": false,
+  "series": [
+   {
+    "name": "Водоносная линия (Ro)",
+    "points": [
+     [
+      0.1,
+      0.55
+     ],
+     [
+      0.9,
+      0.15
+     ]
+    ]
+   },
+   {
+    "name": "Sw = 0,50",
+    "points": [
+     [
+      0.1,
+      0.7
+     ],
+     [
+      0.9,
+      0.3
+     ]
+    ]
+   },
+   {
+    "name": "Sw = 0,20",
+    "points": [
+     [
+      0.1,
+      0.9
+     ],
+     [
+      0.9,
+      0.5
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.5,
+    "y": 0.35,
+    "text": "Ro"
+   },
+   {
+    "x": 0.5,
+    "y": 0.5,
+    "text": "Ro × 4"
+   },
+   {
+    "x": 0.5,
+    "y": 0.7,
+    "text": "Ro × 25"
+   }
+  ]
+ },
+ "caption": "Ro умножают на множитель и ведут параллель водоносной линии; меньше Sw — выше. n = 2,0 — как в книге; вероятно, опечатка издания.",
+ "alt": "Три параллельные нисходящие прямые: водоносная, над ней линия Sw = 0,50 с множителем 4 и ещё выше линия Sw = 0,20 с множителем 25.",
+ "claim_ids": [
+  "asquith.pickett_saturation_lines#c6",
+  "asquith.pickett_saturation_lines#c7",
+  "asquith.pickett_saturation_lines#c8",
+  "asquith.pickett_saturation_lines#c10",
+  "asquith.pickett_saturation_lines#c15",
+  "asquith.pickett_saturation_lines#c18"
+ ]
+}

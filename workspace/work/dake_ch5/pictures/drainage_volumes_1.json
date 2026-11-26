@@ -1,0 +1,76 @@
+{
+ "node_id": "dake.drainage_volumes",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Пласт на истощении, квазиустановившийся режим",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "dp/dt примерно один во всём пласте?",
+    "kind": "choice"
+   },
+   {
+    "id": "c",
+    "text": "Каждая скважина дренирует свою зону независимо",
+    "kind": "result"
+   },
+   {
+    "id": "d",
+    "text": "Поток через границы зон сдвигает их",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Среднее давление: p̄ᵢ зон взвешивают по объёмам пор Vᵢ",
+    "kind": "result"
+   },
+   {
+    "id": "f",
+    "text": "Сдвиг идёт, пока не наступит устойчивость",
+    "kind": "step"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": "да"
+   },
+   {
+    "from": "b",
+    "to": "d",
+    "label": "нет"
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "f",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Следите за развилкой: при общем темпе dp/dt зоны скважин независимы, иначе их границы смещаются.",
+ "alt": "Схема: если dp/dt примерно постоянен по пласту, скважины дренируют свои зоны независимо и давление усредняют по объёмам пор; иначе поток смещает границы до устойчивости.",
+ "claim_ids": [
+  "dake.drainage_volumes#c2",
+  "dake.drainage_volumes#c3",
+  "dake.drainage_volumes#c4",
+  "dake.drainage_volumes#c5",
+  "dake.drainage_volumes#c6",
+  "dake.drainage_volumes#c7",
+  "dake.drainage_volumes#c8"
+ ]
+}

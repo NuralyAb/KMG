@@ -1,0 +1,65 @@
+{
+ "node_id": "dake.solve_ordinary_equation",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "d/ds(s·dp/ds) = −s·dp/ds",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Замена p′ = dp/ds: p′ + s·dp′/ds = −sp′",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Разделяем: dp′/p′ = −((s+1)/s) ds",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Интегрируем: ln p′ = −ln s − s + C₁",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "p′ = C₂·e^(−s)/s — производная, ещё не давление",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Цепочка решения: замена, разделение переменных, интегрирование. На выходе — производная давления по s с постоянной C₂.",
+ "alt": "Схема из пяти шагов сверху вниз: исходное уравнение, замена производной на p′, разделение переменных, интегрирование и выражение для p′.",
+ "claim_ids": [
+  "dake.solve_ordinary_equation#c2",
+  "dake.solve_ordinary_equation#c5",
+  "dake.solve_ordinary_equation#c6",
+  "dake.solve_ordinary_equation#c7",
+  "dake.solve_ordinary_equation#c9",
+  "dake.solve_ordinary_equation#c10"
+ ]
+}

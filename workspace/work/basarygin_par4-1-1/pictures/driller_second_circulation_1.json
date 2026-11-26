@@ -1,0 +1,52 @@
+{
+ "node_id": "basarygin.driller_second_circulation",
+ "template": "plot",
+ "data": {
+  "x_label": "Ход второго этапа",
+  "y_label": "Давление в бурильных трубах",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "После выхода насоса на скорость",
+    "color": "",
+    "points": [
+     [
+      0.1,
+      0.8
+     ],
+     [
+      0.6,
+      0.35
+     ],
+     [
+      0.95,
+      0.35
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.1,
+    "y": 0.8,
+    "text": "насос на скорости"
+   },
+   {
+    "x": 0.6,
+    "y": 0.35,
+    "text": "раствор у долота"
+   }
+  ]
+ },
+ "caption": "Пока тяжёлый раствор идёт к долоту, давление в трубах снижают, затем держат постоянным. Ход показан качественно.",
+ "alt": "Кривая давления в бурильных трубах снижается, пока раствор для глушения не дойдёт до долота, а дальше идёт горизонтально.",
+ "claim_ids": [
+  "basarygin.driller_second_circulation#c7",
+  "basarygin.driller_second_circulation#c10",
+  "basarygin.driller_second_circulation#c11",
+  "basarygin.driller_second_circulation#c12"
+ ]
+}

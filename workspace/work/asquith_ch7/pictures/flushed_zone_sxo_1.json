@@ -1,0 +1,20 @@
+{
+ "node_id": "asquith.flushed_zone_sxo",
+ "template": "borehole",
+ "data": {
+  "collector": true,
+  "lithology": "sand",
+  "fluid": "oil",
+  "pressure": "mud_above",
+  "bore": "mud",
+  "cake": false
+ },
+ "caption": "Буровой флюид проникает в пласт и у ствола может вытеснить нефть. Сравните промытую зону (Sxo) с незатронутой (Sw).",
+ "alt": "Скважина в нефтяном коллекторе: фильтрат раствора идёт в пласт и образует у ствола зону проникновения, дальше лежит нетронутый пласт.",
+ "claim_ids": [
+  "asquith.flushed_zone_sxo#c3",
+  "asquith.flushed_zone_sxo#c11",
+  "asquith.flushed_zone_sxo#c18",
+  "asquith.flushed_zone_sxo#c19"
+ ]
+}

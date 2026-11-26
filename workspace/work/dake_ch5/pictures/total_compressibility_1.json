@@ -1,0 +1,18 @@
+{
+ "node_id": "dake.total_compressibility",
+ "template": "grains",
+ "data": {
+  "pores": "intergranular",
+  "clay": "none",
+  "fluid": "oil",
+  "water_film": true
+ },
+ "caption": "Общая сжимаемость учитывает три части: нефть, связанную воду и само поровое пространство",
+ "alt": "Порода под увеличением: поры между зёрнами заполнены нефтью, на зёрнах плёнка связанной воды.",
+ "claim_ids": [
+  "dake.total_compressibility#c2",
+  "dake.total_compressibility#c4",
+  "dake.total_compressibility#c6",
+  "dake.total_compressibility#c7"
+ ]
+}

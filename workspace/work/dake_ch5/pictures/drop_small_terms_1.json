@@ -1,0 +1,83 @@
+{
+ "node_id": "dake.drop_small_terms",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Уравнение (5.18), пласт однородный",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Вязкость μ постоянна",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Градиент ∂p/∂r мал, (∂p/∂r)² отбрасывают",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "(5.19), или (5.20): два первых слагаемых убраны",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Сжимаемость c постоянна, значит φμc/k постоянен",
+    "kind": "step"
+   },
+   {
+    "id": "f",
+    "text": "Уравнение линеаризовано; годится лишь при cp ≪ 1",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Порядок допущений: что убирает слагаемые и что делает коэффициент φμc/k постоянным",
+ "alt": "Схема: из (5.18) при постоянной вязкости и малом градиенте получают (5.19) и (5.20), затем при постоянной сжимаемости уравнение становится линейным, если cp ≪ 1.",
+ "claim_ids": [
+  "dake.drop_small_terms#c4",
+  "dake.drop_small_terms#c5",
+  "dake.drop_small_terms#c6",
+  "dake.drop_small_terms#c7",
+  "dake.drop_small_terms#c8",
+  "dake.drop_small_terms#c10",
+  "dake.drop_small_terms#c11",
+  "dake.drop_small_terms#c12",
+  "dake.drop_small_terms#c13"
+ ]
+}

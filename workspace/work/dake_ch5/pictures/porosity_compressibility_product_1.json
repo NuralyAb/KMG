@@ -1,0 +1,36 @@
+{
+ "node_id": "dake.porosity_compressibility_product",
+ "template": "compare",
+ "data": {
+  "left_title": "Абсолютная φ",
+  "right_title": "С учётом Swc",
+  "rows": [
+   {
+    "aspect": "Пористость",
+    "left": "φ абсолютная",
+    "right": "φ абс. × (1 − Swc): эффективная УВ"
+   },
+   {
+    "aspect": "Сжимаемость",
+    "left": "co·So + cw·Swc + cf",
+    "right": "(co·So + cw·Swc + cf) / (1 − Swc)"
+   },
+   {
+    "aspect": "Что за этим стоит",
+    "left": "в выводе поры насыщены одним флюидом",
+    "right": "учтена связанная вода"
+   }
+  ]
+ },
+ "caption": "Множитель (1 − Swc) входит в пористость и делит сжимаемость, поэтому φc не меняется. Сомножители из разных записей не смешивают.",
+ "alt": "Сравнение двух записей φc: с абсолютной пористостью и общей сжимаемостью или с эффективной углеводородной пористостью и сжимаемостью, делённой на (1 − Swc). Значение произведения одно и то же.",
+ "claim_ids": [
+  "dake.porosity_compressibility_product#c2",
+  "dake.porosity_compressibility_product#c3",
+  "dake.porosity_compressibility_product#c4",
+  "dake.porosity_compressibility_product#c5",
+  "dake.porosity_compressibility_product#c6",
+  "dake.porosity_compressibility_product#c8",
+  "dake.porosity_compressibility_product#c9"
+ ]
+}

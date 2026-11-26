@@ -1,0 +1,628 @@
+{
+ "chapter": "asquith_ch7",
+ "entries": [
+  {
+   "md": "The cementation exponent ($n$) is assumed to be 2.0",
+   "scan": "The saturation exponent (n) is assumed to be 2.0",
+   "kind": "suspect",
+   "note": "n — показатель насыщенности; цементации обозначается m. Так напечатано в книге.",
+   "page": 127
+  },
+  {
+   "md": "$$S_{xo} = (S_w)^{\\frac{1}{2}} \\tag{7.5}$$",
+   "scan": "Sxo = (Sw)^(1/5)  7.5",
+   "kind": "recognition",
+   "note": "показатель степени 1/5, а не 1/2",
+   "page": 128
+  },
+  {
+   "md": "($S_w$, $R_t$, $R_{xo}$, and $d_t$) are correct",
+   "scan": "(Sw, Rt, Rxo, and di) are correct",
+   "kind": "recognition",
+   "note": "di — диаметр зоны проникновения, индекс i, не t",
+   "page": 128
+  },
+  {
+   "md": "where the cementation exponent ($n$) in the equation above",
+   "scan": "where the saturation exponent (n) in the equation above",
+   "kind": "suspect",
+   "note": "n — показатель насыщенности; показатель цементации обозначается m",
+   "page": 130
+  },
+  {
+   "md": "$$R_t = \\frac{a \\times R_o}{\\phi^m \\times S_w^n} \\tag{7.23}$$",
+   "scan": "Rt = (a × Rw) / (φᵐ × Swⁿ)   7.23",
+   "kind": "recognition",
+   "note": "В числителе Rw (сопротивление пластовой воды), а не Ro",
+   "page": 132
+  },
+  {
+   "md": "B{Classics}",
+   "scan": "Clastics",
+   "kind": "recognition",
+   "note": "термин: обломочные породы, а не «Classics»",
+   "page": 140
+  },
+  {
+   "md": "F --> J[Zone of interest]",
+   "scan": "Water zone: Use as baseline (wet) comparison — без стрелки к Zone of interest",
+   "kind": "recognition",
+   "note": "водоносная зона не ведёт к зоне интереса",
+   "page": 140
+  },
+  {
+   "md": "H --> L\n    I -->|LOW|",
+   "scan": "Tight. Unlikely pay — без стрелки к Zone of interest",
+   "kind": "recognition",
+   "note": "плотная зона в карбонатах — тупиковая ветвь",
+   "page": 140
+  },
+  {
+   "md": "M --> L\n    L --> O[Begin detailed analysis]",
+   "scan": "Water zone Use as baseline (wet) comparison — без стрелки к Zone of interest",
+   "kind": "recognition",
+   "note": "водоносная зона в карбонатах — тупиковая ветвь",
+   "page": 140
+  },
+  {
+   "md": "B[Deep-reading resistivity (ILD, LL D)]",
+   "scan": "Deep-reading resistivity (ILD, LLD)",
+   "kind": "recognition",
+   "note": "название метода LLD разорвано",
+   "page": 140
+  },
+  {
+   "md": "B -->|Ch.5| M[Ri]",
+   "scan": "Ch.5 → Rt",
+   "kind": "recognition",
+   "note": "Rt — истинное сопротивление пласта",
+   "page": 140
+  },
+  {
+   "md": "C -->|Ch.5| N[R40]",
+   "scan": "Ch.5 → Rxo",
+   "kind": "recognition",
+   "note": "Rxo — сопротивление промытой зоны",
+   "page": 140
+  },
+  {
+   "md": "I -->|Ch.5| R[Roof]",
+   "scan": "Gamma Ray, Ch.3 → Vshale; отдельный блок Rmf",
+   "kind": "recognition",
+   "note": "Rmf искажён; гамма-каротаж даёт Vshale по Ch.3",
+   "page": 140
+  },
+  {
+   "md": "J -->|Ch.4| S[σ]",
+   "scan": "Wellsite measurements, Ch.1 → Rmf, Rw",
+   "kind": "recognition",
+   "note": "неверны глава и выходной параметр; σ в схеме нет",
+   "page": 140
+  },
+  {
+   "md": "K -->|Ch.4| S",
+   "scan": "Laboratory measurements, Ch.1 → a, m, n",
+   "kind": "recognition",
+   "note": "потеряны параметры a, m, n; глава 1",
+   "page": 140
+  },
+  {
+   "md": "L -->|Ch.4| S",
+   "scan": "Local knowledge, Ch.1 → a, m, n",
+   "kind": "recognition",
+   "note": "потеряны параметры a, m, n; глава 1",
+   "page": 140
+  },
+  {
+   "md": "E -->|Ch.7| O",
+   "scan": "Neutron, Ch.4 → φ",
+   "kind": "recognition",
+   "note": "неверный номер главы",
+   "page": 140
+  },
+  {
+   "md": "F -->|Ch.6| O",
+   "scan": "Sonic, Ch.4 → φ",
+   "kind": "recognition",
+   "note": "неверный номер главы",
+   "page": 140
+  },
+  {
+   "md": "G -->|Ch.6| P[Vshale]",
+   "scan": "Magnetic Resonance, Ch.6 → φ",
+   "kind": "recognition",
+   "note": "ЯМР ведёт к пористости, не к Vshale",
+   "page": 140
+  },
+  {
+   "md": "D -->|Ch.4| O[Φ]",
+   "scan": "Ch.4 → φ",
+   "kind": "recognition",
+   "note": "пористость — строчная φ",
+   "page": 140
+  },
+  {
+   "md": "T --> X[HW]",
+   "scan": "BVW",
+   "kind": "recognition",
+   "note": "BVW — объёмная доля воды",
+   "page": 140
+  },
+  {
+   "md": "Plot contains 5 diagonal lines (family of curves) labelled with values: 5, 10, 20, 50, 100, 200, 500, 1000",
+   "scan": "Plot contains diagonal lines (family of curves) labelled with values: 30, 50, 70, 100 (Sw)",
+   "kind": "recognition",
+   "note": "Подписи линий на графике: 30, 50, 70, 100, Sw",
+   "page": 142
+  },
+  {
+   "md": "(units not specified, likely ppm or mg/L, as per standard Schlumberger CP palettes)",
+   "scan": "Sw (water saturation, %)",
+   "kind": "recognition",
+   "note": "Линии — водонасыщенность Sw, а не солёность",
+   "page": 142
+  },
+  {
+   "md": "The curves are interpreted as lines of constant formation water salinity (or similar parameter)",
+   "scan": "The curves are lines of constant water saturation (Sw)",
+   "kind": "recognition",
+   "note": "Это линии постоянной водонасыщенности, не солёности",
+   "page": 142
+  },
+  {
+   "md": "Data points: 7 black dots plotted on the chart, distributed between Rt = 1.00 and 10.00, DPHI = 0.10 and 0.50.",
+   "scan": "Data points: 9 black dots: 7 near Rt = 1–2, DPHI = 0.13–0.23; 2 near Rt = 40–50, DPHI = 0.23",
+   "kind": "recognition",
+   "note": "Точек девять, две аномальные при высоком Rt",
+   "page": 142
+  },
+  {
+   "md": "The data points lie primarily along the curve labelled \"100\", with one point near \"50\" and one near \"200\".",
+   "scan": "The data points lie primarily along the line labelled \"100\", with two points above the line \"30\".",
+   "kind": "recognition",
+   "note": "Положение точек описано неверно; линии «200» нет",
+   "page": 142
+  },
+  {
+   "md": "is $a \\times R_{a}$. If the intercept were not off the plot",
+   "scan": "is a × Rw. If the intercept were not off the plot",
+   "kind": "recognition",
+   "note": "Rw — сопротивление пластовой воды, не Ra",
+   "page": 142
+  },
+  {
+   "md": "the value for $a \\times R_{a}$ can be determined from $R_{a}$ by using Equation 7.28.",
+   "scan": "the value for a × Rw can be determined from Ro by using Equation 7.28.",
+   "kind": "recognition",
+   "note": "Rw и Ro заменены на Ra",
+   "page": 142
+  },
+  {
+   "md": "R _ {w} = \\frac {R _ {a} \\times \\phi^ {m}}{a}",
+   "scan": "Rw = (Ro × φᵐ)/a",
+   "kind": "recognition",
+   "note": "В числителе Ro, не Ra",
+   "page": 142
+  },
+  {
+   "md": "Remember that $R_{a}$ is the resistivity in the undisturbed, water-bearing zone",
+   "scan": "Remember that Ro is the resistivity in the undisturbed, water-bearing zone",
+   "kind": "recognition",
+   "note": "Ro — сопротивление водонасыщенной зоны",
+   "page": 142
+  },
+  {
+   "md": "for all points on the water-bearing line $R_{i} = R_{a}$.",
+   "scan": "for all points on the water-bearing line Rt = Ro.",
+   "kind": "recognition",
+   "note": "Rt = Ro, индексы искажены",
+   "page": 142
+  },
+  {
+   "md": "Procedure to calculate $R_{a}$:",
+   "scan": "Procedure to calculate Rw:",
+   "kind": "recognition",
+   "note": "Рассчитывается Rw",
+   "page": 142
+  },
+  {
+   "md": "read the value of $R_{a}$ from the water-bearing line on the crossplot.",
+   "scan": "read the value of Ro from the water-bearing line on the crossplot.",
+   "kind": "recognition",
+   "note": "Индекс o, не a",
+   "page": 142
+  },
+  {
+   "md": "($\\mathrm{DPHI} = 0.10$), $R_{a} = 4.6$ ohm-m.",
+   "scan": "(DPHI = 0.10), Ro = 4.6 ohm-m.",
+   "kind": "recognition",
+   "note": "Индекс o, не a",
+   "page": 142
+  },
+  {
+   "md": "R _ {w} = \\frac {4 . 6 \\times 0 . 1 0 ^ {3 . 0}}{1 . 0}",
+   "scan": "Rw = (4.6 × 0.10^2.0)/1.0",
+   "kind": "recognition",
+   "note": "Показатель степени 2.0, не 3.0",
+   "page": 142
+  },
+  {
+   "md": "$R_{w} = 0.046$ ohm-m at formation temperature\n\nThe water saturation lines are constructed on the plot from the value for $R_{a}$",
+   "scan": "The water saturation lines are constructed on the plot from the value for Ro",
+   "kind": "recognition",
+   "note": "Индекс o, не a",
+   "page": 142
+  },
+  {
+   "md": "multiply $R_{a}$ by the multiplier to get the $y$-intercept",
+   "scan": "multiply Ro by the multiplier to get the y-intercept",
+   "kind": "recognition",
+   "note": "Индекс o, не a",
+   "page": 142
+  },
+  {
+   "md": "if $R_{a}$ (at $\\mathrm{DPHI} = 0.10$) is 4.6",
+   "scan": "if Ro (at DPHI = 0.10) is 4.6",
+   "kind": "recognition",
+   "note": "Индекс o, не a",
+   "page": 142
+  },
+  {
+   "md": "S _ {w} = \\left(\\frac {R _ {a}}{R _ {r}}\\right) ^ {\\frac {1}{n}}",
+   "scan": "Sw = (Ro/Rt)^(1/n)",
+   "kind": "recognition",
+   "note": "Отношение Ro к Rt, индексы искажены",
+   "page": 142
+  },
+  {
+   "md": "In this case, the value for $R_{a}$ is the value at the water-bearing line",
+   "scan": "In this case, the value for Ro is the value at the water-bearing line",
+   "kind": "recognition",
+   "note": "Индекс o, не a",
+   "page": 142
+  },
+  {
+   "md": "(both having the same porosity), $R_{a} = 0.80$ ohm-m.",
+   "scan": "(both having the same porosity), Ro = 0.80 ohm-m.",
+   "kind": "recognition",
+   "note": "Индекс o, не a",
+   "page": 142
+  },
+  {
+   "md": "с делениями: 0, 5, 10, 20, 50, 100, 200, 500, 1000, 1500, 2000.",
+   "scan": "0, 5, 10, 20, 50, 100, 150, 200, 250, 300, 400, 500, 1000, 1500, 2000",
+   "kind": "recognition",
+   "note": "пропущены деления 150, 250, 300, 400",
+   "page": 143
+  },
+  {
+   "md": "20, 50, 100, 200, 500, 1000, ∞.",
+   "scan": "20, 50, 100, 200, 1000, ∞",
+   "kind": "recognition",
+   "note": "деления 500 на правой оси нет",
+   "page": 143
+  },
+  {
+   "md": "Ось ординат (правая вертикальная): Удельное сопротивление, R —",
+   "scan": "Resistivity, Rₐ (Ω • m)",
+   "kind": "recognition",
+   "note": "потерян индекс a: кажущееся сопротивление Rₐ",
+   "page": 143
+  },
+  {
+   "md": "Проводимость, Ca — логарифмическая шкала",
+   "scan": "Conductivity, Ca — нелинейная шкала (пропорциональна √Ca), не логарифмическая",
+   "kind": "recognition",
+   "note": "интервалы делений не логарифмические; есть нуль",
+   "page": 143
+  },
+  {
+   "md": "Удельное сопротивление, R — логарифмическая шкала",
+   "scan": "Resistivity, Rₐ — нелинейная шкала (пропорциональна 1/√Rₐ), не логарифмическая",
+   "kind": "recognition",
+   "note": "шкала Хингла, а не логарифмическая; есть ∞",
+   "page": 143
+  },
+  {
+   "md": "Пористость, φ — линейная шкала, диапазон от 0 до 1",
+   "scan": "φ — ось без делений и числовых значений",
+   "kind": "recognition",
+   "note": "диапазона 0–1 на рисунке нет",
+   "page": 143
+  },
+  {
+   "md": "присутствуют горизонтальные линии, соответствующие значениям φ, и вертикальные линии, соответствующие значениям Ca и R",
+   "scan": "горизонтальные линии соответствуют значениям Ca и Rₐ, вертикальные — значениям φ",
+   "kind": "recognition",
+   "note": "направления линий сетки перепутаны",
+   "page": 143
+  },
+  {
+   "md": "При φ = 0.1 (10%) и Ca = 100 mmho/m → R = 0.01 Ω·m",
+   "scan": "Ca = 100 mmho/m ↔ Rₐ = 10 Ω·m",
+   "kind": "recognition",
+   "note": "выдуманная точка; Rₐ = 1000/Ca, от φ не зависит",
+   "page": 143
+  },
+  {
+   "md": "При φ = 0.1 и Ca = 10 mmho/m → R = 0.1 Ω·m.",
+   "scan": "Ca = 10 mmho/m ↔ Rₐ = 100 Ω·m",
+   "kind": "recognition",
+   "note": "ошибка в 1000 раз; точки на рисунке нет",
+   "page": 143
+  },
+  {
+   "md": "При φ = 0.1 и Ca = 1 mmho/m → R = 1 Ω·m.",
+   "scan": "Ca = 1 mmho/m ↔ Rₐ = 1000 Ω·m",
+   "kind": "recognition",
+   "note": "неверный пересчёт проводимости в сопротивление",
+   "page": 143
+  },
+  {
+   "md": "При φ = 0.1 и Ca = 0.1 mmho/m → R = 10 Ω·m.",
+   "scan": "Ca = 0.1 mmho/m ↔ Rₐ = 10000 Ω·m",
+   "kind": "recognition",
+   "note": "неверный пересчёт; такой точки на рисунке нет",
+   "page": 143
+  },
+  {
+   "md": "Поскольку Ca и R связаны обратно (Ca = 1/R)",
+   "scan": "Ca (mmho/m) = 1000/Rₐ (Ω·m)",
+   "kind": "recognition",
+   "note": "потерян множитель 1000 для этих единиц",
+   "page": 143
+  },
+  {
+   "md": "Conductivity, C, (mmho/m)",
+   "scan": "Conductivity, Cₐ, (mmho/m)",
+   "kind": "recognition",
+   "note": "Потерян индекс a: кажущаяся проводимость",
+   "page": 144
+  },
+  {
+   "md": "Resistivity, R, (Ω • m)",
+   "scan": "Resistivity, Rₐ, (Ω • m)",
+   "kind": "recognition",
+   "note": "Потерян индекс a: кажущееся сопротивление",
+   "page": 144
+  },
+  {
+   "md": "Ось абсцисс (горизонтальная): не указана, но предполагается, что это ось для ввода параметра",
+   "scan": "Ось абсцисс (горизонтальная): φ",
+   "kind": "recognition",
+   "note": "На рисунке ось абсцисс обозначена φ (пористость)",
+   "page": 144
+  },
+  {
+   "md": "∞, 20,000, 5000, 1000, 500, 200, 100, 50, 25, 20, 15, 10",
+   "scan": "∞, 20,000, 5000, 1000, 500, 200, 150, 100, 50, 30, 25, 20, 15, 10",
+   "kind": "recognition",
+   "note": "Пропущены деления 150 и 30 на правой оси",
+   "page": 144
+  },
+  {
+   "md": "Ось ординат (вертикальная, левая): Conductivity, C, (mmho/m) — логарифмическая шкала",
+   "scan": "Ось ординат (левая): Conductivity, Cₐ, (mmho/m) — нелогарифмическая шкала, начинается с 0",
+   "kind": "recognition",
+   "note": "Шкала не логарифмическая: есть 0, интервалы иные",
+   "page": 144
+  },
+  {
+   "md": "drawn through the cluster of points intersects the y-axis at 2.65 g/cm³",
+   "scan": "drawn through the cluster of points intersects the x-axis at 2.65 g/cm³",
+   "kind": "recognition",
+   "note": "Пересечение с осью x, а не y",
+   "page": 145
+  },
+  {
+   "md": "$$R_w = \\frac{R_c \\times \\phi^m}{a}$$",
+   "scan": "Rw = (Ro × φᵐ) / a",
+   "kind": "recognition",
+   "note": "Ro — сопротивление водонасыщенной породы, не Rc",
+   "page": 145
+  },
+  {
+   "md": "read the value of R_a from the water-bearing line",
+   "scan": "read the value of Ro from the water-bearing line",
+   "kind": "recognition",
+   "note": "Индекс o, а не a",
+   "page": 145
+  },
+  {
+   "md": "(bulk density = 2.485 g/cm³), R_a = 4.1 ohm-m",
+   "scan": "(bulk density = 2.485 g/cm³), Ro = 4.1 ohm-m",
+   "kind": "recognition",
+   "note": "Индекс o, а не a",
+   "page": 145
+  },
+  {
+   "md": "constructed on the plot from the value for R_a and the multipliers",
+   "scan": "constructed on the plot from the value for Ro and the multipliers",
+   "kind": "recognition",
+   "note": "Индекс o, а не a",
+   "page": 145
+  },
+  {
+   "md": "For each line to be plotted, multiply R_a by the multiplier",
+   "scan": "For each line to be plotted, multiply Ro by the multiplier",
+   "kind": "recognition",
+   "note": "Индекс o, а не a",
+   "page": 145
+  },
+  {
+   "md": "In this example, R_a (at bulk density = 2.485 g/cm³) is 4.1",
+   "scan": "In this example, Ro (at bulk density = 2.485 g/cm³) is 4.1",
+   "kind": "recognition",
+   "note": "Индекс o, а не a",
+   "page": 145
+  },
+  {
+   "md": "$$S_w = \\left(\\frac{R_a}{R_s}\\right)^{\\frac{1}{n}}$$",
+   "scan": "Sw = (Ro / Rt)^(1/n)",
+   "kind": "recognition",
+   "note": "Ro и Rt (истинное сопротивление), не Ra и Rs",
+   "page": 145
+  },
+  {
+   "md": "In this case, the value for R_a is the value at the water-bearing line",
+   "scan": "In this case, the value for Ro is the value at the water-bearing line",
+   "kind": "recognition",
+   "note": "Индекс o, а не a",
+   "page": 145
+  },
+  {
+   "md": "(both having the same porosity), R_a = 0.83 ohm-m",
+   "scan": "(both having the same porosity), Ro = 0.83 ohm-m",
+   "kind": "recognition",
+   "note": "Индекс o, а не a",
+   "page": 145
+  },
+  {
+   "md": "$$S_w = \\left(\\frac{0.83}{40}\\right)^{\\frac{1}{2.0}}$$\n\n$$S_w = 0.144$$\n\nFor comparison",
+   "scan": "Sw = (0.83/40)^(1/2.0)\n\nSw = 0.144\n\nFor comparison",
+   "kind": "recognition",
+   "note": "Формула совпадает; расхождения нет",
+   "page": 145
+  },
+  {
+   "md": "The data points lie approximately along the Sw=50 curve, suggesting a water saturation of around 50%",
+   "scan": "The data points lie approximately along the Sw=100 curve; two points lie below the Sw=30 line",
+   "kind": "recognition",
+   "note": "Точки у линии 100%, две аномальные ниже 30%",
+   "page": 145
+  },
+  {
+   "md": "данные точки лежат вблизи кривой Sw=50, что указывает на среднюю водонасыщенность",
+   "scan": "точки лежат вблизи кривой Sw=100; две аномальные — ниже кривой Sw=30",
+   "kind": "recognition",
+   "note": "Водонасыщенность на графике описана неверно",
+   "page": 145
+  },
+  {
+   "md": "There are 10 data points plotted. Their approximate coordinates (Bulk density, Conductivity) are:\n- (2.35, 50)\n- (2.35, 100)",
+   "scan": "9 points: seven at about 2.30–2.44 g/cm³, 470–1150 mmho/m; two at about 2.30, 30–40 mmho/m",
+   "kind": "recognition",
+   "note": "Число и координаты точек выдуманы",
+   "page": 145
+  },
+  {
+   "md": "Left Y-axis: Conductivity, C, in mmho/m, linear scale, range 0 to 2000.",
+   "scan": "Left Y-axis: Conductivity, Ca, in mmho/m, nonlinear scale, range 0 to 2000.",
+   "kind": "recognition",
+   "note": "Шкала нелинейная; обозначение Ca с индексом",
+   "page": 145
+  },
+  {
+   "md": "Right Y-axis: Resistivity, R, in (Ω·m), linear scale, range 0.5 to 500",
+   "scan": "Right Y-axis: Resistivity, Ra, in (Ω·m), nonlinear scale, range 0.5 to ∞",
+   "kind": "recognition",
+   "note": "Шкала до ∞, не до 500; обозначение Ra",
+   "page": 145
+  },
+  {
+   "md": "(logarithmic scale implied by tick marks: 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500)",
+   "scan": "tick marks: 0.5, 0.6, 0.7, 0.8, 1, 1.2, 1.5, 2, 2.5, 3, 5, 10, 15, 20, 50, 100, 200, 1000, ∞",
+   "kind": "recognition",
+   "note": "Деления шкалы перечислены неверно, 500 нет",
+   "page": 145
+  },
+  {
+   "md": "X-axis: Bulk density, in g/cm³, linear scale, range 2.25 to 2.65.",
+   "scan": "X-axis: Bulk density, linear scale, from 2.65 (left) to 2.25 (right).",
+   "kind": "recognition",
+   "note": "Ось плотности идёт справа налево по убыванию",
+   "page": 145
+  },
+  {
+   "md": "straight lines radiating from the origin (0,0) in the lower-left corner",
+   "scan": "straight lines radiating from the point (2.65 g/cm³, 0 mmho/m)",
+   "kind": "recognition",
+   "note": "Линии выходят из точки плотности матрицы 2.65",
+   "page": 145
+  },
+  {
+   "md": "irreducible water saturation ($S_{wi}$ in) for estimating permeability",
+   "scan": "irreducible water saturation (Sw irr) for estimating permeability",
+   "kind": "recognition",
+   "note": "Индекс «w irr» (неснижаемая водонасыщенность) распознан как «wi in»",
+   "page": 146
+  },
+  {
+   "md": "irreducible water saturation ($S_{wi}$ in) = 40%",
+   "scan": "irreducible water saturation (Sw irr) = 40%",
+   "kind": "recognition",
+   "note": "Должно быть Sw irr, а не Swi in",
+   "page": 146
+  },
+  {
+   "md": "($C = S_{wi} \\times \\phi$)",
+   "scan": "(C = Sw irr × ϕ)",
+   "kind": "recognition",
+   "note": "В формуле потерян индекс irr",
+   "page": 146
+  },
+  {
+   "md": "Data points from zones not at $S_{wi}$ in scatter",
+   "scan": "Data points from zones not at Sw irr scatter",
+   "kind": "recognition",
+   "note": "Индекс irr превратился в слово «in»",
+   "page": 146
+  },
+  {
+   "md": "(S_w, water saturation above transition zone)",
+   "scan": "(Swi, water saturation above transition zone)",
+   "kind": "recognition",
+   "note": "На оси графика обозначение Swi, а не Sw",
+   "page": 146
+  },
+  {
+   "md": "Ось ординат (вертикальная): S_w, water saturation above transition zone (%)",
+   "scan": "Ось ординат (вертикальная): Swi, water saturation above transition zone (%)",
+   "kind": "recognition",
+   "note": "Подпись оси: Swi",
+   "page": 146
+  },
+  {
+   "md": "с подписями: 0.01, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12, 0.2, 0.5, 1.0, 2, 5,",
+   "scan": "с подписями: 0.01, 0.1, 0.2, 0.5, 1.0, 2, 5,",
+   "kind": "recognition",
+   "note": "0.02–0.12 — гиперболы ϕ·Swi, а не проницаемость; пропущена 0.1",
+   "page": 146
+  },
+  {
+   "md": "Семейство кривых: параметр — проницаемость k, permeability (md)",
+   "scan": "Два семейства кривых: проницаемость k, permeability (md), и гиперболы ϕ Swi = 0.01, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12",
+   "kind": "recognition",
+   "note": "Пропущено семейство гипербол объёмного водосодержания ϕ·Swi",
+   "page": 146
+  },
+  {
+   "md": "Для k = 0.01 md: при φ = 5 p.u. → S_w ≈ 50%; при φ = 10 p.u. → S_w ≈ 35%",
+   "scan": "Для k = 0.01 md: при ϕ = 3 p.u. → Swi ≈ 30%; кривая идёт круто вверх, до ϕ = 5 p.u. не доходит",
+   "kind": "recognition",
+   "note": "Выдуманные точки: кривая 0.01 md лежит левее ϕ = 5",
+   "page": 146
+  },
+  {
+   "md": "Для k = 100 md: при φ = 15 p.u. → S_w ≈ 20%; при φ = 25 p.u. → S_w ≈ 10%",
+   "scan": "Для k = 100 md: при ϕ = 15 p.u. → Swi ≈ 12%; при ϕ = 25 p.u. → Swi ≈ 40%",
+   "kind": "recognition",
+   "note": "Неверные точки: вдоль кривой Swi растёт с пористостью",
+   "page": 146
+  },
+  {
+   "md": "при φ = 30 p.u. → S_w ≈ 10%; при φ = 35 p.u. → S_w ≈ 8%",
+   "scan": "при ϕ = 30 p.u. → Swi ≈ 9%; при ϕ = 35 p.u. → Swi ≈ 13%",
+   "kind": "recognition",
+   "note": "Кривая 5000 md возрастает, а не убывает",
+   "page": 146
+  },
+  {
+   "md": "при фиксированной проницаемости с ростом пористости S_w снижается",
+   "scan": "при фиксированной проницаемости с ростом пористости Swi увеличивается",
+   "kind": "recognition",
+   "note": "Тренд обратный: кривые проницаемости идут вверх вправо",
+   "page": 146
+  }
+ ]
+}

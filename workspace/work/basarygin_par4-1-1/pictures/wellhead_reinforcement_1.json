@@ -1,0 +1,45 @@
+{
+ "node_id": "basarygin.wellhead_reinforcement",
+ "template": "well",
+ "data": {
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "Верхние породы",
+    "thickness": 2
+   },
+   {
+    "lithology": "shale",
+    "label": "Породы ниже",
+    "thickness": 1
+   },
+   {
+    "lithology": "sand",
+    "label": "Газовый пласт",
+    "thickness": 1,
+    "fluid": "gas"
+   }
+  ],
+  "strings": [
+   {
+    "kind": "intermediate",
+    "shoe": 1,
+    "cement": "none"
+   },
+   {
+    "kind": "production",
+    "shoe": 3,
+    "cement": "none"
+   }
+  ],
+  "bottom": null,
+  "drilling": false,
+  "perforated": null
+ },
+ "caption": "Устье газовой скважины усилено дополнительной колонной: она снаружи эксплуатационной и спущена до неё. Глубины показаны условно.",
+ "alt": "Разрез газовой скважины: в верхней части эксплуатационную колонну окружает дополнительная, более короткая. Эксплуатационная доходит до газового пласта.",
+ "claim_ids": [
+  "basarygin.wellhead_reinforcement#c2",
+  "basarygin.wellhead_reinforcement#c6"
+ ]
+}

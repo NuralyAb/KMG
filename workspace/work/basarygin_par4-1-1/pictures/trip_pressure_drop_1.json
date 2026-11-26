@@ -1,0 +1,68 @@
+{
+ "node_id": "basarygin.trip_pressure_drop",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Подъём бурильной колонны",
+    "kind": "step"
+   },
+   {
+    "id": "b",
+    "text": "Снижается уровень раствора в скважине",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Колебания гидродинамического давления от движения труб",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Давление на забой уменьшается",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Возможно поступление пластовых флюидов в скважину",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Две из причин падения давления на забой при подъёме труб ведут к одному риску — притоку из пласта.",
+ "alt": "Схема причин и следствий: подъём колонны снижает уровень раствора и вызывает колебания давления, давление на забой падает, возможен приток.",
+ "claim_ids": [
+  "basarygin.trip_pressure_drop#c3",
+  "basarygin.trip_pressure_drop#c4",
+  "basarygin.trip_pressure_drop#c5",
+  "basarygin.trip_pressure_drop#c6"
+ ]
+}

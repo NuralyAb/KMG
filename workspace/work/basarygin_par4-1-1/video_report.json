@@ -1,0 +1,47 @@
+{
+ "chapter": "basarygin_par4-1-1",
+ "rows": [
+  {
+   "node_id": "basarygin.gas_cut_not_cause",
+   "format": "short",
+   "template": "gas_kick",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basarygin.trip_pressure_drop",
+   "format": "short",
+   "template": "gas_kick",
+   "why": "совпало признаков: 2, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basarygin.pump_pressure_drop",
+   "format": "short",
+   "template": "gas_kick",
+   "why": "совпало признаков: 2, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basarygin.shut_in_effect",
+   "format": "short",
+   "template": "gas_kick",
+   "why": "совпало признаков: 3, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basarygin.driller_second_circulation",
+   "format": "short",
+   "template": "gas_kick",
+   "why": "совпало признаков: 4, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "basarygin.kick_pressure_balance",
+   "format": "short",
+   "template": "gas_kick",
+   "why": "совпало признаков: 2, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  }
+ ]
+}

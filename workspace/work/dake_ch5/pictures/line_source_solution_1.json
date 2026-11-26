@@ -1,0 +1,66 @@
+{
+ "node_id": "dake.line_source_solution",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Выражение для производной: p' = C₂·e^(−s)/s",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "У скважины: r ∂p/∂r → qμ/2πkh при r → 0",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "r → 0, значит s → 0: C₂ = qμ/4πkh",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Интегрируем: s от ∞ до x, давление от начального до p",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Давление p в любой точке r в любой момент t",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Путь к решению линейного стока: условие у скважины даёт постоянную C₂, интегрирование от начального давления даёт давление p.",
+ "alt": "Схема вывода: выражение для производной давления и граничное условие у скважины дают C₂, затем интегрирование приводит к давлению в любой точке и момент.",
+ "claim_ids": [
+  "dake.line_source_solution#c2",
+  "dake.line_source_solution#c5",
+  "dake.line_source_solution#c6",
+  "dake.line_source_solution#c7",
+  "dake.line_source_solution#c8",
+  "dake.line_source_solution#c9",
+  "dake.line_source_solution#c14"
+ ]
+}

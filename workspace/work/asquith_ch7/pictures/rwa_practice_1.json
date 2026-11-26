@@ -1,0 +1,49 @@
+{
+ "node_id": "asquith.rwa_practice",
+ "template": "plot",
+ "data": {
+  "x_label": "Rwa зоны / минимальное Rwa",
+  "y_label": "Водонасыщенность Sw, доли ед.",
+  "numeric": true,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "params": {},
+  "series": [
+   {
+    "name": "Sw = √(Rwa мин / Rwa зоны)",
+    "formula": "sqrt(1 / x)",
+    "from": 1,
+    "to": 5
+   }
+  ],
+  "marks": [
+   {
+    "x": 3,
+    "y": 0.577,
+    "text": "3 → Sw = 0,58"
+   },
+   {
+    "x": 4,
+    "y": 0.5,
+    "text": "4 → Sw = 0,50"
+   },
+   {
+    "x": 5,
+    "y": 0.447,
+    "text": "5 → Sw = 0,45"
+   }
+  ]
+ },
+ "caption": "Выше отношение Rwa — ниже Sw (a = 1,0; m = 2,0; n = 2). Название n — как в книге; вероятно, опечатка издания. Rw в зонах одинаково.",
+ "alt": "Убывающая кривая водонасыщенности от отношения Rwa зоны к минимальному Rwa; отмечены значения 0,58, 0,50 и 0,45 при отношениях 3, 4 и 5.",
+ "claim_ids": [
+  "asquith.rwa_practice#c6",
+  "asquith.rwa_practice#c13",
+  "asquith.rwa_practice#c14",
+  "asquith.rwa_practice#c16",
+  "asquith.rwa_practice#c17",
+  "asquith.rwa_practice#c18",
+  "asquith.rwa_practice#c19"
+ ]
+}

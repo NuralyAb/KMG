@@ -1,0 +1,19 @@
+{
+ "node_id": "dake.radial_cell_model",
+ "template": "borehole",
+ "data": {
+  "collector": true,
+  "lithology": "sand",
+  "fluid": "water",
+  "pressure": "mud_below",
+  "bore": "water",
+  "cake": false
+ },
+ "caption": "Приток из пласта в добывающую скважину при одном флюиде (вода взята для примера). Смотрите на направление течения к стволу.",
+ "alt": "Скважина в пласте, насыщенном одним флюидом, для примера водой. Флюид притекает из пласта в ствол скважины.",
+ "claim_ids": [
+  "dake.radial_cell_model#c10",
+  "dake.radial_cell_model#c13",
+  "dake.radial_cell_model#c14"
+ ]
+}

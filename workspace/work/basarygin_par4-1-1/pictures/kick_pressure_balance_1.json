@@ -1,0 +1,41 @@
+{
+ "node_id": "basarygin.kick_pressure_balance",
+ "template": "well",
+ "data": {
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "Порода",
+    "thickness": 1
+   },
+   {
+    "lithology": "shale",
+    "label": "Порода",
+    "thickness": 1
+   },
+   {
+    "lithology": "sand",
+    "label": "Пласт с флюидом",
+    "thickness": 2,
+    "hazard": "kick"
+   }
+  ],
+  "strings": [
+   {
+    "kind": "surface",
+    "shoe": 1,
+    "cement": "full"
+   }
+  ],
+  "bottom": 3,
+  "drilling": true,
+  "perforated": null
+ },
+ "caption": "Флюид из пласта попадает в скважину и в поток раствора, идущий к выходу (как в книге; вероятно, опечатка издания).",
+ "alt": "Разрез бурящейся скважины с циркуляцией раствора. У забоя пласт, из которого возможен приток флюида в ствол.",
+ "claim_ids": [
+  "basarygin.kick_pressure_balance#c1",
+  "basarygin.kick_pressure_balance#c2",
+  "basarygin.kick_pressure_balance#c4"
+ ]
+}

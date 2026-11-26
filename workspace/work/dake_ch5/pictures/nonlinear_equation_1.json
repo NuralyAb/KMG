@@ -1,0 +1,65 @@
+{
+ "node_id": "dake.nonlinear_equation",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Коэффициенты kρ/μ и φcρ зависят от давления",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Уравнение (5.1) нелинейно",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Линеаризация: коэффициенты считаем постоянными",
+    "kind": "choice"
+   },
+   {
+    "id": "d",
+    "text": "Жидкость малой сжимаемости: простой способ",
+    "kind": "result"
+   },
+   {
+    "id": "e",
+    "text": "Реальный газ: преобразование Кирхгофа",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": "жидкость"
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": "газ"
+   }
+  ]
+ },
+ "caption": "От нелинейности к линеаризации: для жидкости и для реального газа пути разные.",
+ "alt": "Схема: зависимость коэффициентов от давления делает уравнение нелинейным, нужна линеаризация. Для жидкости она простая, для реального газа использует преобразование Кирхгофа.",
+ "claim_ids": [
+  "dake.nonlinear_equation#c3",
+  "dake.nonlinear_equation#c5",
+  "dake.nonlinear_equation#c10",
+  "dake.nonlinear_equation#c11",
+  "dake.nonlinear_equation#c12",
+  "dake.nonlinear_equation#c13"
+ ]
+}

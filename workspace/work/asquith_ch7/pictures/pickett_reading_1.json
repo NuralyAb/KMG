@@ -1,0 +1,79 @@
+{
+ "node_id": "asquith.pickett_reading",
+ "template": "plot",
+ "data": {
+  "x_label": "Rt, лог. шкала",
+  "y_label": "Пористость φ, лог. шкала",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "Водоносная линия Ro, Sw = 100 %",
+    "color": "",
+    "points": [
+     [
+      0.1,
+      0.7
+     ],
+     [
+      0.6,
+      0.2
+     ]
+    ]
+   },
+   {
+    "name": "Sw = 50 %",
+    "color": "",
+    "points": [
+     [
+      0.25,
+      0.8
+     ],
+     [
+      0.75,
+      0.3
+     ]
+    ]
+   },
+   {
+    "name": "Sw = 30 %",
+    "color": "",
+    "points": [
+     [
+      0.4,
+      0.85
+     ],
+     [
+      0.9,
+      0.35
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.3,
+    "y": 0.5,
+    "text": "вода: на линии Ro"
+   },
+   {
+    "x": 0.75,
+    "y": 0.5,
+    "text": "УВ: сдвиг вправо"
+   }
+  ]
+ },
+ "caption": "Сравните две отметки при одной пористости: точка с углеводородами правее водоносной линии. Линии равной Sw ей параллельны.",
+ "alt": "Качественный кроссплот: три параллельные убывающие прямые для Sw 100, 50 и 30 %; чем меньше Sw, тем правее линия.",
+ "claim_ids": [
+  "asquith.pickett_reading#c7",
+  "asquith.pickett_reading#c8",
+  "asquith.pickett_reading#c9",
+  "asquith.pickett_reading#c11",
+  "asquith.pickett_reading#c18",
+  "asquith.pickett_reading#c20",
+  "asquith.pickett_reading#c21"
+ ]
+}

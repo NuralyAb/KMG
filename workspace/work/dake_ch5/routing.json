@@ -1,0 +1,440 @@
+{
+ "chapter": "dake_ch5",
+ "routes": [
+  {
+   "node_id": "dake.radial_cell_model",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "Трудность Ф и П: видно невидимое (поток в пласте) и связь допущений с формой потока. Человек смотрит разрез со скважиной на всю толщину, переключает допущения и отмечает, какое из них обеспечивает чисто радиальный приток."
+  },
+  {
+   "node_id": "dake.mass_balance_element",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Трудность Ф и М: причина и следствие (разность расходов меняет массу в кольце), изменение во времени. Человек по шагам собирает схему от расходов на входе и выходе к уравнению (5.2) и проверяет, что давления в нём ещё нет."
+  },
+  {
+   "node_id": "dake.darcy_substitution",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Трудность Ф и М: связь градиента давления с расходом невидима и причинна. Человек подставляет закон Дарси вместо q в баланс массы и отмечает, что слева появилось давление, а справа осталась плотность."
+  },
+  {
+   "node_id": "dake.compressibility_density",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Трудность Ф и М: причинная цепочка «давление меняется, плотность меняется» во времени. Человек собирает переход от (5.3) через сжимаемость к (5.1) и отмечает, от какой величины теперь берутся производные."
+  },
+  {
+   "node_id": "dake.nonlinear_equation",
+   "format": "интерактив",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Трудность Ф: неочевидно, что коэффициенты зависят от искомого давления. Человек проходит развилку «жидкость малой сжимаемости или реальный газ» и выбирает способ линеаризации."
+  },
+  {
+   "node_id": "dake.constant_rate_problem",
+   "format": "интерактив",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Трудность Ф: неочевидно, что решений бесконечно много, а выбирают их условия. Человек задаёт начальное равновесное давление и режим на скважине и видит, как из общего уравнения получается задача с постоянным дебитом."
+  },
+  {
+   "node_id": "dake.transient_condition",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "pressure_wave",
+   "why": "Трудность М, сумма 8: изменение во времени, невидимое поле давления, причина (смена дебита) и следствие. Человек видит, как понижение давления расходится от скважины, пока граница не влияет, и как оно зависит и от расстояния, и от времени."
+  },
+  {
+   "node_id": "dake.semi_steady_boundary",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Трудность М, сумма 7: давление во времени, невидимый профиль, влияние непроницаемой границы как причина. Человек видит, как профиль опускается почти одинаковым темпом и остаётся пологим у границы. Шаблона с замкнутой границей нет."
+  },
+  {
+   "node_id": "dake.semi_steady_decline_rate",
+   "format": "интерактив",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Трудность Ф: давление меняется во времени по причине отбора из конечного объёма. Человек двигает ползунки дебита, сжимаемости и порового объёма и видит, как меняется наклон прямой падения давления."
+  },
+  {
+   "node_id": "dake.drainage_volumes",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Трудность П и М: невидимые зоны дренирования, неочевидная независимость скважин. Человек на плане меняет дебиты скважин, видит смещение границ зон и то, как объёмы зон задают веса среднего давления. Шаблона плана нет."
+  },
+  {
+   "node_id": "dake.average_reservoir_pressure",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Трудность Пр и Ф: неочевидно, что объёмы можно заменить дебитами. Человек по данным скважин проверяет условия замены (постоянный темп давления, слабое изменение сжимаемости) и считает среднее пластовое давление."
+  },
+  {
+   "node_id": "dake.steady_state_condition",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Трудность М, сумма 6: невидимый приток через границу, причина (восполнение отбора) и следствие, неочевидное постоянство давления при добыче. Человек видит, как приток извне уравновешивает отбор. Шаблона с открытой границей нет."
+  },
+  {
+   "node_id": "dake.regimes_in_practice",
+   "format": "практикум на данных",
+   "secondary_format": "шортс",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Трудность Н и М: давление меняется во времени после смены дебита, идеальные режимы выполняются лишь приближённо. Человек по кривой давления выбирает, где кончается краткий неустановившийся приток, указывая диапазон, и решает, какой режим принять."
+  },
+  {
+   "node_id": "dake.expand_equation",
+   "format": "интерактив",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Трудность Ф: критерии видео не выражены. Человек по шагам раскрывает произведение, подставляет сжимаемость и находит, откуда берётся квадрат градиента давления."
+  },
+  {
+   "node_id": "dake.drop_small_terms",
+   "format": "интерактив",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Трудность Ф: каждое допущение влечёт своё упрощение, а условие cp ≪ 1 неочевидно. Человек включает допущения по одному и видит, какое слагаемое уравнения (5.18) убирается и что становится постоянным."
+  },
+  {
+   "node_id": "dake.total_compressibility",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "grains",
+   "why": "Трудность Ф и М: вклад связанной воды и пор невидим и неочевиден. Человек видит нефть, плёнку воды и поры в породе и меняет насыщенности, следя за вкладами в общую сжимаемость."
+  },
+  {
+   "node_id": "dake.linearization_validity",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Трудность Н и Ф: порог «много меньше единицы» не является резкой границей. Человек оценивает cp для разных случаев (пример жидкости 0,04), показывая зону применимости диапазоном, и выбирает: отбросить члены или применить интегральное преобразование."
+  },
+  {
+   "node_id": "dake.porosity_compressibility_product",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Трудность Ф и Н: неочевидно, что две разные пары сомножителей дают одно φc. Человек составляет пары «пористость и сжимаемость», сравнивает результат и ловит ошибку смешения."
+  },
+  {
+   "node_id": "dake.diffusivity_equation",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Трудность Ф и М: давление, невидимое в пласте, распространяется во времени подобно теплу. Человек сопоставляет величины двух уравнений и меняет k, φ, μ, c, отмечая, как меняется коэффициент пьезопроводности."
+  },
+  {
+   "node_id": "dake.pressure_decline_periods",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Трудность М и В, сумма 8: смена периодов во времени, невидимое распространение возмущения до границы. Человек видит, как граница начинает влиять на забойное давление и три периода сменяют друг друга. Шаблон волны давления не моделирует границу."
+  },
+  {
+   "node_id": "dake.full_solution_superposition",
+   "format": "интерактив",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Трудность Ф: отклик давления во времени складывается из откликов на каждую смену дебита. Человек добавляет ступени дебита и видит, как суммарная кривая получается из отдельных решений."
+  },
+  {
+   "node_id": "dake.line_source_conditions",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Трудность Ф и П: скачок масштаба (радиус скважины пренебрежим рядом с пластом) и неочевидная замена скважины линией. Человек уменьшает радиус на виде пласта и расставляет три условия по местам: начало, бесконечность, линия. Подходящего шаблона нет."
+  },
+  {
+   "node_id": "dake.boltzmann_transform",
+   "format": "интерактив",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Трудность Ф: неочевидно, что радиус и время объединяются в одну переменную. Человек двигает r и t и видит, что при одинаковом s точки ложатся в одно место на кривой."
+  },
+  {
+   "node_id": "dake.solve_ordinary_equation",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Трудность Ф и Пр: критерии видео не выражены, важен порядок действий. Человек расставляет шаги: замена на p′, разделение переменных, интегрирование, и отмечает, что получена ещё производная с постоянной C_2."
+  },
+  {
+   "node_id": "dake.line_source_solution",
+   "format": "интерактив",
+   "secondary_format": null,
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Трудность Ф: граничное условие определяет постоянную, а решение даёт невидимое давление в любой точке и в любой момент. Человек проходит путь от условия при r → 0 через C_2 и интегрирование от p_i к формуле (7.6)."
+  },
+  {
+   "node_id": "dake.exponential_integral",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Трудность Ф и П: функция становится видна как площадь, её значения сильно различаются при малых и больших x. Человек двигает нижний предел x под кривой e^(−s)/s и следит, как меняется площадь."
+  },
+  {
+   "node_id": "dake.log_approximation",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Трудность Ф и Пр: на разных масштабах x приближение то годится, то нет. Человек двигает x, сравнивает ei(x) с −ln(γx) и проверяет условие x < 0,01 перед заменой."
+  },
+  {
+   "node_id": "dake.wellbore_pressure_skin",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Трудность Ф и М: забойное давление падает во времени, скин даёт постоянную добавку, а площадь дренирования пока не важна. Человек двигает S и видит, что кривая смещается, не меняя хода."
+  },
+  {
+   "node_id": "dake.distant_well_pressure",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "plot",
+   "why": "Трудность Пр и Ф: на большом расстоянии x выходит за область логарифмического приближения. Человек вычисляет x, проверяет порог, снимает ei(x) с графика и подставляет значение в формулу (7.11)."
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "node_id": "asquith.bvw_irreducible",
+ "template": "grains",
+ "data": {
+  "pores": "intergranular",
+  "clay": "none",
+  "fluid": "oil",
+  "water_film": true
+ },
+ "caption": "Неснижаемая водонасыщенность: вода удерживается на зёрнах капиллярным давлением и не движется; добыча углеводородов должна быть безводной.",
+ "alt": "Зёрна породы под увеличением, покрытые плёнкой неподвижной воды; поры между ними заняты нефтью как примером углеводорода.",
+ "claim_ids": [
+  "asquith.bvw_irreducible#c8",
+  "asquith.bvw_irreducible#c9",
+  "asquith.bvw_irreducible#c10",
+  "asquith.bvw_irreducible#c11"
+ ]
+}

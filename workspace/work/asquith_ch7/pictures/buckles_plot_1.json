@@ -1,0 +1,61 @@
+{
+ "node_id": "asquith.buckles_plot",
+ "template": "plot",
+ "data": {
+  "x_label": "пористость φ, доли ед.",
+  "y_label": "водонасыщенность Sw, доли ед.",
+  "numeric": true,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "BVW = 0,005",
+    "color": "",
+    "formula": "0.005 / x",
+    "from": 0.05,
+    "to": 0.12
+   },
+   {
+    "name": "BVW = 0,04",
+    "color": "",
+    "formula": "0.04 / x",
+    "from": 0.05,
+    "to": 0.12
+   },
+   {
+    "name": "BVW = 0,05",
+    "color": "",
+    "formula": "0.05 / x",
+    "from": 0.05,
+    "to": 0.12
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.08,
+    "y": 0.5,
+    "text": "скв. a: от 0,04 до 0,05"
+   },
+   {
+    "x": 0.115,
+    "y": 0.348,
+    "text": "скв. b: часть точек"
+   }
+  ]
+ },
+ "caption": "Гиперболы равного BVW. Точки скв. a (96% нефти) держатся между 0,04 и 0,05; у b (68%) часть уходит выше; у c (только вода) разброс.",
+ "alt": "График водонасыщенности против пористости со спадающими гиперболами BVW 0,005, 0,04 и 0,05. Отмечено, где лежат точки скважины a и часть точек скважины b.",
+ "claim_ids": [
+  "asquith.buckles_plot#c2",
+  "asquith.buckles_plot#c3",
+  "asquith.buckles_plot#c10",
+  "asquith.buckles_plot#c13",
+  "asquith.buckles_plot#c24",
+  "asquith.buckles_plot#c25",
+  "asquith.buckles_plot#c27",
+  "asquith.buckles_plot#c28",
+  "asquith.buckles_plot#c29",
+  "asquith.buckles_plot#c30"
+ ]
+}

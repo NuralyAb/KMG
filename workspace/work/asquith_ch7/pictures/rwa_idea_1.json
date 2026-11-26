@@ -1,0 +1,72 @@
+{
+ "node_id": "asquith.rwa_idea",
+ "template": "plot",
+ "data": {
+  "x_label": "Сопротивление воды (качественно)",
+  "y_label": "Глубина",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": true,
+  "params": {},
+  "series": [
+   {
+    "name": "Rwa = Rt × φ^m / a",
+    "color": "",
+    "points": [
+     [
+      0.75,
+      0.05
+     ],
+     [
+      0.75,
+      0.45
+     ],
+     [
+      0.27,
+      0.58
+     ],
+     [
+      0.27,
+      0.95
+     ]
+    ]
+   },
+   {
+    "name": "Rw пластовой воды",
+    "color": "",
+    "points": [
+     [
+      0.25,
+      0.05
+     ],
+     [
+      0.25,
+      0.95
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.75,
+    "y": 0.25,
+    "text": "УВ: Rwa > Rw"
+   },
+   {
+    "x": 0.27,
+    "y": 0.78,
+    "text": "вода: Rwa = Rw"
+   }
+  ]
+ },
+ "caption": "В водоносной части Rwa совпадает с Rw, а там, где есть углеводороды, Rt выше Ro и Rwa превышает Rw.",
+ "alt": "Кривая Rwa по глубине: внизу, в водоносной части, она совпадает с линией Rw, а выше, в части с углеводородами, смещена к большим значениям.",
+ "claim_ids": [
+  "asquith.rwa_idea#c2",
+  "asquith.rwa_idea#c12",
+  "asquith.rwa_idea#c13",
+  "asquith.rwa_idea#c14",
+  "asquith.rwa_idea#c15"
+ ]
+}

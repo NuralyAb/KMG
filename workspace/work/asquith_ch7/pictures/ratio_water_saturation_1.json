@@ -1,0 +1,56 @@
+{
+ "node_id": "asquith.ratio_water_saturation",
+ "template": "plot",
+ "data": {
+  "x_label": "(Rxo/Rt)/(Rmf/Rw)",
+  "y_label": "Swr",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "params": {},
+  "series": [
+   {
+    "name": "Swr = ((Rxo/Rt)/(Rmf/Rw))^0,625",
+    "color": "",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      0.05,
+      0.15
+     ],
+     [
+      0.1,
+      0.24
+     ],
+     [
+      0.25,
+      0.42
+     ],
+     [
+      0.5,
+      0.65
+     ],
+     [
+      0.75,
+      0.84
+     ],
+     [
+      1,
+      1
+     ]
+    ]
+   }
+  ],
+  "marks": []
+ },
+ "caption": "Swr растёт с отношением сопротивлений в степени 5/8; пористость в расчёт не входит",
+ "alt": "Кривая водонасыщенности Swr в зависимости от отношения (Rxo/Rt)/(Rmf/Rw): монотонный выпуклый вверх рост по степенному закону с показателем 0,625.",
+ "claim_ids": [
+  "asquith.ratio_water_saturation#c8",
+  "asquith.ratio_water_saturation#c9"
+ ]
+}

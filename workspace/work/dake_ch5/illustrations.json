@@ -1,0 +1,581 @@
+{
+ "chapter": "dake_ch5",
+ "illustrations": [
+  {
+   "id": "dake.radial_cell_model.i1",
+   "step_id": "dake.radial_cell_model",
+   "node_id": "dake.radial_cell_model",
+   "file": "pictures/radial_cell_model_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Приток из пласта в добывающую скважину при одном флюиде (вода взята для примера). Смотрите на направление течения к стволу.",
+   "alt": "Скважина в пласте, насыщенном одним флюидом, для примера водой. Флюид притекает из пласта в ствол скважины.",
+   "source": "построено кодом по утверждениям главы, стр. 75, 76",
+   "claim_ids": [
+    "dake.radial_cell_model#c10",
+    "dake.radial_cell_model#c13",
+    "dake.radial_cell_model#c14"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.mass_balance_element.i1",
+   "step_id": "dake.mass_balance_element",
+   "node_id": "dake.mass_balance_element",
+   "file": "pictures/mass_balance_element_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Баланс массы тонкого кольца: от расходов на двух радиусах к уравнению (5.2). Давления в нём нет.",
+   "alt": "Схема: расходы на входе и выходе кольца вычитаются, разность равна скорости изменения массы, откуда получается уравнение (5.2).",
+   "source": "построено кодом по утверждениям главы, стр. 76",
+   "claim_ids": [
+    "dake.mass_balance_element#c3",
+    "dake.mass_balance_element#c4",
+    "dake.mass_balance_element#c5",
+    "dake.mass_balance_element#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.darcy_substitution.i1",
+   "step_id": "dake.darcy_substitution",
+   "node_id": "dake.darcy_substitution",
+   "file": "pictures/darcy_substitution_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Дебит заменяется по закону Дарси: слева появляется давление p, справа остаётся плотность ρ.",
+   "alt": "Схема: баланс массы и закон Дарси объединяются подстановкой дебита и дают уравнение (5.3).",
+   "source": "построено кодом по утверждениям главы, стр. 76",
+   "claim_ids": [
+    "dake.darcy_substitution#c1",
+    "dake.darcy_substitution#c2",
+    "dake.darcy_substitution#c3",
+    "dake.darcy_substitution#c4"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.compressibility_density.i1",
+   "step_id": "dake.compressibility_density",
+   "node_id": "dake.compressibility_density",
+   "file": "pictures/compressibility_density_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Плотность связана с давлением: наклон кривой равен cρ, поэтому ∂ρ/∂t = cρ ∂p/∂t.",
+   "alt": "Качественная кривая: плотность растёт с давлением. В отмеченной точке наклон равен произведению сжимаемости на плотность.",
+   "source": "построено кодом по утверждениям главы, стр. 76",
+   "claim_ids": [
+    "dake.compressibility_density#c1",
+    "dake.compressibility_density#c2",
+    "dake.compressibility_density#c6",
+    "dake.compressibility_density#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.nonlinear_equation.i1",
+   "step_id": "dake.nonlinear_equation",
+   "node_id": "dake.nonlinear_equation",
+   "file": "pictures/nonlinear_equation_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "От нелинейности к линеаризации: для жидкости и для реального газа пути разные.",
+   "alt": "Схема: зависимость коэффициентов от давления делает уравнение нелинейным, нужна линеаризация. Для жидкости она простая, для реального газа использует преобразование Кирхгофа.",
+   "source": "построено кодом по утверждениям главы, стр. 75, 76",
+   "claim_ids": [
+    "dake.nonlinear_equation#c3",
+    "dake.nonlinear_equation#c5",
+    "dake.nonlinear_equation#c10",
+    "dake.nonlinear_equation#c11",
+    "dake.nonlinear_equation#c12",
+    "dake.nonlinear_equation#c13"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.constant_rate_problem.i1",
+   "step_id": "dake.constant_rate_problem",
+   "node_id": "dake.constant_rate_problem",
+   "file": "pictures/constant_rate_problem_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Дебит q задан постоянным, а забойное давление pwf от времени нужно найти. Ход кривой условный.",
+   "alt": "График без чисел: дебит идёт горизонтальной линией, а забойное давление со временем снижается от начального пластового давления pᵢ.",
+   "source": "построено кодом по утверждениям главы, стр. 76, 87",
+   "claim_ids": [
+    "dake.constant_rate_problem#c3",
+    "dake.constant_rate_problem#c8",
+    "dake.constant_rate_problem#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.transient_condition.i1",
+   "step_id": "dake.transient_condition",
+   "node_id": "dake.transient_condition",
+   "file": "pictures/transient_condition_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Цепочка неустановившегося режима: пока граница не ощущается, пласт ведёт себя как бесконечный.",
+   "alt": "Схема: смена дебита создаёт возмущение давления; пока внешняя граница не влияет, пласт кажется бесконечным, а давление и темп его изменения зависят от расстояния и времени.",
+   "source": "построено кодом по утверждениям главы, стр. 77",
+   "claim_ids": [
+    "dake.transient_condition#c3",
+    "dake.transient_condition#c4",
+    "dake.transient_condition#c5",
+    "dake.transient_condition#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.semi_steady_boundary.i1",
+   "step_id": "dake.semi_steady_boundary",
+   "node_id": "dake.semi_steady_boundary",
+   "file": "pictures/semi_steady_boundary_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Профиль опускается, почти сохраняя форму; у непроницаемой границы rₑ он выполаживается.",
+   "alt": "Две выпуклые вверх кривые давления от скважины до внешней границы: круто растут у скважины и выполаживаются у стенки. Более поздняя лежит ниже и повторяет форму ранней.",
+   "source": "построено кодом по утверждениям главы, стр. 77",
+   "claim_ids": [
+    "dake.semi_steady_boundary#c6",
+    "dake.semi_steady_boundary#c7",
+    "dake.semi_steady_boundary#c8",
+    "dake.semi_steady_boundary#c13",
+    "dake.semi_steady_boundary#c17",
+    "dake.semi_steady_boundary#c18"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.semi_steady_decline_rate.i1",
+   "step_id": "dake.semi_steady_decline_rate",
+   "node_id": "dake.semi_steady_decline_rate",
+   "file": "pictures/semi_steady_decline_rate_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "При отборе давление падает: dp/dt = −q/(cV). Сравните наклоны: чем больше q, тем круче; чем больше c или V, тем положе.",
+   "alt": "График давления от времени без чисел: две убывающие прямые из одной точки. Круче идёт случай большего дебита или меньших сжимаемости и объёма.",
+   "source": "построено кодом по утверждениям главы, стр. 77",
+   "claim_ids": [
+    "dake.semi_steady_decline_rate#c1",
+    "dake.semi_steady_decline_rate#c4",
+    "dake.semi_steady_decline_rate#c5"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.drainage_volumes.i1",
+   "step_id": "dake.drainage_volumes",
+   "node_id": "dake.drainage_volumes",
+   "file": "pictures/drainage_volumes_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Следите за развилкой: при общем темпе dp/dt зоны скважин независимы, иначе их границы смещаются.",
+   "alt": "Схема: если dp/dt примерно постоянен по пласту, скважины дренируют свои зоны независимо и давление усредняют по объёмам пор; иначе поток смещает границы до устойчивости.",
+   "source": "построено кодом по утверждениям главы, стр. 77",
+   "claim_ids": [
+    "dake.drainage_volumes#c2",
+    "dake.drainage_volumes#c3",
+    "dake.drainage_volumes#c4",
+    "dake.drainage_volumes#c5",
+    "dake.drainage_volumes#c6",
+    "dake.drainage_volumes#c7",
+    "dake.drainage_volumes#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.average_reservoir_pressure.i1",
+   "step_id": "dake.average_reservoir_pressure",
+   "node_id": "dake.average_reservoir_pressure",
+   "file": "pictures/average_reservoir_pressure_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Два способа усреднить давления зон: замена объёмов на дебиты допустима при постоянном dp/dt и малом изменении сжимаемости.",
+   "alt": "Таблица сравнивает взвешивание по объёмам и по дебитам: формулы, веса, доступность данных и условия замены.",
+   "source": "построено кодом по утверждениям главы, стр. 78",
+   "claim_ids": [
+    "dake.average_reservoir_pressure#c2",
+    "dake.average_reservoir_pressure#c3",
+    "dake.average_reservoir_pressure#c4",
+    "dake.average_reservoir_pressure#c5",
+    "dake.average_reservoir_pressure#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.steady_state_condition.i1",
+   "step_id": "dake.steady_state_condition",
+   "node_id": "dake.steady_state_condition",
+   "file": "pictures/steady_state_condition_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Давление растёт от стенки скважины к открытой границе: круто вблизи, полого вдали. Отбор равен притоку, и кривая не смещается.",
+   "alt": "Выпуклая вверх кривая давления по радиусу: от забойного давления на стенке скважины круто растёт, затем выполаживается к постоянному давлению на внешней границе.",
+   "source": "построено кодом по утверждениям главы, стр. 78",
+   "claim_ids": [
+    "dake.steady_state_condition#c4",
+    "dake.steady_state_condition#c5",
+    "dake.steady_state_condition#c6",
+    "dake.steady_state_condition#c11",
+    "dake.steady_state_condition#c12"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.regimes_in_practice.i1",
+   "step_id": "dake.regimes_in_practice",
+   "node_id": "dake.regimes_in_practice",
+   "file": "pictures/regimes_in_practice_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "После изменения дебита сначала краткий неустановившийся приток, затем стабилизированный",
+   "alt": "График дебита во времени без чисел: дебит скачком увеличивается, сразу после скачка идёт краткий неустановившийся приток, позже — стабилизированный.",
+   "source": "построено кодом по утверждениям главы, стр. 78",
+   "claim_ids": [
+    "dake.regimes_in_practice#c8",
+    "dake.regimes_in_practice#c9",
+    "dake.regimes_in_practice#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.expand_equation.i1",
+   "step_id": "dake.expand_equation",
+   "node_id": "dake.expand_equation",
+   "file": "pictures/expand_equation_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Две ветви: раскрытие левой части и выражение производной плотности; они сходятся в уравнении (5.18)",
+   "alt": "Схема: уравнение (5.1) по правилу дифференцирования сложной функции даёт (5.16); из (5.4) получают (5.17); подстановка даёт (5.18) с квадратом градиента давления.",
+   "source": "построено кодом по утверждениям главы, стр. 78",
+   "claim_ids": [
+    "dake.expand_equation#c3",
+    "dake.expand_equation#c4",
+    "dake.expand_equation#c6",
+    "dake.expand_equation#c7",
+    "dake.expand_equation#c8",
+    "dake.expand_equation#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.drop_small_terms.i1",
+   "step_id": "dake.drop_small_terms",
+   "node_id": "dake.drop_small_terms",
+   "file": "pictures/drop_small_terms_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Порядок допущений: что убирает слагаемые и что делает коэффициент φμc/k постоянным",
+   "alt": "Схема: из (5.18) при постоянной вязкости и малом градиенте получают (5.19) и (5.20), затем при постоянной сжимаемости уравнение становится линейным, если cp ≪ 1.",
+   "source": "построено кодом по утверждениям главы, стр. 79",
+   "claim_ids": [
+    "dake.drop_small_terms#c4",
+    "dake.drop_small_terms#c5",
+    "dake.drop_small_terms#c6",
+    "dake.drop_small_terms#c7",
+    "dake.drop_small_terms#c8",
+    "dake.drop_small_terms#c10",
+    "dake.drop_small_terms#c11",
+    "dake.drop_small_terms#c12",
+    "dake.drop_small_terms#c13"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.total_compressibility.i1",
+   "step_id": "dake.total_compressibility",
+   "node_id": "dake.total_compressibility",
+   "file": "pictures/total_compressibility_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Общая сжимаемость учитывает три части: нефть, связанную воду и само поровое пространство",
+   "alt": "Порода под увеличением: поры между зёрнами заполнены нефтью, на зёрнах плёнка связанной воды.",
+   "source": "построено кодом по утверждениям главы, стр. 79",
+   "claim_ids": [
+    "dake.total_compressibility#c2",
+    "dake.total_compressibility#c4",
+    "dake.total_compressibility#c6",
+    "dake.total_compressibility#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.linearization_validity.i1",
+   "step_id": "dake.linearization_validity",
+   "node_id": "dake.linearization_validity",
+   "file": "pictures/linearization_validity_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Простая линеаризация требует cp ≪ 1: в примере 0,04 условие выполнено, а для реального газа cp равно единице.",
+   "alt": "Две полосы в логарифмическом масштабе: cp равно 0,04 в примере для жидкостей и 1 для реального газа, где условие cp ≪ 1 не выполняется.",
+   "source": "построено кодом по утверждениям главы, стр. 79",
+   "claim_ids": [
+    "dake.linearization_validity#c4",
+    "dake.linearization_validity#c12",
+    "dake.linearization_validity#c13",
+    "dake.linearization_validity#c16",
+    "dake.linearization_validity#c17"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.porosity_compressibility_product.i1",
+   "step_id": "dake.porosity_compressibility_product",
+   "node_id": "dake.porosity_compressibility_product",
+   "file": "pictures/porosity_compressibility_product_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Множитель (1 − Swc) входит в пористость и делит сжимаемость, поэтому φc не меняется. Сомножители из разных записей не смешивают.",
+   "alt": "Сравнение двух записей φc: с абсолютной пористостью и общей сжимаемостью или с эффективной углеводородной пористостью и сжимаемостью, делённой на (1 − Swc). Значение произведения одно и то же.",
+   "source": "построено кодом по утверждениям главы, стр. 79",
+   "claim_ids": [
+    "dake.porosity_compressibility_product#c2",
+    "dake.porosity_compressibility_product#c3",
+    "dake.porosity_compressibility_product#c4",
+    "dake.porosity_compressibility_product#c5",
+    "dake.porosity_compressibility_product#c6",
+    "dake.porosity_compressibility_product#c8",
+    "dake.porosity_compressibility_product#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.diffusivity_equation.i1",
+   "step_id": "dake.diffusivity_equation",
+   "node_id": "dake.diffusivity_equation",
+   "file": "pictures/diffusivity_equation_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Уравнения совпадают по виду: p стоит на месте T, а k/φμc — на месте K.",
+   "alt": "Сравнение радиального уравнения пьезопроводности и уравнения теплопроводности: давлению соответствует температура, комплексу k/φμc — коэффициент K.",
+   "source": "построено кодом по утверждениям главы, стр. 79",
+   "claim_ids": [
+    "dake.diffusivity_equation#c1",
+    "dake.diffusivity_equation#c2",
+    "dake.diffusivity_equation#c4",
+    "dake.diffusivity_equation#c5",
+    "dake.diffusivity_equation#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.pressure_decline_periods.i1",
+   "step_id": "dake.pressure_decline_periods",
+   "node_id": "dake.pressure_decline_periods",
+   "file": "pictures/pressure_decline_periods_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественный ход: три периода сменяют друг друга; в последнем при непроницаемой границе давление падает с постоянным темпом.",
+   "alt": "Забойное давление падает со временем в три этапа: неустановившийся, поздний неустановившийся и стабилизированный, где при непроницаемой границе спад идёт по прямой.",
+   "source": "построено кодом по утверждениям главы, стр. 87",
+   "claim_ids": [
+    "dake.pressure_decline_periods#c1",
+    "dake.pressure_decline_periods#c2",
+    "dake.pressure_decline_periods#c3",
+    "dake.pressure_decline_periods#c5",
+    "dake.pressure_decline_periods#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.full_solution_superposition.i1",
+   "step_id": "dake.full_solution_superposition",
+   "node_id": "dake.full_solution_superposition",
+   "file": "pictures/full_solution_superposition_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Дебиты разной величины и длительности: отклик забойного давления на них теоретически описывают суперпозицией решений при постоянном дебите.",
+   "alt": "Ступенчатый график дебита во времени: три участка с разными постоянными дебитами и разной длительностью.",
+   "source": "построено кодом по утверждениям главы, стр. 87",
+   "claim_ids": [
+    "dake.full_solution_superposition#c9",
+    "dake.full_solution_superposition#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.line_source_conditions.i1",
+   "step_id": "dake.line_source_conditions",
+   "node_id": "dake.line_source_conditions",
+   "file": "pictures/line_source_conditions_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Скважина-линия при r → 0: там условие задаёт дебит q. До добычи давление всюду pᵢ, а на бесконечности остаётся pᵢ всегда.",
+   "alt": "График давления от расстояния. До добычи это горизонтальная линия начального давления. Во время добычи давление у оси скважины понижено и с удалением приближается к начальному.",
+   "source": "построено кодом по утверждениям главы, стр. 87",
+   "claim_ids": [
+    "dake.line_source_conditions#c3",
+    "dake.line_source_conditions#c5",
+    "dake.line_source_conditions#c6",
+    "dake.line_source_conditions#c7",
+    "dake.line_source_conditions#c8",
+    "dake.line_source_conditions#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.boltzmann_transform.i1",
+   "step_id": "dake.boltzmann_transform",
+   "node_id": "dake.boltzmann_transform",
+   "file": "pictures/boltzmann_transform_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Радиус и время сходятся в одну переменную s; две её производные подставляют в уравнение пьезопроводности.",
+   "alt": "Схема: радиус и время объединяются в переменную s, затем находят её производные по радиусу и по времени и подставляют их в уравнение.",
+   "source": "построено кодом по утверждениям главы, стр. 87, 88",
+   "claim_ids": [
+    "dake.boltzmann_transform#c4",
+    "dake.boltzmann_transform#c5",
+    "dake.boltzmann_transform#c6",
+    "dake.boltzmann_transform#c7",
+    "dake.boltzmann_transform#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.solve_ordinary_equation.i1",
+   "step_id": "dake.solve_ordinary_equation",
+   "node_id": "dake.solve_ordinary_equation",
+   "file": "pictures/solve_ordinary_equation_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Цепочка решения: замена, разделение переменных, интегрирование. На выходе — производная давления по s с постоянной C₂.",
+   "alt": "Схема из пяти шагов сверху вниз: исходное уравнение, замена производной на p′, разделение переменных, интегрирование и выражение для p′.",
+   "source": "построено кодом по утверждениям главы, стр. 88",
+   "claim_ids": [
+    "dake.solve_ordinary_equation#c2",
+    "dake.solve_ordinary_equation#c5",
+    "dake.solve_ordinary_equation#c6",
+    "dake.solve_ordinary_equation#c7",
+    "dake.solve_ordinary_equation#c9",
+    "dake.solve_ordinary_equation#c10"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.line_source_solution.i1",
+   "step_id": "dake.line_source_solution",
+   "node_id": "dake.line_source_solution",
+   "file": "pictures/line_source_solution_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Путь к решению линейного стока: условие у скважины даёт постоянную C₂, интегрирование от начального давления даёт давление p.",
+   "alt": "Схема вывода: выражение для производной давления и граничное условие у скважины дают C₂, затем интегрирование приводит к давлению в любой точке и момент.",
+   "source": "построено кодом по утверждениям главы, стр. 88",
+   "claim_ids": [
+    "dake.line_source_solution#c2",
+    "dake.line_source_solution#c5",
+    "dake.line_source_solution#c6",
+    "dake.line_source_solution#c7",
+    "dake.line_source_solution#c8",
+    "dake.line_source_solution#c9",
+    "dake.line_source_solution#c14"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.exponential_integral.i1",
+   "step_id": "dake.exponential_integral",
+   "node_id": "dake.exponential_integral",
+   "file": "pictures/exponential_integral_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "ei(x) — площадь под кривой правее границы s = x. Чем правее граница, тем меньше остаётся площади.",
+   "alt": "Кривая e^(−s)/s круто убывает и прижимается к горизонтальной оси. При границе слева площадь правее неё, ei(x), велика, при границе справа мала.",
+   "source": "построено кодом по утверждениям главы, стр. 88, 89",
+   "claim_ids": [
+    "dake.exponential_integral#c6",
+    "dake.exponential_integral#c7",
+    "dake.exponential_integral#c14"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.log_approximation.i1",
+   "step_id": "dake.log_approximation",
+   "node_id": "dake.log_approximation",
+   "file": "pictures/log_approximation_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Левее x = 0,01 кривая ei(x) сливается с −ln(γx). При больших x ei(x) идёт выше, и замена уже не годится.",
+   "alt": "Две убывающие кривые в двойном логарифмическом масштабе: при малых x они совпадают, при больших x кривая ei(x) проходит выше приближения −ln(γx).",
+   "source": "построено кодом по утверждениям главы, стр. 88, 89",
+   "claim_ids": [
+    "dake.log_approximation#c1",
+    "dake.log_approximation#c5",
+    "dake.log_approximation#c8",
+    "dake.log_approximation#c9",
+    "dake.log_approximation#c14"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.wellbore_pressure_skin.i1",
+   "step_id": "dake.wellbore_pressure_skin",
+   "node_id": "dake.wellbore_pressure_skin",
+   "file": "pictures/wellbore_pressure_skin_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Пока пласт кажется бесконечным, забойное давление линейно падает с ln t. Скин-фактор добавляет сдвиг, не зависящий от времени.",
+   "alt": "Две параллельные убывающие прямые забойного давления от логарифма времени: линия с положительным скин-фактором лежит ниже на постоянную величину.",
+   "source": "построено кодом по утверждениям главы, стр. 89",
+   "claim_ids": [
+    "dake.wellbore_pressure_skin#c4",
+    "dake.wellbore_pressure_skin#c5",
+    "dake.wellbore_pressure_skin#c6",
+    "dake.wellbore_pressure_skin#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "dake.distant_well_pressure.i1",
+   "step_id": "dake.distant_well_pressure",
+   "node_id": "dake.distant_well_pressure",
+   "file": "pictures/distant_well_pressure_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественно: при малых x приближение −ln γx сливается с ei(x), при больших ei идёт выше. В удалённой скважине r велико — берут полную ei.",
+   "alt": "Две убывающие кривые: ei(x) и приближение −ln γx. При малых x они совпадают, при больших расходятся, и ei(x) проходит выше приближения.",
+   "source": "построено кодом по утверждениям главы, стр. 89",
+   "claim_ids": [
+    "dake.distant_well_pressure#c3",
+    "dake.distant_well_pressure#c4",
+    "dake.distant_well_pressure#c5",
+    "dake.distant_well_pressure#c8",
+    "dake.distant_well_pressure#c14"
+   ],
+   "prompt": null
+  }
+ ]
+}

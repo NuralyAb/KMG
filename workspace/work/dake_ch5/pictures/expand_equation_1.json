@@ -1,0 +1,65 @@
+{
+ "node_id": "dake.expand_equation",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Уравнение (5.1)",
+    "kind": "data"
+   },
+   {
+    "id": "d",
+    "text": "Сжимаемость (5.4): плотность и давление",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "(5.16): четыре слагаемых в скобках",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "(5.17): cρ·∂p/∂r = ∂ρ/∂r",
+    "kind": "step"
+   },
+   {
+    "id": "f",
+    "text": "(5.18): во 2-м слагаемом квадрат градиента (∂p/∂r)²",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": "chain rule"
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": "по r"
+   },
+   {
+    "from": "b",
+    "to": "f",
+    "label": ""
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": "подстановка"
+   }
+  ]
+ },
+ "caption": "Две ветви: раскрытие левой части и выражение производной плотности; они сходятся в уравнении (5.18)",
+ "alt": "Схема: уравнение (5.1) по правилу дифференцирования сложной функции даёт (5.16); из (5.4) получают (5.17); подстановка даёт (5.18) с квадратом градиента давления.",
+ "claim_ids": [
+  "dake.expand_equation#c3",
+  "dake.expand_equation#c4",
+  "dake.expand_equation#c6",
+  "dake.expand_equation#c7",
+  "dake.expand_equation#c8",
+  "dake.expand_equation#c9"
+ ]
+}

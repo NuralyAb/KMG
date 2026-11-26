@@ -1,0 +1,658 @@
+{
+ "chapter": "slatt_par9-4",
+ "claims": 549,
+ "flagged": [
+  {
+   "claim_id": "slatt.progradation_accommodation#c1",
+   "node_id": "slatt.progradation_accommodation",
+   "text": "Дельта речного типа с защищённым берегом при наличии времени и достаточного пространства аккомодации проградирует, то есть наращивается в сторону моря.",
+   "quote": "With time and sufficient accommodation space between the sea surface and seafloor to accept sediment, such a delta will prograde seaward (Fig. 9.9)",
+   "page_pdf": 411,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.mouth_bar_recognition#c11",
+   "node_id": "slatt.mouth_bar_recognition",
+   "text": "На фото (a) белая штриховая линия, по виду, отмечает подошву тела руслового песчаника; в подписи к рисунку она не объяснена. Справа от середины линия поднимается и выполаживается.",
+   "quote": "белая штриховая линия на (a): граница в обнажении, по виду — подошва тела канального песчаника (в подписи линия не объяснена); Слева идёт низко, почти горизонтально над водой, правее середины поднимается вверх и вправо и выполаживается в верхней части склона.",
+   "page_pdf": 415,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "slatt.lobe_switching#c3",
+   "node_id": "slatt.lobe_switching",
+   "text": "Однако со временем проградация и вертикальная аградация дельты речного типа приводят к постепенному уменьшению глубины воды.",
+   "quote": "However, over time, progradation and vertical aggradation lead to a progressive shallowing of the water depth",
+   "page_pdf": 411,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.lobe_switching#c24",
+   "node_id": "slatt.lobe_switching",
+   "text": "Неподписанный голубой фон карты, по-видимому, означает воду, а оранжево-бежевый — сушу.",
+   "quote": "голубой и оранжево-бежевый фон без подписи: по-видимому, голубой — вода, оранжево-бежевый — суша",
+   "page_pdf": 413,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.lobe_switching#c39",
+   "node_id": "slatt.lobe_switching",
+   "text": "У лопасти Balize в легенде карты Миссисипи указано 500 лет, без пометки B.P.",
+   "quote": "коричневато-бежевый — BALIZE (Бализ), 500 yrs (лет)",
+   "page_pdf": 413,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.lowstand_deltas#c2",
+   "node_id": "slatt.lowstand_deltas",
+   "text": "Дельты, образованные при относительном падении уровня моря, часто называют дельтами низкого стояния (lowstand) или дельтами края шельфа (shelf-margin), а также соответствующими системными трактами (systems tracts); автор отсылает к рис. 5.18 и 5.19.",
+   "quote": "these are often referred to as “lowstand” or “shelf-margin” deltas or systems tracts (Figs. 5.18 and 5.19).",
+   "page_pdf": 410,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.lowstand_deltas#c6",
+   "node_id": "slatt.lowstand_deltas",
+   "text": "По мнению автора, дельты низкого стояния важны.",
+   "quote": "Although important, these lowstand deltas are generally not as large",
+   "page_pdf": 410,
+   "flags": [
+    "negation",
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "slatt.litho_vs_chrono#c14",
+   "node_id": "slatt.litho_vs_chrono",
+   "text": "Кривая гамма-каротажа скважины 1 в песчаных интервалах отклоняется влево, а в глинистых вправо, к стволу и за него.",
+   "quote": "Изрезанная кривая: в песчаных интервалах отклоняется влево, в глинистых — вправо, к стволу и за него.",
+   "page_pdf": 410,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.litho_vs_chrono#c15",
+   "node_id": "slatt.litho_vs_chrono",
+   "text": "Кривая гамма-каротажа скважины 2 чередует отклонения влево в песчаных интервалах и вправо в глинистых.",
+   "quote": "Изрезанная кривая с чередованием отклонений влево (песчаные интервалы) и вправо (глинистые).",
+   "page_pdf": 410,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.sand_connectivity#c1",
+   "node_id": "slatt.sand_connectivity",
+   "text": "В гипотетическом примере (рис. 9.10) глинистые и гетеролитовые (heterolithic) интервалы отделяют песчаные интервалы друг от друга.",
+   "quote": "Note that shaley and heterolithic intervals separate sandy intervals, so that the sands between wells 1 and 2 are not in communication.",
+   "page_pdf": 410,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.sand_connectivity#c3",
+   "node_id": "slatt.sand_connectivity",
+   "text": "Такая разобщённость песков неблагоприятно скажется на эффективности заводнения (waterflood).",
+   "quote": "This feature will adversely affect waterflood performance as well as single-well productivity.",
+   "page_pdf": 410,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.sand_connectivity#c4",
+   "node_id": "slatt.sand_connectivity",
+   "text": "Такая разобщённость песков неблагоприятно скажется и на продуктивности отдельной скважины (single-well productivity).",
+   "quote": "This feature will adversely affect waterflood performance as well as single-well productivity.",
+   "page_pdf": 410,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c12",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "У юго-восточного побережья проведены линии с подписями 2, 6, 16 и 28 м, по виду изобаты (линии равной глубины моря). Значения растут в сторону от берега.",
+   "quote": "линии в море с подписями в метрах, по виду изобаты; Тянутся у юго-восточного побережья с юго-запада на северо-восток. Подписанные значения растут в сторону от берега.",
+   "page_pdf": 411,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c25",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "Линия времени 1000 начинается у верха разреза между TC1 и TV1 и опускается в сторону моря, пересекая границы литофаций.",
+   "quote": "Наклонена вправо вниз: начинается у верхней части разреза между TC1 и TV1 и опускается в сторону моря, пересекая границы литофаций.",
+   "page_pdf": 412,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c26",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "Линия времени 2000 проходит левее и ниже линии 1000: от верха разреза правее TC1 к низам продельты у TV1.",
+   "quote": "Наклонена вправо вниз, проходит левее и ниже линии 1000; от верхней части разреза правее TC1 опускается к низам продельты у TV1.",
+   "page_pdf": 412,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c27",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "Линия времени 3000 круто опускается в сторону моря через фронт дельты в продельту, левее и ниже линии 2000.",
+   "quote": "Подписана правее TC1; круто опускается вправо вниз через фронт дельты в продельту, левее и ниже линии 2000.",
+   "page_pdf": 412,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c28",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "Линия времени 4000 идёт от левого края около −14 м почти горизонтально, слегка поднимаясь. Перед TC1 она круто поднимается, образует выпуклый перегиб у TC1 и пересекает фронт дельты.",
+   "quote": "От левого края около −14 м идёт почти горизонтально, слегка поднимаясь, затем перед TC1 круто поднимается и образует выпуклый перегиб у TC1, пересекая фронт дельты.",
+   "page_pdf": 412,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c29",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "Линия времени 5000 почти горизонтальна: слева около −20 м, к TC1 слегка поднимается и проходит в продельте.",
+   "quote": "Почти горизонтальна, около −20 м слева, слегка поднимается к TC1; проходит в продельте.",
+   "page_pdf": 412,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c31",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "Штриховая граница над нерасчленённым плейстоценом идёт слева около −35 м, круто поднимается примерно до −19 м у TC1 и полого опускается к TV1. В условных обозначениях она не определена.",
+   "quote": "Слева около −35 м, круто поднимается вправо примерно до −19 м у TC1, затем полого опускается в сторону моря к TV1.",
+   "page_pdf": 412,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c32",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "Скважины VL1, TC1 и TV1 пересекают всю дельтовую толщу и уходят ниже штриховой линии; глубже всех идёт VL1.",
+   "quote": "Пересекают всю дельтовую толщу и уходят ниже штриховой линии; у VL1 глубже всего.",
+   "page_pdf": 412,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c37",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "Верхний коричнево-оранжевый слой у поверхности не подписан; его цвет соответствует дельтовой равнине в легенде панели (c).",
+   "quote": "верхняя часть разреза у поверхности; цвет соответствует Delta plain в легенде панели (c)",
+   "page_pdf": 412,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c45",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "У скважины TC1 сверху вниз прочитаны отметки датировок: приблизительно −2876, −3505, −3969, −4368, −4814, −4743, −6131, −50400.",
+   "quote": "отметки датировок у TC1, сверху вниз: ≈ −2876, −3505, −3969, −4368, −4814, −4743, −6131, −50,400",
+   "page_pdf": 412,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.mekong_litho_section#c46",
+   "node_id": "slatt.mekong_litho_section",
+   "text": "У скважины TV1 сверху вниз прочитаны отметки датировок: приблизительно −721, −721, −1001, −1403, −1545, −1826, −1952, −2719, −43420.",
+   "quote": "отметки датировок у TV1, сверху вниз: ≈ −721, −721, −1001, −1403, −1545, −1826, −1952, −2719, −43,420",
+   "page_pdf": 412,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.prudhoe_setting#c9",
+   "node_id": "slatt.prudhoe_setting",
+   "text": "Рис. 9.16 — схематическая палеогеографическая реконструкция (paleogeographic reconstruction): она показывает фациальные ассоциации Ромео, то есть наборы связанных фаций, какими они были во время осадконакопления. Рисунок дан по Tye et al. (1999).",
+   "quote": "Schematic paleogeographic reconstruction of Romeo facies associations, as they existed during deposition.",
+   "page_pdf": 416,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.prudhoe_setting#c24",
+   "node_id": "slatt.prudhoe_setting",
+   "text": "Рис. 9.20 показывает часть корреляции каротажных диаграмм с севера на юг через песчаник Садлерочит (Sadlerochit) на месторождении Прадхо-Бей. Рисунок изменён по Tye et al. (1999).",
+   "quote": "Part of a north–south wire line log correlation across the Sadlerochit Sand at Prudhoe Bay field.",
+   "page_pdf": 420,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_column#c4",
+   "node_id": "slatt.romeo_column",
+   "text": "Колонка скважины 07-06 помещена в книге «Stratigraphic Reservoir Characterization for Petroleum Geologists»: это название стоит в колонтитуле страницы с рис. 9.19.",
+   "quote": "Stratigraphic Reservoir Characterization for Petroleum Geologists",
+   "page_pdf": 419,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_column#c9",
+   "node_id": "slatt.romeo_column",
+   "text": "Шкала глубин по керну имеет отметки 9450, 9500, 9550 и 9600 футов, но каждая стоит на рисунке ниже одноимённой отметки шкалы каротажа.",
+   "quote": "Depth (ft), Core (глубина по керну, футы) (непосредственно слева от колонки Core Profile; растёт вниз; одноимённые отметки расположены ниже, чем на шкале Log; линейная): 9450, 9500, 9550, 9600",
+   "page_pdf": 419,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_column#c16",
+   "node_id": "slatt.romeo_column",
+   "text": "В зоне 2B скважины 07-06 значения «GR» высокие, с максимумом у подошвы зоны, а на границе с 2A кривая резко сдвигается влево.",
+   "quote": "В зоне 2B значения высокие (кривая справа), с максимумом у её подошвы, затем резкий сдвиг влево на границе с 2A.",
+   "page_pdf": 419,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_column#c17",
+   "node_id": "slatt.romeo_column",
+   "text": "В зоне 2A скважины 07-06 значения «GR» в основном низкие, с одним заметным острым пиком вправо в нижней половине.",
+   "quote": "В 2A в основном низкие, с одним заметным острым пиком вправо в нижней половине.",
+   "page_pdf": 419,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_column#c18",
+   "node_id": "slatt.romeo_column",
+   "text": "В зоне 1B скважины 07-06 значения «GR» низкие и умеренные, с мелкими колебаниями.",
+   "quote": "В 1B низкие и умеренные, с мелкими колебаниями.",
+   "page_pdf": 419,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_column#c19",
+   "node_id": "slatt.romeo_column",
+   "text": "В зоне 1A скважины 07-06 кривая «GR» изрезана, с несколькими пиками вправо; в нижней части значения растут и остаются высокими до низа разреза.",
+   "quote": "В 1A изрезанная кривая с несколькими пиками вправо; в нижней части значения растут и остаются высокими до низа разреза.",
+   "page_pdf": 419,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_column#c20",
+   "node_id": "slatt.romeo_column",
+   "text": "Резкий спад «GR» на границе зон 2B и 2A в скважине 07-06 приходится примерно на 9440 футов по каротажу (снято с рисунка на глаз).",
+   "quote": "Глубина по Log резкого спада GR на границе зон 2B и 2A: ≈9440 ft",
+   "page_pdf": 419,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_column#c21",
+   "node_id": "slatt.romeo_column",
+   "text": "Острый пик «GR» в зоне 2A скважины 07-06 находится примерно на 9480 футах по каротажу (снято с рисунка на глаз).",
+   "quote": "Глубина по Log острого пика GR в зоне 2A: ≈9480 ft",
+   "page_pdf": 419,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_correlation#c1",
+   "node_id": "slatt.romeo_correlation",
+   "text": "Отложение осадка в обстановке с преобладанием реки привело к значительным латеральным и вертикальным изменениям фаций.",
+   "quote": "River-dominated deposition resulted in significant lateral and vertical facies changes",
+   "page_pdf": 417,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_correlation#c7",
+   "node_id": "slatt.romeo_correlation",
+   "text": "На литостратиграфическом разрезе прерывистым является только интервал 1A.",
+   "quote": "In the lithostratigraphic cross-section, only the interval IA is discontinuous.",
+   "page_pdf": 418,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_correlation#c15",
+   "node_id": "slatt.romeo_correlation",
+   "text": "Корреляция ведётся по каротажу скважин: на каждую скважину приходится две колонки кривых, тип которых не подписан.",
+   "quote": "Каротажные кривые (по две колонки на скважину): каротаж скважин, по которому ведётся корреляция; тип кривых не подписан;",
+   "page_pdf": 418,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "slatt.romeo_correlation#c21",
+   "node_id": "slatt.romeo_correlation",
+   "text": "На нижнем разрезе волнистыми линиями показаны неподписанные поверхности внутри флювиальной толщи и у её подошвы.",
+   "quote": "Волнистые линии (нижний разрез): поверхности внутри флювиальной толщи и у её подошвы; на рисунке не подписаны;",
+   "page_pdf": 418,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.mouth_bar_lithofacies#c25",
+   "node_id": "slatt.mouth_bar_lithofacies",
+   "text": "Линии времени в разрезе бара поднимаются к его вершине, затем полого падают к бассейну и пересекают границы литологических зон.",
+   "quote": "Идут слева направо примерно параллельно кровле бара: поднимаются к Bar Apex, затем полого наклонены в сторону бассейна и пересекают границы цветных литологических зон.",
+   "page_pdf": 417,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "slatt.mouth_bar_lithofacies#c26",
+   "node_id": "slatt.mouth_bar_lithofacies",
+   "text": "На плане внутри бара есть тонкие дуги без подписи, выпуклые в сторону бассейна и расположенные одна за другой.",
+   "quote": "Дуги, выпуклые в сторону бассейна (вправо), расположены последовательно одна за другой в пределах цветных зон.",
+   "page_pdf": 417,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.mouth_bar_lithofacies#c27",
+   "node_id": "slatt.mouth_bar_lithofacies",
+   "text": "Ни у плана, ни у разреза на рис. 9.17 нет масштаба.",
+   "quote": "Масштабы в плане и разрезе отсутствуют.",
+   "page_pdf": 417,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.sinusoidal_well#c11",
+   "node_id": "slatt.sinusoidal_well",
+   "text": "Эти сведения показали, что синусоидальный горизонтальный ствол вскрыл бы больше высокопроницаемых литофаций, чем обычная скважина.",
+   "quote": "provided the knowledge that a sinusoidal, horizontal well path would contact more high-permeability lithofacies than would a conventional well.",
+   "page_pdf": 417,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "slatt.perforation_isolation#c1",
+   "node_id": "slatt.perforation_isolation",
+   "text": "В горизонтальных скважинах на Прадхо-Бей разработчики ограничили перфорацию дельтовыми песчаниками и тем самым избежали конкуренции за воду между этими менее проницаемыми песчаниками и вышележащими более проницаемыми речными (по Tye et al., 1999).",
+   "quote": "By restricting perforations in horizontal wells to deltaic sandstones, developers avoided competition for water between these lower-permeability sandstones and overlying higher-permeability fluvial sandstones",
+   "page_pdf": 418,
+   "flags": [
+    "number",
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "slatt.perforation_isolation#c10",
+   "node_id": "slatt.perforation_isolation",
+   "text": "Горизонтальная ось разреза — измеренная глубина по стволу в футах, шкала линейная с отметками от 9500 до 11100.",
+   "quote": "Measured depth (ft.) (измеренная глубина по стволу, футы) (снизу, вправо; линейная): 9500, 9700, 9900, 10,100, 10,300, 10,500, 10,700, 10,900, 11,100",
+   "page_pdf": 421,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.perforation_isolation#c14",
+   "node_id": "slatt.perforation_isolation",
+   "text": "Самая глубокая точка ствола — около 8722 футов при измеренной глубине около 9950–10000.",
+   "quote": "Самая глубокая точка – около 8722 ft при MD около 9950–10,000.",
+   "page_pdf": 421,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.perforation_isolation#c15",
+   "node_id": "slatt.perforation_isolation",
+   "text": "Далее ствол идёт полого с небольшими волнами около 8717–8719 футов, поднимается примерно до 8707 футов около 10900 по стволу, а к концу (около 11060) опускается примерно до 8716 футов.",
+   "quote": "Далее идёт полого с небольшими волнами около 8717–8719 ft и постепенно поднимается примерно до 8707 ft около MD 10,900. К концу (около MD 11,060) опускается примерно до 8716 ft.",
+   "page_pdf": 421,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.sidetrack_water#c1",
+   "node_id": "slatt.sidetrack_water",
+   "text": "По мнению автора, одно из новаторских применений знаний о выдержанности глин связано с вертикальной скважиной. С мая 1992 по январь 1993 года она сохраняла устойчивую добычу свыше 300 баррелей нефти в сутки (BOPD).",
+   "quote": "One innovative application of the understanding of shale continuity was applied to a vertical well that had maintained a steady output in excess of 300 BOPD between May 1992 and January 1993.",
+   "page_pdf": 418,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "slatt.sidetrack_water#c4",
+   "node_id": "slatt.sidetrack_water",
+   "text": "В песчаник под экранирующей глиной пробурили боковой горизонтальный ствол с нетрадиционным заканчиванием (unconventional completion). Он дал новую добычу около 400 баррелей нефти в сутки.",
+   "quote": "well was drilled as an unconventional completion into the sandstone, and it led to new production of approximately 400 BOPD (Fig. 9.23).",
+   "page_pdf": 419,
+   "flags": [
+    "unit"
+   ]
+  },
+  {
+   "claim_id": "slatt.sidetrack_water#c7",
+   "node_id": "slatt.sidetrack_water",
+   "text": "По замыслу, скважина 09-35A должна использовать глину на глубине 8936 футов (2725 м) как барьер от опускающейся сверху воды (slumping water).",
+   "quote": "and to use the shale at 8936 ft. (2725 m) as a barrier from slumping water.",
+   "page_pdf": 421,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.gas_cap_shield#c3",
+   "node_id": "slatt.gas_cap_shield",
+   "text": "Горизонтальный участок скважины 11-30 длиной 894 фута (272 м) целиком пробурен внутри целевого песчаника.",
+   "quote": "894 ft. (272 m)-long horizontal section was drilled entirely within the targeted sandstone",
+   "page_pdf": 419,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.gas_cap_shield#c4",
+   "node_id": "slatt.gas_cap_shield",
+   "text": "Из горизонтального участка скважины 11-30 длиной 894 фута 475 футов (144 м) определены как эффективная нефтенасыщенная толщина (net pay).",
+   "quote": "of which 475 ft. (144 m) was determined to be net pay.",
+   "page_pdf": 419,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.gas_cap_shield#c13",
+   "node_id": "slatt.gas_cap_shield",
+   "text": "Шкалы глубины у скв. 11-28 и 11-23 линейные, глубина растёт вниз, а единицы глубины не подписаны.",
+   "quote": "Глубина у скв. 11-28 (единицы не подписаны) ((a), слева, растёт вниз; линейная): 8500, 8600, 8700",
+   "page_pdf": 422,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.gas_cap_shield#c17",
+   "node_id": "slatt.gas_cap_shield",
+   "text": "Над скв. 11-30 в части (a) есть тонкий контур в форме перевёрнутой трапеции и отходящая от него горизонтальная линия; их значение не подписано.",
+   "quote": "(a) Тонкая линия в форме перевёрнутой трапеции у кровли верхнего чёрного прослоя; значение не подписано",
+   "page_pdf": 422,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "slatt.gas_cap_shield#c22",
+   "node_id": "slatt.gas_cap_shield",
+   "text": "В средней части разреза (a) есть несколько протяжённых пойменных прослоев, которые у скв. 11-30 утолщаются и сливаются.",
+   "quote": "(a) Несколько протяжённых чёрных прослоев в средней части, примерно 8560–8645 по левой шкале; у скв. 11-30 они утолщаются и сливаются.",
+   "page_pdf": 422,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "slatt.gas_cap_shield#c30",
+   "node_id": "slatt.gas_cap_shield",
+   "text": "Граница газ–нефть в колонке у скв. 11-28 приходится примерно на отметку 8690 по левой шкале; значение снято на глаз, единицы не подписаны.",
+   "quote": "(a) Граница газ–нефть в колонке у скв. 11-28 (по левой шкале): ≈8690",
+   "page_pdf": 422,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.gas_cap_shield#c31",
+   "node_id": "slatt.gas_cap_shield",
+   "text": "Граница газ–нефть в колонке у скв. 11-23 приходится примерно на отметку 8595 по правой шкале; значение снято на глаз, единицы не подписаны.",
+   "quote": "(a) Граница газ–нефть в колонке у скв. 11-23 (по правой шкале): ≈8595",
+   "page_pdf": 422,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "slatt.kuparuk_compartments#c33",
+   "node_id": "slatt.kuparuk_compartments",
+   "text": "Масштабная линейка расстояний разреза NW–SE размечена начиная с 0, 10000, 20000 и далее; единицы не указаны.",
+   "quote": "Масштабная линейка расстояний разреза NW–SE (единицы не указаны) (под нижним разрезом, вправо; линейная): 0, 10,000, 20,000",
+   "page_pdf": 423,
+   "flags": [
+    "number"
+   ]
+  }
+ ],
+ "by_flag": {
+  "negation": 15,
+  "condition": 8,
+  "number": 31,
+  "quantifier": 3,
+  "unit": 1
+ },
+ "needs_scan": 371,
+ "by_model": 368,
+ "prose_numbers": [
+  {
+   "node_id": "slatt.lowstand_deltas",
+   "where": "layers.nuances.text",
+   "text": "Для иллюстрации автор отсылает к рис. 5.18 и 5.19 из другой части книги.",
+   "numbers": [
+    "19"
+   ]
+  },
+  {
+   "node_id": "slatt.sand_connectivity",
+   "where": "layers.nuances.text",
+   "text": "Подпись к рисунку ссылается на Gani и Bhattacharya (2005).",
+   "numbers": [
+    "2005"
+   ]
+  }
+ ],
+ "early_terms": [
+  {
+   "term": "горизонтальная скважина",
+   "explained_in": "slatt.mouth_bar_lithofacies",
+   "used_in": [
+    "slatt.prudhoe_setting",
+    "slatt.romeo_column"
+   ]
+  },
+  {
+   "term": "корреляция скважин",
+   "explained_in": "slatt.litho_vs_chrono",
+   "used_in": [
+    "slatt.clinoforms_time_lines"
+   ]
+  },
+  {
+   "term": "литофация",
+   "explained_in": "slatt.litho_vs_chrono",
+   "used_in": [
+    "slatt.clinoforms_time_lines"
+   ]
+  },
+  {
+   "term": "обстановка осадконакопления",
+   "explained_in": "slatt.mekong_litho_section",
+   "used_in": [
+    "slatt.clinoforms_time_lines"
+   ]
+  }
+ ],
+ "repeated_quotes": 43,
+ "sensitivity": {
+  "seed": 0,
+  "kinds": {
+   "sign_flip": {
+    "made": 49,
+    "caught": 41
+   },
+   "number": {
+    "made": 60,
+    "caught": 56
+   },
+   "unit": {
+    "made": 25,
+    "caught": 16
+   },
+   "negation_removed": {
+    "made": 33,
+    "caught": 29
+   },
+   "lost_condition": {
+    "made": 39,
+    "caught": 32
+   }
+  },
+  "made": 206,
+  "caught": 174,
+  "recall": 0.845,
+  "flagged_originals": 56,
+  "originals": 549
+ },
+ "layer_sha256": "8a21a8837ea6d70a0c9aabecda530c103de2ab669061179b1b4fa35aa8633fd1"
+}

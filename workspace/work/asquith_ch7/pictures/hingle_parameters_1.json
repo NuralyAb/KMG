@@ -1,0 +1,105 @@
+{
+ "node_id": "asquith.hingle_parameters",
+ "template": "plot",
+ "data": {
+  "x_label": "Пористость φ",
+  "y_label": "Проводимость, шкала Rt",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "Водоносная линия (Ro)",
+    "color": "",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      0.3,
+      0.27
+     ],
+     [
+      0.6,
+      0.54
+     ],
+     [
+      1,
+      0.9
+     ]
+    ]
+   },
+   {
+    "name": "Sw = 0,50 (Ro × 4)",
+    "color": "",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      0.3,
+      0.135
+     ],
+     [
+      0.6,
+      0.27
+     ],
+     [
+      1,
+      0.45
+     ]
+    ]
+   },
+   {
+    "name": "Sw = 0,20 (Ro × 25)",
+    "color": "",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      0.3,
+      0.054
+     ],
+     [
+      0.6,
+      0.108
+     ],
+     [
+      1,
+      0.18
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0,
+    "y": 0,
+    "text": "нулевая пористость"
+   },
+   {
+    "x": 0.6,
+    "y": 0.54,
+    "text": "Ro и φ → Rw"
+   }
+  ]
+ },
+ "caption": "График Хингла: Ro и φ с водоносной линии дают Rw; лучи Sw идут из нулевой пористости, n = 2,0 — как в книге; вероятно, опечатка издания.",
+ "alt": "Из точки нулевой пористости в левом нижнем углу выходят три прямые: самая крутая водоносная, ниже неё более пологие линии Sw = 0,50 и 0,20.",
+ "claim_ids": [
+  "asquith.hingle_parameters#c2",
+  "asquith.hingle_parameters#c3",
+  "asquith.hingle_parameters#c4",
+  "asquith.hingle_parameters#c6",
+  "asquith.hingle_parameters#c9",
+  "asquith.hingle_parameters#c17",
+  "asquith.hingle_parameters#c18",
+  "asquith.hingle_parameters#c19",
+  "asquith.hingle_parameters#c20"
+ ]
+}

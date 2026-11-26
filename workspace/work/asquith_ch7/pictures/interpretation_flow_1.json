@@ -1,0 +1,94 @@
+{
+ "node_id": "asquith.interpretation_flow",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "s1",
+    "text": "Каротаж: сопротивления, пористость, ПС, ГК",
+    "kind": "data"
+   },
+   {
+    "id": "s2",
+    "text": "Измерения на скважине, лаборатория, местный опыт",
+    "kind": "data"
+   },
+   {
+    "id": "i1",
+    "text": "Rt, Rxo, φ, Vshale, Rw",
+    "kind": "step"
+   },
+   {
+    "id": "i2",
+    "text": "Rmf, a, m, n",
+    "kind": "step"
+   },
+   {
+    "id": "w",
+    "text": "Sw (с Rt и Rw) и Sxo (с Rxo и Rmf)",
+    "kind": "step"
+   },
+   {
+    "id": "m",
+    "text": "Подвижные УВ: по Sw и Sxo",
+    "kind": "result"
+   },
+   {
+    "id": "r",
+    "text": "По Sw и φ: BVW, проницаемость, запасы",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "s1",
+    "to": "i1",
+    "label": ""
+   },
+   {
+    "from": "s2",
+    "to": "i2",
+    "label": ""
+   },
+   {
+    "from": "s2",
+    "to": "i1",
+    "label": "Rw"
+   },
+   {
+    "from": "i1",
+    "to": "w",
+    "label": ""
+   },
+   {
+    "from": "i2",
+    "to": "w",
+    "label": ""
+   },
+   {
+    "from": "w",
+    "to": "m",
+    "label": ""
+   },
+   {
+    "from": "w",
+    "to": "r",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "От источников данных к входным величинам и результатам: следите, что от чего зависит",
+ "alt": "Схема: каротаж и прочие измерения дают входные параметры, из них считают Sw и Sxo, затем подвижные углеводороды, объёмное содержание воды, проницаемость и запасы.",
+ "claim_ids": [
+  "asquith.interpretation_flow#c3",
+  "asquith.interpretation_flow#c10",
+  "asquith.interpretation_flow#c11",
+  "asquith.interpretation_flow#c12",
+  "asquith.interpretation_flow#c22",
+  "asquith.interpretation_flow#c23",
+  "asquith.interpretation_flow#c25",
+  "asquith.interpretation_flow#c26",
+  "asquith.interpretation_flow#c27",
+  "asquith.interpretation_flow#c28"
+ ]
+}

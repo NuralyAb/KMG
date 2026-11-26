@@ -1,0 +1,39 @@
+{
+ "node_id": "dake.diffusivity_equation",
+ "template": "compare",
+ "data": {
+  "left_title": "Давление в пласте",
+  "right_title": "Теплопроводность",
+  "rows": [
+   {
+    "aspect": "Что распределяется",
+    "left": "давление p",
+    "right": "абсолютная температура T"
+   },
+   {
+    "aspect": "Левая часть уравнения",
+    "left": "(1/r)·∂/∂r(r·∂p/∂r)",
+    "right": "(1/r)·∂/∂r(r·∂T/∂r)"
+   },
+   {
+    "aspect": "Правая часть уравнения",
+    "left": "(φμc/k)·∂p/∂t",
+    "right": "(1/K)·∂T/∂t"
+   },
+   {
+    "aspect": "Коэффициент",
+    "left": "пьезопроводности: k/φμc",
+    "right": "температуропроводности: K"
+   }
+  ]
+ },
+ "caption": "Уравнения совпадают по виду: p стоит на месте T, а k/φμc — на месте K.",
+ "alt": "Сравнение радиального уравнения пьезопроводности и уравнения теплопроводности: давлению соответствует температура, комплексу k/φμc — коэффициент K.",
+ "claim_ids": [
+  "dake.diffusivity_equation#c1",
+  "dake.diffusivity_equation#c2",
+  "dake.diffusivity_equation#c4",
+  "dake.diffusivity_equation#c5",
+  "dake.diffusivity_equation#c6"
+ ]
+}

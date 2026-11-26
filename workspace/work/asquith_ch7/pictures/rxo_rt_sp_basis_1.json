@@ -1,0 +1,60 @@
+{
+ "node_id": "asquith.rxo_rt_sp_basis",
+ "template": "log",
+ "data": {
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "глина",
+    "thickness": 1
+   },
+   {
+    "lithology": "sand",
+    "fluid": "oil",
+    "label": "углеводороды",
+    "thickness": 2
+   },
+   {
+    "lithology": "sand",
+    "fluid": "water",
+    "label": "вода",
+    "thickness": 2
+   },
+   {
+    "lithology": "shale",
+    "label": "глина",
+    "thickness": 1
+   }
+  ],
+  "curves": [
+   {
+    "name": "SP",
+    "levels": [
+     "high",
+     "low",
+     "low",
+     "high"
+    ]
+   },
+   {
+    "name": "RES",
+    "levels": [
+     "mid",
+     "high",
+     "low",
+     "mid"
+    ]
+   }
+  ],
+  "filtrate": "fresh"
+ },
+ "caption": "ПС отклоняется и в водоносном, и в углеводородном интервале, но при углеводородах растёт Rt, поэтому Rxo/Rt падает и отходит от ПС.",
+ "alt": "Планшет с ПС и сопротивлением Rt: ПС отклонена против обоих песчаных интервалов, а Rt высокое только в углеводородном и низкое в водоносном.",
+ "claim_ids": [
+  "asquith.rxo_rt_sp_basis#c12",
+  "asquith.rxo_rt_sp_basis#c13",
+  "asquith.rxo_rt_sp_basis#c14",
+  "asquith.rxo_rt_sp_basis#c15",
+  "asquith.rxo_rt_sp_basis#c16"
+ ]
+}

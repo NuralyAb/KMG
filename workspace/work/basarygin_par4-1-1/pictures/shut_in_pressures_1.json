@@ -1,0 +1,61 @@
+{
+ "node_id": "basarygin.shut_in_pressures",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "d",
+    "text": "Давления в трубах и кольцевом пространстве",
+    "kind": "data"
+   },
+   {
+    "id": "a",
+    "text": "Пластовое давление и характер флюида",
+    "kind": "result"
+   },
+   {
+    "id": "b",
+    "text": "Противодавление на штуцере и плотность раствора глушения",
+    "kind": "result"
+   },
+   {
+    "id": "g",
+    "text": "Глушение: давление на забое должно превышать пластовое",
+    "kind": "step"
+   }
+  ],
+  "edges": [
+   {
+    "from": "d",
+    "to": "a",
+    "label": "дают"
+   },
+   {
+    "from": "d",
+    "to": "b",
+    "label": "дают"
+   },
+   {
+    "from": "a",
+    "to": "g",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "g",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Из двух измерений закрытой скважины получают параметры, по которым ведут глушение.",
+ "alt": "Схема: по давлениям в трубах и кольцевом пространстве определяют пластовое давление, характер флюида, противодавление и плотность раствора; при глушении забойное давление должно превышать пластовое.",
+ "claim_ids": [
+  "basarygin.shut_in_pressures#c1",
+  "basarygin.shut_in_pressures#c2",
+  "basarygin.shut_in_pressures#c3",
+  "basarygin.shut_in_pressures#c4",
+  "basarygin.shut_in_pressures#c5",
+  "basarygin.shut_in_pressures#c6",
+  "basarygin.shut_in_pressures#c7"
+ ]
+}

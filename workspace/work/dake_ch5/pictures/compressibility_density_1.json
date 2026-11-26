@@ -1,0 +1,55 @@
+{
+ "node_id": "dake.compressibility_density",
+ "template": "plot",
+ "data": {
+  "x_label": "Давление p",
+  "y_label": "Плотность ρ",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "плотность при постоянной температуре",
+    "color": "",
+    "points": [
+     [
+      0.05,
+      0.2
+     ],
+     [
+      0.25,
+      0.29
+     ],
+     [
+      0.5,
+      0.42
+     ],
+     [
+      0.75,
+      0.58
+     ],
+     [
+      0.95,
+      0.73
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.5,
+    "y": 0.42,
+    "text": "наклон ∂ρ/∂p = cρ"
+   }
+  ]
+ },
+ "caption": "Плотность связана с давлением: наклон кривой равен cρ, поэтому ∂ρ/∂t = cρ ∂p/∂t.",
+ "alt": "Качественная кривая: плотность растёт с давлением. В отмеченной точке наклон равен произведению сжимаемости на плотность.",
+ "claim_ids": [
+  "dake.compressibility_density#c1",
+  "dake.compressibility_density#c2",
+  "dake.compressibility_density#c6",
+  "dake.compressibility_density#c8"
+ ]
+}

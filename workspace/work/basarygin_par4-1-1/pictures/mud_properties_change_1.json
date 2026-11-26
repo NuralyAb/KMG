@@ -1,0 +1,35 @@
+{
+ "node_id": "basarygin.mud_properties_change",
+ "template": "well",
+ "data": {
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "Породы выше",
+    "thickness": 2
+   },
+   {
+    "lithology": "sand",
+    "label": "Пласт с притоком",
+    "thickness": 1,
+    "hazard": "kick"
+   }
+  ],
+  "strings": [
+   {
+    "kind": "surface",
+    "shoe": 1,
+    "cement": "none"
+   }
+  ],
+  "bottom": 2,
+  "drilling": true,
+  "perforated": null
+ },
+ "caption": "Приток меняет свойства раствора у забоя, а на поверхности это видно лишь после подъёма забойной пачки к устью. Смотрите на путь раствора вверх.",
+ "alt": "Бурящаяся скважина с притоком из нижнего пласта. Стрелки показывают, что раствор идёт вниз по бурильной колонне и поднимается от забоя к устью.",
+ "claim_ids": [
+  "basarygin.mud_properties_change#c1",
+  "basarygin.mud_properties_change#c6"
+ ]
+}

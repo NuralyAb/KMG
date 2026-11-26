@@ -1,0 +1,53 @@
+{
+ "node_id": "dake.darcy_substitution",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "bal",
+    "text": "(5.2): баланс массы с дебитом q",
+    "kind": "data"
+   },
+   {
+    "id": "darcy",
+    "text": "Закон Дарси: q = (2πkhr/μ)·∂p/∂r",
+    "kind": "data"
+   },
+   {
+    "id": "sub",
+    "text": "Подставляем q из закона Дарси в (5.2)",
+    "kind": "step"
+   },
+   {
+    "id": "res",
+    "text": "(5.3): (1/r)·∂/∂r[(kρ/μ)·r·∂p/∂r] = φ·∂ρ/∂t",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "bal",
+    "to": "sub",
+    "label": ""
+   },
+   {
+    "from": "darcy",
+    "to": "sub",
+    "label": ""
+   },
+   {
+    "from": "sub",
+    "to": "res",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Дебит заменяется по закону Дарси: слева появляется давление p, справа остаётся плотность ρ.",
+ "alt": "Схема: баланс массы и закон Дарси объединяются подстановкой дебита и дают уравнение (5.3).",
+ "claim_ids": [
+  "dake.darcy_substitution#c1",
+  "dake.darcy_substitution#c2",
+  "dake.darcy_substitution#c3",
+  "dake.darcy_substitution#c4"
+ ]
+}

@@ -1,0 +1,72 @@
+{
+ "node_id": "asquith.permeability_conditions",
+ "template": "plot",
+ "data": {
+  "x_label": "BVW = Sw × φ",
+  "y_label": "Глубина",
+  "numeric": false,
+  "y_down": true,
+  "series": [
+   {
+    "name": "BVW постоянно: Sw неснижаемая",
+    "color": "",
+    "points": [
+     [
+      0.3,
+      0.05
+     ],
+     [
+      0.3,
+      0.25
+     ],
+     [
+      0.3,
+      0.5
+     ],
+     [
+      0.3,
+      0.75
+     ],
+     [
+      0.3,
+      0.95
+     ]
+    ]
+   },
+   {
+    "name": "BVW непостоянно: K сомнительна",
+    "color": "",
+    "points": [
+     [
+      0.5,
+      0.05
+     ],
+     [
+      0.78,
+      0.25
+     ],
+     [
+      0.6,
+      0.5
+     ],
+     [
+      0.9,
+      0.75
+     ],
+     [
+      0.68,
+      0.95
+     ]
+    ]
+   }
+  ]
+ },
+ "caption": "Постоянное по глубине BVW означает неснижаемую водонасыщенность; при непостоянном оценки проницаемости сомнительны.",
+ "alt": "Ход BVW с глубиной: одна линия идёт строго вертикально, то есть BVW постоянно; другая ломаная, значения меняются от глубины к глубине.",
+ "claim_ids": [
+  "asquith.permeability_conditions#c7",
+  "asquith.permeability_conditions#c8",
+  "asquith.permeability_conditions#c9",
+  "asquith.permeability_conditions#c10"
+ ]
+}

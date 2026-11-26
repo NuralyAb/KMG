@@ -1,0 +1,66 @@
+{
+ "node_id": "basarygin.pump_pressure_drop",
+ "template": "plot",
+ "data": {
+  "x_label": "Высота столба флюида lф",
+  "y_label": "Давление на насосах",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "Меньшая разность плотностей ρ − ρф",
+    "color": "",
+    "points": [
+     [
+      0,
+      0.9
+     ],
+     [
+      0.5,
+      0.72
+     ],
+     [
+      1,
+      0.54
+     ]
+    ]
+   },
+   {
+    "name": "Большая разность плотностей ρ − ρф",
+    "color": "",
+    "points": [
+     [
+      0,
+      0.9
+     ],
+     [
+      0.5,
+      0.55
+     ],
+     [
+      1,
+      0.2
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.5,
+    "y": 0.55,
+    "text": "газ расширяется, lф ↑"
+   }
+  ]
+ },
+ "caption": "Чем выше столб лёгкого флюида в кольцевом пространстве и больше разность плотностей, тем сильнее падает давление.",
+ "alt": "Две убывающие прямые: давление на насосах снижается с ростом высоты столба флюида, при большей разности плотностей — круче.",
+ "claim_ids": [
+  "basarygin.pump_pressure_drop#c7",
+  "basarygin.pump_pressure_drop#c8",
+  "basarygin.pump_pressure_drop#c9",
+  "basarygin.pump_pressure_drop#c10",
+  "basarygin.pump_pressure_drop#c11"
+ ]
+}

@@ -1,0 +1,131 @@
+{
+ "chapter": "dake_ch5",
+ "entries": [
+  {
+   "md": "\\frac{k}{\\mu} \\frac{\\partial p}{\\partial r} r \\frac{\\partial p}{\\partial r}",
+   "scan": "(k/μ) (∂ρ/∂r) r (∂p/∂r)",
+   "kind": "recognition",
+   "note": "в (5.16) производная плотности ρ, а не давления p",
+   "page": 78
+  },
+  {
+   "md": "c \\rho \\frac{\\partial p}{\\partial r} = \\frac{\\partial p}{\\partial r}",
+   "scan": "cρ ∂p/∂r = ∂ρ/∂r",
+   "kind": "recognition",
+   "note": "в (5.17) справа производная плотности ρ, не p",
+   "page": 78
+  },
+  {
+   "md": "Dranchuk and Quon$^3$, however, have shown",
+   "scan": "Dranchuk and Quon², however, have shown",
+   "kind": "recognition",
+   "note": "номер ссылки 2, а не 3",
+   "page": 79
+  },
+  {
+   "md": "the products expressed in equ. (5.23) and (5.24)",
+   "scan": "the products expressed in equs. (5.23) and (5.24)",
+   "kind": "recognition",
+   "note": "множественное число: equs., два уравнения",
+   "page": 79
+  },
+  {
+   "md": "is therefore the equation of $p_{\\text{ref}}$ versus t",
+   "scan": "is therefore the equation of pwf versus t",
+   "kind": "recognition",
+   "note": "pwf — забойное давление при работе скважины, а не pref",
+   "page": 87
+  },
+  {
+   "md": "p_{r,t} = p_i - \\frac{q\\mu}{4\\pi kh} \\int_{\\infty}^{\\infty} \\frac{e^{-s}}{s} ds",
+   "scan": "pr,t = pi − (qμ/4πkh) ∫ₓ^∞ (e^(−s)/s) ds, где x = φμcr²/4kt",
+   "kind": "recognition",
+   "note": "нижний предел интеграла x, а не ∞",
+   "page": 88
+  },
+  {
+   "md": "x=dμcr_w^2/4kt",
+   "scan": "x=φμcr²w/4kt",
+   "kind": "recognition",
+   "note": "пористость φ распознана как d",
+   "page": 89
+  },
+  {
+   "md": "$$p_{rw^2} = p_{wf} = p_i",
+   "scan": "p_rw,t = p_wf = p_i",
+   "kind": "recognition",
+   "note": "индекс: давление при r = r_w в момент t, не квадрат",
+   "page": 89
+  },
+  {
+   "md": "\\frac{q\\mu}{4\\pi kh} e^i \\left( \\frac{\\phi \\mu c r^2}{4kt} \\right)",
+   "scan": "qμ/4πkh ei(φμcr²/4kt)",
+   "kind": "recognition",
+   "note": "функция ei, а не e в степени i",
+   "page": 89
+  },
+  {
+   "md": "$$e_i(x)=\\ln \\gamma x+x+\\frac{x^2}{4}+\\ldots;\\quad 0.5772$$",
+   "scan": "x→0: ei(x) ~ (−ln γx) = −ln x − 0.5772",
+   "kind": "recognition",
+   "note": "формула на графике искажена полностью",
+   "page": 89
+  },
+  {
+   "md": "видимые отметки: $10^{1}$, 8, 6, 4, 2, $10^{-2}$, 8, 6, 4, 2, $10^{-3}$.",
+   "scan": "видимые отметки: 10⁻¹, 8, 6, 4, 2, 10⁻², 8, 6, 4, 2, 10⁻³",
+   "kind": "recognition",
+   "note": "верхняя отметка левой оси 10⁻¹, не 10¹",
+   "page": 89
+  },
+  {
+   "md": "видимые отметки: $10^{0}$, 8, 6, 4, 2, $10^{-1}$, 8, 6, 4, 2, $10^{-2}$.",
+   "scan": "видимые отметки: 10, 8, 6, 4, 2, 1, 8, 6, 4, 2, 10⁻¹",
+   "kind": "recognition",
+   "note": "правая ось от 10⁻¹ до 10",
+   "page": 89
+  },
+  {
+   "md": "Ось ординат справа: $e_i(x)$ / $\\ln \\gamma x$",
+   "scan": "Ось ординат справа: ei(x), −ln γx",
+   "kind": "recognition",
+   "note": "потерян минус перед ln γx",
+   "page": 89
+  },
+  {
+   "md": "- $\\ln \\gamma x$ — прямая линия в правой части графика.",
+   "scan": "−ln γx — кривая в правой части графика",
+   "kind": "recognition",
+   "note": "потерян минус; это кривая, а не прямая",
+   "page": 89
+  },
+  {
+   "md": "с её логарифмическим приближением $\\ln \\gamma x$",
+   "scan": "с её логарифмическим приближением −ln γx",
+   "kind": "recognition",
+   "note": "потерян минус в приближении",
+   "page": 89
+  },
+  {
+   "md": "Ось абсцисс: $x$, логарифмическая шкала; диапазон от $10^{-3}$ до $10^{0}$.",
+   "scan": "Ось x: снизу 10⁻³ … 1; сверху вторая шкала 1, 2, 5, 10",
+   "kind": "recognition",
+   "note": "пропущена верхняя шкала абсцисс",
+   "page": 89
+  },
+  {
+   "md": "The area below the curve is hatched.",
+   "scan": "s = x; the area below the curve beyond s = x is hatched",
+   "kind": "recognition",
+   "note": "потеряна метка s=x; штриховка только правее неё",
+   "page": 89
+  },
+  {
+   "md": "KEYWORDS: $e^{-s}$, $\\frac{1}{s}$, $\\frac{e^{-s}}{s}$, график, функция, произведение",
+   "scan": "(d): ei(x) = ∫ₓ^∞ (e⁻ˢ/s) ds; ось x",
+   "kind": "recognition",
+   "note": "пропущен график (d) с определением ei(x)",
+   "page": 89
+  }
+ ]
+}

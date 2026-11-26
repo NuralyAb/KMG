@@ -1,0 +1,33 @@
+{
+ "chapter": "dake_ch5",
+ "rows": [
+  {
+   "node_id": "dake.transient_condition",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "назначен маршрутизацией",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "dake.pressure_decline_periods",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "совпало признаков: 4, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "dake.semi_steady_boundary",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "совпало признаков: 2, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  },
+  {
+   "node_id": "dake.steady_state_condition",
+   "format": "short",
+   "template": "pressure_wave",
+   "why": "совпало признаков: 3, подтвердить человеку",
+   "result": "сверх предела GLAVA_VIDEOS"
+  }
+ ]
+}

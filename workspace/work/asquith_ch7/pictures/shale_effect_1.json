@@ -1,0 +1,56 @@
+{
+ "node_id": "asquith.shale_effect",
+ "template": "log",
+ "data": {
+  "layers": [
+   {
+    "lithology": "sand",
+    "fluid": "oil",
+    "label": "Чистый: нефть",
+    "thickness": 2
+   },
+   {
+    "lithology": "sand",
+    "fluid": "water",
+    "label": "Чистый: вода",
+    "thickness": 2
+   },
+   {
+    "lithology": "shale",
+    "label": "Разделитель",
+    "thickness": 1
+   },
+   {
+    "lithology": "sand",
+    "fluid": "oil",
+    "label": "Глинист.: нефть",
+    "thickness": 2
+   },
+   {
+    "lithology": "sand",
+    "fluid": "water",
+    "label": "Глинист.: вода",
+    "thickness": 2
+   }
+  ],
+  "curves": [
+   {
+    "name": "RES",
+    "levels": [
+     "high",
+     "low",
+     "low",
+     "mid",
+     "low"
+    ]
+   }
+  ],
+  "filtrate": "salt"
+ },
+ "caption": "Схема сравнения: в глинистых слоях разница сопротивлений нефтяного и водяного меньше, чем в чистых.",
+ "alt": "Кривая сопротивления: в чистом песчанике перепад между нефтяным и водяным слоями большой, в глинистом он заметно меньше. Пары разделены слоем глинистой породы.",
+ "claim_ids": [
+  "asquith.shale_effect#c4",
+  "asquith.shale_effect#c5"
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "node_id": "dake.boltzmann_transform",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "r",
+    "text": "Радиус r",
+    "kind": "data"
+   },
+   {
+    "id": "t",
+    "text": "Время t",
+    "kind": "data"
+   },
+   {
+    "id": "s",
+    "text": "Одна переменная: s = φμcr²/4kt",
+    "kind": "step"
+   },
+   {
+    "id": "dr",
+    "text": "По радиусу: ∂s/∂r = φμcr/2kt",
+    "kind": "step"
+   },
+   {
+    "id": "dt",
+    "text": "По времени: ∂s/∂t = −φμcr²/4kt²",
+    "kind": "step"
+   },
+   {
+    "id": "eq",
+    "text": "Уравнение пьезопроводности записано через s",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "r",
+    "to": "s",
+    "label": ""
+   },
+   {
+    "from": "t",
+    "to": "s",
+    "label": ""
+   },
+   {
+    "from": "s",
+    "to": "dr",
+    "label": ""
+   },
+   {
+    "from": "s",
+    "to": "dt",
+    "label": ""
+   },
+   {
+    "from": "dr",
+    "to": "eq",
+    "label": "подстановка"
+   },
+   {
+    "from": "dt",
+    "to": "eq",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Радиус и время сходятся в одну переменную s; две её производные подставляют в уравнение пьезопроводности.",
+ "alt": "Схема: радиус и время объединяются в переменную s, затем находят её производные по радиусу и по времени и подставляют их в уравнение.",
+ "claim_ids": [
+  "dake.boltzmann_transform#c4",
+  "dake.boltzmann_transform#c5",
+  "dake.boltzmann_transform#c6",
+  "dake.boltzmann_transform#c7",
+  "dake.boltzmann_transform#c9"
+ ]
+}

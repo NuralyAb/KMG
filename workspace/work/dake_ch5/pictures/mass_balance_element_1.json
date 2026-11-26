@@ -1,0 +1,63 @@
+{
+ "node_id": "dake.mass_balance_element",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "in",
+    "text": "Вход в кольцо: qρ на радиусе r+dr",
+    "kind": "data"
+   },
+   {
+    "id": "out",
+    "text": "Выход из кольца: qρ на радиусе r",
+    "kind": "data"
+   },
+   {
+    "id": "diff",
+    "text": "Вход минус выход",
+    "kind": "step"
+   },
+   {
+    "id": "acc",
+    "text": "Равно скорости изменения массы: 2πrhφ dr ∂ρ/∂t",
+    "kind": "step"
+   },
+   {
+    "id": "res",
+    "text": "(5.2): ∂(qρ)/∂r = 2πrhφ ∂ρ/∂t",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "in",
+    "to": "diff",
+    "label": ""
+   },
+   {
+    "from": "out",
+    "to": "diff",
+    "label": ""
+   },
+   {
+    "from": "diff",
+    "to": "acc",
+    "label": ""
+   },
+   {
+    "from": "acc",
+    "to": "res",
+    "label": "раскрытие"
+   }
+  ]
+ },
+ "caption": "Баланс массы тонкого кольца: от расходов на двух радиусах к уравнению (5.2). Давления в нём нет.",
+ "alt": "Схема: расходы на входе и выходе кольца вычитаются, разность равна скорости изменения массы, откуда получается уравнение (5.2).",
+ "claim_ids": [
+  "dake.mass_balance_element#c3",
+  "dake.mass_balance_element#c4",
+  "dake.mass_balance_element#c5",
+  "dake.mass_balance_element#c9"
+ ]
+}

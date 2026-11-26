@@ -1,0 +1,29 @@
+{
+ "node_id": "asquith.ratio_moveable_index",
+ "template": "bars",
+ "data": {
+  "unit": "Sw/Sxo",
+  "items": [
+   {
+    "name": "Карбонаты: подвижные УВ ниже",
+    "value": 0.6
+   },
+   {
+    "name": "Песчаники: подвижные УВ ниже",
+    "value": 0.7
+   },
+   {
+    "name": "УВ не смещались: от этого и выше",
+    "value": 1.0
+   }
+  ],
+  "log": false
+ },
+ "caption": "Пороги индекса Sw/Sxo: ниже 0,6 или 0,7 — подвижные углеводороды, от 1,0 — смещения не было",
+ "alt": "Три порога индекса Sw/Sxo: меньше 0,6 в карбонатах и меньше 0,7 в песчаниках — подвижные углеводороды; 1,0 и больше — углеводороды не смещались.",
+ "claim_ids": [
+  "asquith.ratio_moveable_index#c15",
+  "asquith.ratio_moveable_index#c21",
+  "asquith.ratio_moveable_index#c23"
+ ]
+}

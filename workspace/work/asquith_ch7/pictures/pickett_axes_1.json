@@ -1,0 +1,44 @@
+{
+ "node_id": "asquith.pickett_axes",
+ "template": "plot",
+ "data": {
+  "x_label": "Rt, лог. шкала (3 декады)",
+  "y_label": "φ, лог. шкала (2 декады)",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "Водоносный пласт, Sw = 1",
+    "color": "",
+    "points": [
+     [
+      0.15,
+      0.85
+     ],
+     [
+      0.85,
+      0.35
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.5,
+    "y": 0.6,
+    "text": "наклон −1/m"
+   }
+  ]
+ },
+ "caption": "Обычное расположение осей: Rt по горизонтали, φ по вертикали. Водоносная прямая идёт вниз с наклоном −1/m.",
+ "alt": "Качественный график на двух логарифмических осях: сопротивление по горизонтали, пористость по вертикали, прямая убывает слева направо.",
+ "claim_ids": [
+  "asquith.pickett_axes#c4",
+  "asquith.pickett_axes#c6",
+  "asquith.pickett_axes#c7",
+  "asquith.pickett_axes#c8",
+  "asquith.pickett_axes#c11"
+ ]
+}

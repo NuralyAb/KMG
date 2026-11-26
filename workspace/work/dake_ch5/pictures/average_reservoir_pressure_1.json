@@ -1,0 +1,39 @@
+{
+ "node_id": "dake.average_reservoir_pressure",
+ "template": "compare",
+ "data": {
+  "left_title": "По объёмам",
+  "right_title": "По дебитам",
+  "rows": [
+   {
+    "aspect": "Формула среднего давления",
+    "left": "Σp̄ᵢVᵢ / ΣVᵢ",
+    "right": "Σp̄ᵢqᵢ / Σqᵢ"
+   },
+   {
+    "aspect": "Вес каждой зоны",
+    "left": "объём зоны Vᵢ",
+    "right": "дебит qᵢ, пропорциональный Vᵢ"
+   },
+   {
+    "aspect": "Получить вес на практике",
+    "left": "объёмы определить трудно",
+    "right": "дебиты регулярно измеряют"
+   },
+   {
+    "aspect": "Условия замены весов",
+    "left": "исходное взвешивание",
+    "right": "dp/dt постоянен, сжимаемость меняется мало"
+   }
+  ]
+ },
+ "caption": "Два способа усреднить давления зон: замена объёмов на дебиты допустима при постоянном dp/dt и малом изменении сжимаемости.",
+ "alt": "Таблица сравнивает взвешивание по объёмам и по дебитам: формулы, веса, доступность данных и условия замены.",
+ "claim_ids": [
+  "dake.average_reservoir_pressure#c2",
+  "dake.average_reservoir_pressure#c3",
+  "dake.average_reservoir_pressure#c4",
+  "dake.average_reservoir_pressure#c5",
+  "dake.average_reservoir_pressure#c6"
+ ]
+}

@@ -1,0 +1,663 @@
+{
+ "chapter": "slatt_par9-4",
+ "entries": [
+  {
+   "md": "Vertical scale: [illegible] m; vertical direction is downward.",
+   "scan": "Vertical scale: 15 m; vertical direction is downward.",
+   "kind": "recognition",
+   "note": "Вертикальный масштаб на рисунке читается: 15 m",
+   "page": 410
+  },
+  {
+   "md": "Yellow bodies: Mouth-bar Sandstone; several laterally discontinuous, lens-shaped units.",
+   "scan": "Yellow bodies: Mouth-bar Sandstone; several laterally continuous units extending across both wells.",
+   "kind": "recognition",
+   "note": "На литостратиграфическом разрезе песчаники непрерывны между скважинами",
+   "page": 410
+  },
+  {
+   "md": "Individual sandstone bodies thin, thicken, split, and terminate laterally between wells.",
+   "scan": "Individual sandstone bodies are continuous between wells 1 and 2.",
+   "kind": "recognition",
+   "note": "Тела не выклиниваются между скважинами; подпись говорит о непрерывности",
+   "page": 410
+  },
+  {
+   "md": "sandstone bodies are not continuously correlated where they pinch out or are separated by heterolithics/shale.",
+   "scan": "sandstone bodies are continuously correlated between Well 1 and Well 2.",
+   "kind": "recognition",
+   "note": "Смысл обратный: в литостратиграфической корреляции песчаники непрерывны",
+   "page": 410
+  },
+  {
+   "md": "Labelled points/wells: VL1; TC1; BM.",
+   "scan": "Labelled points/wells: VL1; TC1; TV1.",
+   "kind": "recognition",
+   "note": "третья скважина на карте — TV1, не BM",
+   "page": 411
+  },
+  {
+   "md": "Black linear symbols: numerous faults or structural lineaments, predominantly NW–SE to WNW–ESE",
+   "scan": "Black lines are beach ridges.",
+   "kind": "recognition",
+   "note": "чёрные линии — береговые валы, а не разломы",
+   "page": 411
+  },
+  {
+   "md": "No contour lines, contour interval, structural-depth values, fault throws, or symbol legend are shown.",
+   "scan": "Contour lines offshore labelled 2 m, 6 m, 16 m, 28 m.",
+   "kind": "recognition",
+   "note": "на карте есть изобаты с подписями глубин",
+   "page": 411
+  },
+  {
+   "md": "Scale bar: 0–[illegible] km.",
+   "scan": "Scale bar: 20 km.",
+   "kind": "recognition",
+   "note": "масштабная линейка подписана 20 km",
+   "page": 411
+  },
+  {
+   "md": "Geological/structural map of an area bordering the South China Sea.",
+   "scan": "Map view of Mekong River Delta.",
+   "kind": "recognition",
+   "note": "это карта дельты Меконга, не структурная карта",
+   "page": 411
+  },
+  {
+   "md": "KEYWORDS: geological map, structural lineaments, faults, Mekong River",
+   "scan": "KEYWORDS: Mekong River Delta map, beach ridges, Mekong River",
+   "kind": "recognition",
+   "note": "разломов и линеаментов нет; показаны береговые валы",
+   "page": 411
+  },
+  {
+   "md": "Map areas are differentiated by solid green, orange, and light-blue fills. Lithology/stratigraphy is not determined without a legend.",
+   "scan": "Upper delta plain is green and lower delta plain is orange.",
+   "kind": "recognition",
+   "note": "цвета объяснены в подписи: верхняя и нижняя дельтовые равнины",
+   "page": 411
+  },
+  {
+   "md": "- −1325\n- −2876",
+   "scan": "−3425, −2876",
+   "kind": "recognition",
+   "note": "неверно прочитана отметка у VL1: −3425",
+   "page": 412
+  },
+  {
+   "md": "- −1336\n- −[illegible]",
+   "scan": "−3536, −3622",
+   "kind": "recognition",
+   "note": "неверно прочитана отметка у VL1: −3536",
+   "page": 412
+  },
+  {
+   "md": "- 6000\n- 6113",
+   "scan": "6000, 6111",
+   "kind": "recognition",
+   "note": "неверное число у забоя VL1",
+   "page": 412
+  },
+  {
+   "md": "- −43420\n- 5000",
+   "scan": "−43,420, 5000",
+   "kind": "recognition",
+   "note": "потеряна запятая тысяч",
+   "page": 412
+  },
+  {
+   "md": "- −[illegible]\n- −[illegible]",
+   "scan": "−3622, −3794, −4826, −3505, −3969, −4368, −4814, −4743, −6131, −50,400",
+   "kind": "recognition",
+   "note": "пропущены читаемые отметки у VL1 и TC1",
+   "page": 412
+  },
+  {
+   "md": "- −[illegible]\n- −43420",
+   "scan": "−721, −721, −1001, −1403, −1545, −1826, −1952, −2719, −43,420",
+   "kind": "recognition",
+   "note": "пропущены читаемые отметки у TV1",
+   "page": 412
+  },
+  {
+   "md": "- 5000\n- 6000",
+   "scan": "1000, 2000, 3000, 4000, 5000, 6000",
+   "kind": "recognition",
+   "note": "пропущены изохроны 1000–4000",
+   "page": 412
+  },
+  {
+   "md": "“Inland alluvial plain” → “Beach ridge delta plain” → “SOUTH CHINA SEA”",
+   "scan": "“Inland delta plain” → “Beach ridge delta plain” → “SOUTH CHINA SEA”",
+   "kind": "recognition",
+   "note": "дельтовая равнина, а не аллювиальная",
+   "page": 412
+  },
+  {
+   "md": "| Inland alluvial plain | Flood plain/Marsh; V1 |",
+   "scan": "Inland delta plain; Flood plain/Marsh; VL1",
+   "kind": "recognition",
+   "note": "искажены название зоны и скважина VL1",
+   "page": 412
+  },
+  {
+   "md": "Beach ridge, Marsh/Foreshore; Y1",
+   "scan": "Beach ridge, Marsh/Foreshore; TV1",
+   "kind": "recognition",
+   "note": "скважина TV1, а не Y1",
+   "page": 412
+  },
+  {
+   "md": "| Seaward area | Subtidal delta plain |",
+   "scan": "Subaerial delta plain",
+   "kind": "recognition",
+   "note": "надводная, а не сублиторальная дельтовая равнина",
+   "page": 412
+  },
+  {
+   "md": "- Subtidal delta plain.",
+   "scan": "Subaerial delta plain",
+   "kind": "recognition",
+   "note": "надводная, а не сублиторальная равнина",
+   "page": 412
+  },
+  {
+   "md": "- McFS [label partly unclear].",
+   "scan": "MxFS",
+   "kind": "recognition",
+   "note": "поверхность максимального затопления",
+   "page": 412
+  },
+  {
+   "md": "tan — BALIZE — 500 yrs B.P.",
+   "scan": "BALIZE 500 yrs.",
+   "kind": "recognition",
+   "note": "в легенде у BALIZE нет «B.P.»",
+   "page": 413
+  },
+  {
+   "md": "dashed lines extend from the apex toward the present and new river-mouth positions.",
+   "scan": "solid lines extend from the apex toward the present and new river-mouth positions; vertical dotted line; angle A",
+   "kind": "recognition",
+   "note": "линии к устьям сплошные; пунктирная только вертикаль; пропущен угол A",
+   "page": 413
+  },
+  {
+   "md": "Vertical depth scale increases downward from 0 to −100 m, −200 m, −400 m, and −600 m.",
+   "scan": "Vertical depth labels: 0, −100 m, −200′, −400′",
+   "kind": "recognition",
+   "note": "−200 и −400 даны в футах; отметки −600 нет",
+   "page": 414
+  },
+  {
+   "md": "Water bodies and bays labelled **Empire Bay** and **Garden Island Bay**.",
+   "scan": "Water bodies and bays labelled East Bay and Garden Island Bay.",
+   "kind": "recognition",
+   "note": "Название залива: East Bay, а не Empire Bay",
+   "page": 414
+  },
+  {
+   "md": "**Unconsolidated delta-front deposits**; **Clay wedge**",
+   "scan": "Undist pre-birdfoot delta deposits; Clay wedge",
+   "kind": "recognition",
+   "note": "Подпись блока: нерасчленённые отложения дельты до «птичьей лапы»",
+   "page": 414
+  },
+  {
+   "md": "**Clay wedge**; **Pre-delta marine clay**; **Pre-delta marine sand**",
+   "scan": "Clay wedge; Pro-delta marine clay; Pre-birdfoot delta marine clay; Pre-delta marine sand",
+   "kind": "recognition",
+   "note": "Две разные подписи глин: Pro-delta и Pre-birdfoot delta",
+   "page": 414
+  },
+  {
+   "md": "bar-finger sediment bodies over pre-delta marine clay and sand",
+   "scan": "bar-finger sediment bodies over pro-delta marine clay and pre-delta marine sand",
+   "kind": "recognition",
+   "note": "Глина продельтовая (Pro-delta), а не pre-delta",
+   "page": 414
+  },
+  {
+   "md": "A scale bar is shown at upper right: 50 km; 50 mi.",
+   "scan": "A scale bar is shown at upper right: 15 Km; 10 Mi.",
+   "kind": "recognition",
+   "note": "Неверные числа масштабной линейки плана",
+   "page": 415
+  },
+  {
+   "md": "vertical scale labelled 200 m.",
+   "scan": "vertical scale labelled 200 Ft, 60 M.",
+   "kind": "recognition",
+   "note": "200 — это футы, а не метры",
+   "page": 415
+  },
+  {
+   "md": "horizontal scale labelled 1000 m;",
+   "scan": "horizontal scale labelled 1000 M, 4000 Ft;",
+   "kind": "recognition",
+   "note": "Пропущена подпись масштаба в футах",
+   "page": 415
+  },
+  {
+   "md": "1. Deep plain — dark, nearly structureless interval.",
+   "scan": "1. Delta plan — dark, nearly structureless interval.",
+   "kind": "recognition",
+   "note": "Дельтовая равнина, а не «глубоководная»; в книге напечатано «plan»",
+   "page": 415
+  },
+  {
+   "md": "4. Proximal mouth bar — trough/cross bedding and deformed bedding.",
+   "scan": "4. Proximal mouth bar-troughs deformed bedding.",
+   "kind": "recognition",
+   "note": "В подписи нет cross bedding",
+   "page": 415
+  },
+  {
+   "md": "Two inset maps show alternative plan-view distributions",
+   "scan": "Three inset maps (upper left, upper right, lower right)",
+   "kind": "recognition",
+   "note": "На рисунке три врезки, а не две",
+   "page": 416
+  },
+  {
+   "md": "“Delta Mouth Bars”; “Delta Front”; “Prodelta”.",
+   "scan": "“Dist. Mouth Bars”; “Delta Front”; “Prodelta”.",
+   "kind": "recognition",
+   "note": "Подпись на карте: Dist. (distributary) Mouth Bars, не Delta",
+   "page": 416
+  },
+  {
+   "md": "a scale labelled “2000” [unit not legible]",
+   "scan": "a scale labelled “0 2000 ft.”",
+   "kind": "recognition",
+   "note": "Единица масштаба врезок — футы (ft.)",
+   "page": 416
+  },
+  {
+   "md": "areas. Insets include a well-location symbol",
+   "scan": "Floodplain, Fluvial Channelbelts, Delta Plain, Distributary Channel, Distributary Mouth Bars, Delta Front, Prodelta, Well Location",
+   "kind": "recognition",
+   "note": "Подписи врезок пропущены; Lake/Bay на врезках нет",
+   "page": 416
+  },
+  {
+   "md": "- Horizontal reference at the top: **Sea Level**.",
+   "scan": "Sea Level; Bar Apex",
+   "kind": "recognition",
+   "note": "Пропущена подпись «Bar Apex» над гребнем бара на разрезе",
+   "page": 417
+  },
+  {
+   "md": "**Subaerial Levee** occurs along the upper-left channel margin.",
+   "scan": "Subaerial Levee (серые) — по обоим бортам канала, сверху и снизу слева",
+   "kind": "recognition",
+   "note": "На рисунке надводные валы по обе стороны канала, не только сверху",
+   "page": 417
+  },
+  {
+   "md": "**Subaqueous Levee** occurs along the upper channel margins.",
+   "scan": "Subaqueous Levee (оранжевые) — по обеим сторонам канала, сверху и снизу",
+   "kind": "recognition",
+   "note": "Подводные валы есть и с нижней стороны канала",
+   "page": 417
+  },
+  {
+   "md": "Подписанные стратиграфические интервалы слева: Ranga; Romeo 2A; Kavi. Граница/уровень Romeo 2A",
+   "scan": "Подписанные стратиграфические интервалы слева: Tango; Romeo (2A, 1B, 1A); Kavik. Граница/уровень Romeo 2A",
+   "kind": "recognition",
+   "note": "Верхний разрез: Tango и Kavik искажены, пропущены 1B, 1A",
+   "page": 418
+  },
+  {
+   "md": "Подписанные стратиграфические интервалы слева: Ranga; Romeo 2A; Kavi. Корреляция выполнена по уровню Datum.",
+   "scan": "Подписанные стратиграфические интервалы слева: Tango; Romeo (2A, 1B, 1A); Kavik. Корреляция выполнена по уровню Datum.",
+   "kind": "recognition",
+   "note": "Нижний разрез: Tango и Kavik искажены, пропущены 1B, 1A",
+   "page": 418
+  },
+  {
+   "md": "Вертикальное преувеличение: V.E. = 74x. Вертикальная шкала/единицы не указаны",
+   "scan": "Вертикальное преувеличение: V.E. = 74x. Вертикальная шкала: 50' (футы)",
+   "kind": "recognition",
+   "note": "Пропущен вертикальный масштабный отрезок 50 футов",
+   "page": 418
+  },
+  {
+   "md": "жёлтый интервал развит преимущественно в северной части и выклинивается к югу",
+   "scan": "жёлтый интервал мощнее в северной части, утоняется к югу, но прослеживается по всему разрезу",
+   "kind": "recognition",
+   "note": "На рисунке 2A не выклинивается, доходит до 17-04",
+   "page": 418
+  },
+  {
+   "md": "голубой — Shale",
+   "scan": "персиковый (светло-оранжевый) — Shale",
+   "kind": "recognition",
+   "note": "в легенде квадрат Shale не голубой, а персиковый",
+   "page": 419
+  },
+  {
+   "md": "Песчаник, алевролит, сланец; тонкий красный прослой конгломерата | GR изменчивый | Ab. Channel",
+   "scan": "красный прослой конгломерата относится к Cong. Fluvial, не к Ab. Channel",
+   "kind": "recognition",
+   "note": "конгломерат приписан не той фациальной ассоциации",
+   "page": 419
+  },
+  {
+   "md": "Сланец и алевритистый сланец с тонкими песчано-алевритовыми прослоями",
+   "scan": "Сланец и алевритистый сланец с тонким красным прослоем конгломерата (Shelf)",
+   "kind": "recognition",
+   "note": "пропущен красный прослой на границе Prodelta и Shelf",
+   "page": 419
+  },
+  {
+   "md": "Lithology cannot be determined without a legend.",
+   "scan": "Tan is floodplain facies. Yellow is fluvial/distributary-channel facies. White is distributary mouth bar/delta front and prodelta/shelf facies.",
+   "kind": "recognition",
+   "note": "Подпись к рис. 9.20 сама задаёт фации по цветам",
+   "page": 420
+  },
+  {
+   "md": "Нефть: для 09-35 — примерно 300–450 B/D; для 09-35A — около 0–150 B/D.",
+   "scan": "Нефть: для 09-35 — примерно 200–400 B/D; для 09-35A — около 300–400 B/D.",
+   "kind": "recognition",
+   "note": "дебит нефти по графику прочитан неверно",
+   "page": 421
+  },
+  {
+   "md": "дебит воды существенно снижается; дебит нефти также снижается.",
+   "scan": "дебит воды существенно снижается; дебит нефти слегка растёт.",
+   "kind": "recognition",
+   "note": "тренд нефти обратный; подпись говорит о небольшом росте",
+   "page": 421
+  },
+  {
+   "md": "Вода: для 09-35 — изменяется примерно от 500 до 1800 B/D",
+   "scan": "Вода: для 09-35 — изменяется примерно от 1100 до 1800 B/D",
+   "kind": "recognition",
+   "note": "минимум дебита воды около 1100",
+   "page": 421
+  },
+  {
+   "md": "Final 18–20-ft. well 15–45 PBI;",
+   "scan": "Final 1820-ft. well; 15–45 PBI",
+   "kind": "recognition",
+   "note": "длина 1820 ft, а не диапазон; PBI подписан отдельно",
+   "page": 421
+  },
+  {
+   "md": "**BASE SADEROCHIT STRUCTURE MAP 15–45**",
+   "scan": "BASE SADLEROCHIT STRUCTURE MAP 15–45",
+   "kind": "recognition",
+   "note": "пропущена буква L в названии",
+   "page": 421
+  },
+  {
+   "md": "proposed well, well 15–45 PBI, Saderochit, structural contours",
+   "scan": "proposed well, well 15–45 PBI, Sadlerochit, structural contours",
+   "kind": "recognition",
+   "note": "название Sadlerochit искажено в ключевых словах",
+   "page": 421
+  },
+  {
+   "md": "CH_OGR_MWD_S_0",
+   "scan": "OH_0GR_MWD_S_0",
+   "kind": "recognition",
+   "note": "имя кривой: OH и ноль",
+   "page": 421
+  },
+  {
+   "md": "| около 8727–8732 | орнамент из кружков | не указано | PERFORATED INTERVAL |",
+   "scan": "PERFORATED INTERVAL: примерно 9900–10,900 ft по measured depth (горизонтальная полоса)",
+   "kind": "recognition",
+   "note": "это интервал по стволу, а не по глубине",
+   "page": 421
+  },
+  {
+   "md": "значения 8600, 8620, 8640, 8660, 8680, 8700, 8720; значения увеличиваются вниз",
+   "scan": "значения 8600, 8620, 8640, 8660, 8680, 8700, 8720, 8740",
+   "kind": "recognition",
+   "note": "пропущена отметка 8740",
+   "page": 421
+  },
+  {
+   "md": "“Stofed water” [нрзб; возможно, “Stoffed water”].",
+   "scan": "700' slotted liner",
+   "kind": "recognition",
+   "note": "подпись — щелевой хвостовик длиной 700 футов",
+   "page": 421
+  },
+  {
+   "md": "| Около 8900, единицы не указаны | Участок пересечён наклонной полосой | — | “Stofed water” [нрзб] |",
+   "scan": "Около 8940: наклонная полоса, 700' slotted liner",
+   "kind": "recognition",
+   "note": "вместо «Stofed water» на рисунке щелевой хвостовик",
+   "page": 421
+  },
+  {
+   "md": "“09-35A 100% Production Conventional Completion”.",
+   "scan": "09-35 Conventional Completion",
+   "kind": "recognition",
+   "note": "обычное заканчивание относится к 09-35, без 100% Production",
+   "page": 421
+  },
+  {
+   "md": "GR и SONIC изменчивые; RILD с локальными изменениями | 09-35A 100% Production Conventional Completion |",
+   "scan": "09-35 Conventional Completion",
+   "kind": "recognition",
+   "note": "скважина 09-35, а не 09-35A",
+   "page": 421
+  },
+  {
+   "md": "“09-35 100% Production No. Prod”.",
+   "scan": "09-35 100% Production; No. Prod. In 09-35",
+   "kind": "recognition",
+   "note": "две разные подписи слиты, потеряно «In 09-35»",
+   "page": 421
+  },
+  {
+   "md": "4. **RILD**, шкала 0–2000",
+   "scan": "RILD, шкала 20–2000",
+   "kind": "recognition",
+   "note": "левая граница шкалы 20",
+   "page": 421
+  },
+  {
+   "md": "2. **SONIC**, шкала не указана; серая кривая.",
+   "scan": "SONIC, шкала 150–50",
+   "kind": "recognition",
+   "note": "шкала на рисунке указана",
+   "page": 421
+  },
+  {
+   "md": "- Ось Y: B/D, линейная шкала, 0–2000.",
+   "scan": "Ось Y: Bbls/Day, линейная шкала, 0–2000",
+   "kind": "recognition",
+   "note": "подпись оси другая",
+   "page": 421
+  },
+  {
+   "md": "black — Gas;",
+   "scan": "grey — Gas;",
+   "kind": "recognition",
+   "note": "в легенде газ обозначен серым, а не чёрным",
+   "page": 422
+  },
+  {
+   "md": "bright yellow — Floodplain;",
+   "scan": "black — Floodplain;",
+   "kind": "recognition",
+   "note": "пойма (Floodplain) в легенде чёрная",
+   "page": 422
+  },
+  {
+   "md": "The section contains several laterally continuous black gas intervals",
+   "scan": "The section contains several laterally continuous black floodplain intervals",
+   "kind": "recognition",
+   "note": "чёрные слои — пойменные отложения, не газ",
+   "page": 422
+  },
+  {
+   "md": "with white oil intervals and coloured depositional bodies between them",
+   "scan": "grey gas and white oil intervals are shown only in the fluid columns beside wells 11-28 and 11-23",
+   "kind": "recognition",
+   "note": "газ и нефть показаны лишь в колонках флюидов у скважин",
+   "page": 422
+  },
+  {
+   "md": "light yellow — Shelf, Prodelta, & Delta Front.",
+   "scan": "tan — Shelf, Prodelta, & Delta Front.",
+   "kind": "recognition",
+   "note": "шельф и продельта показаны коричневато-бежевым",
+   "page": 422
+  },
+  {
+   "md": "yellow — Distributary Channel;",
+   "scan": "bright yellow — Distributary Channel;",
+   "kind": "recognition",
+   "note": "русловые отложения — ярко-жёлтые",
+   "page": 422
+  },
+  {
+   "md": "The liner is inclined at 25° relative to horizontal.",
+   "scan": "A vertical dimension of 25' is marked at the left end of the liner.",
+   "kind": "recognition",
+   "note": "25' — вертикальный размер в футах, не угол наклона",
+   "page": 422
+  },
+  {
+   "md": "the geometry of a 894-foot slotted liner in a 25° inclined interval",
+   "scan": "the geometry of a 894' slotted liner, with a 25' vertical dimension",
+   "kind": "recognition",
+   "note": "25 футов ошибочно прочитаны как 25 градусов",
+   "page": 422
+  },
+  {
+   "md": "curving toward the southwest at approximately depth 8650–8680",
+   "scan": "curving toward the northeast at approximately depth 8700–8750",
+   "kind": "recognition",
+   "note": "ствол изгибается к северо-востоку и глубже",
+   "page": 422
+  },
+  {
+   "md": "An arrow above the liner points to the left.",
+   "scan": "A double-headed arrow above the liner marks the 894' length.",
+   "kind": "recognition",
+   "note": "стрелка двусторонняя, показывает длину хвостовика",
+   "page": 422
+  },
+  {
+   "md": "At well 11-23, a vertical log-like curve is displayed beside the well.",
+   "scan": "At wells 11-28 and 11-23, vertical log curves and fluid columns are displayed.",
+   "kind": "recognition",
+   "note": "каротажная кривая есть и у скважины 11-28",
+   "page": 422
+  },
+  {
+   "md": "Multiple narrow diagonal slots are shown along the liner.",
+   "scan": "Inclined pale and white wedge-shaped bodies are shown; no slots are drawn.",
+   "kind": "recognition",
+   "note": "прорезей на рисунке нет",
+   "page": 422
+  },
+  {
+   "md": "posted value: −0.31 [unit illegible].\n- A2:",
+   "scan": "0-31 ft.",
+   "kind": "recognition",
+   "note": "A1: диапазон 0–31 футов, а не отрицательное значение −0.31",
+   "page": 423
+  },
+  {
+   "md": "shaded anomaly extends diagonally from upper left toward the centre; posted value: −0.31 [unit illegible].",
+   "scan": "0-31 ft.",
+   "kind": "recognition",
+   "note": "A2: диапазон 0–31 футов, а не −0.31",
+   "page": 423
+  },
+  {
+   "md": "a black diagonal line crosses from upper left toward lower right; posted value: −0.32 [unit illegible].",
+   "scan": "0-32 ft.",
+   "kind": "recognition",
+   "note": "A3: диапазон 0–32 футов, а не −0.32",
+   "page": 423
+  },
+  {
+   "md": "shaded anomaly is centred; posted value: −0.33 [unit illegible].",
+   "scan": "0-33 ft.",
+   "kind": "recognition",
+   "note": "A4: диапазон 0–33 футов, а не −0.33",
+   "page": 423
+  },
+  {
+   "md": "posted value: −0.16 [unit illegible].",
+   "scan": "0-16 ft.",
+   "kind": "recognition",
+   "note": "A5: диапазон 0–16 футов, а не −0.16",
+   "page": 423
+  },
+  {
+   "md": "“SCALE” and “Ver. 50” [remaining text illegible]",
+   "scan": "“SCALE” and “V.E. = 30x”; 100', 0, 5000'",
+   "kind": "recognition",
+   "note": "вертикальное преувеличение 30x; масштабы 100 и 5000 футов",
+   "page": 423
+  },
+  {
+   "md": "“W. SAK # [illegible]”; “USGNU #1”",
+   "scan": "“W. SAK #23”; “UGNU #1”",
+   "kind": "recognition",
+   "note": "искажены названия скважин",
+   "page": 423
+  },
+  {
+   "md": "“USGNU #1”; “Y-2”; “1A-15”",
+   "scan": "“UGNU #1”; “1Y-2”; “1A-15”",
+   "kind": "recognition",
+   "note": "скважина 1Y-2, потеряна цифра 1",
+   "page": 423
+  },
+  {
+   "md": "“1A-6”; “1B-1”; “1E-8”; “1E-8”; “1E-3”",
+   "scan": "“1A-8”; “1B-1”; “1E-8”; “1E-5”; “1E-3”",
+   "kind": "recognition",
+   "note": "скважины 1A-8 и 1E-5 прочитаны неверно",
+   "page": 423
+  },
+  {
+   "md": "Internal labels include “A-2”, “A-3”, and “A-4”; other labels are [illegible].",
+   "scan": "Internal labels include “A-2”, “A-3”, “A-4”, “A-5”, and “A-6”",
+   "kind": "recognition",
+   "note": "пропущены подписи единиц A-5 и A-6",
+   "page": 423
+  },
+  {
+   "md": "A prominent black diagonal boundary/fault-like line descends toward the right in the left-central part of the section",
+   "scan": "A thick blue line rises gently toward the right across the section; thin red lines",
+   "kind": "recognition",
+   "note": "чёрной разломной линии на разрезе нет; она на карте A3",
+   "page": 423
+  },
+  {
+   "md": "Depth axis is vertical; numerical depth labels are [illegible].",
+   "scan": "Depth labels 6330–6440 and 8840–9000; depth increases downward",
+   "kind": "recognition",
+   "note": "подписи глубин читаются, в md потеряны",
+   "page": 423
+  },
+  {
+   "md": "Central narrow track: repeated horizontal interval markers; labels are [illegible].",
+   "scan": "Right track interval labels: A6, A5, A4, A3",
+   "kind": "recognition",
+   "note": "потеряны подписи единиц A3–A6 на каротаже",
+   "page": 423
+  },
+  {
+   "md": "FIGURE 9.25 Kuparuk River unit A showing a typical gamma-ray log",
+   "scan": "9.5 WAVE-DOMINATED DELTAS; 9.5.1 Processes and Deposits — Along a coast that is unprotected from waves and ocean currents, sediment… This vertical stratigraphy is quite",
+   "kind": "recognition",
+   "note": "после подписи пропущен весь основной текст разделов 9.5, 9.5.1",
+   "page": 423
+  }
+ ]
+}

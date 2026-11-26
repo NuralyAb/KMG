@@ -1,0 +1,18 @@
+{
+ "issues": {
+  "asquith.pickett_example": [
+   "asquith.pickett_example:layers.main.text: чисел нет на страницах узла: 0.14",
+   "asquith.pickett_example:layers.practice.text: чисел нет на страницах узла: 0.14",
+   "asquith.pickett_example:data_meaning.from_chapter.text: чисел нет на страницах узла: 0.14",
+   "asquith.pickett_example:decision_on_data.conclusion: чисел нет на страницах узла: 0.14",
+   "asquith.pickett_example:worked_examples[2].result: чисел нет на страницах узла: 0.14",
+   "asquith.pickett_example:asquith.pickett_example#c34: чисел нет на страницах узла: 0.14"
+  ]
+ },
+ "dropped_claims": [
+  "asquith.pickett_example#c34"
+ ],
+ "not_enriched": [],
+ "nodes": 33,
+ "claims": 625
+}

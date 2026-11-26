@@ -1,0 +1,96 @@
+{
+ "node_id": "basarygin.bop_stack_layout",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "p3",
+    "text": "3: кольцевой превентор",
+    "kind": "step"
+   },
+   {
+    "id": "p6",
+    "text": "6: трубный превентор",
+    "kind": "step"
+   },
+   {
+    "id": "p8",
+    "text": "8: превентор с глухими плашками",
+    "kind": "step"
+   },
+   {
+    "id": "p14",
+    "text": "14: трубный превентор",
+    "kind": "step"
+   },
+   {
+    "id": "l1",
+    "text": "Линии: штуцерная 9 (к манифольду), глушения 11",
+    "kind": "data"
+   },
+   {
+    "id": "p16",
+    "text": "16: устьевая головка",
+    "kind": "step"
+   },
+   {
+    "id": "l2",
+    "text": "Линии: штуцерная 15 (к манифольду), глушения 13",
+    "kind": "data"
+   }
+  ],
+  "edges": [
+   {
+    "from": "p3",
+    "to": "p6",
+    "label": "ниже"
+   },
+   {
+    "from": "p6",
+    "to": "p8",
+    "label": "ниже"
+   },
+   {
+    "from": "p8",
+    "to": "p14",
+    "label": "ниже"
+   },
+   {
+    "from": "p8",
+    "to": "l1",
+    "label": "отходят"
+   },
+   {
+    "from": "p14",
+    "to": "p16",
+    "label": "ниже"
+   },
+   {
+    "from": "p14",
+    "to": "l2",
+    "label": "отходят"
+   }
+  ]
+ },
+ "caption": "Сборка на устье сверху вниз: превенторы друг над другом, внизу устьевая головка; сбоку — места отхода штуцерных линий и линий глушения.",
+ "alt": "Схема сверху вниз: кольцевой превентор, трубный, с глухими плашками, ещё один трубный и устьевая головка. Ниже глухого и ниже нижнего трубного отходят по штуцерной линии и линии глушения.",
+ "claim_ids": [
+  "basarygin.bop_stack_layout#c7",
+  "basarygin.bop_stack_layout#c8",
+  "basarygin.bop_stack_layout#c9",
+  "basarygin.bop_stack_layout#c11",
+  "basarygin.bop_stack_layout#c12",
+  "basarygin.bop_stack_layout#c13",
+  "basarygin.bop_stack_layout#c14",
+  "basarygin.bop_stack_layout#c15",
+  "basarygin.bop_stack_layout#c19",
+  "basarygin.bop_stack_layout#c20",
+  "basarygin.bop_stack_layout#c21",
+  "basarygin.bop_stack_layout#c23",
+  "basarygin.bop_stack_layout#c28",
+  "basarygin.bop_stack_layout#c31",
+  "basarygin.bop_stack_layout#c33",
+  "basarygin.bop_stack_layout#c36",
+  "basarygin.bop_stack_layout#c37"
+ ]
+}

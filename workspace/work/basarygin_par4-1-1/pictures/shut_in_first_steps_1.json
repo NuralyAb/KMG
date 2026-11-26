@@ -1,0 +1,86 @@
+{
+ "node_id": "basarygin.shut_in_first_steps",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Сигнал о проявлении пласта",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Прекратить бурение (испытание)",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Поднять рабочую трубу: под ней место для клапана",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Против уплотнений превенторов — труба, не муфта",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Отключить насосы, проверить самоприток",
+    "kind": "step"
+   },
+   {
+    "id": "f",
+    "text": "Начался перелив?",
+    "kind": "choice"
+   },
+   {
+    "id": "g",
+    "text": "Срочно перекрыть: устьевым оборудованием или штуцерами",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": ""
+   },
+   {
+    "from": "f",
+    "to": "g",
+    "label": "да"
+   }
+  ]
+ },
+ "caption": "Первые действия для данной компоновки устья: при переливе скважину перекрывают. Как в книге; вероятно, опечатка издания.",
+ "alt": "Схема сверху вниз: сигнал о проявлении, остановка работ, подъём трубы, проверка положения муфты, отключение насосов и проверка самопритока, при переливе срочное перекрытие.",
+ "claim_ids": [
+  "basarygin.shut_in_first_steps#c4",
+  "basarygin.shut_in_first_steps#c5",
+  "basarygin.shut_in_first_steps#c6",
+  "basarygin.shut_in_first_steps#c7",
+  "basarygin.shut_in_first_steps#c8",
+  "basarygin.shut_in_first_steps#c9",
+  "basarygin.shut_in_first_steps#c10"
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "node_id": "basarygin.rop_overpressure_zone",
+ "template": "mudwindow",
+ "data": {
+  "axis": "density",
+  "layers": [
+   {
+    "label": "Выше зоны АВПД",
+    "thickness": 2,
+    "pore": 3,
+    "frac": 8
+   },
+   {
+    "label": "Переходная зона",
+    "thickness": 1,
+    "pore": 4,
+    "frac": 8
+   },
+   {
+    "label": "Коллектор с АВПД",
+    "thickness": 2,
+    "pore": 7,
+    "frac": 9
+   }
+  ],
+  "intervals": [
+   {
+    "to": 3,
+    "mud": 5,
+    "ecd": null,
+    "outcome": "kick"
+   }
+  ]
+ },
+ "caption": "Тонкая переходная зона: поровое давление быстро растёт и в коллекторе превышает давление раствора. Уровни условные.",
+ "alt": "Поровое давление растёт с глубиной через тонкую переходную зону. В коллекторе с АВПД оно становится выше давления раствора, возникает риск проявления.",
+ "claim_ids": [
+  "basarygin.rop_overpressure_zone#c1",
+  "basarygin.rop_overpressure_zone#c2",
+  "basarygin.rop_overpressure_zone#c3",
+  "basarygin.rop_overpressure_zone#c6"
+ ]
+}

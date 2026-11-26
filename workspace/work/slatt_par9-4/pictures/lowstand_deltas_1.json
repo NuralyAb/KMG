@@ -1,0 +1,60 @@
+{
+ "node_id": "slatt.lowstand_deltas",
+ "template": "plot",
+ "data": {
+  "x_label": "Время",
+  "y_label": "Относительный уровень моря",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "series": [
+   {
+    "name": "Уровень моря",
+    "color": "",
+    "points": [
+     [
+      0.05,
+      0.85
+     ],
+     [
+      0.2,
+      0.83
+     ],
+     [
+      0.35,
+      0.73
+     ],
+     [
+      0.5,
+      0.58
+     ],
+     [
+      0.7,
+      0.38
+     ],
+     [
+      0.95,
+      0.18
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.35,
+    "y": 0.73,
+    "text": "раннее падение"
+   }
+  ]
+ },
+ "caption": "На раннем падении уровня моря врезаются долины, берег смещается к морю и вниз, формируются дельты низкого стояния.",
+ "alt": "Качественная кривая относительного уровня моря, понижающаяся со временем; в начале понижения отмечено раннее падение.",
+ "claim_ids": [
+  "slatt.lowstand_deltas#c1",
+  "slatt.lowstand_deltas#c2",
+  "slatt.lowstand_deltas#c3",
+  "slatt.lowstand_deltas#c4",
+  "slatt.lowstand_deltas#c5"
+ ]
+}

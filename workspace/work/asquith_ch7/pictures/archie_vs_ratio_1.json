@@ -1,0 +1,78 @@
+{
+ "node_id": "asquith.archie_vs_ratio",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Swa (Арчи) и Swr (отношения) незатронутой зоны",
+    "kind": "data"
+   },
+   {
+    "id": "eq",
+    "text": "Профиль ступенчатый; Sw, Rt, Rxo, di верны",
+    "kind": "result"
+   },
+   {
+    "id": "ne",
+    "text": "Оценки расходятся: какая больше?",
+    "kind": "choice"
+   },
+   {
+    "id": "gt",
+    "text": "Rxo/Rt мало; возможен переходный профиль, Swa хороша",
+    "kind": "result"
+   },
+   {
+    "id": "lt",
+    "text": "Rxo/Rt велико; возможен кольцевой профиль",
+    "kind": "step"
+   },
+   {
+    "id": "cor",
+    "text": "(Sw)COR = Swa × (Swa/Swr)^0,25",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "eq",
+    "label": "Swa≈Swr"
+   },
+   {
+    "from": "a",
+    "to": "ne",
+    "label": "иначе"
+   },
+   {
+    "from": "ne",
+    "to": "gt",
+    "label": "Swa>Swr"
+   },
+   {
+    "from": "ne",
+    "to": "lt",
+    "label": "Swa<Swr"
+   },
+   {
+    "from": "lt",
+    "to": "cor",
+    "label": "поправка"
+   }
+  ]
+ },
+ "caption": "Три исхода сравнения Swa и Swr; исправленное значение оценивают при Swa < Swr",
+ "alt": "Дерево решений: при равенстве Swa и Swr профиль ступенчатый и величины верны; при Swa больше Swr отношение Rxo/Rt мало; при Swa меньше Swr оно велико и вычисляют поправку.",
+ "claim_ids": [
+  "asquith.archie_vs_ratio#c1",
+  "asquith.archie_vs_ratio#c2",
+  "asquith.archie_vs_ratio#c3",
+  "asquith.archie_vs_ratio#c4",
+  "asquith.archie_vs_ratio#c6",
+  "asquith.archie_vs_ratio#c7",
+  "asquith.archie_vs_ratio#c9",
+  "asquith.archie_vs_ratio#c10",
+  "asquith.archie_vs_ratio#c12"
+ ]
+}

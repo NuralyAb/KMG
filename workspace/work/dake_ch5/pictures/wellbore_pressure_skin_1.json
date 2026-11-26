@@ -1,0 +1,58 @@
+{
+ "node_id": "dake.wellbore_pressure_skin",
+ "template": "plot",
+ "data": {
+  "x_label": "время t (логарифмический масштаб)",
+  "y_label": "забойное давление",
+  "numeric": false,
+  "log_x": false,
+  "log_y": false,
+  "y_down": false,
+  "params": {},
+  "series": [
+   {
+    "name": "без скин-фактора",
+    "color": "",
+    "points": [
+     [
+      0.05,
+      0.9
+     ],
+     [
+      0.95,
+      0.45
+     ]
+    ]
+   },
+   {
+    "name": "с положительным скин-фактором S",
+    "color": "",
+    "points": [
+     [
+      0.05,
+      0.65
+     ],
+     [
+      0.95,
+      0.2
+     ]
+    ]
+   }
+  ],
+  "marks": [
+   {
+    "x": 0.5,
+    "y": 0.45,
+    "text": "сдвиг от 2S постоянен"
+   }
+  ]
+ },
+ "caption": "Пока пласт кажется бесконечным, забойное давление линейно падает с ln t. Скин-фактор добавляет сдвиг, не зависящий от времени.",
+ "alt": "Две параллельные убывающие прямые забойного давления от логарифма времени: линия с положительным скин-фактором лежит ниже на постоянную величину.",
+ "claim_ids": [
+  "dake.wellbore_pressure_skin#c4",
+  "dake.wellbore_pressure_skin#c5",
+  "dake.wellbore_pressure_skin#c6",
+  "dake.wellbore_pressure_skin#c8"
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "node_id": "basarygin.kill_overview",
+ "template": "well",
+ "data": {
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "Вышележащие породы",
+    "thickness": 2
+   },
+   {
+    "lithology": "sand",
+    "label": "Пласт с притоком",
+    "thickness": 1,
+    "hazard": "kick"
+   }
+  ],
+  "strings": [
+   {
+    "kind": "surface",
+    "shoe": 1,
+    "cement": "none"
+   }
+  ],
+  "bottom": 2,
+  "drilling": true,
+  "perforated": null
+ },
+ "caption": "Флюид удаляют циркуляцией, раствор заменяют более тяжёлым; стрелки — прямая. Как в книге; вероятно, опечатка издания.",
+ "alt": "Скважина с обсадной колонной и трубами внутри; открытый ствол вошёл в пласт, из которого возможен приток. Стрелки показывают прямую циркуляцию раствора.",
+ "claim_ids": [
+  "basarygin.kill_overview#c1",
+  "basarygin.kill_overview#c2",
+  "basarygin.kill_overview#c4",
+  "basarygin.kill_overview#c6"
+ ]
+}

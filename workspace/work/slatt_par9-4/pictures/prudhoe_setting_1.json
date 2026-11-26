@@ -1,0 +1,76 @@
+{
+ "node_id": "slatt.prudhoe_setting",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Область сноса: источник осадка",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Речные русла, разделённые глинистыми поймами",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Вниз по течению русла разветвляются",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Дельтовая равнина и устьевые бары",
+    "kind": "result"
+   },
+   {
+    "id": "e",
+    "text": "Дальше к морю: фронт дельты и продельта",
+    "kind": "result"
+   },
+   {
+    "id": "f",
+    "text": "Из них в основном сложена нижняя зона Ромео",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": "к морю"
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Путь осадка в древней дельте к зоне Ромео. Самые продуктивные породы месторождения другие: их отложила разветвлённо-русловая река.",
+ "alt": "Цепочка от области сноса через речные русла и их разветвление к дельтовой равнине, устьевым барам, фронту дельты и продельте, слагающим зону Ромео.",
+ "claim_ids": [
+  "slatt.prudhoe_setting#c2",
+  "slatt.prudhoe_setting#c3",
+  "slatt.prudhoe_setting#c6",
+  "slatt.prudhoe_setting#c7",
+  "slatt.prudhoe_setting#c8",
+  "slatt.prudhoe_setting#c17",
+  "slatt.prudhoe_setting#c18"
+ ]
+}

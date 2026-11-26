@@ -1,0 +1,50 @@
+{
+ "node_id": "asquith.pickett_vs_hingle",
+ "template": "compare",
+ "data": {
+  "left_title": "Пикетт",
+  "right_title": "Хингл",
+  "rows": [
+   {
+    "aspect": "Sw без знания заранее",
+    "left": "не нужны Rw, a, m",
+    "right": "не нужны Rw, ρma или Δtma"
+   },
+   {
+    "aspect": "Что даёт водоносная линия",
+    "left": "m по наклону",
+    "right": "ρma или Δtma по отсечке"
+   },
+   {
+    "aspect": "Где читают отсечку",
+    "left": "при φ = 100 %: Rw (a известно или оценено)",
+    "right": "при нулевой проводимости"
+   },
+   {
+    "aspect": "Что приходится принять",
+    "left": "ρma и Δtma",
+    "right": "a и m"
+   },
+   {
+    "aspect": "Построение вручную",
+    "left": "двойная логарифмическая бумага доступна",
+    "right": "особая бумага или расчёт параметра"
+   }
+  ]
+ },
+ "caption": "Что берут из данных и что задают. «Показатель цементации n» в главе — как в книге; вероятно, опечатка издания.",
+ "alt": "Таблица сравнения: Пикетт даёт m по наклону и требует принять параметры матрицы, Хингл даёт параметры матрицы и требует принять a и m.",
+ "claim_ids": [
+  "asquith.pickett_vs_hingle#c5",
+  "asquith.pickett_vs_hingle#c6",
+  "asquith.pickett_vs_hingle#c7",
+  "asquith.pickett_vs_hingle#c8",
+  "asquith.pickett_vs_hingle#c9",
+  "asquith.pickett_vs_hingle#c10",
+  "asquith.pickett_vs_hingle#c11",
+  "asquith.pickett_vs_hingle#c13",
+  "asquith.pickett_vs_hingle#c14",
+  "asquith.pickett_vs_hingle#c15",
+  "asquith.pickett_vs_hingle#c16"
+ ]
+}

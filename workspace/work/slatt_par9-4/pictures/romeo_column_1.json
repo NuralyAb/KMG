@@ -1,0 +1,58 @@
+{
+ "node_id": "slatt.romeo_column",
+ "template": "log",
+ "data": {
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "2B · пойма",
+    "thickness": 1
+   },
+   {
+    "lithology": "sand",
+    "label": "2A · речные",
+    "thickness": 3
+   },
+   {
+    "lithology": "sand",
+    "label": "1B",
+    "thickness": 2
+   },
+   {
+    "lithology": "sand",
+    "label": "1A, верх",
+    "thickness": 1
+   },
+   {
+    "lithology": "shale",
+    "label": "1A, низ",
+    "thickness": 2
+   }
+  ],
+  "curves": [
+   {
+    "name": "GR",
+    "levels": [
+     "high",
+     "low",
+     "mid",
+     "mid",
+     "high"
+    ]
+   }
+  ],
+  "filtrate": "fresh"
+ },
+ "caption": "Гамма-каротаж по зонам скважины 07-06, схематично: высокий в 2B, резкий спад в 2A, низкий и умеренный в 1B, рост к низу 1A. Литология упрощена.",
+ "alt": "Планшет из зон 2B, 2A, 1B и 1A сверху вниз. Кривая GR высокая в пойменной зоне 2B, низкая в 2A, умеренная в 1B и верху 1A, высокая в низу 1A.",
+ "claim_ids": [
+  "slatt.romeo_column#c11",
+  "slatt.romeo_column#c16",
+  "slatt.romeo_column#c17",
+  "slatt.romeo_column#c18",
+  "slatt.romeo_column#c19",
+  "slatt.romeo_column#c22",
+  "slatt.romeo_column#c24",
+  "slatt.romeo_column#c25"
+ ]
+}

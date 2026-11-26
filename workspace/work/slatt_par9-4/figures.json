@@ -1,0 +1,2701 @@
+{
+ "chapter": "slatt_par9-4",
+ "pages": [
+  {
+   "page": 410,
+   "key": "ab08178847c2e4f3fe92ff983604f709",
+   "figures": [
+    {
+     "unit_id": "p410.07",
+     "caption_unit": "p410.08",
+     "figure": "9.10",
+     "what": "Схематический разрез по двум скважинам (Well 1, Well 2) с кривыми гамма-каротажа в проградирующей дельтовой системе. Вверху литостратиграфическая корреляция, внизу хроностратиграфическая: сравнивается кажущаяся непрерывность песчаников с их разобщённостью наклонными телами гетеролитов и глин.",
+     "axes": [
+      {
+       "name": "15 m (вертикальный масштаб, 15 м)",
+       "where": "верхняя панель, справа; двусторонняя вертикальная стрелка от датума вниз",
+       "scale": "масштабный отрезок",
+       "ticks": ""
+      },
+      {
+       "name": "500 m (расстояние между скважинами, 500 м)",
+       "where": "верхняя панель, внизу; двусторонняя горизонтальная стрелка между Well 1 и Well 2",
+       "scale": "масштабный отрезок",
+       "ticks": ""
+      },
+      {
+       "name": "Landward → Basinward (в сторону суши → в сторону бассейна)",
+       "where": "верхняя панель, верхние углы: Landward слева, Basinward справа",
+       "scale": "направление разреза",
+       "ticks": ""
+      }
+     ],
+     "curves": [
+      {
+       "label": "Gamma (гамма-каротаж), Well 1",
+       "meaning": "Кривая гамма-каротажа слева от ствола скважины 1; показана на обеих панелях.",
+       "behaviour": "Изрезанная кривая: в песчаных интервалах отклоняется влево, в глинистых — вправо, к стволу и за него."
+      },
+      {
+       "label": "Gamma (гамма-каротаж), Well 2",
+       "meaning": "Кривая гамма-каротажа слева от ствола скважины 2; показана на обеих панелях.",
+       "behaviour": "Изрезанная кривая с чередованием отклонений влево (песчаные интервалы) и вправо (глинистые)."
+      },
+      {
+       "label": "Datum (Flooding Shale) (опорная поверхность — глина затопления)",
+       "meaning": "Горизонтальная опорная линия выравнивания разреза.",
+       "behaviour": "Проходит горизонтально у верха верхней панели, пересекая обе скважины."
+      },
+      {
+       "label": "Well 1, Well 2 (скважины 1 и 2)",
+       "meaning": "Стволы двух скважин, между которыми проводится корреляция.",
+       "behaviour": "Вертикальные чёрные линии; Well 1 левее (ближе к суше), Well 2 правее (ближе к бассейну)."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Lithostratigraphic Correlation (литостратиграфическая корреляция)",
+       "meaning": "Верхняя панель. На коричневом глинистом фоне субгоризонтальные жёлтые песчаные тела, протягивающиеся через обе скважины и разделённые тонкими глинистыми прослоями; их концы зазубрены и выклиниваются по краям разреза. Под ними один тонкий пласт гетеролитов."
+      },
+      {
+       "label": "Chronostratigraphic correlation (хроностратиграфическая корреляция)",
+       "meaning": "Нижняя панель. Под горизонтальной полосой глин — наклонные тела, погружающиеся вправо, в сторону бассейна. Вниз по наклону жёлтые песчаники зазубренными границами сменяются гетеролитами и далее глинами."
+      },
+      {
+       "label": "Pattern continues (картина продолжается)",
+       "meaning": "Нижняя панель: стрелка влево у левого края и стрелка вправо у правого края — такое строение продолжается в обе стороны."
+      }
+     ],
+     "legend": [
+      "Жёлтый — Mouth-bar Sandstone (песчаник устьевого бара)",
+      "Светло-оранжевый — Heterolithics (гетеролиты)",
+      "Коричневый — Shale (глина, аргиллит)"
+     ],
+     "numbers": [],
+     "mismatches": [
+      {
+       "recogniser": "Yellow bodies: Mouth-bar Sandstone; several laterally discontinuous, lens-shaped units.",
+       "scan": "На верхней панели жёлтые песчаные тела непрерывны между Well 1 и Well 2 и выклиниваются лишь за скважинами.",
+       "note": "Песчаники показаны непрерывными, а не разрозненными линзами."
+      },
+      {
+       "recogniser": "sandstone bodies are not continuously correlated where they pinch out or are separated by heterolithics/shale.",
+       "scan": "В литостратиграфической корреляции песчаные пласты соединены непрерывно от скважины 1 до скважины 2; подпись отмечает их непрерывность.",
+       "note": "Смысл верхней панели искажён: песчаники скоррелированы непрерывно."
+      },
+      {
+       "recogniser": "Individual sandstone bodies thin, thicken, split, and terminate laterally between wells.",
+       "scan": "Между скважинами песчаные тела идут непрерывно, не расщепляясь и не обрываясь; окончания находятся за скважинами.",
+       "note": "Выклинивания между скважинами на верхней панели нет."
+      },
+      {
+       "recogniser": "Vertical scale: [illegible] m; vertical direction is downward.",
+       "scan": "Справа на верхней панели читается подпись 15 m у вертикальной двусторонней стрелки.",
+       "note": "Вертикальный масштаб читается: 15 м."
+      },
+      {
+       "recogniser": "Pale orange interbeds: Heterolithics.",
+       "scan": "На верхней панели гетеролиты — один тонкий пласт под нижним песчаником, а не переслаивание между песчаниками.",
+       "note": "Положение гетеролитов на верхней панели указано неточно."
+      }
+     ],
+     "unreadable": [
+      "Тонкие детали зазубрин кривых Gamma; шкала и единицы гамма-каротажа не показаны."
+     ],
+     "page": 410,
+     "source": "━━━ FORMAT 4: CROSS-SECTION / РАЗРЕЗ ━━━\n**Lithostratigraphic Correlation**\n\nOrientation: Landward (left) → Basinward (right). Horizontal distance between Well 1 and Well 2: 500 m. Datum: Flooding Shale. Vertical scale: [illegible] m; vertical direction is downward.\n\nWells along section, left to right:\n1. Well 1\n2. Well 2\n\nLithostratigraphic units and correlation:\n- Brown-grey continuous layer at the top: Flooding Shale datum.\n- Yellow bodies: Mouth-bar Sandstone; several laterally discontinuous, lens-shaped units.\n- Pale orange interbeds: Heterolithics.\n- Brown-grey beds: Shale.\n- Individual sandstone bodies thin, thicken, split, and terminate laterally between wells.\n- Correlation follows lithostratigraphic boundaries; sandstone bodies are not continuously correlated where they pinch out or are separated by heterolithics/shale.\n\nLegend:\n- Yellow fill — Mouth-bar Sandstone.\n- Pale orange fill — Heterolithics.\n- Brown-grey fill — Shale.\n\n━━━ FORMAT 4: CROSS-SECTION / РАЗРЕЗ ━━━\n**Chronostratigraphic Correlation**\n\nOrientation: Landward (left) → Basinward (right). Vertical direction is downward; no numeric vertical scale is shown.\n\nWells along section, left to right:\n1. Well 1\n2. Well 2\n\nChronostratigraphic correlation:\n- The same succession is correlated using inclined chronostratigraphic pattern lines rather than lithostratigraphic bed boundaries.\n- Pattern continues landward (left arrow: “Pattern continues”).\n- Pattern continues basinward (right arrow: “Pattern continues”).\n- Yellow mouth-bar sandstone units occur as stacked, laterally shifting bodies within inclined chronostratigraphic surfaces.\n- Pale orange heterolithics and brown-grey shale occur between sandstone units.\n- Chronostratigraphic surfaces dip from landward upper-left toward basinward lower-right.\n- The diagram demonstrates that lithostratigraphic units may be laterally discontinuous while depositional time-equivalent patterns continue across the section.\n\nKEYWORDS: lithostratigraphic correlation, chronostratigraphic correlation, mouth-bar sandstone, heterolithics, shale, flooding shale, well correlation, basinward"
+    }
+   ]
+  },
+  {
+   "page": 411,
+   "key": "0c8fea07988f17e73693edd0a2ee66cf",
+   "figures": [
+    {
+     "unit_id": "p411.07",
+     "caption_unit": "p411.08",
+     "figure": "9.11",
+     "what": "Карта дельты реки Меконг в плане (панель (a)): верхняя дельтовая равнина зелёная, нижняя оранжевая, чёрными штрихами показаны береговые валы. Нанесены линия разреза A–B со скважинами VL1, TC1, TV1 и изобаты в море.",
+     "axes": [
+      {
+       "name": "долгота (106°E)",
+       "where": "отметка на верхней рамке карты",
+       "scale": "географические координаты",
+       "ticks": "106°E"
+      },
+      {
+       "name": "широта (10°N)",
+       "where": "отметка на левой рамке карты",
+       "scale": "географические координаты",
+       "ticks": "10°N"
+      },
+      {
+       "name": "масштабная линейка, km (км)",
+       "where": "внизу слева",
+       "scale": "линейная",
+       "ticks": "20 km"
+      }
+     ],
+     "curves": [
+      {
+       "label": "A–B",
+       "meaning": "линия разреза с положением скважин",
+       "behaviour": "Прямая идёт с северо-запада (A) на юго-восток (B), от верхней дельтовой равнины через нижнюю в море. Вдоль неё от A к B расположены VL1, TC1, TV1."
+      },
+      {
+       "label": "чёрные короткие линии (без подписи)",
+       "meaning": "береговые валы (по подписи рисунка)",
+       "behaviour": "Находятся на оранжевой нижней дельтовой равнине, многие изогнуты. Ориентированы преимущественно от юго-запада на северо-восток, местами почти с юга на север, то есть поперёк или косо к линии A–B."
+      },
+      {
+       "label": "2 m, 6 m, 16 m, 28 m (2, 6, 16, 28 м)",
+       "meaning": "линии в море с подписями в метрах, по виду изобаты",
+       "behaviour": "Тянутся у юго-восточного побережья с юго-запада на северо-восток. Подписанные значения растут в сторону от берега."
+      },
+      {
+       "label": "Mekong River (река Меконг)",
+       "meaning": "река с рукавами",
+       "behaviour": "Течёт от западного края карты на восток и юго-восток и разветвляется на несколько рукавов, выходящих к морю."
+      },
+      {
+       "label": "Bassac River (река Бассак)",
+       "meaning": "южный рукав речной системы",
+       "behaviour": "Идёт от северо-запада на юго-восток к морю, южнее реки Меконг и линии A–B."
+      }
+     ],
+     "regions": [
+      {
+       "label": "зелёная область",
+       "meaning": "верхняя дельтовая равнина: северная и западная части карты, включая район HoChiMinh City; здесь скважина VL1"
+      },
+      {
+       "label": "оранжевая область",
+       "meaning": "нижняя дельтовая равнина: восточная и юго-восточная прибрежная полоса и юго-западная часть карты; здесь скважины TC1 и TV1"
+      },
+      {
+       "label": "South China Sea (Южно-Китайское море)",
+       "meaning": "голубая акватория на востоке и юго-востоке"
+      },
+      {
+       "label": "HoChiMinh City (город Хошимин)",
+       "meaning": "подпись в северо-восточной части карты"
+      }
+     ],
+     "legend": [],
+     "numbers": [],
+     "mismatches": [
+      {
+       "recogniser": "Labelled points/wells: VL1; TC1; BM.",
+       "scan": "Подписаны скважины VL1, TC1 и TV1; метки BM нет.",
+       "note": "Неверно прочитано название третьей скважины."
+      },
+      {
+       "recogniser": "Black linear symbols: numerous faults or structural lineaments, predominantly NW–SE to WNW–ESE",
+       "scan": "Это береговые валы; они вытянуты в основном СВ–ЮЗ, местами почти С–Ю.",
+       "note": "Неверны природа линий и их ориентировка."
+      },
+      {
+       "recogniser": "No contour lines, contour interval, structural-depth values, fault throws, or symbol legend are shown.",
+       "scan": "В море проведены линии с подписями 2 m, 6 m, 16 m, 28 m.",
+       "note": "Пропущены изобаты с подписанными глубинами."
+      },
+      {
+       "recogniser": "Scale bar: 0–[illegible] km.",
+       "scan": "Масштабная линейка подписана 20 km.",
+       "note": "Пропущено значение масштаба."
+      },
+      {
+       "recogniser": "Lithology/stratigraphy is not determined without a legend.",
+       "scan": "По подписи рисунка зелёное — верхняя дельтовая равнина, оранжевое — нижняя.",
+       "note": "Значение цветов задано подписью."
+      },
+      {
+       "recogniser": "Geological/structural map of an area bordering the South China Sea.",
+       "scan": "Это карта дельты реки Меконг с дельтовыми равнинами и береговыми валами.",
+       "note": "Карта не структурная."
+      }
+     ],
+     "unreadable": [
+      "Значение тонких тёмных линий на суше: ломаной на севере и границы зелёного и оранжевого на юго-западе — не подписано",
+      "Мелкие подписи изобат читаются с трудом из-за низкого разрешения"
+     ],
+     "page": 411,
+     "source": "━━━ FORMAT 3: MAP / КАРТА ━━━\nGeological/structural map of an area bordering the South China Sea.\n\n- Geographic coordinates shown: 106°E (top); 10°N (left).\n- Water bodies and rivers: South China Sea; Mekong River; Bassac River.\n- Locality: HoChiMinh City.\n- Section/profile trace: A–B, from point A in the west-central part of the map toward point B on the coast to the southeast.\n- Labelled points/wells: VL1; TC1; BM.\n- Black linear symbols: numerous faults or structural lineaments, predominantly NW–SE to WNW–ESE; several curving and branching lineaments occur in the central and eastern areas.\n- Map areas are differentiated by solid green, orange, and light-blue fills. Lithology/stratigraphy is not determined without a legend.\n- Scale bar: 0–[illegible] km.\n- No contour lines, contour interval, structural-depth values, fault throws, or symbol legend are shown.\n\nKEYWORDS: geological map, structural lineaments, faults, Mekong River, Bassac River, South China Sea, HoChiMinh City"
+    }
+   ]
+  },
+  {
+   "page": 412,
+   "key": "741444a99d83e9f51e50c4a7962d3d09",
+   "figures": [
+    {
+     "unit_id": "p412.03",
+     "caption_unit": "p412.05",
+     "figure": "9.11",
+     "what": "Панель (b): геологический разрез A–B дельты с литостратиграфической корреляцией скважин VL1, TC1 и TV1 по обстановкам осадконакопления. Разрез пересекают пронумерованные линии геологического времени (в тыс. лет по подписи), показывающие проградацию дельты.",
+     "axes": [
+      {
+       "name": "(m) — высотная отметка/глубина, м",
+       "where": "слева, вверх",
+       "scale": "линейная",
+       "ticks": "+5, 0, −10, −20, −30"
+      },
+      {
+       "name": "(m) — высотная отметка/глубина, м",
+       "where": "справа, вверх",
+       "scale": "линейная",
+       "ticks": "+5, 0, −10, −20, −30, −40"
+      },
+      {
+       "name": "горизонтальный масштаб, km (км)",
+       "where": "внизу справа, масштабная линейка от A (слева) к B (справа)",
+       "scale": "линейная",
+       "ticks": "0, 20 km"
+      }
+     ],
+     "curves": [
+      {
+       "label": "1000",
+       "meaning": "линия геологического времени",
+       "behaviour": "Наклонена вправо вниз: начинается у верхней части разреза между TC1 и TV1 и опускается в сторону моря, пересекая границы литофаций."
+      },
+      {
+       "label": "2000",
+       "meaning": "линия геологического времени",
+       "behaviour": "Наклонена вправо вниз, проходит левее и ниже линии 1000; от верхней части разреза правее TC1 опускается к низам продельты у TV1."
+      },
+      {
+       "label": "3000",
+       "meaning": "линия геологического времени",
+       "behaviour": "Подписана правее TC1; круто опускается вправо вниз через фронт дельты в продельту, левее и ниже линии 2000."
+      },
+      {
+       "label": "4000",
+       "meaning": "линия геологического времени",
+       "behaviour": "От левого края около −14 м идёт почти горизонтально, слегка поднимаясь, затем перед TC1 круто поднимается и образует выпуклый перегиб у TC1, пересекая фронт дельты."
+      },
+      {
+       "label": "5000",
+       "meaning": "линия геологического времени",
+       "behaviour": "Почти горизонтальна, около −20 м слева, слегка поднимается к TC1; проходит в продельте."
+      },
+      {
+       "label": "6000",
+       "meaning": "линия геологического времени",
+       "behaviour": "Почти горизонтальна, около −31 м, в пределах зоны Bay слева."
+      },
+      {
+       "label": "штриховая линия",
+       "meaning": "граница над недифференцированным плейстоценом (по положению на разрезе; в условных обозначениях не определена)",
+       "behaviour": "Слева около −35 м, круто поднимается вправо примерно до −19 м у TC1, затем полого опускается в сторону моря к TV1."
+      },
+      {
+       "label": "VL1, TC1, TV1",
+       "meaning": "скважины с вертикальной линией и ступенчатой/изрезанной кривой разреза",
+       "behaviour": "Пересекают всю дельтовую толщу и уходят ниже штриховой линии; у VL1 глубже всего."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Inland delta plain (внутренняя дельтовая равнина)",
+       "meaning": "левая часть профиля, у A"
+      },
+      {
+       "label": "Beach ridge delta plain (дельтовая равнина с береговыми валами)",
+       "meaning": "центральная и правая части суши"
+      },
+      {
+       "label": "Flood plain/Marsh (пойма/марш)",
+       "meaning": "подпись над левой частью, у VL1"
+      },
+      {
+       "label": "Beach ridge, Marsh/Foreshore (береговой вал, марш/предпляжная зона)",
+       "meaning": "подпись над правой частью суши"
+      },
+      {
+       "label": "верхний коричнево-оранжевый слой (без подписи на панели)",
+       "meaning": "верхняя часть разреза у поверхности; цвет соответствует Delta plain в легенде панели (c)"
+      },
+      {
+       "label": "Sub- to intertidal flat (субприливная – приливная отмель)",
+       "meaning": "светло-жёлто-зелёный слой под верхним"
+      },
+      {
+       "label": "Delta front (фронт дельты)",
+       "meaning": "красный слой под приливной отмелью, у моря выклинивается по склону"
+      },
+      {
+       "label": "Prodelta (продельта)",
+       "meaning": "горчичный слой под фронтом дельты, протягивается через весь разрез до моря"
+      },
+      {
+       "label": "Bay (залив)",
+       "meaning": "светло-зелёное тело внизу слева, под продельтой; выклинивается вправо к TC1"
+      },
+      {
+       "label": "Undifferentiated Pleistocene (нерасчленённый плейстоцен)",
+       "meaning": "белая область ниже штриховой линии"
+      },
+      {
+       "label": "SOUTH CHINA SEA (Южно-Китайское море)",
+       "meaning": "голубая область справа, у B, от 0 примерно до −23 м"
+      }
+     ],
+     "legend": [],
+     "numbers": [
+      {
+       "what": "отметки датировок у VL1, сверху вниз",
+       "value": "≈ −3425, −3536, −3622, −3794, −4826, 6111"
+      },
+      {
+       "what": "отметки датировок у TC1, сверху вниз",
+       "value": "≈ −2876, −3505, −3969, −4368, −4814, −4743, −6131, −50,400"
+      },
+      {
+       "what": "отметки датировок у TV1, сверху вниз",
+       "value": "≈ −721, −721, −1001, −1403, −1545, −1826, −1952, −2719, −43,420"
+      },
+      {
+       "what": "подписи линий времени (по подписи рисунка — в тыс. лет; на рисунке числа 1000–6000)",
+       "value": "≈ 1000, 2000, 3000, 4000, 5000, 6000"
+      },
+      {
+       "what": "глубина кровли плейстоцена у TC1",
+       "value": "≈ −19 м"
+      },
+      {
+       "what": "глубина штриховой линии у левого края",
+       "value": "≈ −35 м"
+      }
+     ],
+     "mismatches": [
+      {
+       "recogniser": "- −1325\n- −2876\n- −1336",
+       "scan": "У VL1 стоят −3425 и −3536; −2876 стоит у TC1.",
+       "note": "Неверно прочитаны числа"
+      },
+      {
+       "recogniser": "- −[illegible]\n- −[illegible]\n- −[illegible]\n- −[illegible]",
+       "scan": "Числа читаются: у TC1 −3505, −3969, −4368, −4814 и др., у TV1 −721, −1001, −1403 и др.",
+       "note": "Пропущено большинство чисел"
+      },
+      {
+       "recogniser": "- 5000\n- 6000\n- 6113",
+       "scan": "Есть линии времени 1000, 2000, 3000, 4000, 5000, 6000; число у VL1 — 6111.",
+       "note": "Пропущены линии времени; 6113 вместо 6111"
+      },
+      {
+       "recogniser": "A broad wedge-shaped unit labelled “Prodelta” extends from the inland side toward the central part of the profile.",
+       "scan": "Слой продельты протягивается через весь разрез до моря справа.",
+       "note": "Неверно указана протяжённость продельты"
+      }
+     ],
+     "unreadable": [
+      "Точное соединение линий времени 3000 и 4000 около TC1",
+      "Мелкие цифры датировок читаются с неуверенностью в отдельных знаках",
+      "Значение знака «−» перед числами датировок (минус или выносная черта)"
+     ],
+     "page": 412,
+     "source": "━━━ FORMAT 4: CROSS-SECTION / РАЗРЕЗ ━━━\n(b)\n\nOrientation: Inland delta plain (left) → South China Sea (right). Depositional-environment transect: Inland delta plain → Beach ridge delta plain → South China Sea.\n\nHorizontal scale: 0–20 km (scale bar).\nVertical axis: elevation/depth, m; values increase upward from −40 m to +5 m. Marked elevations: +5, 0, −10, −20, −30, −40 m.\n\nSurface/environment labels, left to right:\n- Flood plain/Marsh\n- Beach ridge, Marsh/Foreshore\n\nMarked sections/locations:\n- VL1\n- TC1\n- TV1\n\nDepositional/facies labels:\n- Sub- to intertidal flat\n- Delta front\n- Prodelta\n- Bay\n- Undifferentiated Pleistocene\n\nThe section contains several coloured and patterned stratigraphic bodies bounded by irregular, laterally discontinuous contacts. Lithology is not determined without a legend. A broad wedge-shaped unit labelled “Prodelta” extends from the inland side toward the central part of the profile. The “Bay” unit occurs below it on the left and thins basinward. “Undifferentiated Pleistocene” occupies the deeper right-hand part.\n\nPrinted numerical annotations within units:\n- −1325\n- −2876\n- −1336\n- −[illegible]\n- −[illegible]\n- −[illegible]\n- −[illegible]\n- −43420\n- 5000\n- 6000\n- 6113\n\nBlack vertical irregular traces occur beneath VL1, TC1, and TV1; their specific meaning is not labelled in the image.\n\nKEYWORDS: delta plain, beach ridge, marsh, foreshore, delta front, prodelta, bay, Pleistocene, South China Sea"
+    },
+    {
+     "unit_id": "p412.04",
+     "caption_unit": "p412.05",
+     "figure": "9.11",
+     "what": "Панель (c): секвенс-стратиграфическая (хроностратиграфическая) корреляция тех же скважин VL1, TC1, TV1 по линиям времени. Фациальные тела показаны наклонёнными в сторону моря клиноформами с зубчатыми взаимными переходами; сравнивается с литостратиграфической корреляцией панели (b).",
+     "axes": [
+      {
+       "name": "(m) — высотная отметка/глубина, м",
+       "where": "слева, вверх",
+       "scale": "линейная",
+       "ticks": "+5, 0, −10, −20, −30"
+      },
+      {
+       "name": "(m) — высотная отметка/глубина, м",
+       "where": "справа, вверх",
+       "scale": "линейная",
+       "ticks": "+5, 0, −10, −20, −30, −40"
+      },
+      {
+       "name": "горизонтальный масштаб, km (км); Vertical exaggeration x1250 (вертикальное преувеличение)",
+       "where": "внизу справа, от A к B",
+       "scale": "линейная",
+       "ticks": "0, 20 km"
+      },
+      {
+       "name": "шкала зернистости (c, s, далее мелкие обозначения песчаных классов)",
+       "where": "под каждой скважиной VL1, TC1, TV1",
+       "scale": "порядковая (классы зернистости)",
+       "ticks": "c, s, … (остальные неразборчивы)"
+      }
+     ],
+     "curves": [
+      {
+       "label": "тонкие сплошные наклонные линии",
+       "meaning": "хроностратиграфические границы, проведённые по линиям времени",
+       "behaviour": "Слева почти горизонтальны, к TC1 и TV1 наклоняются вправо вниз (в сторону моря) и выполаживаются в продельте."
+      },
+      {
+       "label": "штриховая линия",
+       "meaning": "граница над недифференцированным плейстоценом (по положению; в легенде не определена)",
+       "behaviour": "Слева около −35 м, круто поднимается примерно до −19 м у TC1, затем полого опускается вправо."
+      },
+      {
+       "label": "MxFS",
+       "meaning": "поверхность, отмеченная стрелкой у подошвы дельтовой толщи справа (вероятно, максимального затопления; на рисунке не расшифрована)",
+       "behaviour": "Стрелка указывает на нижнюю границу продельты правее TV1."
+      },
+      {
+       "label": "Coarsening-upward bedset cycles (циклы пачек с укрупнением зерна вверх)",
+       "meaning": "зубчатые контакты и значки циклов внутри фациальных тел",
+       "behaviour": "Пилообразные переходы между фациями повторяются вдоль наклонных тел в сторону моря."
+      },
+      {
+       "label": "VL1, TC1, TV1",
+       "meaning": "скважины с кривыми зернистости",
+       "behaviour": "Пересекают дельтовую толщу и уходят в плейстоцен ниже штриховой линии."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Inland delta plain (внутренняя дельтовая равнина)",
+       "meaning": "левая часть профиля"
+      },
+      {
+       "label": "Beach ridge delta plain (дельтовая равнина с береговыми валами)",
+       "meaning": "центральная и правая части суши"
+      },
+      {
+       "label": "Flood plain/Marsh (пойма/марш)",
+       "meaning": "подпись у VL1"
+      },
+      {
+       "label": "Beach ridge, Marsh/Foreshore (береговой вал, марш/предпляжная зона)",
+       "meaning": "подпись над правой частью суши"
+      },
+      {
+       "label": "Subaerial delta plain (субаэральная дельтовая равнина)",
+       "meaning": "подпись справа вверху, у края суши над морем"
+      },
+      {
+       "label": "Sub-to intertidal flat (субприливная – приливная отмель)",
+       "meaning": "светло-жёлтые наклонные тела под дельтовой равниной"
+      },
+      {
+       "label": "Delta front (фронт дельты)",
+       "meaning": "красные наклонные тела ниже приливной отмели"
+      },
+      {
+       "label": "Prodelta (продельта; по цвету легенды)",
+       "meaning": "горчичные тела в нижней части толщи"
+      },
+      {
+       "label": "Bay (залив)",
+       "meaning": "подпись внизу слева, правее VL1, под горчичной толщей и выше штриховой линии"
+      },
+      {
+       "label": "Undifferentiated Pleistocene (нерасчленённый плейстоцен)",
+       "meaning": "белая область ниже штриховой линии"
+      },
+      {
+       "label": "SOUTH CHINA SEA (Южно-Китайское море)",
+       "meaning": "голубая область справа"
+      }
+     ],
+     "legend": [
+      "Delta plain (дельтовая равнина) — коричнево-оранжевая заливка",
+      "Sub-to intertidal (субприливная – приливная зона) — светло-жёлтая заливка",
+      "Delta front (фронт дельты) — красная заливка",
+      "Prodelta (продельта) — горчичная заливка",
+      "Coarsening-upward bedset cycles (циклы с укрупнением зерна вверх) — изогнутый значок-стрелка"
+     ],
+     "numbers": [
+      {
+       "what": "вертикальное преувеличение",
+       "value": "≈ x1250"
+      },
+      {
+       "what": "глубина кровли плейстоцена у TC1",
+       "value": "≈ −19 м"
+      },
+      {
+       "what": "глубина штриховой линии у левого края",
+       "value": "≈ −35 м"
+      },
+      {
+       "what": "глубина дна моря у правого края",
+       "value": "≈ −23 м"
+      }
+     ],
+     "mismatches": [
+      {
+       "recogniser": "from inland alluvial plain to the South China Sea.",
+       "scan": "Слева подписано «Inland delta plain».",
+       "note": "Delta plain, а не alluvial plain"
+      },
+      {
+       "recogniser": "| Inland alluvial plain | Flood plain/Marsh; V1 |",
+       "scan": "Скважина подписана VL1, зона — Inland delta plain.",
+       "note": "Неверные название скважины и зоны"
+      },
+      {
+       "recogniser": "| Beach ridge delta plain | Beach ridge, Marsh/Foreshore; Y1 |",
+       "scan": "Скважина подписана TV1.",
+       "note": "TV1 прочитана как Y1"
+      },
+      {
+       "recogniser": "| Seaward area | Subtidal delta plain |",
+       "scan": "Подпись гласит «Subaerial delta plain».",
+       "note": "Subaerial, а не Subtidal"
+      },
+      {
+       "recogniser": "- McFS [label partly unclear].",
+       "scan": "Подписано «MxFS» со стрелкой к подошве толщи.",
+       "note": "Неверно прочитана подпись"
+      },
+      {
+       "recogniser": "A solid black curved line is shown near the McFS label; its meaning is not defined in the figure.",
+       "scan": "Это стрелка-выноска от подписи MxFS к поверхности.",
+       "note": "Выноска принята за отдельную линию"
+      },
+      {
+       "recogniser": "- orange stippled pattern — Delta plain.",
+       "scan": "В легенде Delta plain — сплошная коричнево-оранжевая заливка.",
+       "note": "Крапа не видно"
+      },
+      {
+       "recogniser": "- black inclined line symbol — Coarsening-upward bedset cycles.",
+       "scan": "Значок циклов — изогнутая стрелка, а не прямая наклонная линия.",
+       "note": "Неверно описан значок"
+      }
+     ],
+     "unreadable": [
+      "Обозначения классов зернистости под скважинами",
+      "Буквы A и B на панели (c) очень мелкие",
+      "Расшифровка MxFS на рисунке не дана"
+     ],
+     "page": 412,
+     "source": "━━━ FORMAT 4: CROSS-SECTION / РАЗРЕЗ ━━━\nPanel (c). Depositional cross-section from inland alluvial plain to the South China Sea.\n\nOrientation: left to right, “Inland alluvial plain” → “Beach ridge delta plain” → “SOUTH CHINA SEA”. Horizontal direction arrows point rightward. Horizontal scale bar: 20 km. Vertical exaggeration ×1250.\n\nVertical axis: elevation/depth, m; labelled from +5 m at the top to −40 m at the base. Values increase upward and become more negative downward. Labelled values: +5, 0, −10, −20, −30, −40 m.\n\n| Position / environment | Labelled depositional elements | Vertical interval, m (approximate from axis) | Depositional bodies and boundaries shown |\n|---|---|---:|---|\n| Inland alluvial plain | Flood plain/Marsh; V1 | +5 to below −30 | Thin green and yellow beds over red-orange delta-front bodies; lower yellow prodelta body adjacent to “Bay”. |\n| Beach ridge delta plain | TC1 | +5 to below −30 | Stacked, laterally inclined green, yellow and red-orange units. Several dark, inclined internal lines are shown. |\n| Beach ridge delta plain | Beach ridge, Marsh/Foreshore; Y1 | +5 to approximately −25 | Beach-ridge topography is represented by narrow positive relief. Green sub- to intertidal and red-orange delta-front units prograde seaward. |\n| Seaward area | Subtidal delta plain | approximately +5 to −20 | Green upper body and red-orange inclined delta-front body extend toward the sea. |\n| Marine area | SOUTH CHINA SEA | +5 to below −20 | Blue water area at right; red-orange delta-front body grades downward and seaward into yellow prodelta deposits. |\n\nStratigraphic/depositional labels, top to bottom where present:\n- Flood plain/Marsh.\n- Bay.\n- Beach ridge, Marsh/Foreshore.\n- Subtidal delta plain.\n- Delta front.\n- Prodelta.\n- Undifferentiated Pleistocene.\n- McFS [label partly unclear].\n\nA black dashed, basinward-dipping line occurs beneath the left and central deltaic succession, from approximately −35 m in the inland area to approximately −20 m beneath TC1; its meaning is not defined in the figure. A solid black curved line is shown near the McFS label; its meaning is not defined in the figure.\n\nLegend:\n- orange stippled pattern — Delta plain.\n- green pattern — Sub-to-intertidal.\n- red-orange fill — Delta front.\n- yellow fill — Prodelta.\n- black inclined line symbol — Coarsening-upward bedset cycles.\n\nKEYWORDS: delta plain, beach ridge, sub-to-intertidal, delta front, prodelta, alluvial plain, South China Sea, Pleistocene"
+    }
+   ]
+  },
+  {
+   "page": 413,
+   "key": "2b57935592d198474b99de358f4b0167",
+   "figures": [
+    {
+     "unit_id": "p413.03",
+     "caption_unit": "p413.04",
+     "figure": "9.12",
+     "what": "Схема в плане: переключение распределительного канала дельты из общей вершины (APEX, вершина дельты) на другие направления и в другие места дельты. Слева и справа от пунктирной оси показаны два случая смещения устья на угол Δθ.",
+     "axes": [],
+     "curves": [
+      {
+       "label": "неподписанная жирная ломаная верхняя линия",
+       "meaning": "контур края дельты (береговая линия)",
+       "behaviour": "Поднимается от левого нижнего угла к самой высокой части около середины, вблизи пунктирной линии, затем опускается к правому нижнему углу. На ней отмечены положения устьев."
+      },
+      {
+       "label": "APEX (вершина)",
+       "meaning": "общая вершина, из которой расходятся направления каналов",
+       "behaviour": "Чёрная точка внизу в центре; из неё выходят пунктирная линия, прямые лучи к устьям и оба канала."
+      },
+      {
+       "label": "пунктирная вертикальная линия",
+       "meaning": "по-видимому, опорное направление, от которого отсчитывается угол A",
+       "behaviour": "Идёт от APEX вертикально вверх до контура дельты."
+      },
+      {
+       "label": "Present channel location R1 (современное положение канала R1)",
+       "meaning": "современный канал слева",
+       "behaviour": "Извилистая жирная чёрная линия от левого Present river mouth вниз к APEX."
+      },
+      {
+       "label": "Present channel location R2 (современное положение канала R2)",
+       "meaning": "современный канал справа",
+       "behaviour": "Плавно изогнутая серая линия от APEX вправо вверх к правому Present river mouth."
+      },
+      {
+       "label": "Present river mouth (современное устье), слева",
+       "meaning": "прямой луч от APEX к современному устью левого канала",
+       "behaviour": "Идёт вверх влево; он левее луча к новому устью, то есть дальше отклонён от пунктирной линии."
+      },
+      {
+       "label": "New river mouth (новое устье), слева",
+       "meaning": "прямой луч от APEX к новому устью",
+       "behaviour": "Идёт вверх влево, ближе к пунктирной линии, чем луч к современному устью."
+      },
+      {
+       "label": "New river mouth (новое устье), справа",
+       "meaning": "прямой луч от APEX к новому устью",
+       "behaviour": "Идёт вверх вправо, круче луча к современному устью."
+      },
+      {
+       "label": "Present river mouth (современное устье), справа",
+       "meaning": "прямой луч от APEX к современному устью правого канала",
+       "behaviour": "Идёт вверх вправо более полого, дальше отклонён от пунктирной линии."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Δθ (слева)",
+       "meaning": "угол между лучами к современному и новому устьям; стрелка направлена к лучу нового устья"
+      },
+      {
+       "label": "Δθ (справа)",
+       "meaning": "угол между лучами к новому и современному устьям; стрелка направлена вниз, к лучу современного устья"
+      },
+      {
+       "label": "A",
+       "meaning": "угол между левым лучом к современному устью и пунктирной вертикалью; стрелка направлена к пунктиру"
+      }
+     ],
+     "legend": [],
+     "numbers": [],
+     "mismatches": [
+      {
+       "recogniser": "dashed lines extend from the apex toward the present and new river-mouth positions",
+       "scan": "К устьям идут сплошные тонкие прямые линии. Пунктирная линия одна, вертикальная, от APEX к верху контура дельты.",
+       "note": "Перепутан тип линий, пропущена вертикальная пунктирная ось."
+      },
+      {
+       "recogniser": "“Present channel location R1” is indicated near the apex",
+       "scan": "Подпись R1 стоит слева от извилистого канала, в его верхней-средней части, заметно выше APEX.",
+       "note": "Неверное положение подписи R1."
+      },
+      {
+       "recogniser": "The angular displacement between the two apex-to-mouth directions is labelled $\\Delta\\theta$.",
+       "scan": "Кроме Δθ слева есть угол A между лучом к современному устью и вертикальным пунктиром.",
+       "note": "Пропущен подписанный угол A."
+      }
+     ],
+     "unreadable": [
+      "Значение угла A в подписи рисунка не объяснено."
+     ],
+     "page": 413,
+     "source": "━━━ FORMAT 12: CONCEPTUAL DIAGRAM ━━━\nPlan-view schematic showing migration of a river mouth and its effect on channel location relative to an APEX. The APEX is shown as a black point at the base centre; dashed lines extend from the apex toward the present and new river-mouth positions.\n\nLeft side: “Present river mouth” and “New river mouth” are connected by a channel-mouth shift; “Present channel location R1” is indicated near the apex. The angular displacement between the two apex-to-mouth directions is labelled $\\Delta\\theta$.\n\nRight side: “New river mouth” and “Present river mouth” are shown at separate positions; “Present channel location R2” is indicated along the present channel. The angular displacement from the apex is labelled $\\Delta\\theta$.\n\nThe diagram communicates that river-mouth relocation produces an angular change $\\Delta\\theta$ at the apex and corresponding displacement of the present channel location.\nKEYWORDS: river mouth, channel location, apex, angular displacement, $\\Delta\\theta$, channel migration"
+    },
+    {
+     "unit_id": "p413.05",
+     "caption_unit": "p413.06",
+     "figure": "9.13",
+     "what": "Цветная карта роста лопастей дельты реки Миссисипи за последние 4600 лет. Цвет показывает лопасть или комплекс и его возраст по легенде; отмечены города Baton Rouge и New Orleans.",
+     "axes": [
+      {
+       "name": "масштабная линейка MILES (мили)",
+       "where": "внизу справа в поле карты, над легендой",
+       "scale": "линейная",
+       "ticks": "0, 30"
+      }
+     ],
+     "curves": [
+      {
+       "label": "тонкие извилистые контуры",
+       "meaning": "по-видимому, современная береговая линия, водоёмы и русла",
+       "behaviour": "Проходят поверх цветных лопастей, особенно на юге и востоке."
+      }
+     ],
+     "regions": [
+      {
+       "label": "SALE CYPREMORT (Сейл-Сайпремор)",
+       "meaning": "бледно-розовая лопасть на юго-западе (слева)"
+      },
+      {
+       "label": "COCODRIE (Кокодри)",
+       "meaning": "жёлтая полоса с севера, поворачивающая на восток к New Orleans, с расширением к северу от города"
+      },
+      {
+       "label": "TECHE (Теш)",
+       "meaning": "тёмно-зелёная полоса с северо-запада на юго-восток, образующая петлю в южной центральной части"
+      },
+      {
+       "label": "ST. BERNARD (Сент-Бернард)",
+       "meaning": "светло-зелёная полоса с севера мимо Baton Rouge и крупная лопасть на востоке, у New Orleans"
+      },
+      {
+       "label": "LAFOURCHE (Лафурш)",
+       "meaning": "серо-сиреневая лопасть в южной центральной части"
+      },
+      {
+       "label": "PLAQUEMINE (Плакемин)",
+       "meaning": "синяя узкая полоса от New Orleans на юг и юго-восток"
+      },
+      {
+       "label": "BALIZE (Бализ)",
+       "meaning": "коричневато-бежевая лопасть на крайнем юго-востоке, на конце синей полосы"
+      },
+      {
+       "label": "ATCHAFALAYA, 1973 (Атчафалая)",
+       "meaning": "оранжевая полоса с севера с небольшой лопастью на юго-западе, поверх области Sale Cypremort"
+      },
+      {
+       "label": "голубой и оранжево-бежевый фон без подписи",
+       "meaning": "по-видимому, голубой — вода, оранжево-бежевый — суша"
+      }
+     ],
+     "legend": [
+      "бледно-розовый — SALE CYPREMORT (Сейл-Сайпремор), 4600 yrs B.P. (лет назад)",
+      "жёлтый — COCODRIE (Кокодри), 4600–3500 yrs B.P.",
+      "тёмно-зелёный — TECHE (Теш), 3500–2800 yrs B.P.",
+      "светло-зелёный — ST. BERNARD (Сент-Бернард), 2800–1000 yrs B.P.",
+      "серо-сиреневый — LAFOURCHE (Лафурш), 1000–300 yrs B.P.",
+      "синий — PLAQUEMINE (Плакемин), 750–500 yrs B.P.",
+      "коричневато-бежевый — BALIZE (Бализ), 500 yrs (лет)",
+      "оранжевый — ATCHAFALAYA, 1973 (Атчафалая, 1973 г.)"
+     ],
+     "numbers": [],
+     "mismatches": [
+      {
+       "recogniser": "bright green — COCODRIE — 4600–3500 yrs B.P.",
+       "scan": "COCODRIE показан жёлтым цветом, в легенде и на карте.",
+       "note": "Неверный цвет Cocodrie."
+      },
+      {
+       "recogniser": "tan — BALIZE — 500 yrs B.P.",
+       "scan": "В легенде у BALIZE написано только «500 yrs.», без «B.P.».",
+       "note": "Добавлено отсутствующее «B.P.»."
+      }
+     ],
+     "unreadable": [
+      "Значение пунктирных участков границ на карте не объяснено."
+     ],
+     "page": 413,
+     "source": "━━━ FORMAT 3: MAP / КАРТА ━━━\nMap showing the distribution of deltaic lobes and coastal deposits, with ages in years B.P. and the Atchafalaya delta in 1973.\n\nScale bar: 0–30 MILES.\n\nLabelled locations:\n- ■ BATON ROUGE\n- ■ NEW ORLEANS\n\nLegend:\n- pale pink — SALE CYPREMORT — 4600 yrs B.P.\n- bright green — COCODRIE — 4600–3500 yrs B.P.\n- blue-green — TECHE — 3500–2800 yrs B.P.\n- light green — ST. BERNARD — 2800–1000 yrs B.P.\n- pale grey-lilac — LAFOURCHE — 1000–300 yrs B.P.\n- blue — PLAQUEMINE — 750–500 yrs B.P.\n- tan — BALIZE — 500 yrs B.P.\n- orange — ATCHAFALAYA, 1973\n\nNo contour lines, contour interval, north arrow, or section line are shown.\n\nKEYWORDS: delta lobes, coastal deposits, Holocene, years B.P., Atchafalaya, Mississippi delta, Baton Rouge, New Orleans"
+    }
+   ]
+  },
+  {
+   "page": 414,
+   "key": "0601d8f338a7faeebdded02fee5ae3ce",
+   "figures": [
+    {
+     "unit_id": "p414.01",
+     "caption_unit": "p414.02",
+     "figure": "9.14",
+     "what": "Схематичная объёмная блок-диаграмма современной дельты Миссисипи типа «птичья лапа»: сверху в плане показаны рукава, суша и заливы, на боковых гранях — разрез фаций. Служит для иллюстрации распределения фаций и обстановок осадконакопления.",
+     "axes": [
+      {
+       "name": "km (горизонтальный масштаб, км)",
+       "where": "по заднему правому ребру верхней грани; от правого угла (0) к дальнему верхнему углу (30)",
+       "scale": "линейная, в перспективной проекции",
+       "ticks": "0, 10, 20, 30; отдельный 0 также у левого угла блока"
+      },
+      {
+       "name": "Глубина, m (м)",
+       "where": "у левой и правой боковых кромок блока, вниз от уровня 0",
+       "scale": "подписана отдельная отметка",
+       "ticks": "0, −100 m"
+      },
+      {
+       "name": "Глубина со знаком ′ (футы)",
+       "where": "на двух передних гранях по обе стороны срезанного переднего угла, вниз",
+       "scale": "подписаны отдельные отметки",
+       "ticks": "−200′, −400′"
+      }
+     ],
+     "curves": [
+      {
+       "label": "Mississippi River (река Миссисипи)",
+       "meaning": "главное русло дельты",
+       "behaviour": "Входит с задней левой стороны блока и идёт к точке разветвления Head of passes."
+      },
+      {
+       "label": "Head of passes (начало рукавов)",
+       "meaning": "место разветвления главного русла",
+       "behaviour": "Отсюда расходятся рукава к передней и правой сторонам блока; Main Pass отходит чуть выше по течению."
+      },
+      {
+       "label": "Grand Pass (рукав Гранд-Пасс)",
+       "meaning": "распределительный рукав",
+       "behaviour": "В левой части дельтовой равнины; ветвится по направлению к левой передней стороне."
+      },
+      {
+       "label": "Main Pass (рукав Мейн-Пасс)",
+       "meaning": "распределительный рукав",
+       "behaviour": "Отходит от главного русла вправо-вверх, к заднему правому краю дельты."
+      },
+      {
+       "label": "Poss A Loutre (так напечатано; рукав Pass a Loutre)",
+       "meaning": "распределительный рукав",
+       "behaviour": "Идёт от Head of passes вправо, к правой передней грани, и ветвится."
+      },
+      {
+       "label": "South Pass (Южный рукав)",
+       "meaning": "распределительный рукав",
+       "behaviour": "Идёт от Head of passes вниз, к переднему углу блока, где на разрезе показано тело Bar finger; имеет боковые ответвления."
+      },
+      {
+       "label": "Southwest Pass (Юго-Западный рукав)",
+       "meaning": "распределительный рукав",
+       "behaviour": "Идёт от Head of passes влево-вниз, к левой передней грани, где под его устьем показано жёлтое песчаное тело."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Персиковый цвет (без подписи)",
+       "meaning": "суша дельтовой равнины между рукавами на верхней грани"
+      },
+      {
+       "label": "Голубой цвет; East Bay (залив Ист-Бей), Garden Island Bay (залив Гарден-Айленд)",
+       "meaning": "водная поверхность; East Bay — между Southwest Pass и South Pass, Garden Island Bay — правее South Pass"
+      },
+      {
+       "label": "Жёлтый цвет; Bar finger (пальцевидный бар)",
+       "meaning": "русла рукавов в плане и песчаные тела под их устьями на разрезах: на переднем срезе (подписано Bar finger), на левой передней грани и два на правой"
+      },
+      {
+       "label": "Clay wedge (глинистый клин)",
+       "meaning": "сине-зелёный слой на обеих передних гранях, вмещающий жёлтые песчаные тела"
+      },
+      {
+       "label": "Светло-зелёная полоса (без подписи)",
+       "meaning": "тонкий слой между Clay wedge и нижележащими морскими глинами"
+      },
+      {
+       "label": "Pro-delta marine clay (продельтовая морская глина)",
+       "meaning": "ярко-зелёный слой в нижней части левой передней грани"
+      },
+      {
+       "label": "Pre-birdfoot delta marine clay (морская глина, предшествующая дельте «птичья лапа»)",
+       "meaning": "тот же по цвету ярко-зелёный слой на правой передней грани"
+      },
+      {
+       "label": "Pre-delta marine sand (додельтовый морской песок)",
+       "meaning": "нижний коричневый слой в основании блока; подпись на правой грани"
+      },
+      {
+       "label": "Undist pre-birdfoot delta deposits (нерасчленённые отложения дельты, предшествующей «птичьей лапе»)",
+       "meaning": "бледно-зелёная толща на самой левой грани; с соседними слоями граничит по зубчатой линии (фациальное замещение)"
+      },
+      {
+       "label": "Тёмно-зелёное пятно (без подписи)",
+       "meaning": "небольшой участок у конца Main Pass на верхней грани"
+      }
+     ],
+     "legend": [],
+     "numbers": [],
+     "mismatches": [
+      {
+       "recogniser": "Water bodies and bays labelled **Empire Bay** and **Garden Island Bay**.",
+       "scan": "Подписаны East Bay и Garden Island Bay; Empire Bay нет.",
+       "note": "Неверное название залива."
+      },
+      {
+       "recogniser": "Vertical depth scale increases downward from 0 to −100 m, −200 m, −400 m, and −600 m.",
+       "scan": "Есть 0 и −100 m, а также −200′ и −400′ (футы); отметки −600 нет.",
+       "note": "Футы приняты за метры, придумана отметка −600."
+      },
+      {
+       "recogniser": "**Unconsolidated delta-front deposits**; **Clay wedge**",
+       "scan": "Подпись: «Undist pre-birdfoot delta deposits» — толща на левой грани, не верхний уровень разреза.",
+       "note": "Неверно прочитана подпись и положение толщи."
+      },
+      {
+       "recogniser": "**Pre-delta marine clay**; **Pre-delta marine sand**.",
+       "scan": "Глины подписаны «Pro-delta marine clay» слева и «Pre-birdfoot delta marine clay» справа.",
+       "note": "Неверные названия глинистого слоя."
+      },
+      {
+       "recogniser": "North arrow points toward the upper part of the image",
+       "scan": "Стрелка N направлена вверх и вправо, наискось.",
+       "note": "Не указан наклон стрелки севера вправо."
+      }
+     ],
+     "unreadable": [
+      "Значение тонкой светло-зелёной полосы под Clay wedge: подписи нет.",
+      "Значение тёмно-зелёного пятна у конца Main Pass: подписи и легенды нет."
+     ],
+     "page": 414,
+     "source": "━━━ FORMAT 12: CONCEPTUAL DIAGRAM ━━━\nThree-dimensional conceptual block diagram of a deltaic depositional system. Map view shows distributary channels and bays; block sides show prograding sediment bodies and marine deposits. North arrow points toward the upper part of the image; horizontal scale is marked 0–10–20–30 km. Vertical depth scale increases downward from 0 to −100 m, −200 m, −400 m, and −600 m.\n\nSubaerial delta plain: **Mississippi River**, **Grand Pass**, **Southwest Pass**, **Main Pass**, **South Pass**, **Head of passes**, and **Pass A Loutre**. Water bodies and bays labelled **Empire Bay** and **Garden Island Bay**. The distributary channels extend seaward and branch across the delta plain.\n\nDepositional elements shown in yellow: channel-associated elongate bodies, a **Bar finger** at the delta front, and yellow lobate/sheet-like bodies on the block sides. A **Clay wedge** occurs beneath the delta-front area on both exposed block faces.\n\nStratigraphic/depositional units on the block sides, from upper to lower levels: **Unconsolidated delta-front deposits**; **Clay wedge**; **Pre-delta marine clay**; **Pre-delta marine sand**. The lower marine units dip/prograde basinward beneath the deltaic deposits.\n\nThe diagram demonstrates seaward progradation of distributary-mouth and bar-finger sediment bodies over pre-delta marine clay and sand, with clay wedges associated with the delta-front setting.\nKEYWORDS: deltaic deposits, distributary channels, delta front, bar finger, clay wedge, pre-delta marine clay, pre-delta marine sand, progradation"
+    }
+   ]
+  },
+  {
+   "page": 415,
+   "key": "b8a8c065c848bec4621ffc036c7b6a78",
+   "figures": [
+    {
+     "unit_id": "p415.03",
+     "caption_unit": "p415.04",
+     "figure": "9.15",
+     "what": "Составной рисунок: (a) фото берегового обнажения песчаника дистрибутивного канала пенсильванского возраста; (b) схема дельтовой лопасти в плане и два схематических фациальных разреза A–A' и B–B' через устьевой бар и заполнение канала с каротажными профилями; (c) обобщённая вертикальная колонка осадочных структур песчаного тела устьевого бара. Красная вертикальная стрелка связывает разрез A–A' близ A' с фотографией.",
+     "axes": [
+      {
+       "name": "Ft (футы) / M (метры): вертикальный масштаб разрезов",
+       "where": "(b), слева над разрезом A–A', вертикальный отрезок, вверх",
+       "scale": "линейная (масштабный отрезок)",
+       "ticks": "Ft: 0, 200; M: 0, 60"
+      },
+      {
+       "name": "M / Ft: горизонтальный масштаб разрезов",
+       "where": "(b), горизонтальный отрезок от начала вертикального, вправо",
+       "scale": "линейная (масштабный отрезок)",
+       "ticks": "0; 1000 M; 4000 Ft"
+      },
+      {
+       "name": "Km / Mi (км / мили): масштаб плана",
+       "where": "(b), справа вверху от плана",
+       "scale": "линейная (масштабный отрезок)",
+       "ticks": "0; 15 Km; 10 Mi"
+      }
+     ],
+     "curves": [
+      {
+       "label": "белая штриховая линия на (a)",
+       "meaning": "граница в обнажении, по виду — подошва тела канального песчаника (в подписи линия не объяснена)",
+       "behaviour": "Слева идёт низко, почти горизонтально над водой, правее середины поднимается вверх и вправо и выполаживается в верхней части склона."
+      },
+      {
+       "label": "красная вертикальная стрелка",
+       "meaning": "связь места на разрезе с обнажением на фото",
+       "behaviour": "Идёт от разреза A–A' близ его правого конца (A') вверх до фотографии (a); наконечники на обоих концах."
+      },
+      {
+       "label": "A – A'",
+       "meaning": "верхний фациальный разрез",
+       "behaviour": "Широкое жёлтое песчаное тело в центре с клиновидными, зазубренными краями, выклинивающимися в обе стороны в светло-коричневые породы; в верхней средней части оранжевое заполнение канала."
+      },
+      {
+       "label": "B – B'",
+       "meaning": "нижний фациальный разрез",
+       "behaviour": "Жёлтое песчаное тело в центре заметно уже, чем на A–A'; сверху небольшое оранжевое заполнение канала; по бокам светло-коричневые породы."
+      },
+      {
+       "label": "чёрные фигуры на разрезах",
+       "meaning": "каротажные профили по скважинным данным (Wilcox, Holly Springs)",
+       "behaviour": "Вертикальные профили в нескольких точках разрезов; в песчаном теле широкие, на флангах в светло-коричневых породах узкие, зубчатые."
+      }
+     ],
+     "regions": [
+      {
+       "label": "(a)",
+       "meaning": "Фото: вода внизу, над ней обрыв из коричневатых пород, сверху деревья."
+      },
+      {
+       "label": "план (b)",
+       "meaning": "Разветвлённая дельтовая лопасть: оранжевые каналы внутри жёлтых песчаных полос, по краям светло-коричневые участки."
+      },
+      {
+       "label": "Destructional marsh (болото зоны разрушения)",
+       "meaning": "Подпись на плане слева; читается неуверенно."
+      },
+      {
+       "label": "Abandoned lobe (покинутая лопасть)",
+       "meaning": "Слева внизу на плане."
+      },
+      {
+       "label": "Bar finger (баровый «палец»), sand and silt (песок и алеврит)",
+       "meaning": "Жёлтое тело на разрезе A–A'; подписи мелкие, читаются неуверенно."
+      },
+      {
+       "label": "Channel fill (заполнение канала)",
+       "meaning": "Оранжевое тело в верхней части разреза A–A'."
+      },
+      {
+       "label": "mud and silt (глина и алеврит)",
+       "meaning": "Светло-коричневая область справа на разрезе A–A'; читается неуверенно."
+      },
+      {
+       "label": "Channel plug (глинистая пробка канала)",
+       "meaning": "Подпись у оранжевого тела на разрезе B–B'."
+      },
+      {
+       "label": "STRUCTURES (структуры)",
+       "meaning": "Заголовок колонки (c); чёрное — тонкозернистые породы, жёлтое — песчаные, с рисунком слоистости."
+      },
+      {
+       "label": "Delta plan (так на рисунке; дельтовая равнина)",
+       "meaning": "Верхний тёмный интервал колонки."
+      },
+      {
+       "label": "Subaqueous levee - ripple and climbing ripple laminations (подводный прирусловой вал: рябь и восходящая рябь)",
+       "meaning": "Ниже верхнего тёмного интервала."
+      },
+      {
+       "label": "Bar crest - planar laminations (гребень бара: плоскопараллельная слоистость)",
+       "meaning": "Ниже подводного вала."
+      },
+      {
+       "label": "Proximal mouth bar-troughs deformed bedding (проксимальная часть устьевого бара: мульды, деформированная слоистость)",
+       "meaning": "Средняя, самая мощная жёлтая часть колонки."
+      },
+      {
+       "label": "Frontal splays - \"turbidites,\" slumps (фронтальные конусы выноса: «турбидиты», оползни)",
+       "meaning": "Переслаивание жёлтых и чёрных слоёв со смятыми структурами, ниже устьевого бара."
+      },
+      {
+       "label": "Prodelta (продельта)",
+       "meaning": "Нижний тёмный интервал колонки."
+      },
+      {
+       "label": "PRESERVED (сохраняющаяся часть разреза)",
+       "meaning": "Вертикальная черта слева от колонки: от уровня около подошвы интервала гребня бара до низа колонки; верхние интервалы ею не охвачены."
+      }
+     ],
+     "legend": [],
+     "numbers": [],
+     "mismatches": [
+      {
+       "recogniser": "A scale bar is shown at upper right: 50 km; 50 mi.",
+       "scan": "Масштаб плана: 0–15 Km и 0–10 Mi.",
+       "note": "Неверные числа масштаба плана"
+      },
+      {
+       "recogniser": "horizontal scale labelled 1000 m; vertical scale labelled 200 m.",
+       "scan": "Вертикальный масштаб 200 Ft (около 60 M), горизонтальный 1000 M / 4000 Ft; общий для разрезов.",
+       "note": "Вертикальный масштаб в футах, не метрах"
+      },
+      {
+       "recogniser": "1. Deep plain — dark, nearly structureless interval.",
+       "scan": "Верхний интервал подписан «Delta plan» (дельтовая равнина).",
+       "note": "Неверно прочитана подпись интервала"
+      },
+      {
+       "recogniser": "A vertical arrow labelled PRESERVED indicates the preserved succession upward.",
+       "scan": "Это черта без наконечника с поперечной засечкой сверху; охватывает только часть колонки ниже гребня бара.",
+       "note": "Не стрелка; охват лишь нижней части"
+      },
+      {
+       "recogniser": "black arrows indicate lateral directions.",
+       "scan": "Чёрные фигуры на разрезах — вертикальные каротажные профили, а не стрелки направлений.",
+       "note": "Каротажные профили приняты за стрелки"
+      },
+      {
+       "recogniser": "yellow central body bounded by darker vertical to inclined elements",
+       "scan": "Тёмные вертикальные элементы на разрезе B–B' — каротажные профили в скважинах, а не границы тела.",
+       "note": "Каротажные профили приняты за границы"
+      },
+      {
+       "recogniser": "Proximal mouth bar — trough/cross bedding and deformed bedding.",
+       "scan": "«Proximal mouth bar-troughs deformed bedding»; косая слоистость в подписи не названа.",
+       "note": "Подпись передана неточно"
+      }
+     ],
+     "unreadable": [
+      "Мелкие подписи внутри разрезов A–A' и B–B' (читаются лишь предположительно)",
+      "Подпись болота на плане слева",
+      "Число метров на вертикальном масштабе (≈60, цифра размыта)",
+      "Мелкие обозначения скважин и линий на плане"
+     ],
+     "page": 415,
+     "source": "━━━ FORMAT 15: PHOTOGRAPH ━━━\n(a) Subject class: landscape photograph.\n\nView across a water body toward a vegetated shoreline with buildings. A red vertical arrow is drawn near the right side of the photograph, indicating a location on the shoreline/water-body profile. No scale is shown.\n\n━━━ FORMAT 12: CONCEPTUAL DIAGRAM ━━━\n(b) Plan-view and cross-sectional schematic of a branching depositional system.\n\n- Upper part: map-like plan view showing multiple yellow, branching distributary channels and lobate yellow areas extending into a water body; surrounding areas are light brown.\n- A scale bar is shown at upper right: 50 km; 50 mi.\n- Red vertical line at the right links the plan-view setting to the photograph in panel (a).\n- Two schematic cross-sections are shown below the plan view.\n- Upper cross-section: horizontal scale labelled 1000 m; vertical scale labelled 200 m. Yellow wedge- and lobe-shaped bodies occur within light-brown surrounding material; black arrows indicate lateral directions.\n- Lower cross-section: yellow central body bounded by darker vertical to inclined elements; black arrows indicate lateral directions.\n- Red arrows/markers indicate locations corresponding between plan view and cross-sections.\n- Lithology is not determined without a legend.\n\n━━━ FORMAT 12: CONCEPTUAL DIAGRAM ━━━\n(c) Vertical schematic of preserved sedimentary structures within a depositional profile.\n\nVertical succession, from top to bottom:\n1. Deep plain — dark, nearly structureless interval.\n2. Subaqueous levee — ripple and climbing ripple laminations.\n3. Bar crest — planar laminations.\n4. Proximal mouth bar — trough/cross bedding and deformed bedding.\n5. Frontal splays — “turbidites,” slumps.\n6. Prodelta — dark, nearly structureless basal interval.\n\nA vertical arrow labelled PRESERVED indicates the preserved succession upward.\n\nKEYWORDS: depositional system, distributary channels, mouth bar, subaqueous levee, prodelta, turbidites, ripple laminations, cross bedding"
+    }
+   ]
+  },
+  {
+   "page": 416,
+   "key": "f8bcd6721012a865e09fd5d281aee798",
+   "figures": [
+    {
+     "unit_id": "p416.03",
+     "caption_unit": "p416.04",
+     "figure": "9.16",
+     "what": "Схематическая палеогеографическая реконструкция (карта в плане) фациальных ассоциаций Romeo дельтовой системы на время осадконакопления. Три врезки — карты фациальных ассоциаций трёх стратиграфических слоёв Romeo, от проксимального (вверху слева) через промежуточный (вверху справа) к дистальному (внизу справа).",
+     "axes": [],
+     "curves": [
+      {
+       "label": "Fluvial Channels (флювиальные русла)",
+       "meaning": "Речные русла на основной карте",
+       "behaviour": "Извилистые, местами переплетающиеся тёмные линии идут сверху (от области Coarse Alluvial) и из верхней левой части вниз и вправо, к краю дельты."
+      },
+      {
+       "label": "Dist. Channels (распределительные каналы)",
+       "meaning": "Распределительные каналы дельты",
+       "behaviour": "Ветвятся ближе к краю дельты и показаны белыми полосами с тонкими линиями; подпись стоит в правой части карты."
+      },
+      {
+       "label": "Штриховые отрезки у устьев каналов (без подписи)",
+       "meaning": "Предположительно разветвления потока в устьях распределительных каналов; на рисунке не пояснены",
+       "behaviour": "Расходятся веером на концах каналов вдоль нижнего края дельты."
+      },
+      {
+       "label": "Толстая извилистая чёрная линия (без подписи)",
+       "meaning": "Лопастной контур края дельты, отделяющий внутреннюю часть от полосы Delta Front",
+       "behaviour": "Идёт от нижнего левого угла к правому верхнему, образуя чередующиеся выступы и заливы."
+      },
+      {
+       "label": "Внешняя плавная чёрная линия (без подписи)",
+       "meaning": "Внешняя граница полосы фронта дельты со стороны продельты",
+       "behaviour": "Проходит мористее извилистой линии, поднимаясь от нижнего левого угла к правой части карты."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Coarse Alluvial (грубообломочный аллювий)",
+       "meaning": "Вверху по центру, между двумя верхними врезками, у верхнего окончания русел"
+      },
+      {
+       "label": "Floodplain (пойма)",
+       "meaning": "Центральная часть карты между руслами"
+      },
+      {
+       "label": "Lake (озеро), две подписи",
+       "meaning": "Тёмно-серые пятна: одно слева, другое вверху в центре, левее верхней правой врезки"
+      },
+      {
+       "label": "Bay (залив), две подписи",
+       "meaning": "Один залив в нижней центральной части между лопастями дельты, другой у верхнего правого края"
+      },
+      {
+       "label": "Dist. Mouth Bars (устьевые бары распределительных каналов)",
+       "meaning": "Светлая зона у устьев каналов вдоль края дельты, со стороны суши от полосы Delta Front"
+      },
+      {
+       "label": "Delta Front (фронт дельты)",
+       "meaning": "Светло-серая полоса вдоль нижнего края, между извилистой и внешней линиями"
+      },
+      {
+       "label": "Prodelta (продельта)",
+       "meaning": "Белая область за внешней линией, внизу справа от фронта дельты"
+      },
+      {
+       "label": "Врезка вверху слева: Fluvial Channelbelts (пояса флювиальных русел), Floodplain (пойма)",
+       "meaning": "Проксимальный слой: пояса русел и участки поймы; стрелки показывают направление потока"
+      },
+      {
+       "label": "Врезка вверху справа: Delta Plain (дельтовая равнина), Distributary Channel (распределительный канал), Distributary Mouth Bars (устьевые бары)",
+       "meaning": "Промежуточный слой: полосы каналов и дельтовой равнины, ориентированные из верхнего левого в нижний правый угол"
+      },
+      {
+       "label": "Врезка внизу справа: Delta Plain (дельтовая равнина), Distributary Channel (распределительный канал), Distributary Mouth Bars (устьевые бары), Delta Front (фронт дельты), Prodelta (продельта)",
+       "meaning": "Дистальный слой: дельтовая равнина вверху, ниже каналы и бары, затем фронт дельты и продельта в нижнем правом углу; стрелки вверху показывают направление потока"
+      }
+     ],
+     "legend": [
+      "Well Location (положение скважины) — подпись под масштабной линейкой на каждой из трёх врезок"
+     ],
+     "numbers": [
+      {
+       "what": "Масштабная линейка основной карты, мили",
+       "value": "≈2"
+      },
+      {
+       "what": "Масштабная линейка на каждой из трёх врезок (от 0), футы",
+       "value": "≈2000"
+      }
+     ],
+     "mismatches": [
+      {
+       "recogniser": "Two inset maps show alternative plan-view distributions",
+       "scan": "Врезок три: вверху слева, вверху справа и внизу справа; это три стратиграфических слоя.",
+       "note": "Неверно число врезок и их смысл."
+      },
+      {
+       "recogniser": "a scale labelled “2000” [unit not legible]",
+       "scan": "На врезках подписано «0 2000 ft.», единица — футы, читается.",
+       "note": "Единица масштаба пропущена."
+      },
+      {
+       "recogniser": "Delta-mouth bars are shown at distributary mouths, seaward of the delta front",
+       "scan": "Dist. Mouth Bars лежат со стороны суши от полосы Delta Front; фронт дельты мористее баров.",
+       "note": "Перепутано взаимное положение баров и фронта дельты."
+      },
+      {
+       "recogniser": "coarse alluvial deposits in the upper-left area",
+       "scan": "Подпись Coarse Alluvial стоит вверху по центру; верхний левый угол занят врезкой.",
+       "note": "Неверное положение области."
+      },
+      {
+       "recogniser": "“Delta Mouth Bars”; “Delta Front”; “Prodelta”",
+       "scan": "На основной карте подписано «Dist. Mouth Bars».",
+       "note": "Искажена подпись."
+      },
+      {
+       "recogniser": "Insets include a well-location symbol",
+       "scan": "На врезках есть текст «Well Location» под масштабной линейкой; отдельного значка скважины не различить.",
+       "note": "Значок скважины не виден."
+      }
+     ],
+     "unreadable": [
+      "Значение оттенков серого на основной карте и врезках: легенды нет",
+      "Отдельный значок положения скважины на врезках не различим"
+     ],
+     "page": 416,
+     "source": "━━━ FORMAT 12: CONCEPTUAL DIAGRAM ━━━\nPlan-view conceptual diagram of a deltaic depositional system. The main map shows coarse alluvial deposits in the upper-left area, passing basinward through fluvial channels, lakes, floodplain, distributary channels, delta-mouth bars, bays, delta front, and prodelta.\n\nThe distributary-channel network branches toward the basin; labelled bays and lakes occur between channels. Delta-mouth bars are shown at distributary mouths, seaward of the delta front; the prodelta occupies the outermost basinward zone.\n\nLabels: “Coarse Alluvial”; “Fluvial Channels”; “Lake”; “Floodplain”; “Dist. Channels”; “Bay”; “Delta Mouth Bars”; “Delta Front”; “Prodelta”.\n\nTwo inset maps show alternative plan-view distributions of channel, lake/bay, delta-mouth-bar, delta-front, and prodelta areas. Insets include a well-location symbol and a scale labelled “2000” [unit not legible].\n\nScale bar: “2 miles”.\n\nKEYWORDS: delta, distributary channels, delta-mouth bars, delta front, prodelta, floodplain, alluvial, bay"
+    }
+   ]
+  },
+  {
+   "page": 417,
+   "key": "481452e1fa330312ad95a27d5e4f05ad",
+   "figures": [
+    {
+     "unit_id": "p417.03",
+     "caption_unit": "p417.04",
+     "figure": "9.17",
+     "what": "Концептуальная схема распределения осадков в устьевом баре дистрибутивного канала: вверху вид в плане, внизу поперечный разрез вдоль потока. Цветом показаны литологические типы, тонкими линиями в разрезе — линии времени.",
+     "axes": [],
+     "curves": [
+      {
+       "label": "Time Lines (линии времени)",
+       "meaning": "Изохронные поверхности внутри устьевого бара в разрезе; на них указывают две стрелки от подписи.",
+       "behaviour": "Идут слева направо примерно параллельно кровле бара: поднимаются к Bar Apex, затем полого наклонены в сторону бассейна и пересекают границы цветных литологических зон."
+      },
+      {
+       "label": "Тонкие дугообразные линии на плане (без подписи)",
+       "meaning": "Контуры внутри тела бара; на рисунке не подписаны.",
+       "behaviour": "Дуги, выпуклые в сторону бассейна (вправо), расположены последовательно одна за другой в пределах цветных зон."
+      },
+      {
+       "label": "Distributary Channel (дистрибутивный канал)",
+       "meaning": "Канал, показанный белыми полосами с контуром; по подписи к рисунку, такие каналы обычно раздваиваются.",
+       "behaviour": "Входит слева и раздваивается: одна ветвь уходит вправо вверх, другая вправо вниз, огибая начало бара. Подпись расположена наклонно под нижней ветвью."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Subaerial Levee (надводный прирусловой вал)",
+       "meaning": "Серые тела слева по обе стороны канала, выше и ниже него; подпись стоит у верхнего."
+      },
+      {
+       "label": "Subaqueous Levee (подводный прирусловой вал)",
+       "meaning": "Оранжевые вытянутые тела выше и ниже канала, правее серых валов; внизу есть ещё отдельное небольшое оранжевое пятно. Подпись стоит у верхнего тела."
+      },
+      {
+       "label": "Distributary Mouth Bar (устьевой бар дистрибутивного канала)",
+       "meaning": "Лопастное тело справа от точки раздвоения канала, расширяющееся в сторону бассейна."
+      },
+      {
+       "label": "Жёлтая зона на плане",
+       "meaning": "Хорошо отсортированный песок: в вершине бара сразу ниже по течению от точки раздвоения и узкими полосами вдоль верхнего и нижнего краёв бара."
+      },
+      {
+       "label": "Оранжевая зона на плане внутри бара",
+       "meaning": "Алевритистый песок: в центральной части бара, ниже по течению от жёлтой зоны."
+      },
+      {
+       "label": "Светло-бежевая зона на плане",
+       "meaning": "Песчанистый алеврит: полоса дальше от канала, за алевритистым песком."
+      },
+      {
+       "label": "Коричневая зона на плане",
+       "meaning": "Алеврит, глина и песок: самая дистальная внешняя часть бара (справа)."
+      },
+      {
+       "label": "Bar Apex (вершина бара)",
+       "meaning": "Наивысшая точка бара в разрезе, сложенная жёлтым хорошо отсортированным песком, ближе к левой части профиля."
+      },
+      {
+       "label": "Литологическая последовательность в разрезе",
+       "meaning": "Слева направо: небольшой оранжевый участок у левого края, затем жёлтый песок (включая вершину бара), оранжевый алевритистый песок, светло-бежевый песчанистый алеврит, коричневые алеврит, глина и песок."
+      },
+      {
+       "label": "Sea Level (уровень моря)",
+       "meaning": "Подпись над правой частью разреза; верх голубого слоя воды."
+      },
+      {
+       "label": "Flow → (направление потока)",
+       "meaning": "Стрелка слева в разрезе: поток направлен слева направо."
+      },
+      {
+       "label": "Basin (бассейн)",
+       "meaning": "Правая часть разреза, дистальное направление."
+      }
+     ],
+     "legend": [
+      "Жёлтый — Well-Sorted Sand (хорошо отсортированный песок)",
+      "Оранжевый — Silty Sand (алевритистый песок)",
+      "Светло-бежевый — Sandy Silt (песчанистый алеврит)",
+      "Коричневый — Silt, Clay, & Sand (алеврит, глина и песок)"
+     ],
+     "numbers": [],
+     "mismatches": [
+      {
+       "recogniser": "The best-sorted sand occupies the channel-mouth and proximal central part of the bar; silty sand surrounds it",
+       "scan": "Жёлтый песок лежит в вершине бара у раздвоения и вдоль его краёв; оранжевый занимает центр ниже по течению и не окружает жёлтый.",
+       "note": "Перепутано взаимное положение жёлтой и оранжевой зон."
+      },
+      {
+       "recogniser": "**Subaerial Levee** occurs along the upper-left channel margin.",
+       "scan": "Серые надводные валы есть слева по обе стороны канала: сверху и снизу.",
+       "note": "Пропущен нижний надводный вал."
+      },
+      {
+       "recogniser": "**Subaqueous Levee** occurs along the upper channel margins.",
+       "scan": "Оранжевые подводные валы есть и выше, и ниже канала, внизу ещё отдельное пятно.",
+       "note": "Пропущены нижние подводные валы."
+      },
+      {
+       "recogniser": "Cross section:\n- Horizontal reference at the top: **Sea Level**.",
+       "scan": "В разрезе есть также подпись «Bar Apex» над наивысшей точкой жёлтого бара.",
+       "note": "Пропущена подпись вершины бара."
+      },
+      {
+       "recogniser": "The mouth bar progrades basinward as successive inclined **Time Lines**.",
+       "scan": "Линии времени сначала поднимаются к вершине бара и лишь за ней полого падают к бассейну.",
+       "note": "Не отмечен перегиб линий времени у вершины бара."
+      },
+      {
+       "recogniser": "Yellow well-sorted sand is concentrated in the proximal, shallow part of the bar; orange silty sand extends farther basinward",
+       "scan": "В разрезе оранжевый участок есть и у левого края, проксимальнее жёлтого песка, а не только дальше к бассейну.",
+       "note": "Пропущен оранжевый участок слева в разрезе."
+      }
+     ],
+     "unreadable": [
+      "Значение тонких дугообразных линий на плане не подписано.",
+      "Масштабы в плане и разрезе отсутствуют."
+     ],
+     "page": 417,
+     "source": "━━━ FORMAT 12: CONCEPTUAL DIAGRAM ━━━\nPlan-view and cross-sectional conceptual diagram of a distributary mouth-bar depositional body.\n\nPlan view:\n- A central **Distributary Channel** branches toward a lobate **Distributary Mouth Bar**.\n- **Subaerial Levee** occurs along the upper-left channel margin.\n- **Subaqueous Levee** occurs along the upper channel margins.\n- The mouth bar is shown as an outward-expanding lobate body, with sediment textures distributed concentrically:\n  - yellow — **Well-Sorted Sand**;\n  - orange — **Silty Sand**;\n  - pale beige — **Sandy Silt**;\n  - brown-grey — **Silt, Clay, & Sand**.\n- The best-sorted sand occupies the channel-mouth and proximal central part of the bar; silty sand surrounds it; sandy silt and mixed silt, clay, and sand form more distal parts of the mouth-bar lobe.\n\nCross section:\n- Horizontal reference at the top: **Sea Level**.\n- Left-to-right direction: **Flow →**, from the distributary channel toward the **Basin**.\n- The vertical dimension is schematic; no numerical scale is shown.\n- The mouth bar progrades basinward as successive inclined **Time Lines**.\n- Yellow well-sorted sand is concentrated in the proximal, shallow part of the bar; orange silty sand extends farther basinward; pale beige sandy silt and brown-grey silt, clay, and sand form increasingly distal and deeper deposits.\n- The key idea is basinward progradation of a distributary mouth bar, accompanied by a distal transition from sand-rich to finer-grained sediment.\n\nKEYWORDS: distributary mouth bar, distributary channel, subaerial levee, subaqueous levee, well-sorted sand, silty sand, progradation, time lines, basin"
+    }
+   ]
+  },
+  {
+   "page": 418,
+   "key": "45cf8421f3596f7c41aaeb393621c5a0",
+   "figures": [
+    {
+     "unit_id": "p418.03",
+     "caption_unit": "p418.04",
+     "figure": "9.18",
+     "what": "Два корреляционных разреза интервала Romeo по семи скважинам с каротажными кривыми, с севера (North) на юг (South). Верхний показывает литостратиграфическую корреляцию до исследования, нижний — секвенс-стратиграфическую корреляцию и фациальную интерпретацию после него. Их сравнивают, чтобы увидеть, что стратиграфия не пластово-параллельная (не «слоёный пирог»).",
+     "axes": [
+      {
+       "name": "Горизонтальное направление North – South (север – юг); скважины South Bay St #1, 04-10, 09-05, 03-27, 03-06, 17-01, 17-04",
+       "where": "по горизонтали, слева север, справа юг",
+       "scale": "линейный масштабный отрезок «2 miles» под верхним разрезом; V.E. = 74x",
+       "ticks": ""
+      },
+      {
+       "name": "Вертикальный масштаб 50' (футы)",
+       "where": "верхний разрез, двусторонняя стрелка между скважинами 03-06 и 17-01",
+       "scale": "линейный масштабный отрезок; оцифрованной оси глубин нет",
+       "ticks": ""
+      }
+     ],
+     "curves": [
+      {
+       "label": "Каротажные кривые (по две колонки на скважину)",
+       "meaning": "каротаж скважин, по которому ведётся корреляция; тип кривых не подписан",
+       "behaviour": "В обоих разрезах у каждой скважины две узкие прямоугольные колонки с изрезанными кривыми; левая кривая обычно изменчивее правой."
+      },
+      {
+       "label": "Datum (опорная поверхность)",
+       "meaning": "горизонтальный уровень выравнивания разреза",
+       "behaviour": "Подписан на нижнем разрезе: горизонтальная линия у основания, ниже цветных интервалов. На верхнем разрезе есть такая же горизонтальная линия без подписи."
+      },
+      {
+       "label": "Границы 2A / 1B / 1A (верхний разрез)",
+       "meaning": "литостратиграфическая корреляция интервалов Romeo",
+       "behaviour": "Ломаные линии между скважинами. Кровля 2A понижается к 04-10, поднимается к 09-05, заметно опускается между 03-27 и 03-06, затем поднимается к 17-01 и далее почти горизонтальна. 2A присутствует во всех скважинах и тоньше всего на юге, у 17-04."
+      },
+      {
+       "label": "Волнистые линии (нижний разрез)",
+       "meaning": "поверхности внутри флювиальной толщи и у её подошвы; на рисунке не подписаны",
+       "behaviour": "Прослеживаются внутри жёлтой зоны и по контакту жёлтой и оранжевой зон; контакт в целом понижается к югу."
+      },
+      {
+       "label": "Наклонные линии в нижней части (нижний разрез)",
+       "meaning": "границы дельтовых клиньев; по подписи, пологий наклон базальных интервалов отражает подошвенное налегание (downlap)",
+       "behaviour": "Полого погружаются к югу, особенно заметно между 09-05 и 17-01; оранжевые клинья языками переслаиваются вниз по падению с серо-коричневыми отложениями."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Tango",
+       "meaning": "интервал выше Romeo, подписан слева на обоих разрезах"
+      },
+      {
+       "label": "Romeo (2A, 1B, 1A)",
+       "meaning": "изучаемый интервал с тремя подразделениями: 2A сверху, 1B в середине, 1A снизу"
+      },
+      {
+       "label": "Kavik",
+       "meaning": "интервал ниже Romeo, подписан слева внизу на обоих разрезах"
+      },
+      {
+       "label": "2A (жёлтый, верхний разрез)",
+       "meaning": "верхний интервал Romeo, непрерывен по всему разрезу"
+      },
+      {
+       "label": "1B (оранжевый, верхний разрез)",
+       "meaning": "средний интервал, непрерывен; сужен у 04-10 и 03-06, мощнее на краях разреза"
+      },
+      {
+       "label": "1A (светло-бежевый, верхний разрез)",
+       "meaning": "нижний интервал, прерывистый: тонок у South Bay St #1, раздут у 04-10, выклинивается у 09-05, снова есть у 03-27 и 03-06, исчезает к 17-01 и 17-04"
+      },
+      {
+       "label": "Fluvial (флювиальные, жёлтый, нижний разрез)",
+       "meaning": "верхняя часть Romeo над дельтовыми отложениями, прослеживается по всему разрезу"
+      },
+      {
+       "label": "Deltaic (дельтовые, оранжевый, нижний разрез)",
+       "meaning": "под флювиальными; в нижней части расщепляется на клинья, погружающиеся к югу"
+      },
+      {
+       "label": "Floodplain (пойменные, светло-бежевый, нижний разрез)",
+       "meaning": "тонкие тела по кровле жёлтой зоны: на севере у South Bay St #1, около 09-05 и на юге от района 17-01 до 17-04"
+      },
+      {
+       "label": "Bay/Prodelta/Shelf (залив / продельта / шельф, серо-коричневый, нижний разрез)",
+       "meaning": "основание Romeo и прослои между дельтовыми клиньями"
+      }
+     ],
+     "legend": [
+      "Верхний разрез: жёлтый — 2A",
+      "Верхний разрез: оранжевый — 1B",
+      "Верхний разрез: светло-бежевый — 1A",
+      "Нижний разрез: жёлтый — Fluvial (флювиальные)",
+      "Нижний разрез: оранжевый — Deltaic (дельтовые)",
+      "Нижний разрез: светло-бежевый — Floodplain (пойменные)",
+      "Нижний разрез: серо-коричневый — Bay/Prodelta/Shelf (залив/продельта/шельф)"
+     ],
+     "numbers": [
+      {
+       "what": "вертикальное преувеличение, подписано V.E.",
+       "value": "≈74x"
+      },
+      {
+       "what": "длина вертикального масштабного отрезка",
+       "value": "≈50' (футов)"
+      },
+      {
+       "what": "длина горизонтального масштабного отрезка",
+       "value": "≈2 miles (мили)"
+      }
+     ],
+     "mismatches": [
+      {
+       "recogniser": "Подписанные стратиграфические интервалы слева: Ranga; Romeo 2A; Kavi.",
+       "scan": "Слева подписаны Tango, Romeo (с подразделениями 2A, 1B, 1A) и Kavik.",
+       "note": "Неверные названия, пропущены 1B и 1A"
+      },
+      {
+       "recogniser": "Вертикальная шкала/единицы не указаны; направление вертикальной оси не подписано. Имеется",
+       "scan": "На верхнем разрезе есть вертикальный масштабный отрезок 50' со стрелками.",
+       "note": "Пропущен вертикальный масштаб"
+      },
+      {
+       "recogniser": "жёлтый интервал развит преимущественно в северной части и выклинивается к югу",
+       "scan": "Жёлтый 2A прослеживается во всех семи скважинах до 17-04; на юге лишь тоньше.",
+       "note": "Выклинивания 2A нет"
+      },
+      {
+       "recogniser": "светло-бежевые прослои присутствуют локально",
+       "scan": "Это нижний интервал 1A под 1B: прерывистое тело, выклинивающееся у 09-05 и на юге.",
+       "note": "Не указано положение 1A в подошве"
+      },
+      {
+       "recogniser": "оранжевая зона занимает нижнюю и южную части разреза",
+       "scan": "Оранжевые дельтовые отложения идут по всему разрезу между жёлтыми сверху и серо-коричневыми снизу.",
+       "note": "Неверное положение дельтовой зоны"
+      },
+      {
+       "recogniser": "светло-бежевые тела представлены прослоями и клиньями",
+       "scan": "Светло-бежевые пойменные тела лежат тонкими пятнами по кровле; клинья внизу — оранжевые и серо-коричневые.",
+       "note": "Floodplain находится сверху, не в клиньях"
+      }
+     ],
+     "unreadable": [
+      "Типы каротажных кривых в двух колонках и их шкалы не подписаны",
+      "Глубины скважин не указаны",
+      "Тонкие границы и мелкие языки клиньев в нижней части нижнего разреза различимы неуверенно"
+     ],
+     "page": 418,
+     "source": "━━━ FORMAT 4: CROSS-SECTION / РАЗРЕЗ ━━━\nВерхний корреляционный разрез: North–South. Горизонтальный масштаб: 2 miles. Вертикальное преувеличение: V.E. = 74x. Вертикальная шкала/единицы не указаны; направление вертикальной оси не подписано.\n\nСкважины слева направо: South Bay St #1; 04-10; 09-05; 03-27; 03-06; 17-01; 17-04.\n\nПодписанные стратиграфические интервалы слева: Ranga; Romeo 2A; Kavi. Граница/уровень Romeo 2A прослеживается по разрезу. Цветовые фациальные тела образуют клинообразные и линзовидные геометрии; жёлтый интервал развит преимущественно в северной части и выклинивается к югу, оранжевый интервал распространён по всей длине разреза, светло-бежевые прослои присутствуют локально.\n\nЛитологические/фациальные обозначения по легенде:\n- жёлтый — 2A;\n- оранжевый — 1B;\n- светло-бежевый — 1A.\n\n━━━ FORMAT 4: CROSS-SECTION / РАЗРЕЗ ━━━\nНижний корреляционный разрез: North–South. Горизонтальный масштаб не указан. Вертикальная шкала/единицы не указаны; направление вертикальной оси не подписано. Имеется горизонтальный уровень Datum.\n\nСкважины слева направо: South Bay St #1; 04-10; 09-05; 03-27; 03-06; 17-01; 17-04.\n\nПодписанные стратиграфические интервалы слева: Ranga; Romeo 2A; Kavi. Корреляция выполнена по уровню Datum. В нижней части разреза фациальные границы наклонены и образуют серию проградационных клиньев в направлении South; жёлтая зона наиболее развита в северной и центральной частях, оранжевая зона занимает нижнюю и южную части разреза, светло-бежевые тела представлены прослоями и клиньями.\n\nФациальная легенда:\n- жёлтый — Fluvial;\n- оранжевый — Deltaic;\n- светло-бежевый — Floodplain;\n- серо-коричневый — Bay/Prodelta/Shelf.\n\nKEYWORDS: корреляционный разрез, фации, Fluvial, Deltaic, Floodplain, Bay/Prodelta/Shelf, Datum, вертикальное преувеличение"
+    }
+   ]
+  },
+  {
+   "page": 419,
+   "key": "60dfd53d03a7e381766982f64a5836ef",
+   "figures": [
+    {
+     "unit_id": "p419.03",
+     "caption_unit": "p419.04",
+     "figure": "9.19",
+     "what": "Сводная колонка скважины (по подписи — 07-06): кривая гамма-каротажа (GR), зоны, две шкалы глубин (Log и Core), литологический профиль керна и фациальные ассоциации. Показывает типичное чередование литофаций и фациальных ассоциаций интервала Romeo и отклик GR на него.",
+     "axes": [
+      {
+       "name": "Depth (ft), Log (глубина по каротажу, футы)",
+       "where": "между треком GR и колонкой керна, левый столбец цифр; растёт вниз",
+       "scale": "линейная",
+       "ticks": "9450, 9500, 9550, 9600"
+      },
+      {
+       "name": "Depth (ft), Core (глубина по керну, футы)",
+       "where": "непосредственно слева от колонки Core Profile; растёт вниз; одноимённые отметки расположены ниже, чем на шкале Log",
+       "scale": "линейная",
+       "ticks": "9450, 9500, 9550, 9600"
+      },
+      {
+       "name": "GR (гамма-каротаж), единицы не указаны",
+       "where": "шапка трека GR, горизонтально; значения растут вправо",
+       "scale": "по виду линейная; в шапке две строки цифр",
+       "ticks": "верхняя строка: 10, 120; нижняя строка: 0, 10"
+      },
+      {
+       "name": "Zone # (номер зоны)",
+       "where": "крайний левый трек, сверху вниз",
+       "scale": "категориальная",
+       "ticks": "2B, 2A, 1B, 1A"
+      }
+     ],
+     "curves": [
+      {
+       "label": "GR (гамма-каротаж)",
+       "meaning": "Отклик гамма-каротажа по разрезу скважины",
+       "behaviour": "В зоне 2B значения высокие (кривая справа), с максимумом у её подошвы, затем резкий сдвиг влево на границе с 2A. В 2A в основном низкие, с одним заметным острым пиком вправо в нижней половине. В 1B низкие и умеренные, с мелкими колебаниями. В 1A изрезанная кривая с несколькими пиками вправо; в нижней части значения растут и остаются высокими до низа разреза."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Zone 2B (зона 2B)",
+       "meaning": "Верх разреза по левому треку, выше зоны 2A"
+      },
+      {
+       "label": "Zone 2A (зона 2A)",
+       "meaning": "Под 2B, до уровня немного выше отметки 9500 по Log или около неё"
+      },
+      {
+       "label": "Zone 1B (зона 1B)",
+       "meaning": "Под 2A, примерно от 9500 до 9550 ft по Log"
+      },
+      {
+       "label": "Zone 1A (зона 1A)",
+       "meaning": "Нижняя часть разреза, примерно от 9550 ft по Log до низа"
+      },
+      {
+       "label": "ZONE 2A (граница с подписью «зона 2A»)",
+       "meaning": "Горизонтальная линия под ассоциацией Floodplain, над Fluvial"
+      },
+      {
+       "label": "ZONE 1 (граница с подписью «зона 1»)",
+       "meaning": "Горизонтальная линия под Cong. Fluvial, над Fluvial/Dist. Chan. Transition"
+      },
+      {
+       "label": "Floodplain (пойма)",
+       "meaning": "Самая верхняя фациальная ассоциация"
+      },
+      {
+       "label": "Fluvial (речные отложения)",
+       "meaning": "Под линией ZONE 2A, мощный интервал над Ab. Channel"
+      },
+      {
+       "label": "Ab. Channel (заброшенное русло)",
+       "meaning": "Небольшой интервал под верхним Fluvial"
+      },
+      {
+       "label": "Fluvial (речные отложения)",
+       "meaning": "Тонкий интервал под Ab. Channel"
+      },
+      {
+       "label": "Cong. Fluvial (конгломератовые речные отложения)",
+       "meaning": "У красного прослоя конгломерата, над линией ZONE 1"
+      },
+      {
+       "label": "Fluvial/Dist. Chan. Transition (переход от речных к распределительным руслам)",
+       "meaning": "Под линией ZONE 1"
+      },
+      {
+       "label": "Dist. Channel (распределительное русло)",
+       "meaning": "Под переходным интервалом"
+      },
+      {
+       "label": "Dist. Mouth Bar (устьевой бар распределительного русла)",
+       "meaning": "Под Dist. Channel"
+      },
+      {
+       "label": "Bay (залив)",
+       "meaning": "Тонкий интервал между двумя интервалами Dist. Mouth Bar"
+      },
+      {
+       "label": "Dist. Mouth Bar (устьевой бар распределительного русла)",
+       "meaning": "Под Bay, над Delta Front"
+      },
+      {
+       "label": "Delta Front (фронт дельты)",
+       "meaning": "Под нижним Dist. Mouth Bar"
+      },
+      {
+       "label": "Prodelta (продельта)",
+       "meaning": "Под Delta Front"
+      },
+      {
+       "label": "Shelf (шельф)",
+       "meaning": "Самый нижний интервал"
+      }
+     ],
+     "legend": [
+      "Shale (сланец, глинистая порода) — светлый персиковый",
+      "Silty Shale (алевритистый сланец) — светлый персиковый, на глаз не отличим от Shale",
+      "Shaly Siltstone (глинистый алевролит) — оранжевый",
+      "Siltstone (алевролит) — оранжевый, на глаз не отличим от Shaly Siltstone",
+      "Sandstone (песчаник) — жёлтый",
+      "Conglomerate (конгломерат) — красный"
+     ],
+     "numbers": [
+      {
+       "what": "Глубина по Log резкого спада GR на границе зон 2B и 2A",
+       "value": "≈9440 ft"
+      },
+      {
+       "what": "Глубина по Log острого пика GR в зоне 2A",
+       "value": "≈9480 ft"
+      }
+     ],
+     "mismatches": [
+      {
+       "recogniser": "голубой — Shale",
+       "scan": "В легенде Shale показан светлым персиковым цветом; голубого в легенде нет, хотя голубые прослои в колонке есть.",
+       "note": "Неверный цвет сланца в легенде"
+      },
+      {
+       "recogniser": "Zone 1, верхняя часть | Песчаник с тонкими прослоями алевролита и сланца",
+       "scan": "В левом треке этот интервал обозначен 1B; «ZONE 1» — лишь подпись границы у фациальной колонки.",
+       "note": "Потеряна зона 1B в таблице"
+      },
+      {
+       "recogniser": "Zone 1, нижняя часть | Песчаник с частыми тонкими прослоями сланца, алевролита и алевритистого сланца",
+       "scan": "Интервал Dist. Mouth Bar под Dist. Channel лежит на уровне верхней части зоны 1A (граница 1B/1A проходит около его кровли).",
+       "note": "Dist. Mouth Bar отнесён не к той зоне"
+      },
+      {
+       "recogniser": "Песчаник, алевролит, сланец; тонкий красный прослой конгломерата",
+       "scan": "Красный прослой конгломерата находится ниже, у подписи Cong. Fluvial, а не в интервале Ab. Channel.",
+       "note": "Конгломерат помещён не в тот интервал"
+      },
+      {
+       "recogniser": "Алевритистый сланец, сланец, алевролит и тонкие песчаные прослои",
+       "scan": "Prodelta в колонке — сплошной однородный светло-персиковый блок без жёлтых песчаных прослоев.",
+       "note": "Приписаны отсутствующие прослои в продельте"
+      },
+      {
+       "recogniser": "Сланец и алевритистый сланец с тонкими песчано-алевритовыми прослоями",
+       "scan": "У кровли Shelf видны оранжевый и красный (цвет конгломерата по легенде) тонкие прослои; жёлтых песчаных прослоев нет.",
+       "note": "Пропущен красный прослой, приписан песчаник"
+      },
+      {
+       "recogniser": "Глубина: ft; глубина увеличивается вниз. Подписанные отметки глубины: 9450, 9500, 9550, 9600 ft.",
+       "scan": "Шкал глубины две — Log и Core, каждая с отметками 9450–9600; они смещены друг относительно друга по вертикали.",
+       "note": "Пропущена вторая шкала глубин (Core)"
+      }
+     ],
+     "unreadable": [
+      "Смысл двух строк цифр в шапке GR (10–120 и 0–10) и единицы GR",
+      "Значение чёрных, белых, голубых прослоев и значков в виде крестов в колонке керна: в легенде их нет",
+      "Различие Shale и Silty Shale, а также Shaly Siltstone и Siltstone по цвету",
+      "Литология самых тонких прослоев"
+     ],
+     "page": 419,
+     "source": "━━━ FORMAT 2: WELL LOG / КАРОТАЖНАЯ ДИАГРАММА ━━━\n\nГлубина: ft; глубина увеличивается вниз. Подписанные отметки глубины: 9450, 9500, 9550, 9600 ft.\n\nДорожки слева направо:\n1. **Zone #**: зоны 2B, 2A, 1B, 1A.\n2. **GR**: шкала 10—120; дополнительная подпись шкалы: 0—10. Единицы не указаны. Одна сплошная кривая.\n3. **Depth (ft) Log**: глубинная шкала.\n4. **Core Profile Core**: профиль керна, окраска и условные обозначения приведены в легенде.\n5. **Facies Associations**: фациальные ассоциации.\n\n| Интервал, ft | Литология (по колонке) | Кривые: поведение GR | Интерпретация (если подписана) |\n|---|---|---|---|\n| Верхняя часть, Zone 2B | Чередование сланца, алевритистого сланца, алевролита и песчаника; вверху голубой прослой | GR имеет относительно высокие значения в верхней части, далее снижается | Floodplain |\n| Zone 2A, верхняя часть | Преимущественно песчаник с тонкими прослоями алевролита, сланца и алевритистого сланца | GR пониженный, с локальными повышениями | Fluvial |\n| Zone 2A, средняя часть | Песчаник, алевролит, сланец; тонкий красный прослой конгломерата | GR изменчивый | Ab. Channel |\n| Zone 2A, нижняя часть | Песчаник и алевролит с прослоями сланца | GR изменчивый | Fluvial; Cong. Fluvial |\n| Zone 1, верхняя часть | Песчаник с тонкими прослоями алевролита и сланца | GR преимущественно пониженный | Fluvial/Dist. Chan. Transition |\n| Zone 1, средняя часть | Преимущественно песчаник; тонкие прослои алевролита, сланца и алевритистого сланца | GR низкий—изменчивый | Dist. Channel |\n| Zone 1, нижняя часть | Песчаник с частыми тонкими прослоями сланца, алевролита и алевритистого сланца | GR изменчивый, с отдельными повышенными значениями | Dist. Mouth Bar |\n| Zone 1A, верхняя часть | Тонкое переслаивание песчаника, сланца, алевритистого сланца и алевролита | GR изменчивый | Bay; Dist. Mouth Bar |\n| Zone 1A, средняя часть | Песчаник и алевритистый сланец; тонкие прослои сланца и алевролита | GR преимущественно повышенный относительно песчаных интервалов | Delta Front |\n| Zone 1A, нижняя часть | Алевритистый сланец, сланец, алевролит и тонкие песчаные прослои | GR относительно высокий | Prodelta |\n| Нижняя часть разреза | Сланец и алевритистый сланец с тонкими песчано-алевритовыми прослоями | GR без резких низких аномалий | Shelf |\n\nПодписанные зональные границы:\n- ZONE 2A\n- ZONE 1\n\nЛегенда профиля керна:\n- голубой — Shale\n- светло-бежевый — Silty Shale\n- оранжево-бежевый — Shaly Siltstone\n- оранжевый — Siltstone\n- жёлтый — Sandstone\n- красный — Conglomerate\n\nKEYWORDS: GR, каротаж, керн, фациальные ассоциации, песчаник, сланец, дельтовый фронт, русловые отложения"
+    }
+   ]
+  },
+  {
+   "page": 420,
+   "key": "288eb495ab9b3e3df924a8873a96d07a",
+   "figures": [
+    {
+     "unit_id": "p420.01",
+     "caption_unit": "p420.02",
+     "figure": "9.20",
+     "what": "Фрагмент корреляции каротажных диаграмм с севера на юг через песчаник Sadlerochit на месторождении Прадхо-Бей. Цветом показаны фации между скважинами, справа отмечены интервалы (a)–(e). По рисунку прослеживают пласты и фации от скважины к скважине.",
+     "axes": [
+      {
+       "name": "Масштабная линейка глубины (толщины), ft.",
+       "where": "в центре рисунка, вертикально, на уровне интервалов (c) и верха (b); 0 вверху, 100 ft. внизу",
+       "scale": "линейная (масштабный отрезок)",
+       "ticks": "0, 100 ft."
+      }
+     ],
+     "curves": [
+      {
+       "label": "чёрные и серые кривые в левых колонках пар (без подписей)",
+       "meaning": "каротажные кривые; мнемоники и шкалы не указаны",
+       "behaviour": "В четырёх парах колонок из пяти идут две изрезанные кривые, чёрная и серая, по всей высоте разреза."
+      },
+      {
+       "label": "чёрные кривые в правых колонках пар (без подписей)",
+       "meaning": "каротажные кривые; мнемоники и шкалы не указаны",
+       "behaviour": "В четырёх парах колонок идёт одна чёрная кривая с мелкими отклонениями. Средняя (третья) пара колонок кривых не содержит."
+      },
+      {
+       "label": "горизонтальные и наклонные прямые и волнистые линии",
+       "meaning": "корреляционные границы между колонками",
+       "behaviour": "Прослеживаются между скважинами с изгибами и уступами. Выше жёлтой заливки линии уступом поднимаются к средней и правой частям рисунка. В интервале (a) внизу границы ступенчато опускаются вправо от средней пары колонок."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Tan (бежевая, розовато-коричневая заливка)",
+       "meaning": "фации поймы (floodplain); прослои и линзы главным образом в (e), (d), (b), отдельные на уровне (c) слева и (a) вверху"
+      },
+      {
+       "label": "Yellow (жёлтая заливка)",
+       "meaning": "фации речных и распределительных русел (fluvial/distributary-channel); преобладают в (b)–(e), есть также в низах разреза в (a)"
+      },
+      {
+       "label": "White (белая заливка)",
+       "meaning": "фации устьевого бара и фронта дельты, продельты и шельфа; преобладают в (a). Белое поле над верхом жёлтой заливки на рисунке отдельно не пояснено"
+      },
+      {
+       "label": "(e)",
+       "meaning": "интервал Zulu, самый верхний из отмеченных; жёлтый с тонкими бежевыми прослоями"
+      },
+      {
+       "label": "(d)",
+       "meaning": "интервал X-ray, ниже (e); жёлтый с заметным бежевым пластом и линзой справа"
+      },
+      {
+       "label": "(c)",
+       "meaning": "интервал Victor; почти сплошь жёлтый, слева наклонный бежевый прослой"
+      },
+      {
+       "label": "(b)",
+       "meaning": "интервал Tango; вверху сплошь жёлтый, в нижней части чередование жёлтых и бежевых тел"
+      },
+      {
+       "label": "(a)",
+       "meaning": "интервал Romeo, самый нижний; много тонких белых слоёв, ниже них жёлтые"
+      }
+     ],
+     "legend": [
+      "Tan (бежевый) — floodplain facies (пойменные фации), по подписи рисунка",
+      "Yellow (жёлтый) — fluvial/distributary-channel facies (фации речных и распределительных русел), по подписи",
+      "White (белый) — distributary mouth bar/delta front and prodelta/shelf facies (устьевой бар, фронт дельты, продельта и шельф), по подписи",
+      "a — Romeo; b — Tango; c — Victor; d — X-ray; e — Zulu (интервалы)"
+     ],
+     "numbers": [
+      {
+       "what": "число пар колонок (скважинных позиций) на рисунке",
+       "value": "≈5"
+      },
+      {
+       "what": "число пар колонок с каротажными кривыми",
+       "value": "≈4"
+      }
+     ],
+     "mismatches": [
+      {
+       "recogniser": "Printed curve mnemonics, scales, units, and lithology legend are absent.",
+       "scan": "Есть масштабный отрезок 0–100 ft., а значения цветов даны в подписи рисунка.",
+       "note": "Единицы (ft.) и расшифровка цветов имеются."
+      },
+      {
+       "recogniser": "Lithology cannot be determined without a legend.",
+       "scan": "Подпись: бежевый — пойма, жёлтый — русловые фации, белый — устьевой бар, фронт дельты, продельта, шельф.",
+       "note": "Фации определены подписью."
+      },
+      {
+       "recogniser": "upper yellow-dominated interval; thin pale-pink and grey/white laminated beds occur near its lower part.",
+       "scan": "В (e) бежевые прослои лежат в верхней и средней части; низ жёлтый с волнистыми линиями.",
+       "note": "Перепутано положение прослоев по высоте."
+      },
+      {
+       "recogniser": "lower interval dominated by thin white and grey horizontally laminated beds, with yellow beds and a pale-pink bed near the base.",
+       "scan": "Бежевый прослой в (a) находится у верха (справа); у основания жёлтые и белые слои.",
+       "note": "Перепутаны верх и низ."
+      },
+      {
+       "recogniser": "white intervals with thin horizontal black linework, grey horizontal linework, and locally greenish-grey fill.",
+       "scan": "Заливки только жёлтая, бежевая и белая; серо-зелёной заливки не видно.",
+       "note": "Несуществующая заливка."
+      }
+     ],
+     "unreadable": [
+      "названия и номера скважин не подписаны",
+      "мнемоники, шкалы и единицы каротажных кривых отсутствуют",
+      "абсолютные глубины не указаны",
+      "стороны света (где север, где юг) на рисунке не отмечены"
+     ],
+     "page": 420,
+     "source": "━━━ FORMAT 2: WELL LOG / КАРОТАЖНАЯ ДИАГРАММА ━━━\n\nDepth reference: vertical bar labelled 0 at top and 100 ft below; depth increases downward. Total displayed depth range is not labelled.\n\nTracks, left to right: multiple narrow log tracks with unlabelled black and grey curves; central correlation/lithology panel; further narrow unlabelled curve tracks. Printed curve mnemonics, scales, units, and lithology legend are absent.\n\nLithology/interval panel: horizontal beds shown with yellow fill, pale pink fill, white intervals with thin horizontal black linework, grey horizontal linework, and locally greenish-grey fill. Lithology cannot be determined without a legend.\n\nLabelled intervals, top to bottom:\n- (e): upper yellow-dominated interval; thin pale-pink and grey/white laminated beds occur near its lower part.\n- (d): yellow-dominated interval with several pale-pink interbeds and thin grey/white laminated beds.\n- (c): thick, relatively uniform yellow interval; a pale-pink thin bed occurs near the top and several thin pale-pink/grey beds occur near the base.\n- (b): yellow interval with frequent pale-pink interbeds, thin grey/white laminated beds, and variable log-curve excursions.\n- (a): lower interval dominated by thin white and grey horizontally laminated beds, with yellow beds and a pale-pink bed near the base.\n\n| Interval | Lithology (by column) | Curves: behaviour | Interpretation |\n|---|---|---|---|\n| (e) | Yellow fill; pale-pink and laminated grey/white interbeds | Unlabelled black/grey curves show lateral deflections | Not printed |\n| (d) | Yellow fill with pale-pink and laminated interbeds | Unlabelled curves vary across bed boundaries | Not printed |\n| (c) | Predominantly yellow fill; thin pink/grey beds | Curves are comparatively continuous through the thick central bed | Not printed |\n| (b) | Yellow fill with numerous thin pink and laminated beds | More irregular curve deflections | Not printed |\n| (a) | White/grey laminated beds with yellow and pink beds | Curves show frequent short-scale variations | Not printed |\n\nKEYWORDS: well log, depth, ft, correlation panel, bed boundaries, lithology pattern, laminated beds, log curves"
+    },
+    {
+     "unit_id": "p420.03",
+     "caption_unit": "p420.04",
+     "figure": "9.21",
+     "what": "Карта обобщённого распространения трёх стратиграфически различных глинистых пластов (shales) в восточной части месторождения Прадхо-Бей. Слева даны врезки для каждого пласта отдельно и обзорная схема с положением участка. По наложению заливок видно, где пласты перекрываются, а где отсутствуют.",
+     "axes": [],
+     "curves": [
+      {
+       "label": "контуры областей",
+       "meaning": "границы распространения глинистых пластов",
+       "behaviour": "Неправильные замкнутые контуры накладываются друг на друга; внутри участка есть белые окна без заливки."
+      }
+     ],
+     "regions": [
+      {
+       "label": "upper (#3) (верхний)",
+       "meaning": "горизонтальная штриховка; главные пятна на северо-западе, на востоке и в южной центральной части"
+      },
+      {
+       "label": "middle (#2) (средний)",
+       "meaning": "тёмно-серая заливка; широко распространён на западе, севере, в центре и на юго-востоке"
+      },
+      {
+       "label": "lower (#1) (нижний)",
+       "meaning": "светло-серая заливка; видна на западном краю, на северо-востоке, востоке и в центре"
+      },
+      {
+       "label": "тёмно-серое со штриховкой",
+       "meaning": "наложение верхнего пласта на нижележащие, в том числе на средний; крупный участок на востоке и юго-востоке, полоса на севере"
+      },
+      {
+       "label": "белые окна внутри контура",
+       "meaning": "глинистые пласты отсутствуют (по подписи — из-за неотложения или эрозии); крупнейшее окно в западной части"
+      },
+      {
+       "label": "врезки #3, #2, #1",
+       "meaning": "слева вверху, сверху вниз: распространение верхнего, среднего и нижнего пластов по отдельности"
+      },
+      {
+       "label": "Prudhoe Bay Field (месторождение Прадхо-Бей)",
+       "meaning": "обзорная схема слева внизу; прямоугольная рамка с серым многоугольником в восточной части показывает картируемый участок"
+      }
+     ],
+     "legend": [
+      "upper (#3) (верхний) — горизонтальная штриховка",
+      "middle (#2) (средний) — тёмно-серая заливка",
+      "lower (#1) (нижний) — светло-серая заливка",
+      "N — стрелка на север (вверх)",
+      "Масштаб: 2 miles (мили) / 3.2 km (км)"
+     ],
+     "numbers": [],
+     "mismatches": [
+      {
+       "recogniser": "Map showing the distribution of three stratigraphic units in the outlined area.",
+       "scan": "По подписи это три стратиграфически различных глинистых пласта в восточной части месторождения.",
+       "note": "Не указано, что это глинистые пласты."
+      },
+      {
+       "recogniser": "Lithology is not determined without a legend; the fills represent stratigraphic units #1–#3.",
+       "scan": "Подпись прямо называет все три единицы глинами (shales).",
+       "note": "Литология известна: глины."
+      }
+     ],
+     "unreadable": [
+      "точные границы пластов в местах наложения трёх заливок различаются с трудом"
+     ],
+     "page": 420,
+     "source": "━━━ FORMAT 3: MAP / КАРТА ━━━\nMap showing the distribution of three stratigraphic units in the outlined area.\n\nLegend:\n- horizontal-line shading — upper (#3)\n- dark grey fill — middle (#2)\n- light grey fill — lower (#1)\n\nInset panels at upper left:\n- #3 — small distribution map; horizontal-line shading marks the upper unit.\n- #2 — small distribution map; dark grey fill marks the middle unit.\n- #1 — small distribution map; light grey fill marks the lower unit.\n\nInset location map at lower left:\n- Prudhoe Bay Field — labelled field location.\n- Dark grey polygon in a rectangular outline indicates the mapped area.\n\nNorth arrow: N; north is upward.\n\nScale bar:\n- 2 miles\n- 3.2 km\n\nLithology is not determined without a legend; the fills represent stratigraphic units #1–#3.\n\nKEYWORDS: map, Prudhoe Bay Field, upper unit, middle unit, lower unit, stratigraphic distribution, scale bar, north arrow"
+    }
+   ]
+  },
+  {
+   "page": 421,
+   "key": "2dbe9176039faeed6db907cc7165abc0",
+   "figures": [
+    {
+     "unit_id": "p421.01",
+     "caption_unit": "p421.02",
+     "figure": "9.22",
+     "what": "Разрез вдоль горизонтальной скважины: траектория ствола в координатах «глубина – измеренная глубина по стволу» проходит в нефтяных песчаниках дистрибутивных каналов и устьевого бара, разделённых глинами. Врезка – структурная карта по подошве Sadlerochit с планом скважины, справа – трек гамма-каротажа.",
+     "axes": [
+      {
+       "name": "ft. (глубина, футы)",
+       "where": "слева, вниз",
+       "scale": "линейная",
+       "ticks": "8600, 8620, 8640, 8660, 8680, 8700, 8720, 8740"
+      },
+      {
+       "name": "Measured depth (ft.) (измеренная глубина по стволу, футы)",
+       "where": "снизу, вправо",
+       "scale": "линейная",
+       "ticks": "9500, 9700, 9900, 10,100, 10,300, 10,500, 10,700, 10,900, 11,100"
+      },
+      {
+       "name": "OH_0GR_MWD_S_0, GAPI (гамма-каротаж)",
+       "where": "отдельный трек справа, шкала сверху, вправо",
+       "scale": "линейная",
+       "ticks": "0, 100"
+      }
+     ],
+     "curves": [
+      {
+       "label": "траектория скважины (сплошная чёрная линия без подписи)",
+       "meaning": "ствол горизонтальной скважины",
+       "behaviour": "Начинается выше 8600 ft около MD 9660 и круто идёт вниз, пересекая GOC. Входит в песчаную толщу около MD 9830 и пересекает глинистые прослои. Самая глубокая точка – около 8722 ft при MD около 9950–10,000. Далее идёт полого с небольшими волнами около 8717–8719 ft и постепенно поднимается примерно до 8707 ft около MD 10,900. К концу (около MD 11,060) опускается примерно до 8716 ft."
+      },
+      {
+       "label": "GOC (газонефтяной контакт)",
+       "meaning": "горизонтальная штриховая линия",
+       "behaviour": "Проходит выше песчаной толщи, около 8622 ft."
+      },
+      {
+       "label": "штриховая линия у подошвы жёлтой толщи (без подписи)",
+       "meaning": "нижняя граница показанного нефтяного песчаника",
+       "behaviour": "Горизонтальна, около 8724 ft."
+      },
+      {
+       "label": "кривая GR в треке справа",
+       "meaning": "гамма-каротаж",
+       "behaviour": "Изрезана, в верхней части есть резкие выбросы вправо, ниже держится в основном в левой половине трека. Внизу, в заштрихованном интервале, есть изменения до больших значений."
+      },
+      {
+       "label": "Final 1820-ft. well (окончательная скважина 1820 ft), на врезке",
+       "meaning": "ствол скважины в плане",
+       "behaviour": "Жирная дугообразная линия, частично штриховая; стрелка подписи направлена на неё сверху слева."
+      },
+      {
+       "label": "Proposed 688-ft. well (проектная скважина 688 ft), на врезке",
+       "meaning": "проектный ствол в плане",
+       "behaviour": "Стрелка от подписи направлена вверх и вправо к дуге ствола."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Distributary channel (дистрибутивный канал), верхняя подпись",
+       "meaning": "нефтяной песчаник между верхним и средним глинистыми прослоями, около 8697–8706 ft"
+      },
+      {
+       "label": "Distributary channel (дистрибутивный канал), нижняя подпись",
+       "meaning": "нефтяной песчаник между средним и нижним глинистыми прослоями, около 8708–8713 ft"
+      },
+      {
+       "label": "Distributary-mouth bar (устьевой бар дистрибутивного канала)",
+       "meaning": "нефтяной песчаник ниже нижнего глинистого прослоя, около 8715–8724 ft"
+      },
+      {
+       "label": "PERFORATED INTERVAL (интервал перфорации)",
+       "meaning": "ряд кружков внизу графика, задающий протяжённость по измеренной глубине (примерно 9900–10,900 ft), а не интервал по вертикальной глубине"
+      },
+      {
+       "label": "BASE SADLEROCHIT STRUCTURE MAP 15–45 (структурная карта по подошве Sadlerochit), 15–45 PBI",
+       "meaning": "врезка в верхней правой части с контурами, планом скважины и масштабом 2000 ft"
+      },
+      {
+       "label": "заштрихованный участок трека GR",
+       "meaning": "выделенный интервал в нижней части трека, примерно на уровне песчаной толщи; на рисунке не подписан"
+      }
+     ],
+     "legend": [
+      "OIL SAND (нефтяной песчаник) – жёлтый",
+      "SHALE (NONPAY) (глина, непродуктивная) – коричневый"
+     ],
+     "numbers": [
+      {
+       "what": "глубина GOC",
+       "value": "≈8622 ft"
+      },
+      {
+       "what": "кровля жёлтой песчаной толщи",
+       "value": "≈8694 ft"
+      },
+      {
+       "what": "подошва песчаной толщи (штриховая линия)",
+       "value": "≈8724 ft"
+      },
+      {
+       "what": "глинистые прослои, глубины",
+       "value": "≈8696, ≈8707 и ≈8714 ft"
+      },
+      {
+       "what": "самая глубокая точка ствола",
+       "value": "≈8722 ft при MD ≈9950–10,000 ft"
+      },
+      {
+       "what": "самая высокая точка горизонтального участка",
+       "value": "≈8707 ft при MD ≈10,900 ft"
+      },
+      {
+       "what": "интервал перфорации по MD",
+       "value": "≈9900–10,900 ft"
+      },
+      {
+       "what": "масштаб на карте (подписан)",
+       "value": "≈2000 ft"
+      }
+     ],
+     "mismatches": [
+      {
+       "recogniser": "CH_OGR_MWD_S_0",
+       "scan": "OH_0GR_MWD_S_0",
+       "note": "Неверно прочитано имя кривой."
+      },
+      {
+       "recogniser": "Final 18–20-ft. well 15–45 PBI",
+       "scan": "Две подписи: «Final 1820-ft. well» и отдельно «15–45 PBI»",
+       "note": "Длина 1820 ft искажена, подписи слиты."
+      },
+      {
+       "recogniser": "**BASE SADEROCHIT STRUCTURE MAP 15–45**",
+       "scan": "BASE SADLEROCHIT STRUCTURE MAP 15–45",
+       "note": "Ошибка в названии свиты."
+      },
+      {
+       "recogniser": "Вертикальная шкала: ft, значения 8600, 8620, 8640, 8660, 8680, 8700, 8720",
+       "scan": "Подписано также деление 8740",
+       "note": "Потеряно деление."
+      },
+      {
+       "recogniser": "от приблизительно 9500 ft по measured depth в верхней части до приблизительно 10,200 ft в нижней части",
+       "scan": "Ствол начинается около MD 9660, достигает низа около MD 9950 и идёт почти горизонтально до MD около 11,060",
+       "note": "Неверно описана траектория."
+      },
+      {
+       "recogniser": "| около 8727–8732 | орнамент из кружков | не указано | PERFORATED INTERVAL |",
+       "scan": "Кружки показывают интервал по MD около 9900–10,900 ft внизу графика; это не слой на глубине",
+       "note": "Перфорация принята за литологический интервал."
+      },
+      {
+       "recogniser": "серая диагональная штриховка — SHALE (NONPAY)",
+       "scan": "SHALE (NONPAY) показана сплошной коричневой заливкой; серая штриховка есть только в треке GR",
+       "note": "Неверное условное обозначение глины."
+      }
+     ],
+     "unreadable": [
+      "Числовые значения и подписи контуров на врезке-карте (не видны)",
+      "Значение мелких символов и линий на карте",
+      "Смысл штриховки и штриховой линии в треке GR"
+     ],
+     "page": 421,
+     "source": "━━━ FORMAT 2: WELL LOG / КАРОТАЖНАЯ ДИАГРАММА ━━━\n\nСхема ствола скважины и интервалов коллекторов. Вертикальная шкала: ft, значения 8600, 8620, 8640, 8660, 8680, 8700, 8720; значения увеличиваются вниз. Горизонтальная шкала: Measured depth (ft), 9500–11,100; значения увеличиваются вправо.\n\nСлева показана траектория скважины: от приблизительно 9500 ft по measured depth в верхней части до приблизительно 10,200 ft в нижней части; далее ствол отклоняется вправо и проходит в районе 10,900 ft measured depth.\n\nСправа — каротажный трек:\n- CH_OGR_MWD_S_0;\n- единицы: GAPI;\n- шкала: 0–100;\n- кривая показана сплошной линией;\n- в нижней части трека выделен заштрихованный интервал.\n\n| Интервал, ft | Литология (по колонке) | Кривые: поведение | Интерпретация |\n|---|---|---|---|\n| около 8698–8706 | жёлтая заливка | не указано | Distributary channel |\n| около 8707–8715 | жёлтая заливка | не указано | Distributary channel |\n| около 8716–8725 | жёлтая заливка | не указано | Distributary-mouth bar |\n| около 8727–8732 | орнамент из кружков | не указано | PERFORATED INTERVAL |\n\nУсловные обозначения:\n- жёлтая заливка — OIL SAND;\n- серая диагональная штриховка — SHALE (NONPAY).\n\nKEYWORDS: measured depth, ft, GAPI, oil sand, shale, perforated interval, distributary channel, well trajectory\n━━━ FORMAT 3: MAP / КАРТА ━━━\n\nСтруктурная карта: **BASE SADEROCHIT STRUCTURE MAP 15–45**.\n\nПодписанные элементы:\n- GOC;\n- Final 18–20-ft. well 15–45 PBI;\n- Proposed 688-ft. well.\n\nНа карте показаны замкнутые и незамкнутые структурные контуры; численные значения контуров неразборчивы. В центральной части расположен символ существующей скважины, рядом показан предполагаемый наклонный ствол скважины. Направление стрелки проектируемой скважины — преимущественно вниз и вправо на плане.\n\nМасштабная линейка: 2000 ft.\n\nKEYWORDS: structure map, GOC, proposed well, well 15–45 PBI, Saderochit, structural contours, 2000 ft"
+    },
+    {
+     "unit_id": "p421.03",
+     "caption_unit": "p421.04",
+     "figure": "9.23",
+     "what": "(a) График добычи нефти и воды во времени для скважин 09-35 и 09-35A. (b) Каротажные диаграммы исходной скважины 09-35 с траекторией горизонтального бокового ствола 09-35A и интервалами заканчивания.",
+     "axes": [
+      {
+       "name": "Bbls/Day (баррелей в сутки)",
+       "where": "график (a), слева, вверх",
+       "scale": "линейная",
+       "ticks": "0, 400, 800, 1200, 1600, 2000"
+      },
+      {
+       "name": "дата",
+       "where": "график (a), снизу, вправо",
+       "scale": "временная",
+       "ticks": "5/31/92, 1/31/93, 1/31/94, 5/31/94"
+      },
+      {
+       "name": "глубина (единицы на рисунке не указаны; по подписи к рисунку – футы)",
+       "where": "(b), между двумя треками, вниз",
+       "scale": "линейная",
+       "ticks": "8800, 8850, 8900, 9000"
+      },
+      {
+       "name": "GR (гамма-каротаж)",
+       "where": "(b), левый трек, верхняя шкала",
+       "scale": "линейная",
+       "ticks": "0, 150"
+      },
+      {
+       "name": "SONIC (акустический каротаж)",
+       "where": "(b), левый трек, нижняя шкала, значения убывают вправо",
+       "scale": "обратная по направлению",
+       "ticks": "150, 50"
+      },
+      {
+       "name": "RILD (индукционное сопротивление)",
+       "where": "(b), правый трек",
+       "scale": "не указана (по пределам 20–2000 вероятно логарифмическая)",
+       "ticks": "20, 2000"
+      }
+     ],
+     "curves": [
+      {
+       "label": "Water (вода), красные точки",
+       "meaning": "добыча воды",
+       "behaviour": "09-35: начинается около 1800, падает примерно до 1100, затем растёт до ≈1740 и в последней точке снижается до ≈1400. 09-35A: после ≈370 и ≈120 держится вблизи 0–100. У 09-35 заметно выше нефти, у 09-35A (кроме начала) ниже нефти."
+      },
+      {
+       "label": "Oil (нефть), зелёные точки",
+       "meaning": "добыча нефти",
+       "behaviour": "09-35: около 280–360, затем спад примерно до 200 и небольшой подъём. 09-35A: около 390 в начале, далее ровно около 300–340."
+      },
+      {
+       "label": "GR",
+       "meaning": "гамма-каротаж; по подписи, узорчатая заливка показывает продуктивные песчаники",
+       "behaviour": "Изрезанная кривая с жёлтой заливкой слева; самый мощный жёлтый интервал примерно от 8855 до 8940."
+      },
+      {
+       "label": "SONIC",
+       "meaning": "акустический каротаж",
+       "behaviour": "Изрезанная кривая в правой половине левого трека с красной заливкой; крупные красные участки около 8850–8875 и 8900–8940."
+      },
+      {
+       "label": "RILD",
+       "meaning": "кривая сопротивления",
+       "behaviour": "Изрезанная кривая в правом треке; небольшие голубые заливки около 8830 и 8875, протяжённая голубая заливка в нижней части, примерно 8975–9020."
+      },
+      {
+       "label": "красная линия 09-35A HORIZONTAL SIDETRACK",
+       "meaning": "боковой горизонтальный ствол",
+       "behaviour": "Идёт сверху вниз, плавно выполаживается вправо, пересекает чёрную горизонтальную линию и проходит внутри оранжевой полосы до правой части рисунка."
+      },
+      {
+       "label": "чёрная горизонтальная линия (без подписи)",
+       "meaning": "верхняя граница оранжевой полосы; по положению соответствует глине на 8936 ft из подписи",
+       "behaviour": "Горизонтальна, около 8940, разделяет верхний и нижний интервалы добычи."
+      },
+      {
+       "label": "KAVIC",
+       "meaning": "красная пунктирная горизонтальная линия (маркер)",
+       "behaviour": "Проходит ниже деления 9000, у низа треков."
+      }
+     ],
+     "regions": [
+      {
+       "label": "09-35 Production (добыча 09-35)",
+       "meaning": "левая часть графика (a)"
+      },
+      {
+       "label": "09-35A Production (добыча 09-35A)",
+       "meaning": "правая часть графика (a)"
+      },
+      {
+       "label": "09-35 ORIGNAL (исходный ствол; так на рисунке), чёрный кружок",
+       "meaning": "вертикальная исходная скважина с каротажем"
+      },
+      {
+       "label": "09-35 Conventional Completion (обычное заканчивание 09-35)",
+       "meaning": "подпись слева выше оранжевой полосы"
+      },
+      {
+       "label": "09-35A Non-Conventional Completion (нетрадиционное заканчивание 09-35A)",
+       "meaning": "оранжевая полоса ниже чёрной линии"
+      },
+      {
+       "label": "700' slotted liner (щелевой хвостовик 700 футов)",
+       "meaning": "участок бокового ствола в оранжевой полосе"
+      },
+      {
+       "label": "09-35 100% Production (100 % добычи 09-35)",
+       "meaning": "интервал выше чёрной линии, отмечен значком перфорации справа"
+      },
+      {
+       "label": "No. Prod. In 09-35 (нет добычи в 09-35)",
+       "meaning": "интервал ниже чёрной линии, серый столбик"
+      },
+      {
+       "label": "09-35A 100% Prod. (100 % добычи 09-35A)",
+       "meaning": "интервал оранжевой полосы справа"
+      }
+     ],
+     "legend": [
+      "Oil (нефть) – зелёные точки с линией",
+      "Water (вода) – красные точки с линией"
+     ],
+     "numbers": [
+      {
+       "what": "добыча воды 09-35, первая точка",
+       "value": "≈1800 Bbls/Day"
+      },
+      {
+       "what": "добыча воды 09-35, минимум",
+       "value": "≈1070 Bbls/Day"
+      },
+      {
+       "what": "добыча воды 09-35, поздний максимум",
+       "value": "≈1740 Bbls/Day"
+      },
+      {
+       "what": "добыча нефти 09-35",
+       "value": "≈200–360 Bbls/Day"
+      },
+      {
+       "what": "добыча нефти 09-35A",
+       "value": "≈300–390 Bbls/Day"
+      },
+      {
+       "what": "добыча воды 09-35A после начального периода",
+       "value": "≈0–100 Bbls/Day"
+      },
+      {
+       "what": "глубина чёрной горизонтальной линии",
+       "value": "≈8940"
+      },
+      {
+       "what": "нижняя граница серого столбика",
+       "value": "≈8960"
+      },
+      {
+       "what": "интервал значка перфорации выше чёрной линии",
+       "value": "≈8915–8940"
+      },
+      {
+       "what": "глубина линии KAVIC",
+       "value": "≈9020"
+      },
+      {
+       "what": "длина щелевого хвостовика (подписана)",
+       "value": "≈700 футов"
+      }
+     ],
+     "mismatches": [
+      {
+       "recogniser": "Нефть: для 09-35 — примерно 300–450 B/D; для 09-35A — около 0–150 B/D.",
+       "scan": "09-35: около 200–360; 09-35A: около 300–390 Bbls/Day",
+       "note": "Неверные уровни нефти, особенно для 09-35A."
+      },
+      {
+       "recogniser": "дебит воды существенно снижается; дебит нефти также снижается",
+       "scan": "Вода резко падает, а нефть у 09-35A чуть выше, чем в конце 09-35",
+       "note": "Направление изменения нефти перепутано."
+      },
+      {
+       "recogniser": "Вода: для 09-35 — изменяется примерно от 500 до 1800 B/D",
+       "scan": "Вода 09-35 – примерно 1070–1800",
+       "note": "Неверный нижний предел."
+      },
+      {
+       "recogniser": "Ось Y: B/D, линейная шкала, 0–2000.",
+       "scan": "Ось подписана Bbls/Day",
+       "note": "Неверная подпись оси."
+      },
+      {
+       "recogniser": "Ось X: даты; подписи частично неразборчивы.",
+       "scan": "Подписаны даты 5/31/92, 1/31/93, 1/31/94, 5/31/94",
+       "note": "Потеряны деления дат."
+      },
+      {
+       "recogniser": "**SONIC**, шкала не указана; серая кривая.",
+       "scan": "SONIC имеет шкалу 150–50",
+       "note": "Пропущена шкала."
+      },
+      {
+       "recogniser": "**RILD**, шкала 0–2000",
+       "scan": "Шкала RILD 20–2000",
+       "note": "Неверный левый предел."
+      },
+      {
+       "recogniser": "“09-35A 100% Production Conventional Completion”.",
+       "scan": "«09-35 Conventional Completion»; отдельно справа «09-35 100% Production»",
+       "note": "Слиты разные подписи, перепутана скважина."
+      },
+      {
+       "recogniser": "“Stofed water” [нрзб; возможно, “Stoffed water”].",
+       "scan": "Такой подписи нет; наклонная надпись на полосе – «700' slotted liner»",
+       "note": "Выдуманная подпись, пропущен щелевой хвостовик."
+      },
+      {
+       "recogniser": "“09-35 100% Production No. Prod”.",
+       "scan": "Две подписи: «09-35 100% Production» (выше линии) и «No. Prod. In 09-35» (ниже)",
+       "note": "Слиты противоположные по смыслу интервалы."
+      }
+     ],
+     "unreadable": [
+      "Точные даты отдельных точек графика (a)",
+      "Узор заливки на кривой GR (виден только жёлтый цвет)",
+      "Единицы GR, SONIC и RILD не подписаны",
+      "Подпись деления 8950 не видна"
+     ],
+     "page": 421,
+     "source": "━━━ FORMAT 6: XY PLOT / CHART WITH DATA ━━━\n(a) **09-35 Production / 09-35A Production**\n\n- Ось Y: B/D, линейная шкала, 0–2000.\n- Ось X: даты; подписи частично неразборчивы.\n- Легенда: зелёные точки/линия — Oil; красно-коричневые точки/линия — Water.\n- Подписи: “09-35 Production” (левая часть); “09-35A Production” (правая часть).\n- Стрелка вправо между участками: “09-35 Production →”.\n- Нефть: для 09-35 — примерно 300–450 B/D; для 09-35A — около 0–150 B/D.\n- Вода: для 09-35 — изменяется примерно от 500 до 1800 B/D; для 09-35A — преимущественно около 0–400 B/D, с отдельными повышенными значениями.\n\n> Тренд: после перехода от добычи 09-35 к добыче 09-35A дебит воды существенно снижается; дебит нефти также снижается.\n\n━━━ FORMAT 2: WELL LOG / КАРОТАЖНАЯ ДИАГРАММА ━━━\n(b) **09-35A HORIZONTAL SIDETRACK / 09-35 ORIGINAL**\n\nГлубина: 8800–9000; единицы глубины на изображении не указаны. Глубина увеличивается вниз.\n\nКаротажные дорожки слева направо:\n1. **GR**, шкала 0–150.\n2. **SONIC**, шкала не указана; серая кривая.\n3. Литологическая/интерпретационная колонка: жёлтая заливка, красные клиновидные и полосчатые участки; литология не определяется без легенды.\n4. **RILD**, шкала 0–2000; зелёно-голубая кривая/заливка.\n\nПодписанные элементы:\n- “09-35A HORIZONTAL SIDETRACK”.\n- “09-35 ORIGINAL”.\n- “09-35A 100% Production Conventional Completion”.\n- “09-35A Nonconventional Completion”.\n- “Stofed water” [нрзб; возможно, “Stoffed water”].\n- “09-35 100% Production No. Prod”.\n- “09-35A 100% Prod”.\n- “KAVIC” — пунктирная горизонтальная линия вблизи глубины 9000.\n\n| Интервал, м | Литология (по колонке) | Кривые: поведение | Интерпретация (если подписана) |\n|---|---|---|---|\n| 8800–8850, единицы не указаны | Жёлтая колонка; отдельные красные штрихи/клинья; литология не определяется без легенды | GR и SONIC изменчивые; RILD низкоамплитудная кривая | — |\n| 8850–8900, единицы не указаны | Жёлтые интервалы с крупными красными клиновидными участками | GR и SONIC изменчивые; RILD с локальными изменениями | 09-35A 100% Production Conventional Completion |\n| Около 8900, единицы не указаны | Участок пересечён наклонной полосой | — | “Stofed water” [нрзб] |\n| 8900–9000, единицы не указаны | Преимущественно светлая колонка с тонкими красными и жёлтыми интервалами | RILD: крупная зелёно-голубая аномалия в нижней части интервала | 09-35A Nonconventional Completion; 09-35 100% Production No. Prod; 09-35A 100% Prod |\n\nKEYWORDS: добыча нефти, добыча воды, B/D, горизонтальный сайдтрек, GR, SONIC, RILD, каротаж"
+    }
+   ]
+  },
+  {
+   "page": 422,
+   "key": "d6b234dd044a999970a8bc70fc3f0a2d",
+   "figures": [
+    {
+     "unit_id": "p422.03",
+     "caption_unit": "p422.04",
+     "figure": "9.24",
+     "what": "Схематический разрез из двух частей. (a) Корреляция фаций по линии юго-запад – северо-восток между скв. 11-28 и 11-23 с каротажными кривыми, колонками флюидов и проектной скв. 11-30. (b) Путь ствола 11-30 через песчаники устьевого бара под выдержанной глиной залива с хвостовиком со щелевыми отверстиями; по подписи горизонтальный участок перпендикулярен разрезу (a).",
+     "axes": [
+      {
+       "name": "Глубина у скв. 11-28 (единицы не подписаны)",
+       "where": "(a), слева, растёт вниз",
+       "scale": "линейная",
+       "ticks": "8500, 8600, 8700"
+      },
+      {
+       "name": "Глубина у скв. 11-23 (единицы не подписаны)",
+       "where": "(a), справа, растёт вниз",
+       "scale": "линейная",
+       "ticks": "8400, 8500, 8600"
+      }
+     ],
+     "curves": [
+      {
+       "label": "11-28",
+       "meaning": "Каротажная кривая скв. 11-28 (тип каротажа не подписан)",
+       "behaviour": "Идёт вдоль левого края разреза сверху вниз, изрезана; в нижней части отклонения вправо и влево заметнее."
+      },
+      {
+       "label": "11-23",
+       "meaning": "Каротажная кривая скв. 11-23 (тип каротажа не подписан)",
+       "behaviour": "Идёт у правого края разреза сверху вниз, изрезана; в нижней части выбросы крупнее. Продолжается чуть ниже окрашенного разреза."
+      },
+      {
+       "label": "11-30",
+       "meaning": "(a) Ствол проектируемой скв. 11-30",
+       "behaviour": "Сверху идёт почти вертикально через флювиальные отложения, пойменные прослои и русловые песчаники. Внизу, в оранжевом интервале устьевого бара, изгибается вправо (в сторону северо-востока на чертеже) и кончается коротким почти горизонтальным участком."
+      },
+      {
+       "label": "Контур над скв. 11-30",
+       "meaning": "(a) Тонкая линия в форме перевёрнутой трапеции у кровли верхнего чёрного прослоя; значение не подписано",
+       "behaviour": "Сверху плоская, книзу сужается; от неё вправо до колонки флюидов тянется тонкая горизонтальная линия."
+      },
+      {
+       "label": "Толстая чёрная линия в (b)",
+       "meaning": "Путь ствола скважины через песчаники устьевого бара",
+       "behaviour": "Входит из правого верхнего угла, опускается влево, выполаживается в правой части блока и идёт влево с плавным подъёмом. Заканчивается слева короткой поперечной чертой."
+      },
+      {
+       "label": "894' of slotted liner (894 фута щелевого хвостовика)",
+       "meaning": "(b) Размерная двусторонняя стрелка длины хвостовика",
+       "behaviour": "Горизонтальная, расположена над блоком и охватывает большую часть его длины, от левой части до правой трети."
+      },
+      {
+       "label": "25' (25 футов)",
+       "meaning": "(b) Размерная вертикальная двусторонняя стрелка",
+       "behaviour": "Стоит у левого края блока, рядом с левым концом ствола."
+      }
+     ],
+     "regions": [
+      {
+       "label": "Fluvial/Crevasse Splay (флювиальные отложения / конусы прорыва), золотисто-жёлтый",
+       "meaning": "(a) Мощный верхний интервал, прослои между чёрными пойменными телами и полоса под ними."
+      },
+      {
+       "label": "Floodplain (пойменные отложения), чёрный",
+       "meaning": "(a) Несколько протяжённых чёрных прослоев в средней части, примерно 8560–8645 по левой шкале; у скв. 11-30 они утолщаются и сливаются."
+      },
+      {
+       "label": "Distributary Channel (распределительный канал), ярко-жёлтый",
+       "meaning": "(a) Интервал ниже флювиальных отложений и выше устьевого бара, с тонкими бежевыми прослоями залива."
+      },
+      {
+       "label": "Distributary Mouth Bar (устьевой бар протока), оранжевый",
+       "meaning": "(a) Нижний интервал под русловыми песчаниками; сюда выходит конец скв. 11-30. (b) Основной фон блока."
+      },
+      {
+       "label": "Bay (залив), светло-бежевый",
+       "meaning": "(a) Тонкие линзы и прослои внутри ярко-жёлтого и оранжевого интервалов. (b) Наклонные бежевые прослои в верхней части блока над стволом; по подписи это выдержанная глина залива."
+      },
+      {
+       "label": "Shelf, Prodelta, & Delta Front (шельф, продельта и фронт дельты), коричневато-песочный",
+       "meaning": "(a) Самый нижний слой разреза."
+      },
+      {
+       "label": "Белые клинья в (b)",
+       "meaning": "Узкие наклонные белые тела у подошвы блока; на самом рисунке (b) не подписаны."
+      },
+      {
+       "label": "Fluids (флюиды): колонки у скв. 11-28 и 11-23",
+       "meaning": "(a) Серый — газ (сверху), белый — нефть (внизу)."
+      }
+     ],
+     "legend": [
+      "Fluvial/Crevasse Splay (флювиальные отложения / конусы прорыва) — золотисто-жёлтый",
+      "Floodplain (пойма) — чёрный",
+      "Distributary Channel (распределительный канал) — ярко-жёлтый",
+      "Distributary Mouth Bar (устьевой бар) — оранжевый",
+      "Bay (залив) — светло-бежевый",
+      "Shelf, Prodelta, & Delta Front (шельф, продельта и фронт дельты) — коричневато-песочный",
+      "Gas (газ) — серый",
+      "Oil (нефть) — белый"
+     ],
+     "numbers": [
+      {
+       "what": "(a) Граница газ–нефть в колонке у скв. 11-28 (по левой шкале)",
+       "value": "≈8690"
+      },
+      {
+       "what": "(a) Граница газ–нефть в колонке у скв. 11-23 (по правой шкале)",
+       "value": "≈8595"
+      },
+      {
+       "what": "(a) Глубина нижнего пологого участка скв. 11-30 (по левой шкале)",
+       "value": "≈8755"
+      },
+      {
+       "what": "(b) Подписанная длина щелевого хвостовика, футы",
+       "value": "≈894"
+      },
+      {
+       "what": "(b) Подписанный вертикальный размер у левого края, футы",
+       "value": "≈25"
+      }
+     ],
+     "mismatches": [
+      {
+       "recogniser": "yellow-orange — Fluvial/Crevasse Splay;\n- bright yellow — Floodplain;\n- yellow — Distributary Channel;",
+       "scan": "Floodplain в легенде чёрный; Distributary Channel ярко-жёлтый; Fluvial/Crevasse Splay золотисто-жёлтый.",
+       "note": "Перепутаны цвета фаций: пойма чёрная."
+      },
+      {
+       "recogniser": "light yellow — Shelf, Prodelta, & Delta Front.",
+       "scan": "Shelf, Prodelta, & Delta Front — коричневато-песочный, самый нижний слой.",
+       "note": "Неверный цвет шельфовых отложений."
+      },
+      {
+       "recogniser": "Fluid legend:\n- black — Gas;\n- white — Oil.",
+       "scan": "Gas обозначен серым, Oil — белым.",
+       "note": "Газ серый, а не чёрный."
+      },
+      {
+       "recogniser": "The section contains several laterally continuous black gas intervals, with white oil intervals and coloured depositional bodies between them.",
+       "scan": "Чёрные прослои — пойменные отложения; газ и нефть показаны только серо-белыми колонками у скважин.",
+       "note": "Пойма принята за газ."
+      },
+      {
+       "recogniser": "A vertical black well trajectory is shown at well 11-30, curving toward the southwest at approximately depth 8650–8680.",
+       "scan": "Ствол изгибается вправо, к Northeast, внизу, примерно на 8730–8755 по левой шкале.",
+       "note": "Неверны направление изгиба и глубина."
+      },
+      {
+       "recogniser": "At well 11-23, a vertical log-like curve is displayed beside the well.",
+       "scan": "Каротажные кривые есть и у 11-23, и у 11-28.",
+       "note": "Пропущена кривая у скв. 11-28."
+      },
+      {
+       "recogniser": "A liner labelled 894' of slotted liner extends from left to right. The liner is inclined at 25° relative to horizontal.",
+       "scan": "25' — вертикальный размер в футах у левого края; угол не указан. 894' — горизонтальная размерная стрелка.",
+       "note": "25 футов принято за угол 25°."
+      },
+      {
+       "recogniser": "Multiple narrow diagonal slots are shown along the liner.",
+       "scan": "Щели не нарисованы; диагональные клинья — наклонные прослои в породе.",
+       "note": "Прослои приняты за щели хвостовика."
+      },
+      {
+       "recogniser": "An arrow above the liner points to the left.",
+       "scan": "Над блоком двусторонняя размерная стрелка длиной 894'.",
+       "note": "Стрелка двусторонняя, это размер."
+      },
+      {
+       "recogniser": "several white elongated lenses occur within the orange body. An arrow above",
+       "scan": "Белые клинья лежат у нижнего края блока; в верхней части есть бежевые наклонные прослои, описанием не названные.",
+       "note": "Пропущены бежевые прослои залива."
+      }
+     ],
+     "unreadable": [
+      "Единицы глубины в (a) не подписаны.",
+      "Тип каротажных кривых у скв. 11-28 и 11-23 не указан.",
+      "Смысл трапециевидного контура и тонкой горизонтальной линии в (a) не подписан.",
+      "Назначение маленькой вертикальной двусторонней стрелки на стволе в правой части (b) не подписано.",
+      "Значение белых клиньев в (b) не подписано."
+     ],
+     "page": 422,
+     "source": "━━━ FORMAT 4: CROSS-SECTION / РАЗРЕЗ ━━━\n(a) Southwest–Northeast correlation section.\n\nVertical scale: depth; numerical labels 8500, 8600, 8700 at left and 8400, 8500, 8600 at right. Depth increases downward. Units are not printed.\n\nWells, from southwest to northeast:\n1. 11-28\n2. 11-30\n3. 11-23\n\nLithologic/depositional units shown by colour:\n- yellow-orange — Fluvial/Crevasse Splay;\n- bright yellow — Floodplain;\n- yellow — Distributary Channel;\n- orange — Distributary Mouth Bar;\n- pale beige — Bay;\n- light yellow — Shelf, Prodelta, & Delta Front.\n\nFluid legend:\n- black — Gas;\n- white — Oil.\n\nThe section contains several laterally continuous black gas intervals, with white oil intervals and coloured depositional bodies between them. A vertical black well trajectory is shown at well 11-30, curving toward the southwest at approximately depth 8650–8680. At well 11-23, a vertical log-like curve is displayed beside the well.\n\n━━━ FORMAT 12: CONCEPTUAL DIAGRAM / КОНЦЕПТУАЛЬНАЯ СХЕМА ━━━\n(b) Diagram of a slotted liner installed in an inclined interval.\n\nA liner labelled 894' of slotted liner extends from left to right. The liner is inclined at 25° relative to horizontal. Multiple narrow diagonal slots are shown along the liner. Black curved and diagonal lines cross the orange host body and intersect or approach the liner; several white elongated lenses occur within the orange body. An arrow above the liner points to the left.\n\nKey idea: the diagram shows the geometry of a 894-foot slotted liner in a 25° inclined interval, intersecting inclined internal features.\n\nKEYWORDS: correlation section, wells, gas, oil, slotted liner, distributary channel, fluvial crevasse splay, inclined completion"
+    }
+   ]
+  },
+  {
+   "page": 423,
+   "key": "57728c3263b7a355c6391cdf40087e4c",
+   "figures": [
+    {
+     "unit_id": "p423.03",
+     "caption_unit": "p423.04",
+     "figure": "9.25",
+     "what": "Составной рисунок по пласту A реки Купарук (Kuparuk River unit A). Вверху слева типовой гамма-каротаж с подразделениями A3–A6, вверху справа пять карт A1–A5, показывающих последовательную проградацию с северо-запада на юго-восток. Ниже схематический корреляционный разрез по скважинам, а в самом низу цветной разрез NW–SE с разрывными смещениями.",
+     "axes": [
+      {
+       "name": "Глубина, первая колонка подписей (единицы не указаны)",
+       "where": "каротажная диаграмма, между треком кривой с заливкой и второй колонкой; растёт вниз",
+       "scale": "линейная",
+       "ticks": "6330, 6340, 6350, 6360, 6370, 6380, 6390, 6400, 6410, 6420, 6430, 6440"
+      },
+      {
+       "name": "Глубина, вторая колонка подписей (единицы не указаны)",
+       "where": "каротажная диаграмма, правее первой колонки; растёт вниз",
+       "scale": "линейная",
+       "ticks": "8840, 8850, 8860, 8870, 8880, 8890, 8900, 8910, 8920, 8930, 8940, 8950, 8960, 8970, 8980, 8990, 9000"
+      },
+      {
+       "name": "SCALE, V.E. = 30x (масштаб разреза по скважинам, вертикальное преувеличение 30x): вертикальный отрезок в футах (')",
+       "where": "слева под разрезом по скважинам, вверх",
+       "scale": "линейный масштабный отрезок",
+       "ticks": "0, 100'"
+      },
+      {
+       "name": "Горизонтальный масштаб разреза по скважинам, футы (')",
+       "where": "слева под разрезом по скважинам, вправо",
+       "scale": "линейный масштабный отрезок",
+       "ticks": "0, 5000'"
+      },
+      {
+       "name": "Масштабная линейка расстояний разреза NW–SE (единицы не указаны)",
+       "where": "под нижним разрезом, вправо",
+       "scale": "линейная",
+       "ticks": "0, 10,000, 20,000, 30,000, 40,000, 50,000"
+      }
+     ],
+     "curves": [
+      {
+       "label": "Чёрная кривая левого трека",
+       "meaning": "гамма-каротаж (по подписи рисунка)",
+       "behaviour": "Сильно изрезана. Там, где она отклоняется далеко влево, жёлтая заливка широкая, особенно в средней и верхней части; ниже, примерно от 6380 до 6440 по первой колонке, преобладает коричневая заливка и кривая в основном ближе к колонке глубин."
+      },
+      {
+       "label": "Чёрная наклонная линия на карте A3",
+       "meaning": "линия на карте, назначение не подписано",
+       "behaviour": "Идёт от верхней левой части контура вниз вправо, пересекая окрашенную зону."
+      },
+      {
+       "label": "Толстая синяя линия на разрезе по скважинам",
+       "meaning": "не подписана",
+       "behaviour": "Почти прямая, полого поднимается слева направо: слева у низа разреза, справа выше, у скважины 1E-3."
+      },
+      {
+       "label": "Верхняя красная линия на разрезе по скважинам",
+       "meaning": "не подписана; граница у кровли разреза",
+       "behaviour": "Проходит по верху разреза, слегка понижаясь вправо."
+      },
+      {
+       "label": "Нижняя красная линия на разрезе по скважинам",
+       "meaning": "не подписана",
+       "behaviour": "Идёт полого вверх слева направо в нижней части разреза, чуть выше синей линии."
+      },
+      {
+       "label": "Чёрная пунктирная линия под разрезом по скважинам",
+       "meaning": "не подписана; нижнее ограничение рисунка разреза",
+       "behaviour": "Проходит ниже окрашенных тел отдельными отрезками, в правой части поднимается вправо."
+      },
+      {
+       "label": "Цветные слои разреза NW–SE",
+       "meaning": "подразделения пласта A разными цветами, с добавленными разломами (по подписи)",
+       "behaviour": "Многочисленные ступенчатые изломы. Максимум высоты левее середины; к юго-востоку, особенно в правой трети, разрез круто погружается к A'. Оранжевый слой виден на северо-западе, голубой на северо-западе и в центре, пурпурный в центре, зелёный на юго-востоке."
+      }
+     ],
+     "regions": [
+      {
+       "label": "A6, A5, A4, A3",
+       "meaning": "подразделения пласта A в правой колонке каротажной диаграммы, сверху вниз; A4 и A3 самые мощные"
+      },
+      {
+       "label": "Жёлтая и коричневая заливка в левом треке",
+       "meaning": "литологические разности без условных обозначений; жёлтая с точками преобладает в верхней и средней части"
+      },
+      {
+       "label": "Розовая горизонтальная штриховка в узкой колонке",
+       "meaning": "интервалы в пределах примерно A5–A4; значение не подписано"
+      },
+      {
+       "label": "A1 (карта)",
+       "meaning": "окрашенная зона в верхней левой (северо-западной) части контура; 0-31 ft"
+      },
+      {
+       "label": "A2 (карта)",
+       "meaning": "окрашенная зона от верхней левой части к центру; 0-31 ft"
+      },
+      {
+       "label": "A3 (карта)",
+       "meaning": "широкая полоса от нижней левой части к верхне-центральной, пересечена чёрной линией; 0-32 ft"
+      },
+      {
+       "label": "A4 (карта)",
+       "meaning": "окрашенная зона в центрально-нижней части контура; 0-33 ft"
+      },
+      {
+       "label": "A5 (карта)",
+       "meaning": "бледно-жёлтая зона в нижней части контура; 0-16 ft"
+      },
+      {
+       "label": "A-1 (подпись частично закрыта), A-2, A-3, A-4, A-5, A-6",
+       "meaning": "подразделения на разрезе по скважинам, сменяющие друг друга слева направо (с северо-запада на юго-восток); жёлтые тела среди серых"
+      },
+      {
+       "label": "A, B",
+       "meaning": "буквы слева: A над разрезом по скважинам, B у масштаба под ним"
+      },
+      {
+       "label": "NW (северо-запад), SE (юго-восток), A'",
+       "meaning": "ориентировка нижнего разреза и обозначение его правого конца"
+      }
+     ],
+     "legend": [],
+     "numbers": [
+      {
+       "what": "Диапазон под картой A1 (вероятно, мощность)",
+       "value": "≈0-31 ft"
+      },
+      {
+       "what": "Диапазон под картой A2",
+       "value": "≈0-31 ft"
+      },
+      {
+       "what": "Диапазон под картой A3",
+       "value": "≈0-32 ft"
+      },
+      {
+       "what": "Диапазон под картой A4",
+       "value": "≈0-33 ft"
+      },
+      {
+       "what": "Диапазон под картой A5",
+       "value": "≈0-16 ft"
+      },
+      {
+       "what": "Вертикальное преувеличение разреза по скважинам",
+       "value": "≈30x"
+      }
+     ],
+     "mismatches": [
+      {
+       "recogniser": "A1: strongest shaded area in the upper-left part of the outline; posted value: −0.31 [unit illegible].",
+       "scan": "Подписано «0-31 ft.»: это диапазон от 0 до 31 фута.",
+       "note": "Диапазон принят за отрицательное число, единицы пропущены"
+      },
+      {
+       "recogniser": "A5: weak yellow shaded anomaly in the lower-left/central part; posted value: −0.16 [unit illegible].",
+       "scan": "Подписи карт: 0-31, 0-31, 0-32, 0-33, 0-16 ft.; у A5 «0-16 ft.».",
+       "note": "Диапазоны всех карт прочитаны как отрицательные значения"
+      },
+      {
+       "recogniser": "Depth axis is vertical; numerical depth labels are [illegible]. Depth increases downward.",
+       "scan": "Читаются две колонки глубин: 6330–6440 и 8840–9000.",
+       "note": "Подписи глубин пропущены"
+      },
+      {
+       "recogniser": "yellow, orange, green and blue fills are present.",
+       "scan": "В левом треке только жёлтая и коричнево-оранжевая заливки.",
+       "note": "Зелёной и синей заливки на каротаже нет"
+      },
+      {
+       "recogniser": "Right narrow track: vertical column with a pink-filled interval; labels are [illegible].",
+       "scan": "В правой колонке подписаны A6, A5, A4, A3; розовая штриховка в соседней колонке левее.",
+       "note": "Пропущены подразделения, перепутано положение розовой заливки"
+      },
+      {
+       "recogniser": "A3: shaded area occupies the central part; a black diagonal line crosses",
+       "scan": "Окраска A3 вытянута полосой от нижней левой части к верхне-центральной.",
+       "note": "Не отмечена вытянутая диагональная форма зоны"
+      },
+      {
+       "recogniser": "A4: shaded anomaly is centred; posted value: −0.33",
+       "scan": "Зона A4 смещена в нижнюю половину контура; подпись «0-33 ft.».",
+       "note": "Неверны положение зоны и значение"
+      },
+      {
+       "recogniser": "A prominent black diagonal boundary/fault-like line descends toward the right in the left-central part of the section",
+       "scan": "На разрезе по скважинам такой линии нет; чёрная диагональ есть на карте A3. Заметны толстая синяя и красные линии.",
+       "note": "Линия приписана разрезу, синяя линия пропущена"
+      },
+      {
+       "recogniser": "“USGNU #1”; “Y-2”; “1A-15”; “1A-6”; “1B-1”; “1E-8”; “1E-8”; “1E-3”.",
+       "scan": "UGNU #1, 1Y-2, 1A-15, 1A-8, 1B-1, 1E-8, 1E-5, 1E-3.",
+       "note": "Неверно прочитаны названия скважин"
+      },
+      {
+       "recogniser": "Internal labels include “A-2”, “A-3”, and “A-4”; other labels are [illegible].",
+       "scan": "Есть также A-5, A-6 и частично закрытая подпись A-1 слева.",
+       "note": "Пропущены подписи подразделений"
+      },
+      {
+       "recogniser": "A scale symbol at lower left is labelled “SCALE” and “Ver. 50” [remaining text illegible].",
+       "scan": "«SCALE, V.E. = 30x», вертикальный отрезок 100', горизонтальный 5000'.",
+       "note": "Неверно прочитано вертикальное преувеличение, пропущены масштабы"
+      },
+      {
+       "recogniser": "Profile endpoints: A at the NW end and A′ at the SE end.",
+       "scan": "На нижнем разрезе видна только A' справа; буквы A у северо-западного конца нет.",
+       "note": "Приписана невидимая подпись"
+      }
+     ],
+     "unreadable": [
+      "Шапка и шкала гамма-каротажа в левом треке: значения и единицы не видны",
+      "Единицы глубин и различие двух колонок глубин",
+      "Мелкие синие схемы под картами A1–A5",
+      "Подпись нижнего левого подразделения на разрезе по скважинам (видно только «A-», вероятно A-1)",
+      "Единицы масштабной линейки нижнего разреза",
+      "Значение синей, красных и пунктирной линий: условных обозначений нет",
+      "Отдельные разломы и величины смещений на нижнем разрезе не подписаны"
+     ],
+     "page": 423,
+     "source": "━━━ FORMAT 2: WELL LOG / КАРОТАЖНАЯ ДИАГРАММА ━━━\nVertical multi-track log panel at upper left.\n\n- Depth axis is vertical; numerical depth labels are [illegible]. Depth increases downward.\n- Left track: irregular black curve beside a coloured interval column; yellow, orange, green and blue fills are present.\n- Central narrow track: repeated horizontal interval markers; labels are [illegible].\n- Right narrow track: vertical column with a pink-filled interval; labels are [illegible].\n- Lithology is not determined without a legend.\n\n| Interval, m | Lithology (by column) | Curves: behaviour | Interpretation (if labelled) |\n|---|---|---|---|\n| [illegible] | coloured fills; lithology not determined without a legend | black curve shows repeated lateral excursions | [illegible] |\n\n━━━ FORMAT 3: MAP / КАРТА ━━━\nFive small maps, arranged left to right and labelled A1, A2, A3, A4, A5.\n\n- Map/property type: [illegible].\n- Each map has an irregular stepped outline and a coloured yellow-to-orange shaded anomaly.\n- A1: strongest shaded area in the upper-left part of the outline; posted value: −0.31 [unit illegible].\n- A2: shaded anomaly extends diagonally from upper left toward the centre; posted value: −0.31 [unit illegible].\n- A3: shaded area occupies the central part; a black diagonal line crosses from upper left toward lower right; posted value: −0.32 [unit illegible].\n- A4: shaded anomaly is centred; posted value: −0.33 [unit illegible].\n- A5: weak yellow shaded anomaly in the lower-left/central part; posted value: −0.16 [unit illegible].\n- Blue labels beneath individual maps are [illegible].\n- Contour interval, north arrow, scale, and legend are not visible.\n\n━━━ FORMAT 4: CROSS-SECTION / РАЗРЕЗ ━━━\nColoured correlation/geological section below the small maps.\n\n- Orientation: left endpoint labelled A; right endpoint label is [illegible].\n- Horizontal direction is left to right; horizontal scale is not stated.\n- Vertical coordinate and units are not stated.\n- Several inclined and subhorizontal coloured surfaces/units are shown: yellow, orange, green, blue, grey and pink; lithology is not determined without a legend.\n- A prominent black diagonal boundary/fault-like line descends toward the right in the left-central part of the section; type and displacement are not labelled.\n- Black vertical well/control lines occur along the profile.\n- Readable or partly readable labels above the section, left to right: “W. SAK #16”; “W. SAK # [illegible]”; “USGNU #1”; “Y-2”; “1A-15”; “1A-6”; “1B-1”; “1E-8”; “1E-8”; “1E-3”.\n- Internal labels include “A-2”, “A-3”, and “A-4”; other labels are [illegible].\n- A scale symbol at lower left is labelled “SCALE” and “Ver. 50” [remaining text illegible].\n\n━━━ FORMAT 4: CROSS-SECTION / РАЗРЕЗ ━━━\nRegional coloured section, from NW to SE.\n\n- Orientation: NW at the left, SE at the right.\n- Profile endpoints: A at the NW end and A′ at the SE end.\n- Horizontal coordinate increases from NW to SE.\n- Vertical axis, vertical datum, units, and vertical scale are not shown.\n- Horizontal scale bar labels: 0; 10,000; 20,000; 30,000; 40,000; 50,000. Unit is not stated.\n- A black-and-white alternating scale bar is shown below the profile.\n- Multiple coloured, laterally variable layered surfaces are present, including brown/orange, dark blue, cyan, purple, magenta, green, and black boundaries.\n- The coloured packages are strongly undulating in the NW and central parts and generally descend toward the SE; the green unit is prominent toward the SE.\n- Lithology is not determined without a legend.\n- No fluid contacts, well names, fault throws, or stratigraphic-unit names are labelled.\n\nKEYWORDS: well log, coloured interval column, anomaly maps, correlation section, NW–SE profile, geological surfaces, scale bar"
+    }
+   ]
+  }
+ ]
+}

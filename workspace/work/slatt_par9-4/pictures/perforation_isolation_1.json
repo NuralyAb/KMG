@@ -1,0 +1,34 @@
+{
+ "node_id": "slatt.perforation_isolation",
+ "template": "section",
+ "data": {
+  "shape": "flat",
+  "layers": [
+   {
+    "lithology": "sand",
+    "label": "речной: прониц.↑"
+   },
+   {
+    "lithology": "shale",
+    "label": "глина"
+   },
+   {
+    "lithology": "sand",
+    "label": "дельтовый: вскрыт",
+    "fluids": [
+     "oil"
+    ]
+   }
+  ],
+  "wells": []
+ },
+ "caption": "Перфорируют только нижний, менее проницаемый дельтовый песчаник, чтобы он не конкурировал за воду с речным выше.",
+ "alt": "Разрез сверху вниз: более проницаемый речной песчаник, глина и нефтяной дельтовый песчаник, который и вскрывают перфорацией.",
+ "claim_ids": [
+  "slatt.perforation_isolation#c1",
+  "slatt.perforation_isolation#c2",
+  "slatt.perforation_isolation#c3",
+  "slatt.perforation_isolation#c5",
+  "slatt.perforation_isolation#c7"
+ ]
+}
