@@ -68,6 +68,15 @@ def suspects_in(quotes: Sequence[str], entries: Sequence[Entry]) -> list[Entry]:
     return [e for e in entries if e["kind"] == "suspect" and any(touches(squeeze(e["md"]), t) for t in texts)]
 
 
+def not_caught(found: Sequence[Entry], entries: Sequence[Entry]) -> list[Entry]:
+    """Записи правила, которых нет в листе модели: модель на той же странице взяла в md само место подмены (core).
+    Общий кусок из 10 знаков не годится: формулы страницы делят «\tag{II.10» и «$$»."""
+    def same(rule: Entry, model: Entry) -> bool:
+        return rule["page"] == model["page"] and squeeze(rule.get("core") or rule["md"]) in squeeze(model["md"])
+
+    return [f for f in found if not any(same(f, e) for e in entries)]
+
+
 def prompt_block(entries: Sequence[Entry]) -> str:
     if not entries:
         return ""
