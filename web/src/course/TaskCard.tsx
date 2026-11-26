@@ -172,7 +172,7 @@ export function TaskCard({ task }: { task: Task }) {
   };
   const parts = { task, picked, setPicked, isShown };
   return (
-    <div className="card task" data-task={task.id} ref={root} onKeyDown={(e) => { if (e.key === 'Enter' && e.target instanceof HTMLInputElement) { e.preventDefault(); check(); } }}>
+    <div className="card task" data-task={task.id} data-type={task.type} ref={root} onKeyDown={(e) => { if (e.key === 'Enter' && e.target instanceof HTMLInputElement) { e.preventDefault(); check(); } }}>
       <h3 id={promptId}>{task.type === 'gap' ? 'Заполните пропуски' : <Rich text={task.prompt} />}</h3>
       <p className="muted">{HINT[task.type]}{state.solved[task.id] === true && <> · <span className="ok">решено</span></>}</p>
       {task.type === 'gap' && <Gaps task={task} values={values} setValues={setValues} isShown={isShown} />}

@@ -69,7 +69,17 @@
   entry.className = 'lab-link';
   entry.href = 'lab.html';
   entry.textContent = 'Лаборатория';
-  document.body.append(entry);
+  // кнопка стоит в шапке курса рядом с прогрессом; без шапки — в углу экрана
+  // на узком экране шапке не хватает места: кнопка стоит в конце страницы
+  const wide = matchMedia('(min-width: 1001px)');
+  const place = () => {
+    const slot = wide.matches ? document.querySelector('.top-end') : null;
+    if (slot && entry.parentElement !== slot) slot.prepend(entry);
+    else if (!slot && entry.parentElement !== document.body) document.body.append(entry);
+  };
+  place();
+  wide.addEventListener('change', place);
+  new MutationObserver(place).observe(document.body, { childList: true, subtree: true });
   script.addEventListener('load', start);
   document.head.append(script);
 })();
