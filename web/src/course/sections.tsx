@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent, type MouseEvent, type ReactNode } from 'react';
 import { Chip, Html, Items, Pages, Rich, WhoChip, type Who } from './bits';
 import { useCourse } from './context';
-import { markTerms, splitLead, symbol, tableRows, texOnly } from './core';
+import { claimAnchor, markTerms, splitLead, symbol, tableRows, texOnly } from './core';
 import { say } from './store';
 import { TaskCard } from './TaskCard';
 import type { BookTable, Claim, Formula, Step } from './types';
@@ -85,7 +85,7 @@ function Table({ table }: { table: BookTable }) {
 function ClaimRow({ claim }: { claim: Claim }) {
   const isFigure = claim.source_kind === 'figure_description_model';
   return (
-    <li><Rich text={claim.text} /><Pages list={[claim.page_pdf]} />{KIND[claim.kind] && <Chip>{KIND[claim.kind]}</Chip>}{claim.by_model && <> <WhoChip who="model" /></>}{isFigure && <Chip>по описанию рисунка</Chip>}{claim.needs_scan && <Chip>сверить со сканом</Chip>}
+    <li id={claimAnchor(claim.id)} tabIndex={-1}><Rich text={claim.text} /><Pages list={[claim.page_pdf]} />{KIND[claim.kind] && <Chip>{KIND[claim.kind]}</Chip>}{claim.by_model && <> <WhoChip who="model" /></>}{isFigure && <Chip>по описанию рисунка</Chip>}{claim.needs_scan && <Chip>сверить со сканом</Chip>}
       <details><summary>{isFigure ? 'Описание рисунка' : 'Цитата автора'}</summary><blockquote><Rich text={claim.quote} /></blockquote></details></li>
   );
 }

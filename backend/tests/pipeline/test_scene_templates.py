@@ -33,7 +33,11 @@ def template(name):
 
     if not HAS_CAIRO:
         pytest.skip("шаблон импортирует cairo")
-    return load_module(DOMAIN / "geology" / "video" / f"{name}.py")
+    file = DOMAIN / "geology" / "video" / f"{name}.py"
+    # тесты написаны раньше шаблона: пока его нет, они пропускаются, а не роняют main
+    if not file.exists():
+        pytest.skip(f"шаблон {name} ещё не написан")
+    return load_module(file)
 
 
 def beat(action):

@@ -4,6 +4,7 @@ import { isDone, lessonsOf, stepUrl, useCourse } from './context';
 import { arcDepth, edges, nextCard, percent, rateCard, splitBook, type CardMark } from './core';
 import { itemsOf } from './items';
 import { Icons } from './icons';
+import { Results } from './Results';
 import type { Part, Step } from './types';
 
 const sum = (list: number[]): number => list.reduce((a, b) => a + b, 0);
@@ -198,5 +199,6 @@ export const Help = () => (
     <h1 tabIndex={-1}>Помощь</h1>
     <section className="block"><h2>Кто это написал и что значат пометки</h2><dl className="legend">{LEGEND.map(([look, name, text]) => <div key={name}><dt><span className={look}>{name}</span></dt><dd>{text}</dd></div>)}</dl></section>
     <section className="block"><h2>Прогресс</h2><p>Урок считается пройденным после кнопки «Понятно, дальше». Прогресс, ответы и заметки хранятся только в этом браузере.</p></section>
+    <Results />
   </div>
 );

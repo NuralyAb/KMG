@@ -23,8 +23,13 @@ const savedY = (): number => {
 function toSection(root: HTMLElement | null, id: string): boolean {
   const el = document.getElementById(id);
   if (!el || !root?.contains(el)) return false;
+  // утверждение лежит в закрытом «Источнике»: без раскрытия прокрутка вела бы в пустоту
+  for (let d = el.parentElement?.closest('details'); d; d = d.parentElement?.closest('details')) d.open = true;
   el.scrollIntoView();
-  el.querySelector('h2')?.focus({ preventScroll: true });
+  const head = el.querySelector('h2');
+  // ссылка ведёт на утверждение: фокус на нём, цитата раскрыта
+  if (!head) el.querySelector('details')?.setAttribute('open', '');
+  (head ?? el).focus({ preventScroll: true });
   return true;
 }
 
