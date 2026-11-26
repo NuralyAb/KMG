@@ -76,7 +76,7 @@ git diff --name-only freeze-2026-11-26-r3 -- backend web scripts pyproject.toml 
 
 ## Модуль проверки
 
-Ответ на тестовый пакет — в [review/](review).
+Ответ на тестовый пакет `test_asquith` — [review/test_asquith_answer.json](../review/test_asquith_answer.json): сырой вывод `glava review asquith_ch7 --package <пакет>` на замороженном коде, 19 замечаний, $2,82, руками не правился.
 
 ## Перенос
 
