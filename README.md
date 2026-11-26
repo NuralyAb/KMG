@@ -181,11 +181,12 @@ $env:PYTHONPATH = 'backend'
 ## Тесты
 
 ```powershell
+uv sync --locked --group video
 uv run pytest
 cd web; npm ci; npm test
 ```
 
-Тестам роликов нужен pycairo. В основном окружении его нет, поэтому без него падает `test_audio_problems_are_named`. Полный набор: `$env:PYTHONPATH = 'backend'`, затем `uv pip install --python .venv-video\Scripts\python.exe pytest` и `.venv-video\Scripts\python.exe -m pytest`. Те же проверки идут в GitHub Actions (`.github/workflows/ci.yml`).
+Тестам роликов и шаблонов сцен нужен pycairo из группы `video`. Без неё (`uv sync --locked`) падают тесты `test_scene_templates.py`: 8 из 1701. С группой проверено на чистой копии под macOS 26.11.2026: бэкенд 1693 прошло, 10 пропущено; веб 235; `npm run build:course` даёт тот же `course.js`, что в git. Старый путь через `.venv-video` тоже работает: `$env:PYTHONPATH = 'backend'`, `uv pip install --python .venv-video\Scripts\python.exe pytest`, `.venv-video\Scripts\python.exe -m pytest`. Те же проверки идут в GitHub Actions (`.github/workflows/ci.yml`).
 
 ## Приложение
 
