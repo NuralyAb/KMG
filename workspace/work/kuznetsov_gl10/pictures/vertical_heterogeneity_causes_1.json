@@ -1,0 +1,67 @@
+{
+ "node_id": "kuznetsov.vertical_heterogeneity_causes",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Главное: этапы плато, отмели и острова",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Под водой: смена рифостроителей и фаций",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Разные осадки; на острове — выщелачивание и карст пластами",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Биогермы чередуются с детритовыми и микрозернистыми пачками",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Слои с разными пустотами и коллекторскими свойствами",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Две группы причин вертикальной неоднородности мощного, долго растущего рифа; обе ведут к слоистости.",
+ "alt": "Две ветви сходятся к слоистости: смена этапов плато, отмели и острова и смена рифостроящих организмов и фаций под водой.",
+ "claim_ids": [
+  "kuznetsov.vertical_heterogeneity_causes#c3",
+  "kuznetsov.vertical_heterogeneity_causes#c4",
+  "kuznetsov.vertical_heterogeneity_causes#c7",
+  "kuznetsov.vertical_heterogeneity_causes#c9",
+  "kuznetsov.vertical_heterogeneity_causes#c10",
+  "kuznetsov.vertical_heterogeneity_causes#c12",
+  "kuznetsov.vertical_heterogeneity_causes#c13",
+  "kuznetsov.vertical_heterogeneity_causes#c14"
+ ]
+}

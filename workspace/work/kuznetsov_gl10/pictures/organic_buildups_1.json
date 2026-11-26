@@ -1,0 +1,43 @@
+{
+ "node_id": "kuznetsov.organic_buildups",
+ "template": "compare",
+ "data": {
+  "left_title": "Биостром",
+  "right_title": "Биогерм",
+  "rows": [
+   {
+    "aspect": "Форма тела",
+    "left": "пласт, серия пластов, уплощённая линза",
+    "right": "холм"
+   },
+   {
+    "aspect": "Мощность к синхронным осадкам",
+    "left": "примерно равна",
+    "right": "больше"
+   },
+   {
+    "aspect": "Рельеф дна",
+    "left": "не выражен",
+    "right": "при росте возвышался над дном"
+   },
+   {
+    "aspect": "Уровень действия волн",
+    "left": "—",
+    "right": "при росте не выходил выше него"
+   }
+  ]
+ },
+ "caption": "Обе постройки сложены породами биогермной структуры; различаются форма, мощность и выраженность в рельефе дна.",
+ "alt": "Таблица: биостром — пласт или линза мощностью как у окружающих осадков, биогерм — холм большей мощности, не выходивший выше уровня действия волн.",
+ "claim_ids": [
+  "kuznetsov.organic_buildups#c7",
+  "kuznetsov.organic_buildups#c9",
+  "kuznetsov.organic_buildups#c10",
+  "kuznetsov.organic_buildups#c11",
+  "kuznetsov.organic_buildups#c12",
+  "kuznetsov.organic_buildups#c13",
+  "kuznetsov.organic_buildups#c14",
+  "kuznetsov.organic_buildups#c15",
+  "kuznetsov.organic_buildups#c17"
+ ]
+}

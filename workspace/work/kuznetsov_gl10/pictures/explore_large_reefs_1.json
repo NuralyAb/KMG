@@ -1,0 +1,46 @@
+{
+ "node_id": "kuznetsov.explore_large_reefs",
+ "template": "section",
+ "data": {
+  "shape": "reef",
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "покрышка"
+   },
+   {
+    "lithology": "reef",
+    "label": "крупный риф",
+    "fluids": [
+     "oil"
+    ]
+   },
+   {
+    "lithology": "limestone",
+    "label": "основание"
+   }
+  ],
+  "wells": [
+   {
+    "x": 0.3,
+    "label": "первые"
+   },
+   {
+    "x": 0.5,
+    "label": "позже"
+   },
+   {
+    "x": 0.7,
+    "label": "первые"
+   }
+  ]
+ },
+ "caption": "Крупный плосковершинный риф или атолл: сначала скважины по периферии, в центре — на втором этапе оценки.",
+ "alt": "Разрез через крупный риф: первые скважины стоят по краям, более поздняя — в центре.",
+ "claim_ids": [
+  "kuznetsov.explore_large_reefs#c10",
+  "kuznetsov.explore_large_reefs#c12",
+  "kuznetsov.explore_large_reefs#c20",
+  "kuznetsov.explore_large_reefs#c21"
+ ]
+}

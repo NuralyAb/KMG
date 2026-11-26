@@ -1,0 +1,31 @@
+{
+ "node_id": "kuznetsov.seal_over_reef",
+ "template": "section",
+ "data": {
+  "shape": "reef",
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "Покрышка"
+   },
+   {
+    "lithology": "reef",
+    "label": "Риф"
+   },
+   {
+    "lithology": "limestone",
+    "label": "Основание"
+   }
+  ],
+  "wells": []
+ },
+ "caption": "Непроницаемая толща накрыла выступающий риф — возникла ловушка. Здесь глины (влажный климат); при сухом — эвапориты",
+ "alt": "Разрез: выступающий рифовый массив перекрыт сверху непроницаемой глинистой покрышкой.",
+ "claim_ids": [
+  "kuznetsov.seal_over_reef#c1",
+  "kuznetsov.seal_over_reef#c5",
+  "kuznetsov.seal_over_reef#c6",
+  "kuznetsov.seal_over_reef#c7",
+  "kuznetsov.seal_over_reef#c9"
+ ]
+}

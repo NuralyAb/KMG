@@ -1,0 +1,34 @@
+{
+ "node_id": "kuznetsov.structural_reef_traps",
+ "template": "section",
+ "data": {
+  "shape": "anticline",
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "покрышка"
+   },
+   {
+    "lithology": "reef",
+    "label": "низкая постройка",
+    "fluids": [
+     "oil",
+     "water"
+    ]
+   },
+   {
+    "lithology": "dense",
+    "label": "подстилающие"
+   }
+  ],
+  "wells": []
+ },
+ "caption": "Локальное поднятие изгибает низкую рифовую постройку: форму ловушки создаёт в основном тектоника, а риф служит резервуаром.",
+ "alt": "Разрез: пласты изогнуты сводом вверх, под покрышкой в своде рифового резервуара находится нефть, ниже вода.",
+ "claim_ids": [
+  "kuznetsov.structural_reef_traps#c8",
+  "kuznetsov.structural_reef_traps#c9",
+  "kuznetsov.structural_reef_traps#c10",
+  "kuznetsov.structural_reef_traps#c11"
+ ]
+}

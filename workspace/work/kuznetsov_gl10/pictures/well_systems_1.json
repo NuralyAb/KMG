@@ -1,0 +1,65 @@
+{
+ "node_id": "kuznetsov.well_systems",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Какова форма ловушки?",
+    "kind": "choice"
+   },
+   {
+    "id": "b",
+    "text": "Конус или подкова: многоствольная система",
+    "kind": "result"
+   },
+   {
+    "id": "c",
+    "text": "Другие формы: что с вершиной и симметрией?",
+    "kind": "choice"
+   },
+   {
+    "id": "d",
+    "text": "Плоская вершина или атолл: кольцо по периферии",
+    "kind": "result"
+   },
+   {
+    "id": "e",
+    "text": "Асимметричная с уплощённой вершиной: профили",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": "симм."
+   },
+   {
+    "from": "a",
+    "to": "c",
+    "label": "другая"
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": "симм."
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": "асимм."
+   }
+  ]
+ },
+ "caption": "Форма ловушки определяет систему разведки: несколько стволов, кольцо скважин или профили.",
+ "alt": "Схема выбора: для конусовидной и подковообразной ловушки многоствольная система, для плосковершинной и атолловидной кольцевая, для асимметричной профильная.",
+ "claim_ids": [
+  "kuznetsov.well_systems#c5",
+  "kuznetsov.well_systems#c6",
+  "kuznetsov.well_systems#c7",
+  "kuznetsov.well_systems#c8",
+  "kuznetsov.well_systems#c9",
+  "kuznetsov.well_systems#c15"
+ ]
+}

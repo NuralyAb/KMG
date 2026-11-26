@@ -1,0 +1,36 @@
+{
+ "node_id": "kuznetsov.layered_lenticular",
+ "template": "section",
+ "data": {
+  "shape": "flat",
+  "layers": [
+   {
+    "lithology": "dense",
+    "label": "плотная, трещины"
+   },
+   {
+    "lithology": "limestone",
+    "label": "пористый пласт"
+   },
+   {
+    "lithology": "dense",
+    "label": "плотная, трещины"
+   },
+   {
+    "lithology": "limestone",
+    "label": "пористый пласт"
+   },
+   {
+    "lithology": "dense",
+    "label": "плотная, трещины"
+   }
+  ]
+ },
+ "caption": "Условная схема Карачаганака: пористые пласты разделены плотными пачками. Трещины в них, видимо, связывают пласты.",
+ "alt": "Чередование слоёв: два пористых пласта-коллектора разделены и окаймлены плотными трещиноватыми пачками.",
+ "claim_ids": [
+  "kuznetsov.layered_lenticular#c3",
+  "kuznetsov.layered_lenticular#c8",
+  "kuznetsov.layered_lenticular#c9"
+ ]
+}

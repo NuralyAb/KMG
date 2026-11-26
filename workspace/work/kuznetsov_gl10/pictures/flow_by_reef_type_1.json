@@ -1,0 +1,38 @@
+{
+ "node_id": "kuznetsov.flow_by_reef_type",
+ "template": "compare",
+ "data": {
+  "left_title": "Плоские и атоллы",
+  "right_title": "Асимметричные",
+  "rows": [
+   {
+    "aspect": "Форма лучшей зоны",
+    "left": "кольцо",
+    "right": "линия вдоль простирания рифов"
+   },
+   {
+    "aspect": "Где лучшие коллекторы",
+    "left": "гребень, часто и верх внешнего склона",
+    "right": "биогермные ядра и внешние склоны"
+   },
+   {
+    "aspect": "Где фильтрации мешает порода",
+    "left": "центр и лагуны: затруднена или почти нет",
+    "right": "зарифовые: слабо или совсем непроницаемы"
+   }
+  ]
+ },
+ "caption": "Кольцо против полосы. В небольших простых куполовидных рифах иначе: лучшее — в ядре, поток вбок и по вертикали",
+ "alt": "Сравнение: в плосковершинных рифах и атоллах лучшие коллекторы образуют кольцо, в асимметричных системах — линию вдоль рифов.",
+ "claim_ids": [
+  "kuznetsov.flow_by_reef_type#c4",
+  "kuznetsov.flow_by_reef_type#c5",
+  "kuznetsov.flow_by_reef_type#c6",
+  "kuznetsov.flow_by_reef_type#c8",
+  "kuznetsov.flow_by_reef_type#c9",
+  "kuznetsov.flow_by_reef_type#c11",
+  "kuznetsov.flow_by_reef_type#c12",
+  "kuznetsov.flow_by_reef_type#c13",
+  "kuznetsov.flow_by_reef_type#c14"
+ ]
+}

@@ -1,0 +1,86 @@
+{
+ "node_id": "kuznetsov.primary_porosity",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Полости скелетов, промежутки в каркасе, щели",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Межзерновые поры и пещеровидные пустоты",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Разнообразная первичная пористость рифа",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Инкрустирующие водоросли, подводная цементация",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Мелкие организмы и детрит, выпадение карбонатов",
+    "kind": "step"
+   },
+   {
+    "id": "f",
+    "text": "В полном объёме и чистом виде практически не сохраняется",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": "при росте"
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "f",
+    "label": ""
+   },
+   {
+    "from": "e",
+    "to": "f",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Сверху — откуда берутся исходные пустоты, ниже — что их сокращает. Перечень причин сокращения не исчерпан.",
+ "alt": "Схема: полости скелетов, каркасные, щелевидные, межзерновые и пещеровидные пустоты образуют первичную пористость. Водоросли, цементация, заполнение и выпадение карбонатов сокращают её, и в полном объёме она практически не сохраняется.",
+ "claim_ids": [
+  "kuznetsov.primary_porosity#c3",
+  "kuznetsov.primary_porosity#c4",
+  "kuznetsov.primary_porosity#c5",
+  "kuznetsov.primary_porosity#c8",
+  "kuznetsov.primary_porosity#c9",
+  "kuznetsov.primary_porosity#c10",
+  "kuznetsov.primary_porosity#c11",
+  "kuznetsov.primary_porosity#c15",
+  "kuznetsov.primary_porosity#c16",
+  "kuznetsov.primary_porosity#c17",
+  "kuznetsov.primary_porosity#c18",
+  "kuznetsov.primary_porosity#c19"
+ ]
+}

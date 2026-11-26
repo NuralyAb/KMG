@@ -1,0 +1,783 @@
+{
+ "chapter": "kuznetsov_gl10",
+ "illustrations": [
+  {
+   "id": "kuznetsov.reefs_for_oil.i1",
+   "step_id": "kuznetsov.reefs_for_oil",
+   "node_id": "kuznetsov.reefs_for_oil",
+   "file": "pictures/reefs_for_oil_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Высота рифовых залежей на примерах: сотни и тысячи метров при относительно небольшой площади.",
+   "alt": "Диаграмма высот залежей: на Карачаганаке более 1500 м, на ряде месторождений зоны Ла Реформа в Мексике от 900 до 2100 м.",
+   "source": "построено кодом по утверждениям главы, стр. 200",
+   "claim_ids": [
+    "kuznetsov.reefs_for_oil#c5",
+    "kuznetsov.reefs_for_oil#c6",
+    "kuznetsov.reefs_for_oil#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.organic_buildups.i1",
+   "step_id": "kuznetsov.organic_buildups",
+   "node_id": "kuznetsov.organic_buildups",
+   "file": "pictures/organic_buildups_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Обе постройки сложены породами биогермной структуры; различаются форма, мощность и выраженность в рельефе дна.",
+   "alt": "Таблица: биостром — пласт или линза мощностью как у окружающих осадков, биогерм — холм большей мощности, не выходивший выше уровня действия волн.",
+   "source": "построено кодом по утверждениям главы, стр. 200, 201",
+   "claim_ids": [
+    "kuznetsov.organic_buildups#c7",
+    "kuznetsov.organic_buildups#c9",
+    "kuznetsov.organic_buildups#c10",
+    "kuznetsov.organic_buildups#c11",
+    "kuznetsov.organic_buildups#c12",
+    "kuznetsov.organic_buildups#c13",
+    "kuznetsov.organic_buildups#c14",
+    "kuznetsov.organic_buildups#c15",
+    "kuznetsov.organic_buildups#c17"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.reef_definition.i1",
+   "step_id": "kuznetsov.reef_definition",
+   "node_id": "kuznetsov.reef_definition",
+   "file": "pictures/reef_definition_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественная схема: риф растёт быстрее окружающих осадков, поэтому разрыв в мощности — это его возвышение над ними.",
+   "alt": "Две линии накопленной мощности во времени выходят из одной точки; линия рифа поднимается круче линии окружающих осадков, и разрыв между ними растёт.",
+   "source": "построено кодом по утверждениям главы, стр. 201",
+   "claim_ids": [
+    "kuznetsov.reef_definition#c3",
+    "kuznetsov.reef_definition#c4"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.reef_position_types.i1",
+   "step_id": "kuznetsov.reef_position_types",
+   "node_id": "kuznetsov.reef_position_types",
+   "file": "pictures/reef_position_types_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Два основных типа рифов: смотрите, на чём стоит постройка и симметрична ли она в сечении.",
+   "alt": "Таблица: одиночный риф растёт на локальном поднятии дна и примерно симметричен; асимметричная система — цепочка рифов на крутом перегибе дна.",
+   "source": "построено кодом по утверждениям главы, стр. 202",
+   "claim_ids": [
+    "kuznetsov.reef_position_types#c2",
+    "kuznetsov.reef_position_types#c3",
+    "kuznetsov.reef_position_types#c4",
+    "kuznetsov.reef_position_types#c5",
+    "kuznetsov.reef_position_types#c6",
+    "kuznetsov.reef_position_types#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.biohermal_limestones.i1",
+   "step_id": "kuznetsov.biohermal_limestones",
+   "node_id": "kuznetsov.biohermal_limestones",
+   "file": "pictures/biohermal_limestones_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Доля биогермных известняков падает от биогермов к сложным рифовым комплексам, где не превышает 10–20 %. Ход показан качественно.",
+   "alt": "Качественная кривая: доля биогермных известняков убывает от биогерма к сложному рифовому комплексу, где она не больше 10–20 %.",
+   "source": "построено кодом по утверждениям главы, стр. 202",
+   "claim_ids": [
+    "kuznetsov.biohermal_limestones#c5",
+    "kuznetsov.biohermal_limestones#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.clastic_and_altered_rocks.i1",
+   "step_id": "kuznetsov.clastic_and_altered_rocks",
+   "node_id": "kuznetsov.clastic_and_altered_rocks",
+   "file": "pictures/clastic_and_altered_rocks_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Доля обломочных известняков в большинстве рифовых комплексов: часто больше половины, нередко 60–80 % и выше.",
+   "alt": "Две отметки доли обломочных известняков в рифовых комплексах: часто свыше 50 %, нередко 60–80 % и более.",
+   "source": "построено кодом по утверждениям главы, стр. 202",
+   "claim_ids": [
+    "kuznetsov.clastic_and_altered_rocks#c1",
+    "kuznetsov.clastic_and_altered_rocks#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.zonation_cause.i1",
+   "step_id": "kuznetsov.zonation_cause",
+   "node_id": "kuznetsov.zonation_cause",
+   "file": "pictures/zonation_cause_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Цепочка причин: перепад глубин меняет воду и свет, а они создают разные условия, из которых складываются зоны рифа.",
+   "alt": "Схема: расчленённый рельеф меняет движение воды и освещённость, это даёт разные условия жизни и осадконакопления и приводит к зональности.",
+   "source": "построено кодом по утверждениям главы, стр. 203",
+   "claim_ids": [
+    "kuznetsov.zonation_cause#c4",
+    "kuznetsov.zonation_cause#c5",
+    "kuznetsov.zonation_cause#c6",
+    "kuznetsov.zonation_cause#c7",
+    "kuznetsov.zonation_cause#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.dome_reef_zones.i1",
+   "step_id": "kuznetsov.dome_reef_zones",
+   "node_id": "kuznetsov.dome_reef_zones",
+   "file": "pictures/dome_reef_zones_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Разрыв в середине — ядро. В обе стороны от него обломки шлейфа мельчают, дальше идут тёмные глинистые известняки. Без масштаба.",
+   "alt": "Две симметричные кривые по сторонам от ядра: крупность осадка шлейфа наибольшая у ядра и убывает наружу, от грубых обломков до тёмных глинистых известняков.",
+   "source": "построено кодом по утверждениям главы, стр. 203",
+   "claim_ids": [
+    "kuznetsov.dome_reef_zones#c2",
+    "kuznetsov.dome_reef_zones#c8",
+    "kuznetsov.dome_reef_zones#c9",
+    "kuznetsov.dome_reef_zones#c10",
+    "kuznetsov.dome_reef_zones#c12"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.atoll_zones.i1",
+   "step_id": "kuznetsov.atoll_zones",
+   "node_id": "kuznetsov.atoll_zones",
+   "file": "pictures/atoll_zones_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Разрез поперёк атолла: гребни — ядро рифа (в плане кольцо), лагуна в центре. Обломки есть на обоих склонах, на тыльном они мельче.",
+   "alt": "Качественный профиль с двумя поднятыми гребнями ядра рифа и пониженной лагуной между ними. Обломочные известняки лежат снаружи и на внутренних склонах, где они мельче.",
+   "source": "построено кодом по утверждениям главы, стр. 203, 204",
+   "claim_ids": [
+    "kuznetsov.atoll_zones#c3",
+    "kuznetsov.atoll_zones#c4",
+    "kuznetsov.atoll_zones#c5",
+    "kuznetsov.atoll_zones#c6",
+    "kuznetsov.atoll_zones#c7",
+    "kuznetsov.atoll_zones#c8",
+    "kuznetsov.atoll_zones#c9",
+    "kuznetsov.atoll_zones#c15"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.reef_system_zones.i1",
+   "step_id": "kuznetsov.reef_system_zones",
+   "node_id": "kuznetsov.reef_system_zones",
+   "file": "pictures/reef_system_zones_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Поперёк цепи: бассейновые, предрифовые, ядро, тыльно-рифовые, лагунные или мелководные фации — как половина профиля атолла.",
+   "alt": "Качественный профиль: от низкого дна бассейна подъём к ядру рифа, за ним более высокая, чем бассейн, тыловая сторона. Слева направо идут бассейновые, предрифовые, ядро, тыльно-рифовые и лагунные или мелководные фации.",
+   "source": "построено кодом по утверждениям главы, стр. 201, 204",
+   "claim_ids": [
+    "kuznetsov.reef_system_zones#c3",
+    "kuznetsov.reef_system_zones#c4",
+    "kuznetsov.reef_system_zones#c8",
+    "kuznetsov.reef_system_zones#c9",
+    "kuznetsov.reef_system_zones#c10",
+    "kuznetsov.reef_system_zones#c21"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.porosity_permeability.i1",
+   "step_id": "kuznetsov.porosity_permeability",
+   "node_id": "kuznetsov.porosity_permeability",
+   "file": "pictures/porosity_permeability_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Две причины вместе дают разнообразие и коллекторов, и их пустот.",
+   "alt": "Схема: разнообразие типов пород рифа и их вторичная переработка ведут к разнообразию типов и качества коллекторов, а также характера и структуры пустот.",
+   "source": "построено кодом по утверждениям главы, стр. 204",
+   "claim_ids": [
+    "kuznetsov.porosity_permeability#c1",
+    "kuznetsov.porosity_permeability#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.primary_porosity.i1",
+   "step_id": "kuznetsov.primary_porosity",
+   "node_id": "kuznetsov.primary_porosity",
+   "file": "pictures/primary_porosity_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Сверху — откуда берутся исходные пустоты, ниже — что их сокращает. Перечень причин сокращения не исчерпан.",
+   "alt": "Схема: полости скелетов, каркасные, щелевидные, межзерновые и пещеровидные пустоты образуют первичную пористость. Водоросли, цементация, заполнение и выпадение карбонатов сокращают её, и в полном объёме она практически не сохраняется.",
+   "source": "построено кодом по утверждениям главы, стр. 204, 205",
+   "claim_ids": [
+    "kuznetsov.primary_porosity#c3",
+    "kuznetsov.primary_porosity#c4",
+    "kuznetsov.primary_porosity#c5",
+    "kuznetsov.primary_porosity#c8",
+    "kuznetsov.primary_porosity#c9",
+    "kuznetsov.primary_porosity#c10",
+    "kuznetsov.primary_porosity#c11",
+    "kuznetsov.primary_porosity#c15",
+    "kuznetsov.primary_porosity#c16",
+    "kuznetsov.primary_porosity#c17",
+    "kuznetsov.primary_porosity#c18",
+    "kuznetsov.primary_porosity#c19"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.secondary_porosity.i1",
+   "step_id": "kuznetsov.secondary_porosity",
+   "node_id": "kuznetsov.secondary_porosity",
+   "file": "pictures/secondary_porosity_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Каверны — полости выщелачивания в породе рифа. Их размеры — от долей миллиметра до крупных карстовых пещер.",
+   "alt": "Порода под увеличением: в плотной породе видны крупные неправильные полости-каверны, заполненные водой.",
+   "source": "построено кодом по утверждениям главы, стр. 205",
+   "claim_ids": [
+    "kuznetsov.secondary_porosity#c2",
+    "kuznetsov.secondary_porosity#c3",
+    "kuznetsov.secondary_porosity#c7",
+    "kuznetsov.secondary_porosity#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.rainbow_facies.i1",
+   "step_id": "kuznetsov.rainbow_facies",
+   "node_id": "kuznetsov.rainbow_facies",
+   "file": "pictures/rainbow_facies_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема рифа Рейнбоу «А»: из 200–250 м общей мощности 60 м газонасыщены и 90 м нефтенасыщены.",
+   "alt": "Схематичный разрез островершинного рифа с газом и нефтью, вмещающими породами по бокам, тонким слоем в основании и тремя из скважин линии разреза.",
+   "source": "построено кодом по утверждениям главы, стр. 205, 206",
+   "claim_ids": [
+    "kuznetsov.rainbow_facies#c4",
+    "kuznetsov.rainbow_facies#c5",
+    "kuznetsov.rainbow_facies#c17",
+    "kuznetsov.rainbow_facies#c23",
+    "kuznetsov.rainbow_facies#c26"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.rainbow_collectors.i1",
+   "step_id": "kuznetsov.rainbow_collectors",
+   "node_id": "kuznetsov.rainbow_collectors",
+   "file": "pictures/rainbow_collectors_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Пористость в ядре выше, чем у двух преобладающих классов крыльев. Проницаемость ядра доходит до 30000·10⁻¹⁵ м².",
+   "alt": "Диапазоны пористости: ядро 15–35 %, два преобладающих класса пород на крыльях — 10–30 % и 8–25 %.",
+   "source": "построено кодом по утверждениям главы, стр. 207",
+   "claim_ids": [
+    "kuznetsov.rainbow_collectors#c9",
+    "kuznetsov.rainbow_collectors#c10",
+    "kuznetsov.rainbow_collectors#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.dome_core_examples.i1",
+   "step_id": "kuznetsov.dome_core_examples",
+   "node_id": "kuznetsov.dome_core_examples",
+   "file": "pictures/dome_core_examples_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Схема только левого из двух поднятий разреза Карача-Елга — Шелканово: известняки под аргиллитами, ВНК −1249 м.",
+   "alt": "Схематичный разрез выпуклого известнякового поднятия под аргиллитами: нефть над водой, внизу известняки пористостью 5–7,5 %, показаны скважины 4, 1 и 32.",
+   "source": "построено кодом по утверждениям главы, стр. 208",
+   "claim_ids": [
+    "kuznetsov.dome_core_examples#c4",
+    "kuznetsov.dome_core_examples#c6",
+    "kuznetsov.dome_core_examples#c7",
+    "kuznetsov.dome_core_examples#c9",
+    "kuznetsov.dome_core_examples#c10",
+    "kuznetsov.dome_core_examples#c13",
+    "kuznetsov.dome_core_examples#c18"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.rim_shift.i1",
+   "step_id": "kuznetsov.rim_shift",
+   "node_id": "kuznetsov.rim_shift",
+   "file": "pictures/rim_shift_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Качественно: в крупном плосковершинном рифе или атолле пористость обычно выше у края (гребень, шлейф), чем в лагуне и за рифом.",
+   "alt": "Кривая без чисел: пористость низкая в лагуне и зарифовой зоне и поднимается к периферии, где расположены рифовый гребень и обломочный шлейф.",
+   "source": "построено кодом по утверждениям главы, стр. 207",
+   "claim_ids": [
+    "kuznetsov.rim_shift#c1",
+    "kuznetsov.rim_shift#c6",
+    "kuznetsov.rim_shift#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.rim_fractures.i1",
+   "step_id": "kuznetsov.rim_fractures",
+   "node_id": "kuznetsov.rim_fractures",
+   "file": "pictures/rim_fractures_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Трещины в плотной породе: по предположению автора, они резко повышают проницаемость у края рифа. Флюид показан условно.",
+   "alt": "Порода под увеличением, рассечённая трещинами, заполненными флюидом. Так показана предполагаемая повышенная трещиноватость краевых зон рифа.",
+   "source": "построено кодом по утверждениям главы, стр. 207",
+   "claim_ids": [
+    "kuznetsov.rim_fractures#c3",
+    "kuznetsov.rim_fractures#c4"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.tengiz_atoll.i1",
+   "step_id": "kuznetsov.tengiz_atoll",
+   "node_id": "kuznetsov.tengiz_atoll",
+   "file": "pictures/tengiz_atoll_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Пористость по зонам рифа Тенгиз: диапазон гребня самый высокий, склонов — самый низкий, лагуна между ними.",
+   "alt": "Диапазоны пористости на Тенгизе: кольцевой гребень 6–18 %, лагуна 4,5–9,5 %, бассейновые склоны 2–5 %.",
+   "source": "построено кодом по утверждениям главы, стр. 209",
+   "claim_ids": [
+    "kuznetsov.tengiz_atoll#c2",
+    "kuznetsov.tengiz_atoll#c3",
+    "kuznetsov.tengiz_atoll#c4"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.karachaganak_ages.i1",
+   "step_id": "kuznetsov.karachaganak_ages",
+   "node_id": "kuznetsov.karachaganak_ages",
+   "file": "pictures/karachaganak_ages_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_data",
+   "label": "схема",
+   "caption": "Эффективная мощность на Карачаганаке: в пермском куполе лидирует ядро, в нижнекаменноугольном атолле — рифовое кольцо.",
+   "alt": "Доля эффективной мощности: в пермском рифе ядро 67,6 % против 27,8 % на склоне; в нижнекаменноугольном кольцо 61,1 % против 38,9 % в лагуне.",
+   "source": "построено кодом по утверждениям главы, стр. 209",
+   "claim_ids": [
+    "kuznetsov.karachaganak_ages#c2",
+    "kuznetsov.karachaganak_ages#c10",
+    "kuznetsov.karachaganak_ages#c11",
+    "kuznetsov.karachaganak_ages#c15"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.shurtan_asymmetry.i1",
+   "step_id": "kuznetsov.shurtan_asymmetry",
+   "node_id": "kuznetsov.shurtan_asymmetry",
+   "file": "pictures/shurtan_asymmetry_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Две связи: фации задают асимметрию коллекторов, а смещение гребня на Шуртане — смещение лучших зон.",
+   "alt": "Схема из двух цепочек. Связь коллекторов с фациями ведёт к их асимметрии; смещение биогермного гребня во времени — к смещению лучших зон.",
+   "source": "построено кодом по утверждениям главы, стр. 209",
+   "claim_ids": [
+    "kuznetsov.shurtan_asymmetry#c1",
+    "kuznetsov.shurtan_asymmetry#c2",
+    "kuznetsov.shurtan_asymmetry#c3",
+    "kuznetsov.shurtan_asymmetry#c4"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.small_reef_massive.i1",
+   "step_id": "kuznetsov.small_reef_massive",
+   "node_id": "kuznetsov.small_reef_massive",
+   "file": "pictures/small_reef_massive_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Упрощённый разрез рифа Большетирской площади под солью. Единое тело рифа — лишь первое приближение: внутри он неоднороден.",
+   "alt": "Разрез с СВ на ЮЗ по скважинам 104, 3, 204 и 1: выпуклое рифовое тело из известняков, сверху каменная соль, в основании доломиты.",
+   "source": "построено кодом по утверждениям главы, стр. 209, 212",
+   "claim_ids": [
+    "kuznetsov.small_reef_massive#c4",
+    "kuznetsov.small_reef_massive#c1",
+    "kuznetsov.small_reef_massive#c6",
+    "kuznetsov.small_reef_massive#c12",
+    "kuznetsov.small_reef_massive#c20",
+    "kuznetsov.small_reef_massive#c21",
+    "kuznetsov.small_reef_massive#c23"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.vertical_heterogeneity_causes.i1",
+   "step_id": "kuznetsov.vertical_heterogeneity_causes",
+   "node_id": "kuznetsov.vertical_heterogeneity_causes",
+   "file": "pictures/vertical_heterogeneity_causes_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Две группы причин вертикальной неоднородности мощного, долго растущего рифа; обе ведут к слоистости.",
+   "alt": "Две ветви сходятся к слоистости: смена этапов плато, отмели и острова и смена рифостроящих организмов и фаций под водой.",
+   "source": "построено кодом по утверждениям главы, стр. 209, 212, 214",
+   "claim_ids": [
+    "kuznetsov.vertical_heterogeneity_causes#c3",
+    "kuznetsov.vertical_heterogeneity_causes#c4",
+    "kuznetsov.vertical_heterogeneity_causes#c7",
+    "kuznetsov.vertical_heterogeneity_causes#c9",
+    "kuznetsov.vertical_heterogeneity_causes#c10",
+    "kuznetsov.vertical_heterogeneity_causes#c12",
+    "kuznetsov.vertical_heterogeneity_causes#c13",
+    "kuznetsov.vertical_heterogeneity_causes#c14"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.layered_lenticular.i1",
+   "step_id": "kuznetsov.layered_lenticular",
+   "node_id": "kuznetsov.layered_lenticular",
+   "file": "pictures/layered_lenticular_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Условная схема Карачаганака: пористые пласты разделены плотными пачками. Трещины в них, видимо, связывают пласты.",
+   "alt": "Чередование слоёв: два пористых пласта-коллектора разделены и окаймлены плотными трещиноватыми пачками.",
+   "source": "построено кодом по утверждениям главы, стр. 214",
+   "claim_ids": [
+    "kuznetsov.layered_lenticular#c3",
+    "kuznetsov.layered_lenticular#c8",
+    "kuznetsov.layered_lenticular#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.flow_by_reef_type.i1",
+   "step_id": "kuznetsov.flow_by_reef_type",
+   "node_id": "kuznetsov.flow_by_reef_type",
+   "file": "pictures/flow_by_reef_type_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Кольцо против полосы. В небольших простых куполовидных рифах иначе: лучшее — в ядре, поток вбок и по вертикали",
+   "alt": "Сравнение: в плосковершинных рифах и атоллах лучшие коллекторы образуют кольцо, в асимметричных системах — линию вдоль рифов.",
+   "source": "построено кодом по утверждениям главы, стр. 214, 216",
+   "claim_ids": [
+    "kuznetsov.flow_by_reef_type#c4",
+    "kuznetsov.flow_by_reef_type#c5",
+    "kuznetsov.flow_by_reef_type#c6",
+    "kuznetsov.flow_by_reef_type#c8",
+    "kuznetsov.flow_by_reef_type#c9",
+    "kuznetsov.flow_by_reef_type#c11",
+    "kuznetsov.flow_by_reef_type#c12",
+    "kuznetsov.flow_by_reef_type#c13",
+    "kuznetsov.flow_by_reef_type#c14"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.seal_over_reef.i1",
+   "step_id": "kuznetsov.seal_over_reef",
+   "node_id": "kuznetsov.seal_over_reef",
+   "file": "pictures/seal_over_reef_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Непроницаемая толща накрыла выступающий риф — возникла ловушка. Здесь глины (влажный климат); при сухом — эвапориты",
+   "alt": "Разрез: выступающий рифовый массив перекрыт сверху непроницаемой глинистой покрышкой.",
+   "source": "построено кодом по утверждениям главы, стр. 216",
+   "claim_ids": [
+    "kuznetsov.seal_over_reef#c1",
+    "kuznetsov.seal_over_reef#c5",
+    "kuznetsov.seal_over_reef#c6",
+    "kuznetsov.seal_over_reef#c7",
+    "kuznetsov.seal_over_reef#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.paleogeomorphic_traps.i1",
+   "step_id": "kuznetsov.paleogeomorphic_traps",
+   "node_id": "kuznetsov.paleogeomorphic_traps",
+   "file": "pictures/paleogeomorphic_traps_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Выступ рифа под покрышкой: его превышение над внерифовыми породами задаёт наибольшую высоту ловушки",
+   "alt": "Разрез: рифовый выступ с нефтью под непроницаемой покрышкой.",
+   "source": "построено кодом по утверждениям главы, стр. 216, 217, 218",
+   "claim_ids": [
+    "kuznetsov.paleogeomorphic_traps#c1",
+    "kuznetsov.paleogeomorphic_traps#c5",
+    "kuznetsov.paleogeomorphic_traps#c15"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.trap_plan_shapes.i1",
+   "step_id": "kuznetsov.trap_plan_shapes",
+   "node_id": "kuznetsov.trap_plan_shapes",
+   "file": "pictures/trap_plan_shapes_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Два примера из четырёх классов: очертания рифа задают форму ловушки, ей сопоставлена система разведки",
+   "alt": "Сравнение конусовидной и атолловидной ловушек по виду в плане, форме и системе разведки: многоствольной и кольцевой.",
+   "source": "построено кодом по утверждениям главы, стр. 215, 218",
+   "claim_ids": [
+    "kuznetsov.trap_plan_shapes#c3",
+    "kuznetsov.trap_plan_shapes#c4",
+    "kuznetsov.trap_plan_shapes#c5",
+    "kuznetsov.trap_plan_shapes#c11",
+    "kuznetsov.trap_plan_shapes#c12",
+    "kuznetsov.trap_plan_shapes#c13",
+    "kuznetsov.trap_plan_shapes#c16"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.asymmetric_system_traps.i1",
+   "step_id": "kuznetsov.asymmetric_system_traps",
+   "node_id": "kuznetsov.asymmetric_system_traps",
+   "file": "pictures/asymmetric_system_traps_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Асимметричная рифовая система без позднего тектонического роста: что меняют непроницаемые зарифовые породы.",
+   "alt": "Сравнение: при замыкании только рельефом рифа ловушка обычно невысока; непроницаемые зарифовые породы дают экран и могут увеличить её высоту и объём.",
+   "source": "построено кодом по утверждениям главы, стр. 218",
+   "claim_ids": [
+    "kuznetsov.asymmetric_system_traps#c1",
+    "kuznetsov.asymmetric_system_traps#c2",
+    "kuznetsov.asymmetric_system_traps#c3",
+    "kuznetsov.asymmetric_system_traps#c4",
+    "kuznetsov.asymmetric_system_traps#c5",
+    "kuznetsov.asymmetric_system_traps#c6"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.structural_overprint.i1",
+   "step_id": "kuznetsov.structural_overprint",
+   "node_id": "kuznetsov.structural_overprint",
+   "file": "pictures/structural_overprint_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Как поздние движения меняют рифовую ловушку: высоту, положение свода и размещение залежей при региональном наклоне.",
+   "alt": "Схема: движения на готовом рифе увеличивают высоту и объём ловушки у одиночных рифов и часто смещают свод; при региональном наклоне залежи занимают часть рифа.",
+   "source": "построено кодом по утверждениям главы, стр. 218, 219",
+   "claim_ids": [
+    "kuznetsov.structural_overprint#c1",
+    "kuznetsov.structural_overprint#c3",
+    "kuznetsov.structural_overprint#c4",
+    "kuznetsov.structural_overprint#c5",
+    "kuznetsov.structural_overprint#c6",
+    "kuznetsov.structural_overprint#c7"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.structural_reef_traps.i1",
+   "step_id": "kuznetsov.structural_reef_traps",
+   "node_id": "kuznetsov.structural_reef_traps",
+   "file": "pictures/structural_reef_traps_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Локальное поднятие изгибает низкую рифовую постройку: форму ловушки создаёт в основном тектоника, а риф служит резервуаром.",
+   "alt": "Разрез: пласты изогнуты сводом вверх, под покрышкой в своде рифового резервуара находится нефть, ниже вода.",
+   "source": "построено кодом по утверждениям главы, стр. 219",
+   "claim_ids": [
+    "kuznetsov.structural_reef_traps#c8",
+    "kuznetsov.structural_reef_traps#c9",
+    "kuznetsov.structural_reef_traps#c10",
+    "kuznetsov.structural_reef_traps#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.massive_hanging_pools.i1",
+   "step_id": "kuznetsov.massive_hanging_pools",
+   "node_id": "kuznetsov.massive_hanging_pools",
+   "file": "pictures/massive_hanging_pools_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Массивная залежь — самый простой и весьма распространённый случай: нефть занимает тело рифа.",
+   "alt": "Разрез рифового массива под покрышкой: в верхней части тела рифа нефть, ниже вода.",
+   "source": "построено кодом по утверждениям главы, стр. 219",
+   "claim_ids": [
+    "kuznetsov.massive_hanging_pools#c2"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.pool_max_height.i1",
+   "step_id": "kuznetsov.pool_max_height",
+   "node_id": "kuznetsov.pool_max_height",
+   "file": "pictures/pool_max_height_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Предел высоты залежи по типам ловушек: сравните, как его меняют боковые породы и поздняя тектоника.",
+   "alt": "Таблица случаев: для каждого типа рифовой ловушки указаны условие и наибольшая возможная высота залежи; поздняя тектоника увеличивает её везде.",
+   "source": "построено кодом по утверждениям главы, стр. 219, 220",
+   "claim_ids": [
+    "kuznetsov.pool_max_height#c1",
+    "kuznetsov.pool_max_height#c2",
+    "kuznetsov.pool_max_height#c3",
+    "kuznetsov.pool_max_height#c4",
+    "kuznetsov.pool_max_height#c5",
+    "kuznetsov.pool_max_height#c6",
+    "kuznetsov.pool_max_height#c7",
+    "kuznetsov.pool_max_height#c8",
+    "kuznetsov.pool_max_height#c9"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.explore_dome_reefs.i1",
+   "step_id": "kuznetsov.explore_dome_reefs",
+   "node_id": "kuznetsov.explore_dome_reefs",
+   "file": "pictures/explore_dome_reefs_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Малый одиночный куполовидный риф: поисковую скважину проектируют в центре, на самой приподнятой части.",
+   "alt": "Разрез с куполовидным рифом под покрышкой; скважина пробурена в его центре, в самой высокой точке.",
+   "source": "построено кодом по утверждениям главы, стр. 220",
+   "claim_ids": [
+    "kuznetsov.explore_dome_reefs#c6",
+    "kuznetsov.explore_dome_reefs#c8",
+    "kuznetsov.explore_dome_reefs#c11"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.explore_large_reefs.i1",
+   "step_id": "kuznetsov.explore_large_reefs",
+   "node_id": "kuznetsov.explore_large_reefs",
+   "file": "pictures/explore_large_reefs_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Крупный плосковершинный риф или атолл: сначала скважины по периферии, в центре — на втором этапе оценки.",
+   "alt": "Разрез через крупный риф: первые скважины стоят по краям, более поздняя — в центре.",
+   "source": "построено кодом по утверждениям главы, стр. 220, 221",
+   "claim_ids": [
+    "kuznetsov.explore_large_reefs#c10",
+    "kuznetsov.explore_large_reefs#c12",
+    "kuznetsov.explore_large_reefs#c20",
+    "kuznetsov.explore_large_reefs#c21"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.explore_asymmetric.i1",
+   "step_id": "kuznetsov.explore_asymmetric",
+   "node_id": "kuznetsov.explore_asymmetric",
+   "file": "pictures/explore_asymmetric_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Порядок решений: от самого приподнятого участка к возможному сдвигу в сторону фронта рифа.",
+   "alt": "Схема: в асимметричной системе первые скважины ставят на самом приподнятом участке, допускают сдвиг к фронту и обязательно изучают фронтальные фации.",
+   "source": "построено кодом по утверждениям главы, стр. 221",
+   "claim_ids": [
+    "kuznetsov.explore_asymmetric#c8",
+    "kuznetsov.explore_asymmetric#c14",
+    "kuznetsov.explore_asymmetric#c15",
+    "kuznetsov.explore_asymmetric#c16"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.critical_direction.i1",
+   "step_id": "kuznetsov.critical_direction",
+   "node_id": "kuznetsov.critical_direction",
+   "file": "pictures/critical_direction_1.svg",
+   "frame_class": "A",
+   "origin": "code_from_model",
+   "label": "симуляция",
+   "caption": "Обычный случай: региональный наклон ещё сокращает небольшое превышение рифа с тыльной стороны. Сравните перепад справа от гребня на двух кривых.",
+   "alt": "Две качественные кривые поверхности асимметричного рифа. С тыльной стороны перепад от гребня меньше, чем с предрифовой, а после регионального наклона сокращается ещё больше.",
+   "source": "построено кодом по утверждениям главы, стр. 221",
+   "claim_ids": [
+    "kuznetsov.critical_direction#c2",
+    "kuznetsov.critical_direction#c3",
+    "kuznetsov.critical_direction#c5",
+    "kuznetsov.critical_direction#c6",
+    "kuznetsov.critical_direction#c7",
+    "kuznetsov.critical_direction#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.volume_based_grid.i1",
+   "step_id": "kuznetsov.volume_based_grid",
+   "node_id": "kuznetsov.volume_based_grid",
+   "file": "pictures/volume_based_grid_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Выпуклый верх и плоский контакт с водой: залежь толще всего в своде. Там скважины сгущены, к краю разрежены.",
+   "alt": "Разрез рифовой массивной залежи с выпуклой кровлей и водонефтяным контактом снизу. Скважины сближены в своде, а у края стоят реже.",
+   "source": "построено кодом по утверждениям главы, стр. 222",
+   "claim_ids": [
+    "kuznetsov.volume_based_grid#c2",
+    "kuznetsov.volume_based_grid#c3",
+    "kuznetsov.volume_based_grid#c4",
+    "kuznetsov.volume_based_grid#c5",
+    "kuznetsov.volume_based_grid#c8"
+   ],
+   "prompt": null
+  },
+  {
+   "id": "kuznetsov.well_systems.i1",
+   "step_id": "kuznetsov.well_systems",
+   "node_id": "kuznetsov.well_systems",
+   "file": "pictures/well_systems_1.svg",
+   "frame_class": "B",
+   "origin": "code_from_model",
+   "label": "схема",
+   "caption": "Форма ловушки определяет систему разведки: несколько стволов, кольцо скважин или профили.",
+   "alt": "Схема выбора: для конусовидной и подковообразной ловушки многоствольная система, для плосковершинной и атолловидной кольцевая, для асимметричной профильная.",
+   "source": "построено кодом по утверждениям главы, стр. 215, 222",
+   "claim_ids": [
+    "kuznetsov.well_systems#c5",
+    "kuznetsov.well_systems#c6",
+    "kuznetsov.well_systems#c7",
+    "kuznetsov.well_systems#c8",
+    "kuznetsov.well_systems#c9",
+    "kuznetsov.well_systems#c15"
+   ],
+   "prompt": null
+  }
+ ]
+}

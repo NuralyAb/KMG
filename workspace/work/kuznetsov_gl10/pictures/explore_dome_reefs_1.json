@@ -1,0 +1,37 @@
+{
+ "node_id": "kuznetsov.explore_dome_reefs",
+ "template": "section",
+ "data": {
+  "shape": "reef",
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "покрышка"
+   },
+   {
+    "lithology": "reef",
+    "label": "куполовидный риф",
+    "fluids": [
+     "oil"
+    ]
+   },
+   {
+    "lithology": "limestone",
+    "label": "основание"
+   }
+  ],
+  "wells": [
+   {
+    "x": 0.5,
+    "label": "центр"
+   }
+  ]
+ },
+ "caption": "Малый одиночный куполовидный риф: поисковую скважину проектируют в центре, на самой приподнятой части.",
+ "alt": "Разрез с куполовидным рифом под покрышкой; скважина пробурена в его центре, в самой высокой точке.",
+ "claim_ids": [
+  "kuznetsov.explore_dome_reefs#c6",
+  "kuznetsov.explore_dome_reefs#c8",
+  "kuznetsov.explore_dome_reefs#c11"
+ ]
+}

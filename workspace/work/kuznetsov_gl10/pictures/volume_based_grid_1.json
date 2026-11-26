@@ -1,0 +1,48 @@
+{
+ "node_id": "kuznetsov.volume_based_grid",
+ "template": "section",
+ "data": {
+  "shape": "reef",
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "покрышка"
+   },
+   {
+    "lithology": "reef",
+    "label": "массивная залежь",
+    "fluids": [
+     "oil",
+     "water"
+    ]
+   },
+   {
+    "lithology": "dense",
+    "label": "подстилающие"
+   }
+  ],
+  "wells": [
+   {
+    "x": 0.2,
+    "label": "край"
+   },
+   {
+    "x": 0.43,
+    "label": "свод"
+   },
+   {
+    "x": 0.57,
+    "label": "свод"
+   }
+  ]
+ },
+ "caption": "Выпуклый верх и плоский контакт с водой: залежь толще всего в своде. Там скважины сгущены, к краю разрежены.",
+ "alt": "Разрез рифовой массивной залежи с выпуклой кровлей и водонефтяным контактом снизу. Скважины сближены в своде, а у края стоят реже.",
+ "claim_ids": [
+  "kuznetsov.volume_based_grid#c2",
+  "kuznetsov.volume_based_grid#c3",
+  "kuznetsov.volume_based_grid#c4",
+  "kuznetsov.volume_based_grid#c5",
+  "kuznetsov.volume_based_grid#c8"
+ ]
+}

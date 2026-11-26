@@ -1,0 +1,40 @@
+{
+ "node_id": "kuznetsov.asymmetric_system_traps",
+ "template": "compare",
+ "data": {
+  "left_title": "Только рельеф",
+  "right_title": "Есть боковой экран",
+  "rows": [
+   {
+    "aspect": "Тип ловушки",
+    "left": "палеогеоморфологическая",
+    "right": "литолого-палеогеоморфологическая"
+   },
+   {
+    "aspect": "Что создаёт ловушку",
+    "left": "древний рельеф рифа под покрышкой",
+    "right": "рельеф рифа и дополнительный экран"
+   },
+   {
+    "aspect": "Зарифовые отложения",
+    "left": "риф мало возвышается над ними",
+    "right": "непроницаемы и служат экраном"
+   },
+   {
+    "aspect": "Высота ловушки",
+    "left": "обычно не очень значительна",
+    "right": "может увеличиться, как и объём"
+   }
+  ]
+ },
+ "caption": "Асимметричная рифовая система без позднего тектонического роста: что меняют непроницаемые зарифовые породы.",
+ "alt": "Сравнение: при замыкании только рельефом рифа ловушка обычно невысока; непроницаемые зарифовые породы дают экран и могут увеличить её высоту и объём.",
+ "claim_ids": [
+  "kuznetsov.asymmetric_system_traps#c1",
+  "kuznetsov.asymmetric_system_traps#c2",
+  "kuznetsov.asymmetric_system_traps#c3",
+  "kuznetsov.asymmetric_system_traps#c4",
+  "kuznetsov.asymmetric_system_traps#c5",
+  "kuznetsov.asymmetric_system_traps#c6"
+ ]
+}

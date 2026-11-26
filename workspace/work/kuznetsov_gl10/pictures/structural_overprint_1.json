@@ -1,0 +1,65 @@
+{
+ "node_id": "kuznetsov.structural_overprint",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Тектонические движения на уже готовом рифе",
+    "kind": "data"
+   },
+   {
+    "id": "h",
+    "text": "У одиночных рифов растёт первичная высота",
+    "kind": "step"
+   },
+   {
+    "id": "s",
+    "text": "Свод ловушки часто смещается от высшей части рифа",
+    "kind": "step"
+   },
+   {
+    "id": "v",
+    "text": "Растут высота и объём ловушки",
+    "kind": "result"
+   },
+   {
+    "id": "t",
+    "text": "Ловушка вверх по восстанию, залежи в части рифа",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "h",
+    "label": ""
+   },
+   {
+    "from": "a",
+    "to": "s",
+    "label": ""
+   },
+   {
+    "from": "h",
+    "to": "v",
+    "label": ""
+   },
+   {
+    "from": "s",
+    "to": "t",
+    "label": "при наклоне"
+   }
+  ]
+ },
+ "caption": "Как поздние движения меняют рифовую ловушку: высоту, положение свода и размещение залежей при региональном наклоне.",
+ "alt": "Схема: движения на готовом рифе увеличивают высоту и объём ловушки у одиночных рифов и часто смещают свод; при региональном наклоне залежи занимают часть рифа.",
+ "claim_ids": [
+  "kuznetsov.structural_overprint#c1",
+  "kuznetsov.structural_overprint#c3",
+  "kuznetsov.structural_overprint#c4",
+  "kuznetsov.structural_overprint#c5",
+  "kuznetsov.structural_overprint#c6",
+  "kuznetsov.structural_overprint#c7"
+ ]
+}

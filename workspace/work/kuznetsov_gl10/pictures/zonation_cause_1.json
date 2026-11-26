@@ -1,0 +1,69 @@
+{
+ "node_id": "kuznetsov.zonation_cause",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Расчленённый рельеф: мелкий гребень и глубокие склоны",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "Меняются движение воды и освещённость",
+    "kind": "step"
+   },
+   {
+    "id": "c",
+    "text": "Разные условия жизни организмов",
+    "kind": "step"
+   },
+   {
+    "id": "d",
+    "text": "Разные обстановки накопления осадка",
+    "kind": "step"
+   },
+   {
+    "id": "e",
+    "text": "Зональность пород и фауны",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "c",
+    "label": ""
+   },
+   {
+    "from": "b",
+    "to": "d",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "e",
+    "label": ""
+   },
+   {
+    "from": "d",
+    "to": "e",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Цепочка причин: перепад глубин меняет воду и свет, а они создают разные условия, из которых складываются зоны рифа.",
+ "alt": "Схема: расчленённый рельеф меняет движение воды и освещённость, это даёт разные условия жизни и осадконакопления и приводит к зональности.",
+ "claim_ids": [
+  "kuznetsov.zonation_cause#c4",
+  "kuznetsov.zonation_cause#c5",
+  "kuznetsov.zonation_cause#c6",
+  "kuznetsov.zonation_cause#c7",
+  "kuznetsov.zonation_cause#c8"
+ ]
+}

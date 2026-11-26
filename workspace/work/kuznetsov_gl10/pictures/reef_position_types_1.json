@@ -1,0 +1,40 @@
+{
+ "node_id": "kuznetsov.reef_position_types",
+ "template": "compare",
+ "data": {
+  "left_title": "Одиночный риф",
+  "right_title": "Асимметр. система",
+  "rows": [
+   {
+    "aspect": "Что это в плане и по положению",
+    "left": "риф на локальном поднятии дна",
+    "right": "вытянутая цепочка рифов"
+   },
+   {
+    "aspect": "Опора на дне",
+    "left": "отмель над складкой, бар, вулкан и т. д.",
+    "right": "крутой перегиб морского дна"
+   },
+   {
+    "aspect": "Обстановка",
+    "left": "мелководная или глубоководная",
+    "right": "граница мелководья и глубоководья"
+   },
+   {
+    "aspect": "Поперечное сечение",
+    "left": "примерно симметричное",
+    "right": "асимметричное"
+   }
+  ]
+ },
+ "caption": "Два основных типа рифов: смотрите, на чём стоит постройка и симметрична ли она в сечении.",
+ "alt": "Таблица: одиночный риф растёт на локальном поднятии дна и примерно симметричен; асимметричная система — цепочка рифов на крутом перегибе дна.",
+ "claim_ids": [
+  "kuznetsov.reef_position_types#c2",
+  "kuznetsov.reef_position_types#c3",
+  "kuznetsov.reef_position_types#c4",
+  "kuznetsov.reef_position_types#c5",
+  "kuznetsov.reef_position_types#c6",
+  "kuznetsov.reef_position_types#c7"
+ ]
+}

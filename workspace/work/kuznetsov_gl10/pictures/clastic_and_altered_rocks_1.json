@@ -1,0 +1,25 @@
+{
+ "node_id": "kuznetsov.clastic_and_altered_rocks",
+ "template": "bars",
+ "data": {
+  "unit": "%",
+  "items": [
+   {
+    "name": "Часто: доля превышает это значение",
+    "value": 50
+   },
+   {
+    "name": "Нередко: такая доля и более",
+    "from": 60,
+    "to": 80
+   }
+  ],
+  "log": false
+ },
+ "caption": "Доля обломочных известняков в большинстве рифовых комплексов: часто больше половины, нередко 60–80 % и выше.",
+ "alt": "Две отметки доли обломочных известняков в рифовых комплексах: часто свыше 50 %, нередко 60–80 % и более.",
+ "claim_ids": [
+  "kuznetsov.clastic_and_altered_rocks#c1",
+  "kuznetsov.clastic_and_altered_rocks#c2"
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "node_id": "kuznetsov.secondary_porosity",
+ "template": "grains",
+ "data": {
+  "pores": "cavernous",
+  "clay": "none",
+  "fluid": "water",
+  "water_film": false
+ },
+ "caption": "Каверны — полости выщелачивания в породе рифа. Их размеры — от долей миллиметра до крупных карстовых пещер.",
+ "alt": "Порода под увеличением: в плотной породе видны крупные неправильные полости-каверны, заполненные водой.",
+ "claim_ids": [
+  "kuznetsov.secondary_porosity#c2",
+  "kuznetsov.secondary_porosity#c3",
+  "kuznetsov.secondary_porosity#c7",
+  "kuznetsov.secondary_porosity#c11"
+ ]
+}

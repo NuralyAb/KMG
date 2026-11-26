@@ -1,0 +1,48 @@
+{
+ "node_id": "kuznetsov.rainbow_facies",
+ "template": "section",
+ "data": {
+  "shape": "reef",
+  "layers": [
+   {
+    "lithology": "dense",
+    "label": "вмещающие породы"
+   },
+   {
+    "lithology": "reef",
+    "label": "риф (пиннакл)",
+    "fluids": [
+     "gas",
+     "oil"
+    ]
+   },
+   {
+    "lithology": "limestone",
+    "label": "изв. с криноидеями"
+   }
+  ],
+  "wells": [
+   {
+    "x": 0.3,
+    "label": "6–32"
+   },
+   {
+    "x": 0.5,
+    "label": "7–32"
+   },
+   {
+    "x": 0.7,
+    "label": "12–33"
+   }
+  ]
+ },
+ "caption": "Схема рифа Рейнбоу «А»: из 200–250 м общей мощности 60 м газонасыщены и 90 м нефтенасыщены.",
+ "alt": "Схематичный разрез островершинного рифа с газом и нефтью, вмещающими породами по бокам, тонким слоем в основании и тремя из скважин линии разреза.",
+ "claim_ids": [
+  "kuznetsov.rainbow_facies#c4",
+  "kuznetsov.rainbow_facies#c5",
+  "kuznetsov.rainbow_facies#c17",
+  "kuznetsov.rainbow_facies#c23",
+  "kuznetsov.rainbow_facies#c26"
+ ]
+}

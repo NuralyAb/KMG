@@ -1,0 +1,768 @@
+{
+ "chapter": "kuznetsov_gl10",
+ "claims": 859,
+ "flagged": [
+  {
+   "claim_id": "kuznetsov.organic_buildups#c20",
+   "node_id": "kuznetsov.organic_buildups",
+   "text": "На схеме рис. 10.1 величина n составляет метры, реже первые десятки метров; породы и район, к которым относится диапазон, не названы.",
+   "quote": "N – десятки, сотни, иногда первые тысячи метров; n – метры, реже первые десятки метров",
+   "page_pdf": 201,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.organic_buildups#c39",
+   "node_id": "kuznetsov.organic_buildups",
+   "text": "Мелководные внерифовые отложения показаны по бокам биострома, у краёв биогерма и в крайней правой части асимметричной системы.",
+   "quote": "5: мелководные внерифовые (внебиогермные), слоистость без штрихов: по бокам на а, у краёв на б, крайняя правая часть на г",
+   "page_pdf": 201,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.reef_definition#c29",
+   "node_id": "kuznetsov.reef_definition",
+   "text": "Мелководные внерифовые (внебиогермные) отложения (знак 5) показаны по бокам биострома, у краёв биогерма и в крайней правой части асимметричной системы.",
+   "quote": "5: мелководные внерифовые (внебиогермные), слоистость без штрихов: по бокам на а, у краёв на б, крайняя правая часть на г",
+   "page_pdf": 201,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.reef_definition#c30",
+   "node_id": "kuznetsov.reef_definition",
+   "text": "На принципиальной схеме мощность N составляет десятки, сотни, иногда первые тысячи метров, а n — метры, реже первые десятки метров; область применимости не названа.",
+   "quote": "N – десятки, сотни, иногда первые тысячи метров; n – метры, реже первые десятки метров",
+   "page_pdf": 201,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.reef_position_types#c9",
+   "node_id": "kuznetsov.reef_position_types",
+   "text": "Знаком 1 на схеме 10.1 обозначены фации ядра рифа (биогермные).",
+   "quote": "Фации: 1 – ядра рифа (биогермные)",
+   "page_pdf": 201,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.reef_position_types#c32",
+   "node_id": "kuznetsov.reef_position_types",
+   "text": "Мелководные внерифовые (внебиогермные) фации (знак 5) показаны по бокам биострома, у краёв биогерма и в крайней правой части асимметричной системы.",
+   "quote": "5: мелководные внерифовые (внебиогермные), слоистость без штрихов: по бокам на а, у краёв на б, крайняя правая часть на г",
+   "page_pdf": 201,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.clastic_and_altered_rocks#c12",
+   "node_id": "kuznetsov.clastic_and_altered_rocks",
+   "text": "Очень характерная черта рифов — частая перекристаллизация и доломитизация (dolomitization) самих рифов или их значительных участков.",
+   "quote": "Очень характерной чертой является частая и нередко почти полная перекристаллизация и доломитизация рифов или их значительных участков.",
+   "page_pdf": 203,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.dome_reef_zones#c12",
+   "node_id": "kuznetsov.dome_reef_zones",
+   "text": "В целом у одиночного куполовидного рифа отмечается чёткая и достаточно простая зональность, симметричная относительно центральной части рифа.",
+   "quote": "В целом отмечается четкая и достаточно простая зональность, симметричная относительно центральной части рифа.",
+   "page_pdf": 203,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.dome_reef_zones#c25",
+   "node_id": "kuznetsov.dome_reef_zones",
+   "text": "Предрифовый шлейф (фация 2) на схеме есть на обоих склонах симметричного рифа и только на левом склоне асимметричной системы.",
+   "quote": "2: предрифовый шлейф (знаки овалов): оба склона на в, левый склон на г",
+   "page_pdf": 201,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.dome_reef_zones#c28",
+   "node_id": "kuznetsov.dome_reef_zones",
+   "text": "Мелководные внерифовые (внебиогермные) отложения (5) на схеме есть по бокам биострома, у краёв биогерма и в крайней правой части асимметричной системы.",
+   "quote": "5: мелководные внерифовые (внебиогермные), слоистость без штрихов: по бокам на а, у краёв на б, крайняя правая часть на г",
+   "page_pdf": 201,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.atoll_zones#c5",
+   "node_id": "kuznetsov.atoll_zones",
+   "text": "Рифовый гребень атолла — это существенно биогермные породы ядра рифа.",
+   "quote": "Однако рифовый гребень – существенно биогермные породы ядра рифа – возвышается не только над дном бассейна",
+   "page_pdf": 203,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.atoll_zones#c6",
+   "node_id": "kuznetsov.atoll_zones",
+   "text": "Рифовый гребень атолла возвышается над дном бассейна.",
+   "quote": "рифовый гребень – существенно биогермные породы ядра рифа – возвышается не только над дном бассейна",
+   "page_pdf": 203,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.atoll_zones#c8",
+   "node_id": "kuznetsov.atoll_zones",
+   "text": "Поскольку гребень возвышается над лагуной, обломочные известняки формируются и на обратных («неморских») тыльнорифовых склонах гребня.",
+   "quote": "неморских тыльнорифовых склонах рифового гребня также формируются обломочные известняки",
+   "page_pdf": 204,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.reef_system_zones#c7",
+   "node_id": "kuznetsov.reef_system_zones",
+   "text": "В атоллах фации располагаются более или менее симметрично относительно центра.",
+   "quote": "если в атоллах фации располагаются более или менее симметрично относительно его центра",
+   "page_pdf": 204,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.reef_system_zones#c23",
+   "node_id": "kuznetsov.reef_system_zones",
+   "text": "Знак 2, предрифовый шлейф (fore-reef talus), показан на обоих склонах симметричного рифа и только на левом склоне асимметричной системы.",
+   "quote": "2: предрифовый шлейф (знаки овалов): оба склона на в, левый склон на г",
+   "page_pdf": 201,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.reef_system_zones#c26",
+   "node_id": "kuznetsov.reef_system_zones",
+   "text": "Знак 5, мелководные внерифовые отложения, показан по бокам биострома, у краёв биогерма и в крайней правой части асимметричной системы.",
+   "quote": "5: мелководные внерифовые (внебиогермные), слоистость без штрихов: по бокам на а, у краёв на б, крайняя правая часть на г",
+   "page_pdf": 201,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.primary_porosity#c19",
+   "node_id": "kuznetsov.primary_porosity",
+   "text": "Первичная пористость может сокращаться из-за диагенетического хемогенного (химического) и биохемогенного (с участием организмов) выпадения карбонатов; перечень причин на этом не исчерпан.",
+   "quote": "в результате диагенетического хемогенного и биохемогенного выпадения карбонатов и т.д.",
+   "page_pdf": 205,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.secondary_porosity#c13",
+   "node_id": "kuznetsov.secondary_porosity",
+   "text": "В скважине 4 месторождения Серро-Асуль, вскрывшей карстовую пещеру, вместе с нефтью выносились обломки сталактитов.",
+   "quote": "При этом вместе с нефтью выносились обломки сталактитов.",
+   "page_pdf": 205,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.rainbow_facies#c6",
+   "node_id": "kuznetsov.rainbow_facies",
+   "text": "Риф Рейнбоу «А» в плане округлый, его диаметр около 2 км.",
+   "quote": "не с диаметром около 2 км. Пустотное пространство меж- и внутриформенное",
+   "page_pdf": 207,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.dome_core_examples#c12",
+   "node_id": "kuznetsov.dome_core_examples",
+   "text": "Линия контакта −1258 м идёт от подписи у скв. 23 через скв. 49 и 27 в сторону скв. 29.",
+   "quote": "Идёт от подписи у скв. 23 через скв. 49 и 27 в сторону скв. 29.",
+   "page_pdf": 208,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.dome_core_examples#c16",
+   "node_id": "kuznetsov.dome_core_examples",
+   "text": "В прогибе у скв. 23 под облекающими слоями лежат известняки класса 4, ещё ниже — класса 5.",
+   "quote": "Под облекающими слоями — волнистые штрихи (4), ещё ниже — перекрёстная сетка (5).",
+   "page_pdf": 208,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.karachaganak_ages#c5",
+   "node_id": "kuznetsov.karachaganak_ages",
+   "text": "Автор связывает снижение средней проницаемости поровых коллекторов к склонам пермского рифа Карачаганак с уменьшением доли пор крупнее 0,1 мм.",
+   "quote": "Соответственно с этим средняя проницаемость поровых коллекторов в том же направлении снижается",
+   "page_pdf": 209,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.karachaganak_ages#c9",
+   "node_id": "kuznetsov.karachaganak_ages",
+   "text": "В отложениях шлейфа пермского рифа Карачаганак кавернозность составляет 9,4 %, но это данные только одной скважины.",
+   "quote": "а в отложениях шлейфа она составляет 9,4 % (данные одной скважины).",
+   "page_pdf": 209,
+   "flags": [
+    "quantifier"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.shurtan_asymmetry#c10",
+   "node_id": "kuznetsov.shurtan_asymmetry",
+   "text": "Границы горизонтов 3–10 слева полого поднимаются к рифу, над рифовым телом изгибаются, а вправо идут почти горизонтально и субпараллельно.",
+   "quote": "Слева полого поднимаются от подножия склона к рифу, над рифовым телом изгибаются, вправо идут почти горизонтально и субпараллельно.",
+   "page_pdf": 211,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.small_reef_massive#c5",
+   "node_id": "kuznetsov.small_reef_massive",
+   "text": "Приближение о массивном резервуаре особенно касается биогермов и рифов, небольших по мощности и времени формирования; числовых границ «небольших» автор не называет.",
+   "quote": "Последнее особенно касается биогермов и небольших по мощности и времени формирования рифов",
+   "page_pdf": 209,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.small_reef_massive#c18",
+   "node_id": "kuznetsov.small_reef_massive",
+   "text": "Внутренний пласт повторяет форму кровли: круто поднимается между скважинами 3 и 204, имеет максимум у скважины 204 и опускается к скважине 1.",
+   "quote": "Повторяет форму кровли ниже неё: слева почти горизонтален, круто поднимается между скважинами 3 и 204, имеет максимум у скважины 204 и опускается к скважине 1.",
+   "page_pdf": 212,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.small_reef_massive#c21",
+   "node_id": "kuznetsov.small_reef_massive",
+   "text": "Ядро рифа между скважинами 3 и 204 и правее — выпуклое тело из биогермных известняков с отдельными участками археоциатовых.",
+   "quote": "выпуклое тело со значками биогермных известняков и отдельными чёрными значками археоциатовых известняков",
+   "page_pdf": 212,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.small_reef_massive#c22",
+   "node_id": "kuznetsov.small_reef_massive",
+   "text": "На правом крыле между скважинами 204 и 1, ниже горизонта IV, показаны слоистые органогенно-водорослевые известняки, отделённые от ядра зигзагообразным контуром рифа.",
+   "quote": "слоистые известняки со значками органогенно-водорослевой структуры; от ядра рифа отделены зигзагообразным контуром рифа",
+   "page_pdf": 212,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.layered_lenticular#c1",
+   "node_id": "kuznetsov.layered_lenticular",
+   "text": "В теле крупных рифовых массивов формируется пластовое или, чаще, линзовидно-пластовое размещение зон с высокими коллекторскими свойствами (рис. 10.3, 10.7).",
+   "quote": "В итоге в теле крупных рифовых массивов формируется пластовое или чаще линзовидно-пластовое размещение зон с высокими коллекторскими свойствами",
+   "page_pdf": 214,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.layered_lenticular#c17",
+   "node_id": "kuznetsov.layered_lenticular",
+   "text": "Линия контакта −1258 м идёт от подписи у скв. 23 через скв. 49 и 27 в сторону скв. 29.",
+   "quote": "Идёт от подписи у скв. 23 через скв. 49 и 27 в сторону скв. 29.",
+   "page_pdf": 208,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.layered_lenticular#c24",
+   "node_id": "kuznetsov.layered_lenticular",
+   "text": "В правом поднятии со сводом у скв. 27 переслаиваются тонкие линзовидные тела разных классов пористости (знаки 5–10) с крупными точками; в нижней части — класс 2,5–5,0 %.",
+   "quote": "Свод у скв. 27. Переслаиваются тонкие линзовидные тела разных классов пористости (5, 6, 7, 8, 9, 10) с крупными точками; в нижней части — волнистые штрихи (4).",
+   "page_pdf": 208,
+   "flags": [
+    "number"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.layered_lenticular#c44",
+   "node_id": "kuznetsov.layered_lenticular",
+   "text": "На панели «а» левее центра, у штриховой скважины, есть чёрное тело (пористость свыше 10 %) около −0,97 км.",
+   "quote": "чёрное тело левее центра, у штриховой скважины: ≈−0,97 км",
+   "page_pdf": 213,
+   "flags": [
+    "unit"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.layered_lenticular#c52",
+   "node_id": "kuznetsov.layered_lenticular",
+   "text": "В своде на панели «б» примерно от −0,65 до −1,0 км чередуются точечные интервалы (пористость 5–10 %) и тонкие чёрные линзы (свыше 10 %).",
+   "quote": "тела в своде: чередование точечных интервалов и тонких чёрных линз, примерно от −0,65 до −1,0 км",
+   "page_pdf": 213,
+   "flags": [
+    "unit"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.layered_lenticular#c63",
+   "node_id": "kuznetsov.layered_lenticular",
+   "text": "Чёрные линзовидно-пластовые тела (пористость свыше 10 %) на панели «в»: малое под сводом около −0,69 км, среднее −0,83 км, крупное −0,86…−1,03 км, протяжённое нижнее −1,0 км.",
+   "quote": "чёрные тела: линзовидно-пластовые тела (значок 3): малое под сводом ≈−0,69 км, среднее ≈−0,83 км, крупное ≈−0,86…−1,03 км, протяжённое нижнее ≈−1,0 км",
+   "page_pdf": 213,
+   "flags": [
+    "unit"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.layered_lenticular#c75",
+   "node_id": "kuznetsov.layered_lenticular",
+   "text": "Под сводом на панели «г» чёрные линзы (пористость свыше 10 %) лежат друг над другом примерно от −0,86 до −1,23 км.",
+   "quote": "чёрные линзы: тела под сводом друг над другом (значок 3), примерно от −0,86 до −1,23 км",
+   "page_pdf": 213,
+   "flags": [
+    "unit"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.layered_lenticular#c76",
+   "node_id": "kuznetsov.layered_lenticular",
+   "text": "Между линзами панели «г» есть точечные интервалы (пористость 5–10 %), в основном около −0,85…−0,94 и −1,12 км.",
+   "quote": "точечные интервалы: значок 2, между линзами, в основном около −0,85…−0,94 и −1,12 км",
+   "page_pdf": 213,
+   "flags": [
+    "unit"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.paleogeomorphic_traps#c7",
+   "node_id": "kuznetsov.paleogeomorphic_traps",
+   "text": "При плотных непроницаемых внерифовых отложениях образуется литолого-палеогеоморфологическая ловушка: её замкнутый объём обусловлен сочетанием древнего рельефа с литологическим экранированием.",
+   "quote": "образуется литолого-палеогеоморфологическая ловушка, замкнутый объем которой обусловлен сочетанием древнего рельефа с литологическим экранированием.",
+   "page_pdf": 218,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.paleogeomorphic_traps#c11",
+   "node_id": "kuznetsov.paleogeomorphic_traps",
+   "text": "Пример литолого-палеогеоморфологической ловушки для изолированных куполовидных рифов — Чермасан D₃f; для асимметричных рифовых систем пример в таблице не назван.",
+   "quote": "|  Литолого-палеогеоморфологические | Чермасан D₃f |   |",
+   "page_pdf": 217,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.trap_plan_shapes#c13",
+   "node_id": "kuznetsov.trap_plan_shapes",
+   "text": "Конусовидная форма отнесена к симметричным ловушкам, и ей сопоставлена многоствольная система разведки.",
+   "quote": "|  Симметричная | Конусовидная |  | Многоствольная  |",
+   "page_pdf": 215,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.trap_plan_shapes#c17",
+   "node_id": "kuznetsov.trap_plan_shapes",
+   "text": "Асимметричной ловушке с уплощённой вершиной сопоставлена профильная система разведки.",
+   "quote": "|  Асимметричная | Суплоценной вершиной |  | Профильная  |",
+   "page_pdf": 215,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.asymmetric_system_traps#c1",
+   "node_id": "kuznetsov.asymmetric_system_traps",
+   "text": "Асимметричные рифовые системы тоже образуют палеогеоморфологические ловушки, то есть ловушки, замкнутые за счёт древнего рельефа рифа. Для замыкания нужно, чтобы комплекс с рифом был перекрыт непроницаемой покрышкой.",
+   "quote": "Асимметричные рифовые системы также образуют палеогеоморфологические ловушки",
+   "page_pdf": 218,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.asymmetric_system_traps#c6",
+   "node_id": "kuznetsov.asymmetric_system_traps",
+   "text": "Когда непроницаемые зарифовые породы создают дополнительный экран, образуются литолого-палеогеоморфологические ловушки.",
+   "quote": "В этом случае образуются литолого-палеогеоморфологические ловушки.",
+   "page_pdf": 218,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.asymmetric_system_traps#c21",
+   "node_id": "kuznetsov.asymmetric_system_traps",
+   "text": "Литолого-палеогеоморфологический тип асимметричной системы показан без названия примера. Слева вверху за рифом непроницаемые зарифовые отложения, ниже слоистые, залежь в верхней части рифа.",
+   "quote": "слева за рифом вверху непроницаемые зарифовые отложения (знак 4), ниже слоистые; залежь в верхней части рифа",
+   "page_pdf": 217,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.asymmetric_system_traps#c28",
+   "node_id": "kuznetsov.asymmetric_system_traps",
+   "text": "Масштаб разрезов на схеме не показан.",
+   "quote": "Масштаб разрезов не показан\n- У асимметричной литолого-палеогеоморфологической ловушки название примера отсутствует",
+   "page_pdf": 217,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.structural_overprint#c10",
+   "node_id": "kuznetsov.structural_overprint",
+   "text": "Пример литолого-палеогеоморфологической ловушки для изолированных куполовидных рифов — Чермасан D₃f; для асимметричных систем пример в таблице не назван.",
+   "quote": "|  Литолого-палеогеоморфологические | Чермасан D₃f |   |",
+   "page_pdf": 217,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.structural_reef_traps#c14",
+   "node_id": "kuznetsov.structural_reef_traps",
+   "text": "Пример литолого-палеогеоморфологической ловушки для изолированных куполовидных рифов — Чермасан D₃f; для асимметричных систем пример в таблице не назван.",
+   "quote": "|  Литолого-палеогеоморфологические | Чермасан D₃f |   |",
+   "page_pdf": 217,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.pool_max_height#c7",
+   "node_id": "kuznetsov.pool_max_height",
+   "text": "В асимметричных барьерных рифах с непроницаемыми зарифовыми лагунными отложениями формируются литолого-палеогеоморфологические ловушки.",
+   "quote": "сульфатно-доломитовыми лагунными образованиями, формируются литолого-палеогеоморфологические ловушки",
+   "page_pdf": 220,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.pool_max_height#c22",
+   "node_id": "kuznetsov.pool_max_height",
+   "text": "В литолого-палеогеоморфологической ловушке асимметричной системы (пример не назван) вверху слева за рифом непроницаемые зарифовые отложения, залежь в верхней части рифа.",
+   "quote": "слева за рифом вверху непроницаемые зарифовые отложения (знак 4), ниже слоистые; залежь в верхней части рифа",
+   "page_pdf": 217,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.explore_dome_reefs#c8",
+   "node_id": "kuznetsov.explore_dome_reefs",
+   "text": "В сравнительно небольших одиночных куполовидных рифах лучшими коллекторскими свойствами обладают центральные части массивов.",
+   "quote": "лучшими коллекторскими свойствами обладают центральные части массивов, причем распределение коллекторов по разрезу может быть различно.",
+   "page_pdf": 220,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.explore_large_reefs#c6",
+   "node_id": "kuznetsov.explore_large_reefs",
+   "text": "Среди симметричных форм ловушек в таблице есть подковообразная. Отдельная система разведки в её строке не записана; вероятно, на неё распространяется многоствольная из строки выше.",
+   "quote": "|   |  Подковообразная |   |   |",
+   "page_pdf": 215,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.explore_large_reefs#c8",
+   "node_id": "kuznetsov.explore_large_reefs",
+   "text": "Среди симметричных форм ловушек в таблице есть атолловидная. Отдельная система в её строке не записана; по тексту главы к ней относится кольцевая.",
+   "quote": "|   |  Атолловидная |   |   |",
+   "page_pdf": 215,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.explore_large_reefs#c10",
+   "node_id": "kuznetsov.explore_large_reefs",
+   "text": "Залежи второй группы связаны с одиночными довольно крупными рифами, относительно изометричными или слегка вытянутыми. Это «столовые» рифы с плоской вершиной и крутыми склонами и атоллы.",
+   "quote": "Залежи второй группы связаны с одиночными относительно изометричными или слегка вытянутыми рифами довольно крупных размеров – «столовыми» рифами с плоской вершиной и крутыми склонами и атоллами",
+   "page_pdf": 220,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.explore_large_reefs#c15",
+   "node_id": "kuznetsov.explore_large_reefs",
+   "text": "Периферические части, особенно у атолловидных рифов, наряду с лучшими коллекторскими свойствами занимают и наиболее высокое структурное положение.",
+   "quote": "периферические части которых наряду с улучшением коллекторских свойств имеют и наиболее высокое структурное положение.",
+   "page_pdf": 220,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.explore_large_reefs#c18",
+   "node_id": "kuznetsov.explore_large_reefs",
+   "text": "Несмотря на относительную простоту морфологии, из-за сложного распределения коллекторов даже открытую первыми скважинами залежь нельзя оценить. Тем более нельзя составить проект разведки.",
+   "quote": "сложное распределение коллекторов ведет к тому, что даже при обнаружении залежи первыми скважинами (в связи с плотностью внутририфовых и лагунных отложений это случается далеко не всегда) оценить ее и тем более составить проект разведки невозможно.",
+   "page_pdf": 221,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.explore_large_reefs#c19",
+   "node_id": "kuznetsov.explore_large_reefs",
+   "text": "Из-за плотности внутририфовых и лагунных отложений первые скважины далеко не всегда обнаруживают залежь.",
+   "quote": "даже при обнаружении залежи первыми скважинами (в связи с плотностью внутририфовых и лагунных отложений это случается далеко не всегда)",
+   "page_pdf": 221,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.explore_asymmetric#c8",
+   "node_id": "kuznetsov.explore_asymmetric",
+   "text": "Третья группа залежей, выделяемая для целей разведки, связана с асимметричными рифовыми системами.",
+   "quote": "Третья группа залежей связана с асимметричными рифовыми системами.",
+   "page_pdf": 221,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.volume_based_grid#c7",
+   "node_id": "kuznetsov.volume_based_grid",
+   "text": "Рекомендация по сетке опирается на предположение, что более выгодна сетка, равномерно освещающая объём, а не площадь залежи (со ссылкой на Габриэлянца и др., 1976).",
+   "quote": "Если исходить из предположения о том, что более выгодной является такая сетка, которая освещала бы равномерно объем, а не площадь залежи [Габриэлянц и др., 1976]",
+   "page_pdf": 222,
+   "flags": [
+    "condition"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.volume_based_grid#c8",
+   "node_id": "kuznetsov.volume_based_grid",
+   "text": "Если выгодной считать сетку, равномерно освещающую объём, то, по мнению автора, скважины массивной залежи целесообразно концентрировать в сводовой части и разреживать в краевой.",
+   "quote": "то в этом случае целесообразно концентрировать скважины в сводовой части залежи, где сосредоточены основные запасы, и разреживать в краевой.",
+   "page_pdf": 222,
+   "flags": [
+    "negation"
+   ]
+  },
+  {
+   "claim_id": "kuznetsov.well_systems#c13",
+   "node_id": "kuznetsov.well_systems",
+   "text": "На небольшом куполовидном рифе такой куст скважин с отклонениями на 400–500 м может осветить площадь до 1 км².",
+   "quote": "Подобный куст скважин может осветить площадь до 1 км².",
+   "page_pdf": 222,
+   "flags": [
+    "number",
+    "unit"
+   ]
+  }
+ ],
+ "by_flag": {
+  "condition": 18,
+  "negation": 21,
+  "number": 12,
+  "quantifier": 3,
+  "unit": 6
+ },
+ "needs_scan": 355,
+ "by_model": 352,
+ "prose_numbers": [],
+ "early_terms": [
+  {
+   "term": "асимметричная рифовая система",
+   "explained_in": "kuznetsov.reef_position_types",
+   "used_in": [
+    "kuznetsov.organic_buildups",
+    "kuznetsov.reef_definition"
+   ]
+  },
+  {
+   "term": "биогерм",
+   "explained_in": "kuznetsov.organic_buildups",
+   "used_in": [
+    "kuznetsov.reefs_for_oil"
+   ]
+  },
+  {
+   "term": "замыкание ловушки",
+   "explained_in": "kuznetsov.critical_direction",
+   "used_in": [
+    "kuznetsov.asymmetric_system_traps",
+    "kuznetsov.explore_asymmetric"
+   ]
+  },
+  {
+   "term": "инкрустирующие организмы",
+   "explained_in": "kuznetsov.primary_porosity",
+   "used_in": [
+    "kuznetsov.porosity_permeability"
+   ]
+  },
+  {
+   "term": "коллектор",
+   "explained_in": "kuznetsov.porosity_permeability",
+   "used_in": [
+    "kuznetsov.reef_system_zones"
+   ]
+  },
+  {
+   "term": "кольцевая система разведки",
+   "explained_in": "kuznetsov.well_systems",
+   "used_in": [
+    "kuznetsov.explore_large_reefs"
+   ]
+  },
+  {
+   "term": "куполовидный риф",
+   "explained_in": "kuznetsov.dome_reef_zones",
+   "used_in": [
+    "kuznetsov.organic_buildups",
+    "kuznetsov.reef_definition",
+    "kuznetsov.reef_position_types"
+   ]
+  },
+  {
+   "term": "многоствольная скважина",
+   "explained_in": "kuznetsov.well_systems",
+   "used_in": [
+    "kuznetsov.trap_plan_shapes"
+   ]
+  },
+  {
+   "term": "первичная пористость",
+   "explained_in": "kuznetsov.primary_porosity",
+   "used_in": [
+    "kuznetsov.porosity_permeability"
+   ]
+  },
+  {
+   "term": "плотность запасов",
+   "explained_in": "kuznetsov.massive_hanging_pools",
+   "used_in": [
+    "kuznetsov.reefs_for_oil"
+   ]
+  },
+  {
+   "term": "поровый коллектор",
+   "explained_in": "kuznetsov.karachaganak_ages",
+   "used_in": [
+    "kuznetsov.rim_fractures"
+   ]
+  },
+  {
+   "term": "предрифовый шлейф",
+   "explained_in": "kuznetsov.reef_position_types",
+   "used_in": [
+    "kuznetsov.organic_buildups",
+    "kuznetsov.reef_definition"
+   ]
+  },
+  {
+   "term": "профильная система разведки",
+   "explained_in": "kuznetsov.well_systems",
+   "used_in": [
+    "kuznetsov.explore_asymmetric"
+   ]
+  },
+  {
+   "term": "разведочная скважина",
+   "explained_in": "kuznetsov.explore_dome_reefs",
+   "used_in": [
+    "kuznetsov.flow_by_reef_type",
+    "kuznetsov.trap_plan_shapes"
+   ]
+  },
+  {
+   "term": "структурная ловушка с рифовым резервуаром",
+   "explained_in": "kuznetsov.structural_reef_traps",
+   "used_in": [
+    "kuznetsov.paleogeomorphic_traps",
+    "kuznetsov.structural_overprint"
+   ]
+  },
+  {
+   "term": "тыльно-рифовые фации",
+   "explained_in": "kuznetsov.reef_position_types",
+   "used_in": [
+    "kuznetsov.organic_buildups",
+    "kuznetsov.reef_definition"
+   ]
+  },
+  {
+   "term": "ядро рифа",
+   "explained_in": "kuznetsov.reef_position_types",
+   "used_in": [
+    "kuznetsov.organic_buildups"
+   ]
+  }
+ ],
+ "repeated_quotes": 173,
+ "sensitivity": {
+  "seed": 0,
+  "kinds": {
+   "sign_flip": {
+    "made": 60,
+    "caught": 54
+   },
+   "number": {
+    "made": 60,
+    "caught": 58
+   },
+   "unit": {
+    "made": 60,
+    "caught": 50
+   },
+   "negation_removed": {
+    "made": 50,
+    "caught": 45
+   },
+   "lost_condition": {
+    "made": 42,
+    "caught": 38
+   }
+  },
+  "made": 272,
+  "caught": 245,
+  "recall": 0.901,
+  "flagged_originals": 59,
+  "originals": 859
+ },
+ "layer_sha256": "50abed38547105a2e24b8a016c159097832666203fcd3e99593770d26c8505fe"
+}

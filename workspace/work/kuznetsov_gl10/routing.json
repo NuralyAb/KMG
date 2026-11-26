@@ -1,0 +1,590 @@
+{
+ "chapter": "kuznetsov_gl10",
+ "routes": [
+  {
+   "node_id": "kuznetsov.reefs_for_oil",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "bars",
+   "why": "П, второй Н; заметны только масштаб и контраст долей. Человек сравнивает малую долю рифов в осадочных породах с долей в запасах (10–12 %), а затем решает, достаточно ли этого, чтобы искать риф в конкретном месте."
+  },
+  {
+   "node_id": "kuznetsov.organic_buildups",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Р, второй П; процесс не показывается. Человек находит признак на рисунке без разметки (форма и мощность относительно одновозрастных отложений), называет биостром или биогерм и сверяется с разметкой."
+  },
+  {
+   "node_id": "kuznetsov.reef_definition",
+   "format": "шортс",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "reef_growth",
+   "why": "М, второй Р; важны изменение во времени и причина со следствием. Человек видит, как риф обгоняет окружающие осадки, возвышается над дном и размывается у уровня моря, затем опознаёт риф по этим признакам."
+  },
+  {
+   "node_id": "kuznetsov.reef_position_types",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "П, второй Р; различие в форме и положении. Человек сопоставляет одиночный риф на локальном поднятии и асимметричную систему на перегибе дна, затем определяет тип по разрезу."
+  },
+  {
+   "node_id": "kuznetsov.biohermal_limestones",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 0,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "bars",
+   "why": "П, второй Р; контринтуитивно, что необходимая для рифа порода занимает мало объёма. Человек оценивает долю биогермных известняков, видит не более 10–20 % в сложных комплексах и учится отличать их по положению роста организмов."
+  },
+  {
+   "node_id": "kuznetsov.clastic_and_altered_rocks",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "bars",
+   "why": "Р, второй М; есть контринтуитивное преобладание обломков и скрытые вторичные изменения. Человек определяет разности известняков по признакам и сопоставляет долю обломочных: часто свыше 50 %, нередко 60–80 % и более."
+  },
+  {
+   "node_id": "kuznetsov.zonation_cause",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "М, второй П; сумма меньше 6, главное здесь причина и следствие. Человек собирает цепочку «рельеф → волны и свет → зоны пород и организмов» и сравнивает расположение зон у разных типов рифа."
+  },
+  {
+   "node_id": "kuznetsov.dome_reef_zones",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "П, второй Р; нужно увидеть скрытое внутреннее расположение зон. Человек ведёт разрез от ядра в обе стороны, видит симметричный шлейф с уменьшением обломков и определяет зону по породе."
+  },
+  {
+   "node_id": "kuznetsov.atoll_zones",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "П, второй Р; неочевидно, что центр постройки занят лагуной, а ядро образует кольцо. Человек ведёт разрез через атолл, видит гребни по краям и лагунные отложения в середине, затем опознаёт зоны."
+  },
+  {
+   "node_id": "kuznetsov.reef_system_zones",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "П, второй Р; нужны пространственное расположение и связь с уступом дна. Человек сопоставляет профиль рифовой системы с профилем атолла и расставляет полосы пород поперёк системы."
+  },
+  {
+   "node_id": "kuznetsov.porosity_permeability",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "grains",
+   "why": "Ф, второй И; пустоты и их связность скрыты от глаза. Человек переключает типы пустот под увеличением и разбирает, вмещает ли порода флюид и отдаёт ли его."
+  },
+  {
+   "node_id": "kuznetsov.primary_porosity",
+   "format": "карточки",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "Р, второй М; пустоты малы и могут сокращаться ещё при росте рифа. Человек опознаёт скелетные, межзерновые пустоты и полости роста на рисунке без разметки, затем проверяет себя по размеченному."
+  },
+  {
+   "node_id": "kuznetsov.secondary_porosity",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 2,
+    "scale": 2,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "М, второй В; изменение во времени, скрытые пустоты, переход от долей миллиметра к пещерам и причина со следствием. Человек видит, как выщелачивание расширяет пустоты, а перекристаллизация и доломитизация создают межкристаллические."
+  },
+  {
+   "node_id": "kuznetsov.rainbow_facies",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "П, второй Р; внутри простой формы скрыта неоднородность. Человек рассматривает разрез Рейнбоу «А», различает ядро, шлейф и насыщенную часть, затем опознаёт фацию по породе."
+  },
+  {
+   "node_id": "kuznetsov.rainbow_collectors",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "bars",
+   "why": "П, второй Н; свойства скрыты и меняются в широком диапазоне. Человек сравнивает диапазоны свойств ядра и крыльев и решает, насколько уверенно по значению можно назвать зону."
+  },
+  {
+   "node_id": "kuznetsov.dome_core_examples",
+   "format": "практикум на данных",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "Р, второй Н; свойства внутри массива скрыты. Человек ищет по разрезу, где сосредоточены лучшие классы пористости, и оценивает, можно ли переносить это наблюдение на другой куполовидный риф."
+  },
+  {
+   "node_id": "kuznetsov.rim_shift",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "М, второй П; сумма 5, главное контринтуитивное смещение лучших пород от центра. Человек сначала выбирает ожидаемое место коллектора, затем видит на разрезе гребень, внешний склон и плотную лагуну."
+  },
+  {
+   "node_id": "kuznetsov.rim_fractures",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Н, второй М; трещины скрыты, а причина высоких притоков предположительна. Человек идёт от дебитов к гипотезе о трещинах, отделяет наблюдение от предположения и выбирает, чем его проверить, с опорой на пример Карачаганака."
+  },
+  {
+   "node_id": "kuznetsov.tengiz_atoll",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "bars",
+   "why": "П, второй И; пористость не видна непосредственно. Человек сопоставляет диапазоны гребня (6–18 %), лагуны (4,5–9,5 %) и склонов (2–5 %) с их положением на атолле."
+  },
+  {
+   "node_id": "kuznetsov.karachaganak_ages",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "В, второй П; по сумме 6 возможен ролик, но суть здесь в сопоставлении двух эпох. Человек сравнивает купол и атолловидный риф по форме и положению лучших коллекторов."
+  },
+  {
+   "node_id": "kuznetsov.shurtan_asymmetry",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "В, второй П; изменение во времени и связь миграции гребня с зонами коллекторов. Человек видит, как смещается гребень Шуртана и вслед за ним лучшие зоны, образуя асимметричное распределение."
+  },
+  {
+   "node_id": "kuznetsov.small_reef_massive",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "Н, второй П; неоднородность скрыта, а приближение имеет границы. Человек выбирает, для какого рифа допустимо считать резервуар массивным, и сравнивает идеальную картину с неоднородной."
+  },
+  {
+   "node_id": "kuznetsov.vertical_heterogeneity_causes",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "reef_growth",
+   "why": "В, второй М; изменение во времени и причина со следствием. Человек видит, как колебания уровня моря переводят риф из глубины в отмель и остров, где прерывается рост и идёт размыв; выщелачивание и смену сообществ поясняют подписи и голос."
+  },
+  {
+   "node_id": "kuznetsov.layered_lenticular",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "П, второй Н; связь пористых тел скрыта, а плотные пачки не всегда разобщают. Человек рассматривает пласты и линзы и решает, связаны ли они, с учётом трещин на Карачаганаке."
+  },
+  {
+   "node_id": "kuznetsov.flow_by_reef_type",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "М, второй П; сумма меньше 6, движение флюидов скрыто. Человек сопоставляет типы рифов по форме лучшей зоны (ядро, кольцо, полоса) и возможным направлениям движения."
+  },
+  {
+   "node_id": "kuznetsov.seal_over_reef",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "В, второй М; сумма 5, есть последовательность событий и причина. Человек выстраивает цепочку: рост при подъёме моря, прекращение при падении, перекрытие, ловушка, и выбирает состав покрышки по климату."
+  },
+  {
+   "node_id": "kuznetsov.paleogeomorphic_traps",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "П, второй М; замыкание скрыто под покрышкой. Человек сравнивает на разрезе высоту ловушки при проницаемых и непроницаемых боковых отложениях."
+  },
+  {
+   "node_id": "kuznetsov.trap_plan_shapes",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 0
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "П, второй Р; нужно связать вид сверху с разрезом. Человек сопоставляет классы форм ловушек по очертаниям и системе разведки, затем опознаёт форму."
+  },
+  {
+   "node_id": "kuznetsov.asymmetric_system_traps",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "П, второй М; крупная постройка может давать низкую ловушку. Человек рассматривает превышение над зарифовой частью и то, как непроницаемый боковой экран увеличивает высоту и объём."
+  },
+  {
+   "node_id": "kuznetsov.structural_overprint",
+   "format": "шортс",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 2,
+    "invisible": 1,
+    "scale": 1,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": null,
+   "why": "В, второй П; изменение во времени и причина со следствием. Человек видит, как поздние движения меняют высоту ловушки, смещают свод, а при региональном наклоне залежь занимает лишь часть рифа."
+  },
+  {
+   "node_id": "kuznetsov.structural_reef_traps",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "П, второй В; изгиб может значить для ловушки больше, чем рельеф постройки. Человек сравнивает на разрезе низкий риф без поднятия и под ним и видит изменение замыкания."
+  },
+  {
+   "node_id": "kuznetsov.massive_hanging_pools",
+   "format": "интерактив",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "compare",
+   "why": "П, второй М; залежь и положение контакта скрыты, наклонная граница нефти и воды неожиданна. Человек сопоставляет массивную, пластовую сводовую и висячую залежи по форме и контакту."
+  },
+  {
+   "node_id": "kuznetsov.pool_max_height",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 1,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "П, второй Н; предел высоты зависит от нескольких причин. Человек проходит схему «тип ловушки, боковой экран, поздняя тектоника» и отличает возможный максимум высоты от фактической высоты залежи."
+  },
+  {
+   "node_id": "kuznetsov.explore_dome_reefs",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Пр, второй И; строение изучают косвенно. Человек идёт от геофизического определения типа рифа к прогнозу ловушки и резервуара и выбирает точку первой скважины в центре на вершине."
+  },
+  {
+   "node_id": "kuznetsov.explore_large_reefs",
+   "format": "практикум на данных",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "Пр, второй Н; коллектор скрыт, а центр может оказаться плотным. Человек выбирает места скважин на разрезе крупного рифа и оценивает, что означает неудача в центре."
+  },
+  {
+   "node_id": "kuznetsov.explore_asymmetric",
+   "format": "практикум на данных",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "Пр, второй Н; положение лучших коллекторов известно не точно. Человек ставит первую скважину у современной вершины, решает, смещать ли её к фронту, и планирует изучение фронтальных пород."
+  },
+  {
+   "node_id": "kuznetsov.critical_direction",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 2,
+    "scale": 0,
+    "counterintuitive": 1,
+    "cause_effect": 2
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "П, второй Пр; слабое замыкание скрыто и определяет сохранность залежи. Человек находит критическое направление на разрезе и выбирает, где его изучать при обычном и обратном региональном наклоне."
+  },
+  {
+   "node_id": "kuznetsov.volume_based_grid",
+   "format": "интерактив",
+   "secondary_format": "практикум на данных",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 2,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "section",
+   "why": "П, второй Пр; равномерная по площади сетка кажется естественной, но объём сосредоточен в своде. Человек сравнивает положение скважин на разрезе и распределяет их гуще в своде и реже у краёв."
+  },
+  {
+   "node_id": "kuznetsov.well_systems",
+   "format": "практикум на данных",
+   "secondary_format": "интерактив",
+   "video_scores": {
+    "time": 0,
+    "invisible": 1,
+    "scale": 0,
+    "counterintuitive": 0,
+    "cause_effect": 1
+   },
+   "hook_short": false,
+   "template": "flow",
+   "why": "Пр, второй П; это выбор действия по форме ловушки. Человек по очертаниям рифа выбирает многоствольную, кольцевую или профильную систему и соотносит её с расположением скважин."
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "node_id": "kuznetsov.shurtan_asymmetry",
+ "template": "flow",
+ "data": {
+  "nodes": [
+   {
+    "id": "a",
+    "text": "Коллекторы связаны с фациальной зональностью",
+    "kind": "data"
+   },
+   {
+    "id": "c",
+    "text": "Шуртан: биогермный гребень смещался во времени",
+    "kind": "data"
+   },
+   {
+    "id": "b",
+    "text": "В асимметричном рифе коллекторы асимметричны",
+    "kind": "result"
+   },
+   {
+    "id": "d",
+    "text": "Смещались и зоны улучшенных коллекторских свойств",
+    "kind": "result"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b",
+    "label": ""
+   },
+   {
+    "from": "c",
+    "to": "d",
+    "label": ""
+   }
+  ]
+ },
+ "caption": "Две связи: фации задают асимметрию коллекторов, а смещение гребня на Шуртане — смещение лучших зон.",
+ "alt": "Схема из двух цепочек. Связь коллекторов с фациями ведёт к их асимметрии; смещение биогермного гребня во времени — к смещению лучших зон.",
+ "claim_ids": [
+  "kuznetsov.shurtan_asymmetry#c1",
+  "kuznetsov.shurtan_asymmetry#c2",
+  "kuznetsov.shurtan_asymmetry#c3",
+  "kuznetsov.shurtan_asymmetry#c4"
+ ]
+}

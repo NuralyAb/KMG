@@ -1,0 +1,16 @@
+{
+ "node_id": "kuznetsov.rim_fractures",
+ "template": "grains",
+ "data": {
+  "pores": "fracture",
+  "clay": "none",
+  "fluid": "oil",
+  "water_film": false
+ },
+ "caption": "Трещины в плотной породе: по предположению автора, они резко повышают проницаемость у края рифа. Флюид показан условно.",
+ "alt": "Порода под увеличением, рассечённая трещинами, заполненными флюидом. Так показана предполагаемая повышенная трещиноватость краевых зон рифа.",
+ "claim_ids": [
+  "kuznetsov.rim_fractures#c3",
+  "kuznetsov.rim_fractures#c4"
+ ]
+}

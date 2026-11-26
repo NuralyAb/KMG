@@ -1,0 +1,32 @@
+{
+ "node_id": "kuznetsov.paleogeomorphic_traps",
+ "template": "section",
+ "data": {
+  "shape": "reef",
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "Покрышка"
+   },
+   {
+    "lithology": "reef",
+    "label": "Риф",
+    "fluids": [
+     "oil"
+    ]
+   },
+   {
+    "lithology": "limestone",
+    "label": "Подошва"
+   }
+  ],
+  "wells": []
+ },
+ "caption": "Выступ рифа под покрышкой: его превышение над внерифовыми породами задаёт наибольшую высоту ловушки",
+ "alt": "Разрез: рифовый выступ с нефтью под непроницаемой покрышкой.",
+ "claim_ids": [
+  "kuznetsov.paleogeomorphic_traps#c1",
+  "kuznetsov.paleogeomorphic_traps#c5",
+  "kuznetsov.paleogeomorphic_traps#c15"
+ ]
+}

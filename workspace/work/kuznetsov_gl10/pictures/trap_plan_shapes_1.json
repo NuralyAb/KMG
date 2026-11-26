@@ -1,0 +1,36 @@
+{
+ "node_id": "kuznetsov.trap_plan_shapes",
+ "template": "compare",
+ "data": {
+  "left_title": "Конусовидная",
+  "right_title": "Атолловидная",
+  "rows": [
+   {
+    "aspect": "Вид в плане",
+    "left": "округлая",
+    "right": "обычно изометричная или чуть удлинённая"
+   },
+   {
+    "aspect": "Характерная форма",
+    "left": "конус в сечении",
+    "right": "ясные гребни по краям"
+   },
+   {
+    "aspect": "Система разведки",
+    "left": "многоствольная",
+    "right": "кольцевая"
+   }
+  ]
+ },
+ "caption": "Два примера из четырёх классов: очертания рифа задают форму ловушки, ей сопоставлена система разведки",
+ "alt": "Сравнение конусовидной и атолловидной ловушек по виду в плане, форме и системе разведки: многоствольной и кольцевой.",
+ "claim_ids": [
+  "kuznetsov.trap_plan_shapes#c3",
+  "kuznetsov.trap_plan_shapes#c4",
+  "kuznetsov.trap_plan_shapes#c5",
+  "kuznetsov.trap_plan_shapes#c11",
+  "kuznetsov.trap_plan_shapes#c12",
+  "kuznetsov.trap_plan_shapes#c13",
+  "kuznetsov.trap_plan_shapes#c16"
+ ]
+}

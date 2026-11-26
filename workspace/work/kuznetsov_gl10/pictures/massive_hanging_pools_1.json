@@ -1,0 +1,31 @@
+{
+ "node_id": "kuznetsov.massive_hanging_pools",
+ "template": "section",
+ "data": {
+  "shape": "reef",
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "покрышка"
+   },
+   {
+    "lithology": "reef",
+    "label": "риф",
+    "fluids": [
+     "oil",
+     "water"
+    ]
+   },
+   {
+    "lithology": "dense",
+    "label": "основание"
+   }
+  ],
+  "wells": []
+ },
+ "caption": "Массивная залежь — самый простой и весьма распространённый случай: нефть занимает тело рифа.",
+ "alt": "Разрез рифового массива под покрышкой: в верхней части тела рифа нефть, ниже вода.",
+ "claim_ids": [
+  "kuznetsov.massive_hanging_pools#c2"
+ ]
+}

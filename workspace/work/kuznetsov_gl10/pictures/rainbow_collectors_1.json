@@ -1,0 +1,32 @@
+{
+ "node_id": "kuznetsov.rainbow_collectors",
+ "template": "bars",
+ "data": {
+  "unit": "% пористости",
+  "items": [
+   {
+    "name": "Ядро (как группа II)",
+    "from": 15,
+    "to": 35
+   },
+   {
+    "name": "Крылья, класс как группа I",
+    "from": 10,
+    "to": 30
+   },
+   {
+    "name": "Крылья, класс как группа IV",
+    "from": 8,
+    "to": 25
+   }
+  ],
+  "log": false
+ },
+ "caption": "Пористость в ядре выше, чем у двух преобладающих классов крыльев. Проницаемость ядра доходит до 30000·10⁻¹⁵ м².",
+ "alt": "Диапазоны пористости: ядро 15–35 %, два преобладающих класса пород на крыльях — 10–30 % и 8–25 %.",
+ "claim_ids": [
+  "kuznetsov.rainbow_collectors#c9",
+  "kuznetsov.rainbow_collectors#c10",
+  "kuznetsov.rainbow_collectors#c11"
+ ]
+}

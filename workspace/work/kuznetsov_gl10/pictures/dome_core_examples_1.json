@@ -1,0 +1,50 @@
+{
+ "node_id": "kuznetsov.dome_core_examples",
+ "template": "section",
+ "data": {
+  "shape": "reef",
+  "layers": [
+   {
+    "lithology": "shale",
+    "label": "аргиллиты"
+   },
+   {
+    "lithology": "reef",
+    "label": "известняки рифа",
+    "fluids": [
+     "oil",
+     "water"
+    ]
+   },
+   {
+    "lithology": "limestone",
+    "label": "изв. пор. 5–7,5 %"
+   }
+  ],
+  "wells": [
+   {
+    "x": 0.3,
+    "label": "4"
+   },
+   {
+    "x": 0.5,
+    "label": "1"
+   },
+   {
+    "x": 0.7,
+    "label": "32"
+   }
+  ]
+ },
+ "caption": "Схема только левого из двух поднятий разреза Карача-Елга — Шелканово: известняки под аргиллитами, ВНК −1249 м.",
+ "alt": "Схематичный разрез выпуклого известнякового поднятия под аргиллитами: нефть над водой, внизу известняки пористостью 5–7,5 %, показаны скважины 4, 1 и 32.",
+ "claim_ids": [
+  "kuznetsov.dome_core_examples#c4",
+  "kuznetsov.dome_core_examples#c6",
+  "kuznetsov.dome_core_examples#c7",
+  "kuznetsov.dome_core_examples#c9",
+  "kuznetsov.dome_core_examples#c10",
+  "kuznetsov.dome_core_examples#c13",
+  "kuznetsov.dome_core_examples#c18"
+ ]
+}

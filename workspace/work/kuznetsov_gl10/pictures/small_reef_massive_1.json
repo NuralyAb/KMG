@@ -1,0 +1,50 @@
+{
+ "node_id": "kuznetsov.small_reef_massive",
+ "template": "section",
+ "data": {
+  "shape": "reef",
+  "layers": [
+   {
+    "lithology": "salt",
+    "label": "каменная соль"
+   },
+   {
+    "lithology": "reef",
+    "label": "риф: известняки"
+   },
+   {
+    "lithology": "dolomite",
+    "label": "доломиты"
+   }
+  ],
+  "wells": [
+   {
+    "x": 0.15,
+    "label": "104"
+   },
+   {
+    "x": 0.4,
+    "label": "3"
+   },
+   {
+    "x": 0.6,
+    "label": "204"
+   },
+   {
+    "x": 0.85,
+    "label": "1"
+   }
+  ]
+ },
+ "caption": "Упрощённый разрез рифа Большетирской площади под солью. Единое тело рифа — лишь первое приближение: внутри он неоднороден.",
+ "alt": "Разрез с СВ на ЮЗ по скважинам 104, 3, 204 и 1: выпуклое рифовое тело из известняков, сверху каменная соль, в основании доломиты.",
+ "claim_ids": [
+  "kuznetsov.small_reef_massive#c4",
+  "kuznetsov.small_reef_massive#c1",
+  "kuznetsov.small_reef_massive#c6",
+  "kuznetsov.small_reef_massive#c12",
+  "kuznetsov.small_reef_massive#c20",
+  "kuznetsov.small_reef_massive#c21",
+  "kuznetsov.small_reef_massive#c23"
+ ]
+}
